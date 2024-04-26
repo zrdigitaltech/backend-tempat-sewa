@@ -96,7 +96,7 @@ export default function Index() {
             <Header />
             <NumberingSectionStart />
             <TentangKami />
-            <TimKami />
+            {/* <TimKami /> */}
             <Layanan />
             <CallToAction />
             <Testimoni />

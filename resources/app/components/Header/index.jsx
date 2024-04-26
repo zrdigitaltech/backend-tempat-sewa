@@ -68,11 +68,11 @@ export default function Index() {
                                         Tentang Kami
                                     </a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a className="smoth-scroll" href="#ourteam">
                                         Tim Kami
                                     </a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <a
                                         className="smoth-scroll"
