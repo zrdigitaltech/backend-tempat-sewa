@@ -1,0 +1,749 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "API documentation for Nama Pemilik Kontrakan application",
+        "contact": {
+            "email": "zikriramdani.developer@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/service-area": {
+            "get": {
+                "tags": [
+                    "Service Area"
+                ],
+                "summary": "Get list of service area",
+                "description": "Returns list of service area",
+                "operationId": "ba6c1c14d1a4c04242297bb412b13be9",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ServiceArea"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/banner": {
+            "get": {
+                "tags": [
+                    "Banner"
+                ],
+                "summary": "Get list of banner",
+                "description": "Returns list of banner",
+                "operationId": "3405b0cd522d1168a6b820aabd7694c6",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Banner"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/call-to-action": {
+            "get": {
+                "tags": [
+                    "Call To Action"
+                ],
+                "summary": "Get list of call to action",
+                "description": "Returns list of call to action",
+                "operationId": "dc3252c919371b26b6d62db277fb310d",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CallToAction"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/floating-whatsapp": {
+            "get": {
+                "tags": [
+                    "Floating Whatsapp"
+                ],
+                "summary": "Get list of floating whatsapp",
+                "description": "Returns list of floating whatsapp",
+                "operationId": "4d58af6495974005c946350af2b68b3d",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FloatingWhatsapp"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/gallery": {
+            "get": {
+                "tags": [
+                    "Gallery"
+                ],
+                "summary": "Get list of gallery",
+                "description": "Returns list of gallery",
+                "operationId": "e584538f59d335eb2e61b84f61d69aff",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Gallery"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/contact-us": {
+            "get": {
+                "tags": [
+                    "Contact Us"
+                ],
+                "summary": "Get list of contact us",
+                "description": "Returns list of contact us",
+                "operationId": "fb18729a1fd0f5e2146b11f13451277a",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContactUs"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/services": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Get list of services",
+                "description": "Returns list of services",
+                "operationId": "a2ff26ffdd198043726c4b449dbb4d9b",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Services"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/logos": {
+            "get": {
+                "tags": [
+                    "Logo"
+                ],
+                "summary": "Get list of logo",
+                "description": "Returns list of logo",
+                "operationId": "6cd2ad22184fa83758fb5da5893f0917",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Logo"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/service-number": {
+            "get": {
+                "tags": [
+                    "ServiceNumber"
+                ],
+                "summary": "Get list of service-number",
+                "description": "Returns list of service-number",
+                "operationId": "2be8f75b6a14b8ac8b6bc78848292097",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ServiceNumber"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/payment": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Get list of payment",
+                "description": "Returns list of payment",
+                "operationId": "d44537a300b91d45da007c299822a5ff",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Payment"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/about-us": {
+            "get": {
+                "tags": [
+                    "About Us"
+                ],
+                "summary": "Get list of about us",
+                "description": "Returns list of about us",
+                "operationId": "397daaf3bd5e69817d0f81b67558b489",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AboutUs"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/testimonial": {
+            "get": {
+                "tags": [
+                    "Testimonial"
+                ],
+                "summary": "Get list of testimonial",
+                "description": "Returns list of testimonial",
+                "operationId": "fd641bde05d62779e1fc2867457cd3e4",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Testimonial"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ServiceArea": {
+                "title": "Service Area",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the service area",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title of the service area",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Banner": {
+                "title": "Banner",
+                "required": [
+                    "id",
+                    "image",
+                    "title",
+                    "description",
+                    "title_wa",
+                    "link_wa"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the banner",
+                        "type": "integer"
+                    },
+                    "image": {
+                        "description": "URL of the banner image",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Title of the banner",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the banner",
+                        "type": "string"
+                    },
+                    "title_wa": {
+                        "description": "WhatsApp title",
+                        "type": "string"
+                    },
+                    "link_wa": {
+                        "description": "WhatsApp link",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CallToAction": {
+                "title": "Call To Action",
+                "required": [
+                    "id",
+                    "title",
+                    "subtitle",
+                    "link_wa"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the call to action",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title of the call to action",
+                        "type": "string"
+                    },
+                    "subtitle": {
+                        "description": "Subtitle of the call to action",
+                        "type": "string"
+                    },
+                    "link_wa": {
+                        "description": "WhatsApp link for the call to action",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "FloatingWhatsapp": {
+                "title": "Floating Whatsapp",
+                "required": [
+                    "id",
+                    "avatar",
+                    "phone_number",
+                    "account_name",
+                    "chat_message",
+                    "status_message"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the floating WhatsApp",
+                        "type": "integer"
+                    },
+                    "avatar": {
+                        "description": "Avatar image URL for the floating WhatsApp",
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "phone_number": {
+                        "description": "Phone number for the WhatsApp account",
+                        "type": "string"
+                    },
+                    "account_name": {
+                        "description": "Name of the WhatsApp account",
+                        "type": "string"
+                    },
+                    "chat_message": {
+                        "description": "Default chat message to be sent",
+                        "type": "string"
+                    },
+                    "status_message": {
+                        "description": "Status message for the WhatsApp account",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Gallery": {
+                "title": "Gallery",
+                "required": [
+                    "id",
+                    "title",
+                    "image",
+                    "width",
+                    "height",
+                    "alt",
+                    "tags",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the Gallery",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title of the Gallery",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Image URL of the Gallery",
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "width": {
+                        "description": "Width of the image",
+                        "type": "integer"
+                    },
+                    "height": {
+                        "description": "Height of the image",
+                        "type": "integer"
+                    },
+                    "alt": {
+                        "description": "Alternative text for the image",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "Tags associated with the Gallery",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "description": "Description of the Gallery",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ContactUs": {
+                "title": "Contact Us",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the Contact Us",
+                        "type": "integer"
+                    },
+                    "alamat": {
+                        "description": "Address",
+                        "type": "string"
+                    },
+                    "jam_kerja": {
+                        "description": "Working hours",
+                        "type": "string"
+                    },
+                    "no_telp": {
+                        "description": "Telephone number",
+                        "type": "string"
+                    },
+                    "no_wa": {
+                        "description": "WhatsApp number",
+                        "type": "string"
+                    },
+                    "link_no_wa": {
+                        "description": "WhatsApp link",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Email address",
+                        "type": "string"
+                    },
+                    "embed_google_map": {
+                        "description": "Google Map embed link",
+                        "type": "string"
+                    },
+                    "link_konfirmasi_wa": {
+                        "description": "WhatsApp confirmation link",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Services": {
+                "title": "Services",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the Services",
+                        "type": "integer"
+                    },
+                    "image": {
+                        "description": "URL of the service image",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Title of the service",
+                        "type": "string"
+                    },
+                    "alt": {
+                        "description": "Alt text for the service image",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the service",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Logo": {
+                "title": "Logo",
+                "required": [
+                    "id",
+                    "image",
+                    "alt"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the logo",
+                        "type": "integer"
+                    },
+                    "image": {
+                        "description": "URL of the logo image",
+                        "type": "string"
+                    },
+                    "alt": {
+                        "description": "Alt text for the logo image",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ServiceNumber": {
+                "title": "Service Number",
+                "required": [
+                    "tahun_pengalaman",
+                    "description_pengalaman",
+                    "certification_description",
+                    "operasional_description",
+                    "harga_wajar_description"
+                ],
+                "properties": {
+                    "tahun_pengalaman": {
+                        "description": "Years of experience",
+                        "type": "string"
+                    },
+                    "description_pengalaman": {
+                        "description": "Description of experience",
+                        "type": "string"
+                    },
+                    "certification_description": {
+                        "description": "Certification description",
+                        "type": "string"
+                    },
+                    "operasional_description": {
+                        "description": "Operational description",
+                        "type": "string"
+                    },
+                    "harga_wajar_description": {
+                        "description": "Fair price description",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Payment": {
+                "title": "Payment",
+                "required": [
+                    "image",
+                    "alt",
+                    "no_rek",
+                    "nama_rek",
+                    "nama_bank"
+                ],
+                "properties": {
+                    "image": {
+                        "description": "URL of the payment image",
+                        "type": "string"
+                    },
+                    "alt": {
+                        "description": "Alt text for the payment image",
+                        "type": "string"
+                    },
+                    "no_rek": {
+                        "description": "Bank account number",
+                        "type": "string"
+                    },
+                    "nama_rek": {
+                        "description": "Account holder's name",
+                        "type": "string"
+                    },
+                    "nama_bank": {
+                        "description": "Name of the bank",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AboutUs": {
+                "title": "About Us",
+                "required": [
+                    "image",
+                    "alt",
+                    "description"
+                ],
+                "properties": {
+                    "image": {
+                        "description": "URL of the image",
+                        "type": "string"
+                    },
+                    "alt": {
+                        "description": "Alt text for the image",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description about us",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Testimonial": {
+                "title": "Testimonial",
+                "required": [
+                    "image",
+                    "alt",
+                    "name",
+                    "position",
+                    "description"
+                ],
+                "properties": {
+                    "image": {
+                        "description": "URL of the testimonial image",
+                        "type": "string"
+                    },
+                    "alt": {
+                        "description": "Alt text for the testimonial image",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the person giving the testimonial",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Position or title of the person",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Testimonial description or message",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

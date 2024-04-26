@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "avatar": "/assets/images/logo.png",
+    "avatar": "https://placehold.co/120x120/webp",
     "phone_number": "6281228883616",
-    "account_name": "SiMeTric",
-    "chat_message": "Hi, Ada yang bisa kami bantu?" ,
-    "status_message": "Sinergy Mechanical Electrical"
+    "account_name": "Nama Pemilik Kontrakan",
+    "chat_message": "Halo, Ada yang bisa kami bantu?",
+    "status_message": "Tempat sewa kontrakan"
   }
 ]
