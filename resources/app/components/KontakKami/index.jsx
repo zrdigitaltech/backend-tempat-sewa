@@ -70,18 +70,18 @@ export default function Index() {
                                             <i className="fa fa-clock-o text-theme"></i>{" "}
                                             {kontakKamiList?.jam_kerja}
                                         </p>
-                                        <p>
+                                        {/* <p>
                                             <i className="fa fa-phone text-theme"></i>{" "}
                                             <a
                                                 href={`tel:${kontakKamiList?.no_telp}`}
                                             >
                                                 {kontakKamiList?.no_telp}
                                             </a>{" "}
-                                        </p>
+                                        </p> */}
                                         <p>
                                             <i className="fa fa-whatsapp text-theme"></i>{" "}
                                             <a
-                                                href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20simetric.com`}
+                                                href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
                                                 target="_blank"
                                             >
                                                 {kontakKamiList?.no_wa}
@@ -175,7 +175,7 @@ export default function Index() {
                                     <li>
                                         <i className="fa fa-whatsapp"></i>
                                         <a
-                                            href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20simetric.com`}
+                                            href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
                                             target="_blank"
                                         >
                                             {kontakKamiList?.no_wa}

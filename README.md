@@ -1,6 +1,6 @@
 ![result]()
 
-<b>Sinergy Mechanic Electrical</b><br>
+<b>Mekanik Listrik</b><br>
 
 <hr>
 <p>

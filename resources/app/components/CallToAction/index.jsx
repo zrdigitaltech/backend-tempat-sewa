@@ -35,7 +35,7 @@ export default function Index() {
                         {" "}
                         <a
                             className="btn-one pull-right smoth-scroll"
-                            href={`https://wa.me/${callToActionList?.no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20simetric.com`}
+                            href={`https://wa.me/${callToActionList?.no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
                             target="_blank"
                         >
                             Whatsapp Kami

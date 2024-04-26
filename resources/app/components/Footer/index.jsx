@@ -3,8 +3,15 @@ export default function Index() {
         <footer>
             <div className="container">
                 <p>
-                    &copy; Copyright 2024, Sinergy Mechanic Electrical | All
-                    Rights Reserved.
+                    Copyright &copy; {new Date().getFullYear()}{" "}
+                    <a
+                        href="https://zrdevelopers.github.io/"
+                        target="_blank"
+                        className="text-primary"
+                    >
+                        ZRDevelopers
+                    </a>{" "}
+                    . All rights reserved
                 </p>
             </div>
         </footer>
