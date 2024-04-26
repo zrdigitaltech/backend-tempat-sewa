@@ -100,7 +100,7 @@ export default function Index() {
             <Layanan />
             <CallToAction />
             <Testimoni />
-            <Galeri />
+            {/* <Galeri /> */}
             <KontakKami />
             <Footer />
 

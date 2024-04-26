@@ -1669,3 +1669,19 @@ footer p {
     left: 42%;
   }
 }
+
+@media (min-width:641px)  {
+  .text-responsive {
+    font-size: 14px;
+  }
+}
+
+@media (max-width:480px)  {
+  .about-list-services {
+    padding: 0px 15px;
+  }
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}

@@ -53,8 +53,9 @@ export default function Index() {
                                 }}
                                 data-aos="slide-left"
                                 data-aos-delay="0"
+                                className="mb-0"
                             ></p>
-                            <ul className="about-list hidden-sm">
+                            <ul className="about-list hidden-sm about-list-services">
                                 {layananList?.map((item, x) => (
                                     <li
                                         key={item?.id || x}

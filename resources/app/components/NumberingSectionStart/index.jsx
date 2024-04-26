@@ -94,7 +94,12 @@ export default function Index() {
                                             className="fa fa-money"
                                             aria-hidden="true"
                                         ></i>
-                                        <h3>Harga Terjangkau</h3>
+                                        <h3>
+                                            Harga{" "}
+                                            <span className="text-responsive">
+                                                Terjangkau
+                                            </span>
+                                        </h3>
                                         <p>
                                             {
                                                 numberLayananList?.harga_wajar_description
