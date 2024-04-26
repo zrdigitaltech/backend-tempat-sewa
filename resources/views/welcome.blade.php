@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-app-env="{{ env('APP_ENV') }}">
+  <head>
+    @viteReactRefresh
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sinergy Mechanic Electrical</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    @vite('resources/app/index.jsx')
+    @filamentStyles
+  </head>
 
-  <meta content="Sinergy Mechanic Electrical" property="og:title" />
-  <meta content="Sinergy Mechanic Electrical ialah Teknisi Listrik / Tukang Listrik Panggilan yg melayani jasa perbaikan Listrik untuk Rumah, Ruko, Kantor, &amp; Industri." property="og:description" />
-  <meta content="" property="og:image" />
-  <meta content="simetric.com" property="og:url" />
+  <body>
+    @if(auth()->check())
+      @livewire('database-notifications')
+    @endif
+    <!-- Google Tag Manager (noscript) -->
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <div id="app" class="h-100"></div>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-
-  @viteReactRefresh
-
-  @vite("resources/app/index.jsx")
-
-
-</head>
-
-<body>
-  <div id="app" class="h-100"></div>
-</body>
-
+    @filamentScripts
+    @vite('resources/js/app.js')
+  </body>
 </html>
