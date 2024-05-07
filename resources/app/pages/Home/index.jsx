@@ -100,7 +100,7 @@ export default function Index() {
             <Layanan />
             <CallToAction />
             <Testimoni />
-            {/* <Galeri /> */}
+            <Galeri />
             <KontakKami />
             <Footer />
 
@@ -120,6 +120,7 @@ export default function Index() {
                     position: "fixed",
                     bottom: "15px",
                     height: "0px !important",
+                    border: "0",
                 }}
             />
         </Fragment>

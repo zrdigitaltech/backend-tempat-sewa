@@ -1,6 +1,6 @@
 ![result]()
 
-<b>Mekanik Listrik</b><br>
+<b>Mekanik Elektro</b><br>
 
 <hr>
 <p>

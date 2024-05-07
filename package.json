@@ -20,10 +20,9 @@
         "@reduxjs/toolkit": "^2.2.1",
         "aos": "^2.3.4",
         "autoprefixer": "^10.4.17",
-        "flickr-justified-gallery": "^2.2.0",
-        "lightgallery": "^2.7.2",
         "react": "^18.2.0",
         "react-floating-whatsapp": "^5.0.8",
-        "react-grid-gallery": "^1.0.1-alpha.0"
+        "react-grid-gallery": "^1.0.1",
+        "yet-another-react-lightbox": "^3.17.5"
     }
 }

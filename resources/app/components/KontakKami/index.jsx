@@ -81,7 +81,9 @@ export default function Index() {
                                         <p>
                                             <i className="fa fa-whatsapp text-theme"></i>{" "}
                                             <a
-                                                href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
+                                                href={
+                                                    kontakKamiList?.link_no_wa
+                                                }
                                                 target="_blank"
                                             >
                                                 {kontakKamiList?.no_wa}
@@ -135,6 +137,26 @@ export default function Index() {
                                                         </li>
                                                     )
                                                 )}
+                                                <li>
+                                                    <span>
+                                                        Setelah pembayaran,{" "}
+                                                        <b className="text-theme">
+                                                            Silahkan Konfirmasi
+                                                            Ke{" "}
+                                                            <a
+                                                                href={
+                                                                    kontakKamiList?.link_konfirmasi_wa
+                                                                }
+                                                                target="_blank"
+                                                                className="text-theme"
+                                                            >
+                                                                {
+                                                                    kontakKamiList?.no_wa
+                                                                }
+                                                            </a>
+                                                        </b>
+                                                    </span>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div></div>
@@ -175,7 +197,7 @@ export default function Index() {
                                     <li>
                                         <i className="fa fa-whatsapp"></i>
                                         <a
-                                            href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
+                                            href={`https://wa.me/${kontakKamiList?.link_no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikElektro.com`}
                                             target="_blank"
                                         >
                                             {kontakKamiList?.no_wa}

@@ -26,6 +26,9 @@ export default function Index() {
                         data-aos-delay="0"
                     >
                         <h3>{callToActionList?.title}</h3>
+                        <span className="text-white">
+                            {callToActionList?.subtitle}
+                        </span>
                     </div>
                     <div
                         className="col-sm-3"
@@ -35,7 +38,7 @@ export default function Index() {
                         {" "}
                         <a
                             className="btn-one pull-right smoth-scroll"
-                            href={`https://wa.me/${callToActionList?.no_wa}/?text=Hi%2C%20Saya%20memerlukan%20bantuan%20untuk%20pemeliharaan%20listrik%20MekanikListrik.com`}
+                            href={callToActionList?.link_wa}
                             target="_blank"
                         >
                             Whatsapp Kami

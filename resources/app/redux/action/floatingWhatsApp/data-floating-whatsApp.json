@@ -1,10 +1,8 @@
-[
-  {
+[{
     "id": 1,
-    "avatar": "/assets/images/logo.png",
+    "avatar": "/assets/images/logo-whatsapp.png",
     "phone_number": "6281228883616",
-    "account_name": "MekanikListrik",
-    "chat_message": "Hi, Ada yang bisa kami bantu?" ,
-    "status_message": "Sinergy Mechanical Electrical"
-  }
-]
+    "account_name": "Mekanik Elektro",
+    "chat_message": "Halo, Ada yang bisa kami bantu?",
+    "status_message": "Percayakan solusi masalah kelistrikan anda kepada kami "
+}]

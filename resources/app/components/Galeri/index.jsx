@@ -1,37 +1,54 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getListGaleri } from "@/redux/action/galeri/creator";
 
-import LightGallery from "lightgallery/react";
-
-// import styles
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-video.css";
-
-// If you want you can use SCSS instead of css
-import "lightgallery/scss/lightgallery.scss";
-import "lightgallery/scss/lg-zoom.scss";
-
-// import plugins if you need
-import lgZoom from "lightgallery/plugins/zoom";
-import lgVideo from "lightgallery/plugins/video";
+import { Gallery } from "react-grid-gallery";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export default function Index() {
     const galeriList = useSelector((state) => state.galeri.galeriList);
     const dispatch = useDispatch();
 
-    const fetchGaleri = async () => {
-        dispatch(getListGaleri());
+    const [slides, setSlides] = useState([]);
+    const [index, setIndex] = useState(-1);
+    const currentImage = galeriList[index];
+
+    const handleClick = async (index) => {
+        setIndex(index);
     };
 
-    const onInit = () => {
-        console.log("lightGallery has been initialized");
+    const fetchGaleri = async () => {
+        dispatch(getListGaleri());
+        fetchSlides();
+    };
+
+    const fetchSlides = async () => {
+        const slides = galeriList.map(({ original }) => ({
+            src: original,
+        }));
+        setSlides(slides);
+    };
+
+    const styleSmall = () => {
+        return {
+            color: "#f47629",
+            display: "inline",
+            padding: "0.2em 0.6em 0.3em",
+            fontSize: "75%",
+            fontWeight: "600",
+            lineHeight: "1",
+            background: "rgba(0, 0, 0, 0.65)",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            verticalAlign: "baseline",
+            borderRadius: "0.25em",
+        };
     };
 
     useEffect(() => {
         fetchGaleri();
-    }, []);
+    }, [galeriList]);
 
     return (
         <section id="ourgallery" className="ourteam">
@@ -43,29 +60,20 @@ export default function Index() {
                 </div>
             </div>
             <div className="container">
-                <LightGallery
-                    onInit={onInit}
-                    speed={500}
-                    plugins={[lgZoom, lgVideo]}
-                    elementClassNames="d-flex"
-                >
-                    {galeriList?.map((item, x) => (
-                        <a
-                            key={item?.id || x}
-                            data-aos="flip-right"
-                            data-aos-delay={x + 1 + "00"}
-                            data-lg-size="1600-2400"
-                            data-src={item?.image}
-                            data-sub-html={`<h4 class="text-theme">${item?.title}</h4> <p>${item?.description}</p>`}
-                        >
-                            <img
-                                alt={item?.alt}
-                                src={item?.image}
-                                className="img-responsive"
-                            />
-                        </a>
-                    ))}
-                </LightGallery>
+                <Gallery
+                    images={galeriList}
+                    onClick={handleClick}
+                    enableImageSelection={false}
+                    tagStyle={styleSmall}
+                />
+                {!!currentImage && (
+                    <Lightbox
+                        slides={slides}
+                        open={index >= 0}
+                        index={index}
+                        close={() => setIndex(-1)}
+                    />
+                )}
             </div>
         </section>
     );
