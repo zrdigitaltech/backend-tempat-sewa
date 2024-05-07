@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Manifest -->
-  <link rel="manifest" href="http://mekanikelektro.com/manifest.json" />
+  <link rel="manifest" href="/manifest.json" />
 
   <!-- Keyword & Author -->
   <meta name="keywords" content="Mekanik Elektro, Teknisi Listrik, Tukang Listrik, Jakarta, Bogor, Depok, Bekasi, Tangerang" />
@@ -17,8 +17,8 @@
   <!--  Essential META Tags -->
   <meta property="og:title" content="Mekanik Elektro">
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://MekanikElektro.com/assets/assets/images/about-us.jpg">
-  <meta property="og:url" content="http://MekanikElektro.com">
+  <meta property="og:image" content="/assets/assets/images/about-us.jpg">
+  <meta property="og:url" content="/">
   <meta name="twitter:card" content="summary_large_image">
 
   <!--  Non-Essential, But Recommended -->
@@ -32,6 +32,25 @@
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TMRXRSJM');
+  </script>
+  <!-- End Google Tag Manager -->
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHCCSGXMFH"></script>
@@ -52,6 +71,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMRXRSJM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div id="app" class="h-100"></div>
 </body>
 
