@@ -2,8 +2,8 @@
     "short_name": "Mekanik",
     "name": "Mekanik Elektro",
     "icons": [{
-            "src": "/assets/images/icons-vector.svg",
-            "type": "image/svg+xml",
+            "src": "/assets/images/icons-512.png",
+            "type": "image/png",
             "sizes": "512x512"
         },
         {
@@ -17,8 +17,8 @@
             "sizes": "512x512"
         }
     ],
-    "id": "/?source=pwa",
-    "start_url": "/?source=pwa",
+    "id": "/",
+    "start_url": "/",
     "background_color": "#000",
     "display": "standalone",
     "scope": "/",
@@ -29,7 +29,7 @@
             "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
             "url": "/today?source=pwa",
             "icons": [{
-                "src": "/assets/images/about-us.jpg",
+                "src": "/assets/images/about-us-192.png",
                 "sizes": "192x192"
             }]
         },
@@ -39,21 +39,21 @@
             "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
             "url": "/tomorrow?source=pwa",
             "icons": [{
-                "src": "/assets/images/about-us.jpg",
+                "src": "/assets/images/about-us-192.png",
                 "sizes": "192x192"
             }]
         }
     ],
     "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
     "screenshots": [{
-            "src": "/assets/images/screenshot1.png",
+            "src": "/assets/images/about-us-540.png",
             "type": "image/png",
             "sizes": "540x720",
             "form_factor": "narrow"
         },
         {
-            "src": "/assets/images/screenshot2.jpg",
-            "type": "image/jpg",
+            "src": "/assets/images/about-us-720.png",
+            "type": "image/png",
             "sizes": "720x540",
             "form_factor": "wide"
         }
