@@ -10,7 +10,7 @@ import { layananReducer } from '@/redux/reducer/layanan/reducer';
 import { callToActionReducer } from '@/redux/reducer/callToAction/reducer';
 import { testimoniReducer } from '@/redux/reducer/testimoni/reducer';
 import { kontakKamiReducer } from '@/redux/reducer/kontakKami/reducer';
-import { floatingWhatsappReducer } from '@/redux/reducer/floatingWhatsapp/reducer';
+// import { floatingWhatsappReducer } from '@/redux/reducer/floatingWhatsapp/reducer';
 import { timKamiReducer } from '@/redux/reducer/timKami/reducer';
 import { pembayaranReducer } from '@/redux/reducer/pembayaran/reducer';
 import { galeriReducer } from '@/redux/reducer/galeri/reducer';
@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   callToAction: callToActionReducer,
   testimoni: testimoniReducer,
   kontakKami: kontakKamiReducer,
-  floatingWhatsapp: floatingWhatsappReducer,
+  // floatingWhatsapp: floatingWhatsappReducer,
   timKami: timKamiReducer,
   pembayaran: pembayaranReducer,
   galeri: galeriReducer

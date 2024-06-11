@@ -26,5 +26,6 @@ Cara menjalankan Website :
 - di dalam directory project buka terminal, ketikan "php artisan key:generate"
 - di dalam directory project buka terminal, ketikan "php artisan migrate"
 - di dalam directory project buka terminal, ketikan "php artisan db:seed"
+- php artisan db:seed --class=UsersTableSeeder
 - di dalam directory project buka terminal, ketikan "php artisan serve"
 - buka browser, ketikan url "localhost:8000"

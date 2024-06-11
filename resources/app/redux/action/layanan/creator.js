@@ -5,13 +5,13 @@ import DataLayanan from './data-layanan.json';
 
 // Read
 export const getListLayanan = () => {
-  return (dispatch) => {
+  return dispatch => {
     return dispatch(saveListLayanan(DataLayanan));
   };
 };
 
 // Read
-export const saveListLayanan = (payload) => {
+export const saveListLayanan = payload => {
   return {
     type: actionType.loadLayanan,
     payload: payload

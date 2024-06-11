@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 // https://vitejs.dev/config/
-export default defineConfig((config) => {
+export default defineConfig(config => {
   // Load env file based on `mode` in the current working directory.
   // https://main.vitejs.dev/config/#using-environment-variables-in-config
   const env = loadEnv(config.mode, process.cwd(), '');

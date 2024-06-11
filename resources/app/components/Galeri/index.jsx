@@ -7,14 +7,14 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
 export default function Index() {
-  const galeriList = useSelector((state) => state.galeri.galeriList);
+  const galeriList = useSelector(state => state.galeri.galeriList);
   const dispatch = useDispatch();
 
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(-1);
   const currentImage = galeriList[index];
 
-  const handleClick = async (index) => {
+  const handleClick = async index => {
     setIndex(index);
   };
 

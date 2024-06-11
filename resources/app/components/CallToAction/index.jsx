@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListCallToAction } from '@/redux/action/callToAction/creator';
 
 export default function Index() {
-  const callToActionList = useSelector((state) => state.callToAction.callToActionList);
+  const callToActionList = useSelector(state => state.callToAction.callToActionList);
   const dispatch = useDispatch();
 
   const fetchCallToActionList = async () => {

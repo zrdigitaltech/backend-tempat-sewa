@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListTestimoni } from '@/redux/action/testimoni/creator';
 
 export default function Index() {
-  const testimoniList = useSelector((state) => state.testimoni.testimoniList);
+  const testimoniList = useSelector(state => state.testimoni.testimoniList);
   const dispatch = useDispatch();
 
   const fetchTestimoniList = async () => {

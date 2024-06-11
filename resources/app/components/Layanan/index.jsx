@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListLayanan } from '@/redux/action/layanan/creator';
 
 export default function Index() {
-  const layananList = useSelector((state) => state.layanan.layananList);
+  const layananList = useSelector(state => state.layanan.layananList);
   const dispatch = useDispatch();
 
   const fetchLayananList = async () => {

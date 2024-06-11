@@ -4,8 +4,8 @@ import { getListAreaLayanan } from '@/redux/action/areaLayanan/creator';
 import { getListNumberLayanan } from '@/redux/action/numberLayanan/creator';
 
 export default function Index() {
-  const numberLayananList = useSelector((state) => state.numberLayanan.numberLayananList);
-  const areaLayananList = useSelector((state) => state.areaLayanan.areaLayananList);
+  const numberLayananList = useSelector(state => state.numberLayanan.numberLayananList);
+  const areaLayananList = useSelector(state => state.areaLayanan.areaLayananList);
   const dispatch = useDispatch();
 
   const fetchNumberLayanan = async () => {

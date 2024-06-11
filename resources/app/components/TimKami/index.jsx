@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListTimKami } from '@/redux/action/timKami/creator';
 
 export default function Index() {
-  const timKamiList = useSelector((state) => state.timKami.timKamiList);
+  const timKamiList = useSelector(state => state.timKami.timKamiList);
   const dispatch = useDispatch();
 
   const fetchTimKami = async () => {

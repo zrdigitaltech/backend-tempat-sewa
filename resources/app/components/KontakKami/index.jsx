@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 export default function Index() {
   const [copySuccess, setCopySuccess] = useState('Salin No Rek!');
 
-  const kontakKamiList = useSelector((state) => state.kontakKami.kontakKamiList);
-  const pembayaranList = useSelector((state) => state.pembayaran.pembayaranList);
+  const kontakKamiList = useSelector(state => state.kontakKami.kontakKamiList);
+  const pembayaranList = useSelector(state => state.pembayaran.pembayaranList);
   const dispatch = useDispatch();
 
   const fetchKontakKami = async () => {
@@ -20,7 +20,7 @@ export default function Index() {
     dispatch(getListPembayaran());
   };
 
-  const copyToClipBoard = async (copyMe) => {
+  const copyToClipBoard = async copyMe => {
     try {
       await navigator.clipboard.writeText(copyMe);
       setCopySuccess('Berhasil disalin!');

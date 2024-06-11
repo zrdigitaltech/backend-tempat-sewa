@@ -13,19 +13,19 @@ import Footer from '@/components/Footer';
 
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { getListFloatingWhatsapp } from '@/redux/action/floatingWhatsapp/creator';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { getListFloatingWhatsapp } from '@/redux/action/floatingWhatsapp/creator';
 
 export default function Index() {
-  const floatingWhatsAppList = useSelector((state) => state.floatingWhatsapp.floatingWhatsappList);
-  const dispatch = useDispatch();
+  // const floatingWhatsAppList = useSelector((state) => state.floatingWhatsapp.floatingWhatsappList);
+  // const dispatch = useDispatch();
 
-  const fetchFloatingWhatsApp = async () => {
-    dispatch(getListFloatingWhatsapp());
-  };
+  // const fetchFloatingWhatsApp = async () => {
+  //   dispatch(getListFloatingWhatsapp());
+  // };
 
   useEffect(() => {
-    fetchFloatingWhatsApp();
+    // fetchFloatingWhatsApp();
     const loadScripts = async () => {
       // Memuat jQuery secara asinkron
       const jqueryScript = document.createElement('script');
@@ -71,7 +71,7 @@ export default function Index() {
         'assets/js/custom.js'
       ];
 
-      otherScripts.forEach((src) => {
+      otherScripts.forEach(src => {
         const script = document.createElement('script');
         script.src = src;
         script.async = true;
@@ -83,7 +83,7 @@ export default function Index() {
 
     // Membersihkan elemen script ketika komponen tidak lagi digunakan
     return () => {
-      document.querySelectorAll('script').forEach((script) => {
+      document.querySelectorAll('script').forEach(script => {
         script.remove();
       });
     };
@@ -102,7 +102,7 @@ export default function Index() {
       <KontakKami />
       <Footer />
 
-      <FloatingWhatsApp
+      {/* <FloatingWhatsApp
         avatar={floatingWhatsAppList?.avatar}
         phoneNumber={floatingWhatsAppList?.phone_number}
         accountName={floatingWhatsAppList?.account_name}
@@ -120,7 +120,7 @@ export default function Index() {
           height: '0px !important',
           border: '0'
         }}
-      />
+      /> */}
     </Fragment>
   );
 }

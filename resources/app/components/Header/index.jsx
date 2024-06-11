@@ -4,8 +4,8 @@ import { getListLogos } from '@/redux/action/logos/creator';
 import { getListBanners } from '@/redux/action/banners/creator';
 
 export default function Index() {
-  const logosList = useSelector((state) => state.logos.logosList);
-  const bannersList = useSelector((state) => state.banners.bannersList);
+  const logosList = useSelector(state => state.logos.logosList);
+  const bannersList = useSelector(state => state.banners.bannersList);
   const dispatch = useDispatch();
 
   const fetchLogos = async () => {

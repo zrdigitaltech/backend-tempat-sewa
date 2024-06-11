@@ -4,8 +4,8 @@ import { getListTentangKami } from '@/redux/action/tentangKami/creator';
 import { getListLayanan } from '@/redux/action/layanan/creator';
 
 export default function Index() {
-  const tentangKamiList = useSelector((state) => state.tentangKami.tentangKamiList);
-  const layananList = useSelector((state) => state.layanan.layananList);
+  const tentangKamiList = useSelector(state => state.tentangKami.tentangKamiList);
+  const layananList = useSelector(state => state.layanan.layananList);
   const dispatch = useDispatch();
 
   const fetchTentangKami = async () => {

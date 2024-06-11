@@ -5,13 +5,13 @@ import DataTimKami from './data-tim-kami.json';
 
 // Read
 export const getListTimKami = () => {
-  return (dispatch) => {
+  return dispatch => {
     return dispatch(saveListTimKami(DataTimKami));
   };
 };
 
 // Read
-export const saveListTimKami = (payload) => {
+export const saveListTimKami = payload => {
   return {
     type: actionType.loadTimKami,
     payload: payload
