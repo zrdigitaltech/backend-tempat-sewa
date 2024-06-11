@@ -1,19 +1,19 @@
-import { actionType } from "@/redux/action/areaLayanan/type";
+import { actionType } from '@/redux/action/areaLayanan/type';
 
 // Data Json
-import DataAreaLayanan from "./data-area-layanan.json";
+import DataAreaLayanan from './data-area-layanan.json';
 
 // Read
 export const getListAreaLayanan = () => {
-    return (dispatch) => {
-        return dispatch(saveListAreaLayanan(DataAreaLayanan));
-    };
+  return (dispatch) => {
+    return dispatch(saveListAreaLayanan(DataAreaLayanan));
+  };
 };
 
 // Read
 export const saveListAreaLayanan = (payload) => {
-    return {
-        type: actionType.loadAreaLayanan,
-        payload: payload,
-    };
+  return {
+    type: actionType.loadAreaLayanan,
+    payload: payload
+  };
 };

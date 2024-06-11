@@ -1,6 +1,8 @@
-[{
+[
+  {
     "id": 1,
     "image": "/assets/images/about-us.jpg",
     "alt": "Mekanik Elektro",
     "description": "<b class='text-theme'>Mekanik Elektro</b> merupakan Team Teknisi Listrik atau Tukang Listrik Panggilan yang melayani Jasa Perbaikan Listrik untuk Rumah, Ruko, Kantor & Industri, seperti:"
-}]
+  }
+]

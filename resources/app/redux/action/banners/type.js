@@ -1,4 +1,4 @@
 export const actionType = {
-    loadBanners: "load-banners",
-    loadBannersResetData: "load-banners-reset-data",
+  loadBanners: 'load-banners',
+  loadBannersResetData: 'load-banners-reset-data'
 };

@@ -1,3 +1,3 @@
 export const initialState = {
-    galeriList: [],
+  galeriList: []
 };

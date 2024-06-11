@@ -1,169 +1,194 @@
-[{
-        "id": 1,
-        "title": "Perbaikan Korsleting & Hansleting",
-        "src": "/assets/images/galleri/galleri-1.jpeg",
-        "original": "/assets/images/galleri/galleri-1.jpeg",
-        "width": 150,
-        "height": 174,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 2,
-        "title": "Perbaikan Listrik Mati, sebagian Jalur/Lantai",
-        "src": "/assets/images/galleri/galleri-2.jpeg",
-        "original": "/assets/images/galleri/galleri-2.jpeg",
-        "width": 300,
-        "height": 212,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 3,
-        "title": "Perbaikan Grounding System",
-        "src": "/assets/images/galleri/galleri-3.jpeg",
-        "original": "/assets/images/galleri/galleri-3.jpeg",
-        "width": 300,
-        "height": 212,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 4,
-        "title": "Perakitan Panel Listrik",
-        "src": "/assets/images/galleri/galleri-4.jpeg",
-        "original": "/assets/images/galleri/galleri-4.jpeg",
-        "width": 300,
-        "height": 213,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perakitan Panel Listrik dengan tim ahli listrik kami yang Profesional."
-    },
-    {
-        "id": 5,
-        "title": "Power Balance",
-        "src": "/assets/images/galleri/galleri-5.jpeg",
-        "original": "/assets/images/galleri/galleri-5.jpeg",
-        "width": 300,
-        "height": 183,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Power Balance dengan tim ahli listrik kami yang Profesional."
-    },
-    {
-        "id": 6,
-        "title": "Pasang Instalasi Baru",
-        "src": "/assets/images/galleri/galleri-6.jpeg",
-        "original": "/assets/images/galleri/galleri-6.jpeg",
-        "width": 320,
-        "height": 320,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Pasang Instalasi Baru dengan tim ahli listrik kami yang Profesional."
-    },
-    {
-        "id": 7,
-        "title": "Perbaikan Korsleting & Hansleting",
-        "src": "/assets/images/galleri/galleri-7.jpeg",
-        "original": "/assets/images/galleri/galleri-7.jpeg",
-        "width": 220,
-        "height": 190,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 8,
-        "title": "Perbaikan Listrik Mati, sebagian Jalur/Lantai",
-        "src": "/assets/images/galleri/galleri-8.jpeg",
-        "original": "/assets/images/galleri/galleri-8.jpeg",
-        "width": 120,
-        "height": 148,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 9,
-        "title": "Perbaikan Grounding System",
-        "src": "/assets/images/galleri/galleri-9.jpeg",
-        "original": "/assets/images/galleri/galleri-9.jpeg",
-        "width": 160,
-        "height": 223,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 10,
-        "title": "Perbaikan Grounding System",
-        "src": "/assets/images/galleri/galleri-10.jpeg",
-        "original": "/assets/images/galleri/galleri-10.jpeg",
-        "width": 160,
-        "height": 223,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 11,
-        "title": "Perbaikan Grounding System",
-        "src": "/assets/images/galleri/galleri-11.jpeg",
-        "original": "/assets/images/galleri/galleri-11.jpeg",
-        "width": 200,
-        "height": 223,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
-    },
-    {
-        "id": 12,
-        "title": "Perbaikan Grounding System",
-        "src": "/assets/images/galleri/galleri-12.jpeg",
-        "original": "/assets/images/galleri/galleri-12.jpeg",
-        "width": 200,
-        "height": 223,
-        "alt": "Mekanik Elektro",
-        "tags": [{
-            "value": "Mekanik Elektro",
-            "title": "Mekanik Elektro"
-        }],
-        "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
-    }
+[
+  {
+    "id": 1,
+    "title": "Perbaikan Korsleting & Hansleting",
+    "src": "/assets/images/galleri/galleri-1.jpeg",
+    "original": "/assets/images/galleri/galleri-1.jpeg",
+    "width": 150,
+    "height": 174,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 2,
+    "title": "Perbaikan Listrik Mati, sebagian Jalur/Lantai",
+    "src": "/assets/images/galleri/galleri-2.jpeg",
+    "original": "/assets/images/galleri/galleri-2.jpeg",
+    "width": 300,
+    "height": 212,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 3,
+    "title": "Perbaikan Grounding System",
+    "src": "/assets/images/galleri/galleri-3.jpeg",
+    "original": "/assets/images/galleri/galleri-3.jpeg",
+    "width": 300,
+    "height": 212,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 4,
+    "title": "Perakitan Panel Listrik",
+    "src": "/assets/images/galleri/galleri-4.jpeg",
+    "original": "/assets/images/galleri/galleri-4.jpeg",
+    "width": 300,
+    "height": 213,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perakitan Panel Listrik dengan tim ahli listrik kami yang Profesional."
+  },
+  {
+    "id": 5,
+    "title": "Power Balance",
+    "src": "/assets/images/galleri/galleri-5.jpeg",
+    "original": "/assets/images/galleri/galleri-5.jpeg",
+    "width": 300,
+    "height": 183,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Power Balance dengan tim ahli listrik kami yang Profesional."
+  },
+  {
+    "id": 6,
+    "title": "Pasang Instalasi Baru",
+    "src": "/assets/images/galleri/galleri-6.jpeg",
+    "original": "/assets/images/galleri/galleri-6.jpeg",
+    "width": 320,
+    "height": 320,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Pasang Instalasi Baru dengan tim ahli listrik kami yang Profesional."
+  },
+  {
+    "id": 7,
+    "title": "Perbaikan Korsleting & Hansleting",
+    "src": "/assets/images/galleri/galleri-7.jpeg",
+    "original": "/assets/images/galleri/galleri-7.jpeg",
+    "width": 220,
+    "height": 190,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 8,
+    "title": "Perbaikan Listrik Mati, sebagian Jalur/Lantai",
+    "src": "/assets/images/galleri/galleri-8.jpeg",
+    "original": "/assets/images/galleri/galleri-8.jpeg",
+    "width": 120,
+    "height": 148,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 9,
+    "title": "Perbaikan Grounding System",
+    "src": "/assets/images/galleri/galleri-9.jpeg",
+    "original": "/assets/images/galleri/galleri-9.jpeg",
+    "width": 160,
+    "height": 223,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 10,
+    "title": "Perbaikan Grounding System",
+    "src": "/assets/images/galleri/galleri-10.jpeg",
+    "original": "/assets/images/galleri/galleri-10.jpeg",
+    "width": 160,
+    "height": 223,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 11,
+    "title": "Perbaikan Grounding System",
+    "src": "/assets/images/galleri/galleri-11.jpeg",
+    "original": "/assets/images/galleri/galleri-11.jpeg",
+    "width": 200,
+    "height": 223,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
+  },
+  {
+    "id": 12,
+    "title": "Perbaikan Grounding System",
+    "src": "/assets/images/galleri/galleri-12.jpeg",
+    "original": "/assets/images/galleri/galleri-12.jpeg",
+    "width": 200,
+    "height": 223,
+    "alt": "Mekanik Elektro",
+    "tags": [
+      {
+        "value": "Mekanik Elektro",
+        "title": "Mekanik Elektro"
+      }
+    ],
+    "description": "Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional."
+  }
 ]

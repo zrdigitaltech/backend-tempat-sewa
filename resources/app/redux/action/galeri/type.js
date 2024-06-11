@@ -1,4 +1,4 @@
 export const actionType = {
-    loadGaleri: "load-galeri",
-    loadGaleriResetData: "load-galeri-reset-data",
+  loadGaleri: 'load-galeri',
+  loadGaleriResetData: 'load-galeri-reset-data'
 };
