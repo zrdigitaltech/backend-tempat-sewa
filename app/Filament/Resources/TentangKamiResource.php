@@ -25,11 +25,15 @@ class TentangKamiResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-information-circle';
 
-    protected static ?string $navigationLabel = 'Tentang Kami';
+    protected static ?string $navigationLabel = 'About Us';
 
-    protected static ?string $navigationGroup = 'Tentang Kami';
+    protected static ?string $navigationGroup = 'About Us';
 
     protected static ?int $navigationSort = 1;
+
+    public static ?string $label = 'About U';
+ 
+    protected static ?string $slug = 'about-us';
 
     public static function form(Form $form): Form
     {
