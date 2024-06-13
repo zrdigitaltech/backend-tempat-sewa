@@ -59,8 +59,7 @@ class BannerResource extends Resource
             ->columns([
               ImageColumn::make('image'),
               TextColumn::make('title'),
-              TextColumn::make('created_at')
-                  ->dateTime()->since(),
+              TextColumn::make('description'),
             ])
             ->filters([
                 //

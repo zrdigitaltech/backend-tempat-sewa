@@ -52,8 +52,6 @@ class LogoResource extends Resource
             ->columns([
               ImageColumn::make('image'),
               TextColumn::make('alt'),
-              TextColumn::make('created_at')
-                  ->dateTime()->since(),
             ])
             ->filters([
                 //

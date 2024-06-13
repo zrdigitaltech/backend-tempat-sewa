@@ -5,6 +5,7 @@ namespace App\Filament\Resources\AreaLayananResource\Pages;
 use App\Filament\Resources\AreaLayananResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Models\AreaLayanan;
 
 class ListAreaLayanans extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListAreaLayanans extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        $actions = [];
+
+        if (AreaLayanan::count() < 5) {
+            $actions[] = Actions\CreateAction::make();
+        }
+
+        return $actions;
     }
 }

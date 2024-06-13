@@ -50,12 +50,13 @@ class TentangKamiResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
             ->columns([
               ImageColumn::make('image'),
               TextColumn::make('alt'),
-              TextColumn::make('description'),
-              TextColumn::make('created_at')
-                  ->dateTime()->since(),
+              TextColumn::make('description')
+              ->html()
+              ->words(7)
             ])
             ->filters([
                 //

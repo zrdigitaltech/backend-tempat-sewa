@@ -63,13 +63,12 @@ class NumberLayananResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
             ->columns([
               TextColumn::make('tahun_pengalaman')
                 ->label('Years Experience'),
               TextColumn::make('description_pengalaman')
                 ->label('Description Experience'),
-              TextColumn::make('created_at')
-                  ->dateTime()->since(),
             ])
             ->filters([
                 //

@@ -45,10 +45,9 @@ class AreaLayananResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
             ->columns([
               TextColumn::make('title'),
-              TextColumn::make('created_at')
-                  ->dateTime()->since(),
             ])
             ->filters([
                 //
