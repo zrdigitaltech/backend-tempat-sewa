@@ -35,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            // ->sidebarFullyCollapsibleOnDesktop()
+            // ->sidebarCollapsibleOnDesktop()
             ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
             ->navigationItems([
                 NavigationItem::make('Documentation')
