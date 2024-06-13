@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
@@ -28,7 +28,10 @@ export default defineConfig(config => {
           'resources/app/styles/scss/style.scss',
           'resources/app/index.jsx'
         ],
-        refresh: true,
+        refresh: [
+          ...refreshPaths,
+          'app/Livewire/**',
+        ],
         // @ts-ignore
         postcss: [autoprefixer()]
       }),
