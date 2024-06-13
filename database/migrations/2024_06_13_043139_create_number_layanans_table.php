@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('number_layanans', function (Blueprint $table) {
             $table->id();
+			$table->string('tahun_pengalaman');
+            $table->string('description_pengalaman')->nullable();
+            $table->string('certification_description')->nullable();
+            $table->string('operasional_description')->nullable();
+            $table->string('harga_wajar_description')->nullable();
             $table->timestamps();
         });
     }

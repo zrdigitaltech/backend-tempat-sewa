@@ -38,8 +38,10 @@ class BannerResource extends Resource
                   RichEditor::make('description')
                       ->maxLength(255),
                   TextInput::make('title_wa')
+                      ->label('Title Whatsapp')
                       ->maxLength(255),
                   TextInput::make('link_wa')
+                      ->label('Link Whatsapp')
                       ->maxLength(255),
               ])->columnSpanFull()
       ]);

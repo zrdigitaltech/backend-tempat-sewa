@@ -28,10 +28,7 @@ export default defineConfig(config => {
           'resources/app/styles/scss/style.scss',
           'resources/app/index.jsx'
         ],
-        refresh: [
-          ...refreshPaths,
-          'app/Livewire/**',
-        ],
+        refresh: [...refreshPaths, 'app/Livewire/**'],
         // @ts-ignore
         postcss: [autoprefixer()]
       }),

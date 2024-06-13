@@ -58,11 +58,10 @@ class NumberLayananResource extends Resource
     {
         return $table
             ->columns([
-              TextColumn::make('tahun_pengalaman'),
-              TextColumn::make('description_pengalaman'),
-              TextColumn::make('certification_description'),
-              TextColumn::make('operasional_description'),
-              TextColumn::make('harga_wajar_description'),
+              TextColumn::make('tahun_pengalaman')
+                ->label('Years Experience'),
+              TextColumn::make('description_pengalaman')
+                ->label('Description Experience'),
               TextColumn::make('created_at')
                   ->dateTime()->since(),
             ])
