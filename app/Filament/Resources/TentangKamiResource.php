@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BannerResource\Pages;
-use App\Filament\Resources\BannerResource\RelationManagers;
-use App\Models\Banner;
+use App\Filament\Resources\TentangKamiResource\Pages;
+use App\Filament\Resources\TentangKamiResource\RelationManagers;
+use App\Models\TentangKami;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -19,11 +19,13 @@ use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class BannerResource extends Resource
+class TentangKamiResource extends Resource
 {
-    protected static ?string $model = Banner::class;
+    protected static ?string $model = TentangKami::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static bool $canCreateAnother = false;
 
     public static function form(Form $form): Form
     {
@@ -33,13 +35,9 @@ class BannerResource extends Resource
               ->schema([
                   FileUpload::make('image')
                   ->required(),
-                  TextInput::make('title')
+                  TextInput::make('alt')
                       ->maxLength(255),
                   RichEditor::make('description')
-                      ->maxLength(255),
-                  TextInput::make('title_wa')
-                      ->maxLength(255),
-                  TextInput::make('link_wa')
                       ->maxLength(255),
               ])->columnSpanFull()
       ]);
@@ -50,7 +48,8 @@ class BannerResource extends Resource
         return $table
             ->columns([
               ImageColumn::make('image'),
-              TextColumn::make('title'),
+              TextColumn::make('alt'),
+              TextColumn::make('description'),
               TextColumn::make('created_at')
                   ->dateTime()->since(),
             ])
@@ -81,9 +80,9 @@ class BannerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBanners::route('/'),
-            'create' => Pages\CreateBanner::route('/create'),
-            'edit' => Pages\EditBanner::route('/{record}/edit'),
+            'index' => Pages\ListTentangKamis::route('/'),
+            'create' => Pages\CreateTentangKami::route('/create'),
+            'edit' => Pages\EditTentangKami::route('/{record}/edit'),
         ];
     }
 }

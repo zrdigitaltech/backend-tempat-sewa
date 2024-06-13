@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Banner extends Model
+class TentangKami extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,7 @@ class Banner extends Model
      */
     protected $fillable = [
       'image',
-      'title',
-      'description',
-      'title_wa',
-      'link_wa'
+      'alt',
+      'description'
     ];
 }
