@@ -21,7 +21,13 @@ class NumberLayananResource extends Resource
 {
     protected static ?string $model = NumberLayanan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-information-circle';
+
+    protected static ?string $navigationLabel = 'Number Layanan';
+
+    protected static ?string $navigationGroup = 'Home';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

@@ -17,9 +17,14 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
+    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'NumberLayanan';
+
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -29,6 +34,27 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 'primary' => Color::Amber,
+            ])
+            // ->sidebarFullyCollapsibleOnDesktop()
+            ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
+            ->navigationItems([
+                NavigationItem::make('Documentation')
+                    ->url('/admin', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-document')
+                    ->group('External')
+                    ->sort(2),
+                NavigationItem::make('Help')
+                    ->url('https://zrdevelopers.github.io/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-question-mark-circle')
+                    ->group('External')
+                    ->sort(2)
+            ])
+            ->userMenuItems([
+                MenuItem::make()
+                    ->label('Settings')
+                    ->url('')
+                    ->icon('heroicon-o-cog-6-tooth'),
+                'logout' => MenuItem::make()->label('Log Out')
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

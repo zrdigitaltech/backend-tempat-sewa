@@ -23,9 +23,13 @@ class TentangKamiResource extends Resource
 {
     protected static ?string $model = TentangKami::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-information-circle';
 
-    protected static bool $canCreateAnother = false;
+    protected static ?string $navigationLabel = 'Tentang Kami';
+
+    protected static ?string $navigationGroup = 'Tentang Kami';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
