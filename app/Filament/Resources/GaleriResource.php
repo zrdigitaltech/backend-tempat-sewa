@@ -81,7 +81,7 @@ class GaleriResource extends Resource
         TextColumn::make('height'),
       ])
       ->defaultSort('created_at', 'desc')
-			->striped()
+      ->striped()
       ->filters([
         //
       ])

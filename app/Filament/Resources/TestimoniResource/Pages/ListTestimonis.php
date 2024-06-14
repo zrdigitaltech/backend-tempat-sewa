@@ -15,10 +15,10 @@ class ListTestimonis extends ListRecords
     return [Actions\CreateAction::make()];
   }
 
-	public function setPage($page, $pageName = 'page'): void
-    {
-        parent::setPage($page, $pageName);
- 
-        $this->dispatch('scroll-to-top');
-    }
+  public function setPage($page, $pageName = 'page'): void
+  {
+    parent::setPage($page, $pageName);
+
+    $this->dispatch('scroll-to-top');
+  }
 }
