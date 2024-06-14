@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->integer('width');
-            $table->integer('height');
-            $table->string('alt');
+            $table->string('title')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('width')->nullable();
+            $table->integer('height')->nullable();
+            $table->string('alt')->nullable();
             $table->json('tags')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

@@ -38,7 +38,7 @@ class TentangKamiResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    public static ?string $label = 'About U';
+    public static ?string $label = 'About Us';
 
     protected static ?string $slug = 'about-us';
 

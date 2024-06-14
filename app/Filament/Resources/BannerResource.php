@@ -56,6 +56,7 @@ class BannerResource extends Resource
                       ->maxLength(255),
                   TextInput::make('link_wa')
                       ->label('Link Whatsapp')
+                      ->url() 
                       ->maxLength(255),
               ])->columnSpanFull()
       ]);
