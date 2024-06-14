@@ -64,6 +64,7 @@ class BannerResource extends Resource
         TextColumn::make('description'),
       ])
       ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
         //
       ])

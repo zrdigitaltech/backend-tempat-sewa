@@ -64,6 +64,7 @@ class LayananResource extends Resource
     return $table
       ->columns([ImageColumn::make('image'), TextColumn::make('title')->searchable()])
       ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
         //
       ])

@@ -50,6 +50,7 @@ class AreaLayananResource extends Resource
       ->paginated(false)
       ->columns([TextColumn::make('title')->searchable()])
       ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
         //
       ])

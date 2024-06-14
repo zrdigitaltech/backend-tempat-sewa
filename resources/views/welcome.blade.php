@@ -72,6 +72,7 @@
     @viteReactRefresh
 
     @vite('resources/app/index.jsx')
+    @filamentStyles
   </head>
 
   <body>
@@ -87,5 +88,8 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="app" class="h-100"></div>
+
+    @filamentScripts
+    @vite('resources/js/app.js')
   </body>
 </html>

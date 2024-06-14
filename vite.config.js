@@ -25,8 +25,8 @@ export default defineConfig(config => {
           'resources/app/styles/owl-carousel/css/owl.carousel.css',
           'resources/app/styles/owl-carousel/css/owl.theme.css',
           'resources/app/styles/scss/style.scss',
-          'resources/app/styles/scss/style.scss',
-          'resources/app/index.jsx'
+          'resources/app/index.jsx',
+          'resources/js/app.js'
         ],
         refresh: [...refreshPaths, 'app/Livewire/**'],
         // @ts-ignore

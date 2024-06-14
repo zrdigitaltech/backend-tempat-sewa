@@ -26,6 +26,8 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
 
+use Filament\Tables\Enums\FiltersLayout;
+
 class TestimoniResource extends Resource
 {
   protected static ?string $model = Testimoni::class;
@@ -68,6 +70,7 @@ class TestimoniResource extends Resource
         TextColumn::make('position')->searchable(),
       ])
       ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
         //
       ])
