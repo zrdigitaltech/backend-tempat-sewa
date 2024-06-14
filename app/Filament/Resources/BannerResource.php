@@ -19,6 +19,13 @@ use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\CreateAction;
+
 class BannerResource extends Resource
 {
     protected static ?string $model = Banner::class;
@@ -65,14 +72,14 @@ class BannerResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\CreateAction::make()
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                    CreateAction::make()
                     ->createAnother(false)
                 ]),
             ]);

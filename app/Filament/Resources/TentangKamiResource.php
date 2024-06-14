@@ -19,6 +19,13 @@ use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\CreateAction;
+
 class TentangKamiResource extends Resource
 {
     protected static ?string $model = TentangKami::class;
@@ -32,7 +39,7 @@ class TentangKamiResource extends Resource
     protected static ?int $navigationSort = 1;
 
     public static ?string $label = 'About U';
- 
+
     protected static ?string $slug = 'about-us';
 
     public static function form(Form $form): Form
@@ -66,14 +73,14 @@ class TentangKamiResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\CreateAction::make()
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                    CreateAction::make()
                     ->createAnother(false)
                 ]),
             ]);

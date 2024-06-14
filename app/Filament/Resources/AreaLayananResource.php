@@ -16,6 +16,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Columns\TextColumn;
 
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\CreateAction;
+
 class AreaLayananResource extends Resource
 {
     protected static ?string $model = AreaLayanan::class;
@@ -53,13 +60,13 @@ class AreaLayananResource extends Resource
                 //
             ])
             ->actions([
-              Tables\Actions\EditAction::make(),
-              Tables\Actions\DeleteAction::make(),
+              EditAction::make(),
+              DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\CreateAction::make()
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                    CreateAction::make()
                     ->createAnother(false)
                 ]),
             ]);
