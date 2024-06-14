@@ -57,10 +57,12 @@ class GaleriResource extends Resource
                             ->required()
                             ->maxLength(255),
                         TextInput::make('width')
+                            ->default('300')
                             ->numeric()
                             ->required()
                             ->maxLength(255),
                         TextInput::make('height')
+                            ->default('212')
                             ->numeric()
                             ->required()
                             ->maxLength(255),
