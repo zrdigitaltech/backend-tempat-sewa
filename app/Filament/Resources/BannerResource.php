@@ -46,8 +46,7 @@ class BannerResource extends Resource
               ->schema([
                   FileUpload::make('image')
                   ->required()
-                  ->acceptedFileTypes(['image/*'])
-                  ->image(),
+                  ->acceptedFileTypes(['image/*']),
                   TextInput::make('title')
                       ->maxLength(255),
                   RichEditor::make('description')

@@ -50,8 +50,7 @@ class TentangKamiResource extends Resource
               ->schema([
                   FileUpload::make('image')
                       ->required()
-                      ->acceptedFileTypes(['image/*'])
-                      ->image(),
+                      ->acceptedFileTypes(['image/*']),
                   TextInput::make('alt')
                       ->default('Mekanik Elektro')
                       ->maxLength(255),

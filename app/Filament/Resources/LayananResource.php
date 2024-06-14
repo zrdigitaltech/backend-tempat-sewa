@@ -51,8 +51,7 @@ class LayananResource extends Resource
                 ->schema([
                     FileUpload::make('image')
                         ->required()
-                        ->acceptedFileTypes(['image/*'])
-                        ->image(),
+                        ->acceptedFileTypes(['image/*']),
                     TextInput::make('title')
                         ->required()
                         ->maxLength(255),
