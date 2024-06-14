@@ -46,9 +46,7 @@ class LogoResource extends Resource
               ->schema([
                   FileUpload::make('image')
                       ->required()
-                      ->acceptedFileTypes(['image/*'])
-                      ->minSize(163)
-                      ->maxSize(50),
+                      ->acceptedFileTypes(['image/*']),
                   TextInput::make('alt')
                       ->default('Mekanik Elektro')
                       ->maxLength(255),
