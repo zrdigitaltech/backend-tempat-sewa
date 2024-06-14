@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Dashboard',
 
-    'title' => 'Dashboard',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filteren',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filteren',
 
-        'filter' => [
-
-            'label' => 'Filteren',
-
-            'modal' => [
-
-                'heading' => 'Filteren',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Toepassen',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Toepassen',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

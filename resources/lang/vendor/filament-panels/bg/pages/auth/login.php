@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Вход',
 
-    'title' => 'Вход',
+  'heading' => 'Вход в профила си',
 
-    'heading' => 'Вход в профила си',
+  'actions' => [
+    'register' => [
+      'before' => 'или',
+      'label' => 'създайте нов акаунт',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Забравена парола?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Имейл',
+    ],
+
+    'password' => [
+      'label' => 'Парола',
+    ],
+
+    'remember' => [
+      'label' => 'Запомни ме',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'или',
-            'label' => 'създайте нов акаунт',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Забравена парола?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Влезте в профила си',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Грешен имейл или парола.',
+  ],
 
-        'email' => [
-            'label' => 'Имейл',
-        ],
-
-        'password' => [
-            'label' => 'Парола',
-        ],
-
-        'remember' => [
-            'label' => 'Запомни ме',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Влезте в профила си',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Твърде много опити за вход',
+      'body' => 'Моля, опитайте отново след :seconds секунди.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Грешен имейл или парола.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Твърде много опити за вход',
-            'body' => 'Моля, опитайте отново след :seconds секунди.',
-        ],
-
-    ],
-
+  ],
 ];

@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Tengeneza :label',
 
-    'title' => 'Tengeneza :label',
+  'breadcrumb' => 'Tengeneza',
 
-    'breadcrumb' => 'Tengeneza',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Ghairi',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Tengeneza',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Ghairi',
-            ],
-
-            'create' => [
-                'label' => 'Tengeneza',
-            ],
-
-            'create_another' => [
-                'label' => 'Tengeneza na tengeneza tena',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Tengeneza na tengeneza tena',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Imeundwa',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Imeundwa',
     ],
-
+  ],
 ];

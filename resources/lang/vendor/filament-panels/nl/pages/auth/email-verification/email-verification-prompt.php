@@ -1,36 +1,30 @@
 <?php
 
 return [
+  'title' => 'E-mailadres verifiëren',
 
-    'title' => 'E-mailadres verifiëren',
+  'heading' => 'E-mailadres verifiëren',
 
-    'heading' => 'E-mailadres verifiëren',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'Opnieuw verzenden',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'Geen e-mail ontvangen?',
+    'notification_sent' =>
+      'We hebben een e-mail gestuurd naar :email met instructies om je e-mailadres te verifiëren.',
+  ],
 
-        'resend_notification' => [
-            'label' => 'Opnieuw verzenden',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'E-mail opnieuw verzonden.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'Geen e-mail ontvangen?',
-        'notification_sent' => 'We hebben een e-mail gestuurd naar :email met instructies om je e-mailadres te verifiëren.',
-
+    'notification_resend_throttled' => [
+      'title' => 'Te veel verzendpogingen',
+      'body' => 'Probeer het opnieuw over :seconds seconden.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'E-mail opnieuw verzonden.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'Te veel verzendpogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
-        ],
-
-    ],
-
+  ],
 ];

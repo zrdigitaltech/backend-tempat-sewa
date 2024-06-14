@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Sukurti :label',
 
-    'title' => 'Sukurti :label',
+  'breadcrumb' => 'Sukurti',
 
-    'breadcrumb' => 'Sukurti',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Atšaukti',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Sukurti',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Atšaukti',
-            ],
-
-            'create' => [
-                'label' => 'Sukurti',
-            ],
-
-            'create_another' => [
-                'label' => 'Sukurti ir sukurti kitą',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Sukurti ir sukurti kitą',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Sukurta',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Sukurta',
     ],
-
+  ],
 ];

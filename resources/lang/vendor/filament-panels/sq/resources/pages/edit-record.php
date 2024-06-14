@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Modifiko :label',
 
-    'title' => 'Modifiko :label',
+  'breadcrumb' => 'Modifiko',
 
-    'breadcrumb' => 'Modifiko',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Anulo',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Anulo',
-            ],
-
-            'save' => [
-                'label' => 'Ruaj ndryshimet',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Ruaj ndryshimet',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Modifiko',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Modifiko',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'U ruajt',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'U ruajt',
     ],
-
+  ],
 ];

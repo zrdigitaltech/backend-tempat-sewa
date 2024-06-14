@@ -1,35 +1,30 @@
 <?php
 
 return [
+  'title' => 'چالاککردنی ئیمەیڵ',
 
-    'title' => 'چالاککردنی ئیمەیڵ',
+  'heading' => 'چالاککردنی ئیمەیڵ',
 
-    'heading' => 'چالاککردنی ئیمەیڵ',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'دووبارە چالاککردن بنێرە',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'ئیمەیڵەکەت پێ نەگەیشت بۆ چالاککردن؟',
+    'notification_sent' =>
+      'ئیمەیڵێکمان نارد بۆ :email کە ڕێنماییەکەنی تێدایە بۆ چالاککردنی هەژمارەکەت..',
+  ],
 
-        'resend_notification' => [
-            'label' => 'دووبارە چالاککردن بنێرە',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'چالاککردنی ئیمەیڵ دووبارە نێردرا.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'ئیمەیڵەکەت پێ نەگەیشت بۆ چالاککردن؟',
-        'notification_sent' => 'ئیمەیڵێکمان نارد بۆ :email کە ڕێنماییەکەنی تێدایە بۆ چالاککردنی هەژمارەکەت..',
+    'notification_resend_throttled' => [
+      'title' => 'هەوڵی دووبارە ناردنی چالاککردن زۆر نێردرا',
+      'body' => 'تکایە هەوڵ بدەرەوە دوای :seconds چرکە.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'چالاککردنی ئیمەیڵ دووبارە نێردرا.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'هەوڵی دووبارە ناردنی چالاککردن زۆر نێردرا',
-            'body' => 'تکایە هەوڵ بدەرەوە دوای :seconds چرکە.',
-        ],
-
-    ],
-
+  ],
 ];

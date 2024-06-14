@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Angalia :label',
 
-    'title' => 'Angalia :label',
+  'breadcrumb' => 'Angalia',
 
-    'breadcrumb' => 'Angalia',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Angalia',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Angalia',
     ],
-
+  ],
 ];

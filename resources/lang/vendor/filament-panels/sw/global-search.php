@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Tafuta kote',
+    'placeholder' => 'Tafuta',
+  ],
 
-    'field' => [
-        'label' => 'Tafuta kote',
-        'placeholder' => 'Tafuta',
-    ],
-
-    'no_results_message' => 'Hakuna matokeo ya utafutaji yaliyopatikana.',
-
+  'no_results_message' => 'Hakuna matokeo ya utafutaji yaliyopatikana.',
 ];

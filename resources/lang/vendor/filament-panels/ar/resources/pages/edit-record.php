@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'تعديل :label',
 
-    'title' => 'تعديل :label',
+  'breadcrumb' => 'تعديل',
 
-    'breadcrumb' => 'تعديل',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'إلغاء',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'إلغاء',
-            ],
-
-            'save' => [
-                'label' => 'حفظ التغييرات',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'حفظ التغييرات',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'تعديل',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'تعديل',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'تم الحفظ',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'تم الحفظ',
     ],
-
+  ],
 ];

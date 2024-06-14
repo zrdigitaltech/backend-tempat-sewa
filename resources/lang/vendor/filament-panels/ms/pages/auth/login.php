@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Log masuk',
 
-    'title' => 'Log masuk',
+  'heading' => 'Log masuk ke akaun anda',
 
-    'heading' => 'Log masuk ke akaun anda',
+  'actions' => [
+    'register' => [
+      'before' => 'atau',
+      'label' => 'mendaftar akaun',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Lupa kata laluan?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Emel',
+    ],
+
+    'password' => [
+      'label' => 'Kata laluan',
+    ],
+
+    'remember' => [
+      'label' => 'Ingat saya',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'atau',
-            'label' => 'mendaftar akaun',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Lupa kata laluan?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Log masuk',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Bukti kelayakan ini tidak sepadan dengan rekod kami.',
+  ],
 
-        'email' => [
-            'label' => 'Emel',
-        ],
-
-        'password' => [
-            'label' => 'Kata laluan',
-        ],
-
-        'remember' => [
-            'label' => 'Ingat saya',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Log masuk',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Terlalu banyak percubaan log masuk. Sila cuba lagi dalam :seconds saat.',
+      'body' => 'Sila cuba lagi dalam masa :seconds saat.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Bukti kelayakan ini tidak sepadan dengan rekod kami.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Terlalu banyak percubaan log masuk. Sila cuba lagi dalam :seconds saat.',
-            'body' => 'Sila cuba lagi dalam masa :seconds saat.',
-        ],
-
-    ],
-
+  ],
 ];

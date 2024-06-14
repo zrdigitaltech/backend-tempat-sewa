@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'ذخیره تغییرات',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'ذخیره تغییرات',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'ذخیره شد',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'ذخیره شد',
     ],
-
+  ],
 ];

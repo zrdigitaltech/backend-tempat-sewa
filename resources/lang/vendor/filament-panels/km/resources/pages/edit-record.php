@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'កែប្រែ :label',
 
-    'title' => 'កែប្រែ :label',
+  'breadcrumb' => 'កែប្រែ',
 
-    'breadcrumb' => 'កែប្រែ',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'បោះបង់',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'បោះបង់',
-            ],
-
-            'save' => [
-                'label' => 'រក្សាទុក',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'រក្សាទុក',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'កែប្រែ',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'កែប្រែ',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'បានរក្សាទុក',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'បានរក្សាទុក',
     ],
-
+  ],
 ];

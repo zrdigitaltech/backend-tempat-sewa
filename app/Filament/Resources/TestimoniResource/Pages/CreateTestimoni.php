@@ -8,7 +8,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateTestimoni extends CreateRecord
 {
-    protected static string $resource = TestimoniResource::class;
+  protected static string $resource = TestimoniResource::class;
 
-    protected static bool $canCreateAnother = false;
+  protected static bool $canCreateAnother = false;
 }

@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Προεπισκόπηση :label',
 
-    'title' => 'Προεπισκόπηση :label',
+  'breadcrumb' => 'Προεπισκόπηση',
 
-    'breadcrumb' => 'Προεπισκόπηση',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Προεπισκόπηση',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Προεπισκόπηση',
     ],
-
+  ],
 ];

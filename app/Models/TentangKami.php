@@ -7,16 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class TentangKami extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-      'image',
-      'alt',
-      'description'
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['image', 'alt', 'description'];
 }

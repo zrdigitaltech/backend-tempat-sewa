@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'body' => 'Máte neuložené změny. Opravdu chcete opustit tuto stránku?',
-
+  'body' => 'Máte neuložené změny. Opravdu chcete opustit tuto stránku?',
 ];

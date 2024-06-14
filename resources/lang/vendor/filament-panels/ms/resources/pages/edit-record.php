@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Sunting :label',
 
-    'title' => 'Sunting :label',
+  'breadcrumb' => 'Sunting',
 
-    'breadcrumb' => 'Sunting',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Batal',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Batal',
-            ],
-
-            'save' => [
-                'label' => 'Simpan',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Simpan',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Sunting',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Sunting',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Disimpan',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Disimpan',
     ],
-
+  ],
 ];

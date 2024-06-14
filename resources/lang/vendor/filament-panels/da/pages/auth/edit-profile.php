@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-mail',
-        ],
-
-        'name' => [
-            'label' => 'Navn',
-        ],
-
-        'password' => [
-            'label' => 'Ny adgangskode',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Bekræft ny adgangskode',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Gem ændringer',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-mail',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Navn',
+    ],
 
-        'saved' => [
-            'title' => 'Gemt',
-        ],
+    'password' => [
+      'label' => 'Ny adgangskode',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Bekræft ny adgangskode',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Annuller',
-        ],
-
+      'save' => [
+        'label' => 'Gem ændringer',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Gemt',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Annuller',
+    ],
+  ],
 ];

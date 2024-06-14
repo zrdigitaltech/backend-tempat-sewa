@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Rediger :label',
 
-    'title' => 'Rediger :label',
+  'breadcrumb' => 'Rediger',
 
-    'breadcrumb' => 'Rediger',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annuller',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annuller',
-            ],
-
-            'save' => [
-                'label' => 'Gem ændringer',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Gem ændringer',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Rediger',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Rediger',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Gemt',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Gemt',
     ],
-
+  ],
 ];

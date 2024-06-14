@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Paroles maiņa',
 
-    'title' => 'Paroles maiņa',
+  'heading' => 'Aizmirsāt paroli?',
 
-    'heading' => 'Aizmirsāt paroli?',
+  'actions' => [
+    'login' => [
+      'label' => 'atpakaļ uz pieteikšanās lapu',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-pasta adrese',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'atpakaļ uz pieteikšanās lapu',
-        ],
-
+      'request' => [
+        'label' => 'Sūtīt e-pastu',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'E-pasta adrese',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'Sūtīt e-pastu',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Pārāk daudz mēģinājumu',
+      'body' => 'Lūdzu, mēģiniet vēlreiz pēc :seconds sekundēm.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Pārāk daudz mēģinājumu',
-            'body' => 'Lūdzu, mēģiniet vēlreiz pēc :seconds sekundēm.',
-        ],
-
-    ],
-
+  ],
 ];

@@ -1,35 +1,30 @@
 <?php
 
 return [
+  'title' => 'Επαληθεύστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας',
 
-    'title' => 'Επαληθεύστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας',
+  'heading' => 'Επαληθεύστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας',
 
-    'heading' => 'Επαληθεύστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'Επαναποστολή email επαλήθευσης',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'Not received the email we sent?',
+    'notification_sent' =>
+      'We\'ve sent an email to :email containing instructions on how to verify your email address.',
+  ],
 
-        'resend_notification' => [
-            'label' => 'Επαναποστολή email επαλήθευσης',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'We\'ve resent the email.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'Not received the email we sent?',
-        'notification_sent' => 'We\'ve sent an email to :email containing instructions on how to verify your email address.',
+    'notification_resend_throttled' => [
+      'title' => 'Πάρα πολλά αιτήματα επαναποστολής',
+      'body' => 'Παρακαλούμε δοκιμάστε πάλι σε :seconds δευτερόλεπτα.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'We\'ve resent the email.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'Πάρα πολλά αιτήματα επαναποστολής',
-            'body' => 'Παρακαλούμε δοκιμάστε πάλι σε :seconds δευτερόλεπτα.',
-        ],
-
-    ],
-
+  ],
 ];

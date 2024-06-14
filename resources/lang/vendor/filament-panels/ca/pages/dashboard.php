@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Escriptori',
 
-    'title' => 'Escriptori',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtre',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtre',
 
-        'filter' => [
-
-            'label' => 'Filtre',
-
-            'modal' => [
-
-                'heading' => 'Filtre',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Aplicar',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Aplicar',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

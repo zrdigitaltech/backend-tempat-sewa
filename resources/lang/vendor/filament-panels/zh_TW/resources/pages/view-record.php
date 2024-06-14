@@ -1,9 +1,7 @@
 <?php
 
 return [
+  'title' => '檢視 :label',
 
-    'title' => '檢視 :label',
-
-    'breadcrumb' => '檢視',
-
+  'breadcrumb' => '檢視',
 ];

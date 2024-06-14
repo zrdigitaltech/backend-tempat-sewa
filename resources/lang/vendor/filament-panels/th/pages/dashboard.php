@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'แดชบอร์ด',
 
-    'title' => 'แดชบอร์ด',
+  'actions' => [
+    'filter' => [
+      'label' => 'ตัวกรอง',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'ตัวกรอง',
 
-        'filter' => [
-
-            'label' => 'ตัวกรอง',
-
-            'modal' => [
-
-                'heading' => 'ตัวกรอง',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'ใช้ตัวกรอง',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'ใช้ตัวกรอง',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

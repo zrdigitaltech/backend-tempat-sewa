@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Escritorio',
 
-    'title' => 'Escritorio',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtro',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtro',
 
-        'filter' => [
-
-            'label' => 'Filtro',
-
-            'modal' => [
-
-                'heading' => 'Filtro',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Aplicar',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Aplicar',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

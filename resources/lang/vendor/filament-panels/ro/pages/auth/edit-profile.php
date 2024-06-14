@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Email',
-        ],
-
-        'name' => [
-            'label' => 'Nume',
-        ],
-
-        'password' => [
-            'label' => 'Parola noua',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Confirmă parola noua',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Salvează modificările',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Email',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Nume',
+    ],
 
-        'saved' => [
-            'title' => 'Salvat cu succes',
-        ],
+    'password' => [
+      'label' => 'Parola noua',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Confirmă parola noua',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'înapoi',
-        ],
-
+      'save' => [
+        'label' => 'Salvează modificările',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Salvat cu succes',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'înapoi',
+    ],
+  ],
 ];

@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Afficher :label',
 
-    'title' => 'Afficher :label',
+  'breadcrumb' => 'Afficher',
 
-    'breadcrumb' => 'Afficher',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Afficher',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Afficher',
     ],
-
+  ],
 ];

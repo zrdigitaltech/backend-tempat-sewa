@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Modifica :label',
 
-    'title' => 'Modifica :label',
+  'breadcrumb' => 'Modifica',
 
-    'breadcrumb' => 'Modifica',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annulla',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annulla',
-            ],
-
-            'save' => [
-                'label' => 'Salva',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Salva',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Modifica',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Modifica',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Salvato',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Salvato',
     ],
-
+  ],
 ];

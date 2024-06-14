@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Logowanie',
 
-    'title' => 'Logowanie',
+  'heading' => 'Zaloguj się',
 
-    'heading' => 'Zaloguj się',
+  'actions' => [
+    'register' => [
+      'before' => 'lub',
+      'label' => 'zarejestruj się',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Nie pamiętam hasła',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Adres e-mail',
+    ],
+
+    'password' => [
+      'label' => 'Hasło',
+    ],
+
+    'remember' => [
+      'label' => 'Zapamiętaj mnie',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'lub',
-            'label' => 'zarejestruj się',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Nie pamiętam hasła',
-        ],
-
+      'authenticate' => [
+        'label' => 'Zaloguj się',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Błędny login lub hasło.',
+  ],
 
-        'email' => [
-            'label' => 'Adres e-mail',
-        ],
-
-        'password' => [
-            'label' => 'Hasło',
-        ],
-
-        'remember' => [
-            'label' => 'Zapamiętaj mnie',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Zaloguj się',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Za dużo nieudanych prób logowania',
+      'body' => 'Spróbuj ponownie za :seconds sekund.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Błędny login lub hasło.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Za dużo nieudanych prób logowania',
-            'body' => 'Spróbuj ponownie za :seconds sekund.',
-        ],
-
-    ],
-
+  ],
 ];

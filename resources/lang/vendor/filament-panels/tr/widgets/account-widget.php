@@ -1,15 +1,11 @@
 <?php
 
 return [
-
-    'actions' => [
-
-        'logout' => [
-            'label' => 'Oturumu kapat',
-        ],
-
+  'actions' => [
+    'logout' => [
+      'label' => 'Oturumu kapat',
     ],
+  ],
 
-    'welcome' => 'Hoş geldin',
-
+  'welcome' => 'Hoş geldin',
 ];

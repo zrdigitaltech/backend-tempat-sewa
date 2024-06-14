@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Nadzorna plošča',
 
-    'title' => 'Nadzorna plošča',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filter',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filter',
 
-        'filter' => [
-
-            'label' => 'Filter',
-
-            'modal' => [
-
-                'heading' => 'Filter',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Uporabi',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Uporabi',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

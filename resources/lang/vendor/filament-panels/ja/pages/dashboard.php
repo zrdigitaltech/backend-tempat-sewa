@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'ダッシュボード',
 
-    'title' => 'ダッシュボード',
+  'actions' => [
+    'filter' => [
+      'label' => 'フィルタ',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'フィルタ',
 
-        'filter' => [
-
-            'label' => 'フィルタ',
-
-            'modal' => [
-
-                'heading' => 'フィルタ',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => '適用',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => '適用',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

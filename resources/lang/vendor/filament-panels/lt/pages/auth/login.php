@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Prisijungti',
 
-    'title' => 'Prisijungti',
+  'heading' => 'Prisijunkite prie savo paskyros',
 
-    'heading' => 'Prisijunkite prie savo paskyros',
+  'actions' => [
+    'register' => [
+      'before' => 'arba',
+      'label' => 'užsiregistruokite',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Pamiršote slaptažodį?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'El. paštas',
+    ],
+
+    'password' => [
+      'label' => 'Slaptažodis',
+    ],
+
+    'remember' => [
+      'label' => 'Prisiminti mane',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'arba',
-            'label' => 'užsiregistruokite',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Pamiršote slaptažodį?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Prisijungti',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Neteisingi prisijungimo duomenys.',
+  ],
 
-        'email' => [
-            'label' => 'El. paštas',
-        ],
-
-        'password' => [
-            'label' => 'Slaptažodis',
-        ],
-
-        'remember' => [
-            'label' => 'Prisiminti mane',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Prisijungti',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Per daug bandymų prisijungti. Bandykite po :seconds sekundžių.',
+      'body' => 'Pabandykite dar katą už :seconds sekundžių.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Neteisingi prisijungimo duomenys.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Per daug bandymų prisijungti. Bandykite po :seconds sekundžių.',
-            'body' => 'Pabandykite dar katą už :seconds sekundžių.',
-        ],
-
-    ],
-
+  ],
 ];

@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Skapa :label',
 
-    'title' => 'Skapa :label',
+  'breadcrumb' => 'Skapa',
 
-    'breadcrumb' => 'Skapa',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Avbryt',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Skapa',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Avbryt',
-            ],
-
-            'create' => [
-                'label' => 'Skapa',
-            ],
-
-            'create_another' => [
-                'label' => 'Skapa & skapa en till',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Skapa & skapa en till',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Skapades',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Skapades',
     ],
-
+  ],
 ];

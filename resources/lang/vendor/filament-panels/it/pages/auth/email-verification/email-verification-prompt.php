@@ -1,35 +1,30 @@
 <?php
 
 return [
+  'title' => 'Verifica il tuo indirizzo email',
 
-    'title' => 'Verifica il tuo indirizzo email',
+  'heading' => 'Verifica il tuo indirizzo email',
 
-    'heading' => 'Verifica il tuo indirizzo email',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'Invia nuovamente',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'Non hai ricevuto la mail?',
+    'notification_sent' =>
+      'Abbiamo inviato una mail a :email contenente le istruzioni su come verificare il tuo indirizzo email.',
+  ],
 
-        'resend_notification' => [
-            'label' => 'Invia nuovamente',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'Abbiamo inviato nuovamente la mail.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'Non hai ricevuto la mail?',
-        'notification_sent' => 'Abbiamo inviato una mail a :email contenente le istruzioni su come verificare il tuo indirizzo email.',
+    'notification_resend_throttled' => [
+      'title' => 'Troppi tentativi di invio',
+      'body' => 'Riprova tra :seconds secondi.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'Abbiamo inviato nuovamente la mail.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'Troppi tentativi di invio',
-            'body' => 'Riprova tra :seconds secondi.',
-        ],
-
-    ],
-
+  ],
 ];

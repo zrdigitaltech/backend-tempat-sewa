@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Перегляд :label',
 
-    'title' => 'Перегляд :label',
+  'breadcrumb' => 'Перегляд',
 
-    'breadcrumb' => 'Перегляд',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Перегляд',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Перегляд',
     ],
-
+  ],
 ];

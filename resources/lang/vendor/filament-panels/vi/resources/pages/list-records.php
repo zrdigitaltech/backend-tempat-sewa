@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'Danh sách',
-
+  'breadcrumb' => 'Danh sách',
 ];

@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Shrani spremembe',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Shrani spremembe',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Shranjeno',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Shranjeno',
     ],
-
+  ],
 ];

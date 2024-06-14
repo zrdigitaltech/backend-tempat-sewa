@@ -1,15 +1,11 @@
 <?php
 
 return [
-
-    'actions' => [
-
-        'logout' => [
-            'label' => 'Kirjaudu ulos',
-        ],
-
+  'actions' => [
+    'logout' => [
+      'label' => 'Kirjaudu ulos',
     ],
+  ],
 
-    'welcome' => 'Tervetuloa',
-
+  'welcome' => 'Tervetuloa',
 ];

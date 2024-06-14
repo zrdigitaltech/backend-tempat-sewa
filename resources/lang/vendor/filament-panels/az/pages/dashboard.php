@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => 'İdarəetmə Paneli',
-
+  'title' => 'İdarəetmə Paneli',
 ];

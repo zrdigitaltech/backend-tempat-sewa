@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Redaguoti :label',
 
-    'title' => 'Redaguoti :label',
+  'breadcrumb' => 'Redaguoti',
 
-    'breadcrumb' => 'Redaguoti',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Atšaukti',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Atšaukti',
-            ],
-
-            'save' => [
-                'label' => 'Išsaugoti pakeitimus',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Išsaugoti pakeitimus',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Redaguoti',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Redaguoti',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Išsaugota',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Išsaugota',
     ],
-
+  ],
 ];

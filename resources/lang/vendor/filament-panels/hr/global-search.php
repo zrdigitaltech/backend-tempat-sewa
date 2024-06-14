@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Globalno pretraživanje',
+    'placeholder' => 'Pretraži',
+  ],
 
-    'field' => [
-        'label' => 'Globalno pretraživanje',
-        'placeholder' => 'Pretraži',
-    ],
-
-    'no_results_message' => 'Nema pronađenih rezultata pretraživanja.',
-
+  'no_results_message' => 'Nema pronađenih rezultata pretraživanja.',
 ];

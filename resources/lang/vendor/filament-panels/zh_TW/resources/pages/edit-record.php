@@ -1,33 +1,25 @@
 <?php
 
 return [
+  'title' => '編輯 :label',
 
-    'title' => '編輯 :label',
+  'breadcrumb' => '編輯',
 
-    'breadcrumb' => '編輯',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => '取消',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => '取消',
-            ],
-
-            'save' => [
-                'label' => '保存',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => '保存',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => '已保存',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => '已保存',
     ],
-
+  ],
 ];

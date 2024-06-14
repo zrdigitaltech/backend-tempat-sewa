@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Δημιουργία :label',
 
-    'title' => 'Δημιουργία :label',
+  'breadcrumb' => 'Δημιούργησε',
 
-    'breadcrumb' => 'Δημιούργησε',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Ακύρωση',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Δημιούργησε',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Ακύρωση',
-            ],
-
-            'create' => [
-                'label' => 'Δημιούργησε',
-            ],
-
-            'create_another' => [
-                'label' => 'Δημιούργησε & Δημιούργησε ακόμα ένα',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Δημιούργησε & Δημιούργησε ακόμα ένα',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Δημιουργήθηκε',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Δημιουργήθηκε',
     ],
-
+  ],
 ];

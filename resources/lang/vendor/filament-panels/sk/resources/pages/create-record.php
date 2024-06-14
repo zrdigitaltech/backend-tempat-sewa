@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Vytvoriť :label',
 
-    'title' => 'Vytvoriť :label',
+  'breadcrumb' => 'Vytvoriť',
 
-    'breadcrumb' => 'Vytvoriť',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Zrušiť',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Vytvoriť',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Zrušiť',
-            ],
-
-            'create' => [
-                'label' => 'Vytvoriť',
-            ],
-
-            'create_another' => [
-                'label' => 'Vytvoriť & vytvoriť ďalší',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Vytvoriť & vytvoriť ďalší',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Vytvorené',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Vytvorené',
     ],
-
+  ],
 ];

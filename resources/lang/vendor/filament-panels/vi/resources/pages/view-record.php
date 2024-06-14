@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Xem :label',
 
-    'title' => 'Xem :label',
+  'breadcrumb' => 'Xem',
 
-    'breadcrumb' => 'Xem',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Xem',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Xem',
     ],
-
+  ],
 ];

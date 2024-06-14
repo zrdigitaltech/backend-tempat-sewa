@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Spara ändringar',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Spara ändringar',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Sparades',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Sparades',
     ],
-
+  ],
 ];

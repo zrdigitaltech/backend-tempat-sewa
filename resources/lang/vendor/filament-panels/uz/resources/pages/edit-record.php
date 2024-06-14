@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':labelni tahrirlash',
 
-    'title' => ':labelni tahrirlash',
+  'breadcrumb' => 'Tahrirlash',
 
-    'breadcrumb' => 'Tahrirlash',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Bekor qilish',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Bekor qilish',
-            ],
-
-            'save' => [
-                'label' => 'Saqlash',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Saqlash',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Tahrirlash',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Tahrirlash',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Saqlandi',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Saqlandi',
     ],
-
+  ],
 ];

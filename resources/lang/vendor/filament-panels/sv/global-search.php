@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Global sökning',
+    'placeholder' => 'Sök',
+  ],
 
-    'field' => [
-        'label' => 'Global sökning',
-        'placeholder' => 'Sök',
-    ],
-
-    'no_results_message' => 'Inga sökresultat.',
-
+  'no_results_message' => 'Inga sökresultat.',
 ];

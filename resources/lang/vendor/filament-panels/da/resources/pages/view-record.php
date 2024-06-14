@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Vis :label',
 
-    'title' => 'Vis :label',
+  'breadcrumb' => 'Vis',
 
-    'breadcrumb' => 'Vis',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Vis',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Vis',
     ],
-
+  ],
 ];

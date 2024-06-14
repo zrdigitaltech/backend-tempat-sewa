@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Réinitialiser votre mot de passe',
 
-    'title' => 'Réinitialiser votre mot de passe',
+  'heading' => 'Mot de passe oublié ?',
 
-    'heading' => 'Mot de passe oublié ?',
+  'actions' => [
+    'login' => [
+      'label' => 'retour à la connexion',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Adresse Email',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'retour à la connexion',
-        ],
-
+      'request' => [
+        'label' => "Envoyer l'email",
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Adresse Email',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => "Envoyer l'email",
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Trop de requêtes',
+      'body' => 'Merci de réessayer dans :seconds secondes.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Trop de requêtes',
-            'body' => 'Merci de réessayer dans :seconds secondes.',
-        ],
-
-    ],
-
+  ],
 ];

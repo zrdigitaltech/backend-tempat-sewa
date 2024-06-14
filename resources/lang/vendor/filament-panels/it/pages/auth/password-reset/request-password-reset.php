@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Reimposta la tua password',
 
-    'title' => 'Reimposta la tua password',
+  'heading' => 'Hai smarrito la password?',
 
-    'heading' => 'Hai smarrito la password?',
+  'actions' => [
+    'login' => [
+      'label' => 'torna al login',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Email',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'torna al login',
-        ],
-
+      'request' => [
+        'label' => 'Invia email',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Email',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'Invia email',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Troppe richieste',
+      'body' => 'Riprova tra :seconds secondi.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Troppe richieste',
-            'body' => 'Riprova tra :seconds secondi.',
-        ],
-
-    ],
-
+  ],
 ];

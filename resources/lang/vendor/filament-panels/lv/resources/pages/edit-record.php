@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Rediģēt :label',
 
-    'title' => 'Rediģēt :label',
+  'breadcrumb' => 'Rediģēt',
 
-    'breadcrumb' => 'Rediģēt',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Atcelt',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Atcelt',
-            ],
-
-            'save' => [
-                'label' => 'Saglabāt izmaiņas',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Saglabāt izmaiņas',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Rediģēt',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Rediģēt',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Saglabāts',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Saglabāts',
     ],
-
+  ],
 ];

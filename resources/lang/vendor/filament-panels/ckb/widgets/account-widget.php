@@ -1,15 +1,11 @@
 <?php
 
 return [
-
-    'actions' => [
-
-        'logout' => [
-            'label' => 'چوونەدەرەوە',
-        ],
-
+  'actions' => [
+    'logout' => [
+      'label' => 'چوونەدەرەوە',
     ],
+  ],
 
-    'welcome' => 'بەخێربێیت',
-
+  'welcome' => 'بەخێربێیت',
 ];

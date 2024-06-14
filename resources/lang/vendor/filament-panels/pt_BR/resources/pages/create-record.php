@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Criar :label',
 
-    'title' => 'Criar :label',
+  'breadcrumb' => 'Criar',
 
-    'breadcrumb' => 'Criar',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Cancelar',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Criar',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Cancelar',
-            ],
-
-            'create' => [
-                'label' => 'Criar',
-            ],
-
-            'create_another' => [
-                'label' => 'Salvar e criar outro',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Salvar e criar outro',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Criado',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Criado',
     ],
-
+  ],
 ];

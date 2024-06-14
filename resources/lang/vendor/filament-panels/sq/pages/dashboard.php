@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => 'Faqja Kryesore',
-
+  'title' => 'Faqja Kryesore',
 ];

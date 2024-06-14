@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'שמור שינויים',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'שמור שינויים',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'נשמר',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'נשמר',
     ],
-
+  ],
 ];

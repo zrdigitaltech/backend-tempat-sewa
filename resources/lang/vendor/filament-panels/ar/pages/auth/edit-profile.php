@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'الملف الشخصي',
 
-    'label' => 'الملف الشخصي',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'البريد الإلكتروني',
-        ],
-
-        'name' => [
-            'label' => 'الاسم',
-        ],
-
-        'password' => [
-            'label' => 'كلمة المرور الجديدة',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'تأكيد كلمة المرور الجديدة',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'حفظ التغييرات',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'البريد الإلكتروني',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'الاسم',
+    ],
 
-        'saved' => [
-            'title' => 'تم الحفظ',
-        ],
+    'password' => [
+      'label' => 'كلمة المرور الجديدة',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'تأكيد كلمة المرور الجديدة',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'إلغاء',
-        ],
-
+      'save' => [
+        'label' => 'حفظ التغييرات',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'تم الحفظ',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'إلغاء',
+    ],
+  ],
 ];

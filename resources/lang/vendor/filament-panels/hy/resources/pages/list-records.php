@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'Ցանկ',
-
+  'breadcrumb' => 'Ցանկ',
 ];

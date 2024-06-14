@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Dasbor',
 
-    'title' => 'Dasbor',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filter',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filter',
 
-        'filter' => [
-
-            'label' => 'Filter',
-
-            'modal' => [
-
-                'heading' => 'Filter',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Terapkan',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Terapkan',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

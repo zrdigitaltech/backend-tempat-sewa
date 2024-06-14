@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'บันทึก',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'บันทึก',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'บันทึกข้อมูลเรียบร้อย',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'บันทึกข้อมูลเรียบร้อย',
     ],
-
+  ],
 ];

@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Papan pemuka',
 
-    'title' => 'Papan pemuka',
+  'actions' => [
+    'filter' => [
+      'label' => 'Penapis',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Penapis',
 
-        'filter' => [
-
-            'label' => 'Penapis',
-
-            'modal' => [
-
-                'heading' => 'Penapis',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Mohon',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Mohon',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

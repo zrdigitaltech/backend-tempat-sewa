@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Globaal zoeken',
+    'placeholder' => 'Zoeken',
+  ],
 
-    'field' => [
-        'label' => 'Globaal zoeken',
-        'placeholder' => 'Zoeken',
-    ],
-
-    'no_results_message' => 'Geen resultaten gevonden.',
-
+  'no_results_message' => 'Geen resultaten gevonden.',
 ];

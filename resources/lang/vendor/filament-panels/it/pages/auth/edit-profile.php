@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profilo',
 
-    'label' => 'Profilo',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Email',
-        ],
-
-        'name' => [
-            'label' => 'Nome',
-        ],
-
-        'password' => [
-            'label' => 'Nuova password',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Conferma nuova password',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Salva modifiche',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Email',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Nome',
+    ],
 
-        'saved' => [
-            'title' => 'Salvato',
-        ],
+    'password' => [
+      'label' => 'Nuova password',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Conferma nuova password',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Indietro',
-        ],
-
+      'save' => [
+        'label' => 'Salva modifiche',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Salvato',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Indietro',
+    ],
+  ],
 ];

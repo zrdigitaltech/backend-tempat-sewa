@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Guarda :label',
 
-    'title' => 'Guarda :label',
+  'breadcrumb' => 'Guarda',
 
-    'breadcrumb' => 'Guarda',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Guarda',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Guarda',
     ],
-
+  ],
 ];

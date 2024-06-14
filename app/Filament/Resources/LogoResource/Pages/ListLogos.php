@@ -9,16 +9,16 @@ use App\Models\Logo;
 
 class ListLogos extends ListRecords
 {
-    protected static string $resource = LogoResource::class;
+  protected static string $resource = LogoResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-        if (Logo::count() < 1) {
-            $actions[] = Actions\CreateAction::make();
-        }
-
-        return $actions;
+    if (Logo::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

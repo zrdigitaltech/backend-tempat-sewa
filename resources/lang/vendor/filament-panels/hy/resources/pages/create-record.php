@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Ստեղծել :label',
 
-    'title' => 'Ստեղծել :label',
+  'breadcrumb' => 'Ստեղծել',
 
-    'breadcrumb' => 'Ստեղծել',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Չեղարկել',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Ստեղծել',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Չեղարկել',
-            ],
-
-            'create' => [
-                'label' => 'Ստեղծել',
-            ],
-
-            'create_another' => [
-                'label' => 'Ստեղծել և ստեղծել մեկ այլ',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Ստեղծել և ստեղծել մեկ այլ',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Ստեղծվել է',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Ստեղծվել է',
     ],
-
+  ],
 ];

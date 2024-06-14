@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'پروفایل',
 
-    'label' => 'پروفایل',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'ایمیل',
-        ],
-
-        'name' => [
-            'label' => 'نام',
-        ],
-
-        'password' => [
-            'label' => 'رمز عبور جدید',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'تایید رمز عبور جدید',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'ذخیره تغییرات',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'ایمیل',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'نام',
+    ],
 
-        'saved' => [
-            'title' => 'ذخیره شد',
-        ],
+    'password' => [
+      'label' => 'رمز عبور جدید',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'تایید رمز عبور جدید',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'لغو',
-        ],
-
+      'save' => [
+        'label' => 'ذخیره تغییرات',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'ذخیره شد',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'لغو',
+    ],
+  ],
 ];

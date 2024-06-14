@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Prikaži :label',
 
-    'title' => 'Prikaži :label',
+  'breadcrumb' => 'Prikaži',
 
-    'breadcrumb' => 'Prikaži',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Prikaži',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Prikaži',
     ],
-
+  ],
 ];

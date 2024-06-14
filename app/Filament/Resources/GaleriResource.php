@@ -28,104 +28,84 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
 
-
 class GaleriResource extends Resource
 {
-    protected static ?string $model = Galeri::class;
+  protected static ?string $model = Galeri::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Gallery';
+  protected static ?string $navigationLabel = 'Gallery';
 
-    protected static ?string $navigationGroup = 'Gallery';
+  protected static ?string $navigationGroup = 'Gallery';
 
-    protected static ?int $navigationSort = 3;
+  protected static ?int $navigationSort = 3;
 
-    protected static ?string $label = 'Gallery';
+  protected static ?string $label = 'Gallery';
 
-    protected static ?string $slug = 'gallery';
+  protected static ?string $slug = 'gallery';
 
-    public static function form(Form $form): Form
-    {
-        return $form
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          FileUpload::make('image')
+            ->required()
+            ->acceptedFileTypes(['image/*']),
+          TextInput::make('title')->required()->maxLength(255),
+          TextInput::make('width')->default('300')->numeric()->required()->maxLength(255),
+          TextInput::make('height')->default('212')->numeric()->required()->maxLength(255),
+          TextInput::make('alt')->default('Mekanik Elektro'),
+          Textarea::make('description'),
+          Repeater::make('tags')
             ->schema([
-                Card::make()
-                    ->schema([
-                        FileUpload::make('image')
-                            ->required()
-                            ->acceptedFileTypes(['image/*']),
-                        TextInput::make('title')
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('width')
-                            ->default('300')
-                            ->numeric()
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('height')
-                            ->default('212')
-                            ->numeric()
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('alt')
-                          ->default('Mekanik Elektro'),
-                        Textarea::make('description'),
-                        Repeater::make('tags')
-                          ->schema([
-                              TextInput::make('value')
-                                ->default('Mekanik Elektro')
-                                ->maxLength(255),
-                              TextInput::make('title')
-                                ->default('Mekanik Elektro')
-                                ->maxLength(255),
-                          ])
-                          ->label('Tags')
-                          ->maxItems(1)
-                          ->disableItemMovement()
-                          ->disableItemDeletion(),
-                ])->columnSpanFull()
-            ]);
-    }
-
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                TextColumn::make('title'),
-                ImageColumn::make('image'),
-                TextColumn::make('width'),
-                TextColumn::make('height'),
+              TextInput::make('value')->default('Mekanik Elektro')->maxLength(255),
+              TextInput::make('title')->default('Mekanik Elektro')->maxLength(255),
             ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                  DeleteBulkAction::make(),
-                  CreateAction::make()
-                  ->createAnother(false)
-                ]),
-            ]);
-    }
+            ->label('Tags')
+            ->maxItems(1)
+            ->disableItemMovement()
+            ->disableItemDeletion(),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->columns([
+        TextColumn::make('title')->searchable(),
+        ImageColumn::make('image'),
+        TextColumn::make('width'),
+        TextColumn::make('height'),
+      ])
+      ->defaultSort('created_at', 'desc')
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
+      ]);
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListGaleris::route('/'),
-            'create' => Pages\CreateGaleri::route('/create'),
-            'edit' => Pages\EditGaleri::route('/{record}/edit'),
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
+
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListGaleris::route('/'),
+      'create' => Pages\CreateGaleri::route('/create'),
+      'edit' => Pages\EditGaleri::route('/{record}/edit'),
+    ];
+  }
 }

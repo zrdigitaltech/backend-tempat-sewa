@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Masuk',
 
-    'title' => 'Masuk',
+  'heading' => 'Masuk ke akun Anda',
 
-    'heading' => 'Masuk ke akun Anda',
+  'actions' => [
+    'register' => [
+      'before' => 'atau',
+      'label' => 'buat akun baru',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Lupa kata sandi?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Alamat email',
+    ],
+
+    'password' => [
+      'label' => 'Kata sandi',
+    ],
+
+    'remember' => [
+      'label' => 'Ingat saya',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'atau',
-            'label' => 'buat akun baru',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Lupa kata sandi?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Masuk',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Kredensial yang diberikan tidak dapat ditemukan.',
+  ],
 
-        'email' => [
-            'label' => 'Alamat email',
-        ],
-
-        'password' => [
-            'label' => 'Kata sandi',
-        ],
-
-        'remember' => [
-            'label' => 'Ingat saya',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Masuk',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Terlalu banyak permintaan',
+      'body' => 'Silakan coba lagi dalam :seconds detik.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Kredensial yang diberikan tidak dapat ditemukan.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Terlalu banyak permintaan',
-            'body' => 'Silakan coba lagi dalam :seconds detik.',
-        ],
-
-    ],
-
+  ],
 ];

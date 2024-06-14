@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Buat :label',
 
-    'title' => 'Buat :label',
+  'breadcrumb' => 'Buat',
 
-    'breadcrumb' => 'Buat',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Batal',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Buat',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Batal',
-            ],
-
-            'create' => [
-                'label' => 'Buat',
-            ],
-
-            'create_another' => [
-                'label' => 'Buat & buat lainnya',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Buat & buat lainnya',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Data berhasil dibuat',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Data berhasil dibuat',
     ],
-
+  ],
 ];

@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => ':label megtekintése',
 
-    'title' => ':label megtekintése',
+  'breadcrumb' => 'Megtekintés',
 
-    'breadcrumb' => 'Megtekintés',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Megtekintés',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Megtekintés',
     ],
-
+  ],
 ];

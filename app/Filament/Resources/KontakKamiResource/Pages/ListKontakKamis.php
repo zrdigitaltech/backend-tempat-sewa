@@ -9,16 +9,16 @@ use App\Models\KontakKami;
 
 class ListKontakKamis extends ListRecords
 {
-    protected static string $resource = KontakKamiResource::class;
+  protected static string $resource = KontakKamiResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-        if (KontakKami::count() < 1) {
-            $actions[] = Actions\CreateAction::make();
-        }
-
-        return $actions;
+    if (KontakKami::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

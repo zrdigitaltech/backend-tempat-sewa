@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'O\'zgarishlarni saqlash',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'O\'zgarishlarni saqlash',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Saqlandi',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Saqlandi',
     ],
-
+  ],
 ];

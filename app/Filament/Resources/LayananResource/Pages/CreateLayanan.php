@@ -8,7 +8,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateLayanan extends CreateRecord
 {
-    protected static string $resource = LayananResource::class;
+  protected static string $resource = LayananResource::class;
 
-    protected static bool $canCreateAnother = false;
+  protected static bool $canCreateAnother = false;
 }

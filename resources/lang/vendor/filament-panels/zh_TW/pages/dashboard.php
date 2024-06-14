@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => '主控台',
-
+  'title' => '主控台',
 ];

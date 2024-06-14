@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Jauns :label',
 
-    'title' => 'Jauns :label',
+  'breadcrumb' => 'Jauns',
 
-    'breadcrumb' => 'Jauns',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Atcelt',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Izveidot',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Atcelt',
-            ],
-
-            'create' => [
-                'label' => 'Izveidot',
-            ],
-
-            'create_another' => [
-                'label' => 'Izveidot & izveidot citu',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Izveidot & izveidot citu',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Izveidots',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Izveidots',
     ],
-
+  ],
 ];

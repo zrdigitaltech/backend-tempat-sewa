@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Inloggen',
 
-    'title' => 'Inloggen',
+  'heading' => 'Inloggen op je account',
 
-    'heading' => 'Inloggen op je account',
+  'actions' => [
+    'register' => [
+      'before' => 'of',
+      'label' => 'maak een account aan',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Wachtwoord vergeten?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-mailadres',
+    ],
+
+    'password' => [
+      'label' => 'Wachtwoord',
+    ],
+
+    'remember' => [
+      'label' => 'Onthoud mij',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'of',
-            'label' => 'maak een account aan',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Wachtwoord vergeten?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Inloggen',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Onjuiste inloggegevens.',
+  ],
 
-        'email' => [
-            'label' => 'E-mailadres',
-        ],
-
-        'password' => [
-            'label' => 'Wachtwoord',
-        ],
-
-        'remember' => [
-            'label' => 'Onthoud mij',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Inloggen',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Te veel inlogpogingen',
+      'body' => 'Probeer het opnieuw over :seconds seconden.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Onjuiste inloggegevens.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Te veel inlogpogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
-        ],
-
-    ],
-
+  ],
 ];

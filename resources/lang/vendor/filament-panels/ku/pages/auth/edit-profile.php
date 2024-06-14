@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'پڕۆفایل',
 
-    'label' => 'پڕۆفایل',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'ئیمەیڵ',
-        ],
-
-        'name' => [
-            'label' => 'ناو',
-        ],
-
-        'password' => [
-            'label' => 'وشەی نهێنی نوێ',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'دڵنیابوونەوەی وشەی نهێنی نوێ',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'نوێکردنەوە',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'ئیمەیڵ',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'ناو',
+    ],
 
-        'saved' => [
-            'title' => 'نوێکرایەوە',
-        ],
+    'password' => [
+      'label' => 'وشەی نهێنی نوێ',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'دڵنیابوونەوەی وشەی نهێنی نوێ',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'گەڕانەوە',
-        ],
-
+      'save' => [
+        'label' => 'نوێکردنەوە',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'نوێکرایەوە',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'گەڕانەوە',
+    ],
+  ],
 ];

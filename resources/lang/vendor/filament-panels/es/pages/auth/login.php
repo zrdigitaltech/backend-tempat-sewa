@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Acceso',
 
-    'title' => 'Acceso',
+  'heading' => 'Entre a su cuenta',
 
-    'heading' => 'Entre a su cuenta',
+  'actions' => [
+    'register' => [
+      'before' => 'o',
+      'label' => 'Abrir una cuenta',
+    ],
+
+    'request_password_reset' => [
+      'label' => '¿Ha olvidado su contraseña?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Correo electrónico',
+    ],
+
+    'password' => [
+      'label' => 'Contraseña',
+    ],
+
+    'remember' => [
+      'label' => 'Recordarme',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'o',
-            'label' => 'Abrir una cuenta',
-        ],
-
-        'request_password_reset' => [
-            'label' => '¿Ha olvidado su contraseña?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Entrar',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Estas credenciales no coinciden con nuestros registros.',
+  ],
 
-        'email' => [
-            'label' => 'Correo electrónico',
-        ],
-
-        'password' => [
-            'label' => 'Contraseña',
-        ],
-
-        'remember' => [
-            'label' => 'Recordarme',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Entrar',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Demasiados intentos. Intente de nuevo en :seconds segundos.',
+      'body' => 'Intente de nuevo en :seconds segundos.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Estas credenciales no coinciden con nuestros registros.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Demasiados intentos. Intente de nuevo en :seconds segundos.',
-            'body' => 'Intente de nuevo en :seconds segundos.',
-        ],
-
-    ],
-
+  ],
 ];

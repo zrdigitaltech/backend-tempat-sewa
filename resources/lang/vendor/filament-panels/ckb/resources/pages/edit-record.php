@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'دەستکاریکردنی :label',
 
-    'title' => 'دەستکاریکردنی :label',
+  'breadcrumb' => 'دەستکاریکردن',
 
-    'breadcrumb' => 'دەستکاریکردن',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'پاشگەزبوونەوە',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'پاشگەزبوونەوە',
-            ],
-
-            'save' => [
-                'label' => 'نوێکردنەوە',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'نوێکردنەوە',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'دەستکاریکردن',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'دەستکاریکردن',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'نوێکرایەوە',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'نوێکرایەوە',
     ],
-
+  ],
 ];

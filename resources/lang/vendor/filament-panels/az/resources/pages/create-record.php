@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => ':label yarat',
 
-    'title' => ':label yarat',
+  'breadcrumb' => 'Yarat',
 
-    'breadcrumb' => 'Yarat',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'İmtina',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Yarat',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'İmtina',
-            ],
-
-            'create' => [
-                'label' => 'Yarat',
-            ],
-
-            'create_another' => [
-                'label' => 'Yarat & yenisini yarat',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Yarat & yenisini yarat',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Yaradıldı',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Yaradıldı',
     ],
-
+  ],
 ];

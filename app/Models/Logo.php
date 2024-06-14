@@ -7,15 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Logo extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-      'image',
-      'alt',
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['image', 'alt'];
 }

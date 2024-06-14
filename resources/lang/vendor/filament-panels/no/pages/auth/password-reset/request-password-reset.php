@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Tilbakestill ditt passord',
 
-    'title' => 'Tilbakestill ditt passord',
+  'heading' => 'Glemt passord?',
 
-    'heading' => 'Glemt passord?',
+  'actions' => [
+    'login' => [
+      'label' => 'tilbake til logg inn',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-post adresse',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'tilbake til logg inn',
-        ],
-
+      'request' => [
+        'label' => 'Send e-post',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'E-post adresse',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'Send e-post',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'For mange forsøk',
+      'body' => 'Vennligst forsøk igjen om :seconds sekunder.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'For mange forsøk',
-            'body' => 'Vennligst forsøk igjen om :seconds sekunder.',
-        ],
-
-    ],
-
+  ],
 ];

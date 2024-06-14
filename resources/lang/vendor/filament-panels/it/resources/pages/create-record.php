@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Nuovo :label',
 
-    'title' => 'Nuovo :label',
+  'breadcrumb' => 'Nuovo',
 
-    'breadcrumb' => 'Nuovo',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annulla',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Salva',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annulla',
-            ],
-
-            'create' => [
-                'label' => 'Salva',
-            ],
-
-            'create_another' => [
-                'label' => 'Salva & nuovo',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Salva & nuovo',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Salvato',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Salvato',
     ],
-
+  ],
 ];

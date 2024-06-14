@@ -1,35 +1,30 @@
 <?php
 
 return [
+  'title' => 'Vahvista sähköpostiosoite',
 
-    'title' => 'Vahvista sähköpostiosoite',
+  'heading' => 'Vahvista sähköpostiosoite',
 
-    'heading' => 'Vahvista sähköpostiosoite',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'Lähetä uudelleen ',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'Etkö saanut lähettämäämme sähköpostia?',
+    'notification_sent' =>
+      'Sähköpostiin :email on lähetetty viesti joka sisältää ohjeet sähköpostiosoitteen vahvistamiseen.',
+  ],
 
-        'resend_notification' => [
-            'label' => 'Lähetä uudelleen ',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'Sähköposti on lähetetty uudelleen.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'Etkö saanut lähettämäämme sähköpostia?',
-        'notification_sent' => 'Sähköpostiin :email on lähetetty viesti joka sisältää ohjeet sähköpostiosoitteen vahvistamiseen.',
+    'notification_resend_throttled' => [
+      'title' => 'Liian monta lähetyksen yritystä',
+      'body' => 'Yritä uudelleen :seconds sekunnin kuluttua.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'Sähköposti on lähetetty uudelleen.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'Liian monta lähetyksen yritystä',
-            'body' => 'Yritä uudelleen :seconds sekunnin kuluttua.',
-        ],
-
-    ],
-
+  ],
 ];

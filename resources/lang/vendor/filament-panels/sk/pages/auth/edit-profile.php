@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Emailová adresa',
-        ],
-
-        'name' => [
-            'label' => 'Meno',
-        ],
-
-        'password' => [
-            'label' => 'Nové heslo',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Potvrdiť nové heslo',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Uložiť zmeny',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Emailová adresa',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Meno',
+    ],
 
-        'saved' => [
-            'title' => 'Uložené',
-        ],
+    'password' => [
+      'label' => 'Nové heslo',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Potvrdiť nové heslo',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Zrušiť',
-        ],
-
+      'save' => [
+        'label' => 'Uložiť zmeny',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Uložené',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Zrušiť',
+    ],
+  ],
 ];

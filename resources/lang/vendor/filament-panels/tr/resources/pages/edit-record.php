@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':label düzenle',
 
-    'title' => ':label düzenle',
+  'breadcrumb' => 'Düzenle',
 
-    'breadcrumb' => 'Düzenle',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'İptal',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'İptal',
-            ],
-
-            'save' => [
-                'label' => 'Değişiklikleri kaydet',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Değişiklikleri kaydet',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Düzenle',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Düzenle',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Kaydedildi',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Kaydedildi',
     ],
-
+  ],
 ];

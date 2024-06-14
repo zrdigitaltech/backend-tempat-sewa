@@ -29,106 +29,86 @@ use Filament\Tables\Actions\CreateAction;
 
 class KontakKamiResource extends Resource
 {
-    protected static ?string $model = KontakKami::class;
+  protected static ?string $model = KontakKami::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Contact Us';
+  protected static ?string $navigationLabel = 'Contact Us';
 
-    protected static ?string $navigationGroup = 'Contact Us';
+  protected static ?string $navigationGroup = 'Contact Us';
 
-    protected static ?int $navigationSort = 3;
+  protected static ?int $navigationSort = 3;
 
-    public static ?string $label = 'Contact Us';
+  public static ?string $label = 'Contact Us';
 
-    protected static ?string $slug = 'contact-us';
+  protected static ?string $slug = 'contact-us';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Card::make()
-                ->schema([
-                    TextArea::make('alamat')
-                        ->required()
-                        ->rows(3)
-                        ->maxLength(255),
-                    TextInput::make('no_telp')
-                        ->required()
-                        ->label('No Telp')
-                        ->tel()
-                        ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
-                        ->maxLength(255),
-                    TextInput::make('no_wa')
-                        ->required()
-                        ->label('No Whatsapp')
-                        ->tel()
-                        ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
-                        ->maxLength(255),
-                    TextInput::make('link_no_wa')
-                        ->label('Link No Whatsapp')
-                        ->url()
-                        ->maxLength(255),
-                    TextInput::make('jam_kerja')
-                        ->label('Working Hours')
-                        ->maxLength(255),
-                    TextInput::make('email')
-                        ->email()
-                        ->maxLength(255),
-                    TextInput::make('embed_google_map')
-                        ->label('Embed Google Map')
-                        ->url() 
-                        ->maxLength(255),
-                    TextInput::make('link_konfirmasi_wa')
-                        ->label('Link Konfirmasi Whatsapp')
-                        ->url() 
-                        ->maxLength(255),
-                ])->columnSpanFull()
-            ]);
-    }
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          TextArea::make('alamat')->required()->rows(3)->maxLength(255),
+          TextInput::make('no_telp')
+            ->required()
+            ->label('No Telp')
+            ->tel()
+            ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
+            ->maxLength(255),
+          TextInput::make('no_wa')
+            ->required()
+            ->label('No Whatsapp')
+            ->tel()
+            ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
+            ->maxLength(255),
+          TextInput::make('link_no_wa')->label('Link No Whatsapp')->url()->maxLength(255),
+          TextInput::make('jam_kerja')->label('Working Hours')->maxLength(255),
+          TextInput::make('email')->email()->maxLength(255),
+          TextInput::make('embed_google_map')->label('Embed Google Map')->url()->maxLength(255),
+          TextInput::make('link_konfirmasi_wa')
+            ->label('Link Konfirmasi Whatsapp')
+            ->url()
+            ->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-        ->paginated(false)
-            ->columns([
-                TextColumn::make('no_telp')
-                    ->label('No Telp'),
-                TextColumn::make('no_wa')
-                    ->label('No Whatsapp'),
-                TextColumn::make('alamat')
-                    ->words(7),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-              ViewAction::make(),
-              EditAction::make(),
-              DeleteAction::make(),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    CreateAction::make()
-                    ->createAnother(false)
-                ]),
-            ]);
-    }
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->paginated(false)
+      ->columns([
+        TextColumn::make('no_telp')->label('No Telp'),
+        TextColumn::make('no_wa')->label('No Whatsapp'),
+        TextColumn::make('alamat')->words(7),
+      ])
+      ->selectable(false)
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
+      ]);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListKontakKamis::route('/'),
-            'create' => Pages\CreateKontakKami::route('/create'),
-            'edit' => Pages\EditKontakKami::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListKontakKamis::route('/'),
+      'create' => Pages\CreateKontakKami::route('/create'),
+      'edit' => Pages\EditKontakKami::route('/{record}/edit'),
+    ];
+  }
 }

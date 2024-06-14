@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'התחברות',
 
-    'title' => 'התחברות',
+  'heading' => 'התחבר לחשבון שלך',
 
-    'heading' => 'התחבר לחשבון שלך',
+  'actions' => [
+    'register' => [
+      'before' => 'או',
+      'label' => 'הירשם לחשבון',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'שכחת את הסיסמה שלך?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'כתובת דואר אלקטרוני',
+    ],
+
+    'password' => [
+      'label' => 'סיסמה',
+    ],
+
+    'remember' => [
+      'label' => 'זכור אותי',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'או',
-            'label' => 'הירשם לחשבון',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'שכחת את הסיסמה שלך?',
-        ],
-
+      'authenticate' => [
+        'label' => 'התחבר',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'הפרטים שהזנת שגויים או לא קיימים.',
+  ],
 
-        'email' => [
-            'label' => 'כתובת דואר אלקטרוני',
-        ],
-
-        'password' => [
-            'label' => 'סיסמה',
-        ],
-
-        'remember' => [
-            'label' => 'זכור אותי',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'התחבר',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'יותר מידי ניסיונות התחברות. אנא נסה שוב מאוחר יותר.',
+      'body' => 'נסה שוב בעוד :seconds שניות.',
     ],
-
-    'messages' => [
-
-        'failed' => 'הפרטים שהזנת שגויים או לא קיימים.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'יותר מידי ניסיונות התחברות. אנא נסה שוב מאוחר יותר.',
-            'body' => 'נסה שוב בעוד :seconds שניות.',
-        ],
-
-    ],
-
+  ],
 ];

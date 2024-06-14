@@ -31,6 +31,7 @@ Cara menjalankan Website :
 - buka browser, ketikan url "localhost:8000"
 
 **Note**
+
 - php artisan db:seed --class=UsersTableSeeder
 - php artisan make:model Testimoni -m
 - php artisan make:filament-resource Layanan

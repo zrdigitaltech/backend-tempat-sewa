@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Nástenka',
 
-    'title' => 'Nástenka',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtre',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtre',
 
-        'filter' => [
-
-            'label' => 'Filtre',
-
-            'modal' => [
-
-                'heading' => 'Filtre',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Použiť',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Použiť',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

@@ -1,15 +1,11 @@
 <?php
 
 return [
-
-    'actions' => [
-
-        'logout' => [
-            'label' => 'Iziet',
-        ],
-
+  'actions' => [
+    'logout' => [
+      'label' => 'Iziet',
     ],
+  ],
 
-    'welcome' => 'Laipni lūdzam',
-
+  'welcome' => 'Laipni lūdzam',
 ];

@@ -9,16 +9,16 @@ use App\Models\AreaLayanan;
 
 class ListAreaLayanans extends ListRecords
 {
-    protected static string $resource = AreaLayananResource::class;
+  protected static string $resource = AreaLayananResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-        if (AreaLayanan::count() < 5) {
-            $actions[] = Actions\CreateAction::make();
-        }
-
-        return $actions;
+    if (AreaLayanan::count() < 5) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

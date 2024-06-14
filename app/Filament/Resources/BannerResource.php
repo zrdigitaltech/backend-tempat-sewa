@@ -28,78 +28,67 @@ use Filament\Tables\Actions\CreateAction;
 
 class BannerResource extends Resource
 {
-    protected static ?string $model = Banner::class;
+  protected static ?string $model = Banner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+  protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Banner';
+  protected static ?string $navigationLabel = 'Banner';
 
-    protected static ?string $navigationGroup = 'Home';
+  protected static ?string $navigationGroup = 'Home';
 
-    protected static ?int $navigationSort = 0;
+  protected static ?int $navigationSort = 0;
 
-    public static function form(Form $form): Form
-    {
-      return $form
-      ->schema([
-          Card::make()
-              ->schema([
-                  FileUpload::make('image')
-                      ->required()
-                      ->acceptedFileTypes(['image/*']),
-                  TextInput::make('title')
-                      ->maxLength(255),
-                  RichEditor::make('description')
-                      ->maxLength(255),
-                  TextInput::make('title_wa')
-                      ->label('Title Whatsapp')
-                      ->maxLength(255),
-                  TextInput::make('link_wa')
-                      ->label('Link Whatsapp')
-                      ->url() 
-                      ->maxLength(255),
-              ])->columnSpanFull()
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          FileUpload::make('image')
+            ->required()
+            ->acceptedFileTypes(['image/*']),
+          TextInput::make('title')->maxLength(255),
+          RichEditor::make('description')->maxLength(255),
+          TextInput::make('title_wa')->label('Title Whatsapp')->maxLength(255),
+          TextInput::make('link_wa')->label('Link Whatsapp')->url()->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
+
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->columns([
+        ImageColumn::make('image'),
+        TextColumn::make('title')->searchable(),
+        TextColumn::make('description'),
+      ])
+      ->defaultSort('created_at', 'desc')
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
       ]);
-    }
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-              ImageColumn::make('image'),
-              TextColumn::make('title'),
-              TextColumn::make('description'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    CreateAction::make()
-                    ->createAnother(false)
-                ]),
-            ]);
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListBanners::route('/'),
-            'create' => Pages\CreateBanner::route('/create'),
-            'edit' => Pages\EditBanner::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListBanners::route('/'),
+      'create' => Pages\CreateBanner::route('/create'),
+      'edit' => Pages\EditBanner::route('/{record}/edit'),
+    ];
+  }
 }

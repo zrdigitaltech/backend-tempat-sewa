@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Ubah :label',
 
-    'title' => 'Ubah :label',
+  'breadcrumb' => 'Ubah',
 
-    'breadcrumb' => 'Ubah',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Batal',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Batal',
-            ],
-
-            'save' => [
-                'label' => 'Simpan',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Simpan',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Ubah',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Ubah',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Data berhasil disimpan',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Data berhasil disimpan',
     ],
-
+  ],
 ];

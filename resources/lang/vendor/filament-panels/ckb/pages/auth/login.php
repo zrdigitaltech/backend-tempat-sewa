@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'چوونەژوورەوە',
 
-    'title' => 'چوونەژوورەوە',
+  'heading' => 'چوونەژوورەوە',
 
-    'heading' => 'چوونەژوورەوە',
+  'actions' => [
+    'register' => [
+      'before' => 'یان',
+      'label' => 'دروستکردنی هەژماری نوێ',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'وشەی نهێنیت لەبیرکردووە؟',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'ئیمەیڵ',
+    ],
+
+    'password' => [
+      'label' => 'وشەی نهێنی',
+    ],
+
+    'remember' => [
+      'label' => 'لەبیرم مەکە',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'یان',
-            'label' => 'دروستکردنی هەژماری نوێ',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'وشەی نهێنیت لەبیرکردووە؟',
-        ],
-
+      'authenticate' => [
+        'label' => 'چوونەژوورەوە',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'هیچ هەژمارێک بەو تۆمارە بوونی نییە.',
+  ],
 
-        'email' => [
-            'label' => 'ئیمەیڵ',
-        ],
-
-        'password' => [
-            'label' => 'وشەی نهێنی',
-        ],
-
-        'remember' => [
-            'label' => 'لەبیرم مەکە',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'چوونەژوورەوە',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'هەوڵی داواکاری چونەژورەوە زۆر نێردرا',
+      'body' => 'تکایە هەوڵ بدەرەوە دوای :seconds چرکە.',
     ],
-
-    'messages' => [
-
-        'failed' => 'هیچ هەژمارێک بەو تۆمارە بوونی نییە.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'هەوڵی داواکاری چونەژورەوە زۆر نێردرا',
-            'body' => 'تکایە هەوڵ بدەرەوە دوای :seconds چرکە.',
-        ],
-
-    ],
-
+  ],
 ];

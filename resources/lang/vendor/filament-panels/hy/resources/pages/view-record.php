@@ -1,9 +1,7 @@
 <?php
 
 return [
+  'title' => 'Դիտել :label',
 
-    'title' => 'Դիտել :label',
-
-    'breadcrumb' => 'Դիտել',
-
+  'breadcrumb' => 'Դիտել',
 ];

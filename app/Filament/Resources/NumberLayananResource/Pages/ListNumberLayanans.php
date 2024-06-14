@@ -9,16 +9,16 @@ use App\Models\NumberLayanan;
 
 class ListNumberLayanans extends ListRecords
 {
-    protected static string $resource = NumberLayananResource::class;
+  protected static string $resource = NumberLayananResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-        if (NumberLayanan::count() < 1) {
-            $actions[] = Actions\CreateAction::make();
-        }
-
-        return $actions;
+    if (NumberLayanan::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

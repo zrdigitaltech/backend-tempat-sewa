@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Cipta :label',
 
-    'title' => 'Cipta :label',
+  'breadcrumb' => 'Cipta',
 
-    'breadcrumb' => 'Cipta',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Batal',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Cipta',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Batal',
-            ],
-
-            'create' => [
-                'label' => 'Cipta',
-            ],
-
-            'create_another' => [
-                'label' => 'Cipta & cipta yang lain',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Cipta & cipta yang lain',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Diciptakan',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Diciptakan',
     ],
-
+  ],
 ];

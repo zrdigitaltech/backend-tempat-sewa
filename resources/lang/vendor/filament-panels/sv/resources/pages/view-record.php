@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Visa :label',
 
-    'title' => 'Visa :label',
+  'breadcrumb' => 'Visa',
 
-    'breadcrumb' => 'Visa',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Visa',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Visa',
     ],
-
+  ],
 ];

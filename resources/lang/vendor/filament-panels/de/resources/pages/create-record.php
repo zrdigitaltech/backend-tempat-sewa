@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => ':label erstellen',
 
-    'title' => ':label erstellen',
+  'breadcrumb' => 'Erstellen',
 
-    'breadcrumb' => 'Erstellen',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Abbrechen',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Erstellen',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Abbrechen',
-            ],
-
-            'create' => [
-                'label' => 'Erstellen',
-            ],
-
-            'create_another' => [
-                'label' => 'Erstellen & weiterer Eintrag',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Erstellen & weiterer Eintrag',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Erstellt',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Erstellt',
     ],
-
+  ],
 ];

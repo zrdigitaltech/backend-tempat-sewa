@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Genel arama',
+    'placeholder' => 'Ara',
+  ],
 
-    'field' => [
-        'label' => 'Genel arama',
-        'placeholder' => 'Ara',
-    ],
-
-    'no_results_message' => 'Sonuç bulunamadı.',
-
+  'no_results_message' => 'Sonuç bulunamadı.',
 ];

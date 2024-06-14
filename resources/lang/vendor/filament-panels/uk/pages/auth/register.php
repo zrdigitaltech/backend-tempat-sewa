@@ -1,56 +1,46 @@
 <?php
 
 return [
+  'title' => 'Зареєструйтеся',
 
-    'title' => 'Зареєструйтеся',
+  'heading' => 'Зареєструйтеся',
 
-    'heading' => 'Зареєструйтеся',
+  'actions' => [
+    'login' => [
+      'before' => 'або',
+      'label' => 'ввійдіть у свій акаунт',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Електронна пошта',
+    ],
+
+    'name' => [
+      'label' => 'Ім\'я',
+    ],
+
+    'password' => [
+      'label' => 'Пароль',
+      'validation_attribute' => 'пароль',
+    ],
+
+    'password_confirmation' => [
+      'label' => 'Введіть пароль ще раз',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'before' => 'або',
-            'label' => 'ввійдіть у свій акаунт',
-        ],
-
+      'register' => [
+        'label' => 'Зареєструватися',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Електронна пошта',
-        ],
-
-        'name' => [
-            'label' => 'Ім\'я',
-        ],
-
-        'password' => [
-            'label' => 'Пароль',
-            'validation_attribute' => 'пароль',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Введіть пароль ще раз',
-        ],
-
-        'actions' => [
-
-            'register' => [
-                'label' => 'Зареєструватися',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Забагато спроб зареєструватися',
+      'body' => 'Будь ласка, спробуйте ще раз через :seconds секунд.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Забагато спроб зареєструватися',
-            'body' => 'Будь ласка, спробуйте ще раз через :seconds секунд.',
-        ],
-
-    ],
-
+  ],
 ];

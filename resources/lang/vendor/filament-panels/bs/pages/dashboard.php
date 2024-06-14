@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => 'Nadzorna ploča',
-
+  'title' => 'Nadzorna ploča',
 ];

@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-poçt ünvanı',
-        ],
-
-        'name' => [
-            'label' => 'Ad',
-        ],
-
-        'password' => [
-            'label' => 'Yeni şifrə',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Yeni şifrəni təsdiqlə',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Dəyişiklikləri Yadda Saxla',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-poçt ünvanı',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Ad',
+    ],
 
-        'saved' => [
-            'title' => 'Yadda saxlanıldı',
-        ],
+    'password' => [
+      'label' => 'Yeni şifrə',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Yeni şifrəni təsdiqlə',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'İmtina',
-        ],
-
+      'save' => [
+        'label' => 'Dəyişiklikləri Yadda Saxla',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Yadda saxlanıldı',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'İmtina',
+    ],
+  ],
 ];

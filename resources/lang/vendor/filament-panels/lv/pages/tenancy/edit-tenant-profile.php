@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Saglabāt izmaiņas',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Saglabāt izmaiņas',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Izmaiņas saglabātas',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Izmaiņas saglabātas',
     ],
-
+  ],
 ];

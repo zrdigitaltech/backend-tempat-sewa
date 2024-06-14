@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => ':label göstər',
 
-    'title' => ':label göstər',
+  'breadcrumb' => 'Göstər',
 
-    'breadcrumb' => 'Göstər',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Göstər',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Göstər',
     ],
-
+  ],
 ];

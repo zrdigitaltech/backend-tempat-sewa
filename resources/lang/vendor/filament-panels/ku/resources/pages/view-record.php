@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'بینینی :label',
 
-    'title' => 'بینینی :label',
+  'breadcrumb' => 'بینین',
 
-    'breadcrumb' => 'بینین',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'بینین',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'بینین',
     ],
-
+  ],
 ];

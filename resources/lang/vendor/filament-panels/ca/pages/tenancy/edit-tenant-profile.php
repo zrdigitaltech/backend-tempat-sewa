@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Desar canvis',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Desar canvis',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Canvis desats',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Canvis desats',
     ],
-
+  ],
 ];

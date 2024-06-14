@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => 'Panel',
-
+  'title' => 'Panel',
 ];

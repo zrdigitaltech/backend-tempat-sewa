@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Opret :label',
 
-    'title' => 'Opret :label',
+  'breadcrumb' => 'Opret',
 
-    'breadcrumb' => 'Opret',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annuller',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Opret',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annuller',
-            ],
-
-            'create' => [
-                'label' => 'Opret',
-            ],
-
-            'create_another' => [
-                'label' => 'Opret & opret en mere',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Opret & opret en mere',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Oprettet',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Oprettet',
     ],
-
+  ],
 ];

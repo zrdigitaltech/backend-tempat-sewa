@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Podgląd :label',
 
-    'title' => 'Podgląd :label',
+  'breadcrumb' => 'Podgląd',
 
-    'breadcrumb' => 'Podgląd',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Podgląd',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Podgląd',
     ],
-
+  ],
 ];

@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => ':labelni ko\'rish',
 
-    'title' => ':labelni ko\'rish',
+  'breadcrumb' => 'Ko\'rish',
 
-    'breadcrumb' => 'Ko\'rish',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Ko\'rish',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Ko\'rish',
     ],
-
+  ],
 ];

@@ -1,47 +1,38 @@
 <?php
 
 return [
+  'title' => 'Ingia',
 
-    'title' => 'Ingia',
+  'heading' => 'Ingia kwenye akaunti yako',
 
-    'heading' => 'Ingia kwenye akaunti yako',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Barua pepe',
-        ],
-
-        'password' => [
-            'label' => 'Nenosiri',
-        ],
-
-        'remember' => [
-            'label' => 'Nikumbuke',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Ingia',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Barua pepe',
     ],
 
-    'messages' => [
-
-        'failed' => 'Hati hizi hazilingani na rekodi zetu.',
-
+    'password' => [
+      'label' => 'Nenosiri',
     ],
 
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Majaribio mengi sana ya kuingia. Tafadhali jaribu tena ndani ya sekunde :seconds.',
-        ],
-
+    'remember' => [
+      'label' => 'Nikumbuke',
     ],
 
+    'actions' => [
+      'authenticate' => [
+        'label' => 'Ingia',
+      ],
+    ],
+  ],
+
+  'messages' => [
+    'failed' => 'Hati hizi hazilingani na rekodi zetu.',
+  ],
+
+  'notifications' => [
+    'throttled' => [
+      'title' =>
+        'Majaribio mengi sana ya kuingia. Tafadhali jaribu tena ndani ya sekunde :seconds.',
+    ],
+  ],
 ];

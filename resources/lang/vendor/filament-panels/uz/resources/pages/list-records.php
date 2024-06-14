@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'Ro\'yxat',
-
+  'breadcrumb' => 'Ro\'yxat',
 ];

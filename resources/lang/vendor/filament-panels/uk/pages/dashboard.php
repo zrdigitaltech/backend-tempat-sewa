@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Інфопанель',
 
-    'title' => 'Інфопанель',
+  'actions' => [
+    'filter' => [
+      'label' => 'Фільтр',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Фільтр',
 
-        'filter' => [
-
-            'label' => 'Фільтр',
-
-            'modal' => [
-
-                'heading' => 'Фільтр',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Застосувати',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Застосувати',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

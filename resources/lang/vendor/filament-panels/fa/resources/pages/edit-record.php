@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'ویرایش :label',
 
-    'title' => 'ویرایش :label',
+  'breadcrumb' => 'ویرایش',
 
-    'breadcrumb' => 'ویرایش',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'لغو',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'لغو',
-            ],
-
-            'save' => [
-                'label' => 'ذخیره',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'ذخیره',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'ویرایش',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'ویرایش',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'ذخیره شد',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'ذخیره شد',
     ],
-
+  ],
 ];

@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Tạo :label',
 
-    'title' => 'Tạo :label',
+  'breadcrumb' => 'Tạo',
 
-    'breadcrumb' => 'Tạo',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Quay lại',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Tạo',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Quay lại',
-            ],
-
-            'create' => [
-                'label' => 'Tạo',
-            ],
-
-            'create_another' => [
-                'label' => 'Tạo & tạo thêm',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Tạo & tạo thêm',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Đã tạo',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Đã tạo',
     ],
-
+  ],
 ];

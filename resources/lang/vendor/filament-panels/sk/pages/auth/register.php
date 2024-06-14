@@ -1,56 +1,46 @@
 <?php
 
 return [
+  'title' => 'Registrácia',
 
-    'title' => 'Registrácia',
+  'heading' => 'Registrujte sa',
 
-    'heading' => 'Registrujte sa',
+  'actions' => [
+    'login' => [
+      'before' => 'alebo',
+      'label' => 'sa prihláste do svojho účtu',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Emailová adresa',
+    ],
+
+    'name' => [
+      'label' => 'Meno',
+    ],
+
+    'password' => [
+      'label' => 'Heslo',
+      'validation_attribute' => 'password',
+    ],
+
+    'password_confirmation' => [
+      'label' => 'Potvrdenie hesla',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'before' => 'alebo',
-            'label' => 'sa prihláste do svojho účtu',
-        ],
-
+      'register' => [
+        'label' => 'Prihlásiť sa',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Emailová adresa',
-        ],
-
-        'name' => [
-            'label' => 'Meno',
-        ],
-
-        'password' => [
-            'label' => 'Heslo',
-            'validation_attribute' => 'password',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Potvrdenie hesla',
-        ],
-
-        'actions' => [
-
-            'register' => [
-                'label' => 'Prihlásiť sa',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Príliš veľa pokusov o registráciu',
+      'body' => 'Prosím vyskúšajte to o :seconds sekúnd.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Príliš veľa pokusov o registráciu',
-            'body' => 'Prosím vyskúšajte to o :seconds sekúnd.',
-        ],
-
-    ],
-
+  ],
 ];

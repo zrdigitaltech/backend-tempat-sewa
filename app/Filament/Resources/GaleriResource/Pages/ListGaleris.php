@@ -8,12 +8,10 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListGaleris extends ListRecords
 {
-    protected static string $resource = GaleriResource::class;
+  protected static string $resource = GaleriResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\CreateAction::make()];
+  }
 }

@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'បញ្ជី',
-
+  'breadcrumb' => 'បញ្ជី',
 ];

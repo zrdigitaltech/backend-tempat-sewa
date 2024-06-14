@@ -9,16 +9,16 @@ use App\Models\TentangKami;
 
 class ListTentangKamis extends ListRecords
 {
-    protected static string $resource = TentangKamiResource::class;
+  protected static string $resource = TentangKamiResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-        if (TentangKami::count() < 1) {
-            $actions[] = Actions\CreateAction::make();
-        }
-
-        return $actions;
+    if (TentangKami::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

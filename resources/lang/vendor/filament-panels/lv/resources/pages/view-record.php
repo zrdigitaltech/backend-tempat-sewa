@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Skatīt :label',
 
-    'title' => 'Skatīt :label',
+  'breadcrumb' => 'Skatīt',
 
-    'breadcrumb' => 'Skatīt',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Skatīt',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Skatīt',
     ],
-
+  ],
 ];

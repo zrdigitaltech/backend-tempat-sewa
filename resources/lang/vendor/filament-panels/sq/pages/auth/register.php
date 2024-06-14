@@ -1,56 +1,46 @@
 <?php
 
 return [
+  'title' => 'Regjistrohu',
 
-    'title' => 'Regjistrohu',
+  'heading' => 'Regjistrohu',
 
-    'heading' => 'Regjistrohu',
+  'actions' => [
+    'login' => [
+      'before' => 'ose',
+      'label' => 'hyni në llogarinë tuaj',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Adresa e emailit',
+    ],
+
+    'name' => [
+      'label' => 'Emri',
+    ],
+
+    'password' => [
+      'label' => 'Fjalëkalimi',
+      'validation_attribute' => 'fjalëkalimi',
+    ],
+
+    'password_confirmation' => [
+      'label' => 'Konfirmo fjalëkalimin',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'before' => 'ose',
-            'label' => 'hyni në llogarinë tuaj',
-        ],
-
+      'register' => [
+        'label' => 'Regjistrohu',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Adresa e emailit',
-        ],
-
-        'name' => [
-            'label' => 'Emri',
-        ],
-
-        'password' => [
-            'label' => 'Fjalëkalimi',
-            'validation_attribute' => 'fjalëkalimi',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Konfirmo fjalëkalimin',
-        ],
-
-        'actions' => [
-
-            'register' => [
-                'label' => 'Regjistrohu',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Too many registration attempts',
+      'body' => 'Please try again in :seconds seconds.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Too many registration attempts',
-            'body' => 'Please try again in :seconds seconds.',
-        ],
-
-    ],
-
+  ],
 ];

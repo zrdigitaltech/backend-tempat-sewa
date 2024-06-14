@@ -1,32 +1,21 @@
 <?php
 
 return [
+  'title' => 'Bảng điều khiển',
 
-    'title' => 'Bảng điều khiển',
+  'actions' => [
+    'filter' => [
+      'label' => 'Bộ lọc',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Bộ lọc',
 
-        'filter' => [
-
-            'label' => 'Bộ lọc',
-
-            'modal' => [
-
-                'heading' => 'Bộ lọc',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Áp dụng',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Áp dụng',
+          ],
         ],
-
+      ],
     ],
+  ],
 ];

@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Globale Suche',
+    'placeholder' => 'Suchen',
+  ],
 
-    'field' => [
-        'label' => 'Globale Suche',
-        'placeholder' => 'Suchen',
-    ],
-
-    'no_results_message' => 'Keine Ergebnisse gefunden.',
-
+  'no_results_message' => 'Keine Ergebnisse gefunden.',
 ];

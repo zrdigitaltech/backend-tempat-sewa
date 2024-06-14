@@ -1,43 +1,35 @@
 <?php
 
 return [
+  'title' => 'Zresetuj hasło',
 
-    'title' => 'Zresetuj hasło',
+  'heading' => 'Resetowanie hasła',
 
-    'heading' => 'Resetowanie hasła',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Adres e-mail',
-        ],
-
-        'password' => [
-            'label' => 'Hasło',
-            'validation_attribute' => 'hasło',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Potwierdź hasło',
-        ],
-
-        'actions' => [
-
-            'reset' => [
-                'label' => 'Zresetuj hasło',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Adres e-mail',
     ],
 
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Zbyt wiele prób resetowania',
-            'body' => 'Spróbuj ponownie za :seconds sekund.',
-        ],
-
+    'password' => [
+      'label' => 'Hasło',
+      'validation_attribute' => 'hasło',
     ],
 
+    'password_confirmation' => [
+      'label' => 'Potwierdź hasło',
+    ],
+
+    'actions' => [
+      'reset' => [
+        'label' => 'Zresetuj hasło',
+      ],
+    ],
+  ],
+
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Zbyt wiele prób resetowania',
+      'body' => 'Spróbuj ponownie za :seconds sekund.',
+    ],
+  ],
 ];

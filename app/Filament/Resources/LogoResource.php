@@ -28,69 +28,61 @@ use Filament\Tables\Actions\CreateAction;
 
 class LogoResource extends Resource
 {
-    protected static ?string $model = Logo::class;
+  protected static ?string $model = Logo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+  protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Logo';
+  protected static ?string $navigationLabel = 'Logo';
 
-    protected static ?int $navigationSort = 1;
+  protected static ?int $navigationSort = 1;
 
-    protected static int $globalSearchResultsLimit = 1;
+  protected static int $globalSearchResultsLimit = 1;
 
-    public static function form(Form $form): Form
-    {
-      return $form
-      ->schema([
-          Card::make()
-              ->schema([
-                  FileUpload::make('image')
-                      ->required()
-                      ->acceptedFileTypes(['image/*']),
-                  TextInput::make('alt')
-                      ->default('Mekanik Elektro')
-                      ->maxLength(255),
-              ])->columnSpanFull()
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          FileUpload::make('image')
+            ->required()
+            ->acceptedFileTypes(['image/*']),
+          TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
+
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->paginated(false)
+      ->selectable(false)
+      ->columns([ImageColumn::make('image'), TextColumn::make('alt')])
+      ->filters([
+        //
+      ])
+      ->actions([EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
       ]);
-    }
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->paginated(false)
-            ->columns([
-              ImageColumn::make('image'),
-              TextColumn::make('alt'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    CreateAction::make()
-                    ->createAnother(false)
-                ]),
-            ]);
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListLogos::route('/'),
-            'create' => Pages\CreateLogo::route('/create'),
-            'edit' => Pages\EditLogo::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListLogos::route('/'),
+      'create' => Pages\CreateLogo::route('/create'),
+      'edit' => Pages\EditLogo::route('/{record}/edit'),
+    ];
+  }
 }

@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'צור :label',
 
-    'title' => 'צור :label',
+  'breadcrumb' => 'חדש',
 
-    'breadcrumb' => 'חדש',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'ביטול',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'יצירה',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'ביטול',
-            ],
-
-            'create' => [
-                'label' => 'יצירה',
-            ],
-
-            'create_another' => [
-                'label' => 'צור ואז עוד אחד',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'צור ואז עוד אחד',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'נוצר',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'נוצר',
     ],
-
+  ],
 ];

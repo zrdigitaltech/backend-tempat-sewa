@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Redigera :label',
 
-    'title' => 'Redigera :label',
+  'breadcrumb' => 'Redigera',
 
-    'breadcrumb' => 'Redigera',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Avbryt',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Avbryt',
-            ],
-
-            'save' => [
-                'label' => 'Spara ändringar',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Spara ändringar',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Redigera',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Redigera',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Sparades',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Sparades',
     ],
-
+  ],
 ];

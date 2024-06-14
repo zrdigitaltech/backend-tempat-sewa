@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Email cím',
-        ],
-
-        'name' => [
-            'label' => 'Név',
-        ],
-
-        'password' => [
-            'label' => 'Új jelszó',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Új jelszó megerősítése',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Mentés',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Email cím',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Név',
+    ],
 
-        'saved' => [
-            'title' => 'Mentve',
-        ],
+    'password' => [
+      'label' => 'Új jelszó',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Új jelszó megerősítése',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Mégsem',
-        ],
-
+      'save' => [
+        'label' => 'Mentés',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Mentve',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Mégsem',
+    ],
+  ],
 ];

@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Hyr',
 
-    'title' => 'Hyr',
+  'heading' => 'Hyr',
 
-    'heading' => 'Hyr',
+  'actions' => [
+    'register' => [
+      'before' => 'ose',
+      'label' => 'rregjistro një llogari të re',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Keni harruar fjalëkalimin?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Email',
+    ],
+
+    'password' => [
+      'label' => 'Fjalëkalimin',
+    ],
+
+    'remember' => [
+      'label' => 'Mbaj mend fjalëkalimin',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'ose',
-            'label' => 'rregjistro një llogari të re',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Keni harruar fjalëkalimin?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Hyr',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Këto kredenciale nuk përputhen me të dhënat tona.',
+  ],
 
-        'email' => [
-            'label' => 'Email',
-        ],
-
-        'password' => [
-            'label' => 'Fjalëkalimin',
-        ],
-
-        'remember' => [
-            'label' => 'Mbaj mend fjalëkalimin',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Hyr',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Shumë përpjekje për hyrje',
+      'body' => 'Ju lutemi provoni përsëri në :seconds sekonda.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Këto kredenciale nuk përputhen me të dhënat tona.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Shumë përpjekje për hyrje',
-            'body' => 'Ju lutemi provoni përsëri në :seconds sekonda.',
-        ],
-
-    ],
-
+  ],
 ];

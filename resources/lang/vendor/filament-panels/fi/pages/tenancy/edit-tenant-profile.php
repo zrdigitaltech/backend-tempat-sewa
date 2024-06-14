@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Tallenna muutokset',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Tallenna muutokset',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Tallennettu',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Tallennettu',
     ],
-
+  ],
 ];

@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profili',
 
-    'label' => 'Profili',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Emaili',
-        ],
-
-        'name' => [
-            'label' => 'Emri',
-        ],
-
-        'password' => [
-            'label' => 'Fjalëkalim i ri',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Konfirmo fjalëkalimin e ri',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Ruaj ndryshimet',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Emaili',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Emri',
+    ],
 
-        'saved' => [
-            'title' => 'U ruajt',
-        ],
+    'password' => [
+      'label' => 'Fjalëkalim i ri',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Konfirmo fjalëkalimin e ri',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Mbrapa',
-        ],
-
+      'save' => [
+        'label' => 'Ruaj ndryshimet',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'U ruajt',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Mbrapa',
+    ],
+  ],
 ];

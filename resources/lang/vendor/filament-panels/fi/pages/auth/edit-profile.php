@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profiili',
 
-    'label' => 'Profiili',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Sähköpostiosoite',
-        ],
-
-        'name' => [
-            'label' => 'Nimi',
-        ],
-
-        'password' => [
-            'label' => 'Uusi salasana',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Vahvista salasana',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Tallenna muutokset',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Sähköpostiosoite',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Nimi',
+    ],
 
-        'saved' => [
-            'title' => 'Tallennettu',
-        ],
+    'password' => [
+      'label' => 'Uusi salasana',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Vahvista salasana',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Takaisin',
-        ],
-
+      'save' => [
+        'label' => 'Tallenna muutokset',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Tallennettu',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Takaisin',
+    ],
+  ],
 ];

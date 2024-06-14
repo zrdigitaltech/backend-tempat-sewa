@@ -8,7 +8,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateGaleri extends CreateRecord
 {
-    protected static string $resource = GaleriResource::class;
+  protected static string $resource = GaleriResource::class;
 
-    protected static bool $canCreateAnother = false;
+  protected static bool $canCreateAnother = false;
 }

@@ -26,87 +26,81 @@ use Filament\Tables\Actions\CreateAction;
 
 class NumberLayananResource extends Resource
 {
-    protected static ?string $model = NumberLayanan::class;
+  protected static ?string $model = NumberLayanan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-information-circle';
+  protected static ?string $navigationIcon = 'heroicon-s-information-circle';
 
-    protected static ?string $navigationLabel = 'Number Layanan';
+  protected static ?string $navigationLabel = 'Number Layanan';
 
-    protected static ?string $navigationGroup = 'Home';
+  protected static ?string $navigationGroup = 'Home';
 
-    protected static ?int $navigationSort = 1;
+  protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
-    {
-      return $form
-          ->schema([
-              Card::make()
-                  ->schema([
-                      TextInput::make('tahun_pengalaman')
-                          ->label('Years Experience')
-                          ->required()
-                          ->numeric()
-                          ->maxLength(255),
-                      TextArea::make('description_pengalaman')
-                          ->label('Description Experience')
-                          ->required()
-                          ->maxLength(255),
-                      TextArea::make('certification_description')
-                          ->label('Description Certification')
-                          ->required()
-                          ->maxLength(255),
-                      TextArea::make('operasional_description')
-                          ->label('Description Operational')
-                          ->required()
-                          ->maxLength(255),
-                      TextArea::make('harga_wajar_description')
-                          ->label('Description Price')
-                          ->required()
-                          ->maxLength(255),
-                  ])->columnSpanFull()
-          ]);
-    }
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          TextInput::make('tahun_pengalaman')
+            ->label('Years Experience')
+            ->required()
+            ->numeric()
+            ->maxLength(255),
+          TextArea::make('description_pengalaman')
+            ->label('Description Experience')
+            ->required()
+            ->maxLength(255),
+          TextArea::make('certification_description')
+            ->label('Description Certification')
+            ->required()
+            ->maxLength(255),
+          TextArea::make('operasional_description')
+            ->label('Description Operational')
+            ->required()
+            ->maxLength(255),
+          TextArea::make('harga_wajar_description')
+            ->label('Description Price')
+            ->required()
+            ->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->paginated(false)
-            ->columns([
-              TextColumn::make('tahun_pengalaman')
-                ->label('Years Experience'),
-              TextColumn::make('description_pengalaman')
-                ->label('Description Experience'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    CreateAction::make()
-                    ->createAnother(false)
-                ]),
-            ]);
-    }
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->paginated(false)
+      ->selectable(false)
+      ->columns([
+        TextColumn::make('tahun_pengalaman')->label('Years Experience'),
+        TextColumn::make('description_pengalaman')->label('Description Experience'),
+      ])
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
+      ]);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListNumberLayanans::route('/'),
-            'create' => Pages\CreateNumberLayanan::route('/create'),
-            'edit' => Pages\EditNumberLayanan::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListNumberLayanans::route('/'),
+      'create' => Pages\CreateNumberLayanan::route('/create'),
+      'edit' => Pages\EditNumberLayanan::route('/{record}/edit'),
+    ];
+  }
 }

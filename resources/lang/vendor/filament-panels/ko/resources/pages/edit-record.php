@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':label 수정',
 
-    'title' => ':label 수정',
+  'breadcrumb' => '수정',
 
-    'breadcrumb' => '수정',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => '취소',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => '취소',
-            ],
-
-            'save' => [
-                'label' => '저장',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => '저장',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => '수정',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => '수정',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => '저장 완료',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => '저장 완료',
     ],
-
+  ],
 ];

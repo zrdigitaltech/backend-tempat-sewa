@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Dəyişiklikləri Yadda Saxla',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Dəyişiklikləri Yadda Saxla',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Yadda Saxlanıldı',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Yadda Saxlanıldı',
     ],
-
+  ],
 ];

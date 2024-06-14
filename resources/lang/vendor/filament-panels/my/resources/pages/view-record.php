@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'စစ်ဆေးပါ',
-
+  'breadcrumb' => 'စစ်ဆေးပါ',
 ];

@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Logg inn',
 
-    'title' => 'Logg inn',
+  'heading' => 'Logg inn på konto',
 
-    'heading' => 'Logg inn på konto',
+  'actions' => [
+    'register' => [
+      'before' => 'eller',
+      'label' => 'opprett ny konto',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Glemt passordet?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-postedresse',
+    ],
+
+    'password' => [
+      'label' => 'Passord',
+    ],
+
+    'remember' => [
+      'label' => 'Husk meg',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'eller',
-            'label' => 'opprett ny konto',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Glemt passordet?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Logg inn',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Påloggingsinformasjonen stemmer ikke med våre data',
+  ],
 
-        'email' => [
-            'label' => 'E-postedresse',
-        ],
-
-        'password' => [
-            'label' => 'Passord',
-        ],
-
-        'remember' => [
-            'label' => 'Husk meg',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Logg inn',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'For mange forsøk på innlogging.',
+      'body' => 'Vennligst prøv igjen om :seconds sekunder.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Påloggingsinformasjonen stemmer ikke med våre data',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'For mange forsøk på innlogging.',
-            'body' => 'Vennligst prøv igjen om :seconds sekunder.',
-        ],
-
-    ],
-
+  ],
 ];

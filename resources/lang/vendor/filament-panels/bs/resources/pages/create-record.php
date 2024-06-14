@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Napravi :label',
 
-    'title' => 'Napravi :label',
+  'breadcrumb' => 'Napravi',
 
-    'breadcrumb' => 'Napravi',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Prekiniti',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Napraviti',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Prekiniti',
-            ],
-
-            'create' => [
-                'label' => 'Napraviti',
-            ],
-
-            'create_another' => [
-                'label' => 'Napravi i napravi još jedan',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Napravi i napravi još jedan',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Uspješno kreirano',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Uspješno kreirano',
     ],
-
+  ],
 ];

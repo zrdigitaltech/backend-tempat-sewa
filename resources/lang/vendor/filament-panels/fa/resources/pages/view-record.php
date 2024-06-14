@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'مشاهده :label',
 
-    'title' => 'مشاهده :label',
+  'breadcrumb' => 'مشاهده',
 
-    'breadcrumb' => 'مشاهده',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'مشاهده',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'مشاهده',
     ],
-
+  ],
 ];

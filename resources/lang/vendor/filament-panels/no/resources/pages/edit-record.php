@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Endre :label',
 
-    'title' => 'Endre :label',
+  'breadcrumb' => 'Endre',
 
-    'breadcrumb' => 'Endre',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Avbryt',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Avbryt',
-            ],
-
-            'save' => [
-                'label' => 'Lagre endringer',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Lagre endringer',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Endre',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Endre',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Lagret',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Lagret',
     ],
-
+  ],
 ];

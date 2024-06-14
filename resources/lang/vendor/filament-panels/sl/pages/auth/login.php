@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Prijava',
 
-    'title' => 'Prijava',
+  'heading' => 'Prijava',
 
-    'heading' => 'Prijava',
+  'actions' => [
+    'register' => [
+      'before' => 'ali',
+      'label' => 'ustvarite račun',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Ste pozabili geslo?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-poštni naslov',
+    ],
+
+    'password' => [
+      'label' => 'Geslo',
+    ],
+
+    'remember' => [
+      'label' => 'Zapomni si me',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'ali',
-            'label' => 'ustvarite račun',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Ste pozabili geslo?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Prijava',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Ti podatki se ne ujemajo z našimi.',
+  ],
 
-        'email' => [
-            'label' => 'E-poštni naslov',
-        ],
-
-        'password' => [
-            'label' => 'Geslo',
-        ],
-
-        'remember' => [
-            'label' => 'Zapomni si me',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Prijava',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Preveč poskusov prijave',
+      'body' => 'Poskusite znova čez :seconds sekund.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Ti podatki se ne ujemajo z našimi.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Preveč poskusov prijave',
-            'body' => 'Poskusite znova čez :seconds sekund.',
-        ],
-
-    ],
-
+  ],
 ];

@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Muokkaa :label',
 
-    'title' => 'Muokkaa :label',
+  'breadcrumb' => 'Muokkaa',
 
-    'breadcrumb' => 'Muokkaa',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Peruuta',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Peruuta',
-            ],
-
-            'save' => [
-                'label' => 'Tallenna',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Tallenna',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Muokkaa',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Muokkaa',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Tallennettu',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Tallennettu',
     ],
-
+  ],
 ];

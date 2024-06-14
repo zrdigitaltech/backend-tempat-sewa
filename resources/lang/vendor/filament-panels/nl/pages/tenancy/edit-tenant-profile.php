@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Wijzigingen opslaan',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Wijzigingen opslaan',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Opgeslagen',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Opgeslagen',
     ],
-
+  ],
 ];

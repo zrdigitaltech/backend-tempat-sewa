@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Gem ændringer',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Gem ændringer',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Gemt',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Gemt',
     ],
-
+  ],
 ];

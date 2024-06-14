@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'title' => 'Genel Bakış',
-
+  'title' => 'Genel Bakış',
 ];

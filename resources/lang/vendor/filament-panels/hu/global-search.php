@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Globális keresés',
+    'placeholder' => 'Keresés',
+  ],
 
-    'field' => [
-        'label' => 'Globális keresés',
-        'placeholder' => 'Keresés',
-    ],
-
-    'no_results_message' => 'Nincs találat',
-
+  'no_results_message' => 'Nincs találat',
 ];

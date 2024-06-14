@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Ohjausnäkymä',
 
-    'title' => 'Ohjausnäkymä',
+  'actions' => [
+    'filter' => [
+      'label' => 'Suodatin',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Suodatin',
 
-        'filter' => [
-
-            'label' => 'Suodatin',
-
-            'modal' => [
-
-                'heading' => 'Suodatin',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Käytä',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Käytä',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

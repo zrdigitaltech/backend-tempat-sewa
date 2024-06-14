@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Global search',
+    'placeholder' => 'Search',
+  ],
 
-    'field' => [
-        'label' => 'Global search',
-        'placeholder' => 'Search',
-    ],
-
-    'no_results_message' => 'No search results found.',
-
+  'no_results_message' => 'No search results found.',
 ];

@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Global qidiruv',
+    'placeholder' => 'Qidirish',
+  ],
 
-    'field' => [
-        'label' => 'Global qidiruv',
-        'placeholder' => 'Qidirish',
-    ],
-
-    'no_results_message' => 'Hech narsa topilmadi.',
-
+  'no_results_message' => 'Hech narsa topilmadi.',
 ];

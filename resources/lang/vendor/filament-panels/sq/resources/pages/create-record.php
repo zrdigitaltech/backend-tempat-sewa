@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Krijo :label',
 
-    'title' => 'Krijo :label',
+  'breadcrumb' => 'Krijo',
 
-    'breadcrumb' => 'Krijo',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Anulo',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Krijo',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Anulo',
-            ],
-
-            'create' => [
-                'label' => 'Krijo',
-            ],
-
-            'create_another' => [
-                'label' => 'Krijo & krijo një tjetër',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Krijo & krijo një tjetër',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'U krijua',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'U krijua',
     ],
-
+  ],
 ];

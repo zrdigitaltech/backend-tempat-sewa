@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Змінити :label',
 
-    'title' => 'Змінити :label',
+  'breadcrumb' => 'Змінити',
 
-    'breadcrumb' => 'Змінити',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Скасувати',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Скасувати',
-            ],
-
-            'save' => [
-                'label' => 'Зберегти',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Зберегти',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Змінити',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Змінити',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Збережено',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Збережено',
     ],
-
+  ],
 ];

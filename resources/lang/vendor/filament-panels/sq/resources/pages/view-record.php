@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Pamje :label',
 
-    'title' => 'Pamje :label',
+  'breadcrumb' => 'Pamje',
 
-    'breadcrumb' => 'Pamje',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Pamje',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Pamje',
     ],
-
+  ],
 ];

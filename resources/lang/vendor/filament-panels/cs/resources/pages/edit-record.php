@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Upravit :label',
 
-    'title' => 'Upravit :label',
+  'breadcrumb' => 'Upravit',
 
-    'breadcrumb' => 'Upravit',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Zrušit',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Zrušit',
-            ],
-
-            'save' => [
-                'label' => 'Uložit',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Uložit',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Upravit',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Upravit',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Uloženo',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Uloženo',
     ],
-
+  ],
 ];

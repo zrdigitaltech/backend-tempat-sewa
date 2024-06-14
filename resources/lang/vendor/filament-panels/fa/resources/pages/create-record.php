@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'ایجاد :label',
 
-    'title' => 'ایجاد :label',
+  'breadcrumb' => 'ایجاد',
 
-    'breadcrumb' => 'ایجاد',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'لغو',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'ایجاد',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'لغو',
-            ],
-
-            'create' => [
-                'label' => 'ایجاد',
-            ],
-
-            'create_another' => [
-                'label' => 'ایجاد و ایجاد یکی دیگر',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'ایجاد و ایجاد یکی دیگر',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'ایجاد شد',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'ایجاد شد',
     ],
-
+  ],
 ];

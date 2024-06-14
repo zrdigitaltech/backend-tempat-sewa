@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Wachtwoord opnieuw instellen',
 
-    'title' => 'Wachtwoord opnieuw instellen',
+  'heading' => 'Wachtwoord vergeten?',
 
-    'heading' => 'Wachtwoord vergeten?',
+  'actions' => [
+    'login' => [
+      'label' => 'terug naar inloggen',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-mailadres',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'terug naar inloggen',
-        ],
-
+      'request' => [
+        'label' => 'E-mail verzenden',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'E-mailadres',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'E-mail verzenden',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Te veel pogingen',
+      'body' => 'Probeer het opnieuw over :seconds seconden.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Te veel pogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
-        ],
-
-    ],
-
+  ],
 ];

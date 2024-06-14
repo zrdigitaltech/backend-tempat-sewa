@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Autentificare',
 
-    'title' => 'Autentificare',
+  'heading' => 'Loghează-te în contul tau',
 
-    'heading' => 'Loghează-te în contul tau',
+  'actions' => [
+    'register' => [
+      'before' => 'sau',
+      'label' => 'creează cont',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Ai uitat parola?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Email',
+    ],
+
+    'password' => [
+      'label' => 'Parola',
+    ],
+
+    'remember' => [
+      'label' => 'Ține-mă minte',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'sau',
-            'label' => 'creează cont',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Ai uitat parola?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Autentificare',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Emailul sau parola nu sunt corecte',
+  ],
 
-        'email' => [
-            'label' => 'Email',
-        ],
-
-        'password' => [
-            'label' => 'Parola',
-        ],
-
-        'remember' => [
-            'label' => 'Ține-mă minte',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Autentificare',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Te rugăm să aștepți :seconds secunde înainte de a încerca din nou',
+      'body' => 'Te rugăm sa reîncerci in :seconds secunde.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Emailul sau parola nu sunt corecte',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Te rugăm să aștepți :seconds secunde înainte de a încerca din nou',
-            'body' => 'Te rugăm sa reîncerci in :seconds secunde.',
-        ],
-
-    ],
-
+  ],
 ];

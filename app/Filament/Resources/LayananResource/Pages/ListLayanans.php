@@ -8,12 +8,10 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListLayanans extends ListRecords
 {
-    protected static string $resource = LayananResource::class;
+  protected static string $resource = LayananResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\CreateAction::make()];
+  }
 }

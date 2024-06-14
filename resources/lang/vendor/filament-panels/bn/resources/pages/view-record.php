@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => ':label দেখুন',
 
-    'title' => ':label দেখুন',
+  'breadcrumb' => 'দেখুন',
 
-    'breadcrumb' => 'দেখুন',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'দেখুন',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'দেখুন',
     ],
-
+  ],
 ];

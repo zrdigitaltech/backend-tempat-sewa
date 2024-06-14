@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Uusi :label',
 
-    'title' => 'Uusi :label',
+  'breadcrumb' => 'Uusi',
 
-    'breadcrumb' => 'Uusi',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Peruuta',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Luo',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Peruuta',
-            ],
-
-            'create' => [
-                'label' => 'Luo',
-            ],
-
-            'create_another' => [
-                'label' => 'Luo & luo toinen',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Luo & luo toinen',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Luotu',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Luotu',
     ],
-
+  ],
 ];

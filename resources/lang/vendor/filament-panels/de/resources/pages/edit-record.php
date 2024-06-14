@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':label bearbeiten',
 
-    'title' => ':label bearbeiten',
+  'breadcrumb' => 'Bearbeiten',
 
-    'breadcrumb' => 'Bearbeiten',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Abbrechen',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Abbrechen',
-            ],
-
-            'save' => [
-                'label' => 'Speichern',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Speichern',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Bearbeiten',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Bearbeiten',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Gespeichert',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Gespeichert',
     ],
-
+  ],
 ];

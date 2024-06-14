@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'เพิ่ม:label',
 
-    'title' => 'เพิ่ม:label',
+  'breadcrumb' => 'เพิ่ม',
 
-    'breadcrumb' => 'เพิ่ม',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'ยกเลิก',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'บันทึก',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'ยกเลิก',
-            ],
-
-            'create' => [
-                'label' => 'บันทึก',
-            ],
-
-            'create_another' => [
-                'label' => 'บันทึกและเพิ่มอีกรายการ',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'บันทึกและเพิ่มอีกรายการ',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'บันทึกเรียบร้อย',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'บันทึกเรียบร้อย',
     ],
-
+  ],
 ];

@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Зберегти зміни',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Зберегти зміни',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Збережено',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Збережено',
     ],
-
+  ],
 ];

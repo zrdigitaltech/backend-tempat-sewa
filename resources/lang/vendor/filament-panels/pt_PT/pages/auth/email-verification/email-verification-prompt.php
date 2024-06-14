@@ -1,35 +1,30 @@
 <?php
 
 return [
+  'title' => 'Verifique o seu endereço de e-mail',
 
-    'title' => 'Verifique o seu endereço de e-mail',
+  'heading' => 'Verifique o seu endereço de e-mail',
 
-    'heading' => 'Verifique o seu endereço de e-mail',
+  'actions' => [
+    'resend_notification' => [
+      'label' => 'Reenviar',
+    ],
+  ],
 
-    'actions' => [
+  'messages' => [
+    'notification_not_received' => 'Não recebeu o e-mail que enviámos?',
+    'notification_sent' =>
+      'Enviámos um e-mail para :email com as instruções sobre como verificar o seu endereço de e-mail.',
+  ],
 
-        'resend_notification' => [
-            'label' => 'Reenviar',
-        ],
-
+  'notifications' => [
+    'notification_resent' => [
+      'title' => 'E-mail reenviado.',
     ],
 
-    'messages' => [
-        'notification_not_received' => 'Não recebeu o e-mail que enviámos?',
-        'notification_sent' => 'Enviámos um e-mail para :email com as instruções sobre como verificar o seu endereço de e-mail.',
+    'notification_resend_throttled' => [
+      'title' => 'Muitas tentativas de reenvio',
+      'body' => 'Por favor, tente novamente em :seconds segundos.',
     ],
-
-    'notifications' => [
-
-        'notification_resent' => [
-            'title' => 'E-mail reenviado.',
-        ],
-
-        'notification_resend_throttled' => [
-            'title' => 'Muitas tentativas de reenvio',
-            'body' => 'Por favor, tente novamente em :seconds segundos.',
-        ],
-
-    ],
-
+  ],
 ];

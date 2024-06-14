@@ -9,22 +9,22 @@ use Filament\Navigation\NavigationItem;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+  /**
+   * Register any application services.
+   */
+  public function register(): void
+  {
+    //
+  }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        //
-        // $this->app->bind('path.public', function () {
-        //     return base_path() . '/../public_html';
-        // });
-    }
+  /**
+   * Bootstrap any application services.
+   */
+  public function boot(): void
+  {
+    //
+    // $this->app->bind('path.public', function () {
+    //     return base_path() . '/../public_html';
+    // });
+  }
 }

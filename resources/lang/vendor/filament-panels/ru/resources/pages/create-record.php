@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Создать :label',
 
-    'title' => 'Создать :label',
+  'breadcrumb' => 'Создать',
 
-    'breadcrumb' => 'Создать',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Отмена',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Создать',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Отмена',
-            ],
-
-            'create' => [
-                'label' => 'Создать',
-            ],
-
-            'create_another' => [
-                'label' => 'Создать и Создать еще',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Создать и Создать еще',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Создано',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Создано',
     ],
-
+  ],
 ];

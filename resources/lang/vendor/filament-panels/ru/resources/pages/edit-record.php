@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Редактирование :label',
 
-    'title' => 'Редактирование :label',
+  'breadcrumb' => 'Редактирование',
 
-    'breadcrumb' => 'Редактирование',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Отмена',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Отмена',
-            ],
-
-            'save' => [
-                'label' => 'Сохранить',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Сохранить',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Изменить',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Изменить',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Сохранено',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Сохранено',
     ],
-
+  ],
 ];

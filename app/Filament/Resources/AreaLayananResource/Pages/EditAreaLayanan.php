@@ -8,12 +8,10 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditAreaLayanan extends EditRecord
 {
-    protected static string $resource = AreaLayananResource::class;
+  protected static string $resource = AreaLayananResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\DeleteAction::make()];
+  }
 }

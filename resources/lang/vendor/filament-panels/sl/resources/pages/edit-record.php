@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Uredi :label',
 
-    'title' => 'Uredi :label',
+  'breadcrumb' => 'Uredi',
 
-    'breadcrumb' => 'Uredi',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Prekliči',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Prekliči',
-            ],
-
-            'save' => [
-                'label' => 'Shrani spremembe',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Shrani spremembe',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Uredi',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Uredi',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Shranjeno',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Shranjeno',
     ],
-
+  ],
 ];

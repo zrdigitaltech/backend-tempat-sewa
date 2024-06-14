@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => ':label oluştur',
 
-    'title' => ':label oluştur',
+  'breadcrumb' => 'Oluştur',
 
-    'breadcrumb' => 'Oluştur',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'İptal',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Oluştur',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'İptal',
-            ],
-
-            'create' => [
-                'label' => 'Oluştur',
-            ],
-
-            'create_another' => [
-                'label' => 'Oluştur & yeni oluştur',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Oluştur & yeni oluştur',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Oluşturuldu',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Oluşturuldu',
     ],
-
+  ],
 ];

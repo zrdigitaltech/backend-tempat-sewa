@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Painel de Controlo',
 
-    'title' => 'Painel de Controlo',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtro',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtro',
 
-        'filter' => [
-
-            'label' => 'Filtro',
-
-            'modal' => [
-
-                'heading' => 'Filtro',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Aplicar',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Aplicar',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

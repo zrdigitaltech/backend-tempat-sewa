@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Профиль',
 
-    'label' => 'Профиль',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Адрес электронной почты',
-        ],
-
-        'name' => [
-            'label' => 'Имя',
-        ],
-
-        'password' => [
-            'label' => 'Новый пароль',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Подтвердите новый пароль',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Сохранить изменения',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Адрес электронной почты',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Имя',
+    ],
 
-        'saved' => [
-            'title' => 'Сохранено',
-        ],
+    'password' => [
+      'label' => 'Новый пароль',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Подтвердите новый пароль',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'назад',
-        ],
-
+      'save' => [
+        'label' => 'Сохранить изменения',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Сохранено',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'назад',
+    ],
+  ],
 ];

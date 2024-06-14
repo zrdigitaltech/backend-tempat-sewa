@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Kirjaudu',
 
-    'title' => 'Kirjaudu',
+  'heading' => 'Kirjaudu tilillesi',
 
-    'heading' => 'Kirjaudu tilillesi',
+  'actions' => [
+    'register' => [
+      'before' => 'tai',
+      'label' => 'luo tili',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Salasana hukassa?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Sähköpostiosoite',
+    ],
+
+    'password' => [
+      'label' => 'Salasana',
+    ],
+
+    'remember' => [
+      'label' => 'Muista minut',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'tai',
-            'label' => 'luo tili',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Salasana hukassa?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Kirjaudu',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Kirjautuminen epäonnistui.',
+  ],
 
-        'email' => [
-            'label' => 'Sähköpostiosoite',
-        ],
-
-        'password' => [
-            'label' => 'Salasana',
-        ],
-
-        'remember' => [
-            'label' => 'Muista minut',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Kirjaudu',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Liian monta kirjautumisyritystä',
+      'body' => 'Yritä uudelleen :seconds sekunnin kuluttua.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Kirjautuminen epäonnistui.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Liian monta kirjautumisyritystä',
-            'body' => 'Yritä uudelleen :seconds sekunnin kuluttua.',
-        ],
-
-    ],
-
+  ],
 ];

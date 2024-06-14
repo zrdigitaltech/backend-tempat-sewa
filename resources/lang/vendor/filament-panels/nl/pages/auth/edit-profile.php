@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profiel',
 
-    'label' => 'Profiel',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-mailadres',
-        ],
-
-        'name' => [
-            'label' => 'Naam',
-        ],
-
-        'password' => [
-            'label' => 'Nieuw wachtwoord',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Bevestig nieuw wachtwoord',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Opslaan',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-mailadres',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Naam',
+    ],
 
-        'saved' => [
-            'title' => 'Opgeslagen',
-        ],
+    'password' => [
+      'label' => 'Nieuw wachtwoord',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Bevestig nieuw wachtwoord',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'terug',
-        ],
-
+      'save' => [
+        'label' => 'Opslaan',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Opgeslagen',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'terug',
+    ],
+  ],
 ];

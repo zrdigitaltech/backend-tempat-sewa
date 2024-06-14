@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Upraviť :label',
 
-    'title' => 'Upraviť :label',
+  'breadcrumb' => 'Upraviť',
 
-    'breadcrumb' => 'Upraviť',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Zrušiť',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Zrušiť',
-            ],
-
-            'save' => [
-                'label' => 'Uložiť',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Uložiť',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Upraviť',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Upraviť',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Uložené',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Uložené',
     ],
-
+  ],
 ];

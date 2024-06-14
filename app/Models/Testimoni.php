@@ -7,18 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Testimoni extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-      'image',
-      'alt',
-      'name',
-      'position',
-      'description'
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['image', 'alt', 'name', 'position', 'description'];
 }

@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Login',
 
-    'title' => 'Login',
+  'heading' => 'Sign in',
 
-    'heading' => 'Sign in',
+  'actions' => [
+    'register' => [
+      'before' => 'or',
+      'label' => 'sign up for an account',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Forgot password?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Email address',
+    ],
+
+    'password' => [
+      'label' => 'Password',
+    ],
+
+    'remember' => [
+      'label' => 'Remember me',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'or',
-            'label' => 'sign up for an account',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Forgot password?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Sign in',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'These credentials do not match our records.',
+  ],
 
-        'email' => [
-            'label' => 'Email address',
-        ],
-
-        'password' => [
-            'label' => 'Password',
-        ],
-
-        'remember' => [
-            'label' => 'Remember me',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Sign in',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Too many login attempts',
+      'body' => 'Please try again in :seconds seconds.',
     ],
-
-    'messages' => [
-
-        'failed' => 'These credentials do not match our records.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Too many login attempts',
-            'body' => 'Please try again in :seconds seconds.',
-        ],
-
-    ],
-
+  ],
 ];

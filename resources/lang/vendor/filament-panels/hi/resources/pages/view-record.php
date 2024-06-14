@@ -1,9 +1,7 @@
 <?php
 
 return [
+  'title' => ':label देखें',
 
-    'title' => ':label देखें',
-
-    'breadcrumb' => 'देखें',
-
+  'breadcrumb' => 'देखें',
 ];

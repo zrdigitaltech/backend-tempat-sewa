@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':label szerkesztése',
 
-    'title' => ':label szerkesztése',
+  'breadcrumb' => 'Szerkesztés',
 
-    'breadcrumb' => 'Szerkesztés',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Mégsem',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Mégsem',
-            ],
-
-            'save' => [
-                'label' => 'Mentés',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Mentés',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Szerkesztés',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Szerkesztés',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Mentve',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Mentve',
     ],
-
+  ],
 ];

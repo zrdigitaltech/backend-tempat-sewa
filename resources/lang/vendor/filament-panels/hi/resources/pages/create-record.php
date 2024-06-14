@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => ':label बनाएँ',
 
-    'title' => ':label बनाएँ',
+  'breadcrumb' => 'बनाएँ',
 
-    'breadcrumb' => 'बनाएँ',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'रद्द करें',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'बनाएँ',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'रद्द करें',
-            ],
-
-            'create' => [
-                'label' => 'बनाएँ',
-            ],
-
-            'create_another' => [
-                'label' => 'बनाएँ और एक और बनाएँ',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'बनाएँ और एक और बनाएँ',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'बन गया',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'बन गया',
     ],
-
+  ],
 ];

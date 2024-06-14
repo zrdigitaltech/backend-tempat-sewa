@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Új :label',
 
-    'title' => 'Új :label',
+  'breadcrumb' => 'Létrehozás',
 
-    'breadcrumb' => 'Létrehozás',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Mégsem',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Létrehozás',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Mégsem',
-            ],
-
-            'create' => [
-                'label' => 'Létrehozás',
-            ],
-
-            'create_another' => [
-                'label' => 'Mentés és új létrehozása',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Mentés és új létrehozása',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Létrehozva',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Létrehozva',
     ],
-
+  ],
 ];

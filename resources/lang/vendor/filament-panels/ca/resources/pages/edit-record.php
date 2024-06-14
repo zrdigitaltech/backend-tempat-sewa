@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Editar :label',
 
-    'title' => 'Editar :label',
+  'breadcrumb' => 'Editar',
 
-    'breadcrumb' => 'Editar',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Cancel·lar',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Cancel·lar',
-            ],
-
-            'save' => [
-                'label' => 'Desar canvis',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Desar canvis',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Editar',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Editar',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Canvis desats',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Canvis desats',
     ],
-
+  ],
 ];

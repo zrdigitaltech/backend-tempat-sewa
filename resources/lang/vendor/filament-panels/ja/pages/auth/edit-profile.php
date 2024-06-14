@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'プロフィール',
 
-    'label' => 'プロフィール',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'メールアドレス',
-        ],
-
-        'name' => [
-            'label' => '名前',
-        ],
-
-        'password' => [
-            'label' => '新しいパスワード',
-        ],
-
-        'password_confirmation' => [
-            'label' => '新しいパスワードの確認',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => '変更を保存',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'メールアドレス',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => '名前',
+    ],
 
-        'saved' => [
-            'title' => '保存しました',
-        ],
+    'password' => [
+      'label' => '新しいパスワード',
+    ],
 
+    'password_confirmation' => [
+      'label' => '新しいパスワードの確認',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'キャンセル',
-        ],
-
+      'save' => [
+        'label' => '変更を保存',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => '保存しました',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'キャンセル',
+    ],
+  ],
 ];

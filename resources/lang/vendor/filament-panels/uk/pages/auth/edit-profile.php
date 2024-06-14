@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Профіль',
 
-    'label' => 'Профіль',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'Електронна пошта',
-        ],
-
-        'name' => [
-            'label' => 'Ім\'я',
-        ],
-
-        'password' => [
-            'label' => 'Новий пароль',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Введіть новий пароль ще раз',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Зберегти зміни',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'Електронна пошта',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Ім\'я',
+    ],
 
-        'saved' => [
-            'title' => 'Збережено',
-        ],
+    'password' => [
+      'label' => 'Новий пароль',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Введіть новий пароль ще раз',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Відмінити',
-        ],
-
+      'save' => [
+        'label' => 'Зберегти зміни',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Збережено',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Відмінити',
+    ],
+  ],
 ];

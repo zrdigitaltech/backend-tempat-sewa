@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'لوحة التحكم',
 
-    'title' => 'لوحة التحكم',
+  'actions' => [
+    'filter' => [
+      'label' => 'تصفية',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'تصفية',
 
-        'filter' => [
-
-            'label' => 'تصفية',
-
-            'modal' => [
-
-                'heading' => 'تصفية',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'تطبيق',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'تطبيق',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

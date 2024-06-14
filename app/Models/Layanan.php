@@ -7,17 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Layanan extends Model
 {
-    use HasFactory;
-    
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-      'image',
-      'title',
-      'alt',
-      'description'
-    ];
+  use HasFactory;
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['image', 'title', 'alt', 'description'];
 }

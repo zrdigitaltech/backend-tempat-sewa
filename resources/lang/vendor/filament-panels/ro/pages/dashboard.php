@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Panoul de control',
 
-    'title' => 'Panoul de control',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtru',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtru',
 
-        'filter' => [
-
-            'label' => 'Filtru',
-
-            'modal' => [
-
-                'heading' => 'Filtru',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Aplică',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Aplică',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

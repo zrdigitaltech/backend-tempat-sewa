@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'פרופיל',
 
-    'label' => 'פרופיל',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'כתובת דוא"ל',
-        ],
-
-        'name' => [
-            'label' => 'שם',
-        ],
-
-        'password' => [
-            'label' => 'סיסמה חדשה',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'אימות סיסמה חדשה',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'שמור שינויים',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'כתובת דוא"ל',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'שם',
+    ],
 
-        'saved' => [
-            'title' => 'נשמר',
-        ],
+    'password' => [
+      'label' => 'סיסמה חדשה',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'אימות סיסמה חדשה',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'חזרה',
-        ],
-
+      'save' => [
+        'label' => 'שמור שינויים',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'נשמר',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'חזרה',
+    ],
+  ],
 ];

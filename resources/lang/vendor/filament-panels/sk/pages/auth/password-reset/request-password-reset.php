@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Obnovte svoje heslo',
 
-    'title' => 'Obnovte svoje heslo',
+  'heading' => 'Zabudli ste svoje heslo?',
 
-    'heading' => 'Zabudli ste svoje heslo?',
+  'actions' => [
+    'login' => [
+      'label' => 'späť na prihlásenie',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Emailová adresa',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'späť na prihlásenie',
-        ],
-
+      'request' => [
+        'label' => 'Odoslať email',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Emailová adresa',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'Odoslať email',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Príliš veľa pokusov',
+      'body' => 'Prosím skúste to znovu o :seconds sekúnd.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Príliš veľa pokusov',
-            'body' => 'Prosím skúste to znovu o :seconds sekúnd.',
-        ],
-
-    ],
-
+  ],
 ];

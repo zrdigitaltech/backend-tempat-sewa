@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => ':Label aanmaken',
 
-    'title' => ':Label aanmaken',
+  'breadcrumb' => 'Aanmaken',
 
-    'breadcrumb' => 'Aanmaken',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annuleren',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Aanmaken',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annuleren',
-            ],
-
-            'create' => [
-                'label' => 'Aanmaken',
-            ],
-
-            'create_another' => [
-                'label' => 'Aanmaken & nieuwe aanmaken',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Aanmaken & nieuwe aanmaken',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Aangemaakt',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Aangemaakt',
     ],
-
+  ],
 ];

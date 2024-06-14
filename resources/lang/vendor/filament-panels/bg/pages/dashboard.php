@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Табло',
 
-    'title' => 'Табло',
+  'actions' => [
+    'filter' => [
+      'label' => 'Филтър',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Филтриране',
 
-        'filter' => [
-
-            'label' => 'Филтър',
-
-            'modal' => [
-
-                'heading' => 'Филтриране',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Приложи',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Приложи',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

@@ -22,63 +22,53 @@ use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
-    protected static ?int $navigationSort = 3;
-    protected static ?string $navigationGroup = 'NumberLayanan';
+  protected static ?int $navigationSort = 3;
+  protected static ?string $navigationGroup = 'NumberLayanan';
 
-    public function panel(Panel $panel): Panel
-    {
-        return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
-            ->login()
-            ->colors([
-                'primary' => Color::Amber,
-            ])
-            // ->sidebarCollapsibleOnDesktop()
-            ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
-            ->navigationItems([
-                NavigationItem::make('Documentation')
-                    ->url('/admin', shouldOpenInNewTab: true)
-                    ->icon('heroicon-o-document')
-                    ->group('External')
-                    ->sort(7),
-                NavigationItem::make('Help')
-                    ->url('https://zrdevelopers.github.io/', shouldOpenInNewTab: true)
-                    ->icon('heroicon-o-question-mark-circle')
-                    ->group('External')
-                    ->sort(7)
-            ])
-            ->userMenuItems([
-                MenuItem::make()
-                    ->label('Settings')
-                    ->url('')
-                    ->icon('heroicon-o-cog-6-tooth'),
-                'logout' => MenuItem::make()->label('Log Out')
-            ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
-            ->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                VerifyCsrfToken::class,
-                SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
-            ]);
-    }
+  public function panel(Panel $panel): Panel
+  {
+    return $panel
+      ->default()
+      ->id('admin')
+      ->path('admin')
+      ->login()
+      ->colors([
+        'primary' => Color::Amber,
+      ])
+      // ->sidebarCollapsibleOnDesktop()
+      ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
+      ->navigationItems([
+        NavigationItem::make('Documentation')
+          ->url('/admin', shouldOpenInNewTab: true)
+          ->icon('heroicon-o-document')
+          ->group('External')
+          ->sort(7),
+        NavigationItem::make('Help')
+          ->url('https://zrdevelopers.github.io/', shouldOpenInNewTab: true)
+          ->icon('heroicon-o-question-mark-circle')
+          ->group('External')
+          ->sort(7),
+      ])
+      ->userMenuItems([
+        MenuItem::make()->label('Settings')->url('')->icon('heroicon-o-cog-6-tooth'),
+        'logout' => MenuItem::make()->label('Log Out'),
+      ])
+      ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+      ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+      ->pages([Pages\Dashboard::class])
+      ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+      ->widgets([Widgets\AccountWidget::class, Widgets\FilamentInfoWidget::class])
+      ->middleware([
+        EncryptCookies::class,
+        AddQueuedCookiesToResponse::class,
+        StartSession::class,
+        AuthenticateSession::class,
+        ShareErrorsFromSession::class,
+        VerifyCsrfToken::class,
+        SubstituteBindings::class,
+        DisableBladeIconComponents::class,
+        DispatchServingFilamentEvent::class,
+      ])
+      ->authMiddleware([Authenticate::class]);
+  }
 }

@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Salva modifiche',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Salva modifiche',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Salvato',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Salvato',
     ],
-
+  ],
 ];

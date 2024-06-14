@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Jelszó visszaállítása',
 
-    'title' => 'Jelszó visszaállítása',
+  'heading' => 'Elfelejtetted a jelszavad?',
 
-    'heading' => 'Elfelejtetted a jelszavad?',
+  'actions' => [
+    'login' => [
+      'label' => 'vissza a bejelentkezéshez',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Email cím',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'vissza a bejelentkezéshez',
-        ],
-
+      'request' => [
+        'label' => 'Email küldése',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'Email cím',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'Email küldése',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Túl sok próbálkozás',
+      'body' => 'Kérjük, próbáld meg újra :second másodperc múlva.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Túl sok próbálkozás',
-            'body' => 'Kérjük, próbáld meg újra :second másodperc múlva.',
-        ],
-
-    ],
-
+  ],
 ];

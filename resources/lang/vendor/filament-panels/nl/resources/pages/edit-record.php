@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':Label bewerken',
 
-    'title' => ':Label bewerken',
+  'breadcrumb' => 'Bewerken',
 
-    'breadcrumb' => 'Bewerken',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Annuleren',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Annuleren',
-            ],
-
-            'save' => [
-                'label' => 'Wijzigingen opslaan',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Wijzigingen opslaan',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Bewerken',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Bewerken',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Opgeslagen',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Opgeslagen',
     ],
-
+  ],
 ];

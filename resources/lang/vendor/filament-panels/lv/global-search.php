@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Vispārēja meklēšana',
+    'placeholder' => 'Meklēt',
+  ],
 
-    'field' => [
-        'label' => 'Vispārēja meklēšana',
-        'placeholder' => 'Meklēt',
-    ],
-
-    'no_results_message' => 'Meklēšanas rezultāti nav atrasti.',
-
+  'no_results_message' => 'Meklēšanas rezultāti nav atrasti.',
 ];

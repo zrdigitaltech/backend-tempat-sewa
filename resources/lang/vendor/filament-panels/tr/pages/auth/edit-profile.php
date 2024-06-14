@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profil',
 
-    'label' => 'Profil',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-posta adresi',
-        ],
-
-        'name' => [
-            'label' => 'Ad',
-        ],
-
-        'password' => [
-            'label' => 'Yeni şifre',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Yeni şifreyi onayla',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Değişiklikleri Kaydet',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-posta adresi',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Ad',
+    ],
 
-        'saved' => [
-            'title' => 'Kaydedildi',
-        ],
+    'password' => [
+      'label' => 'Yeni şifre',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Yeni şifreyi onayla',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'İptal',
-        ],
-
+      'save' => [
+        'label' => 'Değişiklikleri Kaydet',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Kaydedildi',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'İptal',
+    ],
+  ],
 ];

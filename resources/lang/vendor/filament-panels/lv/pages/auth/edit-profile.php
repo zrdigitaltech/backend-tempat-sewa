@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profils',
 
-    'label' => 'Profils',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-pasta adrese',
-        ],
-
-        'name' => [
-            'label' => 'Vārds',
-        ],
-
-        'password' => [
-            'label' => 'Jaunā parole',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Jaunās paroles apstiprinājums',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Saglabāt izmaiņas',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-pasta adrese',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Vārds',
+    ],
 
-        'saved' => [
-            'title' => 'Izmaiņas saglabātas',
-        ],
+    'password' => [
+      'label' => 'Jaunā parole',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Jaunās paroles apstiprinājums',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'Atcelt',
-        ],
-
+      'save' => [
+        'label' => 'Saglabāt izmaiņas',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Izmaiņas saglabātas',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'Atcelt',
+    ],
+  ],
 ];

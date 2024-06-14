@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Vyhľadávanie',
+    'placeholder' => 'Hľadať',
+  ],
 
-    'field' => [
-        'label' => 'Vyhľadávanie',
-        'placeholder' => 'Hľadať',
-    ],
-
-    'no_results_message' => 'Nenašli sa žiadne výsledky.',
-
+  'no_results_message' => 'Nenašli sa žiadne výsledky.',
 ];

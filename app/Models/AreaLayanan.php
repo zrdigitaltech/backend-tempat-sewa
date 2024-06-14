@@ -7,14 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class AreaLayanan extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-      'title',
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['title'];
 }

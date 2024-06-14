@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Változtatások mentése',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Változtatások mentése',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Mentve',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Mentve',
     ],
-
+  ],
 ];

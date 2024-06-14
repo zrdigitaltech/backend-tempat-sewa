@@ -4,29 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('number_layanans', function (Blueprint $table) {
-            $table->id();
-			$table->string('tahun_pengalaman');
-            $table->string('description_pengalaman')->nullable();
-            $table->string('certification_description')->nullable();
-            $table->string('operasional_description')->nullable();
-            $table->string('harga_wajar_description')->nullable();
-            $table->timestamps();
-        });
-    }
+return new class extends Migration {
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::create('number_layanans', function (Blueprint $table) {
+      $table->id();
+      $table->string('tahun_pengalaman');
+      $table->string('description_pengalaman')->nullable();
+      $table->string('certification_description')->nullable();
+      $table->string('operasional_description')->nullable();
+      $table->string('harga_wajar_description')->nullable();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('number_layanans');
-    }
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::dropIfExists('number_layanans');
+  }
 };

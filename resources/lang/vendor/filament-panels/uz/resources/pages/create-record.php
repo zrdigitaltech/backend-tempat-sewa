@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Yangi :label yaratish',
 
-    'title' => 'Yangi :label yaratish',
+  'breadcrumb' => 'Yaratish',
 
-    'breadcrumb' => 'Yaratish',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Bekor qilish',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Yaratish',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Bekor qilish',
-            ],
-
-            'create' => [
-                'label' => 'Yaratish',
-            ],
-
-            'create_another' => [
-                'label' => 'Yaratish va yana boshqa yaratish',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Yaratish va yana boshqa yaratish',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Yaratildi',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Yaratildi',
     ],
-
+  ],
 ];

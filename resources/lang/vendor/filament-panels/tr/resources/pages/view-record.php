@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => ':label görüntüle',
 
-    'title' => ':label görüntüle',
+  'breadcrumb' => 'Görüntüle',
 
-    'breadcrumb' => 'Görüntüle',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Görüntüle',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Görüntüle',
     ],
-
+  ],
 ];

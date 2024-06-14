@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'បង្កើត :label',
 
-    'title' => 'បង្កើត :label',
+  'breadcrumb' => 'បង្កើត',
 
-    'breadcrumb' => 'បង្កើត',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'ចាកចេញ',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'បង្កើត',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'ចាកចេញ',
-            ],
-
-            'create' => [
-                'label' => 'បង្កើត',
-            ],
-
-            'create_another' => [
-                'label' => 'បង្កើត & បង្កើតឡើងវិញ',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'បង្កើត & បង្កើតឡើងវិញ',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'បានបង្កើត :label បានជោគជ័យ',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'បានបង្កើត :label បានជោគជ័យ',
     ],
-
+  ],
 ];

@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Lagre endringer',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Lagre endringer',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Lagret',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Lagret',
     ],
-
+  ],
 ];

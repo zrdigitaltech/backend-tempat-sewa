@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'دروستکردنی :label',
 
-    'title' => 'دروستکردنی :label',
+  'breadcrumb' => 'دروستکردن',
 
-    'breadcrumb' => 'دروستکردن',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'پاشگەزبوونەوە',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'دروستکردن',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'پاشگەزبوونەوە',
-            ],
-
-            'create' => [
-                'label' => 'دروستکردن',
-            ],
-
-            'create_another' => [
-                'label' => 'دروستکردن و تۆمارێکی تر',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'دروستکردن و تۆمارێکی تر',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'دروستکرا',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'دروستکرا',
     ],
-
+  ],
 ];

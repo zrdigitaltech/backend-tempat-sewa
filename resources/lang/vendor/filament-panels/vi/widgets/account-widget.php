@@ -1,15 +1,11 @@
 <?php
 
 return [
-
-    'actions' => [
-
-        'logout' => [
-            'label' => 'Đăng xuất',
-        ],
-
+  'actions' => [
+    'logout' => [
+      'label' => 'Đăng xuất',
     ],
+  ],
 
-    'welcome' => 'Xin chào',
-
+  'welcome' => 'Xin chào',
 ];

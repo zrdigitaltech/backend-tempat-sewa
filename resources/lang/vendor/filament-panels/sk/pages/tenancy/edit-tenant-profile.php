@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Uložiť zmeny',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Uložiť zmeny',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Uložené',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Uložené',
     ],
-
+  ],
 ];

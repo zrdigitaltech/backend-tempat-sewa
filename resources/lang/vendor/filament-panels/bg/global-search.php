@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Глобално търсене',
+    'placeholder' => 'Търсене...',
+  ],
 
-    'field' => [
-        'label' => 'Глобално търсене',
-        'placeholder' => 'Търсене...',
-    ],
-
-    'no_results_message' => 'Няма намерени резултати.',
-
+  'no_results_message' => 'Няма намерени резултати.',
 ];

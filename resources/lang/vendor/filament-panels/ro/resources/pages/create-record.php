@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'Creare :label',
 
-    'title' => 'Creare :label',
+  'breadcrumb' => 'Creare',
 
-    'breadcrumb' => 'Creare',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Anulare',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'Creare',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Anulare',
-            ],
-
-            'create' => [
-                'label' => 'Creare',
-            ],
-
-            'create_another' => [
-                'label' => 'Creați și creați altul',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'Creați și creați altul',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'Creat cu succes',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'Creat cu succes',
     ],
-
+  ],
 ];

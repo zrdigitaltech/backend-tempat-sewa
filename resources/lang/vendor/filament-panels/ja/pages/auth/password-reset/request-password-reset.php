@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'パスワードリセット',
 
-    'title' => 'パスワードリセット',
+  'heading' => 'パスワードをお忘れですか？',
 
-    'heading' => 'パスワードをお忘れですか？',
+  'actions' => [
+    'login' => [
+      'label' => 'ログインへ戻る',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'メールアドレス',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'ログインへ戻る',
-        ],
-
+      'request' => [
+        'label' => 'メールを送信',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'メールアドレス',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'メールを送信',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'リクエストが多すぎます',
+      'body' => ':seconds 秒後に再試行してください。',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'リクエストが多すぎます',
-            'body' => ':seconds 秒後に再試行してください。',
-        ],
-
-    ],
-
+  ],
 ];

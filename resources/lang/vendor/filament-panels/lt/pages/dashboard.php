@@ -1,32 +1,21 @@
 <?php
 
 return [
+  'title' => 'Pagrindinis puslapis',
 
-    'title' => 'Pagrindinis puslapis',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtras',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtras',
 
-        'filter' => [
-
-            'label' => 'Filtras',
-
-            'modal' => [
-
-                'heading' => 'Filtras',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Taikyti',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Taikyti',
+          ],
         ],
-
+      ],
     ],
+  ],
 ];

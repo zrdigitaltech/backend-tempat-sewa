@@ -1,51 +1,41 @@
 <?php
 
 return [
+  'label' => 'Profilis',
 
-    'label' => 'Profilis',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'El. paštas',
-        ],
-
-        'name' => [
-            'label' => 'Vardas',
-        ],
-
-        'password' => [
-            'label' => 'Naujas slaptažodis',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Patvirtinkite naują slaptažodį',
-        ],
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Išsaugoti',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'El. paštas',
     ],
 
-    'notifications' => [
+    'name' => [
+      'label' => 'Vardas',
+    ],
 
-        'saved' => [
-            'title' => 'Išsaugota',
-        ],
+    'password' => [
+      'label' => 'Naujas slaptažodis',
+    ],
 
+    'password_confirmation' => [
+      'label' => 'Patvirtinkite naują slaptažodį',
     ],
 
     'actions' => [
-
-        'cancel' => [
-            'label' => 'atgal',
-        ],
-
+      'save' => [
+        'label' => 'Išsaugoti',
+      ],
     ],
+  ],
 
+  'notifications' => [
+    'saved' => [
+      'title' => 'Išsaugota',
+    ],
+  ],
+
+  'actions' => [
+    'cancel' => [
+      'label' => 'atgal',
+    ],
+  ],
 ];

@@ -1,37 +1,29 @@
 <?php
 
 return [
+  'title' => 'إضافة :label',
 
-    'title' => 'إضافة :label',
+  'breadcrumb' => 'إضافة',
 
-    'breadcrumb' => 'إضافة',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'إلغاء',
+      ],
 
-    'form' => [
+      'create' => [
+        'label' => 'إضافة',
+      ],
 
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'إلغاء',
-            ],
-
-            'create' => [
-                'label' => 'إضافة',
-            ],
-
-            'create_another' => [
-                'label' => 'إضافة وبدء إضافة المزيد',
-            ],
-
-        ],
-
+      'create_another' => [
+        'label' => 'إضافة وبدء إضافة المزيد',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'created' => [
-            'title' => 'تمت الإضافة',
-        ],
-
+  'notifications' => [
+    'created' => [
+      'title' => 'تمت الإضافة',
     ],
-
+  ],
 ];

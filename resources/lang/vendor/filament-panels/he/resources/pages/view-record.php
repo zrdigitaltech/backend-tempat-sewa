@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'תצוגת :label',
 
-    'title' => 'תצוגת :label',
+  'breadcrumb' => 'הצגה',
 
-    'breadcrumb' => 'הצגה',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'הצגה',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'הצגה',
     ],
-
+  ],
 ];

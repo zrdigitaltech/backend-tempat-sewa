@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => 'Listado',
-
+  'breadcrumb' => 'Listado',
 ];

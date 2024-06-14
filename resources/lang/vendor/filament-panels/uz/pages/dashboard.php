@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Asosiy panel',
 
-    'title' => 'Asosiy panel',
+  'actions' => [
+    'filter' => [
+      'label' => 'Filtr',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Filtr',
 
-        'filter' => [
-
-            'label' => 'Filtr',
-
-            'modal' => [
-
-                'heading' => 'Filtr',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Murojaat qilish',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Murojaat qilish',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

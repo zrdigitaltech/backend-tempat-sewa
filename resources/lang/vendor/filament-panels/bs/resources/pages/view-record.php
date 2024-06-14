@@ -1,17 +1,13 @@
 <?php
 
 return [
+  'title' => 'Pogled :label',
 
-    'title' => 'Pogled :label',
+  'breadcrumb' => 'Pogled',
 
-    'breadcrumb' => 'Pogled',
-
-    'content' => [
-
-        'tab' => [
-            'label' => 'Pogled',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Pogled',
     ],
-
+  ],
 ];

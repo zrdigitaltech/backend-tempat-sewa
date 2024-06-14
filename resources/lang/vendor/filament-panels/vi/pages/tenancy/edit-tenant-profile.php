@@ -1,25 +1,17 @@
 <?php
 
 return [
-
-    'form' => [
-
-        'actions' => [
-
-            'save' => [
-                'label' => 'Lưu thay đổi',
-            ],
-
-        ],
-
+  'form' => [
+    'actions' => [
+      'save' => [
+        'label' => 'Lưu thay đổi',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Đã lưu',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Đã lưu',
     ],
-
+  ],
 ];

@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Logga in',
 
-    'title' => 'Logga in',
+  'heading' => 'Logga in',
 
-    'heading' => 'Logga in',
+  'actions' => [
+    'register' => [
+      'before' => 'eller',
+      'label' => 'skapa ett konto',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Glömt ditt lösenord?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'Mejladress',
+    ],
+
+    'password' => [
+      'label' => 'Lösenord',
+    ],
+
+    'remember' => [
+      'label' => 'Kom ihåg mig',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'eller',
-            'label' => 'skapa ett konto',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Glömt ditt lösenord?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Logga in',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Inloggningsuppgifterna matchar inte våra register.',
+  ],
 
-        'email' => [
-            'label' => 'Mejladress',
-        ],
-
-        'password' => [
-            'label' => 'Lösenord',
-        ],
-
-        'remember' => [
-            'label' => 'Kom ihåg mig',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Logga in',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'För många inloggningsförsök',
+      'body' => 'Vänligen försök igen om :seconds sekunder.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Inloggningsuppgifterna matchar inte våra register.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'För många inloggningsförsök',
-            'body' => 'Vänligen försök igen om :seconds sekunder.',
-        ],
-
-    ],
-
+  ],
 ];

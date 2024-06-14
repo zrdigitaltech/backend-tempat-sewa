@@ -1,43 +1,35 @@
 <?php
 
 return [
+  'title' => 'Şifrenizi sıfırlayın',
 
-    'title' => 'Şifrenizi sıfırlayın',
+  'heading' => 'Şifrenizi sıfırlayın',
 
-    'heading' => 'Şifrenizi sıfırlayın',
-
-    'form' => [
-
-        'email' => [
-            'label' => 'E-posta adresi',
-        ],
-
-        'password' => [
-            'label' => 'Şifre',
-            'validation_attribute' => 'password',
-        ],
-
-        'password_confirmation' => [
-            'label' => 'Şifreyi onayla',
-        ],
-
-        'actions' => [
-
-            'reset' => [
-                'label' => 'Şifreyi sıfırla',
-            ],
-
-        ],
-
+  'form' => [
+    'email' => [
+      'label' => 'E-posta adresi',
     ],
 
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Çok fazla sıfırlama denemesi',
-            'body' => 'Lütfen :seconds saniye sonra tekrar deneyin.',
-        ],
-
+    'password' => [
+      'label' => 'Şifre',
+      'validation_attribute' => 'password',
     ],
 
+    'password_confirmation' => [
+      'label' => 'Şifreyi onayla',
+    ],
+
+    'actions' => [
+      'reset' => [
+        'label' => 'Şifreyi sıfırla',
+      ],
+    ],
+  ],
+
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Çok fazla sıfırlama denemesi',
+      'body' => 'Lütfen :seconds saniye sonra tekrar deneyin.',
+    ],
+  ],
 ];

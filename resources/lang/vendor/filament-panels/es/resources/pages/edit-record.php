@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => 'Editar :label',
 
-    'title' => 'Editar :label',
+  'breadcrumb' => 'Editar',
 
-    'breadcrumb' => 'Editar',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Cancelar',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Cancelar',
-            ],
-
-            'save' => [
-                'label' => 'Guardar cambios',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Guardar cambios',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'Editar',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => 'Editar',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Guardado',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Guardado',
     ],
-
+  ],
 ];

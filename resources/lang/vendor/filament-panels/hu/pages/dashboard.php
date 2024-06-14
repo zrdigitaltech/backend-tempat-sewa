@@ -1,33 +1,21 @@
 <?php
 
 return [
+  'title' => 'Vezérlőpult',
 
-    'title' => 'Vezérlőpult',
+  'actions' => [
+    'filter' => [
+      'label' => 'Szűrés',
 
-    'actions' => [
+      'modal' => [
+        'heading' => 'Szűrés',
 
-        'filter' => [
-
-            'label' => 'Szűrés',
-
-            'modal' => [
-
-                'heading' => 'Szűrés',
-
-                'actions' => [
-
-                    'apply' => [
-
-                        'label' => 'Alkalmazás',
-
-                    ],
-
-                ],
-
-            ],
-
+        'actions' => [
+          'apply' => [
+            'label' => 'Alkalmazás',
+          ],
         ],
-
+      ],
     ],
-
+  ],
 ];

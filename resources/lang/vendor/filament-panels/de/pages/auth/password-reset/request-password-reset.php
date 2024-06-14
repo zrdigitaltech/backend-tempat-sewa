@@ -1,42 +1,32 @@
 <?php
 
 return [
+  'title' => 'Passwort zurücksetzen',
 
-    'title' => 'Passwort zurücksetzen',
+  'heading' => 'Passwort vergessen?',
 
-    'heading' => 'Passwort vergessen?',
+  'actions' => [
+    'login' => [
+      'label' => 'zurück zum Login',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-Mail-Adresse',
+    ],
 
     'actions' => [
-
-        'login' => [
-            'label' => 'zurück zum Login',
-        ],
-
+      'request' => [
+        'label' => 'E-Mail zusenden',
+      ],
     ],
+  ],
 
-    'form' => [
-
-        'email' => [
-            'label' => 'E-Mail-Adresse',
-        ],
-
-        'actions' => [
-
-            'request' => [
-                'label' => 'E-Mail zusenden',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Zu viele Versuche.',
+      'body' => 'Versuchen Sie es bitte in :seconds Sekunden nochmal.',
     ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Zu viele Versuche.',
-            'body' => 'Versuchen Sie es bitte in :seconds Sekunden nochmal.',
-        ],
-
-    ],
-
+  ],
 ];

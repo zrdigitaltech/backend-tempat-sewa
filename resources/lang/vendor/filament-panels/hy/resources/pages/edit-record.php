@@ -1,33 +1,25 @@
 <?php
 
 return [
+  'title' => 'Խմբագրել :label',
 
-    'title' => 'Խմբագրել :label',
+  'breadcrumb' => 'Խմբագրել',
 
-    'breadcrumb' => 'Խմբագրել',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'Չեղարկել',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'Չեղարկել',
-            ],
-
-            'save' => [
-                'label' => 'Պահպանել',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => 'Պահպանել',
+      ],
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => 'Պահպանված է',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => 'Պահպանված է',
     ],
-
+  ],
 ];

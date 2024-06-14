@@ -1,41 +1,31 @@
 <?php
 
 return [
+  'title' => ':label 編集',
 
-    'title' => ':label 編集',
+  'breadcrumb' => '編集',
 
-    'breadcrumb' => '編集',
+  'form' => [
+    'actions' => [
+      'cancel' => [
+        'label' => 'キャンセル',
+      ],
 
-    'form' => [
-
-        'actions' => [
-
-            'cancel' => [
-                'label' => 'キャンセル',
-            ],
-
-            'save' => [
-                'label' => '保存',
-            ],
-
-        ],
-
+      'save' => [
+        'label' => '保存',
+      ],
     ],
+  ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => '編集',
-        ],
-
+  'content' => [
+    'tab' => [
+      'label' => '編集',
     ],
+  ],
 
-    'notifications' => [
-
-        'saved' => [
-            'title' => '保存しました',
-        ],
-
+  'notifications' => [
+    'saved' => [
+      'title' => '保存しました',
     ],
-
+  ],
 ];

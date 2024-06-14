@@ -1,12 +1,10 @@
 <?php
 
 return [
+  'field' => [
+    'label' => 'Globalt søk',
+    'placeholder' => 'Søk',
+  ],
 
-    'field' => [
-        'label' => 'Globalt søk',
-        'placeholder' => 'Søk',
-    ],
-
-    'no_results_message' => 'Ingen resultater.',
-
+  'no_results_message' => 'Ingen resultater.',
 ];

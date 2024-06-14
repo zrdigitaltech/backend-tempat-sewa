@@ -1,7 +1,5 @@
 <?php
 
 return [
-
-    'breadcrumb' => '목록',
-
+  'breadcrumb' => '목록',
 ];

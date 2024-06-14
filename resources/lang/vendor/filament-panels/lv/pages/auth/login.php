@@ -1,61 +1,49 @@
 <?php
 
 return [
+  'title' => 'Pieteikšanās',
 
-    'title' => 'Pieteikšanās',
+  'heading' => 'Pierakstīties savā kontā',
 
-    'heading' => 'Pierakstīties savā kontā',
+  'actions' => [
+    'register' => [
+      'before' => 'vai',
+      'label' => 'reģistrēties',
+    ],
+
+    'request_password_reset' => [
+      'label' => 'Aizmirsāt paroli?',
+    ],
+  ],
+
+  'form' => [
+    'email' => [
+      'label' => 'E-pasta adrese',
+    ],
+
+    'password' => [
+      'label' => 'Parole',
+    ],
+
+    'remember' => [
+      'label' => 'Atcerēties mani',
+    ],
 
     'actions' => [
-
-        'register' => [
-            'before' => 'vai',
-            'label' => 'reģistrēties',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Aizmirsāt paroli?',
-        ],
-
+      'authenticate' => [
+        'label' => 'Pierakstīties',
+      ],
     ],
+  ],
 
-    'form' => [
+  'messages' => [
+    'failed' => 'Šie akreditācijas dati neatbilst mūsu ierakstiem.',
+  ],
 
-        'email' => [
-            'label' => 'E-pasta adrese',
-        ],
-
-        'password' => [
-            'label' => 'Parole',
-        ],
-
-        'remember' => [
-            'label' => 'Atcerēties mani',
-        ],
-
-        'actions' => [
-
-            'authenticate' => [
-                'label' => 'Pierakstīties',
-            ],
-
-        ],
-
+  'notifications' => [
+    'throttled' => [
+      'title' => 'Pārāk daudz pieteikšanās mēģinājumu.',
+      'body' => 'Lūdzu, mēģiniet vēlreiz pēc :seconds sekundēm.',
     ],
-
-    'messages' => [
-
-        'failed' => 'Šie akreditācijas dati neatbilst mūsu ierakstiem.',
-
-    ],
-
-    'notifications' => [
-
-        'throttled' => [
-            'title' => 'Pārāk daudz pieteikšanās mēģinājumu.',
-            'body' => 'Lūdzu, mēģiniet vēlreiz pēc :seconds sekundēm.',
-        ],
-
-    ],
-
+  ],
 ];
