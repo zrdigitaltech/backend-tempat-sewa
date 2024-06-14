@@ -49,7 +49,9 @@ class TestimoniResource extends Resource
               Card::make()
               ->schema([
                   FileUpload::make('image')
-                      ->required(),
+                      ->required()
+                      ->acceptedFileTypes(['image/*'])
+                      ->image(),
                   TextInput::make('name')
                       ->required()
                       ->maxLength(255),

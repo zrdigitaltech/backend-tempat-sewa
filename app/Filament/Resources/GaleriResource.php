@@ -52,7 +52,9 @@ class GaleriResource extends Resource
                 Card::make()
                     ->schema([
                         FileUpload::make('image')
-                            ->required(),
+                            ->required()
+                            ->acceptedFileTypes(['image/*'])
+                            ->image(),
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255),
