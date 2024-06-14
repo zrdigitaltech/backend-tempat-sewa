@@ -51,6 +51,7 @@ class TentangKamiResource extends Resource
                   FileUpload::make('image')
                   ->required(),
                   TextInput::make('alt')
+                      ->default('Mekanik Elektro')
                       ->maxLength(255),
                   RichEditor::make('description')
                       ->maxLength(255),

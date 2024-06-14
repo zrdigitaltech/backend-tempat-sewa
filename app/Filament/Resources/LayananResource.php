@@ -55,6 +55,7 @@ class LayananResource extends Resource
                         ->required()
                         ->maxLength(255),
                     TextInput::make('alt')
+                        ->default('Mekanik Elektro')
                         ->maxLength(255),
                     TextArea::make('description')
                         ->maxLength(255),
