@@ -45,8 +45,10 @@ class LogoResource extends Resource
           Card::make()
               ->schema([
                   FileUpload::make('image')
-                  ->required()
-                  ->acceptedFileTypes(['image/*']),
+                      ->required()
+                      ->acceptedFileTypes(['image/*'])
+                      ->minSize(163)
+                      ->maxSize(50),
                   TextInput::make('alt')
                       ->default('Mekanik Elektro')
                       ->maxLength(255),
