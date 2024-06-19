@@ -14,8 +14,8 @@ return new class extends Migration {
       $table->id();
       $table->string('alamat')->nullable();
       $table->string('jam_kerja')->nullable();
-      $table->integer('no_telp')->nullable();
-      $table->integer('no_wa')->nullable();
+      $table->string('no_telp')->nullable();
+      $table->string('no_wa')->nullable();
       $table->string('link_no_wa')->nullable();
       $table->string('email')->nullable();
       $table->text('embed_google_map')->nullable();

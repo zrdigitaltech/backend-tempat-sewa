@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LogoResource\Pages;
-use App\Filament\Resources\LogoResource\RelationManagers;
-use App\Models\Logo;
+use App\Filament\Resources\FloatingWhatsappResource\Pages;
+use App\Filament\Resources\FloatingWhatsappResource\RelationManagers;
+use App\Models\FloatingWhatsapp;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,25 +26,32 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
 
-class LogoResource extends Resource
+class FloatingWhatsappResource extends Resource
 {
-  protected static ?string $model = Logo::class;
+  protected static ?string $model = FloatingWhatsapp::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-photo';
+  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-  protected static ?string $navigationLabel = 'Logo';
-
-  protected static ?int $navigationSort = 1;
+  protected static ?int $navigationSort = 2;
 
   public static function form(Form $form): Form
   {
     return $form->schema([
       Card::make()
         ->schema([
-          FileUpload::make('image')
+          FileUpload::make('avatar')
             ->required()
             ->acceptedFileTypes(['image/*']),
-          TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
+          TextInput::make('phone_number')
+            ->label('Phone Number')
+            ->numeric()
+            ->placeholder('628xxxxxxxx')
+            ->required()
+            ->numeric()
+            ->maxLength(255),
+          TextInput::make('account_name')->label('Account Name')->required()->maxLength(255),
+          TextInput::make('chat_message')->label('Chat Message')->required()->maxLength(255),
+          TextInput::make('status_message')->label('Status Message')->maxLength(255),
         ])
         ->columnSpanFull(),
     ]);
@@ -55,11 +62,15 @@ class LogoResource extends Resource
     return $table
       ->paginated(false)
       ->selectable(false)
-      ->columns([ImageColumn::make('image'), TextColumn::make('alt')])
+      ->columns([
+        ImageColumn::make('avatar'),
+        TextColumn::make('phone_number'),
+        TextColumn::make('account_name'),
+      ])
       ->filters([
         //
       ])
-      ->actions([EditAction::make(), DeleteAction::make()])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),
@@ -78,9 +89,9 @@ class LogoResource extends Resource
   public static function getPages(): array
   {
     return [
-      'index' => Pages\ListLogos::route('/'),
-      'create' => Pages\CreateLogo::route('/create'),
-      'edit' => Pages\EditLogo::route('/{record}/edit'),
+      'index' => Pages\ListFloatingWhatsapps::route('/'),
+      'create' => Pages\CreateFloatingWhatsapp::route('/create'),
+      'edit' => Pages\EditFloatingWhatsapp::route('/{record}/edit'),
     ];
   }
 }

@@ -10,13 +10,13 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('pembayarans', function (Blueprint $table) {
+    Schema::create('floating_whatsapps', function (Blueprint $table) {
       $table->id();
-      $table->string('image')->nullable();
-      $table->string('alt')->nullable();
-      $table->string('no_rek')->nullable();
-      $table->string('nama_rek')->nullable();
-      $table->string('nama_bank')->nullable();
+      $table->string('avatar');
+      $table->string('phone_number')->nullable();
+      $table->string('account_name')->nullable();
+      $table->string('chat_message')->nullable();
+      $table->string('status_message')->nullable();
       $table->timestamps();
     });
   }
@@ -26,6 +26,6 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('pembayarans');
+    Schema::dropIfExists('floating_whatsapps');
   }
 };

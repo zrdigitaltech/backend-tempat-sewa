@@ -14,8 +14,8 @@ return new class extends Migration {
       $table->id();
       $table->string('title')->nullable();
       $table->string('image')->nullable();
-      $table->integer('width')->nullable();
-      $table->integer('height')->nullable();
+      $table->string('width')->nullable();
+      $table->string('height')->nullable();
       $table->string('alt')->nullable();
       $table->json('tags')->nullable();
       $table->text('description')->nullable();
