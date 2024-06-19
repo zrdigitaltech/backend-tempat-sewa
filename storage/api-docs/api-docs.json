@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "API documentation for the application",
+        "contact": {
+            "email": "zikriramdani.developer@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/service-area": {
+            "get": {
+                "tags": [
+                    "Service Area"
+                ],
+                "description": "Description by Zikri Ramdani",
+                "operationId": "ba6c1c14d1a4c04242297bb412b13be9",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AreaLayanan"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AreaLayanan": {
+                "title": "Area Layanan",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the service area",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title of the service area",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

@@ -35,3 +35,4 @@ Cara menjalankan Website :
 - php artisan db:seed --class=UsersTableSeeder
 - php artisan make:model Testimoni -m
 - php artisan make:filament-resource Layanan
+- php artisan l5-swagger:generate

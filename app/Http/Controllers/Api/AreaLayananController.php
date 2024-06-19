@@ -5,13 +5,39 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AreaLayanan;
+use Illuminate\Support\Facades\Log;
 
+/**
+ * @OA\Info(
+ *     title="API Documentation",
+ *     version="1.0.0",
+ *     description="API documentation for the application",
+ *     @OA\Contact(
+ *         email="zikriramdani.developer@gmail.com"
+ *     )
+ * )
+ */
 class AreaLayananController extends Controller
 {
   /**
-   * Display a listing of the resource.
+   * @OA\GET(
+   *     path="/api/v1/service-area",
+   *     tags={"Service Area"},
+   *     description="Description by Zikri Ramdani",
+   *     @OA\Response(
+   *         response=200,
+   *         description="Successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/AreaLayanan")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=500,
+   *         description="Internal Server Error"
+   *     )
+   *  )
    *
-   * @return \Illuminate\Http\Response
    */
   public function index()
   {
