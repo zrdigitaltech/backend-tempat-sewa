@@ -9,8 +9,34 @@ use App\Models\TentangKami;
 class TentangKamiController extends Controller
 {
   /**
- * Display a listing of the resource.
- *
- * @return \Illuminate\Http\Response
- */
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    try {
+      $tentangKami = TentangKami::all();
+
+      return response()->json(
+        [
+          'code' => 200,
+          'message' => 'Successfully retrieved About Me.',
+          'data' => $tentangKami,
+        ],
+        200
+      );
+    } catch (\Exception $e) {
+      Log::error('Failed to retrieve About Us: ' . $e->getMessage());
+
+      return response()->json(
+        [
+          'code' => 500,
+          'message' => 'Failed to retrieve About Us.',
+          'error' => 'Internal Server Error',
+        ],
+        500
+      );
+    }
+  }
 }

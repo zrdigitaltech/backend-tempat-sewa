@@ -27,11 +27,13 @@ class LogoController extends Controller
         200
       );
     } catch (\Exception $e) {
+      Log::error('Failed to retrieve Logo: ' . $e->getMessage());
+
       return response()->json(
         [
           'code' => 500,
-          'message' => 'Failed to retrieve logos.',
-          'error' => $e->getMessage(),
+          'message' => 'Failed to retrieve Logo.',
+          'error' => 'Internal Server Error',
         ],
         500
       );

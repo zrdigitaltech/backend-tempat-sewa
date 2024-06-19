@@ -27,11 +27,13 @@ class BannerController extends Controller
         200
       );
     } catch (\Exception $e) {
+      Log::error('Failed to retrieve Banner: ' . $e->getMessage());
+
       return response()->json(
         [
           'code' => 500,
           'message' => 'Failed to retrieve Banner.',
-          'error' => $e->getMessage(),
+          'error' => 'Internal Server Error',
         ],
         500
       );

@@ -27,11 +27,13 @@ class NumberLayananController extends Controller
         200
       );
     } catch (\Exception $e) {
+      Log::error('Failed to retrieve Service Number: ' . $e->getMessage());
+
       return response()->json(
         [
           'code' => 500,
           'message' => 'Failed to retrieve Service Number.',
-          'error' => $e->getMessage(),
+          'error' => 'Internal Server Error',
         ],
         500
       );

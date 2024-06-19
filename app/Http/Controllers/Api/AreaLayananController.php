@@ -27,11 +27,13 @@ class AreaLayananController extends Controller
         200
       );
     } catch (\Exception $e) {
+      Log::error('Failed to retrieve Service Area: ' . $e->getMessage());
+
       return response()->json(
         [
           'code' => 500,
           'message' => 'Failed to retrieve Service Area.',
-          'error' => $e->getMessage(),
+          'error' => 'Internal Server Error',
         ],
         500
       );

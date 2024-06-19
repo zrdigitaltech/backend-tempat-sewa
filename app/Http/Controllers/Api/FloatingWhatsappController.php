@@ -27,11 +27,13 @@ class FloatingWhatsappController extends Controller
         200
       );
     } catch (\Exception $e) {
+      Log::error('Failed to retrieve Floating Whatsapp: ' . $e->getMessage());
+
       return response()->json(
         [
           'code' => 500,
           'message' => 'Failed to retrieve Floating Whatsapp.',
-          'error' => $e->getMessage(),
+          'error' => 'Internal Server Error',
         ],
         500
       );
