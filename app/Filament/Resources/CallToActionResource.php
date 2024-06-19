@@ -29,70 +29,68 @@ use Filament\Tables\Actions\CreateAction;
 
 class CallToActionResource extends Resource
 {
-    protected static ?string $model = CallToAction::class;
+  protected static ?string $model = CallToAction::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Call To Action';
+  protected static ?string $navigationLabel = 'Call To Action';
 
-    protected static ?string $navigationGroup = 'Call To Action';
+  protected static ?string $navigationGroup = 'Call To Action';
 
-    protected static ?int $navigationSort = 3;
+  protected static ?int $navigationSort = 3;
 
-    public static ?string $label = 'Call To Action';
+  public static ?string $label = 'Call To Action';
 
-    protected static ?string $slug = 'call-to-action';
+  protected static ?string $slug = 'call-to-action';
 
-    public static function form(Form $form): Form
-    {
-        return $form
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
         ->schema([
-          Card::make()
-          ->schema([
-            TextInput::make('title')->required()->maxLength(255),
-            TextArea::make('subtitle')->required()->rows(3)->maxLength(255),
-            TextInput::make('link_wa')->required()->label('Link Whatsapp')->url()->maxLength(255),
-          ])
-          ->columnSpanFull(),
-        ]);
-    }
+          TextInput::make('title')->required()->maxLength(255),
+          TextArea::make('subtitle')->required()->rows(3)->maxLength(255),
+          TextInput::make('link_wa')->required()->label('Link Whatsapp')->url()->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-              ->paginated(false)
-              ->selectable(false)
-              ->columns([
-                TextColumn::make('title')->words(3),
-                TextColumn::make('subtitle')->words(5),
-                TextColumn::make('link_wa')->words(2)
-                ->label('Link Whatsapp'),
-              ])
-              ->filters([
-                  //
-              ])
-              ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
-              ->bulkActions([
-                BulkActionGroup::make([
-                  DeleteBulkAction::make(),
-                  CreateAction::make()->createAnother(false),
-                ]),
-              ]);
-    }
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->paginated(false)
+      ->selectable(false)
+      ->columns([
+        TextColumn::make('title')->words(3),
+        TextColumn::make('subtitle')->words(5),
+        TextColumn::make('link_wa')->words(2)->label('Link Whatsapp'),
+      ])
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
+      ]);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListCallToActions::route('/'),
-            'create' => Pages\CreateCallToAction::route('/create'),
-            'edit' => Pages\EditCallToAction::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListCallToActions::route('/'),
+      'create' => Pages\CreateCallToAction::route('/create'),
+      'edit' => Pages\EditCallToAction::route('/{record}/edit'),
+    ];
+  }
 }

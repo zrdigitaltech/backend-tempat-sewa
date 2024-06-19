@@ -9,16 +9,16 @@ use App\Models\CallToAction;
 
 class ListCallToActions extends ListRecords
 {
-    protected static string $resource = CallToActionResource::class;
+  protected static string $resource = CallToActionResource::class;
 
-    protected function getHeaderActions(): array
-    {
-      $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-      if (CallToAction::count() < 1) {
-        $actions[] = Actions\CreateAction::make();
-      }
-
-      return $actions;
+    if (CallToAction::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

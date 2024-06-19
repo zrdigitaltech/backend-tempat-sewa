@@ -8,12 +8,10 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditCallToAction extends EditRecord
 {
-    protected static string $resource = CallToActionResource::class;
+  protected static string $resource = CallToActionResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\DeleteAction::make()];
+  }
 }

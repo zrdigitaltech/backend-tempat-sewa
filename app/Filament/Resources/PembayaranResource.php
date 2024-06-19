@@ -28,76 +28,72 @@ use Filament\Tables\Actions\CreateAction;
 
 class PembayaranResource extends Resource
 {
-    protected static ?string $model = Pembayaran::class;
+  protected static ?string $model = Pembayaran::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Payment';
+  protected static ?string $navigationLabel = 'Payment';
 
-    protected static ?string $navigationGroup = 'Contact Us';
+  protected static ?string $navigationGroup = 'Contact Us';
 
-    protected static ?int $navigationSort = 7;
+  protected static ?int $navigationSort = 7;
 
-    public static ?string $label = 'Payment';
+  public static ?string $label = 'Payment';
 
-    protected static ?string $slug = 'payment';
+  protected static ?string $slug = 'payment';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-              Card::make()
-              ->schema([
-                FileUpload::make('image')
-                  ->required()
-                  ->acceptedFileTypes(['image/*']),
-                TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
-                TextInput::make('no_rek')->required()->label('No Rek')->numeric()->maxLength(255),
-                TextInput::make('nama_rek')->required()->label('Name Rek')->maxLength(255),
-                TextInput::make('nama_bank')->required()->label('Name Bank')->maxLength(255),
-              ])
-              ->columnSpanFull(),
-            ]);
-    }
+  public static function form(Form $form): Form
+  {
+    return $form->schema([
+      Card::make()
+        ->schema([
+          FileUpload::make('image')
+            ->required()
+            ->acceptedFileTypes(['image/*']),
+          TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
+          TextInput::make('no_rek')->required()->label('No Rek')->numeric()->maxLength(255),
+          TextInput::make('nama_rek')->required()->label('Name Rek')->maxLength(255),
+          TextInput::make('nama_bank')->required()->label('Name Bank')->maxLength(255),
+        ])
+        ->columnSpanFull(),
+    ]);
+  }
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->paginated(false)
-            ->selectable(false)
-            ->columns([
-              TextColumn::make('no_rek')
-              ->label('No Rek'),
-              TextColumn::make('nama_rek')
-              ->label('Name Rek'),
-              TextColumn::make('nama_bank')
-              ->label('Name Bank'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
-            ->bulkActions([
-              BulkActionGroup::make([
-                DeleteBulkAction::make(),
-                CreateAction::make()->createAnother(false),
-              ]),
-            ]);
-    }
+  public static function table(Table $table): Table
+  {
+    return $table
+      ->paginated(false)
+      ->selectable(false)
+      ->columns([
+        TextColumn::make('no_rek')->label('No Rek'),
+        TextColumn::make('nama_rek')->label('Name Rek'),
+        TextColumn::make('nama_bank')->label('Name Bank'),
+      ])
+      ->filters([
+        //
+      ])
+      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->bulkActions([
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
+      ]);
+  }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+  public static function getRelations(): array
+  {
+    return [
+        //
+      ];
+  }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListPembayarans::route('/'),
-            'create' => Pages\CreatePembayaran::route('/create'),
-            'edit' => Pages\EditPembayaran::route('/{record}/edit'),
-        ];
-    }
+  public static function getPages(): array
+  {
+    return [
+      'index' => Pages\ListPembayarans::route('/'),
+      'create' => Pages\CreatePembayaran::route('/create'),
+      'edit' => Pages\EditPembayaran::route('/{record}/edit'),
+    ];
+  }
 }

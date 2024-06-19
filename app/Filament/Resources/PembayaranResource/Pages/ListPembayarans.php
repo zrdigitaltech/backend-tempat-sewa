@@ -9,16 +9,16 @@ use App\Models\Pembayaran;
 
 class ListPembayarans extends ListRecords
 {
-    protected static string $resource = PembayaranResource::class;
+  protected static string $resource = PembayaranResource::class;
 
-    protected function getHeaderActions(): array
-    {
-      $actions = [];
+  protected function getHeaderActions(): array
+  {
+    $actions = [];
 
-      if (Pembayaran::count() < 1) {
-        $actions[] = Actions\CreateAction::make();
-      }
-
-      return $actions;
+    if (Pembayaran::count() < 1) {
+      $actions[] = Actions\CreateAction::make();
     }
+
+    return $actions;
+  }
 }

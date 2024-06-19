@@ -10,24 +10,24 @@ use Filament\Notifications\Notification;
 
 class CreateCallToAction extends CreateRecord
 {
-    protected static string $resource = CallToActionResource::class;
+  protected static string $resource = CallToActionResource::class;
 
-    protected static bool $canCreateAnother = false;
+  protected static bool $canCreateAnother = false;
 
-    public function mount(): void
-    {
-      parent::mount();
+  public function mount(): void
+  {
+    parent::mount();
 
-      // Check the current count of records
-      $recordCount = CallToAction::count();
-      if ($recordCount >= 1) {
-        Notification::make()
-          ->title('Limit Reached')
-          ->danger()
-          ->body('You cannot create more than 1 record.')
-          ->send();
+    // Check the current count of records
+    $recordCount = CallToAction::count();
+    if ($recordCount >= 1) {
+      Notification::make()
+        ->title('Limit Reached')
+        ->danger()
+        ->body('You cannot create more than 1 record.')
+        ->send();
 
-        $this->redirect($this->getResource()::getUrl('index'));
-      }
+      $this->redirect($this->getResource()::getUrl('index'));
     }
+  }
 }

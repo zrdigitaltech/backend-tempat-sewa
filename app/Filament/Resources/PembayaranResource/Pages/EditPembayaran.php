@@ -8,12 +8,10 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditPembayaran extends EditRecord
 {
-    protected static string $resource = PembayaranResource::class;
+  protected static string $resource = PembayaranResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\DeleteAction::make()];
+  }
 }
