@@ -20,6 +20,26 @@ use Illuminate\Database\Eloquent\Model;
  *         property="image",
  *         type="string",
  *         description="Image of the service area"
+ *     ),
+  *     @OA\Property(
+ *         property="title",
+ *         type="string",
+ *         description="Title of the service area"
+ *     ),
+  *     @OA\Property(
+ *         property="description",
+ *         type="string",
+ *         description="Description of the service area"
+ *     ),
+  *     @OA\Property(
+ *         property="title_wa",
+ *         type="string",
+ *         description="Title Whatsapp of the service area"
+ *     ),
+  *     @OA\Property(
+ *         property="link_wa",
+ *         type="string",
+ *         description="Link Whatsapp of the service area"
  *     )
  * )
  */
