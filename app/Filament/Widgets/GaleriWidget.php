@@ -7,14 +7,14 @@ use App\Models\Galeri;
 
 class GaleriWidget extends Widget
 {
-    protected static string $view = 'filament.widgets.galeri-widget';
+  protected static string $view = 'filament.widgets.galeri-widget';
 
-    protected function getViewData(): array
-    {
-      $GaleriCount = Galeri::count();
+  protected function getViewData(): array
+  {
+    $GaleriCount = Galeri::count();
 
-      return [
-        'GaleriCount' => $GaleriCount,
-      ];
-    }
+    return [
+      'GaleriCount' => $GaleriCount,
+    ];
+  }
 }
