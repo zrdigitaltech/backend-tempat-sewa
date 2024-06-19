@@ -18,12 +18,12 @@ export default defineConfig(config => {
       laravel({
         input: [
           // css
-          'resources/app/styles//bootstrap/css/bootstrap.min.css',
-          'resources/app/styles/linearicons/css/icon-font.min.css',
-          'resources/app/styles/font-awesome/css/font-awesome.min.css',
-          'resources/app/styles/animate/animate.css',
-          'resources/app/styles/owl-carousel/css/owl.carousel.css',
-          'resources/app/styles/owl-carousel/css/owl.theme.css',
+          'resources/app/styles/bootstrap/css/bootstrap.min.scss',
+          'resources/app/styles/linearicons/css/icon-font.min.scss',
+          'resources/app/styles/font-awesome/css/font-awesome.min.scss',
+          'resources/app/styles/animate/animate.scss',
+          'resources/app/styles/owl-carousel/css/owl.carousel.scss',
+          'resources/app/styles/owl-carousel/css/owl.theme.scss',
           'resources/app/styles/scss/style.scss',
           'resources/app/index.jsx',
           'resources/js/app.js'
