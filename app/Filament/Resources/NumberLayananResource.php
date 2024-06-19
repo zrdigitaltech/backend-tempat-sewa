@@ -30,11 +30,15 @@ class NumberLayananResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-s-information-circle';
 
-  protected static ?string $navigationLabel = 'Number Layanan';
+  protected static ?string $navigationLabel = 'Service Number';
 
   protected static ?string $navigationGroup = 'Home';
 
   protected static ?int $navigationSort = 1;
+
+  public static ?string $label = 'Service Number';
+
+  protected static ?string $slug = 'service-number';
 
   public static function form(Form $form): Form
   {

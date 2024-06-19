@@ -29,11 +29,15 @@ class AreaLayananResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-s-information-circle';
 
-  protected static ?string $navigationLabel = 'Area Layanan';
+  protected static ?string $navigationLabel = 'Service Area';
 
   protected static ?string $navigationGroup = 'Home';
 
   protected static ?int $navigationSort = 2;
+
+  public static ?string $label = 'Service Area';
+
+  protected static ?string $slug = 'service-area';
 
   public static function form(Form $form): Form
   {
