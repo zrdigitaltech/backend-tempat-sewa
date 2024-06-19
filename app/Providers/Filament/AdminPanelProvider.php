@@ -44,12 +44,12 @@ class AdminPanelProvider extends PanelProvider
           ->url('/admin', shouldOpenInNewTab: true)
           ->icon('heroicon-o-document')
           ->group('External')
-          ->sort(7),
+          ->sort(8),
         NavigationItem::make('Help')
           ->url('https://zrdevelopers.github.io/', shouldOpenInNewTab: true)
           ->icon('heroicon-o-question-mark-circle')
           ->group('External')
-          ->sort(7),
+          ->sort(8),
       ])
       ->userMenuItems([
         MenuItem::make()->label('Settings')->url('')->icon('heroicon-o-cog-6-tooth'),

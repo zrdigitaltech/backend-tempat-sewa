@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PembayaranResource\Pages;
 use App\Filament\Resources\PembayaranResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Models\Pembayaran;
 
 class ListPembayarans extends ListRecords
 {
@@ -12,8 +13,12 @@ class ListPembayarans extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+      $actions = [];
+
+      if (Pembayaran::count() < 1) {
+        $actions[] = Actions\CreateAction::make();
+      }
+
+      return $actions;
     }
 }
