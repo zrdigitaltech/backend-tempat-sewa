@@ -31,7 +31,7 @@ class KontakKamiResource extends Resource
 {
   protected static ?string $model = KontakKami::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-identification';
 
   protected static ?string $navigationLabel = 'Contact Us';
 

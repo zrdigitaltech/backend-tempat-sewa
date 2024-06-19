@@ -31,7 +31,7 @@ class CallToActionResource extends Resource
 {
   protected static ?string $model = CallToAction::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-phone';
 
   protected static ?string $navigationLabel = 'Call To Action';
 
