@@ -52,7 +52,7 @@ class PembayaranResource extends Resource
                   ->required()
                   ->acceptedFileTypes(['image/*']),
                 TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
-                TextInput::make('no_rek')->required()->label('No Rek')->maxLength(255),
+                TextInput::make('no_rek')->required()->label('No Rek')->numeric()->maxLength(255),
                 TextInput::make('nama_rek')->required()->label('Name Rek')->maxLength(255),
                 TextInput::make('nama_bank')->required()->label('Name Bank')->maxLength(255),
               ])

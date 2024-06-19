@@ -49,18 +49,22 @@ class NumberLayananResource extends Resource
           TextArea::make('description_pengalaman')
             ->label('Description Experience')
             ->required()
+            ->rows(3)
             ->maxLength(255),
           TextArea::make('certification_description')
             ->label('Description Certification')
             ->required()
+            ->rows(3)
             ->maxLength(255),
           TextArea::make('operasional_description')
             ->label('Description Operational')
             ->required()
+            ->rows(3)
             ->maxLength(255),
           TextArea::make('harga_wajar_description')
             ->label('Description Price')
             ->required()
+            ->rows(3)
             ->maxLength(255),
         ])
         ->columnSpanFull(),

@@ -56,7 +56,7 @@ class GaleriResource extends Resource
           TextInput::make('width')->default('300')->numeric()->required()->maxLength(255),
           TextInput::make('height')->default('212')->numeric()->required()->maxLength(255),
           TextInput::make('alt')->default('Mekanik Elektro'),
-          Textarea::make('description'),
+          Textarea::make('description')->rows(3),
           Repeater::make('tags')
             ->schema([
               TextInput::make('value')->default('Mekanik Elektro')->maxLength(255),

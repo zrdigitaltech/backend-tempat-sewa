@@ -53,7 +53,7 @@ class LayananResource extends Resource
             ->acceptedFileTypes(['image/*']),
           TextInput::make('title')->required()->maxLength(255),
           TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
-          TextArea::make('description')->maxLength(255),
+          TextArea::make('description')->rows(3)->maxLength(255),
         ])
         ->columnSpanFull(),
     ]);

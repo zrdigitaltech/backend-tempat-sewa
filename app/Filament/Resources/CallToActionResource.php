@@ -12,6 +12,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Card;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\CreateAction;
 
 class CallToActionResource extends Resource
 {
@@ -32,28 +46,38 @@ class CallToActionResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+        ->schema([
+          Card::make()
+          ->schema([
+            TextInput::make('title')->required()->maxLength(255),
+            TextArea::make('subtitle')->required()->rows(3)->maxLength(255),
+            TextInput::make('link_wa')->required()->label('Link Whatsapp')->url()->maxLength(255),
+          ])
+          ->columnSpanFull(),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+              ->paginated(false)
+              ->selectable(false)
+              ->columns([
+                TextColumn::make('title')->words(3),
+                TextColumn::make('subtitle')->words(5),
+                TextColumn::make('link_wa')->words(2)
+                ->label('Link Whatsapp'),
+              ])
+              ->filters([
+                  //
+              ])
+              ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+              ->bulkActions([
+                BulkActionGroup::make([
+                  DeleteBulkAction::make(),
+                  CreateAction::make()->createAnother(false),
                 ]),
-            ]);
+              ]);
     }
 
     public static function getRelations(): array
