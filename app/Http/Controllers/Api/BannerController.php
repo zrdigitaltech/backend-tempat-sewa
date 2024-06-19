@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Logo;
+use App\Models\Banner;
 
-class LogoController extends Controller
+class BannerController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -16,13 +16,13 @@ class LogoController extends Controller
   public function index()
   {
     try {
-      $logos = Logo::all();
+      $banner = Banner::all();
 
       return response()->json(
         [
           'code' => 200,
-          'message' => 'Successfully retrieved logos.',
-          'data' => $logos,
+          'message' => 'Successfully retrieved Banner.',
+          'data' => $banner,
         ],
         200
       );
@@ -30,7 +30,7 @@ class LogoController extends Controller
       return response()->json(
         [
           'code' => 500,
-          'message' => 'Failed to retrieve logos.',
+          'message' => 'Failed to retrieve Banner.',
           'error' => $e->getMessage(),
         ],
         500
