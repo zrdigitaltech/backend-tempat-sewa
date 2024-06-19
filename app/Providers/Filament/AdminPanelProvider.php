@@ -23,6 +23,8 @@ use Filament\Navigation\NavigationItem;
 use App\Filament\Widgets\BannerWidget;
 use App\Filament\Widgets\AreaLayananWidget;
 use App\Filament\Widgets\LayananWidget;
+use App\Filament\Widgets\GaleriWidget;
+use App\Filament\Widgets\TestimoniWidget;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -69,6 +71,8 @@ class AdminPanelProvider extends PanelProvider
         BannerWidget::class,
         AreaLayananWidget::class,
         LayananWidget::class,
+        GaleriWidget::class,
+        TestimoniWidget::class,
       ])
       ->middleware([
         EncryptCookies::class,
