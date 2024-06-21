@@ -35,12 +35,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CallToAction extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ['title', 'subtitle', 'link_wa'];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['title', 'subtitle', 'link_wa'];
 }

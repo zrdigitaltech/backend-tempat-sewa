@@ -45,12 +45,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Banner extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ['image', 'title', 'description', 'title_wa', 'link_wa'];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = ['image', 'title', 'description', 'title_wa', 'link_wa'];
 }

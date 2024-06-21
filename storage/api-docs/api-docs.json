@@ -64,6 +64,118 @@
                     }
                 }
             }
+        },
+        "/api/v1/call-to-action": {
+            "get": {
+                "tags": [
+                    "Call To Action"
+                ],
+                "summary": "Get list of call to action",
+                "description": "Returns list of call to action",
+                "operationId": "dc3252c919371b26b6d62db277fb310d",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CallToAction"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/floating-whatsapp": {
+            "get": {
+                "tags": [
+                    "Floating Whatsapp"
+                ],
+                "summary": "Get list of floating whatsapp",
+                "description": "Returns list of floating whatsapp",
+                "operationId": "4d58af6495974005c946350af2b68b3d",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FloatingWhatsapp"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/gallery": {
+            "get": {
+                "tags": [
+                    "Gallery"
+                ],
+                "summary": "Get list of gallery",
+                "description": "Returns list of gallery",
+                "operationId": "e584538f59d335eb2e61b84f61d69aff",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Gallery"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/contact-us": {
+            "get": {
+                "tags": [
+                    "Contact Us"
+                ],
+                "summary": "Get list of contact us",
+                "description": "Returns list of contact us",
+                "operationId": "fb18729a1fd0f5e2146b11f13451277a",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContactUs"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "components": {

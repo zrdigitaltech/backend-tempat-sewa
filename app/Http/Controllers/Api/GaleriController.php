@@ -9,6 +9,26 @@ use Illuminate\Support\Facades\Log;
 
 class GaleriController extends Controller
 {
+  /**
+   * @OA\Get(
+   *     path="/api/v1/gallery",
+   *     tags={"Gallery"},
+   *     summary="Get list of gallery",
+   *     description="Returns list of gallery",
+   *     @OA\Response(
+   *         response=200,
+   *         description="successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/Gallery")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=500,
+   *         description="Internal Server Error"
+   *     )
+   * )
+   */
   public function index()
   {
     try {

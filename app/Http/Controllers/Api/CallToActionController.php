@@ -9,6 +9,26 @@ use Illuminate\Support\Facades\Log;
 
 class CallToActionController extends Controller
 {
+  /**
+   * @OA\Get(
+   *     path="/api/v1/call-to-action",
+   *     tags={"Call To Action"},
+   *     summary="Get list of call to action",
+   *     description="Returns list of call to action",
+   *     @OA\Response(
+   *         response=200,
+   *         description="successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/CallToAction")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=500,
+   *         description="Internal Server Error"
+   *     )
+   * )
+   */
   public function index()
   {
     try {
