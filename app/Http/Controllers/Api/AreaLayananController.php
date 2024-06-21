@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
  * @OA\Info(
  *     title="API Documentation",
  *     version="1.0.0",
- *     description="API documentation for my Laravel application",
+ *     description="API documentation for Mekanik Elektro application",
  *     @OA\Contact(
  *         email="zikriramdani.developer@gmail.com"
  *     )
@@ -31,7 +31,7 @@ class AreaLayananController extends Controller
    *         description="successful operation",
    *         @OA\JsonContent(
    *             type="array",
-   *             @OA\Items(ref="#/components/schemas/AreaLayanan")
+   *             @OA\Items(ref="#/components/schemas/ServiceArea")
    *         )
    *     ),
    *     @OA\Response(

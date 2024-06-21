@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @OA\Schema(
- *     schema="AreaLayanan",
+ *     schema="ServiceArea",
  *     type="object",
- *     title="Area Layanan",
+ *     title="Service Area",
  *     required={"id", "title"},
  *     @OA\Property(
  *         property="id",

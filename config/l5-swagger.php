@@ -6,7 +6,7 @@ return [
     'default' => [
       'api' => [
         'title' => 'L5 Swagger UI',
-        'description' => 'API documentation for my Laravel application',
+        'description' => 'API documentation for Mekanik Elektro application',
         'version' => '1.0.0',
       ],
 

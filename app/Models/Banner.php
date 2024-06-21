@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  *     @OA\Property(
  *         property="image",
  *         type="string",
- *         description="Image of the banner"
+ *         description="URL of the banner image"
  *     ),
  *     @OA\Property(
  *         property="title",
@@ -34,23 +34,23 @@ use Illuminate\Database\Eloquent\Model;
  *     @OA\Property(
  *         property="title_wa",
  *         type="string",
- *         description="Title Whatsapp of the banner"
+ *         description="WhatsApp title"
  *     ),
  *     @OA\Property(
  *         property="link_wa",
  *         type="string",
- *         description="Link Whatsapp of the banner"
- *     )
+ *         description="WhatsApp link"
+ *     ),
  * )
  */
 class Banner extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  /**
-   * The attributes that are mass assignable.
-   *
-   * @var array<int, string>
-   */
-  protected $fillable = ['image', 'title', 'description', 'title_wa', 'link_wa'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['image', 'title', 'description', 'title_wa', 'link_wa'];
 }
