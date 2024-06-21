@@ -9,6 +9,26 @@ use Illuminate\Support\Facades\Log;
 
 class LayananController extends Controller
 {
+  /**
+   * @OA\Get(
+   *     path="/api/v1/services",
+   *     tags={"Services"},
+   *     summary="Get list of services",
+   *     description="Returns list of services",
+   *     @OA\Response(
+   *         response=200,
+   *         description="successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/Services")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=500,
+   *         description="Internal Server Error"
+   *     )
+   * )
+   */
   public function index()
   {
     try {

@@ -9,6 +9,26 @@ use Illuminate\Support\Facades\Log;
 
 class LogoController extends Controller
 {
+  /**
+   * @OA\Get(
+   *     path="/api/v1/logo",
+   *     tags={"Logo"},
+   *     summary="Get list of logo",
+   *     description="Returns list of logo",
+   *     @OA\Response(
+   *         response=200,
+   *         description="successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/Logo")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=500,
+   *         description="Internal Server Error"
+   *     )
+   * )
+   */
   public function index()
   {
     try {

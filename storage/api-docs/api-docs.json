@@ -176,6 +176,90 @@
                     }
                 }
             }
+        },
+        "/api/v1/services": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Get list of services",
+                "description": "Returns list of services",
+                "operationId": "a2ff26ffdd198043726c4b449dbb4d9b",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Services"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/logo": {
+            "get": {
+                "tags": [
+                    "Logo"
+                ],
+                "summary": "Get list of logo",
+                "description": "Returns list of logo",
+                "operationId": "e2d65b508ffe11c0dc18bb667f45e054",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Logo"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/service-number": {
+            "get": {
+                "tags": [
+                    "ServiceNumber"
+                ],
+                "summary": "Get list of service-number",
+                "description": "Returns list of service-number",
+                "operationId": "2be8f75b6a14b8ac8b6bc78848292097",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ServiceNumber"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "components": {

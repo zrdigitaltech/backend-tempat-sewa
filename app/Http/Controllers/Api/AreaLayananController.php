@@ -7,17 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\AreaLayanan;
 use Illuminate\Support\Facades\Log;
 
-/**
- * @OA\Info(
- *     title="API Documentation",
- *     version="1.0.0",
- *     description="API documentation for Mekanik Elektro application",
- *     @OA\Contact(
- *         email="zikriramdani.developer@gmail.com"
- *     )
- * )
- */
-
 class AreaLayananController extends Controller
 {
   /**
