@@ -7,38 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Log;
 
-/**
- * @OA\Info(
- *     title="API Documentation",
- *     version="1.0.0",
- *     description="API documentation for the application",
- *     @OA\Contact(
- *         email="zikriramdani.developer@gmail.com"
- *     )
- * )
- */
 class BannerController extends Controller
 {
-  /**
-   * @OA\GET(
-   *     path="/api/v1/banner",
-   *     tags={"Banner"},
-   *     description="Description by Zikri Ramdani",
-   *     @OA\Response(
-   *         response=200,
-   *         description="Successful operation",
-   *         @OA\JsonContent(
-   *             type="array",
-   *             @OA\Items(ref="#/components/schemas/Banner")
-   *         )
-   *     ),
-   *     @OA\Response(
-   *         response=500,
-   *         description="Internal Server Error"
-   *     )
-   *  )
-   *
-   */
   public function index()
   {
     try {

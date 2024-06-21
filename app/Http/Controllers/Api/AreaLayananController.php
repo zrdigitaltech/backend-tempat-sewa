@@ -7,38 +7,39 @@ use Illuminate\Http\Request;
 use App\Models\AreaLayanan;
 use Illuminate\Support\Facades\Log;
 
-/**
+ /**
  * @OA\Info(
  *     title="API Documentation",
  *     version="1.0.0",
- *     description="API documentation for the application",
+ *     description="API documentation for my Laravel application",
  *     @OA\Contact(
  *         email="zikriramdani.developer@gmail.com"
  *     )
  * )
  */
+
 class AreaLayananController extends Controller
 {
   /**
-   * @OA\GET(
-   *     path="/api/v1/service-area",
-   *     tags={"Service Area"},
-   *     description="Description by Zikri Ramdani",
-   *     @OA\Response(
-   *         response=200,
-   *         description="Successful operation",
-   *         @OA\JsonContent(
-   *             type="array",
-   *             @OA\Items(ref="#/components/schemas/AreaLayanan")
-   *         )
-   *     ),
+ * @OA\Get(
+ *     path="/api/v1/service-area",
+ *     tags={"Service Area"},
+ *     summary="Get list of service area",
+ *     description="Returns list of service area",
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/AreaLayanan")
+ *         )
+ *     ),
    *     @OA\Response(
    *         response=500,
    *         description="Internal Server Error"
    *     )
-   *  )
-   *
-   */
+ * )
+ */
   public function index()
   {
     try {

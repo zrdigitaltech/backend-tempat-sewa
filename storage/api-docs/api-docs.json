@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Documentation",
-        "description": "API documentation for the application",
+        "description": "API documentation for my Laravel application",
         "contact": {
             "email": "zikriramdani.developer@gmail.com"
         },
@@ -14,11 +14,12 @@
                 "tags": [
                     "Service Area"
                 ],
-                "description": "Description by Zikri Ramdani",
+                "summary": "Get list of service area",
+                "description": "Returns list of service area",
                 "operationId": "ba6c1c14d1a4c04242297bb412b13be9",
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
+                        "description": "successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -52,6 +53,44 @@
                     },
                     "title": {
                         "description": "Title of the service area",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Banner": {
+                "title": "Banner",
+                "required": [
+                    "id",
+                    "image",
+                    "title",
+                    "description",
+                    "title_wa",
+                    "link_wa"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the banner",
+                        "type": "integer"
+                    },
+                    "image": {
+                        "description": "Image of the banner",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Title of the banner",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the banner",
+                        "type": "string"
+                    },
+                    "title_wa": {
+                        "description": "Title Whatsapp of the banner",
+                        "type": "string"
+                    },
+                    "link_wa": {
+                        "description": "Link Whatsapp of the banner",
                         "type": "string"
                     }
                 },

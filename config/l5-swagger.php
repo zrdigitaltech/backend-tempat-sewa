@@ -6,6 +6,8 @@ return [
     'default' => [
       'api' => [
         'title' => 'L5 Swagger UI',
+        'description' => 'API documentation for my Laravel application',
+        'version' => '1.0.0',
       ],
 
       'routes' => [
@@ -15,6 +17,7 @@ return [
         'api' => 'api/documentation',
       ],
       'paths' => [
+        'base' => env('L5_SWAGGER_BASE_PATH', null),
         /*
          * Edit to include full URL in ui for assets
          */
