@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\AreaLayanan;
 use Illuminate\Support\Facades\Log;
 
- /**
+/**
  * @OA\Info(
  *     title="API Documentation",
  *     version="1.0.0",
@@ -21,25 +21,25 @@ use Illuminate\Support\Facades\Log;
 class AreaLayananController extends Controller
 {
   /**
- * @OA\Get(
- *     path="/api/v1/service-area",
- *     tags={"Service Area"},
- *     summary="Get list of service area",
- *     description="Returns list of service area",
- *     @OA\Response(
- *         response=200,
- *         description="successful operation",
- *         @OA\JsonContent(
- *             type="array",
- *             @OA\Items(ref="#/components/schemas/AreaLayanan")
- *         )
- *     ),
+   * @OA\Get(
+   *     path="/api/v1/service-area",
+   *     tags={"Service Area"},
+   *     summary="Get list of service area",
+   *     description="Returns list of service area",
+   *     @OA\Response(
+   *         response=200,
+   *         description="successful operation",
+   *         @OA\JsonContent(
+   *             type="array",
+   *             @OA\Items(ref="#/components/schemas/AreaLayanan")
+   *         )
+   *     ),
    *     @OA\Response(
    *         response=500,
    *         description="Internal Server Error"
    *     )
- * )
- */
+   * )
+   */
   public function index()
   {
     try {

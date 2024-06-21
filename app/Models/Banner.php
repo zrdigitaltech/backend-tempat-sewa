@@ -21,22 +21,22 @@ use Illuminate\Database\Eloquent\Model;
  *         type="string",
  *         description="Image of the banner"
  *     ),
-  *     @OA\Property(
+ *     @OA\Property(
  *         property="title",
  *         type="string",
  *         description="Title of the banner"
  *     ),
-  *     @OA\Property(
+ *     @OA\Property(
  *         property="description",
  *         type="string",
  *         description="Description of the banner"
  *     ),
-  *     @OA\Property(
+ *     @OA\Property(
  *         property="title_wa",
  *         type="string",
  *         description="Title Whatsapp of the banner"
  *     ),
-  *     @OA\Property(
+ *     @OA\Property(
  *         property="link_wa",
  *         type="string",
  *         description="Link Whatsapp of the banner"

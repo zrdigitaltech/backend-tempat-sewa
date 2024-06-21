@@ -36,6 +36,34 @@
                     }
                 }
             }
+        },
+        "/api/v1/banner": {
+            "get": {
+                "tags": [
+                    "Banner"
+                ],
+                "summary": "Get list of banner",
+                "description": "Returns list of banner",
+                "operationId": "3405b0cd522d1168a6b820aabd7694c6",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Banner"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "components": {
