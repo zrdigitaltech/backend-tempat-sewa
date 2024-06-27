@@ -11,7 +11,7 @@ export const getListAreaLayanan = () => {
       const response = await axios.get('/api/v1/service-area');
       const dataAreaLayanans = response?.data?.data;
       if (dataAreaLayanans?.length > 0) {
-        dispatch(saveListBanners(dataAreaLayanans));
+        dispatch(saveListAreaLayanan(dataAreaLayanans));
       } else {
         dispatch(saveListAreaLayanan(DataAreaLayanan));
       }

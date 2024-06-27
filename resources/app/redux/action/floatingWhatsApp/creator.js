@@ -6,8 +6,19 @@ import DataFloatingWhatsapp from './data-floating-whatsapp.json';
 
 // Read
 export const getListFloatingWhatsapp = () => {
-  return dispatch => {
-    return dispatch(saveListFloatingWhatsapp(DataFloatingWhatsapp[0]));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/floating-whatsapp');
+      const dataFloatingWhatsapp = response?.data?.data;
+      if (dataFloatingWhatsapp?.length > 0) {
+        dispatch(saveListFloatingWhatsapp(dataFloatingWhatsapp[0]));
+      } else {
+        dispatch(saveListFloatingWhatsapp(DataFloatingWhatsapp[0]));
+      }
+    } catch (error) {
+      console.error('Error fetching floating whatsapp from API:', error);
+      dispatch(saveListFloatingWhatsapp(DataFloatingWhatsapp[0]));
+    }
   };
 };
 
