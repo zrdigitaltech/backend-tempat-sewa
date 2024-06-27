@@ -111,7 +111,7 @@ export default function Index() {
                 <div
                   className={`single-slide-item slide-${x + 1}`}
                   style={{
-                    backgroundImage: `url(${item?.image})`
+                    backgroundImage: `url(${item?.image?.includes('assets') ? item?.image : 'storage/' + item?.image})`
                   }}
                 >
                   <div className="single-slide-item-table">
@@ -129,13 +129,15 @@ export default function Index() {
                                 __html: item?.description
                               }}
                             ></p>
-                            <a
-                              className="btn-one smoth-scroll"
-                              href={item?.link_wa}
-                              target="_blank"
-                            >
-                              {item?.title_wa}
-                            </a>
+                            {item?.title_wa && item?.link_wa && (
+                              <a
+                                className="btn-one smoth-scroll"
+                                href={item?.link_wa}
+                                target="_blank"
+                              >
+                                {item?.title_wa}
+                              </a>
+                            )}
                           </div>
                         </div>
                       </div>

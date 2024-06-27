@@ -46,8 +46,8 @@ class BannerResource extends Resource
           FileUpload::make('image')
             ->required()
             ->acceptedFileTypes(['image/*']),
-          TextInput::make('title')->maxLength(255),
-          RichEditor::make('description')->maxLength(255),
+          TextInput::make('title')->maxLength(255)->required(),
+          TextInput::make('description')->maxLength(255)->required(),
           TextInput::make('title_wa')->label('Title Whatsapp')->maxLength(255),
           TextInput::make('link_wa')->label('Link Whatsapp')->url()->maxLength(255),
         ])
@@ -60,8 +60,8 @@ class BannerResource extends Resource
     return $table
       ->columns([
         ImageColumn::make('image'),
-        TextColumn::make('title')->searchable(),
-        TextColumn::make('description'),
+        TextColumn::make('title')->searchable()->html()->words(7),
+        TextColumn::make('description')->html()->words(3),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
