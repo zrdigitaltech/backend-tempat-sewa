@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/tentangKami/type';
+import axios from 'axios';
 
 // Data Json
 import DataTentangKami from './data-tentang-kami.json';

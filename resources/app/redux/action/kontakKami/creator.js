@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/kontakKami/type';
+import axios from 'axios';
 
 // Data Json
 import DataKontakKami from './data-kontak-kami.json';

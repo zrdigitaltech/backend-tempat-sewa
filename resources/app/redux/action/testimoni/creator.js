@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/testimoni/type';
+import axios from 'axios';
 
 // Data Json
 import DataTestimoni from './data-testimoni.json';

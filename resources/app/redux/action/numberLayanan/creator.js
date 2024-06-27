@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/numberLayanan/type';
+import axios from 'axios';
 
 // Data Json
 import DataNumberLayanan from './data-number-layanan.json';

@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/callToAction/type';
+import axios from 'axios';
 
 // Data Json
 import DataCallToAction from './data-call-to-action.json';

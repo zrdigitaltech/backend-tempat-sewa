@@ -1,4 +1,5 @@
 import { actionType } from '@/redux/action/pembayaran/type';
+import axios from 'axios';
 
 // Data Json
 import DataPembayaran from './data-pembayaran.json';
