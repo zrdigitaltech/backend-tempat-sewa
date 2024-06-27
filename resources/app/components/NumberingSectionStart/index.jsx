@@ -79,7 +79,7 @@ export default function Index() {
                     <div className="icon">
                       <span className="lnr lnr-location"></span>
                     </div>
-                    <div className="number animateNumber" data-num="">
+                    <div className="number animateNumber">
                       {' '}
                       <span>{item?.title}</span>
                     </div>
@@ -95,7 +95,7 @@ export default function Index() {
                     <div className="icon">
                       <span className="lnr lnr-location"></span>
                     </div>
-                    <div className="number animateNumber" data-num="99">
+                    <div className="number animateNumber">
                       {' '}
                       <span>{item?.title}</span>
                     </div>

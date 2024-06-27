@@ -6,8 +6,19 @@ import DataAreaLayanan from './data-area-layanan.json';
 
 // Read
 export const getListAreaLayanan = () => {
-  return dispatch => {
-    return dispatch(saveListAreaLayanan(DataAreaLayanan));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/service-area');
+      const dataAreaLayanans = response?.data?.data;
+      if (dataAreaLayanans?.length > 0) {
+        dispatch(saveListBanners(dataAreaLayanans));
+      } else {
+        dispatch(saveListAreaLayanan(DataAreaLayanan));
+      }
+    } catch (error) {
+      console.error('Error fetching service area from API:', error);
+      dispatch(saveListAreaLayanan(DataAreaLayanan));
+    }
   };
 };
 
