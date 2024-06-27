@@ -51,12 +51,16 @@
         text-align: right;
         margin-top: 1rem;
         font-size: 0.875rem;
+        padding-right: 0.5rem;
       }
       .text-center {
         text-align: center;
       }
       .text-end {
         text-align: right;
+      }
+      .text-danger {
+        color: red;
       }
     </style>
   </head>
@@ -109,14 +113,14 @@
             <td class="text-center">
               {{ $item['quantity'] }}
             </td>
-            <td class="text-end">{{ number_format($item['price'], 2) }}</td>
+            <td class="text-end">{{ number_format($item['price'], 0) }}</td>
 
         </tr>
         @endforeach
       </table>
     </div>
 
-    <div class="total">Total: <b>{{ number_format($record->total, 2) }}</b></div>
+    <div class="total"><b>Total:</b> <b class="text-danger">{{ number_format($sumPrice, 0) }}</b></div>
     <div><b>Note:</b> <br/>Transfer Rekening<br/>BCA 8015234527 a/n Zikri Ramdani</div>
 
     <div class="footer margin-top">
