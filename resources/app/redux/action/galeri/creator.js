@@ -6,8 +6,19 @@ import DataGaleri from './data-galeri.json';
 
 // Read
 export const getListGaleri = () => {
-  return dispatch => {
-    return dispatch(saveListGaleri(DataGaleri));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/gallery');
+      const dataGaleri = response?.data?.data;
+      if (dataGaleri?.length > 0) {
+        dispatch(saveListGaleri(dataGaleri));
+      } else {
+        dispatch(saveListGaleri(DataGaleri));
+      }
+    } catch (error) {
+      console.error('Error fetching gallery from API:', error);
+      dispatch(saveListGaleri(DataGaleri));
+    }
   };
 };
 
