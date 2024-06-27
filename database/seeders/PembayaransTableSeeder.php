@@ -7,11 +7,11 @@ use Illuminate\Database\Seeder;
 
 class PembayaransTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        //
-    }
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    //
+  }
 }

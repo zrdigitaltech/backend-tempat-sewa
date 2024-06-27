@@ -36,3 +36,4 @@ Cara menjalankan Website :
 - php artisan make:model Testimoni -m
 - php artisan make:filament-resource Layanan
 - php artisan l5-swagger:generate
+- php artisan make:filament-widget MyCustomWidget

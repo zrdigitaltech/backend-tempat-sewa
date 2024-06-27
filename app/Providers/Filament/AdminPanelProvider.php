@@ -25,6 +25,7 @@ use App\Filament\Widgets\AreaLayananWidget;
 use App\Filament\Widgets\LayananWidget;
 use App\Filament\Widgets\GaleriWidget;
 use App\Filament\Widgets\TestimoniWidget;
+use App\Filament\Widgets\CustomerWidget;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -68,6 +69,7 @@ class AdminPanelProvider extends PanelProvider
       ->widgets([
         // Widgets\AccountWidget::class,
         // Widgets\FilamentInfoWidget::class
+        CustomerWidget::class,
         BannerWidget::class,
         AreaLayananWidget::class,
         LayananWidget::class,
