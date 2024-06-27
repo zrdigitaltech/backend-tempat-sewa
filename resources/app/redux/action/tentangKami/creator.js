@@ -6,8 +6,19 @@ import DataTentangKami from './data-tentang-kami.json';
 
 // Read
 export const getListTentangKami = () => {
-  return dispatch => {
-    return dispatch(saveListTentangKami(DataTentangKami[0]));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/about-us');
+      const dataTentangKami = response?.data?.data;
+      if (dataTentangKami?.length > 0) {
+        dispatch(saveListTentangKami(dataTentangKami[0]));
+      } else {
+        dispatch(saveListTentangKami(DataTentangKami[0]));
+      }
+    } catch (error) {
+      console.error('Error fetching about us from API:', error);
+      dispatch(saveListTentangKami(DataTentangKami[0]));
+    }
   };
 };
 

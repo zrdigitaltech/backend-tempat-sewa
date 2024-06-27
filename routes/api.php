@@ -47,7 +47,7 @@ Route::group(['prefix' => 'v1'], function () {
   Route::get('/banner', [BannerController::class, 'index']);
   Route::get('/call-to-action', [CallToActionController::class, 'index']);
   Route::get('/floating-whatsapp', [FloatingWhatsappController::class, 'index']);
-  Route::get('/galery', [GaleriController::class, 'index']);
+  Route::get('/gallery', [GaleriController::class, 'index']);
   Route::get('/contact-us', [KontakKamiController::class, 'index']);
   Route::get('/services', [LayananController::class, 'index']);
   Route::get('/logos', [LogoController::class, 'index']);

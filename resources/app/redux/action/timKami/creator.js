@@ -6,8 +6,19 @@ import DataTimKami from './data-tim-kami.json';
 
 // Read
 export const getListTimKami = () => {
-  return dispatch => {
-    return dispatch(saveListTimKami(DataTimKami));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/teams-us');
+      const dataTimKami = response?.data?.data;
+      if (dataTimKami?.length > 0) {
+        dispatch(saveListTimKami(dataTimKami));
+      } else {
+        dispatch(saveListTimKami(DataTimKami));
+      }
+    } catch (error) {
+      console.error('Error fetching team us from API:', error);
+      dispatch(saveListTimKami(DataTimKami));
+    }
   };
 };
 

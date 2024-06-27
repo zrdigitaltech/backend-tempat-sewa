@@ -6,8 +6,19 @@ import DataKontakKami from './data-kontak-kami.json';
 
 // Read
 export const getListKontakKami = () => {
-  return dispatch => {
-    return dispatch(saveListKontakKami(DataKontakKami[0]));
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/contact-us');
+      const dataKontakKami = response?.data?.data;
+      if (dataKontakKami?.length > 0) {
+        dispatch(saveListKontakKami(dataKontakKami[0]));
+      } else {
+        dispatch(saveListKontakKami(DataKontakKami[0]));
+      }
+    } catch (error) {
+      console.error('Error fetching contact us from API:', error);
+      dispatch(saveListKontakKami(DataKontakKami[0]));
+    }
   };
 };
 
