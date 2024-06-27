@@ -8,13 +8,56 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Invoice</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/pdf.css') }}" type="text/css" />
+    <style>
+      h4 {
+        margin: 0;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .w-half {
+        width: 50%;
+      }
+      .margin-top {
+        margin-top: 1.25rem;
+      }
+      .footer {
+        font-size: 0.875rem;
+        padding: 1rem;
+        background-color: rgb(241 245 249);
+      }
+      table {
+        width: 100%;
+        border-spacing: 0;
+      }
+      table.products {
+        font-size: 0.875rem;
+      }
+      table.products tr {
+        background-color: rgb(96 165 250);
+      }
+      table.products th {
+        color: #ffffff;
+        padding: 0.5rem;
+      }
+      table tr.items {
+        background-color: rgb(241 245 249);
+      }
+      table tr.items td {
+        padding: 0.5rem;
+      }
+      .total {
+        text-align: right;
+        margin-top: 1rem;
+        font-size: 0.875rem;
+      }
+    </style>
   </head>
   <body>
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="{{ asset('assets/images/logo.png') }}" alt="laravel daily" width="200" />
+          <img src="{{ asset('assets/images/logo.png') }}" alt="Mekanik Elektro" width="200" />
         </td>
         <td class="w-half">
           <h2>No Invoice: {{ $record->no_invoice }}</h2>
@@ -35,9 +78,7 @@
             <div><h4>From:</h4></div>
             <div>Mekanik Elektro</div>
             <div>
-              Jl. H. Mair No.22, Kunciran Indah
-              <br />
-              Kota Tangerang
+              Jl. H. Mair No.22, Kota Tangerang
             </div>
             <div>0812-2888-3616</div>
           </td>
@@ -52,8 +93,9 @@
           <th>Qty</th>
           <th>Price</th>
         </tr>
+        @foreach ($record->invoice_item as $item)
         <tr class="items">
-          @foreach ($record->invoice_item as $item)
+
             <td>
               {{ $item['description'] }}
             </td>
@@ -61,8 +103,9 @@
               {{ $item['quantity'] }}
             </td>
             <td>Rp {{ number_format($item['price'], 2) }}</td>
-          @endforeach
+
         </tr>
+        @endforeach
       </table>
     </div>
 
