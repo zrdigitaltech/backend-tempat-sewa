@@ -11,7 +11,7 @@ class LogoController extends Controller
 {
   /**
    * @OA\Get(
-   *     path="/api/v1/logo",
+   *     path="/api/v1/logos",
    *     tags={"Logo"},
    *     summary="Get list of logo",
    *     description="Returns list of logo",

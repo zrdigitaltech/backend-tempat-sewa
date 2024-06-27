@@ -205,14 +205,14 @@
                 }
             }
         },
-        "/api/v1/logo": {
+        "/api/v1/logos": {
             "get": {
                 "tags": [
                     "Logo"
                 ],
                 "summary": "Get list of logo",
                 "description": "Returns list of logo",
-                "operationId": "e2d65b508ffe11c0dc18bb667f45e054",
+                "operationId": "6cd2ad22184fa83758fb5da5893f0917",
                 "responses": {
                     "200": {
                         "description": "successful operation",

@@ -8,10 +8,10 @@ import DataLogos from './data-logos.json';
 export const getListLogos = () => {
   return async dispatch => {
     try {
-      const response = await axios.get('/api/v1/logo');
+      const response = await axios.get('/api/v1/logos');
       const dataLogos = response?.data?.data;
       if (dataLogos?.length > 0) {
-        dispatch(saveListBanners(dataLogos[0]));
+        dispatch(saveListLogos(dataLogos[0]));
       } else {
         dispatch(saveListLogos(DataLogos[0]));
       }
