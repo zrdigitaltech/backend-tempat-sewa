@@ -25,6 +25,7 @@
         font-size: 0.875rem;
         padding: 1rem;
         background-color: rgb(241 245 249);
+        text-align: center;
       }
       table {
         width: 100%;
@@ -34,7 +35,7 @@
         font-size: 0.875rem;
       }
       table.products tr {
-        background-color: rgb(96 165 250);
+        background-color: #f47629; /*rgb(96 165 250);*/
       }
       table.products th {
         color: #ffffff;
@@ -51,13 +52,19 @@
         margin-top: 1rem;
         font-size: 0.875rem;
       }
+      .text-center {
+        text-align: center;
+      }
+      .text-end {
+        text-align: right;
+      }
     </style>
   </head>
   <body>
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="{{ asset('assets/images/logo.png') }}" alt="Mekanik Elektro" width="200" />
+          <img src="assets/images/logo.png" alt="Mekanik Elektro" width="200" />
         </td>
         <td class="w-half">
           <h2>No Invoice: {{ $record->no_invoice }}</h2>
@@ -99,21 +106,21 @@
             <td>
               {{ $item['description'] }}
             </td>
-            <td>
+            <td class="text-center">
               {{ $item['quantity'] }}
             </td>
-            <td>Rp {{ number_format($item['price'], 2) }}</td>
+            <td class="text-end">{{ number_format($item['price'], 2) }}</td>
 
         </tr>
         @endforeach
       </table>
     </div>
 
-    <div class="total">Total: Rp {{ number_format($record->total, 2) }}</div>
+    <div class="total">Total: <b>{{ number_format($record->total, 2) }}</b></div>
+    <div><b>Note:</b> <br/>Transfer Rekening<br/>BCA 8015234527 a/n Zikri Ramdani</div>
 
     <div class="footer margin-top">
       <div>Thank you</div>
-      <div>&copy; Mekanik Elektro</div>
     </div>
   </body>
 </html>

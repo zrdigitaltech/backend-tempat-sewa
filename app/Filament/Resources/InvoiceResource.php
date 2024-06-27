@@ -113,11 +113,13 @@ class InvoiceResource extends Resource
 
   public static function table(Table $table): Table
   {
+    $logo = asset('assets/images/logo.png');
+    
     return $table
       ->columns([
         TextColumn::make('no_invoice')->label('No Invoice')->searchable(),
         TextColumn::make('invoice_date')->label('Invoice Date')->date(),
-        TextColumn::make('customer.name')->label('Customer')->searchable(),
+        TextColumn::make('customer.name')->label('Name')->searchable(),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
