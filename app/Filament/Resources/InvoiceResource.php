@@ -30,11 +30,13 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
+use Filament\Tables\Actions\Action;
 
 use App\Models\Customer;
 use Filament\Forms\Components\DatePicker;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceResource extends Resource
 {
@@ -51,10 +53,10 @@ class InvoiceResource extends Resource
         ->schema([
           TextInput::make('customer_id')->hidden(),
           TextInput::make('no_invoice')
-          ->label('No Invoice')
-          ->default(fn () => mt_rand(1000000000, 9999999999))
-          ->required()
-          ->readOnly(),
+            ->label('No Invoice')
+            ->default(fn() => mt_rand(1000000000, 9999999999))
+            ->required()
+            ->readOnly(),
           DatePicker::make('invoice_date')
             ->label('Invoice Date')
             ->displayFormat('d/m/Y')
@@ -64,42 +66,47 @@ class InvoiceResource extends Resource
           Select::make('customer_id')->label('Customer')->options($customers)->required(),
           Repeater::make('invoice_item')
             ->schema([
-              TextInput::make('description')->maxLength(255)->required()->columnStart([
-                'sm' => 1,
-                'xl' => 1,
-                '2xl' => 1,
-              ]),
+              TextInput::make('description')
+                ->maxLength(255)
+                ->required()
+                ->columnStart([
+                  'sm' => 1,
+                  'xl' => 1,
+                  '2xl' => 1,
+                ]),
               TextInput::make('quantity')
-              ->columnStart([
-                'sm' => 2,
-                'xl' => 2,
-                '2xl' => 2,
-              ])
-              ->numeric()
-              ->default(1)
-              ->minValue(1)
-              ->required(),
-              TextInput::make('price')->maxLength(255)->required()->prefix('Rp ')
-              ->columnStart([
-                'sm' => 3,
-                'xl' => 3,
-                '2xl' => 3,
-              ])
-              ->required()
-              ->reactive(),
+                ->columnStart([
+                  'sm' => 2,
+                  'xl' => 2,
+                  '2xl' => 2,
+                ])
+                ->numeric()
+                ->default(1)
+                ->minValue(1)
+                ->required(),
+              TextInput::make('price')
+                ->maxLength(255)
+                ->required()
+                ->prefix('Rp ')
+                ->columnStart([
+                  'sm' => 3,
+                  'xl' => 3,
+                  '2xl' => 3,
+                ])
+                ->required()
+                ->reactive(),
             ])
             ->label('Item')
             ->disableItemMovement(),
-          Placeholder::make("total")
-                                ->label("Total")
-                                ->content(function ($get) {
-                                    return collect($get('invoice_item'))
-                                        ->pluck('price')
-                                        ->sum();
-                                }),
+          Placeholder::make('total')
+            ->label('Total')
+            ->content(function ($get) {
+              return collect($get('invoice_item'))->pluck('price')->sum();
+            }),
 
           Textarea::make('notes'),
-        ])->reactive()
+        ])
+        ->reactive()
         ->columnSpanFull(),
     ]);
   }
@@ -117,7 +124,21 @@ class InvoiceResource extends Resource
       ->filters([
         //
       ])
-      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->actions([
+        Action::make('download')
+          ->label('Download PDF')
+          ->icon('heroicon-o-arrow-down-tray')
+          ->action(function (Invoice $record) {
+            $pdf = Pdf::loadView('invoices.pdf', ['record' => $record]);
+            return response()->streamDownload(
+              fn() => print $pdf->stream(),
+              "invoice_{$record->no_invoice}.pdf"
+            );
+          }),
+        ViewAction::make(),
+        EditAction::make(),
+        DeleteAction::make(),
+      ])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),

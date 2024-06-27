@@ -7878,11 +7878,11 @@ function sr({ state: n }) {
     state: n,
     init: function () {
       (this.$refs.trixValue.value = this.state),
-        this.$refs.trix.editor?.loadHTML(this.state),
+        this.$refs.trix.editor?.loadHTML(this.state ?? ''),
         this.$watch('state', () => {
           document.activeElement !== this.$refs.trix &&
             ((this.$refs.trixValue.value = this.state),
-            this.$refs.trix.editor?.loadHTML(this.state));
+            this.$refs.trix.editor?.loadHTML(this.state ?? ''));
         });
     }
   };

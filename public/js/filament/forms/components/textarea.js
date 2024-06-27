@@ -1,13 +1,23 @@
-function t({ initialHeight: e }) {
+function i({ initialHeight: t }) {
   return {
+    height: t + 'rem',
     init: function () {
-      this.render();
+      this.setInitialHeight(), this.setUpResizeObserver();
     },
-    render: function () {
-      this.$el.scrollHeight > 0 &&
-        ((this.$el.style.height = e + 'rem'),
-        (this.$el.style.height = this.$el.scrollHeight + 'px'));
+    setInitialHeight: function () {
+      (this.height = t + 'rem'),
+        !(this.$el.scrollHeight <= 0) && (this.$el.style.height = this.height);
+    },
+    resize: function () {
+      if ((this.setInitialHeight(), this.$el.scrollHeight <= 0)) return;
+      let e = this.$el.scrollHeight + 'px';
+      this.height !== e && ((this.height = e), (this.$el.style.height = this.height));
+    },
+    setUpResizeObserver: function () {
+      new ResizeObserver(() => {
+        this.height = this.$el.style.height;
+      }).observe(this.$el);
     }
   };
 }
-export { t as default };
+export { i as default };
