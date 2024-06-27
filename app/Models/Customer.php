@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Invoice;
 
 class Customer extends Model
 {
@@ -15,4 +16,9 @@ class Customer extends Model
    * @var array<int, string>
    */
   protected $fillable = ['name', 'no_hp', 'email', 'alamat', 'services', 'note'];
+
+  public function invoices()
+  {
+    return $this->hasMany(Invoice::class);
+  }
 }
