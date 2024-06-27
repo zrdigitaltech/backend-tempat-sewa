@@ -22,7 +22,7 @@ export const getListLogos = () => {
   };
 };
 
-// Read
+// Action to save the list of logo
 export const saveListLogos = payload => {
   return {
     type: actionType.loadLogos,

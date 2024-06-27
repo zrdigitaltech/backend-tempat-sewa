@@ -22,7 +22,7 @@ export const getListKontakKami = () => {
   };
 };
 
-// Read
+// Action to save the list of kontak kami
 export const saveListKontakKami = payload => {
   return {
     type: actionType.loadKontakKami,

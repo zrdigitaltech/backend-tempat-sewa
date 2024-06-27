@@ -22,7 +22,7 @@ export const getListCallToAction = () => {
   };
 };
 
-// Read
+// Action to save the list of call to action
 export const saveListCallToAction = payload => {
   return {
     type: actionType.loadCallToAction,

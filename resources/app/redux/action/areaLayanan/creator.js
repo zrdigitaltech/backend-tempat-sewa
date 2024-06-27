@@ -22,7 +22,7 @@ export const getListAreaLayanan = () => {
   };
 };
 
-// Read
+// Action to save the list of area layanan
 export const saveListAreaLayanan = payload => {
   return {
     type: actionType.loadAreaLayanan,

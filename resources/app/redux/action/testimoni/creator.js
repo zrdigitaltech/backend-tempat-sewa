@@ -8,7 +8,7 @@ import DataTestimoni from './data-testimoni.json';
 export const getListTestimoni = () => {
   return async dispatch => {
     try {
-      const response = await axios.get('/api/v1/about-us');
+      const response = await axios.get('/api/v1/testimonial');
       const dataTestimoni = response?.data?.data;
       if (dataTestimoni?.length > 0) {
         dispatch(saveListTestimoni(dataTestimoni));
@@ -16,7 +16,7 @@ export const getListTestimoni = () => {
         dispatch(saveListTestimoni(DataTestimoni));
       }
     } catch (error) {
-      console.error('Error fetching testimoni from API:', error);
+      console.error('Error fetching testimonial from API:', error);
       dispatch(saveListTestimoni(DataTestimoni));
     }
   };

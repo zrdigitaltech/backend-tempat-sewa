@@ -22,7 +22,7 @@ export const getListGaleri = () => {
   };
 };
 
-// Read
+// Action to save the list of gallery
 export const saveListGaleri = payload => {
   return {
     type: actionType.loadGaleri,

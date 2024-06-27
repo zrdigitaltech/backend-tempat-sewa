@@ -22,7 +22,7 @@ export const getListPembayaran = () => {
   };
 };
 
-// Read
+// Action to save the list of pembayaran
 export const saveListPembayaran = payload => {
   return {
     type: actionType.loadPembayaran,

@@ -22,7 +22,7 @@ export const getListNumberLayanan = () => {
   };
 };
 
-// Read
+// Action to save the list of number layanan
 export const saveListNumberLayanan = payload => {
   return {
     type: actionType.loadNumberLayanan,

@@ -22,7 +22,7 @@ export const getListTentangKami = () => {
   };
 };
 
-// Read
+// Action to save the list of tentang kami
 export const saveListTentangKami = payload => {
   return {
     type: actionType.loadTentangKami,

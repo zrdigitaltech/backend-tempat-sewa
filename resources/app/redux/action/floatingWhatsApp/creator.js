@@ -22,7 +22,7 @@ export const getListFloatingWhatsapp = () => {
   };
 };
 
-// Read
+// Action to save the list of floating whatsapp
 export const saveListFloatingWhatsapp = payload => {
   return {
     type: actionType.loadFloatingWhatsapp,
