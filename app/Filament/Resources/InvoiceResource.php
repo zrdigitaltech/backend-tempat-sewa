@@ -37,12 +37,18 @@ use Filament\Forms\Components\DatePicker;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Infolists\Components\TextEntry;
 
 class InvoiceResource extends Resource
 {
   protected static ?string $model = Invoice::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+  public static function formatCurrencyIDR($amount)
+  {
+    return 'Rp ' . number_format($amount, 0, ',', '.');
+  }
 
   public static function form(Form $form): Form
   {
@@ -94,15 +100,21 @@ class InvoiceResource extends Resource
                   '2xl' => 3,
                 ])
                 ->required()
-                ->reactive(),
+                ->integer()
+                ->reactive()
+                ->live(),
             ])
             ->label('Item')
             ->disableItemMovement(),
           Placeholder::make('total')
             ->label('Total')
             ->content(function ($get) {
-              return collect($get('invoice_item'))->pluck('price')->sum();
-            }),
+              $total = collect($get('invoice_item'))->sum(function ($item) {
+                  $cleanedPrice = (float) str_replace(['Rp ', '.', ','], ['', '', '.'], $item['price']);
+                  return $cleanedPrice;
+              });
+              return InvoiceResource::formatCurrencyIDR($total);
+          }),
 
           Textarea::make('notes'),
         ])
@@ -128,7 +140,7 @@ class InvoiceResource extends Resource
       ])
       ->actions([
         Action::make('download')
-          ->label('Download PDF')
+          ->label('')
           ->icon('heroicon-o-arrow-down-tray')
           ->action(function (Invoice $record) {
 
@@ -146,9 +158,9 @@ class InvoiceResource extends Resource
               "invoice_{$record->no_invoice}.pdf"
             );
           }),
-        ViewAction::make(),
-        EditAction::make(),
-        DeleteAction::make(),
+        ViewAction::make()->label(''),
+        EditAction::make()->label(''),
+        DeleteAction::make()->label(''),
       ])
       ->bulkActions([
         BulkActionGroup::make([

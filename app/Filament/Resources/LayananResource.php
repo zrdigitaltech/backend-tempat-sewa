@@ -68,7 +68,7 @@ class LayananResource extends Resource
       ->filters([
         //
       ])
-      ->actions([ViewAction::make(), EditAction::make(), DeleteAction::make()])
+      ->actions([ViewAction::make()->label(''), EditAction::make()->label(''), DeleteAction::make()->label('')])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),
