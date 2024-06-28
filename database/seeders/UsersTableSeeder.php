@@ -4,21 +4,30 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
   public function run()
   {
-    $users = [
-      [
-        'id' => 1,
-        'name' => 'Zikri Ramdani',
-        'email' => 'zikriramdani.developer@gmail.com',
-        'password' => bcrypt('zik123456ri'),
-        'remember_token' => null,
-      ],
-    ];
+    // Create roles if they don't exist
+    Role::firstOrCreate(['name' => 'super_admin']);
+    Role::firstOrCreate(['name' => 'operator']);
 
-    User::insert($users);
+    // Create the super admin user
+    $superAdminUser = User::create([
+      'name' => 'Zikri Ramdani',
+      'email' => 'zikriramdani.developer@gmail.com',
+      'password' => bcrypt('zik123456ri'),
+    ]);
+    $superAdminUser->assignRole('super_admin');
+
+    // Create the operator user
+    $operatorUser = User::create([
+      'name' => 'Operator User',
+      'email' => 'operator@gmail.com',
+      'password' => bcrypt('zik123456ri'),
+    ]);
+    $operatorUser->assignRole('operator');
   }
 }
