@@ -27,6 +27,8 @@ use App\Filament\Widgets\GaleriWidget;
 use App\Filament\Widgets\TestimoniWidget;
 use App\Filament\Widgets\CustomerWidget;
 
+use Illuminate\Support\Facades\Auth;
+
 class AdminPanelProvider extends PanelProvider
 {
   protected static ?int $navigationSort = 3;
@@ -38,6 +40,11 @@ class AdminPanelProvider extends PanelProvider
       ->default()
       ->id('admin')
       ->path('admin')
+      ->spa()
+      ->unsavedChangesAlerts()
+      ->plugins([
+        \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
+      ])
       ->login()
       // ->passwordReset()
       // ->profile()
@@ -66,27 +73,40 @@ class AdminPanelProvider extends PanelProvider
       ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
       ->pages([Pages\Dashboard::class])
       ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-      ->widgets([
-        // Widgets\AccountWidget::class,
-        // Widgets\FilamentInfoWidget::class
-        CustomerWidget::class,
-        BannerWidget::class,
-        AreaLayananWidget::class,
-        LayananWidget::class,
-        GaleriWidget::class,
-        TestimoniWidget::class,
-      ])
-      ->middleware([
-        EncryptCookies::class,
-        AddQueuedCookiesToResponse::class,
-        StartSession::class,
-        AuthenticateSession::class,
-        ShareErrorsFromSession::class,
-        VerifyCsrfToken::class,
-        SubstituteBindings::class,
-        DisableBladeIconComponents::class,
-        DispatchServingFilamentEvent::class,
-      ])
-      ->authMiddleware([Authenticate::class]);
+      // ->widgets([]) // $this->getWidgetsForPermissions()
+      ->middleware(
+        [
+          EncryptCookies::class,
+          AddQueuedCookiesToResponse::class,
+          StartSession::class,
+          AuthenticateSession::class,
+          ShareErrorsFromSession::class,
+          VerifyCsrfToken::class,
+          SubstituteBindings::class,
+          DisableBladeIconComponents::class,
+          DispatchServingFilamentEvent::class,
+        ],
+        isPersistent: true
+      )
+      ->authMiddleware([Authenticate::class], isPersistent: true);
+  }
+
+  protected function getWidgetsForPermissions(): array
+  {
+    // dd(Auth::user());
+    $widgets = [
+      BannerWidget::class,
+      AreaLayananWidget::class,
+      LayananWidget::class,
+      GaleriWidget::class,
+      TestimoniWidget::class,
+    ];
+
+    // Check if the authenticated user has the 'view customer widget' permission
+    if (Auth::check() && Auth::user()->hasRole('operator')) {
+      $widgets[] = CustomerWidget::class;
+    }
+
+    return $widgets;
   }
 }
