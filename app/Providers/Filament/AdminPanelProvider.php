@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
           ->sort(8),
       ])
       ->userMenuItems([
-        MenuItem::make()->label('Settings')->url('')->icon('heroicon-o-cog-6-tooth'),
+        // MenuItem::make()->label('Settings')->url('')->icon('heroicon-o-cog-6-tooth'),
         'logout' => MenuItem::make()->label('Log Out'),
       ])
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
