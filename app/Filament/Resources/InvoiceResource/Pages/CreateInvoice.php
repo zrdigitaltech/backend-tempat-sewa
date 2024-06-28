@@ -10,5 +10,5 @@ class CreateInvoice extends CreateRecord
 {
   protected static string $resource = InvoiceResource::class;
 
-	protected static bool $canCreateAnother = false;
+  protected static bool $canCreateAnother = false;
 }

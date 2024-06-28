@@ -10,12 +10,12 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('customers', function (Blueprint $table) {
+    Schema::create('quotations', function (Blueprint $table) {
       $table->id();
-      $table->string('name')->nullable();
-      $table->string('no_hp')->nullable();
-      $table->string('email')->nullable();
-      $table->text('alamat')->nullable();
+      $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+      $table->string('no_quotation')->nullable();
+      $table->date('quotation_date')->nullable();
+      $table->json('quotation_item')->nullable();
       $table->timestamps();
     });
   }
@@ -25,6 +25,6 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('customers');
+    Schema::dropIfExists('quotations');
   }
 };

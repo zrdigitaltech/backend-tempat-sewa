@@ -49,24 +49,24 @@ class CustomerResource extends Resource
             ->maxLength(15),
           TextInput::make('email')->email()->maxLength(255),
           TextArea::make('alamat')->maxLength(255)->label('Address'),
-          Select::make('services')
-            ->label('Services')
-            ->options([
-              'perbaikan_korsleting_hansleting' => 'Perbaikan Korsleting & Hansleting',
-              'perbaikan_grounding_system' => 'Perbaikan Grounding System',
-              'power_balance' => 'Power Balance',
-              'instalasi_panel' => 'Instalasi Panel',
-              'penerbitan_nidi_slo' => 'Penerbitan Nidi dan Slo',
-              'peremajaan_kabel_revisi_instalasi_listrik' =>
-                'Peremajaan Kabel atau Revisi Instalasi Listrik',
-              'perbaikan_listrik_mati' => 'Perbaikan Listrik Mati, sebagian Jalur/Lantai',
-              'perakitan_panel_listrik' => 'Perakitan Panel Listrik',
-              'pasang_instalasi_baru' => 'Pasang Instalasi Baru',
-              'tambah_daya' => 'Tambah Daya',
-              'perbaikan_kWh_meter_periksa' => 'Perbaikan kWh Meter Periksa',
-            ])
-            ->searchable(),
-          TextArea::make('note')->maxLength(255),
+          // Select::make('services')
+          //   ->label('Services')
+          //   ->options([
+          //     'perbaikan_korsleting_hansleting' => 'Perbaikan Korsleting & Hansleting',
+          //     'perbaikan_grounding_system' => 'Perbaikan Grounding System',
+          //     'power_balance' => 'Power Balance',
+          //     'instalasi_panel' => 'Instalasi Panel',
+          //     'penerbitan_nidi_slo' => 'Penerbitan Nidi dan Slo',
+          //     'peremajaan_kabel_revisi_instalasi_listrik' =>
+          //       'Peremajaan Kabel atau Revisi Instalasi Listrik',
+          //     'perbaikan_listrik_mati' => 'Perbaikan Listrik Mati, sebagian Jalur/Lantai',
+          //     'perakitan_panel_listrik' => 'Perakitan Panel Listrik',
+          //     'pasang_instalasi_baru' => 'Pasang Instalasi Baru',
+          //     'tambah_daya' => 'Tambah Daya',
+          //     'perbaikan_kWh_meter_periksa' => 'Perbaikan kWh Meter Periksa',
+          //   ])
+          //   ->searchable(),
+          // TextArea::make('note')->maxLength(255),
         ])
         ->columnSpanFull(),
     ]);
@@ -85,7 +85,11 @@ class CustomerResource extends Resource
       ->filters([
         //
       ])
-      ->actions([ViewAction::make()->label(''), EditAction::make()->label(''), DeleteAction::make()->label('')])
+      ->actions([
+        ViewAction::make()->iconButton(),
+        EditAction::make()->iconButton(),
+        DeleteAction::make()->iconButton(),
+      ])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),

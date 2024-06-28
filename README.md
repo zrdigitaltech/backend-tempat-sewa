@@ -37,3 +37,4 @@ Cara menjalankan Website :
 - php artisan make:filament-resource Layanan
 - php artisan l5-swagger:generate
 - php artisan make:filament-widget MyCustomWidget
+- php artisan make:migration create_invoices_table

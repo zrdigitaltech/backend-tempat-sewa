@@ -59,7 +59,7 @@ class LogoResource extends Resource
       ->filters([
         //
       ])
-      ->actions([EditAction::make()->label(''), DeleteAction::make()->label('')])
+      ->actions([EditAction::make()->iconButton(), DeleteAction::make()->iconButton()])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),

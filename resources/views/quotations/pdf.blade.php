@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Invoice</title>
+    <title>quotation</title>
     <style>
       h4 {
         margin: 0;
@@ -80,7 +80,7 @@
           <img src="assets/images/logo.png" alt="Mekanik Elektro" width="200" />
         </td>
         <td class="w-half text-end">
-          <h2>No Invoice: {{ $record->no_invoice }}</h2>
+          <h2>No Quotation: {{ $record->no_quotation }}</h2>
         </td>
       </tr>
     </table>
@@ -88,14 +88,8 @@
     <div class="margin-top">
       <table class="w-full">
         <tr>
-          <td class="w-half">
-            <div><h4>To:</h4></div>
-            <div>{{ $record->customer->name }}</div>
-            <div>{{ $record->customer->alamat }}</div>
-            <div>{{ $record->customer->no_hp }}</div>
-          </td>
-          <td class="w-half">
-            <div><h4>From:</h4></div>
+          <td class="w-full text-center">
+            <div><h4>Surat Penawaran Harga</h4></div>
             <div>Mekanik Elektro</div>
             <div>Jl. H. Mair No.22, Kota Tangerang</div>
             <div>0812-2888-3616</div>
@@ -108,6 +102,9 @@
       <table class="w-full mb-2">
         <tr>
           <td class="w-half">
+            <div>Kepada: {{ $record->customer->name }} ({{ $record->customer->no_hp }})</div>
+          </td>
+          <td class="w-half text-end">
             <div>Tangerang, {{ $record->quotation_date }}</div>
           </td>
         </tr>
@@ -118,7 +115,7 @@
           <th>Qty</th>
           <th>Price</th>
         </tr>
-        @foreach ($record->invoice_item as $item)
+        @foreach ($record->quotation_item as $item)
           <tr class="items">
             <td>
               {{ $item['description'] }}
@@ -136,13 +133,7 @@
       Total:
       <b>{{ number_format($sumPrice, 0) }}</b>
     </div>
-    <div>
-      <b>Note:</b>
-      <br />
-      Transfer Rekening
-      <br />
-      BCA 8015234527 a/n Zikri Ramdani
-    </div>
+    {{-- <div><b>Note:</b> <br/>Transfer Rekening<br/>BCA 8015234527 a/n Zikri Ramdani</div> --}}
 
     <div class="footer margin-top">
       <div>Thank you</div>

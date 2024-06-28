@@ -85,7 +85,11 @@ class GaleriResource extends Resource
       ->filters([
         //
       ])
-      ->actions([ViewAction::make()->label(''), EditAction::make()->label(''), DeleteAction::make()->label('')])
+      ->actions([
+        ViewAction::make()->iconButton(),
+        EditAction::make()->iconButton(),
+        DeleteAction::make()->iconButton(),
+      ])
       ->bulkActions([
         BulkActionGroup::make([
           DeleteBulkAction::make(),

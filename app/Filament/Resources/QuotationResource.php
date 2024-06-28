@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InvoiceResource\Pages;
-use App\Filament\Resources\InvoiceResource\RelationManagers;
-use App\Models\Invoice;
+use App\Filament\Resources\QuotationResource\Pages;
+use App\Filament\Resources\QuotationResource\RelationManagers;
+use App\Models\Quotation;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -40,9 +40,9 @@ use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Infolists\Components\TextEntry;
 
-class InvoiceResource extends Resource
+class QuotationResource extends Resource
 {
-  protected static ?string $model = Invoice::class;
+  protected static ?string $model = Quotation::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -60,13 +60,13 @@ class InvoiceResource extends Resource
       Card::make()
         ->schema([
           TextInput::make('customer_id')->hidden(),
-          TextInput::make('no_invoice')
-            ->label('No Invoice')
+          TextInput::make('no_quotation')
+            ->label('No Quotation')
             ->default(fn() => mt_rand(1000000000, 9999999999))
             ->required()
             ->readOnly(),
-          DatePicker::make('invoice_date')
-            ->label('Invoice Date')
+          DatePicker::make('quotation_date')
+            ->label('Quotation Date')
             ->displayFormat('d/m/Y')
             ->native(false)
             ->closeOnDateSelection()
@@ -74,7 +74,7 @@ class InvoiceResource extends Resource
             ->required(),
 
           Select::make('customer_id')->label('Customer')->options($customers)->required(),
-          Repeater::make('invoice_item')
+          Repeater::make('quotation_item')
             ->schema([
               TextInput::make('description')
                 ->maxLength(255)
@@ -114,7 +114,7 @@ class InvoiceResource extends Resource
           Placeholder::make('total')
             ->label('Total')
             ->content(function ($get) {
-              $total = collect($get('invoice_item'))->sum(function ($item) {
+              $total = collect($get('quotation_item'))->sum(function ($item) {
                 $cleanedPrice = (float) str_replace(
                   ['Rp ', '.', ','],
                   ['', '', '.'],
@@ -122,7 +122,7 @@ class InvoiceResource extends Resource
                 );
                 return $cleanedPrice;
               });
-              return InvoiceResource::formatCurrencyIDR($total);
+              return quotationResource::formatCurrencyIDR($total);
             }),
 
           Textarea::make('notes'),
@@ -138,8 +138,8 @@ class InvoiceResource extends Resource
 
     return $table
       ->columns([
-        TextColumn::make('no_invoice')->label('No Invoice')->searchable(),
-        TextColumn::make('invoice_date')->label('Invoice Date')->date(),
+        TextColumn::make('no_quotation')->label('No Quotation')->searchable(),
+        TextColumn::make('quotation_date')->label('Quotation Date')->date(),
         TextColumn::make('customer.name')->label('Name')->searchable(),
       ])
       ->defaultSort('created_at', 'desc')
@@ -151,19 +151,19 @@ class InvoiceResource extends Resource
         Action::make('download')
           ->iconButton()
           ->icon('heroicon-o-arrow-down-tray')
-          ->action(function (Invoice $record) {
-            // Convert $record->invoice_item to a collection
-            $invoiceItems = collect($record->invoice_item);
+          ->action(function (Quotation $record) {
+            // Convert $record->quotation_item to a collection
+            $quotationItems = collect($record->quotation_item);
 
             // Calculate sum of prices
-            $sumPrice = $invoiceItems->sum('price');
+            $sumPrice = $quotationItems->sum('price');
 
             // Load the view with data including sumPrice
-            $pdf = PDF::loadView('invoices.pdf', ['record' => $record, 'sumPrice' => $sumPrice]);
+            $pdf = PDF::loadView('quotations.pdf', ['record' => $record, 'sumPrice' => $sumPrice]);
 
             return response()->streamDownload(
               fn() => print $pdf->stream(),
-              "invoice_{$record->no_invoice}.pdf"
+              "quotation_{$record->no_quotation}.pdf"
             );
           }),
         ViewAction::make()->iconButton(),
@@ -188,9 +188,9 @@ class InvoiceResource extends Resource
   public static function getPages(): array
   {
     return [
-      'index' => Pages\ListInvoices::route('/'),
-      'create' => Pages\CreateInvoice::route('/create'),
-      'edit' => Pages\EditInvoice::route('/{record}/edit'),
+      'index' => Pages\ListQuotations::route('/'),
+      'create' => Pages\CreateQuotation::route('/create'),
+      'edit' => Pages\EditQuotation::route('/{record}/edit'),
     ];
   }
 }
