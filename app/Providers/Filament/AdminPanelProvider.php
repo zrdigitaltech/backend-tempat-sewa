@@ -42,9 +42,9 @@ class AdminPanelProvider extends PanelProvider
       ->path('admin')
       ->spa()
       ->unsavedChangesAlerts()
-      ->plugins([
-        \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
-      ])
+      // ->plugins([
+      //   \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
+      // ])
       ->login()
       // ->passwordReset()
       // ->profile()
