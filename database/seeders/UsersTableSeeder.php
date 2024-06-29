@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,13 +15,17 @@ class UsersTableSeeder extends Seeder
     Role::firstOrCreate(['name' => 'super_admin']);
     Role::firstOrCreate(['name' => 'operator']);
 
+    $permissions = Permission::pluck('id', 'name');
+
     // Create the super admin user
     $superAdminUser = User::create([
       'name' => 'Zikri Ramdani',
       'email' => 'zikriramdani.developer@gmail.com',
       'password' => bcrypt('zik123456ri'),
     ]);
-    $superAdminUser->assignRole('super_admin');
+    $superAdminRole = Role::findByName('super_admin');
+    $superAdminRole->syncPermissions($permissions);
+    $superAdminUser->assignRole($superAdminRole);
 
     // Create the operator user
     $operatorUser = User::create([
