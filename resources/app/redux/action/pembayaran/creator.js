@@ -11,7 +11,7 @@ export const getListPembayaran = () => {
       const response = await axios.get('/api/v1/payment');
       const dataPembayaran = response?.data?.data;
       if (dataPembayaran?.length > 0) {
-        dispatch(saveListPembayaran(dataPembayaran[0]));
+        dispatch(saveListPembayaran(dataPembayaran));
       } else {
         dispatch(saveListPembayaran(DataPembayaran));
       }
