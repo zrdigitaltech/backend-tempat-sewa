@@ -21,12 +21,21 @@ class EditQuotation extends EditRecord
         ->action(function (Quotation $record) {
           // Convert $record->quotation_item to a collection
           $quotationItems = collect($record->quotation_item);
-
-          // Calculate sum of prices
           $sumPrice = $quotationItems->sum('price');
 
+          // Convert $record->quotation_another to a collection
+          $quotationAnothers = collect($record->quotation_another);
+          $sumPriceAnother = $quotationAnothers->sum('price');
+
+          $sumPriceMaterialAnother = $sumPrice + $sumPriceAnother;
+
           // Load the view with data including sumPrice
-          $pdf = PDF::loadView('quotations.pdf', ['record' => $record, 'sumPrice' => $sumPrice]);
+          $pdf = PDF::loadView('quotations.pdf', [
+            'record' => $record,
+            'sumPrice' => $sumPrice,
+            'sumPriceAnother' => $sumPriceAnother,
+            'sumPriceMaterialAnother' => $sumPriceMaterialAnother,
+          ]);
 
           return response()->streamDownload(
             fn() => print $pdf->stream(),

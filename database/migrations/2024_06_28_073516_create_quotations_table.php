@@ -17,6 +17,7 @@ return new class extends Migration {
       $table->date('quotation_date')->nullable();
       $table->json('quotation_item')->nullable();
       $table->json('quotation_another')->nullable();
+      $table->string('notes')->nullable();
       $table->timestamps();
     });
   }

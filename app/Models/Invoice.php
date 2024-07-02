@@ -10,7 +10,7 @@ class Invoice extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['customer_id', 'no_invoice', 'invoice_date', 'invoice_item'];
+  protected $fillable = ['customer_id', 'no_invoice', 'invoice_date', 'invoice_item', 'notes'];
 
   /**
    * The attributes that should be cast.

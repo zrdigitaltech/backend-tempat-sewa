@@ -16,6 +16,7 @@ class Quotation extends Model
     'quotation_date',
     'quotation_item',
     'quotation_another',
+    'notes',
   ];
 
   /**

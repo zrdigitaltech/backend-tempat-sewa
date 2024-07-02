@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
   timKami: timKamiReducer,
   pembayaran: pembayaranReducer,
   galeri: galeriReducer,
-  floatingWhatsapp: floatingWhatsappReducer,
+  floatingWhatsapp: floatingWhatsappReducer
 });
 
 export default rootReducer;

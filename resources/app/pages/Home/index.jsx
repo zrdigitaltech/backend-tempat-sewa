@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListFloatingWhatsapp } from '@/redux/action/floatingWhatsapp/creator';
 
 export default function Index() {
-  const floatingWhatsappList = useSelector((state) => state.floatingWhatsapp.floatingWhatsappList);
+  const floatingWhatsappList = useSelector(state => state.floatingWhatsapp.floatingWhatsappList);
   const dispatch = useDispatch();
 
   const fetchFloatingWhatsapp = async () => {

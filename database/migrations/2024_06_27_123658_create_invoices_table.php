@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->string('no_invoice')->nullable();
       $table->date('invoice_date')->nullable();
       $table->json('invoice_item')->nullable();
+      $table->string('notes')->nullable();
       $table->timestamps();
     });
   }

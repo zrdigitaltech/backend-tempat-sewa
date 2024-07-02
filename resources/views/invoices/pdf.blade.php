@@ -146,6 +146,11 @@
     </div>
     <div>
       <b>Note:</b>
+      @if ($record->notes)
+        <br />
+        {{ $record->notes }}
+      @endif
+
       <br />
       Transfer Rekening
       <br />

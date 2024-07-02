@@ -101,7 +101,7 @@
       </table>
     </div>
 
-    <div class="margin-top">
+    <div class="margin-top mb-2">
       <table class="w-full mb-2">
         <tr>
           <td class="w-half">
@@ -162,6 +162,14 @@
         </tr>
       </table>
     </div>
+
+    @if ($record->notes)
+      <div>
+        <b>Note:</b>
+        <br />
+        {{ $record->notes }}
+      </div>
+    @endif
 
     {{-- <div><b>Note:</b> <br/>Transfer Rekening<br/>BCA 8015234527 a/n Zikri Ramdani</div> --}}
 
