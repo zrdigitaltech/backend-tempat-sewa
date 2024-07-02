@@ -39,7 +39,7 @@ class CustomerResource extends Resource
     return $form->schema([
       Card::make()
         ->schema([
-          TextInput::make('name')->maxLength(255),
+          TextInput::make('name')->maxLength(255)->required(),
           TextInput::make('no_hp')
             ->maxLength(255)
             ->label('No Hp')
@@ -66,7 +66,7 @@ class CustomerResource extends Resource
           //     'perbaikan_kWh_meter_periksa' => 'Perbaikan kWh Meter Periksa',
           //   ])
           //   ->searchable(),
-          // TextArea::make('note')->maxLength(255),
+          TextArea::make('note')->maxLength(255),
         ])
         ->columnSpanFull(),
     ]);

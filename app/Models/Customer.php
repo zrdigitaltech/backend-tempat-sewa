@@ -15,7 +15,7 @@ class Customer extends Model
    *
    * @var array<int, string>
    */
-  protected $fillable = ['name', 'no_hp', 'email', 'alamat'];
+  protected $fillable = ['name', 'no_hp', 'email', 'alamat', 'note'];
 
   public function invoices()
   {

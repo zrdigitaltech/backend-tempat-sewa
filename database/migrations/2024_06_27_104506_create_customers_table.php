@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->string('no_hp')->nullable();
       $table->string('email')->nullable();
       $table->text('alamat')->nullable();
+      $table->text('note')->nullable();
       $table->timestamps();
     });
   }

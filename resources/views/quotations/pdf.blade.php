@@ -53,6 +53,9 @@
         font-size: 0.875rem;
         padding-right: 0.5rem;
       }
+      .text-left {
+        text-align: left;
+      }
       .text-center {
         text-align: center;
       }
@@ -114,7 +117,7 @@
       </table>
       <table class="products">
         <tr>
-          <th>Material Type</th>
+          <th class="text-left">Material Type</th>
           <th>Qty</th>
           <th>Price</th>
         </tr>
@@ -164,6 +167,7 @@
 
     <div class="footer margin-top">
       <div>Thank you</div>
+      <div>www.MekanikElektro.com</div>
     </div>
   </body>
 </html>

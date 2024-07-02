@@ -42,7 +42,7 @@ class AdminPanelProvider extends PanelProvider
       ->path('admin')
       ->spa()
       ->unsavedChangesAlerts()
-      ->plugins([\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()])
+      // ->plugins([\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()])
       ->login()
       // ->passwordReset()
       // ->profile()
@@ -71,7 +71,7 @@ class AdminPanelProvider extends PanelProvider
       ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
       ->pages([Pages\Dashboard::class])
       ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-      // ->widgets([]) // $this->getWidgetsForPermissions()
+      ->widgets($this->getWidgetsForPermissions())
       ->middleware(
         [
           EncryptCookies::class,
@@ -93,11 +93,11 @@ class AdminPanelProvider extends PanelProvider
   {
     // dd(Auth::user());
     $widgets = [
-      BannerWidget::class,
-      AreaLayananWidget::class,
-      LayananWidget::class,
-      GaleriWidget::class,
-      TestimoniWidget::class,
+      // BannerWidget::class,
+      // AreaLayananWidget::class,
+      // LayananWidget::class,
+      // GaleriWidget::class,
+      // TestimoniWidget::class,
     ];
 
     // Check if the authenticated user has the 'view customer widget' permission

@@ -53,6 +53,9 @@
         font-size: 0.875rem;
         padding-right: 0.5rem;
       }
+      .text-left {
+        text-align: left;
+      }
       .text-center {
         text-align: center;
       }
@@ -77,7 +80,7 @@
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="assets/images/logo.png" alt="Mekanik Elektro" width="200" />
+          <img src="assets/images/logo_pdf.png" alt="Mekanik Elektro" width="200" />
         </td>
         <td class="w-half text-end">
           <h2>No Invoice: {{ $record->no_invoice }}</h2>
@@ -117,7 +120,7 @@
       </table>
       <table class="products mb-2">
         <tr>
-          <th>Description</th>
+          <th class="text-left">Description</th>
           <th>Qty</th>
           <th>Price</th>
         </tr>
@@ -151,6 +154,7 @@
 
     <div class="footer margin-top">
       <div>Thank you</div>
+      <div>www.MekanikElektro.com</div>
     </div>
   </body>
 </html>
