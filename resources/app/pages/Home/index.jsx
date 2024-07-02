@@ -13,19 +13,19 @@ import Footer from '@/components/Footer';
 
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getListFloatingWhatsapp } from '@/redux/action/floatingWhatsapp/creator';
+import { useSelector, useDispatch } from 'react-redux';
+import { getListFloatingWhatsapp } from '@/redux/action/floatingWhatsapp/creator';
 
 export default function Index() {
-  // const floatingWhatsAppList = useSelector((state) => state.floatingWhatsapp.floatingWhatsappList);
-  // const dispatch = useDispatch();
+  const floatingWhatsappList = useSelector((state) => state.floatingWhatsapp.floatingWhatsappList);
+  const dispatch = useDispatch();
 
-  // const fetchFloatingWhatsApp = async () => {
-  //   dispatch(getListFloatingWhatsapp());
-  // };
+  const fetchFloatingWhatsapp = async () => {
+    dispatch(getListFloatingWhatsapp());
+  };
 
   useEffect(() => {
-    // fetchFloatingWhatsApp();
+    fetchFloatingWhatsapp();
     const loadScripts = async () => {
       // Memuat jQuery secara asinkron
       const jqueryScript = document.createElement('script');
@@ -102,12 +102,12 @@ export default function Index() {
       <KontakKami />
       <Footer />
 
-      {/* <FloatingWhatsApp
-        avatar={floatingWhatsAppList?.avatar}
-        phoneNumber={floatingWhatsAppList?.phone_number}
-        accountName={floatingWhatsAppList?.account_name}
-        chatMessage={floatingWhatsAppList?.chat_message}
-        statusMessage={floatingWhatsAppList?.status_message}
+      <FloatingWhatsApp
+        avatar={floatingWhatsappList?.avatar}
+        phoneNumber={floatingWhatsappList?.phone_number}
+        accountName={floatingWhatsappList?.account_name}
+        chatMessage={floatingWhatsappList?.chat_message}
+        statusMessage={floatingWhatsappList?.status_message}
         darkMode={true}
         allowEsc={true}
         allowClickAway
@@ -120,7 +120,7 @@ export default function Index() {
           height: '0px !important',
           border: '0'
         }}
-      /> */}
+      />
     </Fragment>
   );
 }
