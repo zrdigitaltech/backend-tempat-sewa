@@ -89,7 +89,7 @@
       <table class="w-full">
         <tr>
           <td class="w-full text-center">
-            <div><h4>Surat Penawaran Harga</h4></div>
+            <div><h4>Price Quotation</h4></div>
             <div>Mekanik Elektro</div>
             <div>Jl. H. Mair No.22, Kota Tangerang</div>
             <div>0812-2888-3616</div>
@@ -102,16 +102,19 @@
       <table class="w-full mb-2">
         <tr>
           <td class="w-half">
-            <div>Kepada: {{ $record->customer->name }} ({{ $record->customer->no_hp }})</div>
+            <div>To: {{ $record->customer->name }} ({{ $record->customer->no_hp }})</div>
           </td>
           <td class="w-half text-end">
-            <div>Tangerang, {{ $record->quotation_date }}</div>
+            <div>
+              Tangerang,
+              {{ \Carbon\Carbon::parse($record->quotation_date)->translatedFormat('d F Y') }}
+            </div>
           </td>
         </tr>
       </table>
       <table class="products">
         <tr>
-          <th>Description</th>
+          <th>Material Type</th>
           <th>Qty</th>
           <th>Price</th>
         </tr>
@@ -126,13 +129,37 @@
             <td class="text-end">{{ number_format($item['price'], 0) }}</td>
           </tr>
         @endforeach
+
+        @if (count($record->quotation_item) > 0)
+          <tr class="items">
+            <td class="text-end" colspan="2">Total Material type</td>
+            <td class="text-end"><b>{{ number_format($sumPrice, 0) }}</b></td>
+          </tr>
+        @endif
+
+        @if (count($record->quotation_another) > 0)
+          @foreach ($record->quotation_another as $another)
+            <tr class="items">
+              <td>
+                {{ $another['description'] }}
+              </td>
+              <td class="text-center">
+                {{ $another['quantity'] }}
+              </td>
+              <td class="text-end">{{ number_format($another['price'], 0) }}</td>
+            </tr>
+          @endforeach
+        @endif
+
+        <tr class="items">
+          <td class="text-end" colspan="2">
+            <b>Total</b>
+          </td>
+          <td class="text-end"><b>{{ number_format($sumPriceMaterialAnother, 0) }}</b></td>
+        </tr>
       </table>
     </div>
 
-    <div class="total">
-      Total:
-      <b>{{ number_format($sumPrice, 0) }}</b>
-    </div>
     {{-- <div><b>Note:</b> <br/>Transfer Rekening<br/>BCA 8015234527 a/n Zikri Ramdani</div> --}}
 
     <div class="footer margin-top">

@@ -11,11 +11,12 @@ class UsersTableSeeder extends Seeder
 {
   public function run()
   {
-    // Create roles if they don't exist
-    Role::firstOrCreate(['name' => 'super_admin']);
-    Role::firstOrCreate(['name' => 'operator']);
+    // Create or get the super_admin and operator roles
+    $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
+    $operatorRole = Role::firstOrCreate(['name' => 'operator']);
 
-    $permissions = Permission::pluck('id', 'name');
+    // Fetch all permissions
+    $permissions = Permission::all();
 
     // Create the super admin user
     $superAdminUser = User::create([
@@ -23,7 +24,7 @@ class UsersTableSeeder extends Seeder
       'email' => 'zikriramdani.developer@gmail.com',
       'password' => bcrypt('zik123456ri'),
     ]);
-    $superAdminRole = Role::findByName('super_admin');
+
     $superAdminRole->syncPermissions($permissions);
     $superAdminUser->assignRole($superAdminRole);
 

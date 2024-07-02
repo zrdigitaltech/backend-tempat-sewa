@@ -85,16 +85,11 @@ class InvoiceResource extends Resource
                   'xl' => 1,
                   '2xl' => 1,
                 ]),
-              TextInput::make('quantity')
-                ->columnStart([
-                  'sm' => 2,
-                  'xl' => 2,
-                  '2xl' => 2,
-                ])
-                ->numeric()
-                ->default(1)
-                ->minValue(1)
-                ->required(),
+              TextInput::make('quantity')->columnStart([
+                'sm' => 2,
+                'xl' => 2,
+                '2xl' => 2,
+              ]),
               TextInput::make('price')
                 ->maxLength(255)
                 ->required()

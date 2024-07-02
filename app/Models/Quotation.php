@@ -10,7 +10,13 @@ class Quotation extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['customer_id', 'no_quotation', 'quotation_date', 'quotation_item'];
+  protected $fillable = [
+    'customer_id',
+    'no_quotation',
+    'quotation_date',
+    'quotation_item',
+    'quotation_another',
+  ];
 
   /**
    * The attributes that should be cast.
@@ -19,6 +25,7 @@ class Quotation extends Model
    */
   protected $casts = [
     'quotation_item' => 'array',
+    'quotation_another' => 'array',
   ];
 
   public function customer()

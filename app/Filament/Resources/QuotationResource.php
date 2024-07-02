@@ -40,6 +40,8 @@ use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Infolists\Components\TextEntry;
 
+use Filament\Forms\Components\Grid;
+
 class QuotationResource extends Resource
 {
   protected static ?string $model = Quotation::class;
@@ -84,17 +86,13 @@ class QuotationResource extends Resource
                   'sm' => 1,
                   'xl' => 1,
                   '2xl' => 1,
-                ]),
-              TextInput::make('quantity')
-                ->columnStart([
-                  'sm' => 2,
-                  'xl' => 2,
-                  '2xl' => 2,
                 ])
-                ->numeric()
-                ->default(1)
-                ->minValue(1)
-                ->required(),
+                ->label('Material Type'),
+              TextInput::make('quantity')->columnStart([
+                'sm' => 2,
+                'xl' => 2,
+                '2xl' => 2,
+              ]),
               TextInput::make('price')
                 ->maxLength(255)
                 ->required()
@@ -109,10 +107,10 @@ class QuotationResource extends Resource
                 ->reactive()
                 ->live(),
             ])
-            ->label('Item')
+            ->label('')
             ->disableItemMovement(),
           Placeholder::make('total')
-            ->label('Total')
+            ->label('Total Material Type')
             ->content(function ($get) {
               $total = collect($get('quotation_item'))->sum(function ($item) {
                 $cleanedPrice = (float) str_replace(
@@ -125,7 +123,76 @@ class QuotationResource extends Resource
               return quotationResource::formatCurrencyIDR($total);
             }),
 
-          Textarea::make('notes'),
+          Repeater::make('quotation_another')
+            ->schema([
+              TextInput::make('description')
+                ->maxLength(255)
+                ->columnStart([
+                  'sm' => 1,
+                  'xl' => 1,
+                  '2xl' => 1,
+                ])
+                ->label('Type of work'),
+              TextInput::make('quantity')
+                ->columnStart([
+                  'sm' => 2,
+                  'xl' => 2,
+                  '2xl' => 2,
+                ])
+                ->readOnly()
+                ->default(null),
+              TextInput::make('price')
+                ->maxLength(255)
+                ->required()
+                ->prefix('Rp ')
+                ->columnStart([
+                  'sm' => 3,
+                  'xl' => 3,
+                  '2xl' => 3,
+                ])
+                ->integer()
+                ->reactive()
+                ->live(),
+            ])
+            ->label('')
+            ->disableItemMovement(),
+          Placeholder::make('total')
+            ->label('Total Type of work')
+            ->content(function ($get) {
+              $total = collect($get('quotation_another'))->sum(function ($item) {
+                $cleanedPrice = (float) str_replace(
+                  ['Rp ', '.', ','],
+                  ['', '', '.'],
+                  $item['price']
+                );
+                return $cleanedPrice;
+              });
+              return quotationResource::formatCurrencyIDR($total);
+            }),
+          Textarea::make('notes')->columnSpanFull(),
+          Placeholder::make('total_combined')
+            ->label('Total Material & Workmanship Type')
+            ->content(function ($get) {
+              $totalMaterial = collect($get('quotation_item'))->sum(function ($item) {
+                $cleanedPrice = (float) str_replace(
+                  ['Rp ', '.', ','],
+                  ['', '', '.'],
+                  $item['price']
+                );
+                return $cleanedPrice;
+              });
+              $totalWork = collect($get('quotation_another'))->sum(function ($item) {
+                $cleanedPrice = (float) str_replace(
+                  ['Rp ', '.', ','],
+                  ['', '', '.'],
+                  $item['price']
+                );
+                return $cleanedPrice;
+              });
+              $total = $totalMaterial + $totalWork;
+              return QuotationResource::formatCurrencyIDR($total);
+            })
+            ->columnSpanFull(),
         ])
         ->reactive()
         ->columnSpanFull(),
@@ -154,12 +221,21 @@ class QuotationResource extends Resource
           ->action(function (Quotation $record) {
             // Convert $record->quotation_item to a collection
             $quotationItems = collect($record->quotation_item);
-
-            // Calculate sum of prices
             $sumPrice = $quotationItems->sum('price');
 
+            // Convert $record->quotation_another to a collection
+            $quotationAnothers = collect($record->quotation_another);
+            $sumPriceAnother = $quotationAnothers->sum('price');
+
+            $sumPriceMaterialAnother = $sumPrice + $sumPriceAnother;
+
             // Load the view with data including sumPrice
-            $pdf = PDF::loadView('quotations.pdf', ['record' => $record, 'sumPrice' => $sumPrice]);
+            $pdf = PDF::loadView('quotations.pdf', [
+              'record' => $record,
+              'sumPrice' => $sumPrice,
+              'sumPriceAnother' => $sumPriceAnother,
+              'sumPriceMaterialAnother' => $sumPriceMaterialAnother,
+            ]);
 
             return response()->streamDownload(
               fn() => print $pdf->stream(),

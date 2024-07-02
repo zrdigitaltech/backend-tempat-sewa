@@ -33,7 +33,14 @@ export default function Index() {
         <div className="row">
           <div className="col-sm-6" data-aos="slide-right" data-aos-delay="0">
             <div className="about-img">
-              <img src={tentangKamiList?.image?.includes('assets') ? tentangKamiList?.image : 'storage/' + tentangKamiList?.image} alt={tentangKamiList?.alt} />
+              <img
+                src={
+                  tentangKamiList?.image?.includes('assets')
+                    ? tentangKamiList?.image
+                    : 'storage/' + tentangKamiList?.image
+                }
+                alt={tentangKamiList?.alt}
+              />
             </div>
           </div>
           <div className="col-sm-6">

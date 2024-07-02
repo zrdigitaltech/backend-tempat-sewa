@@ -108,11 +108,14 @@
       <table class="w-full mb-2">
         <tr>
           <td class="w-half">
-            <div>Tangerang, {{ $record->quotation_date }}</div>
+            <div>
+              Tangerang,
+              {{ \Carbon\Carbon::parse($record->invoice_date)->translatedFormat('d F Y') }}
+            </div>
           </td>
         </tr>
       </table>
-      <table class="products">
+      <table class="products mb-2">
         <tr>
           <th>Description</th>
           <th>Qty</th>
@@ -129,12 +132,14 @@
             <td class="text-end">{{ number_format($item['price'], 0) }}</td>
           </tr>
         @endforeach
-      </table>
-    </div>
 
-    <div class="total">
-      Total:
-      <b>{{ number_format($sumPrice, 0) }}</b>
+        <tr class="items">
+          <td class="text-end" colspan="2">
+            <b>Total</b>
+          </td>
+          <td class="text-end"><b>{{ number_format($sumPrice, 0) }}</b></td>
+        </tr>
+      </table>
     </div>
     <div>
       <b>Note:</b>
