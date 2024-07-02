@@ -1,12 +1,12 @@
 <x-filament-widgets::widget>
   <x-filament::section>
     <a
-      href="{{ route('filament.admin.resources.testimonial.index') }}"
+      href="{{ route('filament.admin.resources.invoices.index') }}"
       class="text-blue-600 hover:text-blue-800"
     >
-      <div class="text-gray-500">Total Testimonial</div>
+      <div class="text-gray-500">Total Invoice</div>
       <div class="text-2xl font-bold">
-        {{ $TestimoniCount }}
+        {{ $InvoiceCount }}
       </div>
     </a>
   </x-filament::section>
