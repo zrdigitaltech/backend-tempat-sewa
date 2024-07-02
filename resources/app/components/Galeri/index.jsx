@@ -50,8 +50,6 @@ export default function Index() {
     fetchGaleri();
   }, []);
 
-  console.log('galeriList', galeriList)
-
   return (
     <section id="ourgallery" className="ourteam">
       <div className="container">
