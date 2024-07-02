@@ -18,16 +18,16 @@ export default function Index() {
     setIndex(index);
   };
 
-  const fetchGaleri = async () => {
-    dispatch(getListGaleri());
-    fetchSlides();
-  };
-
   const fetchSlides = async () => {
     const slides = galeriList.map(({ original }) => ({
       src: original
     }));
     setSlides(slides);
+  };
+
+  const fetchGaleri = async () => {
+    dispatch(getListGaleri());
+    fetchSlides();
   };
 
   const styleSmall = () => {
@@ -49,6 +49,8 @@ export default function Index() {
   useEffect(() => {
     fetchGaleri();
   }, []);
+
+  console.log('galeriList', galeriList)
 
   return (
     <section id="ourgallery" className="ourteam">

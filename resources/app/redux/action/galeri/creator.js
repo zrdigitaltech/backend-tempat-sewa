@@ -10,12 +10,12 @@ export const getListGaleri = () => {
     try {
       const response = await axios.get('/api/v1/gallery');
       const dataGaleri = response?.data?.data;
-      const transformedData = dataGaleri?.map(item => ({
-        ...item,
-        src: item.image,
-        original: item.image
-      }));
-      if (transformedData?.length > 0) {
+      if (dataGaleri?.length > 0) {
+        const transformedData = dataGaleri?.map(item => ({
+          ...item,
+          src: item.image,
+          original: item.image
+        }));
         dispatch(saveListGaleri(transformedData));
       } else {
         dispatch(saveListGaleri(DataGaleri));
