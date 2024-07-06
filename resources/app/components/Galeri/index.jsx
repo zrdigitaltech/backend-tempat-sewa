@@ -48,7 +48,7 @@ export default function Index() {
 
   useEffect(() => {
     fetchGaleri();
-  }, []);
+  }, [galeriList]);
 
   return (
     <section id="ourgallery" className="ourteam">
