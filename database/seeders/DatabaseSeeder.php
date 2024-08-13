@@ -13,17 +13,10 @@ class DatabaseSeeder extends Seeder
   public function run(): void
   {
     $this->call([
-      AreaLayanansTableSeeder::class,
-      BannersTableSeeder::class,
-      CallToActionsTableSeeder::class,
       FloatingWhatsappsTableSeeder::class,
       GalerisTableSeeder::class,
       KontakKamisTableSeeder::class,
-      LayanansTableSeeder::class,
-      LogosTableSeeder::class,
-      NumberLayanansTableSeeder::class,
       PembayaransTableSeeder::class,
-      TentangKamisTableSeeder::class,
       TestimonisTableSeeder::class,
       UsersTableSeeder::class,
     ]);

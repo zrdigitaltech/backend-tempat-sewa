@@ -1,23 +1,29 @@
-function i({ initialHeight: t }) {
+function r({ initialHeight: t, shouldAutosize: i, state: s }) {
   return {
-    height: t + 'rem',
+    state: s,
+    wrapperEl: null,
     init: function () {
-      this.setInitialHeight(), this.setUpResizeObserver();
+      (this.wrapperEl = this.$el.parentNode),
+        this.setInitialHeight(),
+        i
+          ? this.$watch('state', () => {
+              this.resize();
+            })
+          : this.setUpResizeObserver();
     },
     setInitialHeight: function () {
-      (this.height = t + 'rem'),
-        !(this.$el.scrollHeight <= 0) && (this.$el.style.height = this.height);
+      this.$el.scrollHeight <= 0 || (this.wrapperEl.style.height = t + 'rem');
     },
     resize: function () {
       if ((this.setInitialHeight(), this.$el.scrollHeight <= 0)) return;
       let e = this.$el.scrollHeight + 'px';
-      this.height !== e && ((this.height = e), (this.$el.style.height = this.height));
+      this.wrapperEl.style.height !== e && (this.wrapperEl.style.height = e);
     },
     setUpResizeObserver: function () {
       new ResizeObserver(() => {
-        this.height = this.$el.style.height;
+        this.wrapperEl.style.height = this.$el.style.height;
       }).observe(this.$el);
     }
   };
 }
-export { i as default };
+export { r as default };

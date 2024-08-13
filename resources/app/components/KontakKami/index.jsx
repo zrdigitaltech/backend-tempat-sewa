@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListKontakKami } from '@/redux/action/kontakKami/creator';
 import { getListPembayaran } from '@/redux/action/pembayaran/creator';
 
-import Swal from 'sweetalert2';
-
 export default function Index() {
   const [copySuccess, setCopySuccess] = useState('Salin No Rek!');
 
@@ -43,7 +41,7 @@ export default function Index() {
       <div className="container">
         <div className="section-title">
           <h2>
-            Kontak Kami<span className="title-border-white"></span>
+            Hubungi Kami<span className="title-border-white"></span>
           </h2>
         </div>
       </div>
@@ -56,9 +54,6 @@ export default function Index() {
                   <div className="">
                     <p>
                       <i className="fa fa-home text-theme"></i> {kontakKamiList?.alamat}
-                    </p>
-                    <p>
-                      <i className="fa fa-clock-o text-theme"></i> {kontakKamiList?.jam_kerja}
                     </p>
                     {/* <p>
                                             <i className="fa fa-phone text-theme"></i>{" "}
@@ -73,10 +68,6 @@ export default function Index() {
                       <a href={kontakKamiList?.link_no_wa} target="_blank">
                         {kontakKamiList?.no_wa}
                       </a>{' '}
-                    </p>
-                    <p>
-                      <i className="fa fa-envelope text-theme"></i>{' '}
-                      <a href={`mailto:${kontakKamiList?.email}`}>{kontakKamiList?.email}</a>
                     </p>
                     <hr />
                     <div className="single-section">

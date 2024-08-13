@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Documentation",
-        "description": "API documentation for Mekanik Elektro application",
+        "description": "API documentation for Nama Pemilik Kontrakan application",
         "contact": {
             "email": "zikriramdani.developer@gmail.com"
         },

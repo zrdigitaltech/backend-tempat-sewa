@@ -1,5 +1,6 @@
 function n() {
   return {
+    checkboxClickController: null,
     collapsedGroups: [],
     isLoading: !1,
     selectedRecords: [],
@@ -95,10 +96,14 @@ function n() {
       this.collapsedGroups = [];
     },
     watchForCheckboxClicks: function () {
-      let e = this.$root?.getElementsByClassName('fi-ta-record-checkbox') ?? [];
-      for (let t of e)
-        t.removeEventListener('click', this.handleCheckboxClick),
-          t.addEventListener('click', s => this.handleCheckboxClick(s, t));
+      this.checkboxClickController && this.checkboxClickController.abort(),
+        (this.checkboxClickController = new AbortController());
+      let { signal: e } = this.checkboxClickController;
+      this.$root?.addEventListener(
+        'click',
+        t => t.target?.matches('.fi-ta-record-checkbox') && this.handleCheckboxClick(t, t.target),
+        { signal: e }
+      );
     },
     handleCheckboxClick: function (e, t) {
       if (!this.lastChecked) {

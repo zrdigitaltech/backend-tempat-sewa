@@ -3,11 +3,12 @@ export default function Index() {
     <footer>
       <div className="container">
         <p>
-          Copyright &copy; {new Date().getFullYear()}{' '}
+          &copy; {new Date().getFullYear()} Nama Pemilik Kontrakan
+          <br />
+          Didukung oleh{' '}
           <a href="https://zrdevelopers.github.io/" target="_blank" className="text-primary">
             ZRDevelopers
           </a>{' '}
-          . All rights reserved
         </p>
       </div>
     </footer>

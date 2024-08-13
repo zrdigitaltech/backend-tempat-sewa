@@ -20,15 +20,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-1.jpeg',
         'width' => 150,
         'height' => 174,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 2,
@@ -36,15 +36,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-2.jpeg',
         'width' => 300,
         'height' => 212,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 3,
@@ -52,15 +52,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-3.jpeg',
         'width' => 300,
         'height' => 212,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 4,
@@ -68,15 +68,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-4.jpeg',
         'width' => 300,
         'height' => 213,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perakitan Panel Listrik dengan tim ahli listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perakitan Panel Listrik dengan tim ahli listrik kami yang Profesional.',
       ],
       [
         'id' => 5,
@@ -84,15 +84,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-5.jpeg',
         'width' => 300,
         'height' => 183,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Power Balance dengan tim ahli listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Power Balance dengan tim ahli listrik kami yang Profesional.',
       ],
       [
         'id' => 6,
@@ -100,15 +100,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-6.jpeg',
         'width' => 320,
         'height' => 320,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Pasang Instalasi Baru dengan tim ahli listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Pasang Instalasi Baru dengan tim ahli listrik kami yang Profesional.',
       ],
       [
         'id' => 7,
@@ -116,15 +116,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-7.jpeg',
         'width' => 220,
         'height' => 190,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Korsleting & Hansleting dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 8,
@@ -132,15 +132,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-8.jpeg',
         'width' => 120,
         'height' => 148,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Listrik Mati, sebagian Jalur/Lantai dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 9,
@@ -148,15 +148,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-9.jpeg',
         'width' => 160,
         'height' => 223,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 10,
@@ -164,15 +164,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-10.jpeg',
         'width' => 160,
         'height' => 223,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 11,
@@ -180,15 +180,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-11.jpeg',
         'width' => 200,
         'height' => 223,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
       ],
       [
         'id' => 12,
@@ -196,15 +196,15 @@ class GalerisTableSeeder extends Seeder
         'image' => '/assets/images/galleri/galleri-12.jpeg',
         'width' => 200,
         'height' => 223,
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'tags' => json_encode([
           [
-            'value' => 'Mekanik Elektro',
-            'title' => 'Mekanik Elektro',
+            'value' => 'Nama Pemilik Kontrakan',
+            'title' => 'Nama Pemilik Kontrakan',
           ],
         ]),
         'description' =>
-          'Mekanik Elektro menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
+          'Nama Pemilik Kontrakan menyediakan layanan Perbaikan Grounding System dengan Team Teknisi Listrik kami yang Profesional.',
       ],
     ];
     // Insert data into the database

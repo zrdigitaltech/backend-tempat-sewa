@@ -54,7 +54,7 @@ class TestimoniResource extends Resource
             ->acceptedFileTypes(['image/*']),
           TextInput::make('name')->required()->maxLength(255),
           TextInput::make('position')->required()->maxLength(255),
-          TextInput::make('alt')->default('Mekanik Elektro')->maxLength(255),
+          TextInput::make('alt')->default('Nama Pemilik Kontrakan')->maxLength(255),
           TextArea::make('description')->rows(3)->maxLength(255),
         ])
         ->columnSpanFull(),

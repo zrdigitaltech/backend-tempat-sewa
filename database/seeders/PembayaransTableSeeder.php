@@ -17,7 +17,7 @@ class PembayaransTableSeeder extends Seeder
       [
         'id' => 1,
         'image' => '/assets/images/logo-bca.webp',
-        'alt' => 'Mekanik Elektro',
+        'alt' => 'Nama Pemilik Kontrakan',
         'no_rek' => '8015234527',
         'nama_rek' => 'Zikri Ramdani',
         'nama_bank' => 'BCA',

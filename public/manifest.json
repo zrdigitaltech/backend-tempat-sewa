@@ -1,6 +1,6 @@
 {
-  "short_name": "Mekanik",
-  "name": "Mekanik Elektro",
+  "short_name": "Sewa Kontrakan",
+  "name": "Nama Pemilik Kontrakan",
   "icons": [
     {
       "src": "/assets/images/icons-512.png",
@@ -26,9 +26,9 @@
   "theme_color": "#f47629",
   "shortcuts": [
     {
-      "name": "Mekanik Elektro",
-      "short_name": "Mekanik",
-      "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
+      "name": "Nama Pemilik Kontrakan",
+      "short_name": "Sewa Kontrakan",
+      "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
       "url": "/today?source=pwa",
       "icons": [
         {
@@ -38,9 +38,9 @@
       ]
     },
     {
-      "name": "Mekanik Elektro",
-      "short_name": "Mekanik",
-      "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
+      "name": "Nama Pemilik Kontrakan",
+      "short_name": "Sewa Kontrakan",
+      "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
       "url": "/tomorrow?source=pwa",
       "icons": [
         {
@@ -50,7 +50,7 @@
       ]
     }
   ],
-  "description": "Mekanik Elektro ialah Teknisi Listrik / Tukang Listrik Panggilan.",
+  "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
   "screenshots": [
     {
       "src": "/assets/images/about-us-540.png",

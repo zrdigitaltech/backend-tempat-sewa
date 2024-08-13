@@ -18,7 +18,7 @@ class FloatingWhatsappsTableSeeder extends Seeder
         'id' => 1,
         'avatar' => '/assets/images/logo-whatsapp.png',
         'phone_number' => '6281228883616',
-        'account_name' => 'Mekanik Elektro',
+        'account_name' => 'Nama Pemilik Kontrakan',
         'chat_message' => 'Halo, Ada yang bisa kami bantu?',
         'status_message' => 'Percayakan solusi masalah kelistrikan anda kepada kami',
       ],

@@ -74,106 +74,106 @@
   /*------------------------------------------------------------------
    	 Animation Numbers
    	------------------------------------------------------------------*/
-  jQuery('.animateNumber').each(function () {
-    var num = jQuery(this).attr('data-num');
+  // jQuery('.animateNumber').each(function () {
+  //   var num = jQuery(this).attr('data-num');
 
-    var top = jQuery(document).scrollTop() + jQuery(window).height();
-    var pos_top = jQuery(this).offset().top;
-    if (top > pos_top && !jQuery(this).hasClass('active')) {
-      jQuery(this).addClass('active').animateNumber(
-        {
-          number: num
-        },
-        2000
-      );
-    }
-  });
-  jQuery('.animateProcent').each(function () {
-    var num = jQuery(this).attr('data-num');
-    var percent_number_step = jQuery.animateNumber.numberStepFactories.append('%');
-    var top = jQuery(document).scrollTop() + jQuery(window).height();
-    var pos_top = jQuery(this).offset().top;
-    if (top > pos_top && !jQuery(this).hasClass('active')) {
-      jQuery(this).addClass('active').animateNumber(
-        {
-          number: num,
-          numberStep: percent_number_step
-        },
-        2000
-      );
-      jQuery(this).css('width', num + '%');
-    }
-  });
+  //   var top = jQuery(document).scrollTop() + jQuery(window).height();
+  //   var pos_top = jQuery(this).offset().top;
+  //   if (top > pos_top && !jQuery(this).hasClass('active')) {
+  //     jQuery(this).addClass('active').animateNumber(
+  //       {
+  //         number: num
+  //       },
+  //       2000
+  //     );
+  //   }
+  // });
+  // jQuery('.animateProcent').each(function () {
+  //   var num = jQuery(this).attr('data-num');
+  //   var percent_number_step = jQuery.animateNumber.numberStepFactories.append('%');
+  //   var top = jQuery(document).scrollTop() + jQuery(window).height();
+  //   var pos_top = jQuery(this).offset().top;
+  //   if (top > pos_top && !jQuery(this).hasClass('active')) {
+  //     jQuery(this).addClass('active').animateNumber(
+  //       {
+  //         number: num,
+  //         numberStep: percent_number_step
+  //       },
+  //       2000
+  //     );
+  //     jQuery(this).css('width', num + '%');
+  //   }
+  // });
   /*------------------------------------------------------------------
     Owl Carousel for Our Team
 	------------------------------------------------------------------*/
-  var owl = $('#our-team');
-  owl.owlCarousel({
-    nav: true,
-    autoplay: true,
-    margin: 12,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      450: {
-        items: 1
-      },
-      600: {
-        items: 2
-      },
-      700: {
-        items: 2
-      },
-      1000: {
-        items: 3
-      },
-      1200: {
-        items: 4
-      },
-      1400: {
-        items: 4
-      },
-      1600: {
-        items: 4
-      }
-    }
-  });
+  // var owl = $('#our-team');
+  // owl.owlCarousel({
+  //   nav: true,
+  //   autoplay: true,
+  //   margin: 12,
+  //   loop: true,
+  //   responsive: {
+  //     0: {
+  //       items: 1
+  //     },
+  //     450: {
+  //       items: 1
+  //     },
+  //     600: {
+  //       items: 2
+  //     },
+  //     700: {
+  //       items: 2
+  //     },
+  //     1000: {
+  //       items: 3
+  //     },
+  //     1200: {
+  //       items: 4
+  //     },
+  //     1400: {
+  //       items: 4
+  //     },
+  //     1600: {
+  //       items: 4
+  //     }
+  //   }
+  // });
 
   /*------------------------------------------------------------------
     Owl Carousel for Testimonials
 	------------------------------------------------------------------*/
-  var owl = $('#our-testimonials');
-  owl.owlCarousel({
-    nav: true,
-    margin: 13,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      450: {
-        items: 1
-      },
-      600: {
-        items: 1
-      },
-      700: {
-        items: 1
-      },
-      1000: {
-        items: 3
-      },
-      1200: {
-        items: 3
-      },
-      1400: {
-        items: 3
-      },
-      1600: {
-        items: 3
-      }
-    }
-  });
+  // var owl = $('#our-testimonials');
+  // owl.owlCarousel({
+  //   nav: true,
+  //   margin: 13,
+  //   loop: true,
+  //   responsive: {
+  //     0: {
+  //       items: 1
+  //     },
+  //     450: {
+  //       items: 1
+  //     },
+  //     600: {
+  //       items: 1
+  //     },
+  //     700: {
+  //       items: 1
+  //     },
+  //     1000: {
+  //       items: 3
+  //     },
+  //     1200: {
+  //       items: 3
+  //     },
+  //     1400: {
+  //       items: 3
+  //     },
+  //     1600: {
+  //       items: 3
+  //     }
+  //   }
+  // });
 })(jQuery);

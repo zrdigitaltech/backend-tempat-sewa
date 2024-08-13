@@ -80,7 +80,7 @@
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="assets/images/logo_pdf.png" alt="Mekanik Elektro" width="200" />
+          <img src="assets/images/logo_pdf.png" alt="Nama Pemilik Kontrakan" width="200" />
         </td>
         <td class="w-half text-end">
           <h2>No Invoice: {{ $record->no_invoice }}</h2>
@@ -99,7 +99,7 @@
           </td>
           <td class="w-half">
             <div><h4>From:</h4></div>
-            <div>Mekanik Elektro</div>
+            <div>Nama Pemilik Kontrakan</div>
             <div>Jl. H. Mair No.22, Kota Tangerang</div>
             <div>0812-2888-3616</div>
           </td>
@@ -159,7 +159,7 @@
 
     <div class="footer margin-top">
       <div>Thank you</div>
-      <div>www.MekanikElektro.com</div>
+      <div>www.NamaPemilikKontrakan.com</div>
     </div>
   </body>
 </html>

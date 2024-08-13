@@ -6,7 +6,7 @@ return [
     'default' => [
       'api' => [
         'title' => 'L5 Swagger UI',
-        'description' => 'API documentation for Mekanik Elektro application',
+        'description' => 'API documentation for Nama Pemilik Kontrakan application',
         'version' => '1.0.0',
       ],
 

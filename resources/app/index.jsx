@@ -5,12 +5,19 @@ import App from './App';
 import '@/styles/bootstrap/css/bootstrap.min.scss';
 import '@/styles/linearicons/css/icon-font.min.scss';
 import '@/styles/font-awesome/css/font-awesome.min.scss';
-import '@/styles/animate/animate.scss';
-import '@/styles/owl-carousel/css/owl.carousel.scss';
-import '@/styles/owl-carousel/css/owl.theme.scss';
+// import '@/styles/animate/animate.scss';
+// import '@/styles/owl-carousel/css/owl.carousel.scss';
+// import '@/styles/owl-carousel/css/owl.theme.scss';
 import '@/styles/scss/style.scss';
+
+import { Provider } from 'react-redux';
+import store from '@/redux/store';
 
 // Use the body element with id "app" as the container
 const appContainer = document.getElementById('app');
 
-ReactDOM.createRoot(appContainer).render(<App />);
+ReactDOM.createRoot(appContainer).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

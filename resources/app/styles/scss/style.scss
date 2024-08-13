@@ -1,5 +1,5 @@
 /*
-    Template Name    : Mekanik Elektro
+    Template Name    : Nama Pemilik Kontrakan
 	Description		 : Responsive Electrical HTML5 Template.
     Version          : 1.0
 */
@@ -338,7 +338,7 @@ ul {
 */
 #scrollUp {
   border-radius: 5%;
-  bottom: 90px; //30px;
+  bottom: 160px;//90px; //30px;
   color: #fff;
   font-size: 12px;
   height: 40px;
@@ -935,7 +935,7 @@ ul.work li {
 .ourteam {
   width: 100%;
   float: left;
-  padding: 82px 0 70px;
+  padding: 40px 0px; // 82px 0 70px;
   position: relative;
   position: relative;
   background: #f6f6f6;
@@ -1078,7 +1078,7 @@ ul.work li {
 ================================================
 */
 .services {
-  padding: 74px 0 79px;
+  padding: 20px 0 79px; // 74px 0 79px;
   background: #f6f6f6;
 }
 
@@ -1088,7 +1088,7 @@ ul.work li {
 
 /**** Services Box ***/
 .single-service-item {
-  padding: 30px 20px;
+  // padding: 30px 20px;
   text-align: center;
   margin-top: 40px;
   -webkit-border-radius: 20px;
@@ -1102,6 +1102,7 @@ ul.work li {
   transition: all 0.4s linear;
   border: 1px solid #eeeeee;
   min-height: 289px;
+  position: relative;
 }
 
 .single-service-item:hover {
@@ -1109,8 +1110,35 @@ ul.work li {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
 }
 
+.single-service-available {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f47629;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  background: rgb(25 25 25);
+  padding: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.single-service-description {
+  padding: 20px;
+}
+
 .single-service-icon {
-  margin: 0 0 20px;
+  // margin: 0 0 20px;
+
+  &.grayscale {
+    filter: grayscale(1);
+  }
+
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 }
 
 .single-service-item h3 {
@@ -1255,7 +1283,7 @@ ul.work li {
 .contactus input,
 .contactus textarea {
   line-height: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 10px; // 30px;
   outline: inherit;
   padding-bottom: 14px;
   width: 100%;
@@ -1263,9 +1291,9 @@ ul.work li {
   border: 1px solid #aaaaaa;
 }
 
-.contactus textarea {
-  height: 140px;
-}
+// .contactus textarea {
+//   height: 140px;
+// }
 
 .contactus .btn-one:before {
   display: none;
@@ -1276,7 +1304,7 @@ ul.work li {
   border: 2px solid #f47629;
   color: #fff;
   padding: 10px 0;
-  width: 160px;
+  // width: 160px;
   transition: all 0.3s ease 0s;
 }
 
@@ -1421,9 +1449,9 @@ footer p {
   }
 
   /*** Contact us ***/
-  .contactus .btn-one {
-    margin: 0 0 40px;
-  }
+  // .contactus .btn-one {
+  //   margin: 0 0 40px;
+  // }
 
   #scrool-top {
     right: 15px;
@@ -1696,3 +1724,131 @@ footer p {
 .text-white {
   color: #fff;
 }
+
+$custom-spacers: (
+  1: 0.5rem,
+  2: 1rem,
+  3: 1.5rem,
+  4: 3rem,
+  5: 6rem
+);
+
+@each $key, $value in $custom-spacers {
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+}
+
+.nav-pills {
+  .nav-link {
+    padding: 0.75rem 1rem; // Adjust padding for better spacing
+    border-radius: 0.25rem; // Slightly rounded corners
+    // color: #fff; // White text color
+    transition: background-color 0.3s ease; // Smooth transition on hover
+    // margin: 0 8px 0 0px;
+
+    &:hover {
+      background-color: #f47629; // Darker blue on hover
+      text-decoration: none; // Remove underline on hover
+      color: #fff;
+    }
+
+    &.active {
+      background-color: #f47629; // Different shade for active link
+      color: #fff;
+    }
+
+    &:disabled {
+      background-color: #6c757d; // Grey background for disabled state
+      color: #fff;
+      opacity: 0.65; // Reduced opacity for disabled links
+    }
+  }
+
+  // Flexbox adjustments
+  .flex-fill {
+    flex: 1 1 auto; // Ensure all links take equal space
+    text-align: center; // Center text in each link
+  }
+}
+
+.single-content-informasi {
+  background-color: #f47629;
+  color: #fff;
+  padding: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.carousel {
+  .thumbs-wrapper {
+    margin: 10px 0px !important;
+  }
+  .thumb {
+    // border: none !important;
+
+    &.selected {
+      border: 3px solid #f47629 !important;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  
+.carousel {
+  .thumbs-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .thumbs {
+    display: inline-flex;
+    justify-content: center;
+  }
+}
+}
+
+.floating-whatsapp-button {
+  // bottom: 9rem !important;
+  z-index: 1 !important;
+  
+}
+.floating-pengaduan {
+  position: fixed;
+            bottom: 9rem;
+            right: 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease; // Add transition for button hover effect
+}
+
+.pengaduan-form {
+  position: fixed;
+          bottom: 16rem;
+          right: 20px;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.2);
+          z-index: 1000;
+          width: 300px;
+          transition: transform 0.3s ease, opacity 0.3s ease; // Animation for form
+          
+          .pengaduan-form-close {
+            position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(0); // Slide in
+      opacity: 1;
+    }
+          }
+}
+

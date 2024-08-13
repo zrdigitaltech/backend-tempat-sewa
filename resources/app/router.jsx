@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from '@/layouts/RootLayout';
 import RouteLoading from '@/components/RouteLoading';
 import Error404 from '@/pages/404';
 
-const Home = React.lazy(() => import('@/pages/Home'));
+const Home = lazy(() => import('@/pages/Home'));
+const Slug = lazy(() => import('@/pages/Home/Slug'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,9 +13,17 @@ const router = createBrowserRouter(
       <Route
         index
         element={
-          <React.Suspense fallback={<RouteLoading />}>
+          <Suspense fallback={<RouteLoading />}>
             <Home />
-          </React.Suspense>
+          </Suspense>
+        }
+      />
+      <Route
+        path="/:slug"
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <Slug />
+          </Suspense>
         }
       />
       <Route path="*" element={<Error404 />} />

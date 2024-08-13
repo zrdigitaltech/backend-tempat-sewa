@@ -55,12 +55,12 @@ class GaleriResource extends Resource
           TextInput::make('title')->required()->maxLength(255),
           TextInput::make('width')->default('300')->numeric()->required()->maxLength(255),
           TextInput::make('height')->default('212')->numeric()->required()->maxLength(255),
-          TextInput::make('alt')->default('Mekanik Elektro'),
+          TextInput::make('alt')->default('Nama Pemilik Kontrakan'),
           Textarea::make('description')->rows(3),
           Repeater::make('tags')
             ->schema([
-              TextInput::make('value')->default('Mekanik Elektro')->maxLength(255),
-              TextInput::make('title')->default('Mekanik Elektro')->maxLength(255),
+              TextInput::make('value')->default('Nama Pemilik Kontrakan')->maxLength(255),
+              TextInput::make('title')->default('Nama Pemilik Kontrakan')->maxLength(255),
             ])
             ->label('Tags')
             ->maxItems(1)

@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
  * @OA\Info(
  *     title="API Documentation",
  *     version="1.0.0",
- *     description="API documentation for Mekanik Elektro application",
+ *     description="API documentation for Nama Pemilik Kontrakan application",
  *     @OA\Contact(
  *         email="zikriramdani.developer@gmail.com"
  *     )
