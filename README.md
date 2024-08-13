@@ -12,8 +12,7 @@
 
 <p>Website ini dibuat menggunakan Framework Laravel v10.44.0 dengan tambahan package-package lain, seperti :<br><br>
 1) VITE v5.1.3,<br>
-2) Bootstrap v5,<br>
-3) Laraberg - Wordpress Gutenberg Editor
+2) Bootstrap v5
 </p>
 
 Cara menjalankan Website :
