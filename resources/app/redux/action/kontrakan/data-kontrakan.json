@@ -2,9 +2,8 @@
   {
     "id": 1,
     "image": [
-      {"image": "https://placehold.co/1200x675/000/FFF/webp" },
-      {"image": "https://placehold.co/1200x675/webp" },
-      {"image": "https://placehold.co/1200x675/webp" }
+      {"image": "/assets/images/kontrakan-black.webp" },
+      {"image": "/assets/images/kontrakan-white.webp" }
     ],
     "alt": "Nama Pemilik Kontrakan",
     "nama": "Kontrakan Angsa",
@@ -12,27 +11,18 @@
     "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
     "keterangan": null,
     "harga_sewa": [
-      {
-        "1": 500000
-      },
-      {
-        "3": 1300000
-      },
-      {
-        "6": 2400000
-      },
-      {
-        "12": 4000000
-      }
+      {"durasi" : "1", "harga" : "20"},
+      {"durasi" : "3", "harga" : "60"},
+      {"durasi" : "6", "harga" : "180"},
+      {"durasi" : "12", "harga" : "240"}
     ],
     "status": "tersedia"
   },
   {
     "id": 2,
     "image": [
-      {"image": "https://placehold.co/1200x675/000/FFF/webp" },
-      {"image": "https://placehold.co/1200x675/webp" },
-      {"image": "https://placehold.co/1200x675/webp" }
+      {"image": "/assets/images/kontrakan-black.webp" },
+      {"image": "/assets/images/kontrakan-white.webp" }
     ],
     "alt": "Nama Pemilik Kontrakan",
     "nama": "Kontrakan Dara",
@@ -40,27 +30,18 @@
     "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
     "keterangan": null,
     "harga_sewa": [
-      {
-        "1": 500000
-      },
-      {
-        "3": 1300000
-      },
-      {
-        "6": 2400000
-      },
-      {
-        "12": 4000000
-      }
+      {"durasi" : "1", "harga" : "20"},
+      {"durasi" : "3", "harga" : "60"},
+      {"durasi" : "6", "harga" : "180"},
+      {"durasi" : "12", "harga" : "240"}
     ],
     "status": "tidak tersedia"
   },
   {
     "id": 3,
     "image": [
-      {"image": "https://placehold.co/1200x675/000/FFF/webp" },
-      {"image": "https://placehold.co/1200x675/webp" },
-      {"image": "https://placehold.co/1200x675/webp" }
+      {"image": "/assets/images/kontrakan-black.webp" },
+      {"image": "/assets/images/kontrakan-white.webp" }
     ],
     "alt": "Nama Pemilik Kontrakan",
     "nama": "Kontrakan Elang",
@@ -68,18 +49,10 @@
     "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
     "keterangan": null,
     "harga_sewa": [
-      {
-        "1": 500000
-      },
-      {
-        "3": 1300000
-      },
-      {
-        "6": 2400000
-      },
-      {
-        "12": 4000000
-      }
+      {"durasi" : "1", "harga" : "20"},
+      {"durasi" : "3", "harga" : "60"},
+      {"durasi" : "6", "harga" : "180"},
+      {"durasi" : "12", "harga" : "240"}
     ],
     "status": "tersedia"
   }
