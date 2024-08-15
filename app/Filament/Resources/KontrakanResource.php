@@ -86,8 +86,9 @@ class KontrakanResource extends Resource
             }),
           TextInput::make('slug')
             // ->unique()
-            ->required()
-            ->rules('regex:/^[a-z0-9-]+$/'),
+            // ->required()
+            ->rules('regex:/^[a-z0-9-]+$/')
+            ->readOnly(),
           RichEditor::make('deskripsi')
             ->disableToolbarButtons(['attachFiles'])
             ->maxLength(255)

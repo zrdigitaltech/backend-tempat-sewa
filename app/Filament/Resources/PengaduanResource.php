@@ -12,10 +12,14 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\{TextInput, Textarea, Select, Card};
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\Filter;
 
 class PengaduanResource extends Resource
 {
-  // protected static ?string $model = Pengaduan::class;
+  protected static ?string $model = Pengaduan::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-megaphone';
 
@@ -30,7 +34,35 @@ class PengaduanResource extends Resource
   public static function form(Form $form): Form
   {
     return $form->schema([
-      //
+      Card::make()
+        ->schema([
+          TextInput::make('nama')->required()->maxLength(255)->disabled(),
+
+          TextInput::make('no_telp')
+            ->required()
+            ->label('No Whatsapp')
+            ->minLength(13)
+            ->maxLength(20)
+            ->rules(['regex:/^(\+?\d{1,4}[\s-])?(?!0+$)\d{10,14}$/'])
+            ->disabled(),
+
+          TextInput::make('id_kontrakan')
+            ->label('Nama Kontrakan')
+            ->required()
+            ->maxLength(255)
+            ->disabled(),
+
+          Textarea::make('catatan')->required()->maxLength(65535)->disabled(),
+
+          Select::make('status')
+            ->options([
+              'terbuka' => 'Terbuka',
+              'sedang dalam proses' => 'Sedang Dalam Proses',
+              'tertutup' => 'Tertutup',
+            ])
+            ->required(),
+        ])
+        ->columnSpanFull(),
     ]);
   }
 
@@ -38,14 +70,47 @@ class PengaduanResource extends Resource
   {
     return $table
       ->columns([
-        //
+        TextColumn::make('nama')->searchable(),
+
+        TextColumn::make('no_telp')->searchable()->label('No Whatsapp'),
+
+        TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
+
+        TextColumn::make('catatan')->limit(50),
+
+        TextColumn::make('status')
+          ->badge()
+          ->color(
+            fn(string $state): string => match ($state) {
+              'terbuka' => 'success',
+              'sedang dalam proses' => 'warning',
+              'tertutup' => 'danger',
+            }
+          )
+          ->formatStateUsing(function ($state) {
+            $capitalizedState = ucfirst($state); // Capitalizes the first letter
+            return "<span class=\"capitalize\">$capitalizedState</span>";
+          })
+          ->html(),
+
+        // TextColumn::make('created_at')->dateTime(),
       ])
       ->filters([
-        //
+        SelectFilter::make('status')
+          ->label('Status')
+          ->options([
+            'terbuka' => 'Terbuka',
+            'sedang dalam proses' => 'Sedang Dalam Proses',
+            'tertutup' => 'Tertutup',
+          ]),
       ])
-      ->actions([Tables\Actions\EditAction::make()])
+      ->actions([
+        Tables\Actions\ViewAction::make()->iconButton(),
+        Tables\Actions\EditAction::make()->iconButton(),
+      ])
       ->bulkActions([
-        Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
+        // Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
+        // Tables\Actions\BulkActionGroup::make([]),
       ]);
   }
 
@@ -60,7 +125,7 @@ class PengaduanResource extends Resource
   {
     return [
       'index' => Pages\ListPengaduans::route('/'),
-      'create' => Pages\CreatePengaduan::route('/create'),
+      // 'create' => Pages\CreatePengaduan::route('/create'),
       'edit' => Pages\EditPengaduan::route('/{record}/edit'),
     ];
   }

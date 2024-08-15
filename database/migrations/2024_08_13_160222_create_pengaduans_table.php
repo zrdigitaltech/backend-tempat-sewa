@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->string('no_telp');
       $table->string('id_kontrakan');
       $table->text('catatan');
+      $table->enum('status', ['terbuka', 'sedang dalam proses', 'tertutup']);
       $table->timestamps();
     });
   }
