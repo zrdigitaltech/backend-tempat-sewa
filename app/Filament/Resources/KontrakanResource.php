@@ -30,6 +30,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
 
 use Illuminate\Support\Str;
+use Filament\Infolists\Components\TextEntry;
 
 class KontrakanResource extends Resource
 {
@@ -66,7 +67,7 @@ class KontrakanResource extends Resource
             ->required(),
           TextInput::make('alt')->label('Alt')->default('Nama Pemilik Kontrakan'),
           TextInput::make('nama')
-            ->unique()
+            // ->unique()
             ->required()
             ->maxLength(255)
             ->reactive() // Make the field reactive to updates
@@ -83,7 +84,10 @@ class KontrakanResource extends Resource
               // Update the 'url' field with the generated value
               $set('slug', $url);
             }),
-          TextInput::make('slug')->unique()->required()->rules('regex:/^[a-z0-9-]+$/'),
+          TextInput::make('slug')
+            // ->unique()
+            ->required()
+            ->rules('regex:/^[a-z0-9-]+$/'),
           RichEditor::make('deskripsi')
             ->disableToolbarButtons(['attachFiles'])
             ->maxLength(255)
@@ -149,12 +153,17 @@ class KontrakanResource extends Resource
           })
           ->html(),
         TextColumn::make('status')
-          ->label('Status')
           ->searchable()
+          ->badge()
+          ->color(
+            fn(string $state): string => match ($state) {
+              'tersedia' => 'success',
+              'tidak tersedia' => 'danger',
+            }
+          )
           ->formatStateUsing(function ($state) {
-            $color = $state === 'tersedia' ? 'green' : 'red';
             $capitalizedState = ucfirst($state); // Capitalizes the first letter
-            return "<span class=\"$color capitalize\" style=\"color: $color;\">$capitalizedState</span>";
+            return "<span class=\"capitalize\">$capitalizedState</span>";
           })
           ->html(),
       ])
