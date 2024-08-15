@@ -82,9 +82,9 @@ class PengaduanResource extends Resource
           ->badge()
           ->color(
             fn(string $state): string => match ($state) {
-              'terbuka' => 'success',
+              'terbuka' => 'info',
               'sedang dalam proses' => 'warning',
-              'tertutup' => 'danger',
+              'tertutup' => 'success',
             }
           )
           ->formatStateUsing(function ($state) {
