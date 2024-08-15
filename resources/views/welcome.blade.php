@@ -10,6 +10,7 @@
   <body>
     <!-- Google Tag Manager (noscript) -->
     <!-- End Google Tag Manager (noscript) -->
+    @livewire('database-notifications')
 
     <div id="app" class="h-100"></div>
 

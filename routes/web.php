@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Notifications\PengaduanNotification;
+use Illuminate\Support\Facades\Notification;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +27,18 @@ Route::get('/{slug}', function () {
 Route::fallback(function () {
   return view('welcome');
 });
+
+Route::get('/test', function () {
+  $user = auth()->user(); // Make sure you're authenticated
+  $pengaduan = new \App\Models\Pengaduan([
+      'nama' => 'Sample Name',
+      'no_telp' => '1234567890',
+      'id_kontrakan' => 'Sample Kontrakan',
+      'catatan' => 'Sample Catatan',
+      'status' => 'terbuka',
+  ]);
+
+  Notification::send($user, new PengaduanNotification($pengaduan));
+
+  return 'Notification sent successfully';
+})->middleware('auth');

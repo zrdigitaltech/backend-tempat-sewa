@@ -36,12 +36,13 @@ class PengaduanResource extends Resource
     return $form->schema([
       Card::make()
         ->schema([
-          TextInput::make('nama')->required()->maxLength(255)->disabled(),
+          TextInput::make('nama')->required()->maxLength(255)
+          ->disabled(),
 
           TextInput::make('no_telp')
             ->required()
             ->label('No Whatsapp')
-            ->minLength(13)
+            ->minLength(10)
             ->maxLength(20)
             ->rules(['regex:/^(\+?\d{1,4}[\s-])?(?!0+$)\d{10,14}$/'])
             ->disabled(),

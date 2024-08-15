@@ -4,23 +4,23 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\KontakKami;
+use App\Models\HubungiKami;
 use Illuminate\Support\Facades\Log;
 
-class KontakKamiController extends Controller
+class HubungiKamiController extends Controller
 {
   /**
    * @OA\Get(
    *     path="/api/v1/contact-us",
-   *     tags={"Contact Us"},
-   *     summary="Get list of contact us",
-   *     description="Returns list of contact us",
+   *     tags={"Hubungi Kami"},
+   *     summary="Get list of Hubungi Kami",
+   *     description="Returns list of Hubungi Kami",
    *     @OA\Response(
    *         response=200,
    *         description="successful operation",
    *         @OA\JsonContent(
    *             type="array",
-   *             @OA\Items(ref="#/components/schemas/ContactUs")
+   *             @OA\Items(ref="#/components/schemas/HubungiKami")
    *         )
    *     ),
    *     @OA\Response(
@@ -32,23 +32,23 @@ class KontakKamiController extends Controller
   public function index()
   {
     try {
-      $kontakKami = KontakKami::all();
+      $hubungiKami = HubungiKami::all();
 
       return response()->json(
         [
           'code' => 200,
-          'message' => 'Successfully retrieved Contact Us.',
-          'data' => $kontakKami,
+          'message' => 'Successfully retrieved Hubungi Kami.',
+          'data' => $hubungiKami,
         ],
         200
       );
     } catch (\Exception $e) {
-      Log::error('Failed to retrieve Contact Us: ' . $e->getMessage());
+      Log::error('Failed to retrieve Hubungi Kami: ' . $e->getMessage());
 
       return response()->json(
         [
           'code' => 500,
-          'message' => 'Failed to retrieve Contact Us.',
+          'message' => 'Failed to retrieve Hubungi Kami.',
           'error' => 'Internal Server Error',
         ],
         500

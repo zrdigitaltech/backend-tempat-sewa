@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\FloatingWhatsappController;
 use App\Http\Controllers\Api\KontrakanController;
-use App\Http\Controllers\Api\KontakKamiController;
+use App\Http\Controllers\Api\HubungiKamiController;
 use App\Http\Controllers\Api\LogoController;
 use App\Http\Controllers\Api\PembayaranController;
 
@@ -38,7 +38,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
   Route::get('/floating-whatsapp', [FloatingWhatsappController::class, 'index']);
   Route::get('/kontrakan', [KontrakanController::class, 'index']);
-  Route::get('/contact-us', [KontakKamiController::class, 'index']);
+  Route::get('/contact-us', [HubungiKamiController::class, 'index']);
   Route::get('/logos', [LogoController::class, 'index']);
   Route::get('/payment', [PembayaranController::class, 'index']);
 });
