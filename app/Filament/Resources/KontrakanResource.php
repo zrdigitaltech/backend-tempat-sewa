@@ -29,6 +29,8 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
 
+use Illuminate\Support\Str;
+
 class KontrakanResource extends Resource
 {
   protected static ?string $model = Kontrakan::class;
@@ -76,12 +78,11 @@ class KontrakanResource extends Resource
               }
 
               // Generate the URL-friendly string based on the 'nama' field value
-              $url = \Str::slug($state);
+              $url = Str::slug($state);
 
               // Update the 'url' field with the generated value
               $set('slug', $url);
             }),
-
           TextInput::make('slug')->unique()->required()->rules('regex:/^[a-z0-9-]+$/'),
           RichEditor::make('deskripsi')
             ->disableToolbarButtons(['attachFiles'])
@@ -118,32 +119,38 @@ class KontrakanResource extends Resource
   {
     return $table
       ->columns([
-        // ImageColumn::make('image')->circular()->stacked()->limit(3)->limitedRemainingText(),
-        // ImageColumn::make('image')
-        //         ->label('Images')
-        //         ->formatStateUsing(function ($state) {
-        //             if (is_string($state)) {
-        //                 $images = json_decode($state, true);
-        //                 $html = '';
+        // Custom column to display images
+        ImageColumn::make('image')
+          ->label('Gambar')
+          ->getStateUsing(function (Kontrakan $record) {
+            $kontrakanUrl = collect($record->image)
+              ->pluck('image')
+              ->toArray();
 
-        //                 if (is_array($images)) {
-        //                     foreach ($images as $item) {
-        //                         if (isset($item['image'])) {
-        //                             $html .= "<img src='" . htmlspecialchars($item['image']) . "' style='max-width: 100px; margin-right: 5px;' />";
-        //                         }
-        //                     }
-        //                 }
-
-        //                 return $html;
-        //             }
-
-        //             return '';
-        //         })
-        //         ->html(),
+            return $kontrakanUrl;
+          })
+          ->circular()
+          ->stacked()
+          ->limit(3)
+          ->limitedRemainingText(),
         TextColumn::make('nama')->searchable()->limit(15),
-        // TextColumn::make('harga_sewa'),
+        TextColumn::make('harga_sewa')
+          ->label('Harga Sewa')
+          ->getStateUsing(function (Kontrakan $record) {
+            // Extracting and formatting the harga_sewa data
+            $hargaSewaArray = collect($record->harga_sewa)
+              ->map(function ($item) {
+                return "{$item['durasi']} Bulan: " . number_format($item['harga'], 0, ',', '.');
+              })
+              ->toArray();
+
+            // Join the array into a string for display
+            return implode('<br>', $hargaSewaArray);
+          })
+          ->html(),
         TextColumn::make('status')
           ->label('Status')
+          ->searchable()
           ->formatStateUsing(function ($state) {
             $color = $state === 'tersedia' ? 'green' : 'red';
             $capitalizedState = ucfirst($state); // Capitalizes the first letter

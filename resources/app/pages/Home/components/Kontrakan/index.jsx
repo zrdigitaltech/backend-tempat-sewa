@@ -57,7 +57,9 @@ export default function Index() {
                           <b>
                             Rp{' '}
                             {formatPrice(
-                              parseInt(item?.harga_sewa?.find(price => price?.durasi === '1')?.harga)
+                              parseInt(
+                                item?.harga_sewa?.find(price => price?.durasi === '1')?.harga
+                              )
                             ) || 'N/A'}
                           </b>
                           <br />
@@ -89,8 +91,8 @@ export default function Index() {
                         <b>
                           Rp{' '}
                           {formatPrice(
-                              parseInt(item?.harga_sewa?.find(price => price?.durasi === '1')?.harga)
-                            ) || 'N/A'}
+                            parseInt(item?.harga_sewa?.find(price => price?.durasi === '1')?.harga)
+                          ) || 'N/A'}
                         </b>
                         <br />
                         <b>(Bulan pertama)</b>

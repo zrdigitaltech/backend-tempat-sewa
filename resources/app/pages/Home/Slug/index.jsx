@@ -98,7 +98,9 @@ const Index = () => {
                     <b>
                       Rp{' '}
                       {formatPrice(
-                        parseInt(kontrakanDetail?.harga_sewa?.find(price => price.durasi === '1')?.harga)
+                        parseInt(
+                          kontrakanDetail?.harga_sewa?.find(price => price.durasi === '1')?.harga
+                        )
                       ) || 'N/A'}
                     </b>
                     <br />

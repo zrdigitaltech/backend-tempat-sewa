@@ -16,8 +16,8 @@ class KontrakansTableSeeder extends Seeder
       [
         'id' => 1,
         'image' => json_encode([
-          ["image" => "/assets/images/kontrakan-black.webp" ],
-          ["image" => "/assets/images/kontrakan-white.webp" ]
+          ['image' => '/assets/images/kontrakan-black.webp'],
+          ['image' => '/assets/images/kontrakan-white.webp'],
         ]),
         'alt' => 'Nama Pemilik Kontrakan',
         'nama' => 'Kontrakan Angsa',
@@ -36,8 +36,8 @@ class KontrakansTableSeeder extends Seeder
       [
         'id' => 2,
         'image' => json_encode([
-          ["image" => "/assets/images/kontrakan-black.webp" ],
-          ["image" => "/assets/images/kontrakan-white.webp" ]
+          ['image' => '/assets/images/kontrakan-black.webp'],
+          ['image' => '/assets/images/kontrakan-white.webp'],
         ]),
         'alt' => 'Nama Pemilik Kontrakan',
         'nama' => 'Kontrakan Dara',
@@ -56,8 +56,8 @@ class KontrakansTableSeeder extends Seeder
       [
         'id' => 3,
         'image' => json_encode([
-          ["image" => "/assets/images/kontrakan-black.webp" ],
-          ["image" => "/assets/images/kontrakan-white.webp" ]
+          ['image' => '/assets/images/kontrakan-black.webp'],
+          ['image' => '/assets/images/kontrakan-white.webp'],
         ]),
         'alt' => 'Nama Pemilik Kontrakan',
         'nama' => 'Kontrakan Elang',
