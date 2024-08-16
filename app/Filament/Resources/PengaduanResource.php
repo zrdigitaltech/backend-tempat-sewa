@@ -76,7 +76,7 @@ class PengaduanResource extends Resource
 
         TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
 
-        TextColumn::make('catatan')->limit(50),
+        // TextColumn::make('catatan')->limit(50),
 
         TextColumn::make('status')
           ->badge()
@@ -93,7 +93,7 @@ class PengaduanResource extends Resource
           })
           ->html(),
 
-        // TextColumn::make('created_at')->dateTime(),
+        TextColumn::make('created_at')->dateTime(),
       ])
       ->filters([
         SelectFilter::make('status')
