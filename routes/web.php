@@ -9,6 +9,7 @@ use App\Notifications\PengaduanNotification;
 use Illuminate\Support\Facades\Notification as LaravelNotification;
 use Filament\Notifications\Notification as FilamentNotification;
 use Illuminate\Support\Facades\URL;
+use Filament\Notifications\Actions\Action;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,13 @@ use Illuminate\Support\Facades\URL;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+// Route::get('/', function () {
+//   return view('welcome');
+// });
 
-Route::get('/{slug}', function () {
-  return view('welcome');
-});
+// Route::get('/{slug}', function () {
+//   return view('welcome');
+// });
 
 // Route::fallback(function () {
 //   return view('welcome');
@@ -53,8 +54,19 @@ Route::get('/test', function () {
       ->icon('heroicon-o-megaphone')
       ->title("Pengaduan dari <b>{$pengaduan->nama}</b>")
       ->body(
-        "Ada pengaduan baru dengan status 'terbuka'.<br/><br/><a href='{$link}' style='color:rgb(251, 191, 36);'><b>Lihat Detail</b></a>"
+        "Ada pengaduan baru dengan status 'terbuka'."
       )
+      ->actions([
+        Action::make('markAsRead')
+            ->label('Lihat detail')
+            ->url($link) // Add URL for redirection
+            ->color('primary')
+            ->markAsRead()
+            // ->close()
+            // ->extraAttributes([
+            //   'x-on:click' => "document.dispatchEvent(new CustomEvent('close-slideOver'))"
+            // ])
+      ])
       ->sendToDatabase($user); // Sends the notification to the user's database
   }
 
