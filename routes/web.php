@@ -64,8 +64,8 @@ Route::get('/test', function () {
             ->markAsRead()
             // ->close()
             // ->extraAttributes([
-            //   'x-on:click' => "document.dispatchEvent(new CustomEvent('close-slideOver'))"
-            // ])
+            //   'x-on:click' => "window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'database-notifications' } }))"
+            // ]),
       ])
       ->sendToDatabase($user); // Sends the notification to the user's database
   }
