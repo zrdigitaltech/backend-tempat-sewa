@@ -31,6 +31,7 @@ use Filament\Tables\Actions\CreateAction;
 
 use Illuminate\Support\Str;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Tables\Filters\SelectFilter;
 
 class KontrakanResource extends Resource
 {
@@ -85,7 +86,7 @@ class KontrakanResource extends Resource
               $set('slug', $url);
             }),
           TextInput::make('slug')
-            // ->unique()
+            ->unique()
             // ->required()
             ->rules('regex:/^[a-z0-9-]+$/')
             ->readOnly(),
@@ -171,7 +172,12 @@ class KontrakanResource extends Resource
       ->defaultSort('created_at', 'desc')
       ->striped()
       ->filters([
-        //
+        SelectFilter::make('status')
+          ->label('Status')
+          ->options([
+            'tersedia' => 'Tersedia',
+            'tidak tersedia' => 'Tidak Tersedia',
+          ]),
       ])
       ->actions([
         ViewAction::make()->iconButton(),

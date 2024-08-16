@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Pengaduan;
+use App\Models\Kontrakan;
+use App\Models\User;
 use App\Notifications\PengaduanNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Notification as LaravelNotification;
+use Filament\Notifications\Notification as FilamentNotification;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,21 +29,34 @@ Route::get('/{slug}', function () {
   return view('welcome');
 });
 
-Route::fallback(function () {
-  return view('welcome');
-});
+// Route::fallback(function () {
+//   return view('welcome');
+// });
 
 Route::get('/test', function () {
-  $user = auth()->user(); // Make sure you're authenticated
-  $pengaduan = new \App\Models\Pengaduan([
-      'nama' => 'Sample Name',
-      'no_telp' => '1234567890',
-      'id_kontrakan' => 'Sample Kontrakan',
-      'catatan' => 'Sample Catatan',
-      'status' => 'terbuka',
-  ]);
+  // Retrieve all Pengaduan records where the status is 'terbuka'
+  $pengaduans = Pengaduan::where('status', 'terbuka')->get();
 
-  Notification::send($user, new PengaduanNotification($pengaduan));
+  // Get the authenticated user
+  $user = auth()->user();
 
-  return 'Notification sent successfully';
+  // Loop through each Pengaduan and send a notification
+  foreach ($pengaduans as $pengaduan) {
+    // Sending a Laravel notification
+    LaravelNotification::send($user, new PengaduanNotification($pengaduan));
+
+    // Generate URL for viewing the Pengaduan
+    $link = url("/admin/data-pengaduan/{$pengaduan->id}/view");
+
+    // Optionally, you can send a Filament notification
+    FilamentNotification::make()
+      ->icon('heroicon-o-megaphone')
+      ->title("Pengaduan dari <b>{$pengaduan->nama}</b>")
+      ->body(
+        "Ada pengaduan baru dengan status 'terbuka'.<br/><br/><a href='{$link}' style='color:rgb(251, 191, 36);'><b>Lihat Detail</b></a>"
+      )
+      ->sendToDatabase($user); // Sends the notification to the user's database
+  }
+
+  return 'Notifications sent successfully';
 })->middleware('auth');

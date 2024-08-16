@@ -8,36 +8,40 @@ use Illuminate\Notifications\Notification;
 
 class PengaduanNotification extends Notification
 {
-    use Queueable;
+  use Queueable;
 
-    protected $pengaduan;
+  protected $pengaduan;
 
-    public function __construct($pengaduan)
-    {
-        $this->pengaduan = $pengaduan;
-    }
+  public function __construct($pengaduan)
+  {
+    $this->pengaduan = $pengaduan;
+  }
 
-    public function via($notifiable)
-    {
-        return ['database'];
-    }
+  public function via($notifiable)
+  {
+    return ['database'];
+  }
 
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('A new complaint has been submitted.')
-    //                 ->action('View Complaint', url('/pengaduan/'.$this->pengaduan->id))
-    //                 ->line('Thank you for using our application!');
-    // }
+  // public function toMail($notifiable)
+  // {
+  //     return (new MailMessage)
+  //                 ->line('A new complaint has been submitted.')
+  //                 ->action('View Complaint', url('/pengaduan/'.$this->pengaduan->id))
+  //                 ->line('Thank you for using our application!');
+  // }
 
-    public function toArray($notifiable)
-    {
-        return [
-            'id' => $this->pengaduan->id,
-            'nama' => $this->pengaduan->nama,
-            'no_telp' => $this->pengaduan->no_telp,
-            'id_kontrakan' => $this->pengaduan->id_kontrakan,
-            'status' => $this->pengaduan->status,
-        ];
-    }
+  public function toArray($notifiable)
+  {
+    return [
+      'nama' => $this->pengaduan->nama,
+      'no_telp' => $this->pengaduan->no_telp,
+      'id_kontrakan' => $this->pengaduan->id_kontrakan,
+      'status' => $this->pengaduan->status,
+    ];
+  }
+
+  public function getNotifiableType()
+  {
+    return 'App\Models\Pengaduan';
+  }
 }

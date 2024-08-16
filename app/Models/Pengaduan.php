@@ -5,11 +5,11 @@ namespace App\Models;
 use App\Notifications\PengaduanNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Notifications\Notifiable;
 
 class Pengaduan extends Model
 {
-  use HasFactory;
+  use HasFactory, Notifiable;
 
   /**
    * The attributes that are mass assignable.

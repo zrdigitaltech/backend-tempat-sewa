@@ -36,8 +36,7 @@ class PengaduanResource extends Resource
     return $form->schema([
       Card::make()
         ->schema([
-          TextInput::make('nama')->required()->maxLength(255)
-          ->disabled(),
+          TextInput::make('nama')->required()->maxLength(255)->disabled(),
 
           TextInput::make('no_telp')
             ->required()
@@ -128,6 +127,7 @@ class PengaduanResource extends Resource
       'index' => Pages\ListPengaduans::route('/'),
       // 'create' => Pages\CreatePengaduan::route('/create'),
       'edit' => Pages\EditPengaduan::route('/{record}/edit'),
+      'view' => Pages\ViewPengaduan::route('/{record}/view'),
     ];
   }
 
