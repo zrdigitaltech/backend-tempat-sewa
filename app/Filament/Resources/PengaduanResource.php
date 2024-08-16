@@ -94,10 +94,10 @@ class PengaduanResource extends Resource
           ->html(),
 
         TextColumn::make('created_at')
-        ->label('Dibuat di')
-        ->formatStateUsing(function ($state) {
-          return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y H:i');
-        }),
+          ->label('Dibuat di')
+          ->formatStateUsing(function ($state) {
+            return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y H:i');
+          }),
       ])
       ->filters([
         SelectFilter::make('status')

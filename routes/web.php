@@ -22,13 +22,13 @@ use Filament\Notifications\Actions\Action;
 |
 */
 
-// Route::get('/', function () {
-//   return view('welcome');
-// });
+Route::get('/', function () {
+  return view('welcome');
+});
 
-// Route::get('/{slug}', function () {
-//   return view('welcome');
-// });
+Route::get('/{slug}', function () {
+  return view('welcome');
+});
 
 // Route::fallback(function () {
 //   return view('welcome');
@@ -53,19 +53,25 @@ Route::get('/test', function () {
     FilamentNotification::make()
       ->icon('heroicon-o-megaphone')
       ->title("Pengaduan dari <b>{$pengaduan->nama}</b>")
-      ->body(
-        "Ada pengaduan baru dengan status 'terbuka'."
-      )
+      ->body("Ada pengaduan baru dengan status 'terbuka'.")
       ->actions([
         Action::make('markAsRead')
-            ->label('Lihat detail')
-            ->url($link) // Add URL for redirection
-            ->color('primary')
-            ->markAsRead()
-            // ->close()
-            // ->extraAttributes([
-            //   'x-on:click' => "window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'database-notifications' } }))"
-            // ]),
+          ->label('Lihat detail')
+          ->url($link) // Add URL for redirection
+          ->color('primary')
+          ->markAsRead()
+          ->extraAttributes([
+            'x-data' => '{}', // Initialize Alpine.js data scope
+            'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
+          ]),
+        // ->extraAttributes([
+        //     'x-data' => '{}', // Initialize Alpine.js data scope
+        //     'x-on:click.prevent' => "
+        //         markAsRead();
+        //         \$dispatch('close-modal', { id: 'database-notifications' });
+        //     ",
+        // ])
+        // ->close()
       ])
       ->sendToDatabase($user); // Sends the notification to the user's database
   }
