@@ -32,6 +32,7 @@ use Filament\Tables\Actions\CreateAction;
 use Illuminate\Support\Str;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Support\RawJs;
 
 class KontrakanResource extends Resource
 {
@@ -101,7 +102,11 @@ class KontrakanResource extends Resource
           Repeater::make('harga_sewa')
             ->schema([
               TextInput::make('durasi')->label('Durasi (bulan)')->numeric()->required(),
-              TextInput::make('harga')->label('Harga')->numeric()->required(),
+              TextInput::make('harga')->label('Harga')
+              ->numeric()
+              ->required()
+              ->mask(RawJs::make('$money($input)'))
+    ->stripCharacters(',')
             ])
             ->columns(2)
             ->defaultItems(1)
@@ -146,7 +151,7 @@ class KontrakanResource extends Resource
             // Extracting and formatting the harga_sewa data
             $hargaSewaArray = collect($record->harga_sewa)
               ->map(function ($item) {
-                return "{$item['durasi']} Bulan: " . number_format($item['harga'], 0, ',', '.');
+                return "{$item['durasi']} Bulan: " . "Rp " .number_format($item['harga'], 0, ',', '.');
               })
               ->toArray();
 
