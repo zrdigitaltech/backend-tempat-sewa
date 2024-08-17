@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
       ->default()
       // This enables database notification for the admin panel
       ->databaseNotifications(true)
-      ->databaseNotificationspolling('30s')
+      ->databaseNotificationspolling('3s')
       ->id('admin')
       ->path('admin')
       ->spa()

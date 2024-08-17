@@ -14,16 +14,16 @@ class PengaduanController extends Controller
 {
   /**
    * @OA\Get(
-   *     path="/api/v1/payment",
-   *     tags={"Payment"},
-   *     summary="Get list of payment",
-   *     description="Returns list of payment",
+   *     path="/api/v1/pengaduan",
+   *     tags={"Pengaduan"},
+   *     summary="Create data pengaduan",
+   *     description="Returns list of pengaduan",
    *     @OA\Response(
    *         response=200,
    *         description="successful operation",
    *         @OA\JsonContent(
    *             type="array",
-   *             @OA\Items(ref="#/components/schemas/Payment")
+   *             @OA\Items(ref="#/components/schemas/Pengaduan")
    *         )
    *     ),
    *     @OA\Response(
@@ -32,32 +32,6 @@ class PengaduanController extends Controller
    *     )
    * )
    */
-  // public function index()
-  // {
-  //   try {
-  //     $pengaduan = Pengaduan::all();
-
-  //     return response()->json(
-  //       [
-  //         'code' => 200,
-  //         'message' => 'Successfully retrieved Payment.',
-  //         'data' => $pengaduan,
-  //       ],
-  //       200
-  //     );
-  //   } catch (\Exception $e) {
-  //     Log::error('Failed to retrieve Payment: ' . $e->getMessage());
-
-  //     return response()->json(
-  //       [
-  //         'code' => 500,
-  //         'message' => 'Failed to retrieve Payment.',
-  //         'error' => 'Internal Server Error',
-  //       ],
-  //       500
-  //     );
-  //   }
-  // }
   public function store(Request $request)
     {
       try {
