@@ -8,6 +8,7 @@ use App\Models\Pengaduan;
 use Illuminate\Support\Facades\Log;
 use Filament\Notifications\Notification as FilamentNotification;
 use Filament\Notifications\Actions\Action;
+use App\Models\User;
 
 class PengaduanController extends Controller
 {
@@ -59,6 +60,7 @@ class PengaduanController extends Controller
   // }
   public function store(Request $request)
     {
+      try {
         // Validate the incoming request data
         $validated = $request->validate([
             // Add other fields as needed
@@ -66,16 +68,18 @@ class PengaduanController extends Controller
             'no_telp' => 'required|string|max:20', // Assuming phone numbers won't exceed 15 characters
             'id_kontrakan' => 'required|string|max:255', // Adjust the max length as needed
             'catatan' => 'nullable|string', // Catatan can be nullable if it's not always required
+            'status' => 'terbuka'
         ]);
 
         // Set default status to 'terbuka' if not provided
-        $validated['status'] = 'terbuka';
+        // $validated['status'] = 'terbuka';
 
         // Create a new Pengaduan record
         $pengaduan = Pengaduan::create($validated);
 
         // Get the authenticated user (assuming you have authentication in place)
-        $user = auth()->user();
+        $user = User::all();// auth()->user();
+        // dd($user);
 
         // Generate the URL for viewing the Pengaduan
         $link = url("/admin/data-pengaduan/{$pengaduan->id}/view");
@@ -91,14 +95,34 @@ class PengaduanController extends Controller
                     ->url($link) // Add URL for redirection
                     ->color('primary')
                     ->markAsRead()
-                    ->extraAttributes([
-                      'x-data' => '{}', // Initialize Alpine.js data scope
-                      'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
-                    ]),
+                    // ->extraAttributes([
+                    //   'x-data' => '{}', // Initialize Alpine.js data scope
+                    //   // 'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
+                    //   'x-on:click.prevent' => 'markAsRead();',
+                    // ]),
             ])
             ->sendToDatabase($user); // Send the notification to the user's database
 
         // Return a response
-        return response()->json(['message' => 'Pengaduan created and notification sent successfully.']);
+        // return response()->json(['message' => 'Pengaduan created and notification sent successfully.']);
+        return response()->json(
+          [
+            'code' => 200,
+            'message' => 'Pengaduan dibuat dan notifikasi berhasil terkirim.',
+          ],
+          200
+        );
+      } catch (\Exception $e) {
+        Log::error('Gagal Pengaduan dibuat dan Mengirim Notifikasi Pengaduan: ' . $e->getMessage());
+  
+        return response()->json(
+          [
+            'code' => 500,
+            'message' => 'Gagal Pengaduan dibuat dan Mengirim Notifikasi Pengaduan.',
+            'error' => 'Internal Server Error',
+          ],
+          500
+        );
+      }
     }
 }

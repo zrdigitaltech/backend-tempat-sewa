@@ -39,7 +39,8 @@ Route::get('/test', function () {
   $pengaduans = Pengaduan::where('status', 'terbuka')->get();
 
   // Get the authenticated user
-  $user = auth()->user();
+  $user = User::all(); // auth()->user();
+  // dd($user);
 
   // Loop through each Pengaduan and send a notification
   foreach ($pengaduans as $pengaduan) {
@@ -60,10 +61,10 @@ Route::get('/test', function () {
           ->url($link) // Add URL for redirection
           ->color('primary')
           ->markAsRead()
-          ->extraAttributes([
-            'x-data' => '{}', // Initialize Alpine.js data scope
-            'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
-          ]),
+          // ->extraAttributes([
+          //   'x-data' => '{}', // Initialize Alpine.js data scope
+          //   'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
+          // ]),
         // ->extraAttributes([
         //     'x-data' => '{}', // Initialize Alpine.js data scope
         //     'x-on:click.prevent' => "
@@ -77,4 +78,4 @@ Route::get('/test', function () {
   }
 
   return 'Notifications sent successfully';
-})->middleware('auth');
+});

@@ -42,5 +42,5 @@ Route::group(['prefix' => 'v1'], function () {
   Route::get('/contact-us', [HubungiKamiController::class, 'index']);
   Route::get('/logos', [LogoController::class, 'index']);
   Route::get('/payment', [PembayaranController::class, 'index']);
-  Route::post('/create-pengaduan', [PengaduanController::class, 'store'])->middleware('auth:sanctum');
+  Route::post('/create-pengaduan', [PengaduanController::class, 'store']);
 });
