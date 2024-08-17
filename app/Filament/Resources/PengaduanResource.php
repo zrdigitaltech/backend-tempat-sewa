@@ -97,7 +97,8 @@ class PengaduanResource extends Resource
           ->label('Dibuat di')
           ->formatStateUsing(function ($state) {
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y H:i');
-          }),
+          })
+          ->sortable(),
       ])
       ->filters([
         SelectFilter::make('status')
@@ -115,7 +116,8 @@ class PengaduanResource extends Resource
       ->bulkActions([
         // Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
         // Tables\Actions\BulkActionGroup::make([]),
-      ]);
+      ])
+      ->defaultSort('created_at', 'desc');
   }
 
   public static function getRelations(): array
