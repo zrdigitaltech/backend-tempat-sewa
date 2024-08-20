@@ -36,11 +36,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-Route::group(['prefix' => 'v1'], function () {
-  Route::get('/floating-whatsapp', [FloatingWhatsappController::class, 'index']);
-  Route::get('/kontrakan', [KontrakanController::class, 'index']);
-  Route::get('/contact-us', [HubungiKamiController::class, 'index']);
-  Route::get('/logos', [LogoController::class, 'index']);
-  Route::get('/payment', [PembayaranController::class, 'index']);
-  Route::post('/pengaduan', [PengaduanController::class, 'store']);
+Route::prefix('v1')->group(function () {
+  Route::controller(FloatingWhatsappController::class)->group(function () {
+      Route::get('/floating-whatsapp', 'index');
+  });
+
+  Route::controller(KontrakanController::class)->group(function () {
+      Route::get('/kontrakan', 'index');
+  });
+
+  Route::controller(HubungiKamiController::class)->group(function () {
+      Route::get('/contact-us', 'index');
+  });
+
+  Route::controller(LogoController::class)->group(function () {
+      Route::get('/logos', 'index');
+  });
+
+  Route::controller(PembayaranController::class)->group(function () {
+      Route::get('/payment', 'index');
+  });
+
+  Route::controller(PengaduanController::class)->group(function () {
+      // Route::get('/pengaduan', 'index');
+      Route::post('/pengaduan', 'store');
+  });
 });
+
