@@ -26,6 +26,7 @@ use Filament\Tables\Actions\{
   CreateAction
 };
 use Carbon\Carbon;
+use Filament\Tables\Filters\SelectFilter;
 
 class PengeluaranResource extends Resource
 {
@@ -95,17 +96,21 @@ class PengeluaranResource extends Resource
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y');
           })
           ->sortable(),
-
-        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15),
-
+        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15)->searchable(),
         TextColumn::make('kategori.nama')->label('Nama Kategori')->limit(15),
-
         TextColumn::make('keterangan')->label('Keterangan'),
-
-        TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran')->money('id'),
+        TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
       ])
+      ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
-        //
+        
+
+        SelectFilter::make('id_kategori')
+          ->label('Nama Kategori')
+          ->options(function () {
+            return Kategori::all()->pluck('nama', 'id')->toArray();
+          }),
       ])
       ->actions([
         ViewAction::make()->iconButton(),

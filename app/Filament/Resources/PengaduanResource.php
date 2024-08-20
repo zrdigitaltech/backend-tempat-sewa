@@ -76,15 +76,11 @@ class PengaduanResource extends Resource
     return $table
       ->columns([
         TextColumn::make('nama')->searchable(),
-
         TextColumn::make('no_telp')->searchable()->label('No Whatsapp'),
-
         // TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
         // Displaying the related Kontrakan name
         TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15),
-
         // TextColumn::make('catatan')->limit(50),
-
         TextColumn::make('status')
           ->badge()
           ->color(
