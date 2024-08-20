@@ -38,28 +38,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
   Route::controller(FloatingWhatsappController::class)->group(function () {
-      Route::get('/floating-whatsapp', 'index');
+    Route::get('/floating-whatsapp', 'index');
   });
 
   Route::controller(KontrakanController::class)->group(function () {
-      Route::get('/kontrakan', 'index');
+    Route::get('/kontrakan', 'index');
   });
 
   Route::controller(HubungiKamiController::class)->group(function () {
-      Route::get('/contact-us', 'index');
+    Route::get('/contact-us', 'index');
   });
 
   Route::controller(LogoController::class)->group(function () {
-      Route::get('/logos', 'index');
+    Route::get('/logos', 'index');
   });
 
   Route::controller(PembayaranController::class)->group(function () {
-      Route::get('/payment', 'index');
+    Route::get('/payment', 'index');
   });
 
   Route::controller(PengaduanController::class)->group(function () {
-      // Route::get('/pengaduan', 'index');
-      Route::post('/pengaduan', 'store');
+    // Route::get('/pengaduan', 'index');
+    Route::post('/pengaduan', 'store');
   });
 });
-

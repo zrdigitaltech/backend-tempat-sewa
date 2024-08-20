@@ -8,12 +8,13 @@
   </head>
 
   <body>
-    @if(auth()->check())
+    @if (auth()->check())
       @livewire('database-notifications')
     @endif
+
     <!-- Google Tag Manager (noscript) -->
     <!-- End Google Tag Manager (noscript) -->
-  
+
     <div id="app" class="h-100"></div>
 
     @filamentScripts
