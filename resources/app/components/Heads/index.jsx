@@ -1,8 +1,10 @@
+import { Fragment } from "react";
+
 const Index = props => {
   const { title, deskripsi, image } = props;
 
   return (
-    <head>
+    <Fragment>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <title>{title || 'Tempat Sewa Kontrakan'} | Nama Pemilik Kontrakan</title>
@@ -43,7 +45,7 @@ const Index = props => {
       {/* <!-- End Google Tag Manager --> */}
 
       {/* <!-- Google tag (gtag.js) --> */}
-    </head>
+    </Fragment>
   );
 };
 
