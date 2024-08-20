@@ -87,4 +87,12 @@ class Kontrakan extends Model
   {
     return $this->hasMany(Pengaduan::class, 'id_kontrakan', 'id');
   }
+
+  /**
+   * Get the pengeluaran for the kontrakan.
+   */
+  public function pengeluaran()
+  {
+    return $this->hasMany(Pengeluaran::class, 'id_kontrakan', 'id');
+  }
 }

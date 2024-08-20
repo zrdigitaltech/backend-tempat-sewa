@@ -10,17 +10,14 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('pengaduans', function (Blueprint $table) {
+    Schema::create('pengeluarans', function (Blueprint $table) {
       $table->id();
-      $table->string('nama');
-      $table->string('no_telp');
+      $table->date('tanggal');
       $table->string('id_kontrakan');
-      $table->text('catatan');
-      $table->enum('status', ['terbuka', 'sedang dalam proses', 'tertutup']);
+      $table->string('id_kategori');
+      $table->text('keterangan');
+      $table->integer('jumlah_pengeluaran');
       $table->timestamps();
-
-      // Add foreign key constraint
-      // $table->foreign('id_kontrakan')->references('id')->on('kontrakan')->onDelete('cascade');
     });
   }
 
@@ -29,6 +26,6 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('pengaduans');
+    Schema::dropIfExists('pengeluarans');
   }
 };

@@ -12,19 +12,15 @@ return new class extends Migration {
   {
     Schema::create('transaksis', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('id_penyewa'); // Foreign key for tenant
-      $table->unsignedBigInteger('id_kontrakan'); // Foreign key for kontrakan (property)
-      $table->date('tgl_mulai'); // Start date of the rental
-      $table->date('tgl_berakhir'); // End date of the rental
-      $table->string('tipe_pembayaran'); // Payment type
-      $table->decimal('bayar_dp', 15, 2); // Down payment amount
-      $table->text('catatan')->nullable(); // Additional notes (can be null)
-      $table->enum('status', ['active', 'inactive', 'completed', 'canceled']); // Status of the rental
-      $table->timestamps(); // For created_at and updated_at
-
-      // Add foreign key constraints
-      // $table->foreign('id_penyewa')->references('id')->on('tenants')->onDelete('cascade');
-      // $table->foreign('id_kontrakan')->references('id')->on('kontrakan')->onDelete('cascade');
+      $table->unsignedBigInteger('id_penyewa');
+      $table->unsignedBigInteger('id_kontrakan');
+      $table->string('tipe_pembayaran');
+      $table->date('tgl_mulai');
+      $table->date('tgl_pembayaran_berikutnya');
+      $table->integer('bayar_dp');
+      $table->text('catatan')->nullable();
+      $table->enum('status_pembayaran', ['tertunda', 'dibayar', 'gagal', 'dikembalikan']);
+      $table->timestamps();
     });
   }
 

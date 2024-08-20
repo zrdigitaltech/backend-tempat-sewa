@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Penyewa extends Model
+class Kategori extends Model
 {
   use HasFactory;
 
@@ -14,10 +14,13 @@ class Penyewa extends Model
    *
    * @var array<int, string>
    */
-  protected $fillable = ['image', 'nama', 'no_telp', 'kartu_identitas'];
+  protected $fillable = ['nama'];
 
-  public function penyewa()
+  /**
+   * Get the pengeluaran for the kontrakan.
+   */
+  public function pengeluaran()
   {
-    return $this->belongsTo(Penyewa::class, 'id_penyewa', 'id');
+    return $this->hasMany(Pengeluaran::class, 'id_kategori', 'id');
   }
 }
