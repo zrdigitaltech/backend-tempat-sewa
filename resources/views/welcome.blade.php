@@ -8,13 +8,16 @@
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <!-- End Google Tag Manager (noscript) -->
-    @livewire('database-notifications')
+    @if(auth()->check())
+      @livewire('database-notifications')
+    @else
+      <!-- Google Tag Manager (noscript) -->
+      <!-- End Google Tag Manager (noscript) -->
 
-    <div id="app" class="h-100"></div>
+      <div id="app" class="h-100"></div>
 
-    @filamentScripts
-    @vite('resources/js/app.js')
+      @filamentScripts
+      @vite('resources/js/app.js')
+    @endif
   </body>
 </html>

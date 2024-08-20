@@ -34,48 +34,48 @@ Route::get('/{slug}', function () {
 //   return view('welcome');
 // });
 
-Route::get('/test', function () {
-  // Retrieve all Pengaduan records where the status is 'terbuka'
-  $pengaduans = Pengaduan::where('status', 'terbuka')->get();
+// Route::get('/test', function () {
+//   // Retrieve all Pengaduan records where the status is 'terbuka'
+//   $pengaduans = Pengaduan::where('status', 'terbuka')->get();
 
-  // Get the authenticated user
-  $user = User::all(); // auth()->user();
-  // dd($user);
+//   // Get the authenticated user
+//   $user = User::all(); // auth()->user();
+//   // dd($user);
 
-  // Loop through each Pengaduan and send a notification
-  foreach ($pengaduans as $pengaduan) {
-    // Sending a Laravel notification
-    LaravelNotification::send($user, new PengaduanNotification($pengaduan));
+//   // Loop through each Pengaduan and send a notification
+//   foreach ($pengaduans as $pengaduan) {
+//     // Sending a Laravel notification
+//     LaravelNotification::send($user, new PengaduanNotification($pengaduan));
 
-    // Generate URL for viewing the Pengaduan
-    $link = url("/admin/data-pengaduan/{$pengaduan->id}/view");
+//     // Generate URL for viewing the Pengaduan
+//     $link = url("/admin/data-pengaduan/{$pengaduan->id}/view");
 
-    // Optionally, you can send a Filament notification
-    FilamentNotification::make()
-      ->icon('heroicon-o-megaphone')
-      ->title("Pengaduan dari <b>{$pengaduan->nama}</b>")
-      ->body("Ada pengaduan baru dengan status 'terbuka'.")
-      ->actions([
-        Action::make('markAsRead')
-          ->label('Lihat detail')
-          ->url($link) // Add URL for redirection
-          ->color('primary')
-          ->markAsRead()
-          // ->extraAttributes([
-          //   'x-data' => '{}', // Initialize Alpine.js data scope
-          //   'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
-          // ]),
-        // ->extraAttributes([
-        //     'x-data' => '{}', // Initialize Alpine.js data scope
-        //     'x-on:click.prevent' => "
-        //         markAsRead();
-        //         \$dispatch('close-modal', { id: 'database-notifications' });
-        //     ",
-        // ])
-        // ->close()
-      ])
-      ->sendToDatabase($user); // Sends the notification to the user's database
-  }
+//     // Optionally, you can send a Filament notification
+//     FilamentNotification::make()
+//       ->icon('heroicon-o-megaphone')
+//       ->title("Pengaduan dari <b>{$pengaduan->nama}</b>")
+//       ->body("Ada pengaduan baru dengan status 'terbuka'.")
+//       ->actions([
+//         Action::make('markAsRead')
+//           ->label('Lihat detail')
+//           ->url($link) // Add URL for redirection
+//           ->color('primary')
+//           ->markAsRead()
+//           // ->extraAttributes([
+//           //   'x-data' => '{}', // Initialize Alpine.js data scope
+//           //   'x-on:click.prevent' => 'markAsRead(); window.location.reload();',
+//           // ]),
+//         // ->extraAttributes([
+//         //     'x-data' => '{}', // Initialize Alpine.js data scope
+//         //     'x-on:click.prevent' => "
+//         //         markAsRead();
+//         //         \$dispatch('close-modal', { id: 'database-notifications' });
+//         //     ",
+//         // ])
+//         // ->close()
+//       ])
+//       ->sendToDatabase($user); // Sends the notification to the user's database
+//   }
 
-  return 'Notifications sent successfully';
-});
+//   return 'Notifications sent successfully';
+// });
