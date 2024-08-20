@@ -49,11 +49,11 @@ class AdminPanelProvider extends PanelProvider
       // ->sidebarCollapsibleOnDesktop()
       ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
       ->navigationItems([
-        NavigationItem::make('Analytics')
-                ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
-                ->icon('heroicon-o-presentation-chart-line')
-                ->group('Reports')
-                ->sort(3),
+        // NavigationItem::make('Analytics')
+        //   ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
+        //   ->icon('heroicon-o-presentation-chart-line')
+        //   ->group('Reports')
+        //   ->sort(3),
         NavigationItem::make('Documentation')
           ->url('/admin', shouldOpenInNewTab: true)
           ->icon('heroicon-o-document')

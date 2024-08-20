@@ -29,5 +29,4 @@ class ViewPengaduan extends ViewRecord
         ->url(fn() => $this->getResource()::getUrl('edit', ['record' => $this->record->getKey()])), // Navigate to the edit page
     ];
   }
-
 }
