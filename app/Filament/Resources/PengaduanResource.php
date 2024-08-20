@@ -16,6 +16,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\{TextInput, Textarea, Select, Card};
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
+use App\Models\Kontrakan;
 
 class PengaduanResource extends Resource
 {
@@ -33,6 +34,9 @@ class PengaduanResource extends Resource
 
   public static function form(Form $form): Form
   {
+    // Fetch the available kontrakans from the database
+    $kontrakans = Kontrakan::all()->pluck('nama', 'id')->toArray();
+
     return $form->schema([
       Card::make()
         ->schema([
@@ -46,10 +50,10 @@ class PengaduanResource extends Resource
             ->rules(['regex:/^(\+?\d{1,4}[\s-])?(?!0+$)\d{10,14}$/'])
             ->disabled(),
 
-          TextInput::make('id_kontrakan')
+          Select::make('id_kontrakan')
             ->label('Nama Kontrakan')
+            ->options($kontrakans) // Populate options with kontrakans data
             ->required()
-            ->maxLength(255)
             ->disabled(),
 
           Textarea::make('catatan')->required()->maxLength(65535)->disabled(),
@@ -74,7 +78,9 @@ class PengaduanResource extends Resource
 
         TextColumn::make('no_telp')->searchable()->label('No Whatsapp'),
 
-        TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
+        // TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
+        // Displaying the related Kontrakan name
+        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15),
 
         // TextColumn::make('catatan')->limit(50),
 

@@ -17,4 +17,12 @@ class Pengaduan extends Model
    * @var array<int, string>
    */
   protected $fillable = ['nama', 'no_telp', 'id_kontrakan', 'catatan', 'status'];
+
+  /**
+   * Get the kontrakan associated with the pengaduan.
+   */
+  public function kontrakan()
+  {
+    return $this->belongsTo(Kontrakan::class, 'id_kontrakan', 'id');
+  }
 }

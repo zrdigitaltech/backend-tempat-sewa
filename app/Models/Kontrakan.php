@@ -79,4 +79,12 @@ class Kontrakan extends Model
     'image' => 'array',
     'harga_sewa' => 'array',
   ];
+
+  /**
+   * Get the pengaduans for the kontrakan.
+   */
+  public function pengaduans()
+  {
+    return $this->hasMany(Pengaduan::class, 'id_kontrakan', 'id');
+  }
 }
