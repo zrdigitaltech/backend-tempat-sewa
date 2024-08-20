@@ -64,7 +64,8 @@ class PengaduanResource extends Resource
               'sedang dalam proses' => 'Sedang Dalam Proses',
               'tertutup' => 'Tertutup',
             ])
-            ->required(),
+            ->required()
+            ->disabled(fn($livewire) => $livewire instanceof Pages\ViewPengaduan),
         ])
         ->columnSpanFull(),
     ]);
