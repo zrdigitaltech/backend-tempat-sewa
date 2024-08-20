@@ -4,17 +4,20 @@ namespace App\Filament\Resources\PengaduanResource\Pages;
 
 use App\Filament\Resources\PengaduanResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 use Illuminate\Contracts\Support\Htmlable;
 
-class ViewPengaduan extends EditRecord
+class ViewPengaduan extends ViewRecord
 {
   protected static string $resource = PengaduanResource::class;
 
-  public function getTitle(): string|Htmlable
-  {
-    return __('View Data Pengaduan');
-  }
+  // public function getTitle(): string|Htmlable
+  // {
+  //     $capitalizedNama = ucwords(strtolower($this->record->nama)); // Capitalize each word in the nama
+
+  //     // return __('Lihat data Pengaduan');
+  //     return __('Lihat Pengaduan - :name', ['name' => $capitalizedNama]);
+  // }
 
   protected function getHeaderActions(): array
   {
@@ -27,9 +30,4 @@ class ViewPengaduan extends EditRecord
     ];
   }
 
-  protected function getFormActions(): array
-  {
-    // Return an empty array to remove form actions like "Save" and "Cancel"
-    return [];
-  }
 }
