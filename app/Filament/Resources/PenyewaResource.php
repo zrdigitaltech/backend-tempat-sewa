@@ -31,15 +31,10 @@ use Filament\Tables\Actions\CreateAction;
 class PenyewaResource extends Resource
 {
   protected static ?string $model = Penyewa::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-identification';
-
-  protected static ?string $navigationLabel = 'Data Penyewa';
-
   protected static ?int $navigationSort = 1;
-
-  protected static ?string $label = 'Data Penyewa';
-
+  // protected static ?string $navigationLabel = 'Data Penyewa';
+  // protected static ?string $label = 'Data Penyewa';
   protected static ?string $slug = 'data-penyewa';
 
   public static function form(Form $form): Form

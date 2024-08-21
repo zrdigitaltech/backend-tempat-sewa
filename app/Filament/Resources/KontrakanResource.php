@@ -37,17 +37,11 @@ use Filament\Support\RawJs;
 class KontrakanResource extends Resource
 {
   protected static ?string $model = Kontrakan::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-building-library';
-
-  protected static ?string $navigationLabel = 'Data Kontrakan';
-
+  // protected static ?string $navigationLabel = 'Data Kontrakan';
   // protected static ?string $navigationGroup = 'Kontrakan';
-
+  // protected static ?string $label = 'Data Kontrakan';
   protected static ?int $navigationSort = 0;
-
-  protected static ?string $label = 'Data Kontrakan';
-
   protected static ?string $slug = 'data-kontrakan';
 
   public static function form(Form $form): Form
@@ -145,7 +139,10 @@ class KontrakanResource extends Resource
           ->stacked()
           ->limit(3)
           ->limitedRemainingText(),
-        TextColumn::make('nama')->searchable()->limit(15),
+        TextColumn::make('nama')
+          ->searchable()
+          ->limit(15)
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('harga_sewa')
           ->label('Harga Sewa')
           ->getStateUsing(function (Kontrakan $record) {

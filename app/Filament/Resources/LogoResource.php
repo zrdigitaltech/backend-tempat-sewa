@@ -29,11 +29,8 @@ use Filament\Tables\Actions\CreateAction;
 class LogoResource extends Resource
 {
   protected static ?string $model = Logo::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-photo';
-
-  protected static ?string $navigationLabel = 'Logo';
-
+  // protected static ?string $navigationLabel = 'Logo';
   protected static ?int $navigationSort = 1;
 
   public static function form(Form $form): Form

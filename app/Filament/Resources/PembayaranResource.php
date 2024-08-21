@@ -29,17 +29,11 @@ use Filament\Tables\Actions\CreateAction;
 class PembayaranResource extends Resource
 {
   protected static ?string $model = Pembayaran::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-banknotes';
-
-  protected static ?string $navigationLabel = 'Pembayaran';
-
+  // protected static ?string $navigationLabel = 'Pembayaran';
   // protected static ?string $navigationGroup = 'Contact Us';
-
+  // public static ?string $label = 'Pembayaran';
   protected static ?int $navigationSort = 7;
-
-  public static ?string $label = 'Pembayaran';
-
   protected static ?string $slug = 'pembayaran';
 
   public static function form(Form $form): Form

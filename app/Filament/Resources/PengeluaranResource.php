@@ -27,19 +27,15 @@ use Filament\Tables\Actions\{
 };
 use Carbon\Carbon;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Support\RawJs;
 
 class PengeluaranResource extends Resource
 {
   protected static ?string $model = Pengeluaran::class;
-
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+  protected static ?string $navigationIcon = 'heroicon-o-credit-card';
   protected static ?int $navigationSort = 5;
-
-  protected static ?string $navigationLabel = 'Pengeluaran';
-
-  protected static ?string $label = 'pengeluaran';
-
+  // protected static ?string $navigationLabel = 'Pengeluaran';
+  // protected static ?string $label = 'pengeluaran';
   protected static ?string $slug = 'pengeluaran';
 
   public static function form(Form $form): Form
@@ -80,7 +76,12 @@ class PengeluaranResource extends Resource
 
           Textarea::make('keterangan')->label('Keterangan'),
 
-          TextInput::make('jumlah_pengeluaran')->required()->numeric()->label('Jumlah Pengeluaran'),
+          TextInput::make('jumlah_pengeluaran')
+            ->label('Jumlah Pengeluaran')
+            ->numeric()
+            ->required()
+            ->mask(RawJs::make('$money($input)'))
+            ->stripCharacters(','),
         ])
         ->columnSpanFull(),
     ]);
@@ -96,16 +97,31 @@ class PengeluaranResource extends Resource
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y');
           })
           ->sortable(),
-        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15)->searchable(),
-        TextColumn::make('kategori.nama')->label('Nama Kategori')->limit(15),
-        TextColumn::make('keterangan')->label('Keterangan'),
+        TextColumn::make('kontrakan.nama')
+          ->label('Nama Kontrakan')
+          ->limit(15)
+          ->searchable()
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
+        TextColumn::make('kategori.nama')
+          ->label('Nama Kategori')
+          ->limit(15)
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
+        TextColumn::make('keterangan')
+          ->label('Keterangan')
+          ->limit(15)
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
+        TextColumn::make('jumlah_pengeluaran')
+          ->label('Jumlah Pengeluaran')
+          ->getStateUsing(function (Pengeluaran $record) {
+            // Format the total as an integer with dot separators
+            return 'Rp ' . number_format($record->jumlah_pengeluaran, 0, ',', '.');
+          })
+          ->html(),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
       ->filters([
-        
-
         SelectFilter::make('id_kategori')
           ->label('Nama Kategori')
           ->options(function () {
@@ -149,5 +165,10 @@ class PengeluaranResource extends Resource
   public static function getNavigationGroup(): ?string
   {
     return __('Pengelolaan');
+  }
+
+  public static function getNavigationLabelForKeuangan(): string
+  {
+    return __('Keuangan');
   }
 }

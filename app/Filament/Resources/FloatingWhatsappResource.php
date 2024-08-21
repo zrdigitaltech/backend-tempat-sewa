@@ -29,9 +29,7 @@ use Filament\Tables\Actions\CreateAction;
 class FloatingWhatsappResource extends Resource
 {
   protected static ?string $model = FloatingWhatsapp::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
-
   protected static ?int $navigationSort = 2;
 
   public static function form(Form $form): Form

@@ -30,17 +30,10 @@ use Filament\Tables\Actions\CreateAction;
 class HubungiKamiResource extends Resource
 {
   protected static ?string $model = HubungiKami::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-phone';
-
-  protected static ?string $navigationLabel = 'Hubungi Kami';
-
-  protected static ?string $navigationGroup = 'Hubungi Kami';
-
+  // protected static ?string $navigationLabel = 'Hubungi Kami';
+  // public static ?string $label = 'Hubungi Kami';
   protected static ?int $navigationSort = 7;
-
-  public static ?string $label = 'Hubungi Kami';
-
   protected static ?string $slug = 'hubungi-kami';
 
   public static function form(Form $form): Form

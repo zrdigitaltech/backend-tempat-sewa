@@ -17,19 +17,16 @@ use Filament\Forms\Components\{TextInput, Textarea, Select, Card};
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
 use App\Models\Kontrakan;
+use Filament\Tables\Filters\TextFilter;
+use Filament\Forms\Components\Section;
 
 class PengaduanResource extends Resource
 {
   protected static ?string $model = Pengaduan::class;
-
   protected static ?string $navigationIcon = 'heroicon-o-megaphone';
-
   protected static ?int $navigationSort = 2;
-
-  protected static ?string $navigationLabel = 'Data Pengaduan';
-
-  protected static ?string $label = 'Data Pengaduan';
-
+  // protected static ?string $navigationLabel = 'Data Pengaduan';
+  // protected static ?string $label = 'Data Pengaduan';
   protected static ?string $slug = 'data-pengaduan';
 
   public static function form(Form $form): Form
@@ -75,11 +72,19 @@ class PengaduanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('nama')->searchable(),
-        TextColumn::make('no_telp')->searchable()->label('No Whatsapp'),
-        // TextColumn::make('id_kontrakan')->label('Nama Kontrakan')->limit(15),
-        // Displaying the related Kontrakan name
-        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15),
+        TextColumn::make('combined_column')
+          ->label('Nama & No Whatsapp')
+          ->getStateUsing(function ($record) {
+            $capitalizedNama = ucwords($record->nama);
+            return $capitalizedNama . ' <br/>' . $record->no_telp;
+          })
+          ->html()
+          ->searchable(),
+        // ->searchable(),
+        TextColumn::make('kontrakan.nama')
+          ->label('Nama Kontrakan')
+          ->limit(15)
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         // TextColumn::make('catatan')->limit(50),
         TextColumn::make('status')
           ->badge()
@@ -97,20 +102,20 @@ class PengaduanResource extends Resource
           ->html(),
 
         TextColumn::make('created_at')
-          ->label('Dibuat di')
+          ->label('Tanggal')
           ->formatStateUsing(function ($state) {
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y H:i');
           })
           ->sortable(),
       ])
       ->filters([
-        SelectFilter::make('status')
-          ->label('Status')
-          ->options([
-            'terbuka' => 'Terbuka',
-            'sedang dalam proses' => 'Sedang Dalam Proses',
-            'tertutup' => 'Tertutup',
-          ]),
+        // SelectFilter::make('status')
+        //   ->label('Status')
+        //   ->options([
+        //     'terbuka' => 'Terbuka',
+        //     'sedang dalam proses' => 'Sedang Dalam Proses',
+        //     'tertutup' => 'Tertutup',
+        //   ]),
       ])
       ->actions([
         Tables\Actions\ViewAction::make()->iconButton(),

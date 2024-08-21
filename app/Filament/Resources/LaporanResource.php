@@ -18,13 +18,9 @@ class LaporanResource extends Resource
   // protected static ?string $model = Laporan::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-banknotes';
-
   protected static ?int $navigationSort = 4;
-
-  protected static ?string $navigationLabel = 'Laporan';
-
-  protected static ?string $label = 'laporan';
-
+  // protected static ?string $navigationLabel = 'Laporan';
+  // protected static ?string $label = 'laporan';
   protected static ?string $slug = 'laporan';
 
   public static function form(Form $form): Form
