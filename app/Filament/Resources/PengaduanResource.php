@@ -19,6 +19,8 @@ use Filament\Tables\Filters\Filter;
 use App\Models\Kontrakan;
 use Filament\Tables\Filters\TextFilter;
 use Filament\Forms\Components\Section;
+use Filament\Tables\Grouping\Group;
+use Filament\Tables\Enums\FiltersLayout;
 
 class PengaduanResource extends Resource
 {
@@ -72,20 +74,24 @@ class PengaduanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('combined_column')
+        TextColumn::make('created_at')
+          ->label('Tanggal')
+          ->formatStateUsing(function ($state) {
+            return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y');
+          })
+          ->sortable(),
+        TextColumn::make('nama')
           ->label('Nama & No Whatsapp')
           ->getStateUsing(function ($record) {
             $capitalizedNama = ucwords($record->nama);
             return $capitalizedNama . ' <br/>' . $record->no_telp;
           })
-          ->html()
-          ->searchable(),
-        // ->searchable(),
+          ->html(),
         TextColumn::make('kontrakan.nama')
           ->label('Nama Kontrakan')
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
-        // TextColumn::make('catatan')->limit(50),
+        // ->searchable(),
         TextColumn::make('status')
           ->badge()
           ->color(
@@ -100,23 +106,50 @@ class PengaduanResource extends Resource
             return "<span class=\"capitalize\">$capitalizedState</span>";
           })
           ->html(),
-
-        TextColumn::make('created_at')
-          ->label('Tanggal')
-          ->formatStateUsing(function ($state) {
-            return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y H:i');
-          })
-          ->sortable(),
       ])
-      ->filters([
-        // SelectFilter::make('status')
-        //   ->label('Status')
-        //   ->options([
-        //     'terbuka' => 'Terbuka',
-        //     'sedang dalam proses' => 'Sedang Dalam Proses',
-        //     'tertutup' => 'Tertutup',
-        //   ]),
-      ])
+      ->filters(
+        [
+          Filter::make('search')
+            ->label('Cari')
+            ->form([
+              TextInput::make('search')
+                ->label('')
+                ->placeholder('Cari berdasarkan Nama atau No Whatsapp')
+                ->reactive()
+                ->afterStateUpdated(function ($state) use ($table) {
+                  $query = $table->getQuery();
+                  if ($state) {
+                    $query->where(function ($query) use ($state) {
+                      $query
+                        ->where('nama', 'like', "%{$state}%")
+                        ->orWhere('no_telp', 'like', "%{$state}%");
+                    });
+                  }
+                  $table->query($query);
+                }),
+            ]),
+          // SelectFilter::make('status')
+          //   ->label('Status')
+          //   ->options([
+          //     'terbuka' => 'Terbuka',
+          //     'sedang dalam proses' => 'Sedang Dalam Proses',
+          //     'tertutup' => 'Tertutup',
+          //   ]),
+        ],
+        layout: FiltersLayout::AboveContentCollapsible
+      )
+      ->filtersFormColumns(1) // Display filters in 2 columns
+      ->filtersFormSchema(
+        fn(array $filters): array => [
+          // Directly include the filter without a section
+          $filters['search'],
+        ]
+      )
+      // ->defaultGroup('kontrakan.nama')
+      // ->groups([
+      //   Group::make('kontrakan.nama')
+      //       // ->collapsible()
+      // ])
       ->actions([
         Tables\Actions\ViewAction::make()->iconButton(),
         Tables\Actions\EditAction::make()->iconButton(),
