@@ -56,13 +56,14 @@ class KontrakanResource extends Resource
             ->schema([
               FileUpload::make('image')
                 ->acceptedFileTypes(['image/*'])
-                ->required(),
+                ->imageEditor()
+                ->imageResizeTargetWidth('1200')
+                ->imageResizeTargetHeight('675'),
             ])
             ->columns(1)
             ->defaultItems(1)
             ->minItems(1)
-            ->maxItems(5)
-            ->required(),
+            ->maxItems(5),
           TextInput::make('alt')->label('Alt')->default('Nama Pemilik Kontrakan'),
           TextInput::make('nama')
             // ->unique()

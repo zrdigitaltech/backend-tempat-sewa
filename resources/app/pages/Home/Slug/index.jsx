@@ -75,12 +75,21 @@ const Index = () => {
                   >
                     {kontrakanDetail?.image?.map((item, idx) => (
                       <div key={item?.id || idx}>
-                        <img
-                          src={
-                            item?.image.includes('assets') ? item?.image : '/storage/' + item?.image
-                          }
-                          alt={kontrakanDetail?.nama}
-                        />
+                        {item?.image ? (
+                          <img
+                            src={
+                              item?.image.includes('assets')
+                                ? item?.image
+                                : '/storage/' + item?.image
+                            }
+                            alt={kontrakanDetail?.nama}
+                          />
+                        ) : (
+                          <img
+                            src="/assets/images/kontrakan-black.webp"
+                            alt={kontrakanDetail?.nama}
+                          />
+                        )}
                         {/* <p className="legend">Legend 1</p> */}
                       </div>
                     ))}

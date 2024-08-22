@@ -12,14 +12,14 @@ return new class extends Migration {
   {
     Schema::create('kontrakans', function (Blueprint $table) {
       $table->id();
-      $table->json('image'); // To store multiple image URLs
-      $table->string('alt'); // Alternative text for the image
-      $table->string('nama')->unique(); // Ensure 'nama' is unique
+      $table->json('image')->default('/assets/images/kontrakan-black.webp');
+      $table->string('alt');
+      $table->string('nama')->unique();
       $table->text('slug')->unique();
-      $table->text('deskripsi'); // Description of the kontrakan
-      $table->text('keterangan')->nullable(); // Additional notes (can be null)
-      $table->json('harga_sewa'); // To store pricing information
-      $table->enum('status', ['tersedia', 'tidak tersedia']); // Status of the kontrakan
+      $table->text('deskripsi');
+      $table->text('keterangan')->nullable();
+      $table->json('harga_sewa');
+      $table->enum('status', ['tersedia', 'tidak tersedia']);
       $table->timestamps();
     });
   }
