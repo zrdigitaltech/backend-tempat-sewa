@@ -28,6 +28,8 @@ use Filament\Tables\Actions\{
 use Carbon\Carbon;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Support\RawJs;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Enums\FiltersLayout;
 
 class PengeluaranResource extends Resource
 {
@@ -52,14 +54,14 @@ class PengeluaranResource extends Resource
             ->options(function () {
               return Kontrakan::all()->pluck('nama', 'id')->toArray();
             })
-            ->searchable()
+            // ->searchable()
             ->label('Nama Kontrakan'),
 
           Select::make('id_kategori')
             ->options(function () {
               return Kategori::all()->pluck('nama', 'id')->toArray();
             })
-            ->searchable()
+            // ->searchable()
             ->createOptionUsing(function ($data) {
               $kategori = Kategori::create([
                 'nama' => $data['nama'], // Adjust based on your input form structure
@@ -97,11 +99,8 @@ class PengeluaranResource extends Resource
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y');
           })
           ->sortable(),
-        TextColumn::make('kontrakan.nama')
-          ->label('Nama Kontrakan')
-          ->limit(15)
-          ->searchable()
-          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
+        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15)//   ->searchable()
+        ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('kategori.nama')
           ->label('Nama Kategori')
           ->limit(15)
@@ -121,13 +120,84 @@ class PengeluaranResource extends Resource
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
-      ->filters([
-        SelectFilter::make('id_kategori')
-          ->label('Nama Kategori')
-          ->options(function () {
-            return Kategori::all()->pluck('nama', 'id')->toArray();
-          }),
-      ])
+      ->filters(
+        [
+          Filter::make('tanggal')
+            ->label('Tanggal')
+            ->form([
+              Select::make('date_filter')
+                ->label('Tanggal')
+                ->options([
+                  'last_30_days' => '30 Hari Terakhir',
+                  'last_month' => 'Bulan Lalu',
+                  'this_month' => 'Bulan Ini',
+                  'previous_30_days' => '30 Hari Sebelumnya',
+                ])
+                ->reactive()
+                ->afterStateUpdated(function ($state) use ($table) {
+                  $query = $table->getQuery();
+                  if ($state) {
+                    switch ($state) {
+                      case 'last_30_days':
+                        $query->whereBetween('tanggal', [
+                          Carbon::now()->subDays(30)->startOfDay(),
+                          Carbon::now()->endOfDay(),
+                        ]);
+                        break;
+                      case 'last_month':
+                        $query
+                          ->whereMonth('tanggal', Carbon::now()->subMonth()->month)
+                          ->whereYear('tanggal', Carbon::now()->year);
+                        break;
+                      case 'this_month':
+                        $query
+                          ->whereMonth('tanggal', Carbon::now()->month)
+                          ->whereYear('tanggal', Carbon::now()->year);
+                        break;
+                      case 'previous_30_days':
+                        $query->whereBetween('tanggal', [
+                          Carbon::now()->subDays(60)->startOfDay(),
+                          Carbon::now()->subDays(31)->endOfDay(),
+                        ]);
+                        break;
+                    }
+                  }
+                  $table->query($query);
+                }),
+            ]),
+          Filter::make('search')
+            ->label('Cari')
+            ->form([
+              TextInput::make('search')
+                ->label('Nama Kontrakan')
+                ->placeholder('Cari')
+                ->reactive()
+                ->afterStateUpdated(function ($state) use ($table) {
+                  $query = $table->getQuery();
+                  if ($state) {
+                    $query->whereHas('kontrakan', function ($query) use ($state) {
+                      $query->where('nama', 'like', "%{$state}%");
+                    });
+                  }
+                  $table->query($query);
+                }),
+            ]),
+          SelectFilter::make('id_kategori')
+            ->label('Nama Kategori')
+            ->options(function () {
+              return Kategori::all()->pluck('nama', 'id')->toArray();
+            }),
+        ],
+        layout: FiltersLayout::AboveContentCollapsible
+      )
+      ->filtersFormColumns(3) // Display filters in 2 columns
+      ->filtersFormSchema(
+        fn(array $filters): array => [
+          $filters['tanggal'],
+          $filters['search'],
+          $filters['id_kategori'],
+        ]
+      )
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
