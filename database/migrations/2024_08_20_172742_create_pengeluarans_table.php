@@ -15,7 +15,7 @@ return new class extends Migration {
       $table->date('tanggal');
       $table->string('id_kontrakan');
       $table->string('id_kategori');
-      $table->text('keterangan');
+      $table->text('keterangan')->nullable();
       $table->integer('jumlah_pengeluaran');
       $table->timestamps();
     });

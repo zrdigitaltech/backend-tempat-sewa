@@ -30,6 +30,9 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Support\RawJs;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Enums\FiltersLayout;
+use Filament\Forms\Components\Button;
+use Filament\Notifications\Notification;
+use Filament\Forms\Components\Actions\Action;
 
 class PengeluaranResource extends Resource
 {
@@ -55,28 +58,51 @@ class PengeluaranResource extends Resource
               return Kontrakan::all()->pluck('nama', 'id')->toArray();
             })
             // ->searchable()
-            ->label('Nama Kontrakan'),
+            ->label('Nama Kontrakan')
+            ->required()
+            ->searchable()
+            ->preload(),
 
           Select::make('id_kategori')
             ->options(function () {
               return Kategori::all()->pluck('nama', 'id')->toArray();
             })
-            // ->searchable()
+            ->searchable()
+            ->preload()
             ->createOptionUsing(function ($data) {
+              // Check if the category already exists
+              $existingKategori = Kategori::where('nama', $data['nama'])->first();
+              if ($existingKategori) {
+                return $existingKategori->id; // Return the existing category ID
+              }
+
+              // Create a new category if it doesn't exist
               $kategori = Kategori::create([
-                'nama' => $data['nama'], // Adjust based on your input form structure
+                'nama' => $data['nama'],
               ]);
               return $kategori->id; // Return the ID of the newly created category
             })
             ->createOptionForm(
               fn(Form $form) => $form->schema([
-                TextInput::make('nama')->required()->label('Nama Kategori'),
+                TextInput::make('nama')
+                  ->unique(ignoreRecord: true)
+                  ->required()
+                  ->label('Nama Kategori'),
+              ])
+            )
+            ->relationship(name: 'kategori', titleAttribute: 'nama')
+            ->editOptionForm(
+              fn(Form $form) => $form->schema([
+                TextInput::make('nama')
+                  ->unique(ignoreRecord: true)
+                  ->required()
+                  ->label('Nama Kategori'),
               ])
             )
             ->label('Nama Kategori')
             ->required(),
 
-          Textarea::make('keterangan')->label('Keterangan'),
+          Textarea::make('keterangan')->label('Keterangan')->nullable(),
 
           TextInput::make('jumlah_pengeluaran')
             ->label('Jumlah Pengeluaran')
@@ -99,8 +125,10 @@ class PengeluaranResource extends Resource
             return \Carbon\Carbon::parse($state)->locale('id')->translatedFormat('d F Y');
           })
           ->sortable(),
-        TextColumn::make('kontrakan.nama')->label('Nama Kontrakan')->limit(15)//   ->searchable()
-        ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
+        TextColumn::make('kontrakan.nama')
+          ->label('Nama Kontrakan')
+          ->limit(15) //   ->searchable()
+          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('kategori.nama')
           ->label('Nama Kategori')
           ->limit(15)
@@ -235,10 +263,5 @@ class PengeluaranResource extends Resource
   public static function getNavigationGroup(): ?string
   {
     return __('Pengelolaan');
-  }
-
-  public static function getNavigationLabelForKeuangan(): string
-  {
-    return __('Keuangan');
   }
 }
