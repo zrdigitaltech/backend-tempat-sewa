@@ -57,7 +57,6 @@ class PengeluaranResource extends Resource
             ->options(function () {
               return Kontrakan::all()->pluck('nama', 'id')->toArray();
             })
-            // ->searchable()
             ->label('Nama Kontrakan')
             ->required()
             ->searchable()
@@ -198,7 +197,7 @@ class PengeluaranResource extends Resource
             ->form([
               TextInput::make('search')
                 ->label('Nama Kontrakan')
-                ->placeholder('Cari')
+                ->placeholder('Cari berdasarkan Nama Kontrakan')
                 ->reactive()
                 ->afterStateUpdated(function ($state) use ($table) {
                   $query = $table->getQuery();

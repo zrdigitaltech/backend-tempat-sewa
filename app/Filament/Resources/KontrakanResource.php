@@ -33,6 +33,8 @@ use Illuminate\Support\Str;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Support\RawJs;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
 
 class KontrakanResource extends Resource
 {
@@ -64,6 +66,7 @@ class KontrakanResource extends Resource
           TextInput::make('alt')->label('Alt')->default('Nama Pemilik Kontrakan'),
           TextInput::make('nama')
             // ->unique()
+            ->label('Nama Kontrakan')
             ->required()
             ->maxLength(255)
             ->reactive() // Make the field reactive to updates
@@ -140,7 +143,8 @@ class KontrakanResource extends Resource
           ->limit(3)
           ->limitedRemainingText(),
         TextColumn::make('nama')
-          ->searchable()
+          // ->searchable()
+          ->label('Nama Kontrakan')
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('harga_sewa')
@@ -160,7 +164,7 @@ class KontrakanResource extends Resource
           })
           ->html(),
         TextColumn::make('status')
-          ->searchable()
+          // ->searchable()
           ->badge()
           ->color(
             fn(string $state): string => match ($state) {
@@ -176,14 +180,34 @@ class KontrakanResource extends Resource
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
-      ->filters([
-        SelectFilter::make('status')
-          ->label('Status')
-          ->options([
-            'tersedia' => 'Tersedia',
-            'tidak tersedia' => 'Tidak Tersedia',
-          ]),
-      ])
+      ->filters(
+        [
+          Filter::make('search')
+            ->label('Cari')
+            ->form([
+              TextInput::make('search')
+                ->label('Nama Kontrakan')
+                ->placeholder('Cari berdasarkan Nama Kontrakan')
+                ->reactive()
+                ->afterStateUpdated(function ($state) use ($table) {
+                  $query = $table->getQuery();
+                  if ($state) {
+                    $query->where('nama', 'like', "%{$state}%");
+                  }
+                  $table->query($query);
+                }),
+            ]),
+          SelectFilter::make('status')
+            ->label('Status')
+            ->options([
+              'tersedia' => 'Tersedia',
+              'tidak tersedia' => 'Tidak Tersedia',
+            ]),
+        ],
+        layout: FiltersLayout::AboveContentCollapsible
+      )
+      ->filtersFormColumns(2) // Display filters in 2 columns
+      ->filtersFormSchema(fn(array $filters): array => [$filters['search'], $filters['status']])
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
