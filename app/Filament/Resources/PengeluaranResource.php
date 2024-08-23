@@ -33,6 +33,7 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Forms\Components\Button;
 use Filament\Notifications\Notification;
 use Filament\Forms\Components\Actions\Action;
+use Filament\Tables\Columns\Summarizers\Sum;
 
 class PengeluaranResource extends Resource
 {
@@ -132,21 +133,18 @@ class PengeluaranResource extends Resource
           ->label('Nama Kategori')
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
-        TextColumn::make('keterangan')
-          ->label('Keterangan')
-          ->limit(15)
-          ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('jumlah_pengeluaran')->label('Jumlah Pengeluaran'),
         TextColumn::make('jumlah_pengeluaran')
           ->label('Jumlah Pengeluaran')
           ->getStateUsing(function (Pengeluaran $record) {
-            // Format the total as an integer with dot separators
             return 'Rp ' . number_format($record->jumlah_pengeluaran, 0, ',', '.');
           })
-          ->html(),
+          ->html()
+          ->summarize(Sum::make()),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
+
       ->filters(
         [
           Filter::make('tanggal')

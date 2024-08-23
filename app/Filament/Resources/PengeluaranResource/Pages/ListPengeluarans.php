@@ -5,6 +5,8 @@ namespace App\Filament\Resources\PengeluaranResource\Pages;
 use App\Filament\Resources\PengeluaranResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use App\Models\Pengeluaran;
+use App\Filament\Widgets\TotalPengeluaranWidget;
 
 class ListPengeluarans extends ListRecords
 {
@@ -14,4 +16,11 @@ class ListPengeluarans extends ListRecords
   {
     return [Actions\CreateAction::make()];
   }
+
+  // protected function getHeaderWidgets(): array
+  // {
+  //   return [
+  //     TotalPengeluaranWidget::class,
+  //   ];
+  // }
 }
