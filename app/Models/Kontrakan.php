@@ -10,48 +10,57 @@ use Illuminate\Database\Eloquent\Model;
  *     schema="Kontrakan",
  *     type="object",
  *     title="Kontrakan",
- *     required={"id", "title", "image", "width", "height", "alt", "tags", "description"},
+ *     required={"id", "nama", "slug", "deskripsi", "harga_sewa", "status"},
  *     @OA\Property(
  *         property="id",
  *         type="integer",
  *         description="ID of the Kontrakan"
  *     ),
  *     @OA\Property(
- *         property="title",
- *         type="string",
- *         description="Title of the Kontrakan"
- *     ),
- *     @OA\Property(
  *         property="image",
- *         type="string",
- *         format="binary",
- *         description="Image URL of the Kontrakan"
- *     ),
- *     @OA\Property(
- *         property="width",
- *         type="integer",
- *         description="Width of the image"
- *     ),
- *     @OA\Property(
- *         property="height",
- *         type="integer",
- *         description="Height of the image"
+ *         type="array",
+ *         @OA\Items(type="string"),
+ *         description="Array of image URLs or paths"
  *     ),
  *     @OA\Property(
  *         property="alt",
  *         type="string",
- *         description="Alternative text for the image"
+ *         description="Alternative text for images"
  *     ),
  *     @OA\Property(
- *         property="tags",
- *         type="array",
- *         @OA\Items(type="string"),
- *         description="Tags associated with the Kontrakan"
- *     ),
- *     @OA\Property(
- *         property="description",
+ *         property="nama",
  *         type="string",
- *         description="Description of the Kontrakan"
+ *         description="Name of the kontrakan"
+ *     ),
+ *     @OA\Property(
+ *         property="slug",
+ *         type="string",
+ *         description="URL-friendly slug for the kontrakan"
+ *     ),
+ *     @OA\Property(
+ *         property="deskripsi",
+ *         type="string",
+ *         description="Description of the kontrakan"
+ *     ),
+ *     @OA\Property(
+ *         property="keterangan",
+ *         type="string",
+ *         description="Additional notes or remarks"
+ *     ),
+ *     @OA\Property(
+ *         property="harga_sewa",
+ *         type="array",
+ *         @OA\Items(
+ *             type="object",
+ *             @OA\Property(property="durasi", type="integer", description="Duration in months"),
+ *             @OA\Property(property="harga", type="integer", description="Price in IDR")
+ *         ),
+ *         description="Array of rental prices based on duration"
+ *     ),
+ *     @OA\Property(
+ *         property="status",
+ *         type="string",
+ *         description="Status of the kontrakan"
  *     )
  * )
  */
@@ -85,14 +94,11 @@ class Kontrakan extends Model
    */
   public function pengaduans()
   {
-    return $this->hasMany(Pengaduan::class, 'id_kontrakan', 'id');
+    return $this->hasMany(Pengaduan::class, 'id_kontrakan');
   }
 
-  /**
-   * Get the pengeluaran for the kontrakan.
-   */
-  public function pengeluaran()
+  public function transaksis()
   {
-    return $this->hasMany(Pengeluaran::class, 'id_kontrakan', 'id');
+    return $this->hasMany(Transaksi::class, 'id_kontrakan');
   }
 }

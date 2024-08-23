@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,blade.php,php}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,scss,md,blade.php,php}' --config ./.prettierrc"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

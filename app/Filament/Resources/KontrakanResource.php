@@ -64,9 +64,12 @@ class KontrakanResource extends Resource
             ->defaultItems(1)
             ->minItems(1)
             ->maxItems(5),
-          TextInput::make('alt')->label('Alt')->default('Nama Pemilik Kontrakan'),
+          TextInput::make('alt')
+            ->label('Alt')
+            ->default('Nama Pemilik Kontrakan')
+            ->autocomplete('off'),
           TextInput::make('nama')
-            // ->unique()
+            ->unique(ignoreRecord: true)
             ->label('Nama Kontrakan')
             ->required()
             ->maxLength(255)
@@ -83,29 +86,36 @@ class KontrakanResource extends Resource
 
               // Update the 'url' field with the generated value
               $set('slug', $url);
-            }),
+            })
+            ->autocomplete('off'),
           TextInput::make('slug')
-            ->unique()
+            ->unique(ignoreRecord: true)
             // ->required()
             ->rules('regex:/^[a-z0-9-]+$/')
             ->readOnly(),
           RichEditor::make('deskripsi')
             ->disableToolbarButtons(['attachFiles'])
-            ->maxLength(255)
-            ->required(),
+            ->maxLength(255),
+          // ->required(),
           Textarea::make('keterangan')
             ->maxLength(255)
             ->nullable() // Allow the field to be empty
             ->label('Keterangan'),
           Repeater::make('harga_sewa')
             ->schema([
-              TextInput::make('durasi')->label('Durasi (bulan)')->numeric()->required(),
+              TextInput::make('durasi')
+                ->label('Durasi (bulan)')
+                ->numeric()
+                ->required()
+                ->suffix('Bulan')
+                ->maxValue(12),
               TextInput::make('harga')
                 ->label('Harga')
                 ->numeric()
                 ->required()
                 ->mask(RawJs::make('$money($input)'))
-                ->stripCharacters(','),
+                ->stripCharacters(',')
+                ->prefix('Rp'),
             ])
             ->columns(2)
             ->defaultItems(1)

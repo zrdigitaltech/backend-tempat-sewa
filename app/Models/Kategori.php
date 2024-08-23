@@ -15,12 +15,4 @@ class Kategori extends Model
    * @var array<int, string>
    */
   protected $fillable = ['nama'];
-
-  /**
-   * Get the pengeluaran for the kontrakan.
-   */
-  public function pengeluaran()
-  {
-    return $this->hasMany(Pengeluaran::class, 'id_kategori', 'id');
-  }
 }

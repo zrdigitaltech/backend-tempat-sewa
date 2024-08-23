@@ -18,6 +18,12 @@ class Penyewa extends Model
 
   public function penyewa()
   {
-    return $this->belongsTo(Penyewa::class, 'id_penyewa', 'id');
+    return $this->belongsTo(Penyewa::class, 'id_penyewa');
+  }
+
+  //
+  public function transaksis()
+  {
+    return $this->hasMany(Transaksi::class, 'id_penyewa');
   }
 }

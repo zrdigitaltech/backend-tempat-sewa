@@ -13,8 +13,8 @@ return new class extends Migration {
     Schema::create('penyewas', function (Blueprint $table) {
       $table->id();
       $table->string('image')->nullable();
-      $table->string('nama');
-      $table->string('no_telp');
+      $table->string('nama')->unique();
+      $table->string('no_telp')->unique();
       $table->string('kartu_identitas')->nullable();
       $table->timestamps();
     });

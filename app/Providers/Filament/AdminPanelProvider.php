@@ -37,6 +37,8 @@ class AdminPanelProvider extends PanelProvider
       ->databaseNotificationspolling('3s')
       ->id('admin')
       ->path('admin')
+      // ->breadcrumbs(false)
+      // ->brandName('Nama Pemilik Kontrakan')
       ->spa()
       ->unsavedChangesAlerts()
       // ->plugins([\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()])
@@ -46,7 +48,7 @@ class AdminPanelProvider extends PanelProvider
       ->colors([
         'primary' => Color::Amber,
       ])
-      // ->sidebarCollapsibleOnDesktop()
+      ->sidebarCollapsibleOnDesktop()
       ->globalSearchKeyBindings(['command+k', 'ctrl+k'])
       ->navigationItems([
         // NavigationItem::make('Analytics')
@@ -56,6 +58,11 @@ class AdminPanelProvider extends PanelProvider
         //   ->sort(3),
         NavigationItem::make('Documentation')
           ->url('/admin', shouldOpenInNewTab: true)
+          ->icon('heroicon-o-document')
+          ->group('External')
+          ->sort(8),
+        NavigationItem::make('API Documentation')
+          ->url('/api/documentation', shouldOpenInNewTab: true)
           ->icon('heroicon-o-document')
           ->group('External')
           ->sort(8),

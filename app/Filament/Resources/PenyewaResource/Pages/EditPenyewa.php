@@ -12,6 +12,11 @@ class EditPenyewa extends EditRecord
 
   protected function getHeaderActions(): array
   {
-    return [Actions\DeleteAction::make()];
+    return [Actions\ViewAction::make()->label('Lihat Riwayat Transaksi')];
+  }
+
+  public function getRelationManagers(): array
+  {
+    return [];
   }
 }

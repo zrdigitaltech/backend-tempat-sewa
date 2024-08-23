@@ -11,7 +11,7 @@ class HubungiKamiController extends Controller
 {
   /**
    * @OA\Get(
-   *     path="/api/v1/contact-us",
+   *     path="/api/v1/hubungi-kami",
    *     tags={"Hubungi Kami"},
    *     summary="Get list of Hubungi Kami",
    *     description="Returns list of Hubungi Kami",

@@ -12,14 +12,20 @@ return new class extends Migration {
   {
     Schema::create('transaksis', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('id_penyewa');
-      $table->unsignedBigInteger('id_kontrakan');
-      $table->string('tipe_pembayaran');
-      $table->date('tgl_mulai');
-      $table->date('tgl_pembayaran_berikutnya');
-      $table->integer('bayar_dp');
+      $table->unsignedBigInteger('id_penyewa')->nullable();
+      $table->unsignedBigInteger('id_kontrakan')->nullable();
+      $table->string('id_kategori')->nullable();
+      $table->string('tipe_pembayaran')->nullable();
+      $table->date('tanggal')->nullable();
+      $table->date('tgl_pembayaran_berikutnya')->nullable();
+      $table->integer('bayar_dp')->nullable();
       $table->text('catatan')->nullable();
-      $table->enum('status_pembayaran', ['tertunda', 'dibayar', 'gagal', 'dikembalikan']);
+      $table->integer('jumlah_pemasukan')->nullable();
+      $table->integer('jumlah_pengeluaran')->nullable();
+      $table->enum('jenis_transaksi', ['pemasukan', 'pengeluaran']);
+      $table
+        ->enum('status_pembayaran', ['tertunda', 'dibayar', 'gagal', 'dikembalikan'])
+        ->nullable();
       $table->timestamps();
     });
   }

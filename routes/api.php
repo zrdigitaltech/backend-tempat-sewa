@@ -46,7 +46,7 @@ Route::prefix('v1')->group(function () {
   });
 
   Route::controller(HubungiKamiController::class)->group(function () {
-    Route::get('/contact-us', 'index');
+    Route::get('/hubungi-kami', 'index');
   });
 
   Route::controller(LogoController::class)->group(function () {

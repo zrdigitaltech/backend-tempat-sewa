@@ -9,90 +9,6 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/service-area": {
-            "get": {
-                "tags": [
-                    "Service Area"
-                ],
-                "summary": "Get list of service area",
-                "description": "Returns list of service area",
-                "operationId": "ba6c1c14d1a4c04242297bb412b13be9",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ServiceArea"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/banner": {
-            "get": {
-                "tags": [
-                    "Banner"
-                ],
-                "summary": "Get list of banner",
-                "description": "Returns list of banner",
-                "operationId": "3405b0cd522d1168a6b820aabd7694c6",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Banner"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/call-to-action": {
-            "get": {
-                "tags": [
-                    "Call To Action"
-                ],
-                "summary": "Get list of call to action",
-                "description": "Returns list of call to action",
-                "operationId": "dc3252c919371b26b6d62db277fb310d",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/CallToAction"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
         "/api/v1/floating-whatsapp": {
             "get": {
                 "tags": [
@@ -121,14 +37,14 @@
                 }
             }
         },
-        "/api/v1/gallery": {
+        "/api/v1/hubungi-kami": {
             "get": {
                 "tags": [
-                    "Gallery"
+                    "Hubungi Kami"
                 ],
-                "summary": "Get list of gallery",
-                "description": "Returns list of gallery",
-                "operationId": "e584538f59d335eb2e61b84f61d69aff",
+                "summary": "Get list of Hubungi Kami",
+                "description": "Returns list of Hubungi Kami",
+                "operationId": "4dbd8953c61a634ab8945eb0c43ff9b0",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -137,7 +53,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Gallery"
+                                        "$ref": "#/components/schemas/HubungiKami"
                                     }
                                 }
                             }
@@ -149,14 +65,14 @@
                 }
             }
         },
-        "/api/v1/contact-us": {
+        "/api/v1/kontrakan": {
             "get": {
                 "tags": [
-                    "Contact Us"
+                    "Kontrakan"
                 ],
-                "summary": "Get list of contact us",
-                "description": "Returns list of contact us",
-                "operationId": "fb18729a1fd0f5e2146b11f13451277a",
+                "summary": "Get list of kontrakan",
+                "description": "Returns list of kontrakan",
+                "operationId": "e8f58de4b9067e28f0e631364ae871bd",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -165,35 +81,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/ContactUs"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/services": {
-            "get": {
-                "tags": [
-                    "Services"
-                ],
-                "summary": "Get list of services",
-                "description": "Returns list of services",
-                "operationId": "a2ff26ffdd198043726c4b449dbb4d9b",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Services"
+                                        "$ref": "#/components/schemas/Kontrakan"
                                     }
                                 }
                             }
@@ -233,34 +121,6 @@
                 }
             }
         },
-        "/api/v1/service-number": {
-            "get": {
-                "tags": [
-                    "ServiceNumber"
-                ],
-                "summary": "Get list of service-number",
-                "description": "Returns list of service-number",
-                "operationId": "2be8f75b6a14b8ac8b6bc78848292097",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ServiceNumber"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
         "/api/v1/payment": {
             "get": {
                 "tags": [
@@ -289,14 +149,14 @@
                 }
             }
         },
-        "/api/v1/about-us": {
+        "/api/v1/pengaduan": {
             "get": {
                 "tags": [
-                    "About Us"
+                    "Pengaduan"
                 ],
-                "summary": "Get list of about us",
-                "description": "Returns list of about us",
-                "operationId": "397daaf3bd5e69817d0f81b67558b489",
+                "summary": "Create data pengaduan",
+                "description": "Returns list of pengaduan",
+                "operationId": "3045cf41593b9a713b4fc590b633b108",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -305,35 +165,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/AboutUs"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
-                    }
-                }
-            }
-        },
-        "/api/v1/testimonial": {
-            "get": {
-                "tags": [
-                    "Testimonial"
-                ],
-                "summary": "Get list of testimonial",
-                "description": "Returns list of testimonial",
-                "operationId": "fd641bde05d62779e1fc2867457cd3e4",
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Testimonial"
+                                        "$ref": "#/components/schemas/Pengaduan"
                                     }
                                 }
                             }
@@ -348,90 +180,6 @@
     },
     "components": {
         "schemas": {
-            "ServiceArea": {
-                "title": "Service Area",
-                "required": [
-                    "id",
-                    "title"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "ID of the service area",
-                        "type": "integer"
-                    },
-                    "title": {
-                        "description": "Title of the service area",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "Banner": {
-                "title": "Banner",
-                "required": [
-                    "id",
-                    "image",
-                    "title",
-                    "description",
-                    "title_wa",
-                    "link_wa"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "ID of the banner",
-                        "type": "integer"
-                    },
-                    "image": {
-                        "description": "URL of the banner image",
-                        "type": "string"
-                    },
-                    "title": {
-                        "description": "Title of the banner",
-                        "type": "string"
-                    },
-                    "description": {
-                        "description": "Description of the banner",
-                        "type": "string"
-                    },
-                    "title_wa": {
-                        "description": "WhatsApp title",
-                        "type": "string"
-                    },
-                    "link_wa": {
-                        "description": "WhatsApp link",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "CallToAction": {
-                "title": "Call To Action",
-                "required": [
-                    "id",
-                    "title",
-                    "subtitle",
-                    "link_wa"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "ID of the call to action",
-                        "type": "integer"
-                    },
-                    "title": {
-                        "description": "Title of the call to action",
-                        "type": "string"
-                    },
-                    "subtitle": {
-                        "description": "Subtitle of the call to action",
-                        "type": "string"
-                    },
-                    "link_wa": {
-                        "description": "WhatsApp link for the call to action",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
             "FloatingWhatsapp": {
                 "title": "Floating Whatsapp",
                 "required": [
@@ -471,67 +219,15 @@
                 },
                 "type": "object"
             },
-            "Gallery": {
-                "title": "Gallery",
-                "required": [
-                    "id",
-                    "title",
-                    "image",
-                    "width",
-                    "height",
-                    "alt",
-                    "tags",
-                    "description"
-                ],
-                "properties": {
-                    "id": {
-                        "description": "ID of the Gallery",
-                        "type": "integer"
-                    },
-                    "title": {
-                        "description": "Title of the Gallery",
-                        "type": "string"
-                    },
-                    "image": {
-                        "description": "Image URL of the Gallery",
-                        "type": "string",
-                        "format": "binary"
-                    },
-                    "width": {
-                        "description": "Width of the image",
-                        "type": "integer"
-                    },
-                    "height": {
-                        "description": "Height of the image",
-                        "type": "integer"
-                    },
-                    "alt": {
-                        "description": "Alternative text for the image",
-                        "type": "string"
-                    },
-                    "tags": {
-                        "description": "Tags associated with the Gallery",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "description": {
-                        "description": "Description of the Gallery",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "ContactUs": {
-                "title": "Contact Us",
+            "HubungiKami": {
+                "title": "Hubungi Kami",
                 "required": [
                     "id",
                     "title"
                 ],
                 "properties": {
                     "id": {
-                        "description": "ID of the Contact Us",
+                        "description": "ID of the Hubungi Kami",
                         "type": "integer"
                     },
                     "alamat": {
@@ -569,31 +265,67 @@
                 },
                 "type": "object"
             },
-            "Services": {
-                "title": "Services",
+            "Kontrakan": {
+                "title": "Kontrakan",
                 "required": [
                     "id",
-                    "title"
+                    "nama",
+                    "slug",
+                    "deskripsi",
+                    "harga_sewa",
+                    "status"
                 ],
                 "properties": {
                     "id": {
-                        "description": "ID of the Services",
+                        "description": "ID of the Kontrakan",
                         "type": "integer"
                     },
                     "image": {
-                        "description": "URL of the service image",
-                        "type": "string"
-                    },
-                    "title": {
-                        "description": "Title of the service",
-                        "type": "string"
+                        "description": "Array of image URLs or paths",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "alt": {
-                        "description": "Alt text for the service image",
+                        "description": "Alternative text for images",
                         "type": "string"
                     },
-                    "description": {
-                        "description": "Description of the service",
+                    "nama": {
+                        "description": "Name of the kontrakan",
+                        "type": "string"
+                    },
+                    "slug": {
+                        "description": "URL-friendly slug for the kontrakan",
+                        "type": "string"
+                    },
+                    "deskripsi": {
+                        "description": "Description of the kontrakan",
+                        "type": "string"
+                    },
+                    "keterangan": {
+                        "description": "Additional notes or remarks",
+                        "type": "string"
+                    },
+                    "harga_sewa": {
+                        "description": "Array of rental prices based on duration",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "durasi": {
+                                    "description": "Duration in months",
+                                    "type": "integer"
+                                },
+                                "harga": {
+                                    "description": "Price in IDR",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "status": {
+                        "description": "Status of the kontrakan",
                         "type": "string"
                     }
                 },
@@ -617,39 +349,6 @@
                     },
                     "alt": {
                         "description": "Alt text for the logo image",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "ServiceNumber": {
-                "title": "Service Number",
-                "required": [
-                    "tahun_pengalaman",
-                    "description_pengalaman",
-                    "certification_description",
-                    "operasional_description",
-                    "harga_wajar_description"
-                ],
-                "properties": {
-                    "tahun_pengalaman": {
-                        "description": "Years of experience",
-                        "type": "string"
-                    },
-                    "description_pengalaman": {
-                        "description": "Description of experience",
-                        "type": "string"
-                    },
-                    "certification_description": {
-                        "description": "Certification description",
-                        "type": "string"
-                    },
-                    "operasional_description": {
-                        "description": "Operational description",
-                        "type": "string"
-                    },
-                    "harga_wajar_description": {
-                        "description": "Fair price description",
                         "type": "string"
                     }
                 },
@@ -688,62 +387,69 @@
                 },
                 "type": "object"
             },
-            "AboutUs": {
-                "title": "About Us",
+            "Pengaduan": {
+                "title": "Pengaduan",
                 "required": [
-                    "image",
-                    "alt",
-                    "description"
+                    "id",
+                    "nama",
+                    "no_telp",
+                    "id_kontrakan",
+                    "status"
                 ],
                 "properties": {
-                    "image": {
-                        "description": "URL of the image",
+                    "id": {
+                        "description": "ID of the Pengaduan",
+                        "type": "integer"
+                    },
+                    "nama": {
+                        "description": "Name of the person making the complaint",
                         "type": "string"
                     },
-                    "alt": {
-                        "description": "Alt text for the image",
+                    "no_telp": {
+                        "description": "Phone number of the person making the complaint",
                         "type": "string"
                     },
-                    "description": {
-                        "description": "Description about us",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "Testimonial": {
-                "title": "Testimonial",
-                "required": [
-                    "image",
-                    "alt",
-                    "name",
-                    "position",
-                    "description"
-                ],
-                "properties": {
-                    "image": {
-                        "description": "URL of the testimonial image",
+                    "alamat": {
+                        "description": "Address",
                         "type": "string"
                     },
-                    "alt": {
-                        "description": "Alt text for the testimonial image",
+                    "catatan": {
+                        "description": "Additional notes or remarks",
                         "type": "string"
                     },
-                    "name": {
-                        "description": "Name of the person giving the testimonial",
-                        "type": "string"
-                    },
-                    "position": {
-                        "description": "Position or title of the person",
-                        "type": "string"
-                    },
-                    "description": {
-                        "description": "Testimonial description or message",
+                    "status": {
+                        "description": "Status of the complaint",
                         "type": "string"
                     }
                 },
                 "type": "object"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Floating Whatsapp",
+            "description": "Floating Whatsapp"
+        },
+        {
+            "name": "Hubungi Kami",
+            "description": "Hubungi Kami"
+        },
+        {
+            "name": "Kontrakan",
+            "description": "Kontrakan"
+        },
+        {
+            "name": "Logo",
+            "description": "Logo"
+        },
+        {
+            "name": "Payment",
+            "description": "Payment"
+        },
+        {
+            "name": "Pengaduan",
+            "description": "Pengaduan"
+        }
+    ]
 }

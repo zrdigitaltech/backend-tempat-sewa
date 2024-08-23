@@ -41,7 +41,7 @@ export default function Index() {
                       {item?.image?.[0]?.image ? (
                         <img
                           src={
-                            item?.image?.[0]?.image.includes('assets')
+                            item?.image?.[0]?.image?.includes('assets')
                               ? item?.image?.[0]?.image
                               : '/storage/' + item?.image?.[0]?.image
                           }
@@ -80,15 +80,23 @@ export default function Index() {
               ) : (
                 <div className="single-service-item">
                   <div className="single-service-icon grayscale">
-                    <img
-                      src={
-                        item?.image?.[0]?.image.includes('assets')
-                          ? item?.image?.[0]?.image
-                          : '/storage/' + item?.image?.[0]?.image
-                      }
-                      alt={item?.alt}
-                      className="w-100"
-                    />
+                    {item?.image?.[0]?.image ? (
+                      <img
+                        src={
+                          item?.image?.[0]?.image?.includes('assets')
+                            ? item?.image?.[0]?.image
+                            : '/storage/' + item?.image?.[0]?.image
+                        }
+                        alt={item?.alt}
+                        className="w-100"
+                      />
+                    ) : (
+                      <img
+                        src="/assets/images/kontrakan-black.webp"
+                        alt={item?.alt}
+                        className="w-100"
+                      />
+                    )}
                   </div>
                   <div className="single-service-description">
                     <div className="single-service-title">

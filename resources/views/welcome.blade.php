@@ -4,6 +4,7 @@
     @viteReactRefresh
 
     @vite('resources/app/index.jsx')
+    <style></style>
     @filamentStyles
   </head>
 

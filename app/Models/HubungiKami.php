@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @OA\Schema(
- *     schema="ContactUs",
+ *     schema="HubungiKami",
  *     type="object",
- *     title="Contact Us",
+ *     title="Hubungi Kami",
  *     required={"id", "title"},
  *     @OA\Property(
  *         property="id",
  *         type="integer",
- *         description="ID of the Contact Us"
+ *         description="ID of the Hubungi Kami"
  *     ),
  *     @OA\Property(
  *         property="alamat",

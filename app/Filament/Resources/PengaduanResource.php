@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\{TextInput, Textarea, Select, Card};
+use Filament\Forms\Components\{TextInput, Textarea, Select, Card, DatePicker};
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
 use App\Models\Kontrakan;
@@ -21,6 +21,7 @@ use Filament\Tables\Filters\TextFilter;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Enums\FiltersLayout;
+use Carbon\Carbon;
 
 class PengaduanResource extends Resource
 {
@@ -39,6 +40,13 @@ class PengaduanResource extends Resource
     return $form->schema([
       Card::make()
         ->schema([
+          DatePicker::make('created_at')
+            ->label('Tanggal')
+            ->default(Carbon::now()->format('Y-m-d'))
+            ->disabled()
+            ->native(false)
+            ->displayFormat('d F Y'),
+
           TextInput::make('nama')->required()->maxLength(255)->disabled(),
 
           TextInput::make('no_telp')
@@ -107,6 +115,7 @@ class PengaduanResource extends Resource
           })
           ->html(),
       ])
+      // ->recordUrl(null)
       ->filters(
         [
           Filter::make('search')
