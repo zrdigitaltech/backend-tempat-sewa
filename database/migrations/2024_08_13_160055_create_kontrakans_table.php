@@ -12,10 +12,10 @@ return new class extends Migration {
   {
     Schema::create('kontrakans', function (Blueprint $table) {
       $table->id();
-      $table->json('image')->default('/assets/images/kontrakan-black.webp');
+      $table->json('image'); // ->default('/assets/images/kontrakan-black.webp');
       $table->string('alt');
       $table->string('nama')->unique();
-      $table->text('slug')->unique();
+      $table->string('slug', 255)->unique();
       $table->text('deskripsi');
       $table->text('keterangan')->nullable();
       $table->json('harga_sewa');

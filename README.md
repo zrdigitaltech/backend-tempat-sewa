@@ -38,3 +38,7 @@ Cara menjalankan Website :
 - php artisan make:filament-widget MyCustomWidget
 - php artisan make:migration create_invoices_table
 - php artisan make:filament-page RiwayatTransaksiPage --resource=PenyewaResource
+
+docker exec -it laravel_app bash
+apt-get update && apt-get install -y libpdo-mysql
+docker-php-ext-install pdo_mysql
