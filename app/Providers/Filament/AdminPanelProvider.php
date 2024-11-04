@@ -22,6 +22,7 @@ use Filament\Navigation\NavigationItem;
 
 use App\Filament\Widgets\PenyewaWidget;
 use Illuminate\Support\Facades\Auth;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -42,6 +43,24 @@ class AdminPanelProvider extends PanelProvider
       ->spa()
       ->unsavedChangesAlerts()
       // ->plugins([\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()])
+      // ->plugins([
+      //   FilamentShieldPlugin::make()
+      //     ->gridColumns([
+      //       'default' => 1,
+      //       'sm' => 2,
+      //       'lg' => 2,
+      //     ])
+      //     ->sectionColumnSpan(1)
+      //     ->checkboxListColumns([
+      //       'default' => 1,
+      //       'sm' => 2,
+      //       'lg' => 3,
+      //     ])
+      //     ->resourceCheckboxListColumns([
+      //       'default' => 1,
+      //       'sm' => 2,
+      //     ]),
+      // ])
       ->login()
       // ->passwordReset()
       // ->profile()

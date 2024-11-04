@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { formatPrice, sortList } from '@/helpers';
 
 export default function Index() {
-  const kontrakanList = useSelector(state => state.kontrakan.kontrakanList);
+  const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);
   const dispatch = useDispatch();
 
   const fetchKontrakan = async () => {

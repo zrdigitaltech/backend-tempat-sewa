@@ -8,7 +8,7 @@ import DataKontrakan from './data-kontrakan.json';
 export const getListKontrakan = () => {
   return async dispatch => {
     try {
-      const response = await axios.get('/api/v1/kontrakan');
+      const response = await axios?.get('/api/v1/kontrakan');
       const dataKontrakan = response?.data?.data;
       if (dataKontrakan?.length > 0) {
         dispatch(saveListKontrakan(dataKontrakan));

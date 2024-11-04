@@ -42,3 +42,6 @@ Cara menjalankan Website :
 docker exec -it laravel_app bash
 apt-get update && apt-get install -y libpdo-mysql
 docker-php-ext-install pdo_mysql
+
+./vendor/bin/sail up
+./vendor/bin/sail artisan

@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TagihanResource\Pages;
 use App\Filament\Resources\TagihanResource\RelationManagers;
-// use App\Models\Tagihan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
