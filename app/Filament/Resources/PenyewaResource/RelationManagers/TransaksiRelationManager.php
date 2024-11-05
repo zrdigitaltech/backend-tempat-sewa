@@ -81,8 +81,8 @@ class TransaksiRelationManager extends RelationManager
                 ->preload()
                 ->afterStateUpdated(function (callable $set, $state) {
                   $set('tipe_pembayaran', null);
-                  $set('tanggal', null);
-                  $set('tgl_pembayaran_berikutnya', null);
+                  // $set('tanggal', null);
+                  // $set('tgl_pembayaran_berikutnya', null);
                   $set('jumlah_pemasukan', null);
                   $set('jumlah_kekurangan_visible', false);
                   $set('bayar_dp', null);
@@ -296,7 +296,7 @@ class TransaksiRelationManager extends RelationManager
                 ->prefix('Rp') // Menambahkan prefix "Rp" untuk tampilan
                 ->readOnly() // Membaca hanya
                 ->extraAttributes([
-                  'style' => 'background-color: rgb(248 113 113 / 50%);', // Warna latar belakang
+                  'style' => 'background-color: rgb(74 222 128 / 30%);', // Warna latar belakang
                 ]),
 
               Select::make('jenis_transaksi')
@@ -361,7 +361,7 @@ class TransaksiRelationManager extends RelationManager
             ]),
         ])
         ->extraAttributes([
-          'style' => 'background-color: #d9770885', // Customize the background color and add padding and border-radius
+          'style' => 'background-color: #d9770836', // Customize the background color and add padding and border-radius
         ]),
     ]);
   }
