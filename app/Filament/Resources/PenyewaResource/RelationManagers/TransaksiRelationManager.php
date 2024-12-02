@@ -72,35 +72,19 @@ class TransaksiRelationManager extends RelationManager
           Grid::make(2) // Membuat grid dengan 2 kolom
             ->schema([
               Select::make('id_kontrakan')
-                ->label('Nama Kontrakan')
-                ->options(
-                  fn(callable $get) => self::getOptionsKontrakan($get('id_kontrakan') ?? null)
-                )
-                ->required()
-                ->searchable()
-                ->preload()
-                ->afterStateUpdated(function (callable $set, $state) {
+              ->label('Nama Kontrakan')
+              ->options(fn(callable $get) => self::getOptionsKontrakan($get('id_kontrakan') ?? null))
+              ->required()
+              // ->reactive() // Ensure this field is reactive to changes
+              ->afterStateUpdated(function (callable $set, $state) {
+                  $set('id_kontrakan', $state);
                   $set('tipe_pembayaran', null);
-                  // $set('tanggal', null);
-                  // $set('tgl_pembayaran_berikutnya', null);
                   $set('jumlah_pemasukan', null);
                   $set('jumlah_kekurangan_visible', false);
                   $set('bayar_dp', null);
                   $set('bayar_dp_visible', false);
-                  // Set 'nama' (Unit Sewa) based on selected 'id_kontrakan'
-                  if ($state) {
-                    $kontrakan = Kontrakan::find($state);
-                    if ($kontrakan) {
-                      $set('nama_kontrakan', $kontrakan->nama);
-                    } else {
-                      $set('nama_kontrakan', null);
-                    }
-                  } else {
-                    $set('nama_kontrakan', null);
-                  }
-                })
-                ->reactive()
-                ->debounce('500ms'),
+              }),
+          
 
               Select::make('tipe_pembayaran')
                 ->label('Tipe Pembayaran')
