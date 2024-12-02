@@ -1,84 +1,103 @@
 <?php
 
 return [
-  'shield_resource' => [
-    'should_register_navigation' => true,
-    'slug' => 'shield/roles',
-    'navigation_sort' => -1,
-    'navigation_badge' => true,
-    'navigation_group' => true,
-    'is_globally_searchable' => false,
-    'show_model_path' => true,
-    'is_scoped_to_tenant' => true,
-    'cluster' => null,
-  ],
-
-  'auth_provider_model' => [
-    'fqcn' => 'App\\Models\\User',
-  ],
-
-  'super_admin' => [
-    'enabled' => true,
-    'name' => 'super_admin',
-    'define_via_gate' => false,
-    'intercept_gate' => 'before', // after
-  ],
-
-  'panel_user' => [
-    'enabled' => true,
-    'name' => 'panel_user',
-  ],
-
-  'permission_prefixes' => [
-    'resource' => [
-      'view',
-      'view_any',
-      'create',
-      'update',
-      'restore',
-      'restore_any',
-      'replicate',
-      'reorder',
-      'delete',
-      'delete_any',
-      'force_delete',
-      'force_delete_any',
+    'shield_resource' => [
+        'should_register_navigation' => true,
+        'slug' => 'shield',
+        'navigation_sort' => -1,
+        'navigation_badge' => true,
+        'navigation_group' => true,
+        'is_globally_searchable' => false,
+        'show_model_path' => true,
+        'is_scoped_to_tenant' => true,
+        'cluster' => null,
     ],
 
-    'page' => 'page',
-    'widget' => 'widget',
-  ],
+    'tenant_model' => null,
 
-  'entities' => [
-    'pages' => true,
-    'widgets' => true,
-    'resources' => true,
-    'custom_permissions' => false,
-  ],
+    'auth_provider_model' => [
+        'fqcn' => 'App\\Models\\User',
+    ],
 
-  'generator' => [
-    'option' => 'policies_and_permissions',
-    'policy_directory' => 'Policies',
-    'policy_namespace' => 'Policies',
-  ],
+    'super_admin' => [
+        'enabled' => true,
+        'name' => 'super_admin',
+        'define_via_gate' => true,
+        'intercept_gate' => 'before', // after
+    ],
 
-  'exclude' => [
-    'enabled' => true,
+    'operator' => [
+        'enabled' => true,
+        'name' => 'operator',
+        'define_via_gate' => false,
+    ],
 
-    'pages' => ['Dashboard'],
+    'pelanggan' => [
+        'enabled' => true,
+        'name' => 'pelanggan',
+        'define_via_gate' => false,
+    ],
 
-    'widgets' => ['AccountWidget', 'FilamentInfoWidget'],
+    'panel_user' => [
+        'enabled' => true,
+        'name' => 'panel_user',
+    ],
 
-    'resources' => [],
-  ],
+    'permission_prefixes' => [
+        'resource' => [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'restore',
+            'restore_any',
+            'replicate',
+            'reorder',
+            'delete',
+            'delete_any',
+            'force_delete',
+            'force_delete_any',
+        ],
 
-  'discovery' => [
-    'discover_all_resources' => false,
-    'discover_all_widgets' => false,
-    'discover_all_pages' => false,
-  ],
+        'page' => 'page',
+        'widget' => 'widget',
+    ],
 
-  'register_role_policy' => [
-    'enabled' => false,
-  ],
+    'entities' => [
+        'pages' => true,
+        'widgets' => true,
+        'resources' => true,
+        'custom_permissions' => false,
+    ],
+
+    'generator' => [
+        'option' => 'policies_and_permissions',
+        'policy_directory' => 'Policies',
+        'policy_namespace' => 'Policies',
+    ],
+
+    'exclude' => [
+        'enabled' => true,
+
+        'pages' => [
+            'Dashboard',
+        ],
+
+        'widgets' => [
+            'AccountWidget', 'FilamentInfoWidget',
+        ],
+
+        'resources' => [],
+    ],
+
+    'discovery' => [
+        'discover_all_resources' => true,
+        'discover_all_widgets' => true,
+        'discover_all_pages' => true,
+    ],
+
+    'register_role_policy' => [
+        'enabled' => false,
+    ],
+
 ];

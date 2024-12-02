@@ -7,7 +7,7 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
     <script>document.addEventListener("scroll-to-top", () => window.scrollTo(0, 0))</script>
         ')
     );
-    // Gate::policy(\Spatie\Permission\Models\Role::class, \App\Policies\RolePolicy::class);
+    Gate::policy(\Spatie\Permission\Models\Role::class, \App\Policies\RolePolicy::class);
+
+    // if ($this->app->environment('local')) {
+    //   URL::forceScheme('https');
+    // }
   }
 }

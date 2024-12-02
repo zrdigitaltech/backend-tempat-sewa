@@ -119,7 +119,7 @@ class AdminPanelProvider extends PanelProvider
   protected function getWidgetsForPermissions(): array
   {
     // dd(Auth::user());
-    $widgets = [PenyewaWidget::class];
+    $widgets = [];
 
     // Check if the authenticated user has the 'view customer widget' permission
     // if (Auth::check() && Auth::user()->hasRole('operator')) {
