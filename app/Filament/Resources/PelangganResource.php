@@ -24,11 +24,19 @@ class PelangganResource extends Resource
   public static function form(Form $form): Form
   {
     return $form->schema([
-        Grid::make(1) // Membuat grid dengan 2 kolom
+      Grid::make(1) // Membuat grid dengan 2 kolom
         ->schema([
-            TextInput::make('name')->label('Nama')->autocomplete(false)->required(),
-            TextInput::make('email')->email()->autocomplete(false)->required()->unique(ignoreRecord: true),
-            TextInput::make('password')->password()->autocomplete(false)->required()->dehydrateStateUsing(fn ($state) => bcrypt($state)),
+          TextInput::make('name')->label('Nama')->autocomplete(false)->required(),
+          TextInput::make('email')
+            ->email()
+            ->autocomplete(false)
+            ->required()
+            ->unique(ignoreRecord: true),
+          TextInput::make('password')
+            ->password()
+            ->autocomplete(false)
+            ->required()
+            ->dehydrateStateUsing(fn($state) => bcrypt($state)),
         ]),
     ]);
   }
@@ -36,11 +44,19 @@ class PelangganResource extends Resource
   public static function table(Table $table): Table
   {
     return $table
+      ->query(User::role('pelanggan'))
       ->columns([
-        //
         TextColumn::make('name')->label('Nama')->searchable(),
         TextColumn::make('email')->searchable(),
         TextColumn::make('roles.name')->label('Role'),
+        TextColumn::make('createdBy.roles.name')
+          ->label('Pembuat')
+          ->formatStateUsing(function ($state, $record) {
+            if ($record->createdBy && $record->createdBy->roles->isNotEmpty()) {
+              return $record->createdBy->roles->pluck('name')->implode(', ');
+            }
+            return 'N/A';
+          }),
         TextColumn::make('created_at')->label('Register pada')->dateTime(),
       ])
       ->filters([
@@ -52,21 +68,12 @@ class PelangganResource extends Resource
       ]);
   }
 
-  public static function afterSave($record): void
-{
-    if (!$record->hasRole('pelanggan')) {
-        $record->assignRole('pelanggan');
-    }
-}
-
   public static function getRelations(): array
   {
     return [
         //
       ];
   }
-
-  
 
   public static function getPages(): array
   {

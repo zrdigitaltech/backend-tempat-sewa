@@ -1,103 +1,98 @@
 <?php
 
 return [
-    'shield_resource' => [
-        'should_register_navigation' => true,
-        'slug' => 'shield',
-        'navigation_sort' => -1,
-        'navigation_badge' => true,
-        'navigation_group' => true,
-        'is_globally_searchable' => false,
-        'show_model_path' => true,
-        'is_scoped_to_tenant' => true,
-        'cluster' => null,
+  'shield_resource' => [
+    'should_register_navigation' => true,
+    'slug' => 'shield',
+    'navigation_sort' => -1,
+    'navigation_badge' => true,
+    'navigation_group' => true,
+    'is_globally_searchable' => false,
+    'show_model_path' => true,
+    'is_scoped_to_tenant' => true,
+    'cluster' => null,
+  ],
+
+  'tenant_model' => null,
+
+  'auth_provider_model' => [
+    'fqcn' => 'App\\Models\\User',
+  ],
+
+  'super_admin' => [
+    'enabled' => true,
+    'name' => 'super_admin',
+    'define_via_gate' => true,
+    'intercept_gate' => 'before', // after
+  ],
+
+  'operator' => [
+    'enabled' => true,
+    'name' => 'operator',
+    'define_via_gate' => false,
+  ],
+
+  'pelanggan' => [
+    'enabled' => true,
+    'name' => 'pelanggan',
+    'define_via_gate' => false,
+  ],
+
+  'panel_user' => [
+    'enabled' => true,
+    'name' => 'panel_user',
+  ],
+
+  'permission_prefixes' => [
+    'resource' => [
+      'view',
+      'view_any',
+      'create',
+      'update',
+      'restore',
+      'restore_any',
+      'replicate',
+      'reorder',
+      'delete',
+      'delete_any',
+      'force_delete',
+      'force_delete_any',
     ],
 
-    'tenant_model' => null,
+    'page' => 'page',
+    'widget' => 'widget',
+  ],
 
-    'auth_provider_model' => [
-        'fqcn' => 'App\\Models\\User',
-    ],
+  'entities' => [
+    'pages' => true,
+    'widgets' => true,
+    'resources' => true,
+    'custom_permissions' => false,
+  ],
 
-    'super_admin' => [
-        'enabled' => true,
-        'name' => 'super_admin',
-        'define_via_gate' => true,
-        'intercept_gate' => 'before', // after
-    ],
+  'generator' => [
+    'option' => 'policies_and_permissions',
+    'policy_directory' => 'Policies',
+    'policy_namespace' => 'Policies',
+  ],
 
-    'operator' => [
-        'enabled' => true,
-        'name' => 'operator',
-        'define_via_gate' => false,
-    ],
+  'exclude' => [
+    'enabled' => true,
 
-    'pelanggan' => [
-        'enabled' => true,
-        'name' => 'pelanggan',
-        'define_via_gate' => false,
-    ],
+    'pages' => ['Dashboard'],
 
-    'panel_user' => [
-        'enabled' => true,
-        'name' => 'panel_user',
-    ],
+    'widgets' => ['AccountWidget', 'FilamentInfoWidget'],
 
-    'permission_prefixes' => [
-        'resource' => [
-            'view',
-            'view_any',
-            'create',
-            'update',
-            'restore',
-            'restore_any',
-            'replicate',
-            'reorder',
-            'delete',
-            'delete_any',
-            'force_delete',
-            'force_delete_any',
-        ],
+    'resources' => [],
+  ],
 
-        'page' => 'page',
-        'widget' => 'widget',
-    ],
+  'discovery' => [
+    'discover_all_resources' => true,
+    'discover_all_widgets' => true,
+    'discover_all_pages' => true,
+  ],
 
-    'entities' => [
-        'pages' => true,
-        'widgets' => true,
-        'resources' => true,
-        'custom_permissions' => false,
-    ],
-
-    'generator' => [
-        'option' => 'policies_and_permissions',
-        'policy_directory' => 'Policies',
-        'policy_namespace' => 'Policies',
-    ],
-
-    'exclude' => [
-        'enabled' => true,
-
-        'pages' => [
-            'Dashboard',
-        ],
-
-        'widgets' => [
-            'AccountWidget', 'FilamentInfoWidget',
-        ],
-
-        'resources' => [],
-    ],
-
-    'discovery' => [
-        'discover_all_resources' => true,
-        'discover_all_widgets' => true,
-        'discover_all_pages' => true,
-    ],
-
-    'register_role_policy' => [
-        'enabled' => false,
-    ],
-
+  'register_role_policy' => [
+    'enabled' => false,
+  ],
 ];

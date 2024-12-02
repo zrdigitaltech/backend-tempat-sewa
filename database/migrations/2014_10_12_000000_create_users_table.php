@@ -18,6 +18,8 @@ return new class extends Migration {
       $table->string('password');
       $table->rememberToken();
       $table->timestamps();
+      $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete(); // Menyimpan ID pembuat
+      $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete(); // Menyimpan ID pengedit
     });
   }
 

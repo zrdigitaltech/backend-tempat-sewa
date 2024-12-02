@@ -15,12 +15,12 @@ class CreatePelanggan extends CreateRecord
 
   protected function handleRecordCreation(array $data): Model
   {
-      // Buat pengguna baru
-      $user = static::getModel()::create($data);
+    // Buat pengguna baru
+    $user = static::getModel()::create($data);
 
-      // Tetapkan role 'pelanggan' ke pengguna
-      $user->assignRole('pelanggan');
+    // Tetapkan role 'pelanggan' ke pengguna
+    $user->assignRole('pelanggan');
 
-      return $user;
+    return $user;
   }
 }

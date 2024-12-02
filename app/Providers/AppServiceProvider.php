@@ -7,7 +7,8 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\URL;
+use App\Models\User;
+use App\Observers\UserObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     // $this->app->bind('path.public', function () {
     //     return base_path() . '/../public_html';
     // });
+    User::observe(UserObserver::class);
     FilamentView::registerRenderHook(
       PanelsRenderHook::SCRIPTS_AFTER,
       fn(): string => new HtmlString('
