@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     // Create or get the super_admin and operator roles
     $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
     $operatorRole = Role::firstOrCreate(['name' => 'operator']);
+    $pelangganRole = Role::firstOrCreate(['name' => 'pelanggan']);
 
     // Fetch all permissions
     $permissions = Permission::all();
@@ -30,10 +31,18 @@ class UsersTableSeeder extends Seeder
 
     // Create the operator user
     $operatorUser = User::create([
-      'name' => 'Operator User',
+      'name' => 'Operator ZR',
       'email' => 'operator@gmail.com',
       'password' => bcrypt('zik123456ri'),
     ]);
-    $operatorUser->assignRole('operator');
+    $operatorUser->assignRole($operatorRole);
+
+    // Create the operator user
+    // $operatorUser = User::create([
+    //   'name' => 'Cust ZR',
+    //   'email' => 'customer@gmail.com',
+    //   'password' => bcrypt('zik123456ri'),
+    // ]);
+    // $operatorUser->assignRole($customerRole);
   }
 }
