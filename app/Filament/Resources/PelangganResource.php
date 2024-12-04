@@ -49,10 +49,10 @@ class PelangganResource extends Resource
       ->modifyQueryUsing(function (Builder $query) {
         $user = Auth::user();
         if ($user->hasRole('super_admin')) {
-            return $query;
+          return $query->whereNot('id', $user->id);
         }
-        
-        return $query->where('created_by', $user->id);
+
+        return $query->where('created_by', $user->id)->whereNot('id', $user->id);
       })
       ->columns([
         TextColumn::make('name')->label('Nama')->searchable(),
