@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\{TextColumn};
 use Filament\Forms\Components\{TextInput, PasswordInput, Grid};
+use Illuminate\Support\Facades\Auth; 
 
 class PelangganResource extends Resource
 {
@@ -44,7 +45,15 @@ class PelangganResource extends Resource
   public static function table(Table $table): Table
   {
     return $table
-      ->query(User::role('pelanggan'))
+      // ->query(User::role('pelanggan'))
+      ->modifyQueryUsing(function (Builder $query) {
+        $user = Auth::user();
+        if ($user->hasRole('super_admin')) {
+            return $query;
+        }
+        
+        return $query->where('created_by', $user->id);
+      })
       ->columns([
         TextColumn::make('name')->label('Nama')->searchable(),
         TextColumn::make('email')->searchable(),
