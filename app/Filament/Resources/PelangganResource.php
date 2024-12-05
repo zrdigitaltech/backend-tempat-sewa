@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\{TextColumn};
 use Filament\Forms\Components\{TextInput, PasswordInput, Grid};
 use Illuminate\Support\Facades\Auth; 
+use Filament\Tables\Actions\{ViewAction, EditAction,DeleteAction, BulkActionGroup, DeleteBulkAction, CreateAction};
 
 class PelangganResource extends Resource
 {
@@ -58,22 +59,28 @@ class PelangganResource extends Resource
         TextColumn::make('name')->label('Nama')->searchable(),
         TextColumn::make('email')->searchable(),
         TextColumn::make('roles.name')->label('Role'),
-        TextColumn::make('createdBy.roles.name')
+        TextColumn::make('createdBy.name')
           ->label('Pembuat')
           ->formatStateUsing(function ($state, $record) {
-            if ($record->createdBy && $record->createdBy->roles->isNotEmpty()) {
-              return $record->createdBy->roles->pluck('name')->implode(', ');
-            }
-            return 'N/A';
+              return $record->createdBy ? $record->createdBy->name : 'N/A';
           }),
         TextColumn::make('created_at')->label('Register pada')->dateTime(),
       ])
+      ->defaultSort('created_at', 'desc')
+      ->striped()
       ->filters([
         //
       ])
-      ->actions([Tables\Actions\EditAction::make()])
+      ->actions([
+        ViewAction::make()->iconButton(),
+        EditAction::make()->iconButton(),
+        DeleteAction::make()->iconButton(),
+      ])
       ->bulkActions([
-        Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
+        BulkActionGroup::make([
+          DeleteBulkAction::make(),
+          CreateAction::make()->createAnother(false),
+        ]),
       ]);
   }
 
