@@ -14,8 +14,16 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\{TextColumn};
 use Filament\Forms\Components\{TextInput, PasswordInput, Grid};
-use Illuminate\Support\Facades\Auth; 
-use Filament\Tables\Actions\{ViewAction, EditAction,DeleteAction, BulkActionGroup, DeleteBulkAction, CreateAction};
+use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Actions\{
+  ViewAction,
+  EditAction,
+  DeleteAction,
+  BulkActionGroup,
+  DeleteBulkAction,
+  CreateAction
+};
+use Filament\Forms\Components\Actions\Action;
 
 class PelangganResource extends Resource
 {
@@ -31,14 +39,25 @@ class PelangganResource extends Resource
           TextInput::make('name')->label('Nama')->autocomplete(false)->required(),
           TextInput::make('email')
             ->email()
-            ->autocomplete(false)
+            ->autocomplete('off')
             ->required()
             ->unique(ignoreRecord: true),
           TextInput::make('password')
             ->password()
-            ->autocomplete(false)
             ->required()
-            ->dehydrateStateUsing(fn($state) => bcrypt($state)),
+            ->autocomplete('new-password')
+            ->live()
+            ->suffixActions([
+              Action::make('toggle-password-visible')
+                ->icon('heroicon-o-eye')
+                ->iconSize('md')
+                ->action(fn($component) => $component->type('text')),
+
+              Action::make('toggle-password-invisible')
+                ->icon('heroicon-o-eye-slash')
+                ->iconSize('md')
+                ->action(fn($component) => $component->type('password')),
+            ]),
         ]),
     ]);
   }
@@ -61,7 +80,7 @@ class PelangganResource extends Resource
         TextColumn::make('createdBy.name')
           ->label('Pembuat')
           ->formatStateUsing(function ($state, $record) {
-              return $record->createdBy != null ? $record->createdBy->name : 'N/A';
+            return $record->createdBy != null ? $record->createdBy->name : 'N/A';
           }),
         TextColumn::make('created_at')->label('Register pada')->dateTime(),
       ])
