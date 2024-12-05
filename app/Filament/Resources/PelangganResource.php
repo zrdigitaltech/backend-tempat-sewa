@@ -46,7 +46,6 @@ class PelangganResource extends Resource
   public static function table(Table $table): Table
   {
     return $table
-      // ->query(User::role('pelanggan'))
       ->modifyQueryUsing(function (Builder $query) {
         $user = Auth::user();
         if ($user->hasRole('super_admin')) {
@@ -62,7 +61,7 @@ class PelangganResource extends Resource
         TextColumn::make('createdBy.name')
           ->label('Pembuat')
           ->formatStateUsing(function ($state, $record) {
-              return $record->createdBy ? $record->createdBy->name : 'N/A';
+              return $record->createdBy != null ? $record->createdBy->name : 'N/A';
           }),
         TextColumn::make('created_at')->label('Register pada')->dateTime(),
       ])
