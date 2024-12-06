@@ -120,7 +120,7 @@ class PelangganResource extends Resource
 
   public static function getNavigationLabel(): string
   {
-    return __('Data Pelanggan');
+    return __('Data Pengguna');
   }
 
   public static function getNavigationGroup(): ?string
