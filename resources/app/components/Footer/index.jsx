@@ -3,7 +3,7 @@ export default function Index() {
     <footer>
       <div className="container">
         <p>
-          &copy; {new Date().getFullYear()} Nama Pemilik Kontrakan
+          &copy; {new Date().getFullYear()} CariKontrakan.id
           <br />
           Didukung oleh{' '}
           <a href="https://zrdevelopers.github.io/" target="_blank" className="text-primary">

@@ -41,4 +41,9 @@ class User extends Authenticatable
   {
     return $this->belongsTo(User::class, 'created_by');
   }
+
+  public function memberships()
+    {
+        return $this->belongsToMany(Membership::class)->withPivot('start_date', 'end_date', 'is_active');
+    }
 }

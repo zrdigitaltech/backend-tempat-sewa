@@ -7,7 +7,7 @@ const Index = props => {
     <Fragment>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <title>{title || 'Tempat Sewa Kontrakan'} | Nama Pemilik Kontrakan</title>
+      <title>{title || 'Tempat Sewa Kontrakan'} | Cari Kontrakan</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* <!-- Manifest --> */}
@@ -16,7 +16,7 @@ const Index = props => {
       {/* <!-- Keyword & Author --> */}
       <meta
         name="keywords"
-        content="Nama Pemilik Kontrakan, Sewa Kontrakan Cipondoh, Sewa Kontrakan Cileduk, Sewa Kontrakan Kunciran, Sewa Kontrakan Tangerang"
+        content="Cari Kontrakan, Sewa Kontrakan Cipondoh, Sewa Kontrakan Cileduk, Sewa Kontrakan Kunciran, Sewa Kontrakan Tangerang"
       />
       <meta name="author" content="ZRDevelopers" />
 

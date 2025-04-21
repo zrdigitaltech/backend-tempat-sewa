@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PelangganResource\Pages;
 use App\Filament\Resources\PelangganResource\RelationManagers;
 use App\Models\User;
+use App\Models\Membership;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,7 +14,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\{TextColumn};
-use Filament\Forms\Components\{TextInput, PasswordInput, Grid};
+use Filament\Forms\Components\{TextInput, PasswordInput, Grid, Select};
 use Illuminate\Support\Facades\Auth;
 use Filament\Tables\Actions\{
   ViewAction,
@@ -30,6 +31,8 @@ class PelangganResource extends Resource
   protected static ?string $model = User::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+  protected static ?string $slug = 'data-pengguna';
 
   public static function form(Form $form): Form
   {
@@ -58,6 +61,10 @@ class PelangganResource extends Resource
                 ->iconSize('md')
                 ->action(fn($component) => $component->type('password')),
             ]),
+            Select::make('membership_id')
+                    ->label('Membership')
+                    ->options(Membership::pluck('nama', 'id'))
+                    ->required(),
         ]),
     ]);
   }

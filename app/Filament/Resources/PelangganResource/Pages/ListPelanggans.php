@@ -10,6 +10,8 @@ class ListPelanggans extends ListRecords
 {
   protected static string $resource = PelangganResource::class;
 
+  // protected static ?string $title = 'Pengguna';
+
   protected function getHeaderActions(): array
   {
     return [Actions\CreateAction::make()];
