@@ -1,4 +1,4 @@
-import { actionType } from '@/redux/action/floatingWhatsapp/type';
+import { actionType } from '@/app/redux/action/floatingWhatsapp/type';
 import axios from 'axios';
 
 // Data Json

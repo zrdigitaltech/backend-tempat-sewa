@@ -1,15 +1,27 @@
+// router.jsx
 import React, { lazy, Suspense } from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, Navigate } from 'react-router-dom';
-import RootLayout from '@/layouts/RootLayout';
-import RouteLoading from '@/components/RouteLoading';
-import Error404 from '@/pages/404';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Navigate,
+  Outlet
+} from 'react-router-dom';
+import App from './App';
+import RouteLoading from '@/app/components/RouteLoading';
+import Error404 from '@/app/pages/404';
 
-const Home = lazy(() => import('@/pages/Home'));
-const Slug = lazy(() => import('@/pages/Home/Slug'));
+const Home = lazy(() => import('@/app/pages/Home'));
+
+const Search = lazy(() => import('@/app/pages/Search'));
+const Booking = lazy(() => import('@/app/pages/Booking'));
+const PropertiSlug = lazy(() => import('@/app/pages/Properti/Slug'));
+const AgentSlug = lazy(() => import('@/app/pages/Agent/Slug'));
+const SewaKategori = lazy(() => import('@/app/pages/Sewa'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
+    <Route path="/" element={<App />}>
       <Route
         index
         element={
@@ -17,12 +29,72 @@ const router = createBrowserRouter(
             <Home />
           </Suspense>
         }
+        handle={{ breadcrumb: 'Home' }}
       />
+      <Route path="properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
+        <Route index element={<Navigate to="/404" />} />
+        <Route
+          index
+          path=":slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <PropertiSlug />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+        <Route
+          path=":slug/booking"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <Booking />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+      </Route>
+      <Route path="agent" handle={{ breadcrumb: 'Agent' }} element={<Outlet />}>
+        <Route index element={<Navigate to="/404" />} />
+        <Route
+          path=":slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <AgentSlug />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+      </Route>
+      <Route path="sewa" handle={{ breadcrumb: 'Sewa' }} element={<Outlet />}>
+        <Route index element={<Navigate to="/404" />} />
+        <Route
+          path=":slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <SewaKategori />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+      </Route>
       <Route
-        path="/:slug"
+        path="/search"
+        handle={{ breadcrumb: 'Search' }}
         element={
           <Suspense fallback={<RouteLoading />}>
-            <Slug />
+            <Search />
           </Suspense>
         }
       />
@@ -33,8 +105,9 @@ const router = createBrowserRouter(
             <Error404 />
           </Suspense>
         }
+        handle={{ breadcrumb: 'Tidak ditemukan' }}
       />
-      <Route path="*" element={<Navigate to="/error404" />} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </Route>
   )
 );

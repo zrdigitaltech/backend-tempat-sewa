@@ -8,12 +8,10 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditLayananKeanggotaan extends EditRecord
 {
-    protected static string $resource = LayananKeanggotaanResource::class;
+  protected static string $resource = LayananKeanggotaanResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\DeleteAction::make()];
+  }
 }

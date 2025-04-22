@@ -1,5 +1,5 @@
-import { initialState } from '@/redux/action/logos/state';
-import { actionType } from '@/redux/action/logos/type';
+import { initialState } from '@/app/redux/action/logos/state';
+import { actionType } from '@/app/redux/action/logos/type';
 
 export const logosReducer = (state = initialState, action) => {
   switch (action.type) {

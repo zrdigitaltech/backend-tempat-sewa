@@ -17,13 +17,6 @@ export default defineConfig(config => {
     plugins: [
       laravel({
         input: [
-          // css
-          'resources/app/styles/bootstrap/css/bootstrap.min.scss',
-          'resources/app/styles/linearicons/css/icon-font.min.scss',
-          'resources/app/styles/font-awesome/css/font-awesome.min.scss',
-          'resources/app/styles/animate/animate.scss',
-          'resources/app/styles/owl-carousel/css/owl.carousel.scss',
-          'resources/app/styles/owl-carousel/css/owl.theme.scss',
           'resources/app/styles/scss/style.scss',
           'resources/app/index.jsx',
           'resources/js/app.js'
@@ -40,13 +33,15 @@ export default defineConfig(config => {
     css: {
       preprocessorOptions: {
         scss: {
-          // includePaths: ["resources/app/images"],
+          // Optionally turn off warnings
+          sourceMap: true // Enable source map for easier debugging
         }
       }
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'resources/app')
+        '@': path.resolve(__dirname, 'resources'),
+        bootstrap: path.resolve(__dirname, 'node_modules/bootstrap')
       }
     }
   };

@@ -8,5 +8,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateUsersMembership extends CreateRecord
 {
-    protected static string $resource = UsersMembershipResource::class;
+  protected static string $resource = UsersMembershipResource::class;
 }

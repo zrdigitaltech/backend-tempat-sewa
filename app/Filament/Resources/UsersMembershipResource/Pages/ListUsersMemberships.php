@@ -8,12 +8,10 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListUsersMemberships extends ListRecords
 {
-    protected static string $resource = UsersMembershipResource::class;
+  protected static string $resource = UsersMembershipResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [Actions\CreateAction::make()];
+  }
 }

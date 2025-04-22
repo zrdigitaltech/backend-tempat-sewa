@@ -1,5 +1,5 @@
-import { initialState } from '@/redux/action/pembayaran/state';
-import { actionType } from '@/redux/action/pembayaran/type';
+import { initialState } from '@/app/redux/action/pembayaran/state';
+import { actionType } from '@/app/redux/action/pembayaran/type';
 
 export const pembayaranReducer = (state = initialState, action) => {
   switch (action.type) {

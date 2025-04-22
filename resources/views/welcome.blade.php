@@ -16,7 +16,8 @@
     <!-- Google Tag Manager (noscript) -->
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="app" class="h-100"></div>
+    <div id="app"></div>
+    <!-- class="h-100" -->
 
     @filamentScripts
     @vite('resources/js/app.js')

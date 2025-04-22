@@ -1,13 +1,16 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Index = props => {
   const { title, deskripsi, image } = props;
+  const defaultTitle =
+    'TempatSewa.Com Indonesia: Situs Sewa Kos, Sewa Rumah, Sewa Apartemen, Sewa Ruko, Sewa Kios dan Sewa Gudang';
 
   return (
-    <Fragment>
+    <Helmet>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <title>{title || 'Tempat Sewa Kontrakan'} | Cari Kontrakan</title>
+      <title>{title || defaultTitle}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* <!-- Manifest --> */}
@@ -16,12 +19,12 @@ const Index = props => {
       {/* <!-- Keyword & Author --> */}
       <meta
         name="keywords"
-        content="Cari Kontrakan, Sewa Kontrakan Cipondoh, Sewa Kontrakan Cileduk, Sewa Kontrakan Kunciran, Sewa Kontrakan Tangerang"
+        content="sewa kos, sewa rumah, sewa apartemen, sewa ruko, sewa kios, sewa gudang, sewa properti Indonesia"
       />
       <meta name="author" content="ZRDevelopers" />
 
       {/* <!--  Essential META Tags --> */}
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={title || defaultTitle} />
       <meta property="og:image" content={`${image || '/assets/assets/images/about-us.jpg'}`} />
       <meta property="og:url" content="/" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -29,10 +32,10 @@ const Index = props => {
       {/* <!--  Non-Essential, But Recommended --> */}
       <meta
         property="og:description"
-        content={`${deskripsi || 'Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.'}`}
+        content={`${deskripsi || 'TempatSewa.Com adalah platform terpercaya untuk sewa kos, rumah, apartemen, ruko, kios, dan gudang di seluruh Indonesia.'}`}
       />
-      <meta property="og:site_name" content={title} />
-      <meta name="twitter:image:alt" content={title} />
+      <meta property="og:site_name" content={title || defaultTitle} />
+      <meta name="twitter:image:alt" content={title || defaultTitle} />
 
       {/* <!--  Non-Essential, But Required for Analytics --> */}
       {/* <!-- <meta property="fb:app_id" content="your_app_id" />
@@ -45,7 +48,7 @@ const Index = props => {
       {/* <!-- End Google Tag Manager --> */}
 
       {/* <!-- Google tag (gtag.js) --> */}
-    </Fragment>
+    </Helmet>
   );
 };
 

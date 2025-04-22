@@ -1,5 +1,5 @@
-import { initialState } from '@/redux/action/kontrakan/state';
-import { actionType } from '@/redux/action/kontrakan/type';
+import { initialState } from '@/app/redux/action/kontrakan/state';
+import { actionType } from '@/app/redux/action/kontrakan/type';
 
 export const kontrakanReducer = (state = initialState, action) => {
   switch (action.type) {

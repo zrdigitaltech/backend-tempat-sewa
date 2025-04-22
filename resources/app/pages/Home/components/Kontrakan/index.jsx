@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListKontrakan } from '@/redux/action/kontrakan/creator';
+import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
 
 import { Link } from 'react-router-dom';
 
-import { formatPrice, sortList } from '@/helpers';
+import { formatPrice, sortList } from '@/app/helpers';
 
 export default function Index() {
   const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);

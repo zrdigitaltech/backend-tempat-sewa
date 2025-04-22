@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
 // Import reducers yang diperlukan
-import { logosReducer } from '@/redux/reducer/logos/reducer';
-import { hubungiKamiReducer } from '@/redux/reducer/hubungiKami/reducer';
-import { floatingWhatsappReducer } from '@/redux/reducer/floatingWhatsapp/reducer';
-import { pembayaranReducer } from '@/redux/reducer/pembayaran/reducer';
-import { kontrakanReducer } from '@/redux/reducer/kontrakan/reducer';
+import { logosReducer } from '@/app/redux/reducer/logos/reducer';
+import { hubungiKamiReducer } from '@/app/redux/reducer/hubungiKami/reducer';
+import { floatingWhatsappReducer } from '@/app/redux/reducer/floatingWhatsapp/reducer';
+import { pembayaranReducer } from '@/app/redux/reducer/pembayaran/reducer';
+import { kontrakanReducer } from '@/app/redux/reducer/kontrakan/reducer';
 
 // Combine semua reducers menjadi satu
 const rootReducer = combineReducers({

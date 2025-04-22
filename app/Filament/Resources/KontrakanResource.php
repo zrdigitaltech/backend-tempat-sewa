@@ -143,9 +143,7 @@ class KontrakanResource extends Resource
         ImageColumn::make('image')
           ->label('Gambar')
           ->getStateUsing(function (Kontrakan $record) {
-            $kontrakanUrl = collect($record->image)
-              ->pluck('image')
-              ->toArray();
+            $kontrakanUrl = collect($record->image)->pluck('image')->toArray();
 
             return $kontrakanUrl;
           })

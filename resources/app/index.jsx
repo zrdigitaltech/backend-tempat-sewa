@@ -1,23 +1,27 @@
+// index.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-import '@/styles/bootstrap/css/bootstrap.min.scss';
-import '@/styles/linearicons/css/icon-font.min.scss';
-import '@/styles/font-awesome/css/font-awesome.min.scss';
-// import '@/styles/animate/animate.scss';
-// import '@/styles/owl-carousel/css/owl.carousel.scss';
-// import '@/styles/owl-carousel/css/owl.theme.scss';
-import '@/styles/scss/style.scss';
-
 import { Provider } from 'react-redux';
-import store from '@/redux/store';
+import { HelmetProvider } from 'react-helmet-async';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+
+import store from '@/app/redux/store';
+
+import '@/app/styles/scss/style.scss';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Use the body element with id "app" as the container
 const appContainer = document.getElementById('app');
 
 ReactDOM.createRoot(appContainer).render(
   <Provider store={store}>
-    <App />
+    <HelmetProvider>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </HelmetProvider>
   </Provider>
 );

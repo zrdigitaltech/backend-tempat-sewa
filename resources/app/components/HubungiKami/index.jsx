@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListHubungiKami } from '@/redux/action/hubungiKami/creator';
-import { getListPembayaran } from '@/redux/action/pembayaran/creator';
+import { getListHubungiKami } from '@/app/redux/action/hubungiKami/creator';
+import { getListPembayaran } from '@/app/redux/action/pembayaran/creator';
 
 export default function Index() {
   const [copySuccess, setCopySuccess] = useState('Salin No Rek!');

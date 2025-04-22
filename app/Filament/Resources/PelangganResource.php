@@ -61,10 +61,10 @@ class PelangganResource extends Resource
                 ->iconSize('md')
                 ->action(fn($component) => $component->type('password')),
             ]),
-            Select::make('membership_id')
-                    ->label('Membership')
-                    ->options(Membership::pluck('nama', 'id'))
-                    ->required(),
+          Select::make('membership_id')
+            ->label('Membership')
+            ->options(Membership::pluck('nama', 'id'))
+            ->required(),
         ]),
     ]);
   }

@@ -1,0 +1,31 @@
+/* Typography */
+@use '../base/variables' as *;
+
+h1 {
+  font-size: clamp($font-size-xl, $vw-xl, $font-size-xxl);
+}
+
+h2 {
+  font-size: clamp($font-size-lg, $vw-lg, $font-size-xl);
+}
+
+h3 {
+  font-size: clamp($font-size-md, $vw-md, $font-size-lg);
+}
+
+h4 {
+  font-size: clamp($font-size-sm, $vw-sm, $font-size-md);
+}
+
+h5 {
+  font-size: clamp($font-size-base, $vw-sm, $font-size-lg);
+}
+
+h6 {
+  font-size: clamp($font-size-sm, $vw-md, $font-size-base);
+}
+
+p,
+span {
+  font-size: clamp($font-size-sm, $vw-sm, $font-size-base);
+}

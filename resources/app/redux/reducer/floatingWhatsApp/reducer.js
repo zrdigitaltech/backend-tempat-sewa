@@ -1,5 +1,5 @@
-import { initialState } from '@/redux/action/floatingWhatsapp/state';
-import { actionType } from '@/redux/action/floatingWhatsapp/type';
+import { initialState } from '@/app/redux/action/floatingWhatsapp/state';
+import { actionType } from '@/app/redux/action/floatingWhatsapp/type';
 
 export const floatingWhatsappReducer = (state = initialState, action) => {
   switch (action.type) {

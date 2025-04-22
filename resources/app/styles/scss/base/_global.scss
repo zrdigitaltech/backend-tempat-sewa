@@ -1,0 +1,21 @@
+/* Global */
+@use '../base/variables' as *;
+body {
+  font-family: $font-family-body;
+  margin-bottom: 0 !important;
+  color: $text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+}
+
+.button,
+.btn {
+  font-family: $font-family-heading;
+}

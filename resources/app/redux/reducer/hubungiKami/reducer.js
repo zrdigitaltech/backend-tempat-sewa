@@ -1,5 +1,5 @@
-import { initialState } from '@/redux/action/hubungiKami/state';
-import { actionType } from '@/redux/action/hubungiKami/type';
+import { initialState } from '@/app/redux/action/hubungiKami/state';
+import { actionType } from '@/app/redux/action/hubungiKami/type';
 
 export const hubungiKamiReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -1,16 +1,20 @@
-import React, { Fragment } from 'react';
+// Home Page
+import React, { Fragment, useEffect } from 'react';
+import Banner from './components/Banner';
+import Kategori from './components/Kategori';
+import Properti from './components/Properti';
 
-import Kontrakan from '@/pages/Home/components/Kontrakan';
-
-import Heads from '@/components/Heads';
-import Header from '@/components/Header';
-
-export default function Index() {
+export default function HomePage() {
   return (
     <Fragment>
-      <Heads />
-      <Header />
-      <Kontrakan />
+      {/* Hero Banner */}
+      <Banner />
+
+      {/* Kategori */}
+      <Kategori />
+
+      {/* Properti Terbaru */}
+      <Properti />
     </Fragment>
   );
 }

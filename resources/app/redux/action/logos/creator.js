@@ -1,4 +1,4 @@
-import { actionType } from '@/redux/action/logos/type';
+import { actionType } from '@/app/redux/action/logos/type';
 import axios from 'axios';
 
 // Data Json

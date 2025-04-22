@@ -1,0 +1,50 @@
+import React from 'react';
+import { Link, useMatches } from 'react-router-dom';
+
+const Breadcrumb = props => {
+  const { className } = props;
+  const matches = useMatches();
+
+  const items = matches
+    .filter(match => match.handle?.breadcrumb)
+    .map(match => ({
+      name:
+        typeof match.handle.breadcrumb === 'function'
+          ? match.handle.breadcrumb(match.params)
+          : match.handle.breadcrumb,
+      link: match.pathname
+    }));
+
+  return (
+    <section className={`pt-3 ${className}`}>
+      <div className="container">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb mb-0">
+            {/* Always add Home as the first breadcrumb */}
+            <li className="breadcrumb-item">
+              <Link to="/" className="text-decoration-none">
+                Home
+              </Link>
+            </li>
+
+            {items.map((item, idx) => (
+              <li
+                key={idx}
+                className={`breadcrumb-item ${idx === items.length - 1 ? 'active' : ''}`}
+                aria-current={idx === items.length - 1 ? 'page' : undefined}
+              >
+                {idx !== items.length - 1 ? (
+                  <span className="text-primary">{item.name}</span>
+                ) : (
+                  <b className="text-primary">{item.name}</b>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </section>
+  );
+};
+
+export default Breadcrumb;

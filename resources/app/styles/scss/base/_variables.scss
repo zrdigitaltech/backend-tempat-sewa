@@ -1,0 +1,63 @@
+// -----------------------------------
+// COLOR PALETTE (Modern Property Rental Theme)
+// -----------------------------------
+$primary: #1e3a8a; // Indigo blue - Kesan profesional & elegan
+$secondary: #10b981; // Emerald green - Fresh & natural
+$accent: #f97316; // Orange - Friendly call to action
+$muted: #64748b; // Slate gray - Untuk elemen tidak aktif
+
+$success: #22c55e; // Soft green
+$danger: #ef4444; // Vibrant red
+$warning: #facc15; // Soft yellow
+$info: #3b82f6; // Soft blue
+
+$light: #f9fafb; // Bright background
+$dark: #1f2937; // Rich dark
+
+// Optional gray scale
+$gray-50: #f8fafc;
+$gray-100: #f1f5f9;
+$gray-200: #e2e8f0;
+$gray-300: #cbd5e1;
+$gray-400: #94a3b8;
+$gray-500: #64748b;
+
+// -----------------------------------
+// TEXT COLORS
+// -----------------------------------
+$text-primary: #111827; // Almost black
+$text-secondary: #4b5563; // Medium gray
+$text-light: #ffffff; // For dark backgrounds
+
+// -----------------------------------
+// FONT SIZE SYSTEM
+// -----------------------------------
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1.125rem; // 18px
+$font-size-lg: 1.5rem; // 24px
+$font-size-xl: 2rem; // 32px
+$font-size-xxl: 2.5rem; // 40px
+
+// -----------------------------------
+// RESPONSIVE SCALING (viewport-based)
+// -----------------------------------
+$vw-sm: 2vw;
+$vw-md: 3vw;
+$vw-lg: 4vw;
+$vw-xl: 5vw;
+
+// -----------------------------------
+// BORDER RADIUS & SHADOWS
+// -----------------------------------
+$border-radius: 0.5rem;
+$border-radius-lg: 1rem;
+$box-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+// -----------------------------------
+// Font
+// -----------------------------------
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-body: 'Inter', sans-serif;

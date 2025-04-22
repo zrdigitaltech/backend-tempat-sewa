@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListKontrakan } from '@/redux/action/kontrakan/creator';
+import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
 
 import { Link } from 'react-router-dom';
 
@@ -9,13 +9,13 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the Ca
 
 import { useParams } from 'react-router-dom';
 
-import { formatPrice } from '@/helpers';
+import { formatPrice } from '@/app/helpers';
 
-import RouteLoading from '@/components/RouteLoading';
-import NotFound from '@/pages/404';
+import RouteLoading from '@/app/components/RouteLoading';
+import NotFound from '@/app/pages/404';
 
-import Heads from '@/components/Heads';
-import Header from '@/components/Header';
+import Heads from '@/app/components/Heads';
+import Header from '@/app/components/Header';
 
 const Index = () => {
   const { slug } = useParams();

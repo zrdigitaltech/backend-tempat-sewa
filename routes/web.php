@@ -26,9 +26,9 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('/{slug}', function () {
-  return view('welcome');
-});
+Route::get('/{any}', function () {
+  return view('welcome'); // atau blade view yang render React kamu
+})->where('any', '.*');
 
 // Route::fallback(function () {
 //   return view('welcome');
