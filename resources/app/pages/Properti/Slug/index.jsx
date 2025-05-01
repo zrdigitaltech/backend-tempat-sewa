@@ -67,33 +67,6 @@ const Index = () => {
                     />
                   ))}
                 </Carousel>
-
-                {(kontrakanDetail?.member === 'Super Featured' ||
-                  kontrakanDetail?.member === 'Premium') && (
-                  <div
-                    className={`ST__badge ${(kontrakanDetail?.member === 'Super Featured' && 'bg-primary') || (kontrakanDetail?.member === 'Premium' && 'bg-warning')} `}
-                  >
-                    <i className="fa fa-bolt"></i>
-                    <span>{kontrakanDetail?.member}</span>
-                  </div>
-                )}
-
-                {/* Eye View */}
-                <div
-                  className="badge position-absolute d-flex align-items-center mb-2"
-                  style={{
-                    bottom: '0px',
-                    left: '10px',
-                    backgroundColor: 'rgba(0,0,0,0.6)',
-                    color: 'white',
-                    fontSize: '0.75rem',
-                    padding: '6px 10px',
-                    borderRadius: '6px'
-                  }}
-                >
-                  <i className="fa fa-eye pe-1" aria-hidden="true"></i>{' '}
-                  {formatViews(kontrakanDetail?.views)}
-                </div>
               </div>
             </div>
           </div>

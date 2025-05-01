@@ -104,39 +104,25 @@ export default function Index(props) {
           </div>
         )}
 
-        <span
+        {/* <span
           className={`badge mb-2 position-absolute ${status.toLowerCase() === 'tersedia' ? 'bg-success' : 'bg-danger'}`}
           style={{
             bottom: '0px',
-            right: '10px',
+            left: '10px',
             fontSize: '0.75rem',
             padding: '6px 10px',
             borderRadius: '6px'
           }}
         >
           {status}
-        </span>
-
-        <div
-          className="badge position-absolute d-flex align-items-center mb-2"
-          style={{
-            bottom: '0px',
-            left: '10px',
-            backgroundColor: 'rgba(0,0,0,0.6)',
-            color: 'white',
-            fontSize: '0.75rem',
-            padding: '6px 10px',
-            borderRadius: '6px'
-          }}
-        >
-          <i className="fa fa-eye pe-1" aria-hidden="true"></i> {formatViews(views)}
-        </div>
+        </span> */}
       </div>
       <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
         <div className="card-body">
-          <h5 className="card-title">
+          <h5 className="card-title fw-bold">
             <small>Rp</small>
-            {formatPrice(harga)}/Bulan
+            {formatPrice(harga)}
+            <small className="text-capitalize"> / {durasi}</small>
           </h5>
 
           <span
