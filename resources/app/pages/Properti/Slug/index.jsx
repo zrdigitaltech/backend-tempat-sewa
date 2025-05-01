@@ -39,8 +39,6 @@ const Index = () => {
         deskripsi={kontrakanDetail?.deskripsi}
         image={kontrakanDetail?.image?.[0]}
       />
-      {/* Breadcrumb */}
-      <Breadcrumb />
 
       <section className="mb-5 mt-2">
         <div className="container ">
@@ -103,6 +101,34 @@ const Index = () => {
           {/* Detail Info */}
           <div className="row g-4">
             <div className="col-md-8">
+              {/* Breadcrumb */}
+              <Breadcrumb containerClassName="px-0 mb-2" />
+              <div className="mb-2 overflow-auto">
+                <div className="d-flex flex-nowrap gap-2">
+                  {(kontrakanDetail?.member === 'Super Featured' ||
+                    kontrakanDetail?.member === 'Premium') && (
+                    <span
+                      className={`align-content-center badge p-2 text-uppercase ${
+                        kontrakanDetail?.member === 'Super Featured'
+                          ? 'text-bg-primary'
+                          : 'text-bg-warning'
+                      }`}
+                    >
+                      <i className="fa fa-bolt pe-1"></i>
+                      {kontrakanDetail?.member}
+                    </span>
+                  )}
+
+                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent">
+                    🛏️ Kost
+                  </span>
+
+                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent">
+                    <i className="fa fa-clock-o"></i> Diperbaharui: {kontrakanDetail?.upload}
+                  </span>
+                </div>
+              </div>
+
               <h2 className="fw-bold text-primary mb-0">{kontrakanDetail?.nama}</h2>
               <p className="text-muted">{kontrakanDetail?.alamat}</p>
 
@@ -136,12 +162,7 @@ const Index = () => {
                 <hr className="my-3" />
                 {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
                   <Fragment>
-                    <button
-                      className="btn btn-success w-100"
-                      disabled={kontrakanDetail?.status?.toLowerCase() === 'tersedia'}
-                    >
-                      Hubungi Pemilik
-                    </button>
+                    <button className="btn btn-success w-100">Hubungi Pemilik</button>
 
                     <Link
                       className="btn btn-outline-primary w-100 mt-2 mb-2"

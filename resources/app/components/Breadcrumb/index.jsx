@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useMatches } from 'react-router-dom';
 
 const Breadcrumb = props => {
-  const { className } = props;
+  const { className = '', containerClassName = '' } = props;
   const matches = useMatches();
 
   const items = matches
@@ -16,8 +16,8 @@ const Breadcrumb = props => {
     }));
 
   return (
-    <section className={`pt-3 ${className}`}>
-      <div className="container">
+    <section className={`${className && className + ' pt-3'}`}>
+      <div className={`container ${containerClassName}`}>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb mb-0">
             {/* Always add Home as the first breadcrumb */}
