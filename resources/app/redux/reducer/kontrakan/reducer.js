@@ -15,6 +15,12 @@ export const kontrakanReducer = (state = initialState, action) => {
         kontrakanListLainnya: action.payload
       };
       return state;
+    case actionType.loadKontrakanDetail:
+      state = {
+        ...state,
+        kontrakanDetail: action.payload
+      };
+      return state;
     case actionType.loadKontrakanResetData:
       return initialState;
     default:

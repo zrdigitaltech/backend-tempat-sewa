@@ -1,4 +1,5 @@
 export const initialState = {
   kontrakanList: [],
-  kontrakanListLainnya: []
+  kontrakanListLainnya: [],
+  kontrakanDetail: {}
 };

@@ -60,7 +60,30 @@ export const getListLainnya = slug => {
   };
 };
 
-// Action to save the list of kontrakan
+export const getPropertiDetail = slug => {
+  return async dispatch => {
+    try {
+      const response = await axios.get(`/api/v1/kontrakanDetail?slug=${slug}`);
+      const detail = response.data.data;
+      if (detail) {
+        dispatch(saveKontrakanDetail(detail));
+      } else {
+        // fallback dari JSON statis
+        const fallback = DataKontrakan.find(item => item.slug === slug);
+        if (fallback) {
+          dispatch(saveKontrakanDetail(fallback));
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching properti detail:', error);
+      const fallback = DataKontrakan.find(item => item.slug === slug);
+      if (fallback) {
+        dispatch(saveKontrakanDetail(fallback));
+      }
+    }
+  };
+};
+
 export const saveListKontrakan = payload => {
   return {
     type: actionType.loadKontrakan,
@@ -71,6 +94,13 @@ export const saveListKontrakan = payload => {
 export const saveListKontrakanLainnya = payload => {
   return {
     type: actionType.loadKontrakanLainnya,
+    payload: payload
+  };
+};
+
+export const saveKontrakanDetail = payload => {
+  return {
+    type: actionType.loadKontrakanDetail,
     payload: payload
   };
 };

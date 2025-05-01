@@ -94,8 +94,8 @@ const Index = props => {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M21.9199 21.375L14.4225 10.4471L14.4353 10.4574L21.1953 2.625H18.9363L13.4294 9L9.05625 2.625H3.13165L10.1312 12.8276L10.1304 12.8267L2.74805 21.375H5.00707L11.1295 14.2824L15.9953 21.375H21.9199ZM8.16117 4.32954L18.6806 19.6705H16.8904L6.36251 4.32954H8.16117Z"
           ></path>
         </svg>

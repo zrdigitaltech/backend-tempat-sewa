@@ -99,7 +99,7 @@ export default function Index(props) {
           <div
             className={`ST__badge ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
           >
-            <i class="fa fa-bolt"></i>
+            <i className="fa fa-bolt"></i>
             <span>{member}</span>
           </div>
         )}

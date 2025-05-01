@@ -1,7 +1,5 @@
 // Slug.jsx
 import React, { Fragment, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -11,37 +9,25 @@ import Heads from '@/app/components/Heads';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
-
 import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
 
 const Index = () => {
   const { slug } = useParams();
-  const kontrakanList = useSelector(state => state.kontrakan.kontrakanList);
+  const kontrakanDetail = useSelector(state => state?.kontrakan?.kontrakanDetail);
   const dispatch = useDispatch();
 
-  const [kontrakanDetail, setKontrakanDetail] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [showShare, setShowShare] = useState(false);
   const [showPreview, setShowPreview] = useState(null);
 
-  useEffect(() => {
-    const fetchKontrakanDetails = async () => {
-      setIsLoading(true);
-      await dispatch(getListKontrakan());
-    };
-
-    fetchKontrakanDetails();
-  }, [dispatch]);
+  const fetchPropertiDetail = () => {
+    dispatch(getPropertiDetail(slug));
+  };
 
   useEffect(() => {
-    if (kontrakanList?.length > 0) {
-      const findSlug = kontrakanList?.find(item => item?.slug === slug);
-      if (findSlug) {
-        setKontrakanDetail(findSlug);
-      }
-      setIsLoading(false);
-    }
-  }, [kontrakanList, slug]);
+    fetchPropertiDetail();
+  }, [kontrakanDetail, dispatch, slug]);
 
   return (
     <Fragment>
@@ -70,9 +56,9 @@ const Index = () => {
                   showThumbs={false}
                   centerMode={true}
                   className="rounded-4 overflow-hidden cursor-pointer"
-                  onClickItem={index => setShowPreview([1, 2, 3][index])}
+                  onClickItem={index => setShowPreview(kontrakanDetail?.image[index])}
                 >
-                  {[1, 2, 3].map((x, i) => (
+                  {kontrakanDetail?.image?.map((x, i) => (
                     <img
                       key={x || i}
                       src={`https://placehold.co/600x200?text=Image+${i + 1}`}
@@ -81,18 +67,15 @@ const Index = () => {
                   ))}
                 </Carousel>
 
-                <span
-                  className="badge bg-warning text-dark position-absolute"
-                  style={{
-                    top: '10px',
-                    left: '10px',
-                    fontSize: '0.75rem',
-                    padding: '6px 10px',
-                    borderRadius: '6px'
-                  }}
-                >
-                  Pilihan Paket Member
-                </span>
+                {(kontrakanDetail?.member === 'Super Featured' ||
+                  kontrakanDetail?.member === 'Premium') && (
+                  <div
+                    className={`ST__badge ${(kontrakanDetail?.member === 'Super Featured' && 'bg-primary') || (kontrakanDetail?.member === 'Premium' && 'bg-warning')} `}
+                  >
+                    <i className="fa fa-bolt"></i>
+                    <span>{kontrakanDetail?.member}</span>
+                  </div>
+                )}
 
                 {/* Eye View */}
                 <div
@@ -107,7 +90,8 @@ const Index = () => {
                     borderRadius: '6px'
                   }}
                 >
-                  <i className="fa fa-eye pe-1" aria-hidden="true"></i> {formatViews(1000)}
+                  <i className="fa fa-eye pe-1" aria-hidden="true"></i>{' '}
+                  {formatViews(kontrakanDetail?.views)}
                 </div>
               </div>
             </div>
@@ -117,10 +101,11 @@ const Index = () => {
           <div className="row g-4">
             <div className="col-md-8">
               <h2 className="fw-bold text-primary">
-                Rp {formatPriceLocale(1050000)} <span>/ bulan</span>
+                Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
+                <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
               </h2>
-              <h5 className="fw-semibold mb-2">Kontrakan 2 Kamar di Jakarta Timur</h5>
-              <p className="text-muted">Jl. Melati No. 45, Duren Sawit, Jakarta Timur</p>
+              <h5 className="fw-semibold mb-2">{kontrakanDetail?.nama}</h5>
+              <p className="text-muted">{kontrakanDetail?.alamat}</p>
 
               {/* Fasilitas */}
               <h5 className="fw-semibold mt-4">Fasilitas</h5>
