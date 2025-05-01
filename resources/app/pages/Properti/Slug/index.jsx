@@ -103,11 +103,7 @@ const Index = () => {
           {/* Detail Info */}
           <div className="row g-4">
             <div className="col-md-8">
-              <h2 className="fw-bold text-primary">
-                Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
-                <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
-              </h2>
-              <h5 className="fw-semibold mb-2">{kontrakanDetail?.nama}</h5>
+              <h2 className="fw-bold text-primary mb-0">{kontrakanDetail?.nama}</h2>
               <p className="text-muted">{kontrakanDetail?.alamat}</p>
 
               {/* Fasilitas */}
@@ -133,10 +129,13 @@ const Index = () => {
                   top: '100px' // jarak dari atas saat sticky
                 }}
               >
+                <h2 className="fw-bold text-primary mb-0 text-center">
+                  Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
+                  <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
+                </h2>
+                <hr className="my-3" />
                 {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
                   <Fragment>
-                    <h5 className="fw-semibold mb-3">Tertarik?</h5>
-
                     <button
                       className="btn btn-success w-100"
                       disabled={kontrakanDetail?.status?.toLowerCase() === 'tersedia'}
