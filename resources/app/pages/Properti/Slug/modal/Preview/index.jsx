@@ -14,7 +14,14 @@ const Index = props => {
       modalDialog="modal-fullscreen"
       modalBody={
         <Fragment>
-          <img src={`https://placehold.co/600x200?text=Image+${preview}`} className="w-100" />
+          <img
+            src={`https://placehold.co/1200x500?text=Image+${preview}`}
+            className="w-100"
+            style={{
+              height: '80vh',
+              objectFit: 'contain' // atau 'contain' jika ingin seluruh gambar terlihat
+            }}
+          />
         </Fragment>
       }
       modalFooter={false}

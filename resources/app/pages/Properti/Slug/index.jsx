@@ -106,7 +106,7 @@ const Index = () => {
                     borderRadius: '6px'
                   }}
                 >
-                  <i class="fa fa-eye pe-1" aria-hidden="true"></i> {formatViews(1000)}
+                  <i className="fa fa-eye pe-1" aria-hidden="true"></i> {formatViews(1000)}
                 </div>
               </div>
             </div>
@@ -171,6 +171,14 @@ const Index = () => {
                   Bagikan
                 </button>
 
+                {/* Laporkan Iklan */}
+                <button
+                  className="btn btn-outline-danger w-100 mt-2"
+                  onClick={() => alert('Form laporan akan ditampilkan di sini')}
+                >
+                  Laporkan Iklan
+                </button>
+
                 <hr className="my-4" />
                 <div>
                   <p className="mb-1">
@@ -200,7 +208,7 @@ const Index = () => {
           <h5 className="fw-semibold mb-4">Properti Lainnya</h5>
           <div className="position-relative">
             <div
-              className="d-flex gap-3 overflow-auto pb-2"
+              className="d-flex gap-3 overflow-auto pb-2 ps-1"
               style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
             >
               {kontrakanList?.map((kontrakan, index) => (
@@ -212,7 +220,7 @@ const Index = () => {
                     scrollSnapAlign: 'start'
                   }}
                 >
-                  <PropertiCard {...kontrakan} />
+                  <PropertiCard {...kontrakan} btnTelp={false} />
                 </div>
               ))}
             </div>

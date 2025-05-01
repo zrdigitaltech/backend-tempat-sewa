@@ -1,192 +1,74 @@
 [
   {
-    "id": 1,
+    "nama": "Kontrakan Mewah A",
+    "harga": 2000000,
+    "durasi": "bulanan",
+    "status": "Tersedia",
+    "slug": "kontrakan-mewah-a",
     "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
+      "https://placehold.co/800x600?text=Image+1",
+      "https://placehold.co/800x600?text=Image+2"
     ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Angsa",
-    "slug": "kontrakan-angsa",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
+    "alamat": "Jl. Merdeka No. 10, Tangerang",
+    "pemilik": "Budi Santoso",
+    "pemilikSlug": "budi-santoso",
+    "views": 1500,
+    "telp": "+6281228883616",
+    "whatsapp": "+6281228883616",
+    "member": "Super Featured"
   },
   {
-    "id": 2,
+    "nama": "Kontrakan Mewah B",
+    "harga": 2500000,
+    "durasi": "bulanan",
+    "status": "Tidak Tersedia",
+    "slug": "kontrakan-mewah-b",
     "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
+      "https://placehold.co/800x600?text=Image+1",
+      "https://placehold.co/800x600?text=Image+2"
     ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Dara",
-    "slug": "kontrakan-dara",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tidak tersedia"
+    "alamat": "Jl. Merdeka No. 15, Jakarta",
+    "pemilik": "Siti Aminah",
+    "pemilikSlug": "siti-aminah",
+    "views": 2000,
+    "telp": "+6281228883616",
+    "whatsapp": "+6281228883616",
+    "member": "Premium"
   },
   {
-    "id": 3,
+    "nama": "Kontrakan Hemat C",
+    "harga": 1200000,
+    "durasi": "bulanan",
+    "status": "Tersedia",
+    "slug": "kontrakan-hemat-c",
     "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
+      "https://placehold.co/800x600?text=Image+1",
+      "https://placehold.co/800x600?text=Image+2"
     ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
+    "alamat": "Jl. Pahlawan No. 5, Bekasi",
+    "pemilik": "Andi Prasetyo",
+    "pemilikSlug": "andi-prasetyo",
+    "views": 1200,
+    "telp": "+6281228883616",
+    "whatsapp": "+6281228883616",
+    "member": "Premium"
   },
   {
-    "id": 3,
+    "nama": "Kontrakan Modern D",
+    "harga": 3000000,
+    "durasi": "bulanan",
+    "status": "Tidak Tersedia",
+    "slug": "kontrakan-modern-d",
     "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
+      "https://placehold.co/800x600?text=Image+1",
+      "https://placehold.co/800x600?text=Image+2"
     ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
-  },
-  {
-    "id": 3,
-    "image": [
-      {"image": "/assets/images/kontrakan-black.webp" },
-      {"image": "/assets/images/kontrakan-white.webp" }
-    ],
-    "alt": "Nama Pemilik Kontrakan",
-    "nama": "Kontrakan Elang",
-    "slug": "kontrakan-elang",
-    "deskripsi": "- Listrik masing-masing<br/>- Airnya bersama (toren)<br/>- Motor bisa parkir dalam<br/>* TIDAK DIBISA UNTUK BERJUALAN *",
-    "keterangan": null,
-    "harga_sewa": [
-      {"durasi" : "1", "harga" : "20"},
-      {"durasi" : "3", "harga" : "60"},
-      {"durasi" : "6", "harga" : "180"},
-      {"durasi" : "12", "harga" : "240"}
-    ],
-    "status": "tersedia"
+    "alamat": "Jl. Raya No. 8, Depok",
+    "pemilik": "Rina Kusuma",
+    "pemilikSlug": "rina-kusuma",
+    "views": 1800,
+    "telp": "+6281228883616",
+    "whatsapp": "+6281228883616",
+    "member": "Free"
   }
 ]

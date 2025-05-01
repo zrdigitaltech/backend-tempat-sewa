@@ -12,6 +12,7 @@ import store from '@/app/redux/store';
 
 import '@/app/styles/scss/style.scss';
 import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Use the body element with id "app" as the container
 const appContainer = document.getElementById('app');
