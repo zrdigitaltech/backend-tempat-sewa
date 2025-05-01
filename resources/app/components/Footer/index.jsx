@@ -7,10 +7,11 @@ export default function Index() {
           <div className="col-md-6">
             <h5>Tentang TempatSewa.Com</h5>
             <p>
-              <small>Tempat</small>Sewa.Com adalah platform yang dirancang untuk memudahkan Anda dalam mencari dan
-              memesan kontrakan, kost, maupun properti sewa lainnya secara cepat dan praktis. Tak
-              hanya untuk pencari hunian — Anda juga dapat memasarkan properti dan mengelolanya
-              dengan lebih efisien, semua dalam satu tempat: <small>Tempat</small>Sewa.Com.
+              <small>Tempat</small>Sewa.Com adalah platform yang dirancang untuk memudahkan Anda
+              dalam mencari dan memesan kontrakan, kost, maupun properti sewa lainnya secara cepat
+              dan praktis. Tak hanya untuk pencari hunian — Anda juga dapat memasarkan properti dan
+              mengelolanya dengan lebih efisien, semua dalam satu tempat: <small>Tempat</small>
+              Sewa.Com.
             </p>
           </div>
 
@@ -36,7 +37,10 @@ export default function Index() {
         <div className="row border-top pt-3">
           <div className="col-6">
             <p className="mb-0">
-              &copy; {new Date().getFullYear()} <strong><small>Tempat</small>Sewa.Com</strong>
+              &copy; {new Date().getFullYear()}{' '}
+              <strong>
+                <small>Tempat</small>Sewa.Com
+              </strong>
             </p>
           </div>
           <div className="col-6 text-end mt-2 mt-0">

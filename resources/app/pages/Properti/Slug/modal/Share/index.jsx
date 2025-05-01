@@ -1,16 +1,15 @@
-import React from 'react';
+import React,{ Fragment, useEffect} from 'react';
 import Modals from '@/app/components/Modals';
-import { Fragment } from 'react';
 
 const Index = props => {
-  const { show, onClose, link_wa } = props;
+  const { show, onClose, data } = props;
   const domain = 'https://TempatSewa.Com';
 
   const shareLinks = {
-    copylink: `${domain}`,
-    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`Lihat produk ini: ** - ${domain}`)}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${domain}`)}`,
-    x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Lihat produk ini: ** - ${domain}`)}`
+    copylink: `${domain + '/properti' + data?.slug}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`Lihat properti ini: ** - ${domain + '/properti' + data?.slug}`)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${domain + '/properti' + data?.slug}`)}`,
+    x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Lihat properti ini: ** - ${domain + '/properti' + data?.slug}`)}`
   };
 
   const handleShare = platform => {
@@ -103,6 +102,8 @@ const Index = props => {
     }
   ];
 
+  useEffect(() => {},[data])
+
   return (
     <Modals
       title="Bagikan Properti"
@@ -116,7 +117,13 @@ const Index = props => {
               <div className="col-6 mb-2" key={item ?? idx}>
                 <a
                   onClick={() => handleShare(item?.platform)}
-                  className="btn btn-outline-primary w-100 d-flex"
+                  className={`btn w-100 d-flex ${
+                    item?.platform === 'whatsapp'
+                      ? 'btn-outline-success'
+                      : item?.platform === 'x' || item?.platform === 'copylink'
+                        ? 'btn-outline-dark'
+                        : 'btn-outline-primary'
+                  }`}
                 >
                   {item?.icon}
                   <span className="ps-1">{item?.text}</span>

@@ -57,7 +57,7 @@ const Index = () => {
                   swipeable={true}
                   emulateTouch={true}
                   showThumbs={false}
-                  centerMode={true}
+                  // centerMode={true}
                   className="rounded-4 overflow-hidden cursor-pointer"
                   onClickItem={index => setShowPreview(kontrakanDetail?.image[index])}
                 >
@@ -144,7 +144,10 @@ const Index = () => {
                       Hubungi Pemilik
                     </button>
 
-                    <Link className="btn btn-outline-primary w-100 mt-2 mb-2" to={`/properti/${slug}`}>
+                    <Link
+                      className="btn btn-outline-primary w-100 mt-2 mb-2"
+                      to={`/properti/${slug}`}
+                    >
                       Booking Sekarang
                     </Link>
                   </Fragment>
@@ -168,12 +171,12 @@ const Index = () => {
 
                 <hr className="my-4" />
                 <div>
-                  {kontrakanDetail?.durasiMinimal &&
+                  {kontrakanDetail?.durasiMinimal && (
                     <p className="mb-1">
                       <strong>Durasi Minimal:</strong> {kontrakanDetail?.durasiMinimal}{' '}
                       <span className="text-capitalize">{kontrakanDetail?.durasi}</span>
                     </p>
-                  }
+                  )}
                   <p className="mb-1">
                     <strong>Status:</strong>{' '}
                     <span
@@ -187,7 +190,10 @@ const Index = () => {
                   </p>
                   <p className="mb-0">
                     <strong>Pemilik:</strong>{' '}
-                    <Link to={`/agent/${kontrakanDetail?.pemilikSlug}`} className="text-decoration-none">
+                    <Link
+                      to={`/agent/${kontrakanDetail?.pemilikSlug}`}
+                      className="text-decoration-none"
+                    >
                       {kontrakanDetail?.pemilik}
                     </Link>
                   </p>
@@ -201,7 +207,7 @@ const Index = () => {
       <PropertiLainnya slug={slug} />
 
       {/* Share Modal */}
-      <ShareModal show={showShare} onClose={() => setShowShare(false)} />
+      <ShareModal show={showShare} onClose={() => setShowShare(false)} data={kontrakanDetail} />
       <PreviewModal show={showPreview} onClose={() => setShowPreview(null)} preview={showPreview} />
     </Fragment>
   );
