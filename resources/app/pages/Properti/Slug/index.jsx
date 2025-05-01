@@ -11,7 +11,8 @@ import Heads from '@/app/components/Heads';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
-import PropertiCard from '@/app/components/PropertiCard';
+
+import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
 
 const Index = () => {
   const { slug } = useParams();
@@ -203,30 +204,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-5 bg-light">
-        <div className="container">
-          <h5 className="fw-semibold mb-4">Properti Lainnya</h5>
-          <div className="position-relative">
-            <div
-              className="d-flex gap-3 overflow-auto pb-2 ps-1"
-              style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
-            >
-              {kontrakanList?.map((kontrakan, index) => (
-                <div
-                  key={kontrakan?.id || index}
-                  className="flex-shrink-0"
-                  style={{
-                    width: '250px',
-                    scrollSnapAlign: 'start'
-                  }}
-                >
-                  <PropertiCard {...kontrakan} btnTelp={false} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <PropertiLainnya slug={slug} />
 
       {/* Share Modal */}
       <ShareModal show={showShare} onClose={() => setShowShare(false)} />

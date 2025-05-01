@@ -56,3 +56,11 @@ export const formatViews = views => {
   const value = views / 1000000;
   return (Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1)) + 'M';
 };
+
+export const formatPhone = phone => {
+  if (!phone) return '';
+
+  // Hanya menampilkan 8 digit pertama, sisanya diganti dengan 'xxxx'
+  const cleaned = phone.replace(/\s+/g, ''); // hapus spasi jika ada
+  return cleaned.slice(0, 6) + 'xxxx';
+};

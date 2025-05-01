@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { formatViews, formatPrice } from '@/app/helpers';
+import { formatViews, formatPrice, formatPhone } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
 import './propertiCard.scss';
 import useTooltips from '@/app/components/Tooltips';
@@ -156,8 +156,8 @@ export default function Index(props) {
               {/* Tombol Telepon */}
               <div className="col-6">
                 <a className="btn btn-primary d-flex align-items-center w-100">
-                  {/* +62878xxxx */}
-                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {telp}
+                  {/* +62812xxxx */}
+                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(telp)}
                 </a>
               </div>
 
@@ -167,7 +167,7 @@ export default function Index(props) {
                   rel="noopener noreferrer"
                   className="btn btn-success d-flex align-items-center w-100 text-white"
                 >
-                  <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i> {whatsapp}
+                  <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i> {formatPhone(whatsapp)}
                 </a>
               </div>
             </div>

@@ -3,11 +3,16 @@ import { actionType } from '@/app/redux/action/kontrakan/type';
 
 export const kontrakanReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Read
     case actionType.loadKontrakan:
       state = {
         ...state,
         kontrakanList: action.payload
+      };
+      return state;
+    case actionType.loadKontrakanLainnya:
+      state = {
+        ...state,
+        kontrakanListLainnya: action.payload
       };
       return state;
     case actionType.loadKontrakanResetData:
