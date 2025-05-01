@@ -120,9 +120,9 @@ export default function Index(props) {
       <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
         <div className="card-body">
           <h5 className="card-title fw-bold">
-            <small>Rp</small>
+            Rp
             {formatPrice(harga)}
-            <small className="text-capitalize"> / {durasi}</small>
+            <span className="text-capitalize"> / {durasi}</span>
           </h5>
 
           <span

@@ -30,13 +30,13 @@ const Breadcrumb = props => {
             {items.map((item, idx) => (
               <li
                 key={idx}
-                className={`breadcrumb-item ${idx === items.length - 1 ? 'active' : ''}`}
+                className={`breadcrumb-item ${idx === items.length - 1 ? 'active text-truncate w-75' : ''}`}
                 aria-current={idx === items.length - 1 ? 'page' : undefined}
               >
                 {idx !== items.length - 1 ? (
                   <span className="text-primary">{item.name}</span>
                 ) : (
-                  <b className="text-primary">{item.name}</b>
+                  <b className="text-primary" title={item.name}>{item.name}</b>
                 )}
               </li>
             ))}

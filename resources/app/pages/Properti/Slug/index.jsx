@@ -40,37 +40,36 @@ const Index = () => {
         image={kontrakanDetail?.image?.[0]}
       />
 
-      <section className="mb-5 mt-2">
-        <div className="container ">
-          {/* Gambar Utama */}
-          <div className="row">
-            <div className="col-12 mb-3">
-              <div className="position-relative">
-                <Carousel
-                  showArrows={true}
-                  autoPlay={false}
-                  infiniteLoop={true}
-                  showStatus={true}
-                  showIndicators={false}
-                  swipeable={true}
-                  emulateTouch={true}
-                  showThumbs={false}
-                  // centerMode={true}
-                  className="rounded-4 overflow-hidden cursor-pointer"
-                  onClickItem={index => setShowPreview(kontrakanDetail?.image[index])}
-                >
-                  {kontrakanDetail?.image?.map((x, i) => (
-                    <img
-                      key={x || i}
-                      src={`https://placehold.co/600x200?text=Image+${i + 1}`}
-                      className="w-100"
-                    />
-                  ))}
-                </Carousel>
-              </div>
+      <section className="mb-5">
+        {/* Gambar Utama */}
+        <div className="row">
+          <div className="col-12 mb-3">
+            <div className="position-relative">
+              <Carousel
+                showArrows={true}
+                autoPlay={false}
+                infiniteLoop={true}
+                showStatus={true}
+                showIndicators={false}
+                swipeable={true}
+                emulateTouch={true}
+                showThumbs={false}
+                // centerMode={true}
+                className="overflow-hidden cursor-pointer"
+                onClickItem={index => setShowPreview(kontrakanDetail?.image[index])}
+              >
+                {kontrakanDetail?.image?.map((x, i) => (
+                  <img
+                    key={x || i}
+                    src={`https://placehold.co/600x200?text=Image+${i + 1}`}
+                    className="w-100"
+                  />
+                ))}
+              </Carousel>
             </div>
           </div>
-
+        </div>
+        <div className="container ">
           {/* Detail Info */}
           <div className="row g-4">
             <div className="col-md-8">
