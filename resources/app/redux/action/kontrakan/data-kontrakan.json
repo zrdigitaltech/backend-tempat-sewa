@@ -2,7 +2,7 @@
   {
     "nama": "Kontrakan Mewah A",
     "harga": 2000000,
-    "durasi": "bulanan",
+    "durasi": "bulan",
     "status": "Tersedia",
     "slug": "kontrakan-mewah-a",
     "image": [
@@ -15,12 +15,23 @@
     "views": 1500,
     "telp": "+62812xxxx",
     "whatsapp": "+62812xxxx",
-    "member": "Super Featured"
+    "member": "Super Featured",
+    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
+    "durasiMinimal": 6,
+    "upload": "15 Apr 2025 10:00",
+    "fasilitas": [
+      "2 Kamar Tidur",
+      "1 Kamar Mandi",
+      "Dapur",
+      "Listrik 1300W",
+      "Air Sumur",
+      "Parkir Motor"
+    ]
   },
   {
     "nama": "Kontrakan Mewah B",
     "harga": 2500000,
-    "durasi": "bulanan",
+    "durasi": "bulan",
     "status": "Tidak Tersedia",
     "slug": "kontrakan-mewah-b",
     "image": [
@@ -33,12 +44,23 @@
     "views": 2000,
     "telp": "+62812xxxx",
     "whatsapp": "+62812xxxx",
-    "member": "Premium"
+    "member": "Premium",
+    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
+    "durasiMinimal": 6,
+    "upload": "15 Apr 2025 10:00",
+    "fasilitas": [
+      "2 Kamar Tidur",
+      "1 Kamar Mandi",
+      "Dapur",
+      "Listrik 1300W",
+      "Air Sumur",
+      "Parkir Motor"
+    ]
   },
   {
     "nama": "Kontrakan Hemat C",
     "harga": 1200000,
-    "durasi": "bulanan",
+    "durasi": "bulan",
     "status": "Tersedia",
     "slug": "kontrakan-hemat-c",
     "image": [
@@ -51,12 +73,23 @@
     "views": 1200,
     "telp": "+62812xxxx",
     "whatsapp": "+62812xxxx",
-    "member": "Free"
+    "member": "Free",
+    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
+    "durasiMinimal": 6,
+    "upload": "15 Apr 2025 10:00",
+    "fasilitas": [
+      "2 Kamar Tidur",
+      "1 Kamar Mandi",
+      "Dapur",
+      "Listrik 1300W",
+      "Air Sumur",
+      "Parkir Motor"
+    ]
   },
   {
     "nama": "Kontrakan Modern D",
     "harga": 3000000,
-    "durasi": "bulanan",
+    "durasi": "bulan",
     "status": "Tidak Tersedia",
     "slug": "kontrakan-modern-d",
     "image": [
@@ -69,6 +102,17 @@
     "views": 1800,
     "telp": "+62812xxxx",
     "whatsapp": "+62812xxxx",
-    "member": "Free"
+    "member": "Free",
+    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
+    "durasiMinimal": 6,
+    "upload": "15 Apr 2025 10:00",
+    "fasilitas": [
+      "2 Kamar Tidur",
+      "1 Kamar Mandi",
+      "Dapur",
+      "Listrik 1300W",
+      "Air Sumur",
+      "Parkir Motor"
+    ]
   }
 ]

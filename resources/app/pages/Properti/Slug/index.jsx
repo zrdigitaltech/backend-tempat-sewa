@@ -12,9 +12,12 @@ import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
 import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
+import { useNavigate } from 'react-router-dom';
+import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
 
 const Index = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const kontrakanDetail = useSelector(state => state?.kontrakan?.kontrakanDetail);
   const dispatch = useDispatch();
 
@@ -110,15 +113,8 @@ const Index = () => {
               {/* Fasilitas */}
               <h5 className="fw-semibold mt-4">Fasilitas</h5>
               <ul className="list-unstyled row">
-                {[
-                  '2 Kamar Tidur',
-                  '1 Kamar Mandi',
-                  'Dapur',
-                  'Listrik 1300W',
-                  'Air Sumur',
-                  'Parkir Motor'
-                ].map((item, i) => (
-                  <li key={item?.id ?? i} className="col-6 mb-2">
+                {kontrakanDetail?.fasilitas?.map((item, i) => (
+                  <li key={item || i} className="col-6 mb-2">
                     ✅ {item}
                   </li>
                 ))}
@@ -126,10 +122,7 @@ const Index = () => {
 
               {/* Deskripsi */}
               <h5 className="fw-semibold mt-4">Deskripsi</h5>
-              <p>
-                Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan
-                pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.
-              </p>
+              <DeskripsiExpandable deskripsi={kontrakanDetail?.deskripsi} />
             </div>
 
             {/* Sidebar */}
@@ -140,18 +133,26 @@ const Index = () => {
                   top: '100px' // jarak dari atas saat sticky
                 }}
               >
-                <h5 className="fw-semibold mb-3">Tertarik?</h5>
-                <button className="btn btn-success w-100 mb-2">Hubungi Pemilik</button>
-                <Link
-                  className="btn btn-outline-primary w-100"
-                  to={`/properti/kontrakan-2-kamar-jakarta/booking`}
-                >
-                  Booking Sekarang
-                </Link>
+                {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
+                  <Fragment>
+                    <h5 className="fw-semibold mb-3">Tertarik?</h5>
+
+                    <button
+                      className="btn btn-success w-100"
+                      disabled={kontrakanDetail?.status?.toLowerCase() === 'tersedia'}
+                    >
+                      Hubungi Pemilik
+                    </button>
+
+                    <Link className="btn btn-outline-primary w-100 mt-2 mb-2" to={`/properti/${slug}`}>
+                      Booking Sekarang
+                    </Link>
+                  </Fragment>
+                )}
 
                 {/* Share Button */}
                 <button
-                  className="btn btn-outline-info w-100 mt-3"
+                  className="btn btn-outline-info w-100"
                   onClick={() => setShowShare(true)} // Trigger modal on click
                 >
                   Bagikan
@@ -167,19 +168,27 @@ const Index = () => {
 
                 <hr className="my-4" />
                 <div>
+                  {kontrakanDetail?.durasiMinimal &&
+                    <p className="mb-1">
+                      <strong>Durasi Minimal:</strong> {kontrakanDetail?.durasiMinimal}{' '}
+                      <span className="text-capitalize">{kontrakanDetail?.durasi}</span>
+                    </p>
+                  }
                   <p className="mb-1">
-                    <strong>Durasi Minimal:</strong> 6 bulan
+                    <strong>Status:</strong>{' '}
+                    <span
+                      className={`text-${kontrakanDetail?.status?.toLowerCase() === 'tersedia' ? 'success' : 'danger'}`}
+                    >
+                      {kontrakanDetail?.status}
+                    </span>
                   </p>
                   <p className="mb-1">
-                    <strong>Status:</strong> <span className="text-success">Tersedia</span>
-                  </p>
-                  <p className="mb-1">
-                    <strong>Upload:</strong> 20 April 2025
+                    <strong>Upload:</strong> {kontrakanDetail?.upload}
                   </p>
                   <p className="mb-0">
                     <strong>Pemilik:</strong>{' '}
-                    <Link to="/agent/zikri-ramdani" className="text-decoration-none">
-                      Zikri Ramdani
+                    <Link to={`/agent/${kontrakanDetail?.pemilikSlug}`} className="text-decoration-none">
+                      {kontrakanDetail?.pemilik}
                     </Link>
                   </p>
                 </div>
