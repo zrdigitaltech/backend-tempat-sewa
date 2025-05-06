@@ -18,8 +18,7 @@ export default function Index(props) {
     alamat,
     views = 1000,
     btnTelp = true,
-    telp,
-    whatsapp,
+    no_whatsapp,
     member
   } = props;
 
@@ -135,7 +134,7 @@ export default function Index(props) {
           <p className="text-muted small mb-0 ST__text">{alamat}</p>
         </div>
 
-        {/* tombol telepon & whatsapp */}
+        {/* tombol telepon or whatsapp */}
         {btnTelp && (
           <div className="card-footer bg-white border-0">
             <div className="row g-2">
@@ -143,7 +142,7 @@ export default function Index(props) {
               <div className="col-6">
                 <a className="btn btn-primary d-flex align-items-center w-100">
                   {/* +62812xxxx */}
-                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(telp)}
+                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
                 </a>
               </div>
 
@@ -153,7 +152,8 @@ export default function Index(props) {
                   rel="noopener noreferrer"
                   className="btn btn-success d-flex align-items-center w-100 text-white"
                 >
-                  <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i> {formatPhone(whatsapp)}
+                  <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
+                  {formatPhone(no_whatsapp)}
                 </a>
               </div>
             </div>

@@ -13,7 +13,8 @@ const Index = props => {
     scrolls,
     styleModalContent,
     position = 'center',
-    modalDialog
+    modalDialog,
+    classModalHeader
   } = props;
 
   // useEffect(() => {
@@ -41,7 +42,7 @@ const Index = props => {
         >
           <div className={`modal-content ${classModalContent || ''}`} style={styleModalContent}>
             {title && (
-              <div className="modal-header">
+              <div className={`modal-header ${classModalHeader || ''}`}>
                 <h5 className="modal-title">{title}</h5>
                 <button
                   type="button"

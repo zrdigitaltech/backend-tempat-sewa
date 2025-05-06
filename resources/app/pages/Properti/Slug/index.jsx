@@ -49,29 +49,14 @@ const Index = () => {
 
       <section className="mb-5">
         {/* Gambar Utama */}
-        <div className="row">
-          <div className="col-12 mb-3">
-            <div className="responsive position-relative">
-              <SliderImage
-                images={kontrakanDetail?.image}
-                nama={kontrakanDetail?.nama}
-                handleMouseDown={handleMouseDown}
-                handleMouseMove={handleMouseMove}
-                handleClick={img => handleClick(img)}
-              />
-              <div
-                className="position-absolute"
-                style={{
-                  top: '10px',
-                  right: '10px'
-                }}
-              >
-                <small className="text-secondary">
-                  <i className="fa fa-photo"></i> {kontrakanDetail?.image?.length}
-                </small>
-              </div>
-            </div>
-          </div>
+        <div className="responsive position-relative mb-3">
+          <SliderImage
+            images={kontrakanDetail?.image}
+            nama={kontrakanDetail?.nama}
+            handleMouseDown={handleMouseDown}
+            handleMouseMove={handleMouseMove}
+            handleClick={img => handleClick(img)}
+          />
         </div>
         <div className="container">
           {/* Detail Info */}
@@ -180,12 +165,15 @@ const Index = () => {
                 </div>
                 {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
                   <Fragment>
-                    <button className="btn btn-success w-100">Hubungi Pemilik</button>
+                    <button className="btn btn-success w-100">
+                      <i className="fa fa-whatsapp"></i> WhatsApp
+                    </button>
 
-                    <Link
-                      className="btn btn-outline-primary w-100 mt-2 mb-2"
-                      to={`/properti/${slug}`}
-                    >
+                    <button className="btn btn-outline-primary w-100 mt-2">
+                      <i className="fa fa-phone"></i> {kontrakanDetail?.no_whatsapp}
+                    </button>
+
+                    <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}`}>
                       Booking Sekarang
                     </Link>
                   </Fragment>
@@ -193,10 +181,10 @@ const Index = () => {
 
                 {/* Share Button */}
                 <button
-                  className="btn btn-outline-info w-100"
+                  className="btn btn-outline-dark w-100"
                   onClick={() => setShowShare(true)} // Trigger modal on click
                 >
-                  Bagikan
+                  <i className="fa fa-share-alt"></i> Bagikan
                 </button>
                 <small
                   className="position-absolute cursor-pointer"
@@ -223,6 +211,10 @@ const Index = () => {
         onClose={() => setShowPreview(null)}
         preview={showPreview}
         kontrakanDetail={kontrakanDetail}
+        showShare={showShare}
+        setShowShare={setShowShare}
+        handleWhatsApp
+        handleNoTelp
       />
     </Fragment>
   );

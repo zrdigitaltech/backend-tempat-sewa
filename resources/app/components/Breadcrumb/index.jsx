@@ -19,7 +19,7 @@ const Breadcrumb = props => {
     <section className={`${className && className + ' pt-3'}`}>
       <div className={`container ${containerClassName}`}>
         <nav aria-label="breadcrumb">
-          <ol className="breadcrumb mb-0">
+          <ol className="breadcrumb mb-0 text-truncate" style={{ flexWrap: 'nowrap' }}>
             {/* Always add Home as the first breadcrumb */}
             <li className="breadcrumb-item">
               <Link to="/" className="text-decoration-none">
