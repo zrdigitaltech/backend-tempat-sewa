@@ -1,28 +1,35 @@
 // Slug.jsx
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useParams } from 'react-router-dom';
-import { formatPriceLocale, formatViews } from '@/app/helpers';
+import { formatPriceLocale } from '@/app/helpers';
 import Heads from '@/app/components/Heads';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
+import SliderImage from '@/app/pages/Properti/Slug/components/SliderImage';
 import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
-import { useNavigate } from 'react-router-dom';
 import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
 
 const Index = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const kontrakanDetail = useSelector(state => state?.kontrakan?.kontrakanDetail);
   const dispatch = useDispatch();
 
   const [showShare, setShowShare] = useState(false);
   const [showPreview, setShowPreview] = useState(null);
+
+  const [dragging, setDragging] = useState(false);
+
+  const handleMouseDown = () => setDragging(false);
+  const handleMouseMove = () => setDragging(true);
+  const handleClick = img => {
+    if (!dragging) {
+      setShowPreview(img);
+    }
+  };
 
   const fetchPropertiDetail = () => {
     dispatch(getPropertiDetail(slug));
@@ -30,12 +37,12 @@ const Index = () => {
 
   useEffect(() => {
     fetchPropertiDetail();
-  }, [kontrakanDetail, dispatch, slug]);
+  }, [dispatch, slug]);
 
   return (
     <Fragment>
       <Heads
-        title={`${kontrakanDetail?.nama} - oleh Zikri Ramdani`}
+        title={`${kontrakanDetail?.nama} - oleh ${kontrakanDetail?.pemilik}`}
         deskripsi={kontrakanDetail?.deskripsi}
         image={kontrakanDetail?.image?.[0]}
       />
@@ -44,32 +51,29 @@ const Index = () => {
         {/* Gambar Utama */}
         <div className="row">
           <div className="col-12 mb-3">
-            <div className="position-relative">
-              <Carousel
-                showArrows={true}
-                autoPlay={false}
-                infiniteLoop={true}
-                showStatus={true}
-                showIndicators={false}
-                swipeable={true}
-                emulateTouch={true}
-                showThumbs={false}
-                // centerMode={true}
-                className="overflow-hidden cursor-pointer"
-                onClickItem={index => setShowPreview(kontrakanDetail?.image[index])}
+            <div className="responsive position-relative">
+              <SliderImage
+                images={kontrakanDetail?.image}
+                nama={kontrakanDetail?.nama}
+                handleMouseDown={handleMouseDown}
+                handleMouseMove={handleMouseMove}
+                handleClick={img => handleClick(img)}
+              />
+              <div
+                className="position-absolute"
+                style={{
+                  top: '10px',
+                  right: '10px'
+                }}
               >
-                {kontrakanDetail?.image?.map((x, i) => (
-                  <img
-                    key={x || i}
-                    src={`https://placehold.co/600x200?text=Image+${i + 1}`}
-                    className="w-100"
-                  />
-                ))}
-              </Carousel>
+                <small className="text-secondary">
+                  <i className="fa fa-photo"></i> {kontrakanDetail?.image?.length}
+                </small>
+              </div>
             </div>
           </div>
         </div>
-        <div className="container ">
+        <div className="container">
           {/* Detail Info */}
           <div className="row g-4">
             <div className="col-md-8">
@@ -101,7 +105,12 @@ const Index = () => {
                 </div>
               </div>
 
-              <h2 className="fw-bold text-primary mb-0">{kontrakanDetail?.nama}</h2>
+              <h2
+                className="fw-bold text-primary mb-0 ST__text"
+                title={kontrakanDetail?.nama?.length > 50 ? kontrakanDetail?.nama : null}
+              >
+                {kontrakanDetail?.nama}
+              </h2>
               <p className="text-muted">{kontrakanDetail?.alamat}</p>
 
               {/* Fasilitas */}
@@ -132,6 +141,43 @@ const Index = () => {
                   <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
                 </h2>
                 <hr className="my-3" />
+                <div className="d-flex justify-content-center mb-3">
+                  <div className="text-center position-relative">
+                    <div className="d-flex justify-content-center">
+                      <div className="position-relative" style={{ width: '80px' }}>
+                        <img
+                          src="https://placehold.co/800x600?text=Image+1"
+                          alt="Foto Profil"
+                          className="rounded-circle img-fluid"
+                          style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                        />
+                        <i
+                          className="fa fa-check-circle text-primary"
+                          style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            right: '8px',
+                            background: 'white',
+                            borderRadius: '50%',
+                            fontSize: '14px'
+                          }}
+                        ></i>
+                      </div>
+                    </div>
+                    <div className="mt-1">
+                      <strong
+                        className="d-block ST__text"
+                        title={
+                          kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''
+                        }
+                      >
+                        {(kontrakanDetail?.pemilik || '').length > 50
+                          ? kontrakanDetail.pemilik.substring(0, 50) + '...'
+                          : kontrakanDetail?.pemilik}
+                      </strong>
+                    </div>
+                  </div>
+                </div>
                 {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
                   <Fragment>
                     <button className="btn btn-success w-100">Hubungi Pemilik</button>
@@ -152,44 +198,16 @@ const Index = () => {
                 >
                   Bagikan
                 </button>
-
-                {/* Laporkan Iklan */}
-                <button
-                  className="btn btn-outline-danger w-100 mt-2"
+                <small
+                  className="position-absolute cursor-pointer"
+                  style={{
+                    right: '0',
+                    bottom: '-2rem'
+                  }}
                   onClick={() => alert('Form laporan akan ditampilkan di sini')}
                 >
                   Laporkan Iklan
-                </button>
-
-                <hr className="my-4" />
-                <div>
-                  {kontrakanDetail?.durasiMinimal && (
-                    <p className="mb-1">
-                      <strong>Durasi Minimal:</strong> {kontrakanDetail?.durasiMinimal}{' '}
-                      <span className="text-capitalize">{kontrakanDetail?.durasi}</span>
-                    </p>
-                  )}
-                  <p className="mb-1">
-                    <strong>Status:</strong>{' '}
-                    <span
-                      className={`text-${kontrakanDetail?.status?.toLowerCase() === 'tersedia' ? 'success' : 'danger'}`}
-                    >
-                      {kontrakanDetail?.status}
-                    </span>
-                  </p>
-                  <p className="mb-1">
-                    <strong>Upload:</strong> {kontrakanDetail?.upload}
-                  </p>
-                  <p className="mb-0">
-                    <strong>Pemilik:</strong>{' '}
-                    <Link
-                      to={`/agent/${kontrakanDetail?.pemilikSlug}`}
-                      className="text-decoration-none"
-                    >
-                      {kontrakanDetail?.pemilik}
-                    </Link>
-                  </p>
-                </div>
+                </small>
               </div>
             </div>
           </div>
@@ -200,7 +218,12 @@ const Index = () => {
 
       {/* Share Modal */}
       <ShareModal show={showShare} onClose={() => setShowShare(false)} data={kontrakanDetail} />
-      <PreviewModal show={showPreview} onClose={() => setShowPreview(null)} preview={showPreview} />
+      <PreviewModal
+        show={showPreview}
+        onClose={() => setShowPreview(null)}
+        preview={showPreview}
+        kontrakanDetail={kontrakanDetail}
+      />
     </Fragment>
   );
 };

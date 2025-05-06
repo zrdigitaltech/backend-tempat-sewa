@@ -15,7 +15,7 @@ const Index = props => {
 
   useEffect(() => {
     fetchKontrakanLainnya();
-  }, [kontrakanListLainnya, dispatch]);
+  }, [dispatch, slug]);
 
   return (
     <section className="py-5 bg-light">

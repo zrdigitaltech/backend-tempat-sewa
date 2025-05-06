@@ -36,7 +36,9 @@ const Breadcrumb = props => {
                 {idx !== items.length - 1 ? (
                   <span className="text-primary">{item.name}</span>
                 ) : (
-                  <b className="text-primary" title={item.name}>{item.name}</b>
+                  <b className="text-primary" title={item.name}>
+                    {item.name}
+                  </b>
                 )}
               </li>
             ))}
