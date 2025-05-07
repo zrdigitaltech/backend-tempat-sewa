@@ -1,0 +1,12 @@
+.ST--PasangIklan {
+  @media (max-width: 375px) {
+    display: none !important;
+  }
+
+  &__mobile {
+    display: none;
+    @media (max-width: 375px) {
+      display: block !important;
+    }
+  }
+}

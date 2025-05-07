@@ -18,6 +18,7 @@ const Booking = lazy(() => import('@/app/pages/Booking'));
 const PropertiSlug = lazy(() => import('@/app/pages/Properti/Slug'));
 const AgentSlug = lazy(() => import('@/app/pages/Agent/Slug'));
 const SewaKategori = lazy(() => import('@/app/pages/Sewa'));
+const PasangIklan = lazy(() => import('@/app/pages/PasangIklan'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -95,6 +96,15 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<RouteLoading />}>
             <Search />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/pasang-iklan"
+        handle={{ breadcrumb: 'Pasang Iklan' }}
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <PasangIklan />
           </Suspense>
         }
       />

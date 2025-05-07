@@ -1,17 +1,20 @@
 // Slug.jsx
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { formatPriceLocale } from '@/app/helpers';
 import Heads from '@/app/components/Heads';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
 import SliderImage from '@/app/pages/Properti/Slug/components/SliderImage';
 import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
+import Sidebar from '@/app/pages/Properti/Slug/components/Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
 import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
+import './slug.scss';
+import PhoneModal from '@/app/pages/modal/Phone';
+import WhatsAppModal from '@/app/pages/modal/WhatsApp';
+import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';
 
 const Index = () => {
   const { slug } = useParams();
@@ -20,6 +23,9 @@ const Index = () => {
 
   const [showShare, setShowShare] = useState(false);
   const [showPreview, setShowPreview] = useState(null);
+  const [showPhone, setShowPhone] = useState(null);
+  const [showWhatsApp, setShowWhatsApp] = useState(null);
+  const [showLaporkanIklan, setShowLaporkanIklan] = useState(null);
 
   const [dragging, setDragging] = useState(false);
 
@@ -46,10 +52,17 @@ const Index = () => {
         deskripsi={kontrakanDetail?.deskripsi}
         image={kontrakanDetail?.image?.[0]}
       />
+      <section className="ST--wrapper__navbar justify-content-end">
+        <div className="ST--wrapper__navbar--body">
+          <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
+            <i className="fa fa-share-alt"></i> Bagikan
+          </button>
+        </div>
+      </section>
 
       <section className="mb-5">
         {/* Gambar Utama */}
-        <div className="responsive position-relative mb-3">
+        <div className="responsive mb-3">
           <SliderImage
             images={kontrakanDetail?.image}
             nama={kontrakanDetail?.nama}
@@ -115,88 +128,13 @@ const Index = () => {
 
             {/* Sidebar */}
             <div className="col-md-4">
-              <div
-                className="card shadow-sm p-4 position-sticky"
-                style={{
-                  top: '100px' // jarak dari atas saat sticky
-                }}
-              >
-                <h2 className="fw-bold text-primary mb-0 text-center">
-                  Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
-                  <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
-                </h2>
-                <hr className="my-3" />
-                <div className="d-flex justify-content-center mb-3">
-                  <div className="text-center position-relative">
-                    <div className="d-flex justify-content-center">
-                      <div className="position-relative" style={{ width: '80px' }}>
-                        <img
-                          src="https://placehold.co/800x600?text=Image+1"
-                          alt="Foto Profil"
-                          className="rounded-circle img-fluid"
-                          style={{ width: '60px', height: '60px', objectFit: 'cover' }}
-                        />
-                        <i
-                          className="fa fa-check-circle text-primary"
-                          style={{
-                            position: 'absolute',
-                            bottom: 0,
-                            right: '8px',
-                            background: 'white',
-                            borderRadius: '50%',
-                            fontSize: '14px'
-                          }}
-                        ></i>
-                      </div>
-                    </div>
-                    <div className="mt-1">
-                      <strong
-                        className="d-block ST__text"
-                        title={
-                          kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''
-                        }
-                      >
-                        {(kontrakanDetail?.pemilik || '').length > 50
-                          ? kontrakanDetail.pemilik.substring(0, 50) + '...'
-                          : kontrakanDetail?.pemilik}
-                      </strong>
-                    </div>
-                  </div>
-                </div>
-                {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
-                  <Fragment>
-                    <button className="btn btn-success w-100">
-                      <i className="fa fa-whatsapp"></i> WhatsApp
-                    </button>
-
-                    <button className="btn btn-outline-primary w-100 mt-2">
-                      <i className="fa fa-phone"></i> {kontrakanDetail?.no_whatsapp}
-                    </button>
-
-                    <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}`}>
-                      Booking Sekarang
-                    </Link>
-                  </Fragment>
-                )}
-
-                {/* Share Button */}
-                <button
-                  className="btn btn-outline-dark w-100"
-                  onClick={() => setShowShare(true)} // Trigger modal on click
-                >
-                  <i className="fa fa-share-alt"></i> Bagikan
-                </button>
-                <small
-                  className="position-absolute cursor-pointer"
-                  style={{
-                    right: '0',
-                    bottom: '-2rem'
-                  }}
-                  onClick={() => alert('Form laporan akan ditampilkan di sini')}
-                >
-                  Laporkan Iklan
-                </small>
-              </div>
+              <Sidebar
+                slug={slug}
+                kontrakanDetail={kontrakanDetail}
+                handlePhone={() => setShowPhone(true)}
+                handleWhatsApp={() => setShowWhatsApp(true)}
+                handleLaporkanIklan={() => setShowLaporkanIklan(true)}
+              />
             </div>
           </div>
         </div>
@@ -216,6 +154,9 @@ const Index = () => {
         handleWhatsApp
         handleNoTelp
       />
+      <PhoneModal show={showPhone} onClose={() => setShowPhone(false)} />
+      <WhatsAppModal show={showWhatsApp} onClose={() => setShowWhatsApp(false)} />
+      <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>
   );
 };

@@ -133,33 +133,35 @@ export default function Index(props) {
 
           <p className="text-muted small mb-0 ST__text">{alamat}</p>
         </div>
+      </Link>
 
-        {/* tombol telepon or whatsapp */}
-        {btnTelp && (
-          <div className="card-footer bg-white border-0">
-            <div className="row g-2">
-              {/* Tombol Telepon */}
-              <div className="col-6">
-                <a className="btn btn-primary d-flex align-items-center w-100">
-                  {/* +62812xxxx */}
-                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
-                </a>
-              </div>
+      {/* tombol telepon or whatsapp */}
+      {btnTelp && (
+        <div className="card-footer">
+          <div className="row g-2">
+            {/* Tombol Telepon */}
+            <div className="col-6">
+              <button
+                className="btn btn-primary d-flex align-items-center w-100"
+                onClick={() => alert('Phone')}
+              >
+                <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
+              </button>
+            </div>
 
-              {/* Tombol WhatsApp */}
-              <div className="col-6">
-                <a
-                  rel="noopener noreferrer"
-                  className="btn btn-success d-flex align-items-center w-100 text-white"
-                >
-                  <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
-                  {formatPhone(no_whatsapp)}
-                </a>
-              </div>
+            {/* Tombol WhatsApp */}
+            <div className="col-6">
+              <button
+                className="btn btn-success d-flex align-items-center w-100 text-white"
+                onClick={() => alert('WhatsApp')}
+              >
+                <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
+                {formatPhone(no_whatsapp)}
+              </button>
             </div>
           </div>
-        )}
-      </Link>
+        </div>
+      )}
     </div>
   );
 }

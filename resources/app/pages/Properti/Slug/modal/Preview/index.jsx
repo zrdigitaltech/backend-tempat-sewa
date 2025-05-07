@@ -65,7 +65,7 @@ const Index = props => {
                 transform: 'translateX(-50%)'
               }}
             >
-              <button className="btn btn-outline-dark w-100" onClick={() => setShowShare(true)}>
+              <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
                 <i className="fa fa-share-alt"></i> Bagikan
               </button>
             </div>
@@ -73,18 +73,21 @@ const Index = props => {
               className="d-flex gap-2 ms-auto position-absolute"
               style={{
                 bottom: '7rem',
-                right: '6%',
+                right: '4%',
                 transform: 'translateX(-50%)'
               }}
             >
               <div>
-                <button className="btn btn-success w-100" onClick={handleWhatsApp}>
-                  <i className="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                <button className="btn btn-primary w-100 shadow" onClick={handleNoTelp}>
+                  <i className="fa fa-phone" aria-hidden="true"></i> {kontrakanDetail?.no_whatsapp}
                 </button>
               </div>
               <div>
-                <button className="btn btn-outline-primary w-100" onClick={handleNoTelp}>
-                  <i className="fa fa-phone" aria-hidden="true"></i> {kontrakanDetail?.no_whatsapp}
+                <button
+                  className="btn btn-success w-100 text-white shadow"
+                  onClick={handleWhatsApp}
+                >
+                  <i className="fa fa-whatsapp" aria-hidden="true"></i> Tanya Detail
                 </button>
               </div>
             </div>
