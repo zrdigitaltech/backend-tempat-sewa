@@ -30,7 +30,13 @@ const Index = props => {
           placeholder={`${formData.verifikasi === 'whatsapp' ? 'Nomor WhatsApp' : 'Nomor Telepon'}`}
           name="phone"
           value={formData.phone}
-          onChange={handleChange}
+          onChange={e => {
+            const value = e.target.value;
+            // Hanya angka dan tidak boleh diawali dengan 0
+            if (/^[1-9][0-9]*$/.test(value) || value === '') {
+              handleChange(e);
+            }
+          }}
           onKeyPress={e => {
             if (!/[0-9]/.test(e.key)) {
               e.preventDefault();
