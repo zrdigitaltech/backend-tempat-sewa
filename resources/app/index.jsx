@@ -11,7 +11,7 @@ import router from './router';
 import store from '@/app/redux/store';
 
 import '@/app/styles/scss/style.scss';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Use the body element with id "app" as the container

@@ -87,7 +87,7 @@ const Index = props => {
                   className="btn btn-success w-100 text-white shadow"
                   onClick={handleWhatsApp}
                 >
-                  <i className="fa fa-whatsapp" aria-hidden="true"></i> Tanya Detail
+                  <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> Tanya Detail
                 </button>
               </div>
             </div>

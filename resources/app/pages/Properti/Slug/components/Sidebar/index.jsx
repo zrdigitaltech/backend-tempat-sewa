@@ -55,7 +55,7 @@ const Index = props => {
       {kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
         <Fragment>
           <button className="btn btn-success w-100 text-white" onClick={handleWhatsApp}>
-            <i className="fa fa-whatsapp"></i> WhatsApp
+            <i className="fa-brands fa-whatsapp"></i> WhatsApp
           </button>
 
           <button className="btn btn-outline-primary w-100 mt-2" onClick={handlePhone}>

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import Modals from '@/app/components/Modals';
 
-const Index = props => {
+const Verifikasi = props => {
   const { show, onClose, data } = props;
 
   return (
@@ -10,10 +10,10 @@ const Index = props => {
       show={show}
       onClose={onClose}
       position="center"
-      modalBody={<Fragment>Phone</Fragment>}
+      modalBody={<Fragment>Verifikasi</Fragment>}
       modalFooter={false}
     />
   );
 };
 
-export default Index;
+export default Verifikasi;

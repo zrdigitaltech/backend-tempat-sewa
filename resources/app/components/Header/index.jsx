@@ -24,7 +24,7 @@ export default function Index() {
         </Link>
 
         {/* Toggle button (Offcanvas Trigger) */}
-        <ul className="navbar-nav ms-auto d-lg-none me-2 ST--PasangIklan">
+        <ul className="navbar-nav ms-auto d-lg-none ST--PasangIklan">
           <li className="nav-item">
             <Link className="btn btn-primary" to="/pasang-iklan">
               + Pasang Iklan
@@ -32,7 +32,7 @@ export default function Index() {
           </li>
         </ul>
         <button
-          className="btn d-lg-none"
+          className="btn d-lg-none pe-0"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#mobileMenu"
@@ -49,9 +49,9 @@ export default function Index() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-dark" to="/login">
-              Masuk / Daftar
-            </Link>
+            <a className="nav-link text-dark" href="/properti/login" target='_blank'>
+              LogIn
+            </a>
           </li>
         </ul>
       </div>
@@ -75,9 +75,9 @@ export default function Index() {
           ></button>
         </div>
         <div className="offcanvas-body d-flex flex-column gap-2">
-          <Link className="nav-link text-dark" to="/login">
-            Masuk / Daftar
-          </Link>
+          <a className="nav-link text-dark" href="/properti/login" target='_blank'>
+            LogIn
+          </a>
         </div>
         <div className="offcanvas-footer p-3 border-top shadow ST--PasangIklan__mobile">
           <Link className="btn btn-primary w-100" to="/pasang-iklan">

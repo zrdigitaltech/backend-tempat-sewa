@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
 import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
 import './slug.scss';
-import PhoneModal from '@/app/pages/modal/Phone';
 import WhatsAppModal from '@/app/pages/modal/WhatsApp';
 import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';
 
@@ -23,9 +22,8 @@ const Index = () => {
 
   const [showShare, setShowShare] = useState(false);
   const [showPreview, setShowPreview] = useState(null);
-  const [showPhone, setShowPhone] = useState(null);
-  const [showWhatsApp, setShowWhatsApp] = useState(null);
-  const [showLaporkanIklan, setShowLaporkanIklan] = useState(null);
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [showLaporkanIklan, setShowLaporkanIklan] = useState(false);
 
   const [dragging, setDragging] = useState(false);
 
@@ -131,7 +129,7 @@ const Index = () => {
               <Sidebar
                 slug={slug}
                 kontrakanDetail={kontrakanDetail}
-                handlePhone={() => setShowPhone(true)}
+                handlePhone={() => setShowWhatsApp(true)}
                 handleWhatsApp={() => setShowWhatsApp(true)}
                 handleLaporkanIklan={() => setShowLaporkanIklan(true)}
               />
@@ -154,7 +152,6 @@ const Index = () => {
         handleWhatsApp
         handleNoTelp
       />
-      <PhoneModal show={showPhone} onClose={() => setShowPhone(false)} />
       <WhatsAppModal show={showWhatsApp} onClose={() => setShowWhatsApp(false)} />
       <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>

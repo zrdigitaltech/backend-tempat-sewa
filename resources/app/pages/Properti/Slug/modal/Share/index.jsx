@@ -70,10 +70,10 @@ const Index = props => {
                   }`}
                 >
                   {/* {item?.icon} */}
-                  {item?.platform === 'copylink' && <i className="fa fa-copy"></i>}
-                  {item?.platform === 'whatsapp' && <i className="fa fa-whatsapp"></i>}
-                  {item?.platform === 'facebook' && <i className="fa fa-facebook"></i>}
-                  {item?.platform === 'x' && <i className="fa fa-twitter"></i>}
+                  {item?.platform === 'copylink' && <i className="fa-solid fa-copy"></i>}
+                  {item?.platform === 'whatsapp' && <i className="fa-brands fa-whatsapp"></i>}
+                  {item?.platform === 'facebook' && <i className="fa-brands fa-facebook"></i>}
+                  {item?.platform === 'x' && <i className="fa-brands fa-twitter"></i>}
                   <span className="ps-1">{item?.text}</span>
                 </a>
               </div>
