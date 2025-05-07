@@ -39,6 +39,25 @@ const Index = () => {
     dispatch(getPropertiDetail(slug));
   };
 
+  const iconKategori = nama => {
+    switch (nama?.toLowerCase()) {
+      case 'kost':
+        return '🛏️';
+      case 'rumah':
+        return '🏠';
+      case 'apartemen':
+        return '🏢';
+      case 'ruko':
+        return '🏬';
+      case 'kios':
+        return '🛒';
+      case 'gudang':
+        return '🏗️';
+      default:
+        return '🏡';
+    }
+  };
+
   useEffect(() => {
     fetchPropertiDetail();
   }, [dispatch, slug]);
@@ -91,8 +110,9 @@ const Index = () => {
                     </span>
                   )}
 
-                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent">
-                    🛏️ Kost
+                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                    {iconKategori(kontrakanDetail?.kategori?.nama)}{' '}
+                    {kontrakanDetail?.kategori?.nama}
                   </span>
 
                   <span className="align-content-center badge border border-secondary text-secondary bg-transparent">

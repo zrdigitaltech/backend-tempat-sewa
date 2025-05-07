@@ -14,7 +14,8 @@ const Index = props => {
     styleModalContent,
     position = 'center',
     modalDialog,
-    classModalHeader
+    classModalHeader,
+    additionalInformation
   } = props;
 
   // useEffect(() => {
@@ -52,6 +53,7 @@ const Index = props => {
               </div>
             )}
             <div className={`modal-body ${classModalBody || ''}`}>{modalBody}</div>
+            {additionalInformation}
             {modalFooter && (
               <center>
                 <div className="modal-footer center">{modalFooter}</div>

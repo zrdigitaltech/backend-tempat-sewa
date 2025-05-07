@@ -32,12 +32,12 @@ export default function Index() {
           }}
         >
           {[
-            { label: 'Kost', slug: 'kost' },
-            { label: 'Rumah', slug: 'rumah' },
-            { label: 'Apartemen', slug: 'apartemen' },
-            { label: 'Ruko', slug: 'ruko' },
-            { label: 'Kios', slug: 'kios' },
-            { label: 'Gudang', slug: 'gudang' }
+            { id: 1, nama: 'Kost', slug: 'kost' },
+            { id: 2, nama: 'Rumah', slug: 'rumah' },
+            { id: 3, nama: 'Apartemen', slug: 'apartemen' },
+            { id: 4, nama: 'Ruko', slug: 'ruko' },
+            { id: 5, nama: 'Kios', slug: 'kios' },
+            { id: 6, nama: 'Gudang', slug: 'gudang' }
           ].map((cat, index) => (
             <div
               key={index}
@@ -52,8 +52,8 @@ export default function Index() {
               <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
                 <div className="card text-center border-0 shadow h-100 rounded-3 overflow-hidden">
                   <div className="card-body py-4">
-                    <div className="fs-2 mb-2">{iconLabel(cat.label)}</div>
-                    <h5 className="card-title mb-0">Sewa {cat.label}</h5>
+                    <div className="fs-2 mb-2">{iconLabel(cat.nama)}</div>
+                    <h5 className="card-title mb-0">Sewa {cat.nama}</h5>
                   </div>
                 </div>
               </Link>

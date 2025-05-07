@@ -49,7 +49,7 @@ export default function Index() {
             </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-dark" href="/properti/login" target='_blank'>
+            <a className="nav-link text-dark" href="/properti/login" target="_blank">
               LogIn
             </a>
           </li>
@@ -75,7 +75,7 @@ export default function Index() {
           ></button>
         </div>
         <div className="offcanvas-body d-flex flex-column gap-2">
-          <a className="nav-link text-dark" href="/properti/login" target='_blank'>
+          <a className="nav-link text-dark" href="/properti/login" target="_blank">
             LogIn
           </a>
         </div>

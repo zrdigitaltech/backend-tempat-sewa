@@ -25,7 +25,11 @@
       "Listrik 1300W",
       "Air Sumur",
       "Parkir Motor"
-    ]
+    ],
+    "kategori": {
+      "id": 1,
+      "nama": "kost"
+    }
   },
   {
     "nama": "Kontrakan Mewah B",
@@ -53,7 +57,11 @@
       "Listrik 1300W",
       "Air Sumur",
       "Parkir Motor"
-    ]
+    ],
+    "kategori": {
+      "id": 1,
+      "nama": "kost"
+    }
   },
   {
     "nama": "Kontrakan Hemat C",
@@ -87,7 +95,11 @@
       "Listrik 1300W",
       "Air Sumur",
       "Parkir Motor"
-    ]
+    ],
+    "kategori": {
+      "id": 1,
+      "nama": "kost"
+    }
   },
   {
     "nama": "Kontrakan Modern D",
@@ -115,6 +127,10 @@
       "Listrik 1300W",
       "Air Sumur",
       "Parkir Motor"
-    ]
+    ],
+    "kategori": {
+      "id": 1,
+      "nama": "kost"
+    }
   }
 ]

@@ -77,6 +77,26 @@ const Index = props => {
           {/* <SudahLogin /> */}
         </Fragment>
       }
+      additionalInformation={
+        <Fragment>
+          <div className="container p-2 border-top">
+            <div className="row row-cols-1 row-cols-md-2 g-3">
+              <div className="col text-center border-end">
+                <i className="fa-solid fa-lock text-primary me-2 mt-1"></i>
+                <br />
+                <small>
+                  <strong>tempatSewa.Com</strong> menjaga keamanan data Anda
+                </small>
+              </div>
+              <div className="col text-center">
+                <i className="fa-solid fa-check-circle text-success me-2 mt-1"></i>
+                <br />
+                <small> 1x verifikasi untuk komunikasi dengan seluruh pemilik properti.</small>
+              </div>
+            </div>
+          </div>
+        </Fragment>
+      }
       modalFooter={
         <Fragment>
           {/* Start Belum Login */}
