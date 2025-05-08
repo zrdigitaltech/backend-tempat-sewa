@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './kategori.scss';
+
 export default function Index() {
   const kategoriList = useSelector(state => state?.kategori?.kategoriList);
   const dispatch = useDispatch();
@@ -22,46 +27,100 @@ export default function Index() {
     fetchKategori();
   }, []);
 
-  const iconLabel = (label) => {
+  const iconLabel = label => {
     switch (label?.toLowerCase()) {
-    case 'kost':
-    return '🛏️';
-    case 'rumah':
-    return '🏠';
-    case 'apartemen':
-    return '🏢';
-    case 'ruko':
-    return '🏬';
-    case 'kios':
-    case 'toko':
-    return '🛒';
-    case 'gudang':
-    case 'pabrik':
-    return '🏗️';
-    case 'tanah':
-    return '🌄';
-    case 'villa':
-    return '🏖️';
-    case 'ruang kantor':
-    return '💼';
-    case 'komersial':
-    return '🏪';
-    case 'hotel':
-    return '🏨';
-    case 'gedung':
-    return '🏛️';
-    case 'kondotel':
-    return '🏩';
-    default:
-    return '🏡'; // fallback icon
+      case 'kost':
+        return '🛏️';
+      case 'rumah':
+        return '🏠';
+      case 'apartemen':
+        return '🏢';
+      case 'ruko':
+        return '🏬';
+      case 'kios':
+      case 'toko':
+        return '🛒';
+      case 'gudang':
+      case 'pabrik':
+        return '🏗️';
+      case 'tanah':
+        return '🌄';
+      case 'villa':
+        return '🏖️';
+      case 'ruang kantor':
+        return '💼';
+      case 'komersial':
+        return '🏪';
+      case 'hotel':
+        return '🏨';
+      case 'gedung':
+        return '🏛️';
+      case 'kondotel':
+        return '🏩';
+      default:
+        return '🏡'; // fallback icon
     }
-    };
+  };
+
+  const SampleNextArrow = props => {
+    const { className, onClick } = props;
+    return (
+      <div
+        className={`${className} ST--arrow ST--arrow--next`}
+        onClick={onClick}
+        style={{ zIndex: 10 }}
+      >
+        <i className="fas fa-chevron-right text-dark fs-4"></i>
+      </div>
+    );
+  };
+
+  const SamplePrevArrow = props => {
+    const { className, onClick } = props;
+    return (
+      <div
+        className={`${className} ST--arrow ST--arrow--prev`}
+        onClick={onClick}
+        style={{ zIndex: 10 }}
+      >
+        <i className="fas fa-chevron-left text-dark fs-4"></i>
+      </div>
+    );
+  };
+
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesPerRow: 1,
+    rows: 2,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1
+        }
+      }
+    ]
+  };
 
   return (
     <section className="py-5">
       <div className="container">
         <h2 className="text-center fw-semibold mb-3">Kategori Cepat</h2>
-        <div
+        {/* <div
           className="d-flex flex-wrap justify-content-start gap-3 overflow-auto px-2 py-4"
           style={{
             WebkitOverflowScrolling: 'touch',
@@ -109,6 +168,23 @@ export default function Index() {
                   </Link>
                 </div>
               ))}
+        </div> */}
+
+        <div className="px-2 py-4">
+          <Slider {...settings}>
+            {kategoriList?.map((cat, index) => (
+              <div key={index} className="p-2">
+                <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
+                  <div className="card text-center border-0 shadow-sm h-100">
+                    <div className="card-body py-4">
+                      <div className="fs-2 mb-2">{iconLabel(cat.nama)}</div>
+                      <h6 className="card-title mb-0 text-truncate">Sewa {cat.nama}</h6>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </section>
