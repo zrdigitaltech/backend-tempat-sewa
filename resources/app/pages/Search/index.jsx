@@ -45,7 +45,7 @@ export default function Index() {
 
             <div className="row g-4">
               {kontrakanList?.slice(0, visible)?.map((item, index) => (
-                <div key={index} className="col-6 col-lg-3 col-sm-4">
+                <div key={index} className="col-12 col-lg-3 col-sm-4">
                   <PropertiCard {...item} />
                 </div>
               ))}
