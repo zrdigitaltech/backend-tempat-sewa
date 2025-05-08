@@ -22,7 +22,8 @@ export default function Index(props) {
     no_whatsapp,
     member,
     isLoading = false,
-    swipeable = true
+    swipeable = true,
+    newTab = false
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -39,6 +40,28 @@ export default function Index(props) {
   };
 
   useTooltips();
+
+  const CardContent = () => (
+    <div className="card-body ST--card-body">
+      {isLoading ? (
+        <Skeleton count={2} height={20} width="80%" />
+      ) : (
+        <>
+          <h5 className="card-title fw-bold">
+            Rp{formatPrice(harga)}
+            <span className="text-capitalize"> / {durasi}</span>
+          </h5>
+          <span
+            className="card-text fw-semibold mb-0 ST__text"
+            title={nama.length > 50 ? nama : undefined}
+          >
+            {nama}
+          </span>
+          <p className="text-muted small mb-0 text-truncate">{alamat}</p>
+        </>
+      )}
+    </div>
+  );
 
   return (
     <div className="card border-0 shadow-sm h-100">
@@ -89,8 +112,14 @@ export default function Index(props) {
               <div
                 key={x || i}
                 onClick={() => {
-                  if (selectedIndex === i) {
-                    navigate(`/properti/${slug}`);
+                  if (newTab === true) {
+                    if (selectedIndex === i) {
+                      window.open(`/properti/${slug}`, '_blank');
+                    }
+                  } else {
+                    if (selectedIndex === i) {
+                      navigate(`/properti/${slug}`);
+                    }
                   }
                 }}
                 style={{ cursor: 'pointer' }}
@@ -110,30 +139,16 @@ export default function Index(props) {
           </div>
         )}
       </div>
-      <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
-        <div className="card-body ST--card-body">
-          {isLoading ? (
-            <Skeleton count={2} height={20} width="80%" />
-          ) : (
-            <Fragment>
-              <h5 className="card-title fw-bold">
-                Rp
-                {formatPrice(harga)}
-                <span className="text-capitalize"> / {durasi}</span>
-              </h5>
 
-              <span
-                className="card-text fw-semibold mb-0 ST__text"
-                title={nama.length > 50 ? nama : null}
-              >
-                {nama}
-              </span>
-
-              <p className="text-muted small mb-0 text-truncate">{alamat}</p>
-            </Fragment>
-          )}
-        </div>
-      </Link>
+      {newTab === true ? (
+        <a href={`/properti/${slug}`} target="_blank" className="text-decoration-none text-dark">
+          {CardContent()}
+        </a>
+      ) : (
+        <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
+          {CardContent()}
+        </Link>
+      )}
 
       {/* tombol telepon or whatsapp */}
       {btnTelp && (
