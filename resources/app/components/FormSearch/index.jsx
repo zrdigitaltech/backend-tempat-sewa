@@ -13,8 +13,9 @@ export default function Index(props) {
         </div>
         <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
           <select className="form-select  rounded-3">
-            <option>Durasi</option>
+            <option>Tipe Sewa</option>
             <option value="harian">Harian</option>
+            <option value="mingguan">Mingguan</option>
             <option value="bulanan">Bulanan</option>
             <option value="tahunan">Tahunan</option>
           </select>

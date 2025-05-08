@@ -28,5 +28,50 @@
     "id": 6,
     "nama": "Gudang",
     "slug": "gudang"
+  },
+  {
+    "id": 7,
+    "nama": "Tanah",
+    "slug": "tanah"
+  },
+  {
+    "id": 8,
+    "nama": "Villa",
+    "slug": "villa"
+  },
+  {
+    "id": 9,
+    "nama": "Ruang Kantor",
+    "slug": "ruang-kantor"
+  },
+  {
+    "id": 10,
+    "nama": "Komersial",
+    "slug": "komersial"
+  },
+  {
+    "id": 11,
+    "nama": "Hotel",
+    "slug": "hotel"
+  },
+  {
+    "id": 12,
+    "nama": "Pabrik",
+    "slug": "pabrik"
+  },
+  {
+    "id": 13,
+    "nama": "Gedung",
+    "slug": "gedung"
+  },
+  {
+    "id": 14,
+    "nama": "Kondotel",
+    "slug": "kondotel"
+  },
+  {
+    "id": 15,
+    "nama": "Toko",
+    "slug": "toko"
   }
 ]

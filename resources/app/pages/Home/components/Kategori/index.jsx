@@ -22,30 +22,47 @@ export default function Index() {
     fetchKategori();
   }, []);
 
-  const iconLabel = label => {
+  const iconLabel = (label) => {
     switch (label?.toLowerCase()) {
-      case 'kost':
-        return '🛏️';
-      case 'rumah':
-        return '🏠';
-      case 'apartemen':
-        return '🏢';
-      case 'ruko':
-        return '🏬';
-      case 'kios':
-        return '🛒';
-      case 'gudang':
-        return '🏗️';
-      default:
-        return '🏡'; // fallback icon
+    case 'kost':
+    return '🛏️';
+    case 'rumah':
+    return '🏠';
+    case 'apartemen':
+    return '🏢';
+    case 'ruko':
+    return '🏬';
+    case 'kios':
+    case 'toko':
+    return '🛒';
+    case 'gudang':
+    case 'pabrik':
+    return '🏗️';
+    case 'tanah':
+    return '🌄';
+    case 'villa':
+    return '🏖️';
+    case 'ruang kantor':
+    return '💼';
+    case 'komersial':
+    return '🏪';
+    case 'hotel':
+    return '🏨';
+    case 'gedung':
+    return '🏛️';
+    case 'kondotel':
+    return '🏩';
+    default:
+    return '🏡'; // fallback icon
     }
-  };
+    };
+
   return (
     <section className="py-5">
       <div className="container">
         <h2 className="text-center fw-semibold mb-3">Kategori Cepat</h2>
         <div
-          className="d-flex flex-nowrap justify-content-start gap-3 overflow-auto px-2 py-4"
+          className="d-flex flex-wrap justify-content-start gap-3 overflow-auto px-2 py-4"
           style={{
             WebkitOverflowScrolling: 'touch',
             scrollBehavior: 'smooth'
@@ -78,10 +95,8 @@ export default function Index() {
                   key={index}
                   className="flex-shrink-0"
                   style={{
-                    flex: '1 1 calc(33.333% - 1rem)',
-                    maxWidth: 'calc(33.333% - 1rem)',
-                    minWidth: '140px',
-                    flexBasis: '140px'
+                    flex: '0 0 calc(16.666% - 1rem)',
+                    maxWidth: 'calc(16.666% - 1rem)',
                   }}
                 >
                   <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
