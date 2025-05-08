@@ -23,6 +23,8 @@ const Index = () => {
   const [showShare, setShowShare] = useState(false);
   const [showPreview, setShowPreview] = useState(null);
   const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [isPageVerified, setIsPageVerified] = useState(false);
+
   const [showLaporkanIklan, setShowLaporkanIklan] = useState(false);
 
   const [dragging, setDragging] = useState(false);
@@ -57,6 +59,15 @@ const Index = () => {
         return '🏡';
     }
   };
+
+  const handleGoToWhatsApp = (no_whatsapp) => {
+    if (!no_whatsapp) {
+      alert('Nomor WhatsApp tidak tersedia.');
+      return;
+    }
+
+    alert(`Redirect langsung ke whatsapp ${no_whatsapp}`);
+  }
 
   useEffect(() => {
     fetchPropertiDetail();
@@ -150,7 +161,7 @@ const Index = () => {
                 slug={slug}
                 kontrakanDetail={kontrakanDetail}
                 handlePhone={() => setShowWhatsApp(true)}
-                handleWhatsApp={() => setShowWhatsApp(true)}
+                handleWhatsApp={() => isPageVerified ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp) : setShowWhatsApp(true)}
                 handleLaporkanIklan={() => setShowLaporkanIklan(true)}
               />
             </div>
@@ -176,6 +187,9 @@ const Index = () => {
         show={showWhatsApp}
         setShowWhatsApp={setShowWhatsApp}
         onClose={() => setShowWhatsApp(false)}
+        isPageVerified={isPageVerified}
+        setIsPageVerified={setIsPageVerified}
+        handleGoWhatsApp={()=>handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)}
       />
       <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>

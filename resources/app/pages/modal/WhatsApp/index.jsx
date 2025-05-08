@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import VerifikasiModal from '@/app/pages/modal/WhatsApp/verifikasi';
 
 const Index = props => {
-  const { show, onClose, setShowWhatsApp } = props;
+  const { show, onClose, setShowWhatsApp, isPageVerified, setIsPageVerified, handleGoWhatsApp } = props;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -16,11 +16,9 @@ const Index = props => {
 
   const [errors, setErrors] = useState({});
   const [showVerifikasi, setShowVerifikasi] = useState(false);
-  const [isPageVerified, setIsPageVerified] = useState(false);
 
   useEffect(() => {
     const verified = localStorage.getItem('isVerified') === 'true';
-    console.log('Verified from localStorage:', isPageVerified); // Debugging log
     setIsPageVerified(verified);
   }, []);
 
@@ -106,7 +104,7 @@ const Index = props => {
         }
         modalFooter={
           isPageVerified ? (
-            <button type="button" className="btn btn-success w-100 text-white">
+            <button type="button" className="btn btn-success w-100 text-white" onClick={handleGoWhatsApp}>
               <i className="fa-whatsapp fa-brands"></i> WhatsApp
             </button>
           ) : (
