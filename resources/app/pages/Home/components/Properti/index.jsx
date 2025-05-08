@@ -29,13 +29,13 @@ export default function Index() {
         <div className="row g-4">
           {isLoading
             ? Array.from({ length: 8 }).map((_, index) => (
-                <div key={index} className="col-6 col-lg-3 col-sm-4">
+                <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
                   <Skeleton height={200} />
                   <Skeleton count={2} />
                 </div>
               ))
             : kontrakanList?.map((item, index) => (
-                <div key={index} className="col-6 col-lg-3 col-sm-4">
+                <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
                   <PropertiCard {...item} />
                 </div>
               ))}

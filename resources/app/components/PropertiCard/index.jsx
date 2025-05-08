@@ -117,7 +117,7 @@ export default function Index(props) {
         </span> */}
       </div>
       <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
-        <div className="card-body">
+        <div className="card-body ST--card-body">
           <h5 className="card-title fw-bold">
             Rp
             {formatPrice(harga)}
@@ -131,7 +131,7 @@ export default function Index(props) {
             {nama}
           </span>
 
-          <p className="text-muted small mb-0 ST__text">{alamat}</p>
+          <p className="text-muted small mb-0 text-truncate">{alamat}</p>
         </div>
       </Link>
 
@@ -155,7 +155,7 @@ export default function Index(props) {
                 className="btn btn-success d-flex align-items-center w-100 text-white"
                 onClick={() => alert('WhatsApp')}
               >
-                <i className="fa fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
+                <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
                 {formatPhone(no_whatsapp)}
               </button>
             </div>

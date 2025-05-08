@@ -1,7 +1,23 @@
+'use client';
+import { useState, useEffect } from 'react';
 import FormSearch from '@/app/components/FormSearch';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { useNavigate } from 'react-router-dom';
+
 export default function Index() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulasikan loading (misalnya fetching data)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 detik simulasi loading
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       className="text-white d-flex align-items-center text-center text-md-start"
@@ -21,15 +37,31 @@ export default function Index() {
       />
 
       <div className="container position-relative px-3 px-md-5">
-        <h1 className="display-6 fw-bold mb-3">Temukan Tempat Tinggal Impianmu dengan Mudah</h1>
-        <p className="lead mb-4">
-          Jelajahi kost dan kontrakan dengan cepat, aman, dan terpercaya.
-          <br />
-          <strong>Atau pasarkan properti milikmu dan kelola semuanya dalam satu platform.</strong>
-        </p>
-
-        {/* Form */}
-        <FormSearch handleSearch={() => navigate('/search')} homePage={true} />
+        {isLoading ? (
+          <>
+            <Skeleton height={40} width={300} style={{ marginBottom: '1rem' }} />
+            <Skeleton count={2} height={20} width={300} style={{ marginBottom: '1rem' }} />
+            <div className="row g-2">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className={`data terakhir ${i === 3 ? 'col-12' : 'col-4 col-md-3'}`}>
+                  <Skeleton height={40} />
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <h1 className="display-6 fw-bold mb-3">Temukan Tempat Tinggal Impianmu dengan Mudah</h1>
+            <p className="lead mb-4">
+              Jelajahi kost dan kontrakan dengan cepat, aman, dan terpercaya.
+              <br />
+              <strong>
+                Atau pasarkan properti milikmu dan kelola semuanya dalam satu platform.
+              </strong>
+            </p>
+            <FormSearch handleSearch={() => navigate('/search')} homePage={true} />
+          </>
+        )}
       </div>
     </section>
   );
