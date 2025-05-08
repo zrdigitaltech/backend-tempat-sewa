@@ -1,16 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListLainnya } from '@/app/redux/action/kontrakan/creator';
 
+// Components
 import PropertiCard from '@/app/components/PropertiCard';
 
+// Skeleton Loader
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 const Index = props => {
+  // React Router & Redux
   const { slug } = props;
   const kontrakanListLainnya = useSelector(state => state?.kontrakan?.kontrakanListLainnya);
   const dispatch = useDispatch();
 
+  // UI State
+  const [isLoading, setIsLoading] = useState(true);
+
   const fetchKontrakanLainnya = async () => {
-    dispatch(getListLainnya(slug));
+    setIsLoading(true);
+    await dispatch(getListLainnya(slug));
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -26,18 +37,32 @@ const Index = props => {
             className="d-flex gap-3 overflow-auto pb-2 ps-1"
             style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
           >
-            {kontrakanListLainnya?.map((kontrakan, index) => (
-              <div
-                key={kontrakan?.id || index}
-                className="flex-shrink-0"
-                style={{
-                  width: '250px',
-                  scrollSnapAlign: 'start'
-                }}
-              >
-                <PropertiCard {...kontrakan} btnTelp={false} />
-              </div>
-            ))}
+            {isLoading
+              ? Array.from({ length: 5 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0"
+                    style={{
+                      width: '250px',
+                      scrollSnapAlign: 'start'
+                    }}
+                  >
+                    <Skeleton height={200} />
+                    <Skeleton count={2} />
+                  </div>
+                ))
+              : kontrakanListLainnya?.map((kontrakan, index) => (
+                  <div
+                    key={kontrakan?.id || index}
+                    className="flex-shrink-0"
+                    style={{
+                      width: '250px',
+                      scrollSnapAlign: 'start'
+                    }}
+                  >
+                    <PropertiCard {...kontrakan} btnTelp={false} isLoading={isLoading} />
+                  </div>
+                ))}
           </div>
         </div>
       </div>

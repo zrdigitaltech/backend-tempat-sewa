@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+// Slider
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+// Styles
 import './sliderimage.scss';
 
+// Skeleton Loader
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 const Index = props => {
-  const { images, nama, handleMouseDown, handleMouseMove, handleClick } = props;
+  const { images, nama, handleMouseDown, handleMouseMove, handleClick, isLoading = false } = props;
 
   const settings = {
     dots: true,
@@ -42,19 +50,25 @@ const Index = props => {
   };
   return (
     <Slider {...settings}>
-      {images?.map((x, i) => (
-        <div key={x || i}>
-          <img
-            style={{ width: '100%', height: '400px', objectFit: 'cover' }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            className="cursor-pointer"
-            src={x}
-            allt={nama}
-            onClick={() => handleClick(images[i])}
-          />
+      {isLoading ? (
+        <div>
+          <Skeleton height={400} />
         </div>
-      ))}
+      ) : (
+        images?.map((x, i) => (
+          <div key={x || i}>
+            <img
+              style={{ width: '100%', height: '400px', objectFit: 'cover' }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              className="cursor-pointer"
+              src={x}
+              allt={nama}
+              onClick={() => handleClick(images[i])}
+            />
+          </div>
+        ))
+      )}
     </Slider>
   );
 };

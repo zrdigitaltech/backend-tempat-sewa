@@ -19,7 +19,8 @@ export default function Index() {
 
   const fetchKategori = async () => {
     setIsLoading(true);
-    await disqg(false);
+    await dispatch(getListKategori());
+    setIsLoading(false);
   };
 
   useEffect(() => {
