@@ -82,6 +82,10 @@ const Verifikasi = props => {
       // Lanjutkan ke langkah berikutnya, misalnya verifikasi berhasil
       setOtpError('');
       setIsVerified(true);
+
+      // Simpan status verifikasi ke localStorage
+      localStorage.setItem('isVerified', 'true');
+
       setTimeout(() => {
         setIsPageVerified(true);
       }, 300);

@@ -18,6 +18,12 @@ const Index = props => {
   const [showVerifikasi, setShowVerifikasi] = useState(false);
   const [isPageVerified, setIsPageVerified] = useState(false);
 
+  useEffect(() => {
+    const verified = localStorage.getItem('isVerified') === 'true';
+    console.log('Verified from localStorage:', isPageVerified); // Debugging log
+    setIsPageVerified(verified);
+  }, []);
+
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -57,13 +63,6 @@ const Index = props => {
       setErrors({});
     }
   };
-
-  useEffect(() => {
-    if (isPageVerified) {
-      // Logic to show the WhatsApp component after the page is verified
-      setIsPageVerified(true);
-    }
-  }, [isPageVerified]);
 
   return (
     <Fragment>
@@ -144,7 +143,12 @@ const Index = props => {
         formData={formData}
         setFormData={setFormData}
         handleGantiNomor={() => (setShowWhatsApp(true), setShowVerifikasi(false))}
-        setIsPageVerified={setIsPageVerified}
+        setIsPageVerified={() => (
+          setIsPageVerified,
+          setShowVerifikasi(false),
+          setShowWhatsApp(true),
+          setIsPageVerified(true)
+        )}
       />
     </Fragment>
   );
