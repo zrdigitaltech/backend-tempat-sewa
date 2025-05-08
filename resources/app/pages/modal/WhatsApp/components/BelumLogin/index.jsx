@@ -47,7 +47,7 @@ const Index = props => {
         {errors.phone && <small className="invalid-feedback">{errors.phone}</small>}
       </div>
       <div>
-        <label for="exampleFormControlInput1" className="form-label">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Verifikasi Nomor Via:
         </label>
       </div>

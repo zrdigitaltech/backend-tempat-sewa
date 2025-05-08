@@ -71,7 +71,7 @@ const Index = () => {
       />
       <section className="ST--wrapper__navbar justify-content-end">
         <div className="ST--wrapper__navbar--body">
-          <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
+          <button className="btn bg-white shadow" onClick={() => setShowShare(true)}>
             <i className="fa fa-share-alt"></i> Bagikan
           </button>
         </div>
@@ -172,7 +172,11 @@ const Index = () => {
         handleWhatsApp
         handleNoTelp
       />
-      <WhatsAppModal show={showWhatsApp} onClose={() => setShowWhatsApp(false)} />
+      <WhatsAppModal
+        show={showWhatsApp}
+        setShowWhatsApp={setShowWhatsApp}
+        onClose={() => setShowWhatsApp(false)}
+      />
       <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>
   );

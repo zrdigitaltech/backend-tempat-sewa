@@ -1,14 +1,9 @@
 .ST--wrapper__navbar {
   position: fixed;
   top: 84px;
-  left: 0;
-  width: 100%;
+  right: 0;
   z-index: 1;
   padding: 0 4.4rem; // default desktop padding
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.2s linear;
 
   @media (min-width: 1441px) {
