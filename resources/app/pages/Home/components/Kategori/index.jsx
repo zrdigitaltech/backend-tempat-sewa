@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getListKategori } from '@/app/redux/action/kategori/creator';
 import { Link } from 'react-router-dom';
 
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 export default function Index() {
+  const kategoriList = useSelector(state => state?.kategori?.kategoriList);
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchKategori = async () => {
+    setIsLoading(true);
+    await dispatch(getListKategori());
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchKategori();
+  }, []);
+
   const iconLabel = label => {
     switch (label?.toLowerCase()) {
       case 'kost':
@@ -31,34 +51,49 @@ export default function Index() {
             scrollBehavior: 'smooth'
           }}
         >
-          {[
-            { id: 1, nama: 'Kost', slug: 'kost' },
-            { id: 2, nama: 'Rumah', slug: 'rumah' },
-            { id: 3, nama: 'Apartemen', slug: 'apartemen' },
-            { id: 4, nama: 'Ruko', slug: 'ruko' },
-            { id: 5, nama: 'Kios', slug: 'kios' },
-            { id: 6, nama: 'Gudang', slug: 'gudang' }
-          ].map((cat, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0"
-              style={{
-                flex: '1 1 calc(33.333% - 1rem)', // 3 columns on desktop
-                maxWidth: 'calc(33.333% - 1rem)', // 3 columns
-                minWidth: '140px', // Minimum width for mobile
-                flexBasis: '140px'
-              }}
-            >
-              <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
-                <div className="card text-center border-0 shadow h-100 rounded-3 overflow-hidden">
-                  <div className="card-body py-4">
-                    <div className="fs-2 mb-2">{iconLabel(cat.nama)}</div>
-                    <h5 className="card-title mb-0">Sewa {cat.nama}</h5>
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{
+                    flex: '1 1 calc(33.333% - 1rem)',
+                    maxWidth: 'calc(33.333% - 1rem)',
+                    minWidth: '140px',
+                    flexBasis: '140px'
+                  }}
+                >
+                  <div className="card text-center border-0 shadow h-100 rounded-3 overflow-hidden">
+                    <div className="card-body py-4">
+                      <div className="fs-2 mb-2">
+                        <Skeleton circle width={40} height={40} />
+                      </div>
+                      <Skeleton height={20} width={`80%`} style={{ margin: '0 auto' }} />
+                    </div>
                   </div>
                 </div>
-              </Link>
-            </div>
-          ))}
+              ))
+            : kategoriList?.map((cat, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{
+                    flex: '1 1 calc(33.333% - 1rem)',
+                    maxWidth: 'calc(33.333% - 1rem)',
+                    minWidth: '140px',
+                    flexBasis: '140px'
+                  }}
+                >
+                  <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
+                    <div className="card text-center border-0 shadow h-100 rounded-3 overflow-hidden">
+                      <div className="card-body py-4">
+                        <div className="fs-2 mb-2">{iconLabel(cat.nama)}</div>
+                        <h5 className="card-title mb-0">Sewa {cat.nama}</h5>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
         </div>
       </div>
     </section>

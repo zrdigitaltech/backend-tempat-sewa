@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nama": "Kost",
+    "slug": "kost"
+  },
+  {
+    "id": 2,
+    "nama": "Rumah",
+    "slug": "rumah"
+  },
+  {
+    "id": 3,
+    "nama": "Apartemen",
+    "slug": "apartemen"
+  },
+  {
+    "id": 4,
+    "nama": "Ruko",
+    "slug": "ruko"
+  },
+  {
+    "id": 5,
+    "nama": "Kios",
+    "slug": "kios"
+  },
+  {
+    "id": 6,
+    "nama": "Gudang",
+    "slug": "gudang"
+  }
+]

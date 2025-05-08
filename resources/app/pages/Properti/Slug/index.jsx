@@ -60,14 +60,14 @@ const Index = () => {
     }
   };
 
-  const handleGoToWhatsApp = (no_whatsapp) => {
+  const handleGoToWhatsApp = no_whatsapp => {
     if (!no_whatsapp) {
       alert('Nomor WhatsApp tidak tersedia.');
       return;
     }
 
     alert(`Redirect langsung ke whatsapp ${no_whatsapp}`);
-  }
+  };
 
   useEffect(() => {
     fetchPropertiDetail();
@@ -161,7 +161,11 @@ const Index = () => {
                 slug={slug}
                 kontrakanDetail={kontrakanDetail}
                 handlePhone={() => setShowWhatsApp(true)}
-                handleWhatsApp={() => isPageVerified ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp) : setShowWhatsApp(true)}
+                handleWhatsApp={() =>
+                  isPageVerified
+                    ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                    : setShowWhatsApp(true)
+                }
                 handleLaporkanIklan={() => setShowLaporkanIklan(true)}
               />
             </div>
@@ -189,7 +193,7 @@ const Index = () => {
         onClose={() => setShowWhatsApp(false)}
         isPageVerified={isPageVerified}
         setIsPageVerified={setIsPageVerified}
-        handleGoWhatsApp={()=>handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)}
+        handleGoWhatsApp={() => handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)}
       />
       <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>

@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import VerifikasiModal from '@/app/pages/modal/WhatsApp/verifikasi';
 
 const Index = props => {
-  const { show, onClose, setShowWhatsApp, isPageVerified, setIsPageVerified, handleGoWhatsApp } = props;
+  const { show, onClose, setShowWhatsApp, isPageVerified, setIsPageVerified, handleGoWhatsApp } =
+    props;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -104,7 +105,11 @@ const Index = props => {
         }
         modalFooter={
           isPageVerified ? (
-            <button type="button" className="btn btn-success w-100 text-white" onClick={handleGoWhatsApp}>
+            <button
+              type="button"
+              className="btn btn-success w-100 text-white"
+              onClick={handleGoWhatsApp}
+            >
               <i className="fa-whatsapp fa-brands"></i> WhatsApp
             </button>
           ) : (

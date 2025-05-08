@@ -6,6 +6,7 @@ import { hubungiKamiReducer } from '@/app/redux/reducer/hubungiKami/reducer';
 import { floatingWhatsappReducer } from '@/app/redux/reducer/floatingWhatsapp/reducer';
 import { pembayaranReducer } from '@/app/redux/reducer/pembayaran/reducer';
 import { kontrakanReducer } from '@/app/redux/reducer/kontrakan/reducer';
+import { kategoriReducer } from '@/app/redux/reducer/kategori/reducer';
 
 // Combine semua reducers menjadi satu
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   hubungiKami: hubungiKamiReducer,
   pembayaran: pembayaranReducer,
   kontrakan: kontrakanReducer,
+  kategori: kategoriReducer,
   floatingWhatsapp: floatingWhatsappReducer
 });
 
