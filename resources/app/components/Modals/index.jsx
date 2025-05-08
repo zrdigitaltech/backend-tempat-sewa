@@ -15,7 +15,9 @@ const Index = props => {
     position = 'center',
     modalDialog,
     classModalHeader,
-    additionalInformation
+    additionalInformation,
+    styleModal,
+    styleModalBackdrop
   } = props;
 
   // useEffect(() => {
@@ -35,7 +37,7 @@ const Index = props => {
         tabIndex="-1"
         role="dialog"
         className={`modal fade show`}
-        style={{ display: 'block' }}
+        style={{ display: 'block', ...styleModal }}
       >
         <div
           className={`modal-dialog ${position === 'top' ? 'modal-top' : 'modal-dialog-centered'} ${modalDialog}`}
@@ -65,7 +67,11 @@ const Index = props => {
       {modalBackdrop === false ? (
         modalBackdrop
       ) : (
-        <div className="modal-backdrop fade show" onClick={onCloseBackDrop}></div>
+        <div
+          className="modal-backdrop fade show"
+          onClick={onCloseBackDrop}
+          style={styleModalBackdrop}
+        ></div>
       )}
     </Fragment>
   );

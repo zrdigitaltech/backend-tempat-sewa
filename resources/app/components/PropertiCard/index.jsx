@@ -21,7 +21,8 @@ export default function Index(props) {
     btnTelp = true,
     no_whatsapp,
     member,
-    isLoading = false
+    isLoading = false,
+    swipeable = true
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -51,7 +52,7 @@ export default function Index(props) {
             infiniteLoop={false}
             showStatus={true}
             showIndicators={(member === 'Super Featured') | (member === 'Premium') && true}
-            swipeable={true}
+            swipeable={swipeable}
             emulateTouch={true}
             showThumbs={false}
             selectedItem={selectedIndex}

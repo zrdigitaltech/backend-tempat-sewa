@@ -70,6 +70,8 @@ const Index = props => {
         show={show}
         onClose={() => onClose()}
         position="center"
+        styleModal={{ zIndex: 9999999 }}
+        styleModalBackdrop={{ zIndex: 999999 }}
         modalBody={
           <Fragment>
             {isPageVerified ? (

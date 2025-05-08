@@ -14,7 +14,7 @@ const Index = props => {
     showShare,
     setShowShare,
     handleWhatsApp,
-    handleNoTelp
+    handlePhone
   } = props;
 
   // Temukan index gambar yang cocok dengan preview
@@ -27,6 +27,7 @@ const Index = props => {
       onClose={onClose}
       position="center"
       modalDialog="modal-fullscreen"
+      modalBackdrop={false}
       modalBody={
         <Fragment>
           <div className="position-relative">
@@ -78,7 +79,7 @@ const Index = props => {
               }}
             >
               <div>
-                <button className="btn btn-primary w-100 shadow" onClick={handleNoTelp}>
+                <button className="btn btn-primary w-100 shadow" onClick={handlePhone}>
                   <i className="fa fa-phone" aria-hidden="true"></i> {kontrakanDetail?.no_whatsapp}
                 </button>
               </div>

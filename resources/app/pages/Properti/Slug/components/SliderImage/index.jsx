@@ -15,6 +15,16 @@ import 'react-loading-skeleton/dist/skeleton.css';
 const Index = props => {
   const { images, nama, handleMouseDown, handleMouseMove, handleClick, isLoading = false } = props;
 
+  const SampleNextArrow = props => {
+    const { className, style, onClick } = props;
+    return null;
+  };
+
+  const SamplePrevArrow = props => {
+    const { className, style, onClick } = props;
+    return null;
+  };
+
   const settings = {
     dots: true,
     infinite: false,
@@ -23,6 +33,8 @@ const Index = props => {
     slidesToScroll: 1,
     autoplay: false,
     appendDots: dots => <ul style={{ margin: '0px' }}>{dots}</ul>,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -43,7 +55,7 @@ const Index = props => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesPerRow: 1
         }
       }
     ]

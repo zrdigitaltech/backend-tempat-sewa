@@ -243,8 +243,10 @@ const Index = () => {
         kontrakanDetail={kontrakanDetail}
         showShare={showShare}
         setShowShare={setShowShare}
-        handleWhatsApp
-        handleNoTelp
+        handlePhone={() => setShowWhatsApp(true)}
+        handleWhatsApp={() =>
+          isPageVerified ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp) : setShowWhatsApp(true)
+        }
       />
       <WhatsAppModal
         show={showWhatsApp}

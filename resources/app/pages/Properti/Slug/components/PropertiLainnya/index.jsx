@@ -60,7 +60,7 @@ const Index = props => {
                       scrollSnapAlign: 'start'
                     }}
                   >
-                    <PropertiCard {...kontrakan} btnTelp={false} isLoading={isLoading} />
+                    <PropertiCard {...kontrakan} btnTelp={false} swipeable={false} />
                   </div>
                 ))}
           </div>
