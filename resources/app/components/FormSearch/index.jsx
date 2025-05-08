@@ -1,37 +1,55 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default function Index(props) {
   const { handleSearch, kategori, page, homePage } = props;
   return (
     <section>
       <div className="row g-2">
-        <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
-          <input type="text" className="form-control rounded-3" placeholder="Lokasi" />
-        </div>
-        <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
-          <input type="number" className="form-control  rounded-3" placeholder="Harga Maksimal" />
-        </div>
-        <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
-          <select className="form-select  rounded-3">
-            <option>Tipe Sewa</option>
-            <option value="harian">Harian</option>
-            <option value="mingguan">Mingguan</option>
-            <option value="bulanan">Bulanan</option>
-            <option value="tahunan">Tahunan</option>
-          </select>
+        {homePage && (
+          <div className={`col-4 col-md-2`}>
+            <select className="form-select  rounded-3">
+              <option>Tipe Properti</option>
+              <option value="harian">Harian</option>
+              <option value="mingguan">Mingguan</option>
+              <option value="bulanan">Bulanan</option>
+              <option value="tahunan">Tahunan</option>
+            </select>
+          </div>
+        )}
+        <div className={`${page ? 'col-12' : 'col-4 col-md-5'}`}>
+          <input
+            type="text"
+            className="form-control rounded-3"
+            placeholder="Cari lokasi atau nama properti"
+          />
         </div>
         {homePage && (
-          <div className="col-12 col-md-3">
-            <button className="btn btn-warning w-100 fw-semibold rounded-3" onClick={handleSearch}>
-              Cari Properti
-            </button>
-          </div>
+          <Fragment>
+            <div className={`col-4 col-md-2`}>
+              <select className="form-select  rounded-3">
+                <option>Tipe Sewa</option>
+                <option value="harian">Harian</option>
+                <option value="mingguan">Mingguan</option>
+                <option value="bulanan">Bulanan</option>
+                <option value="tahunan">Tahunan</option>
+              </select>
+            </div>
+
+            <div className="col-12 col-md-3">
+              <button
+                className="btn btn-warning w-100 fw-semibold rounded-3"
+                onClick={handleSearch}
+              >
+                Cari Properti
+              </button>
+            </div>
+          </Fragment>
         )}
       </div>
       {page && (
-        <div className="row g-2 mt-2">
+        <div className="d-flex flex-wrap gap-2 mt-2">
           {/* Kategori (Sort options) */}
-          <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
+          <div className="flex-shrink-0">
             <select className="form-select  rounded-3">
               <option value="diutamakan">Diutamakan</option>
               <option value="terbaru">Terbaru</option>
@@ -40,10 +58,15 @@ export default function Index(props) {
             </select>
           </div>
 
+          {/* Harga Maksimal */}
+          <div>
+            <input type="text" className="form-control  rounded-3" placeholder="Harga Maksimal" />
+          </div>
+
           {/* Periode Sewa */}
-          <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
+          <div>
             <select className="form-select  rounded-3">
-              <option value="">Periode Sewa</option>
+              <option value="">Tipe Sewa</option>
               <option value="harian">Harian</option>
               <option value="mingguan">Mingguan</option>
               <option value="bulanan">Bulanan</option>
@@ -53,7 +76,7 @@ export default function Index(props) {
 
           {/* Tipe Kost - Only shown if "kost" is selected */}
           {kategori === 'kost' && (
-            <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
+            <div>
               <select className="form-select  rounded-3">
                 <option value="">Tipe Kost</option>
                 <option value="semua">Semua</option>
@@ -67,7 +90,7 @@ export default function Index(props) {
           {/* Tipe Kamar - Only shown if "apartemen" is selected */}
           {kategori === 'apartemen' ||
             (kategori === 'rumah' && (
-              <div className={`col-4 ${homePage ? 'col-md-3' : 'col-md-4'}`}>
+              <div>
                 <select className="form-select  rounded-3">
                   <option value="">
                     {kategori === 'apartemen' && 'Tipe Kamar'}

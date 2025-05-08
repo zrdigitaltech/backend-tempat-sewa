@@ -25,15 +25,19 @@ export default function Index() {
 
   return (
     <Fragment>
-      <Breadcrumb />
+      <div className="mt-3">
+        <Breadcrumb />
+      </div>
 
       <section className="mb-5 mt-2">
         <div className="container">
           {/* Form Search */}
-          <FormSearch page={true} />
+          <div className="mb-5">
+            <FormSearch page={true} />
+          </div>
 
           {/* Placeholder hasil pencarian */}
-          <div className="my-5">
+          <div>
             <h3 className="fw-bold mb-2">Properti Dijual di Tangerang</h3>
             <p className="text-muted mb-3">
               Ada <strong>10</strong> properti di properti ditemukan
