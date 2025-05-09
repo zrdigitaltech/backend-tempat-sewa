@@ -93,7 +93,9 @@ export default function Index(props) {
           {isApartemenOrRumah && (
             <div className="flex-fill flex-md-grow-0">
               <select className="form-select rounded-3">
-                <option value="">{tipeProperti === 'apartemen' ? 'Tipe Kamar' : 'Kamar Tidur'}</option>
+                <option value="">
+                  {tipeProperti === 'apartemen' ? 'Tipe Kamar' : 'Kamar Tidur'}
+                </option>
                 {tipeProperti === 'apartemen' && <option value="studio">Studio</option>}
                 <option value="1_kamar_tidur">1 Kamar Tidur</option>
                 <option value="2_kamar_tidur">2 Kamar Tidur</option>

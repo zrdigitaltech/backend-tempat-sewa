@@ -27,6 +27,8 @@ export default function Index() {
     btnSearch: false
   });
 
+  const [tipePropertiValidasi, setTipePropertiValidasi] = useState(tipeProperti);
+
   const [formData, setFormData] = useState({
     tipeProperti: '',
     keyword: '',
@@ -44,6 +46,10 @@ export default function Index() {
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+
+    if (name === 'tipeProperti') {
+      setTipePropertiValidasi(value);
+    }
   };
 
   const handleOnSearch = () => {
@@ -99,7 +105,7 @@ export default function Index() {
               handleChange={handleChange}
               handleSearch={handleOnSearch}
               isLoading={isLoading?.btnSearch}
-              tipeProperti={tipeProperti}
+              tipeProperti={tipePropertiValidasi}
             />
           </div>
 
