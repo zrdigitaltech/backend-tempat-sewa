@@ -7,8 +7,10 @@ import PropertiCard from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
 import Heads from '@/app/components/Heads';
 import { capitalizeWords } from '@/app/helpers';
+import { useNavigate } from 'react-router-dom';
 
 export default function Index() {
+  const navigate = useNavigate();
   const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);
   const dispatch = useDispatch();
 
@@ -20,6 +22,10 @@ export default function Index() {
   const tipeProperti = searchParams.get('tipeProperti');
   const keyword = searchParams.get('keyword');
   const tipeSewa = searchParams.get('tipeSewa');
+  const [isLoading, setIsLoading] = useState({
+    banner: false,
+    btnSearch: false
+  });
 
   const [formData, setFormData] = useState({
     tipeProperti: '',
@@ -40,12 +46,34 @@ export default function Index() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const fetchKontrakan = async () => {
-    dispatch(getListKontrakan());
+  const handleOnSearch = () => {
+    setIsLoading(prev => ({ ...prev, btnSearch: true }));
+    const { keyword, tipeProperti, tipeSewa } = formData;
+
+    // Membangun query string
+    let query = `/search?keyword=${keyword}`;
+
+    // Menambahkan tipeProperti dan tipeSewa jika ada nilainya
+    if (tipeProperti) {
+      query += `&tipeProperti=${tipeProperti}`;
+    }
+    if (tipeSewa) {
+      query += `&tipeSewa=${tipeSewa}`;
+    }
+
+    // Navigasi ke halaman pencarian dengan query yang sudah dibangun
+    setTimeout(() => {
+      navigate(query);
+      setIsLoading(prev => ({ ...prev, btnSearch: false }));
+    }, 1000);
   };
 
+  // const fetchKontrakan = async () => {
+  //   dispatch(getListKontrakan());
+  // };
+
   useEffect(() => {
-    fetchKontrakan();
+    // fetchKontrakan();
     fetchFormData();
   }, []);
 
@@ -65,7 +93,14 @@ export default function Index() {
         <div className="container">
           {/* Form Search */}
           <div className="mb-5">
-            <FormSearch page={true} formData={formData} handleChange={handleChange} />
+            <FormSearch
+              page={true}
+              formData={formData}
+              handleChange={handleChange}
+              handleSearch={handleOnSearch}
+              isLoading={isLoading?.btnSearch}
+              tipeProperti={tipeProperti}
+            />
           </div>
 
           {/* Placeholder hasil pencarian */}

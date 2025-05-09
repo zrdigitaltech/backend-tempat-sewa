@@ -7,7 +7,7 @@ export default function Index(props) {
       <select
         className="form-select rounded-3"
         name="tipeSewa"
-        value={tipeSewa}
+        value={tipeSewa || ''}
         onChange={handleChange}
       >
         <option>Tipe Sewa</option>

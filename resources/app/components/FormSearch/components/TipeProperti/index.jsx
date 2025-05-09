@@ -30,7 +30,7 @@ export default function Index(props) {
         <select
           className="form-select rounded-3"
           name="tipeProperti"
-          value={tipeProperti}
+          value={tipeProperti || ''}
           onChange={handleChange}
         >
           <option>Tipe Properti</option>

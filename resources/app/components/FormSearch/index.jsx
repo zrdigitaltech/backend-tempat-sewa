@@ -10,14 +10,14 @@ import './formsearch.scss';
 export default function Index(props) {
   const {
     handleSearch,
-    kategori,
+    tipeProperti,
     page = false,
     homePage = false,
     formData,
     handleChange,
     isLoading = false
   } = props;
-  const isApartemenOrRumah = kategori === 'apartemen' || kategori === 'rumah';
+  const isApartemenOrRumah = tipeProperti === 'apartemen' || tipeProperti === 'rumah';
 
   return (
     <section>
@@ -83,7 +83,7 @@ export default function Index(props) {
           </div>
 
           {/* Tipe Kost */}
-          {kategori === 'kost' && (
+          {tipeProperti === 'kost' && (
             <div className="flex-fill flex-md-grow-0">
               <TipeKost />
             </div>
@@ -93,8 +93,8 @@ export default function Index(props) {
           {isApartemenOrRumah && (
             <div className="flex-fill flex-md-grow-0">
               <select className="form-select rounded-3">
-                <option value="">{kategori === 'apartemen' ? 'Tipe Kamar' : 'Kamar Tidur'}</option>
-                {kategori === 'apartemen' && <option value="studio">Studio</option>}
+                <option value="">{tipeProperti === 'apartemen' ? 'Tipe Kamar' : 'Kamar Tidur'}</option>
+                {tipeProperti === 'apartemen' && <option value="studio">Studio</option>}
                 <option value="1_kamar_tidur">1 Kamar Tidur</option>
                 <option value="2_kamar_tidur">2 Kamar Tidur</option>
                 <option value="3_kamar_tidur">3 Kamar Tidur</option>
