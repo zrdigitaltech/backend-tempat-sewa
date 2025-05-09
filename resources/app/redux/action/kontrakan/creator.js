@@ -84,7 +84,7 @@ export const getPropertiDetail = slug => {
   };
 };
 
-export const getSearchResult = (query) => {
+export const getSearchResult = query => {
   return async dispatch => {
     try {
       const response = await axios?.get(`/api/v1/kontrakan${query}`);
@@ -95,7 +95,7 @@ export const getSearchResult = (query) => {
         dispatch(saveSearchResult(DataKontrakan));
       }
     } catch (error) {
-      console.error('Error fetching kontrakan from API:', error);
+      console.error('Error fetching search result from API:', error);
       const memberPriority = {
         'Super Featured': 1,
         Premium: 2,

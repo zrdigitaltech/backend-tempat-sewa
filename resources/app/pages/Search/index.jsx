@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Index() {
   const navigate = useNavigate();
-  const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);
+  const searchResultList = useSelector(state => state?.kontrakan?.searchResultList);
   const dispatch = useDispatch();
 
   const [visible, setVisible] = useState(8);
@@ -65,7 +65,7 @@ export default function Index() {
     }
   };
 
-  const handleOnSearch = () => {
+  const handleOnSearch = async () => {
     setIsLoading(prev => ({ ...prev, btnSearch: true }));
     const { keyword, tipeProperti, tipeSewa, sort, harga_max, tipeKamar, tipeKost } = formData;
 
@@ -92,12 +92,10 @@ export default function Index() {
       query += `&tipeKost=${tipeKost}`;
     }
 
-    dispatch(getSearchResult(query));
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
-    setTimeout(() => {
-      navigate(query);
-      setIsLoading(prev => ({ ...prev, btnSearch: false }));
-    }, 1000);
+    await dispatch(getSearchResult(query));
+    navigate(query);
+    setIsLoading(prev => ({ ...prev, btnSearch: false }));
   };
 
   // const fetchKontrakan = async () => {
@@ -112,6 +110,8 @@ export default function Index() {
   const handleLoadMore = () => {
     setVisible(prev => prev + 8); // tambah 8 lagi setiap klik
   };
+
+  console.log('searchResult', searchResultList);
 
   return (
     <Fragment>
@@ -141,11 +141,11 @@ export default function Index() {
               Sewa {tipeProperti} {keyword} di Indonesia
             </h3>
             <p className="text-muted mb-3">
-              Ada <strong>10</strong> properti di ditemukan
+              Ada <strong>{searchResultList?.length}</strong> properti di ditemukan
             </p>
 
             <div className="row g-4">
-              {kontrakanList?.slice(0, visible)?.map((item, index) => (
+              {searchResultList?.slice(0, visible)?.map((item, index) => (
                 <div key={index} className="col-12 col-lg-3 col-sm-4">
                   <PropertiCard {...item} />
                 </div>
@@ -153,7 +153,7 @@ export default function Index() {
             </div>
 
             {/* Tombol Muat Lainnya */}
-            {visible < kontrakanList?.length && (
+            {visible < searchResultList?.length && (
               <div className="text-center mt-4">
                 <button
                   className="btn btn-warning fw-semibold rounded-3 px-5"

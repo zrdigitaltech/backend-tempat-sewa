@@ -24,7 +24,7 @@ export const kontrakanReducer = (state = initialState, action) => {
     case actionType.loadSearchResult:
       state = {
         ...state,
-        searchResult: action.payload
+        searchResultList: action.payload
       };
       return state;
     case actionType.loadKontrakanResetData:
