@@ -85,23 +85,18 @@ export default function Index(props) {
           {/* Tipe Kost */}
           {tipeProperti === 'kost' && (
             <div className="flex-fill flex-md-grow-0">
-              <TipeKost />
+              <TipeKost tipeKost={formData?.tipeKost} handleChange={handleChange} />
             </div>
           )}
 
           {/* Tipe Kamar / Kamar Tidur */}
           {isApartemenOrRumah && (
             <div className="flex-fill flex-md-grow-0">
-              <select className="form-select rounded-3">
-                <option value="">
-                  {tipeProperti === 'apartemen' ? 'Tipe Kamar' : 'Kamar Tidur'}
-                </option>
-                {tipeProperti === 'apartemen' && <option value="studio">Studio</option>}
-                <option value="1_kamar_tidur">1 Kamar Tidur</option>
-                <option value="2_kamar_tidur">2 Kamar Tidur</option>
-                <option value="3_kamar_tidur">3 Kamar Tidur</option>
-                <option value="lebih">Lebih dari 3 Kamar Tidur</option>
-              </select>
+              <TipeKamar
+                tipeKamar={formData?.tipeKamar}
+                handleChange={handleChange}
+                tipeProperti={formData?.tipeProperti}
+              />
             </div>
           )}
 

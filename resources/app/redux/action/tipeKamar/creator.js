@@ -23,6 +23,7 @@ export const getListTipeKamar = tipeProperti => {
       const filteredOptions = DataTipeKamar.filter(
         option => !option.condition || option.condition === tipeProperti
       );
+      console.log('a', filteredOptions);
       dispatch(saveListTipeKamar(filteredOptions));
     }
   };

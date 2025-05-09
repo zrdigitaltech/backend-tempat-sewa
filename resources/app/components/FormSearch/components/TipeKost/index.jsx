@@ -1,15 +1,46 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getListTipeKost } from '@/app/redux/action/tipeKost/creator';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-export default function Index() {
+export default function Index(props) {
+  const { tipeKost, handleChange } = props;
+
+  const tipeKostList = useSelector(state => state?.tipeKost?.tipeKostList);
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchTipeKost = async () => {
+    setIsLoading(true);
+    await dispatch(getListTipeKost());
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchTipeKost();
+  }, []);
+
   return (
     <Fragment>
-      <select className="form-select rounded-3">
-        <option value="">Tipe Kost</option>
-        <option value="semua">Semua</option>
-        <option value="putra">Putra</option>
-        <option value="putri">Putri</option>
-        <option value="campur">Campur</option>
-      </select>
+      {isLoading ? (
+        <Skeleton height={34} borderRadius={8} />
+      ) : (
+        <select
+          className="form-select rounded-3"
+          name="tipeKost"
+          value={tipeKost || ''}
+          onChange={handleChange}
+        >
+          <option>Tipe Kost</option>
+          {tipeKostList.map((item, idx) => (
+            <option key={idx} value={item.slug}>
+              {item.nama}
+            </option>
+          ))}
+        </select>
+      )}
     </Fragment>
   );
 }
