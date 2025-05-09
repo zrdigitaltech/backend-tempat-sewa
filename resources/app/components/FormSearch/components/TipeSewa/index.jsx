@@ -1,21 +1,46 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getListTipeSewa } from '@/app/redux/action/tipeSewa/creator';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index(props) {
   const { tipeSewa, handleChange } = props;
+
+  const tipeSewaList = useSelector(state => state?.tipeSewa?.tipeSewaList);
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchTipeSewa = async () => {
+    setIsLoading(true);
+    await dispatch(getListTipeSewa());
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchTipeSewa();
+  }, []);
+
   return (
     <Fragment>
-      <select
-        className="form-select rounded-3"
-        name="tipeSewa"
-        value={tipeSewa || ''}
-        onChange={handleChange}
-      >
-        <option>Tipe Sewa</option>
-        <option value="harian">Harian</option>
-        <option value="mingguan">Mingguan</option>
-        <option value="bulanan">Bulanan</option>
-        <option value="tahunan">Tahunan</option>
-      </select>
+      {isLoading ? (
+        <Skeleton height={34} borderRadius={8} />
+      ) : (
+        <select
+          className="form-select rounded-3"
+          name="tipeSewa"
+          value={tipeSewa || ''}
+          onChange={handleChange}
+        >
+          <option>Tipe Sewa</option>
+          {tipeSewaList.map((item, idx) => (
+            <option key={idx} value={item.slug}>
+              {item.nama}
+            </option>
+          ))}
+        </select>
+      )}
     </Fragment>
   );
 }

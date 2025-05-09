@@ -38,7 +38,7 @@ export default function Index() {
   const fetchFormData = async () => {
     setFormData({
       tipeProperti: tipeProperti,
-      keyword: keyword || "",
+      keyword: keyword || '',
       tipeSewa: tipeSewa
     });
   };

@@ -1,25 +1,25 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListKategori } from '@/app/redux/action/kategori/creator';
+import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index(props) {
   const { tipeProperti, handleChange } = props;
 
-  const kategoriList = useSelector(state => state?.kategori?.kategoriList);
+  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchKategori = async () => {
+  const fetchTipeProperti = async () => {
     setIsLoading(true);
-    await dispatch(getListKategori());
+    await dispatch(getListTipeProperti());
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchKategori();
+    fetchTipeProperti();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ export default function Index(props) {
           onChange={handleChange}
         >
           <option>Tipe Properti</option>
-          {kategoriList.map((item, idx) => (
+          {tipePropertiList.map((item, idx) => (
             <option key={idx} value={item.slug}>
               {item.nama}
             </option>

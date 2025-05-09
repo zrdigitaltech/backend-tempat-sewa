@@ -1,8 +1,6 @@
 // Home Page
-import React, { Fragment, useEffect } from 'react';
-import Banner from './components/Banner';
-import Kategori from './components/Kategori';
-import Properti from './components/Properti';
+import React, { Fragment } from 'react';
+import { Banner, TipeProperti, Properti } from './components';
 
 export default function HomePage() {
   return (
@@ -11,7 +9,7 @@ export default function HomePage() {
       <Banner />
 
       {/* Kategori */}
-      <Kategori />
+      <TipeProperti />
 
       {/* Properti Terbaru */}
       <Properti />

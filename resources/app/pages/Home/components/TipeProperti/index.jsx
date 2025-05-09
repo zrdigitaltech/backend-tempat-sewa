@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListKategori } from '@/app/redux/action/kategori/creator';
+import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import { Link } from 'react-router-dom';
 
 import Skeleton from 'react-loading-skeleton';
@@ -12,19 +12,19 @@ import 'slick-carousel/slick/slick-theme.css';
 import './kategori.scss';
 
 export default function Index() {
-  const kategoriList = useSelector(state => state?.kategori?.kategoriList);
+  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchKategori = async () => {
+  const fetchTipeProperti = async () => {
     setIsLoading(true);
-    await dispatch(getListKategori());
+    await dispatch(getListTipeProperti());
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchKategori();
+    fetchTipeProperti();
   }, []);
 
   const iconLabel = label => {
@@ -153,7 +153,7 @@ export default function Index() {
         ) : (
           <div className="px-2 py-4">
             <Slider {...settings}>
-              {kategoriList?.map((cat, index) => (
+              {tipePropertiList?.map((cat, index) => (
                 <div key={index} className="p-2">
                   <Link
                     to={`/search?keyword=&tipeProperti=${cat.slug}`}
