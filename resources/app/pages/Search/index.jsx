@@ -22,6 +22,12 @@ export default function Index() {
   const tipeProperti = searchParams.get('tipeProperti');
   const keyword = searchParams.get('keyword');
   const tipeSewa = searchParams.get('tipeSewa');
+
+  const sort = searchParams.get('sort');
+  const harga_max = searchParams.get('hargaMax');
+  const tipeKamar = searchParams.get('tipeKamar');
+  const tipeKost = searchParams.get('tipeKost');
+
   const [isLoading, setIsLoading] = useState({
     banner: false,
     btnSearch: false
@@ -32,14 +38,22 @@ export default function Index() {
   const [formData, setFormData] = useState({
     tipeProperti: '',
     keyword: '',
-    tipeSewa: ''
+    tipeSewa: '',
+    sort: '',
+    harga_max: '',
+    tipeKamar: '',
+    tipeKost: ''
   });
 
   const fetchFormData = async () => {
     setFormData({
       tipeProperti: tipeProperti,
       keyword: keyword || '',
-      tipeSewa: tipeSewa
+      tipeSewa: tipeSewa,
+      sort: sort,
+      harga_max: harga_max,
+      tipeKamar: tipeKamar,
+      tipeKost: tipeKost
     });
   };
 
@@ -54,7 +68,7 @@ export default function Index() {
 
   const handleOnSearch = () => {
     setIsLoading(prev => ({ ...prev, btnSearch: true }));
-    const { keyword, tipeProperti, tipeSewa } = formData;
+    const { keyword, tipeProperti, tipeSewa, sort, harga_max, tipeKamar, tipeKost } = formData;
 
     // Membangun query string
     let query = `/search?keyword=${keyword}`;
@@ -65,6 +79,18 @@ export default function Index() {
     }
     if (tipeSewa) {
       query += `&tipeSewa=${tipeSewa}`;
+    }
+    if (sort) {
+      query += `&sort=${sort}`;
+    }
+    if (harga_max) {
+      query += `&hargaMax=${harga_max}`;
+    }
+    if (tipeKamar) {
+      query += `&tipeKamar=${tipeKamar}`;
+    }
+    if (tipeKost) {
+      query += `&tipeKost=${tipeKost}`;
     }
 
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun

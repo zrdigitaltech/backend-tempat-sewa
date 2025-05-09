@@ -33,7 +33,7 @@ export default function Index(props) {
           value={tipeKost || ''}
           onChange={handleChange}
         >
-          <option>Tipe Kost</option>
+          <option value="">Tipe Kost</option>
           {tipeKostList.map((item, idx) => (
             <option key={idx} value={item.slug}>
               {item.nama}

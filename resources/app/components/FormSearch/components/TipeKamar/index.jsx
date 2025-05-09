@@ -33,7 +33,7 @@ export default function Index(props) {
           value={tipeKamar || ''}
           onChange={handleChange}
         >
-          <option>Tipe Kamar</option>
+          <option value="">Tipe Kamar</option>
           {tipeKamarList.map((item, idx) => (
             <option key={idx} value={item.slug}>
               {item.nama}

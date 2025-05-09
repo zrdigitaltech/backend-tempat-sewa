@@ -64,7 +64,12 @@ export default function Index(props) {
         <div className="d-flex flex-wrap gap-2 mt-2">
           {/* Urutan */}
           <div className="flex-fill flex-md-grow-0">
-            <select className="form-select rounded-3">
+            <select
+              name="sort"
+              className="form-select rounded-3"
+              value={formData?.sort || ''}
+              onChange={handleChange}
+            >
               <option value="diutamakan">Diutamakan</option>
               <option value="terbaru">Terbaru</option>
               <option value="harga_tertinggi">Harga Tertinggi</option>
@@ -74,7 +79,14 @@ export default function Index(props) {
 
           {/* Harga Maksimal */}
           <div className="flex-fill flex-md-grow-0">
-            <input type="text" className="form-control rounded-3" placeholder="Harga Maksimal" />
+            <input
+              type="text"
+              className="form-control rounded-3"
+              placeholder="Harga Maksimal"
+              name="harga_max"
+              value={formData?.harga_max || ''}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Tipe Sewa */}
