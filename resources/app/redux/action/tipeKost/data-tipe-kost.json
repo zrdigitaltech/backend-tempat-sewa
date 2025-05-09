@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nama": "Harian",
+    "slug": "harian"
+  },
+  {
+    "id": 2,
+    "nama": "Mingguan",
+    "slug": "mingguan"
+  },
+  {
+    "id": 3,
+    "nama": "Bulanan",
+    "slug": "bulanan"
+  },
+  {
+    "id": 4,
+    "nama": "Tahunan",
+    "slug": "tahunan"
+  }
+]

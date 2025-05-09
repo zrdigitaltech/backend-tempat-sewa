@@ -8,6 +8,8 @@ import { pembayaranReducer } from '@/app/redux/reducer/pembayaran/reducer';
 import { kontrakanReducer } from '@/app/redux/reducer/kontrakan/reducer';
 import { tipePropertiReducer } from '@/app/redux/reducer/tipeProperti/reducer';
 import { tipeSewaReducer } from '@/app/redux/reducer/tipeSewa/reducer';
+import { tipeKostReducer } from '@/app/redux/reducer/tipeKost/reducer';
+import { tipeKamarReducer } from '@/app/redux/reducer/tipeKamar/reducer';
 
 // Combine semua reducers menjadi satu
 const rootReducer = combineReducers({
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   kontrakan: kontrakanReducer,
   tipeProperti: tipePropertiReducer,
   tipeSewa: tipeSewaReducer,
+  tipeKost: tipeKostReducer,
+  tipeKamar: tipeKamarReducer,
   floatingWhatsapp: floatingWhatsappReducer
 });
 

@@ -90,7 +90,7 @@ export default function Index() {
   return (
     <Fragment>
       <Heads
-        title={`Sewa ${capitalizeWords(tipeProperti)} ${capitalizeWords(keyword)} di Indonesia`}
+        title={`Sewa ${capitalizeWords(tipeProperti || '')} ${capitalizeWords(keyword || '')} di Indonesia`}
         // deskripsi={kontrakanDetail?.deskripsi}
         // image={kontrakanDetail?.image?.[0]}
       />
