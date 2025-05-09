@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import FormSearch from '@/app/components/FormSearch';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -7,13 +7,49 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Index() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState({
+    banner: false,
+    btnSearch: false
+  });
 
-  // Simulasikan loading (misalnya fetching data)
+  const [formData, setFormData] = useState({
+    tipeProperti: '',
+    keyword: '',
+    tipeSewa: ''
+  });
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleOnSearch = () => {
+    setIsLoading(prev => ({ ...prev, btnSearch: true }));
+    const { keyword, tipeProperti, tipeSewa } = formData;
+
+    // Membangun query string
+    let query = `/search?keyword=${keyword}`;
+
+    // Menambahkan tipeProperti dan tipeSewa jika ada nilainya
+    if (tipeProperti) {
+      query += `&tipeProperti=${tipeProperti}`;
+    }
+    if (tipeSewa) {
+      query += `&tipeSewa=${tipeSewa}`;
+    }
+
+    // Navigasi ke halaman pencarian dengan query yang sudah dibangun
+    setTimeout(() => {
+      navigate(query);
+      setIsLoading(prev => ({ ...prev, btnSearch: false }));
+    }, 1000);
+  };
+
   useEffect(() => {
+    setIsLoading(prev => ({ ...prev, banner: false }));
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 detik simulasi loading
+      setIsLoading(prev => ({ ...prev, banner: false }));
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,8 +73,8 @@ export default function Index() {
       />
 
       <div className="container position-relative px-3 px-md-5">
-        {isLoading ? (
-          <>
+        {isLoading?.banner ? (
+          <Fragment>
             <Skeleton height={40} width={300} style={{ marginBottom: '1rem' }} />
             <Skeleton count={2} height={20} width={300} style={{ marginBottom: '1rem' }} />
             <div className="row g-2">
@@ -48,7 +84,7 @@ export default function Index() {
                 </div>
               ))}
             </div>
-          </>
+          </Fragment>
         ) : (
           <>
             <h1 className="display-6 fw-bold mb-3">Temukan Tempat Tinggal Impianmu dengan Mudah</h1>
@@ -59,7 +95,13 @@ export default function Index() {
                 Atau pasarkan properti milikmu dan kelola semuanya dalam satu platform.
               </strong>
             </p>
-            <FormSearch handleSearch={() => navigate('/search')} homePage={true} />
+            <FormSearch
+              homePage={true}
+              formData={formData}
+              handleChange={handleChange}
+              handleSearch={handleOnSearch}
+              isLoading={isLoading?.btnSearch}
+            />
           </>
         )}
       </div>

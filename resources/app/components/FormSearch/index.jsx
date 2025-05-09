@@ -5,9 +5,18 @@ import {
   TipeProperti,
   TipeSewa
 } from '@/app/components/FormSearch/components';
+import './formsearch.scss';
 
 export default function Index(props) {
-  const { handleSearch, kategori, page, homePage } = props;
+  const {
+    handleSearch,
+    kategori,
+    page = false,
+    homePage = false,
+    formData,
+    handleChange,
+    isLoading = false
+  } = props;
   const isApartemenOrRumah = kategori === 'apartemen' || kategori === 'rumah';
 
   return (
@@ -15,23 +24,26 @@ export default function Index(props) {
       <div className="row g-2">
         {/* Tipe Properti */}
         <div className="col-12 col-md-2">
-          <TipeProperti />
+          <TipeProperti tipeProperti={formData?.tipeProperti} handleChange={handleChange} />
         </div>
 
         {/* Input Search */}
         <div className={page ? 'col-12 col-md-10' : 'col-12 col-md-5'}>
           <input
+            name="keyword"
             type="text"
             className="form-control rounded-3"
             placeholder="Cari lokasi atau nama properti"
+            value={formData?.keyword}
+            onChange={handleChange}
           />
         </div>
 
         {homePage && (
-          <>
+          <Fragment>
             {/* Tipe Sewa */}
             <div className="col-12 col-md-2">
-              <TipeSewa />
+              <TipeSewa tipeSewa={formData?.tipeSewa} handleChange={handleChange} />
             </div>
 
             {/* Tombol Cari */}
@@ -39,11 +51,12 @@ export default function Index(props) {
               <button
                 className="btn btn-warning w-100 fw-semibold rounded-3"
                 onClick={handleSearch}
+                disabled={isLoading}
               >
-                Cari Properti
+                {isLoading ? 'Memuat...' : 'Cari Properti'}
               </button>
             </div>
-          </>
+          </Fragment>
         )}
       </div>
 
@@ -66,7 +79,7 @@ export default function Index(props) {
 
           {/* Tipe Sewa */}
           <div className="flex-fill flex-md-grow-0">
-            <TipeSewa />
+            <TipeSewa tipeSewa={formData?.tipeSewa} handleChange={handleChange} />
           </div>
 
           {/* Tipe Kost */}
@@ -89,6 +102,17 @@ export default function Index(props) {
               </select>
             </div>
           )}
+
+          {/* Tombol Cari */}
+          <div className="ms-sm-auto ST--w-100">
+            <button
+              className="btn btn-warning w-100 fw-semibold rounded-3"
+              onClick={handleSearch}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Memuat...' : 'Cari Properti'}
+            </button>
+          </div>
         </div>
       )}
     </section>
