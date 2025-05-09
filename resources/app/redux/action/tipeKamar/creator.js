@@ -5,7 +5,7 @@ import axios from 'axios';
 import DataTipeKamar from './data-tipe-kamar.json';
 
 // Read
-export const getListTipeKamar = () => {
+export const getListTipeKamar = tipeProperti => {
   return async dispatch => {
     try {
       const response = await axios?.get('/api/v1/tipeKamar');
@@ -13,11 +13,17 @@ export const getListTipeKamar = () => {
       if (dataTipeKamar?.length > 0) {
         dispatch(saveListTipeKamar(dataTipeKamar));
       } else {
-        dispatch(saveListTipeKamar(DataTipeKamar));
+        const filteredOptions = DataTipeKamar.filter(
+          option => !option.condition || option.condition === tipeProperti
+        );
+        dispatch(saveListTipeKamar(filteredOptions));
       }
     } catch (error) {
       console.error('Error fetching TipeKamar from API:', error);
-      dispatch(saveListTipeKamar(DataTipeKamar));
+      const filteredOptions = DataTipeKamar.filter(
+        option => !option.condition || option.condition === tipeProperti
+      );
+      dispatch(saveListTipeKamar(filteredOptions));
     }
   };
 };

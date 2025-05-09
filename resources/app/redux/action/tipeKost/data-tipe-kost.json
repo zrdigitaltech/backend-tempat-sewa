@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "nama": "Harian",
-    "slug": "harian"
+    "nama": "Semua",
+    "slug": "semua"
   },
   {
     "id": 2,
-    "nama": "Mingguan",
-    "slug": "mingguan"
+    "nama": "Putra",
+    "slug": "putra"
   },
   {
     "id": 3,
-    "nama": "Bulanan",
-    "slug": "bulanan"
+    "nama": "Putri",
+    "slug": "putri"
   },
   {
     "id": 4,
-    "nama": "Tahunan",
-    "slug": "tahunan"
+    "nama": "Campur",
+    "slug": "campur"
   }
 ]

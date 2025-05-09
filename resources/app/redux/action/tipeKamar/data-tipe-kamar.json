@@ -1,22 +1,27 @@
 [
   {
-    "id": 1,
-    "nama": "Harian",
-    "slug": "harian"
+    "label": "Studio",
+    "value": "studio",
+    "condition": "apartemen"
   },
   {
-    "id": 2,
-    "nama": "Mingguan",
-    "slug": "mingguan"
+    "label": "1 Kamar Tidur",
+    "value": "1_kamar_tidur",
+    "condition": ""
   },
   {
-    "id": 3,
-    "nama": "Bulanan",
-    "slug": "bulanan"
+    "label": "2 Kamar Tidur",
+    "value": "2_kamar_tidur",
+    "condition": ""
   },
   {
-    "id": 4,
-    "nama": "Tahunan",
-    "slug": "tahunan"
+    "label": "3 Kamar Tidur",
+    "value": "3_kamar_tidur",
+    "condition": ""
+  },
+  {
+    "label": "Lebih dari 3 Kamar Tidur",
+    "value": "lebih_dari_3_Kamar_Tidur",
+    "condition": ""
   }
 ]
