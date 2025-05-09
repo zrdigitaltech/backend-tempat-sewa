@@ -64,3 +64,10 @@ export const formatPhone = phone => {
   const cleaned = phone.replace(/\s+/g, ''); // hapus spasi jika ada
   return cleaned.slice(0, 6) + 'xxxx';
 };
+
+export const capitalizeWords = str => {
+  return str
+    ?.split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};

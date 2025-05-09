@@ -5,6 +5,8 @@ import Breadcrumb from '@/app/components/Breadcrumb';
 import FormSearch from '@/app/components/FormSearch';
 import PropertiCard from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
+import Heads from '@/app/components/Heads';
+import { capitalizeWords } from '@/app/helpers';
 
 export default function Index() {
   const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);
@@ -53,9 +55,11 @@ export default function Index() {
 
   return (
     <Fragment>
-      {/* <div className="mt-3">
-        <Breadcrumb />
-      </div> */}
+      <Heads
+        title={`Sewa ${capitalizeWords(tipeProperti)} ${capitalizeWords(keyword)} di Indonesia`}
+        // deskripsi={kontrakanDetail?.deskripsi}
+        // image={kontrakanDetail?.image?.[0]}
+      />
 
       <section className="mb-5 mt-3">
         <div className="container">

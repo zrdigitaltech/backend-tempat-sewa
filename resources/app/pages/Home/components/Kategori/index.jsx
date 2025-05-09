@@ -155,7 +155,10 @@ export default function Index() {
             <Slider {...settings}>
               {kategoriList?.map((cat, index) => (
                 <div key={index} className="p-2">
-                  <Link to={`/sewa/${cat.slug}`} className="text-decoration-none text-dark">
+                  <Link
+                    to={`/search?keyword=&tipeProperti=${cat.slug}`}
+                    className="text-decoration-none text-dark"
+                  >
                     <div className="card text-center border-0 shadow-sm h-100">
                       <div className="card-body py-4">
                         <div className="fs-2 mb-2">{iconLabel(cat.nama)}</div>
