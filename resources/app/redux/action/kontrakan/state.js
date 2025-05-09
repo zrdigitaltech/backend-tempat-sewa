@@ -1,5 +1,6 @@
 export const initialState = {
   kontrakanList: [],
   kontrakanListLainnya: [],
-  kontrakanDetail: {}
+  kontrakanDetail: {},
+  searchResult: [],
 };

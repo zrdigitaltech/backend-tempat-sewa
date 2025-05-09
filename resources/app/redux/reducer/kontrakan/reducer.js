@@ -21,6 +21,12 @@ export const kontrakanReducer = (state = initialState, action) => {
         kontrakanDetail: action.payload
       };
       return state;
+    case actionType.loadSearchResult:
+      state = {
+        ...state,
+        searchResult: action.payload
+      };
+      return state;
     case actionType.loadKontrakanResetData:
       return initialState;
     default:

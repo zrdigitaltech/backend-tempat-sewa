@@ -84,6 +84,31 @@ export const getPropertiDetail = slug => {
   };
 };
 
+export const getSearchResult = (query) => {
+  return async dispatch => {
+    try {
+      const response = await axios?.get(`/api/v1/kontrakan${query}`);
+      const dataKontrakan = response?.data?.data;
+      if (dataKontrakan?.length > 0) {
+        dispatch(saveSearchResult(dataKontrakan));
+      } else {
+        dispatch(saveSearchResult(DataKontrakan));
+      }
+    } catch (error) {
+      console.error('Error fetching kontrakan from API:', error);
+      const memberPriority = {
+        'Super Featured': 1,
+        Premium: 2,
+        Free: 3
+      };
+      const sortedList = [...DataKontrakan].sort(
+        (a, b) => memberPriority[a.member] - memberPriority[b.member]
+      );
+      dispatch(saveSearchResult(sortedList));
+    }
+  };
+};
+
 export const saveListKontrakan = payload => {
   return {
     type: actionType.loadKontrakan,
@@ -101,6 +126,13 @@ export const saveListKontrakanLainnya = payload => {
 export const saveKontrakanDetail = payload => {
   return {
     type: actionType.loadKontrakanDetail,
+    payload: payload
+  };
+};
+
+export const saveSearchResult = payload => {
+  return {
+    type: actionType.loadSearchResult,
     payload: payload
   };
 };

@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
-import Breadcrumb from '@/app/components/Breadcrumb';
+import { getSearchResult } from '@/app/redux/action/kontrakan/creator';
 import FormSearch from '@/app/components/FormSearch';
 import PropertiCard from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
@@ -93,6 +92,7 @@ export default function Index() {
       query += `&tipeKost=${tipeKost}`;
     }
 
+    dispatch(getSearchResult(query));
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
     setTimeout(() => {
       navigate(query);

@@ -70,7 +70,7 @@ export default function Index(props) {
               value={formData?.sort || ''}
               onChange={handleChange}
             >
-              <option value="diutamakan">Diutamakan</option>
+              <option value="">Diutamakan</option>
               <option value="terbaru">Terbaru</option>
               <option value="harga_tertinggi">Harga Tertinggi</option>
               <option value="harga_terendah">Harga Terendah</option>
