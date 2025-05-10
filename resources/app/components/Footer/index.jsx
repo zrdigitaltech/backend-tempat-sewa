@@ -43,7 +43,7 @@ export default function Index() {
           </div>
           <div className="col-6 text-end mt-2 mt-0">
             <p className="mb-0">
-              Didukung oleh{' '}
+              Dikembangkan oleh{' '}
               <a
                 href="https://zrdevelopers.github.io/"
                 target="_blank"
