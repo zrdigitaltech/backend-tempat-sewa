@@ -114,3 +114,8 @@ export const unFormatStrip = text => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 };
+
+export const formatTipeKamar = text => {
+  if (!text) return null;
+  return text.charAt(0).toUpperCase();
+};

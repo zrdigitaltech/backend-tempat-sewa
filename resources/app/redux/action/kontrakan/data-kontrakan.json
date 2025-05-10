@@ -69,7 +69,7 @@
       "nama": "Rumah",
       "slug": "rumah"
     },
-    "tipe_kamar": "2_kamar_tidur"
+    "tipe_kamar": "lebih_dari_3_Kamar_Tidur"
   },
   {
     "nama": "Kontrakan Hemat C",
@@ -144,9 +144,9 @@
     ],
     "kategori": {
       "id": 1,
-      "nama": "kost",
-      "slug": "kost"
+      "nama": "Apartemen",
+      "slug": "apartemen"
     },
-    "tipe_kamar": "1_kamar_tidur"
+    "tipe_kamar": "studio"
   }
 ]

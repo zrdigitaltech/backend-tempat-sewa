@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { formatPrice, formatPhone } from '@/app/helpers';
+import { formatPrice, formatPhone, formatTipeKamar } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
 import './propertiCard.scss';
 import useTooltips from '@/app/components/Tooltips';
@@ -25,7 +25,8 @@ export default function Index(props) {
     swipeable = true,
     newTab = false,
     kategori = '',
-    showKategori = false
+    showKategori = false,
+    tipe_kamar
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -91,9 +92,21 @@ export default function Index(props) {
       ) : (
         <Fragment>
           {showKategori === true && (
-            <span className="mb-2 align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-              {iconKategori(kategori)} {typeof kategori === 'object' ? kategori?.nama : ''}
-            </span>
+            <Fragment>
+              <div className="d-flex gap-2 mb-2">
+                <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                  {iconKategori(kategori)} {typeof kategori === 'object' ? kategori?.nama : ''}
+                </span>
+                <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                  <i className="fa-solid fa-bed me-1"></i>
+                  {formatTipeKamar(tipe_kamar) === 'S'
+                    ? 'Studio'
+                    : formatTipeKamar(tipe_kamar) === 'L'
+                      ? '>3'
+                      : formatTipeKamar(tipe_kamar)}
+                </span>
+              </div>
+            </Fragment>
           )}
           <h5 className="card-title fw-bold">
             Rp{formatPrice(harga)}

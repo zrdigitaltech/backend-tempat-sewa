@@ -156,7 +156,11 @@ export default function Index() {
             {searchResultList?.length > 0 && (
               <Fragment>
                 <h3 className="fw-bold mb-2 text-capitalize">
-                  Sewa {tipeProperti} {keyword} di Indonesia
+                  Sewa{' '}
+                  {tipeProperti === null && keyword === ''
+                    ? 'Properti'
+                    : tipeProperti + unFormatStrip(keyword)}{' '}
+                  di Indonesia
                 </h3>
 
                 <p className="text-muted mb-3">
