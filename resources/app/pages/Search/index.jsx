@@ -175,15 +175,13 @@ export default function Index() {
             {searchResultList?.length > 0 && (
               <Fragment>
                 <h3 className="fw-bold mb-2 text-capitalize">
-                  Sewa{' '}
-                  {tipeProperti === null && keyword === ''
-                    ? 'Properti'
-                    : tipeProperti + unFormatStrip(keyword)}{' '}
-                  di Indonesia
+                  Temukan {tipeProperti === null && keyword === ''
+                  ? 'Properti'
+                  : tipeProperti + unFormatStrip(keyword)}{' '} Sewa Impian Anda di Indonesia
                 </h3>
 
                 <p className="text-muted mb-3">
-                  Ada <strong>{searchResultList?.length}</strong> properti di ditemukan
+                  Kami telah menemukan <strong>{searchResultList?.length}</strong> properti yang cocok untuk Anda.
                 </p>
               </Fragment>
             )}
