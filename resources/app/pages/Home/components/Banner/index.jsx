@@ -90,7 +90,7 @@ export default function Index() {
           <>
             <h1 className="display-6 fw-bold mb-3">Temukan Tempat Tinggal Impianmu dengan Mudah</h1>
             <p className="lead mb-4">
-              Jelajahi kost dan kontrakan dengan cepat, aman, dan terpercaya.
+              Jelajahi properti dengan cepat, aman, dan terpercaya.
               <br />
               <strong>
                 Atau pasarkan properti milikmu dan kelola semuanya dalam satu platform.

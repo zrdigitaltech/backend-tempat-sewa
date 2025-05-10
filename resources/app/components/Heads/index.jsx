@@ -5,6 +5,8 @@ const Index = props => {
   const { title, deskripsi, image } = props;
   const defaultTitle =
     'TempatSewa.Com Indonesia: Situs Sewa Kos, Sewa Rumah, Sewa Apartemen, Sewa Ruko, Sewa Kios dan Sewa Gudang';
+  const defaultDeskripsi =
+    'Temukan dan sewa kontrakan, kost, atau properti impianmu dengan mudah. Kelola dan pasarkan properti dalam satu platform: tempatSewa.Com.';
 
   return (
     <Helmet>
@@ -19,7 +21,7 @@ const Index = props => {
       {/* <!-- Keyword & Author --> */}
       <meta
         name="keywords"
-        content="sewa kos, sewa rumah, sewa apartemen, sewa ruko, sewa kios, sewa gudang, sewa properti Indonesia"
+        content="sewa kontrakan, sewa kost, sewa rumah, cari kontrakan murah, kost bulanan, sewa apartemen, kontrakan Jakarta, kost dekat kampus, pasang iklan properti, platform sewa properti, properti disewakan, cari rumah sewa, kontrakan eksklusif, manajemen properti, tempat sewa terpercaya"
       />
       <meta name="author" content="ZRDevelopers" />
 
@@ -30,10 +32,7 @@ const Index = props => {
       <meta name="twitter:card" content="summary_large_image" />
 
       {/* <!--  Non-Essential, But Recommended --> */}
-      <meta
-        property="og:description"
-        content={`${deskripsi || 'TempatSewa.Com adalah platform terpercaya untuk sewa kos, rumah, apartemen, ruko, kios, dan gudang di seluruh Indonesia.'}`}
-      />
+      <meta property="og:description" content={`${deskripsi || defaultDeskripsi}`} />
       <meta property="og:site_name" content={title || defaultTitle} />
       <meta name="twitter:image:alt" content={title || defaultTitle} />
 

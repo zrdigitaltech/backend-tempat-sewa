@@ -271,6 +271,7 @@ const Index = () => {
         isPageVerified={isPageVerified}
         setIsPageVerified={setIsPageVerified}
         handleGoWhatsApp={() => handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)}
+        dataItem={kontrakanDetail}
       />
       <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
     </Fragment>

@@ -20,7 +20,7 @@ export default function Index() {
           {logosList?.length > 0 && (
             <img src={logosList[0].image_url} alt="Logo" height="32" className="me-2" />
           )}
-          <span className="text-primary">Tempat</span>Sewa.Com
+          <span className="text-primary">tempat</span>Sewa.Com
         </Link>
 
         {/* Toggle button (Offcanvas Trigger) */}
@@ -65,7 +65,7 @@ export default function Index() {
       >
         <div className="offcanvas-header border-bottom">
           <h5 id="mobileMenuLabel" className="offcanvas-title">
-            <span className="text-primary">Tempat</span>Sewa.Com
+            <span className="text-primary">tempat</span>Sewa.Com
           </h5>
           <button
             type="button"

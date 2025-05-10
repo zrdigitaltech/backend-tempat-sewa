@@ -41,7 +41,7 @@ const Index = props => {
                 <Skeleton circle height={60} width={60} />
               ) : (
                 <img
-                  src="https://placehold.co/800x600?text=Image+1"
+                  src={kontrakanDetail?.pemilikImage + kontrakanDetail?.pemilik}
                   alt="Foto Profil"
                   className="rounded-circle img-fluid"
                   style={{ width: '60px', height: '60px', objectFit: 'cover' }}

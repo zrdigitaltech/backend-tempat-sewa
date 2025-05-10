@@ -18,6 +18,9 @@ import { useNavigate } from 'react-router-dom';
 import { TipeProperti } from '@/app/pages/Search/components';
 import classNames from 'classnames';
 
+// Modals
+import WhatsAppModal from '@/app/pages/modal/WhatsApp';
+
 export default function Index() {
   const navigate = useNavigate();
   const searchResultList = useSelector(state => state?.kontrakan?.searchResultList);
@@ -43,6 +46,13 @@ export default function Index() {
   });
 
   const [tipePropertiValidasi, setTipePropertiValidasi] = useState(tipeProperti);
+
+  // UI State
+  const [isPageVerified, setIsPageVerified] = useState(false);
+
+  // Modal States
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [dataItem, setDataItem] = useState(null);
 
   const [formData, setFormData] = useState({
     tipeProperti: '',
@@ -125,6 +135,15 @@ export default function Index() {
     setVisible(prev => prev + 8); // tambah 8 lagi setiap klik
   };
 
+  const handleGoToWhatsApp = no_whatsapp => {
+    if (!no_whatsapp) {
+      alert('Nomor WhatsApp tidak tersedia.');
+      return;
+    }
+
+    alert(`Redirect langsung ke whatsapp ${no_whatsapp}`);
+  };
+
   return (
     <Fragment>
       <Heads
@@ -172,7 +191,16 @@ export default function Index() {
               <div className="row g-4">
                 {searchResultList?.slice(0, visible)?.map((item, index) => (
                   <div key={index} className="col-12 col-lg-3 col-sm-4">
-                    <PropertiCard {...item} showKategori={true} />
+                    <PropertiCard
+                      {...item}
+                      showKategori={true}
+                      handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                      handleWhatsApp={() =>
+                        isPageVerified
+                          ? handleGoToWhatsApp(item?.no_whatsapp)
+                          : setShowWhatsApp(true)
+                      }
+                    />
                   </div>
                 ))}
               </div>
@@ -238,6 +266,16 @@ export default function Index() {
           ''
         )}
       </section>
+
+      <WhatsAppModal
+        show={showWhatsApp}
+        setShowWhatsApp={setShowWhatsApp}
+        onClose={() => (setShowWhatsApp(false), setDataItem(null))}
+        isPageVerified={isPageVerified}
+        setIsPageVerified={setIsPageVerified}
+        handleGoWhatsApp={() => handleGoToWhatsApp(dataItem?.no_whatsapp)}
+        dataItem={dataItem}
+      />
     </Fragment>
   );
 }

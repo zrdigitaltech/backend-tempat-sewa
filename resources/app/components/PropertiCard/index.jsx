@@ -26,7 +26,9 @@ export default function Index(props) {
     newTab = false,
     kategori = '',
     showKategori = false,
-    tipe_kamar
+    tipe_kamar,
+    handlePhone,
+    handleWhatsApp
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -222,7 +224,7 @@ export default function Index(props) {
               ) : (
                 <button
                   className="btn btn-primary d-flex align-items-center w-100"
-                  onClick={() => alert('Phone')}
+                  onClick={handlePhone}
                 >
                   <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
                 </button>
@@ -236,7 +238,7 @@ export default function Index(props) {
               ) : (
                 <button
                   className="btn btn-success d-flex align-items-center w-100 text-white"
-                  onClick={() => alert('WhatsApp')}
+                  onClick={handleWhatsApp}
                 >
                   <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
                   {formatPhone(no_whatsapp)}

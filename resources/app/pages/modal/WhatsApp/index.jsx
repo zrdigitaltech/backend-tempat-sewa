@@ -6,8 +6,15 @@ import { Link } from 'react-router-dom';
 import VerifikasiModal from '@/app/pages/modal/WhatsApp/verifikasi';
 
 const Index = props => {
-  const { show, onClose, setShowWhatsApp, isPageVerified, setIsPageVerified, handleGoWhatsApp } =
-    props;
+  const {
+    show,
+    onClose,
+    setShowWhatsApp,
+    isPageVerified,
+    setIsPageVerified,
+    handleGoWhatsApp,
+    dataItem
+  } = props;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -75,7 +82,7 @@ const Index = props => {
         modalBody={
           <Fragment>
             {isPageVerified ? (
-              <SudahLogin />
+              <SudahLogin dataItem={dataItem} />
             ) : (
               <BelumLogin formData={formData} errors={errors} handleChange={handleChange} />
             )}

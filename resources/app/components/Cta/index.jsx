@@ -8,7 +8,7 @@ export default function Index() {
         <h2 className="fw-semibold mb-3">Punya Properti yang Belum Tersewa?</h2>
         <p className="mb-4 text-muted">
           Tidak hanya mencari tempat tinggal — kamu juga bisa memasarkan propertimu dan mengelolanya
-          secara efisien hanya di TempatSewa.Com.
+          secara efisien hanya di tempatSewa.Com.
         </p>
         <Link to="/daftarkan-properti" className="btn btn-warning px-4 py-2 fw-semibold">
           Daftarkan Sekarang

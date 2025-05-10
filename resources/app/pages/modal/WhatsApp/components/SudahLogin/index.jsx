@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 const Index = props => {
-  const { data } = props;
+  const { dataItem } = props;
 
   const handleCopy = phoneNumber => {
     navigator.clipboard
@@ -25,7 +25,7 @@ const Index = props => {
           <div className="d-flex justify-content-center">
             <div className="position-relative" style={{ width: '120px' }}>
               <img
-                src="https://placehold.co/800x600?text=Image+1"
+                src={dataItem?.pemilikImage + dataItem?.pemilik}
                 alt="Foto Profil"
                 className="rounded-circle img-fluid"
                 style={{ width: '120px', height: '120px', objectFit: 'cover' }}
@@ -44,14 +44,14 @@ const Index = props => {
             </div>
           </div>
           <div className="mt-1">
-            <strong>Nama Pemilik</strong>
+            <strong>{dataItem?.pemilik}</strong>
           </div>
           <div className="mt-3">
             <span className="text-primary">
-              +6285691358038{' '}
+              {dataItem?.no_whatsapp}{' '}
               <i
                 className="fa-solid fa-copy cursor-pointer"
-                onClick={() => handleCopy('+6285691358038')}
+                onClick={() => handleCopy(dataItem?.no_whatsapp)}
               ></i>
             </span>
           </div>
