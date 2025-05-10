@@ -106,7 +106,7 @@ const filterKontrakanLokal = queryObj => {
     const hargaMatch = hargaMax ? item.harga <= parseInt(hargaMax) : true;
 
     const tipeKostMatch = tipeKost
-      ? item.kategori?.nama?.toLowerCase() === tipeKost.toLowerCase()
+      ? item.tipe_kost?.toLowerCase() === tipeKost.toLowerCase()
       : true;
 
     const tipePropertiMatch = tipeProperti

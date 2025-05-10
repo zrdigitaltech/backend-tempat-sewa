@@ -29,7 +29,8 @@ export default function Index(props) {
     tipe_kamar,
     handlePhone,
     handleWhatsApp,
-    showTipeKamar = false
+    showTipeKamar = false,
+    tipe_kost
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -98,7 +99,12 @@ export default function Index(props) {
             <Fragment>
               <div className="d-flex gap-2 mb-2">
                 <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                  {iconKategori(kategori)} {typeof kategori === 'object' ? kategori?.nama : ''}
+                  {iconKategori(kategori)}{' '}
+                  {typeof kategori === 'object'
+                    ? kategori?.nama.toLowerCase() === 'kost'
+                      ? kategori?.nama + ' ' + tipe_kost
+                      : kategori?.nama
+                    : ''}
                 </span>
                 {showTipeKamar && (
                   <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
