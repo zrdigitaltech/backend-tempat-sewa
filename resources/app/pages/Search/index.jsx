@@ -243,7 +243,7 @@ export default function Index() {
 
         {tipeProperti && searchResultList?.length === 0 ? (
           <Fragment>
-            <TipeProperti tipeProperti={tipeProperti} />
+            <TipeProperti tipeProperti={tipeProperti} kategori={""} />
             <div className="container mb-5 mt-3 d-flex justify-content-center">
               <div className="col-12 col-sm-10 text-center cursor-pointer">
                 <div className="position-relative" onClick={() => alert('modal')}>

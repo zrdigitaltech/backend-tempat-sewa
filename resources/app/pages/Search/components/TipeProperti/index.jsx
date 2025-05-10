@@ -12,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './kategori.scss';
 
 export default function Index(props) {
-  const { tipeProperti } = props;
+  const { tipeProperti, kategori } = props;
   const tempatList = useSelector(state => state?.tipeProperti?.tempatList);
   const dispatch = useDispatch();
 
@@ -120,7 +120,7 @@ export default function Index(props) {
   return (
     <section className="py-5 bg-light">
       <div className="container">
-        <h2 className="text-center fw-semibold mb-3">Cari Tempat Usaha Lainnya</h2>
+        <h2 className="text-center fw-semibold mb-3">Cari Tempat {kategori} Lainnya</h2>
         {isLoading ? (
           <div
             className="d-flex flex-nowrap justify-content-start gap-3 overflow-auto px-2 py-4"
