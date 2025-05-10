@@ -1,5 +1,5 @@
 export const formatPriceLocale = price => {
-  if (price == null) return 'N/A'; // Handle cases where price is null or undefined
+  if (!price) return ''; // Handle cases where price is null or undefined
   return price
     .toLocaleString('id-ID', {
       style: 'decimal',
@@ -31,6 +31,17 @@ export const formatPrice = price => {
 
   const value = price / 1000000000000;
   return parseFloat(value.toFixed(2)) + ' Triliun'; // Format triliun dengan satu angka desimal
+};
+
+export const formatRupiah = value => {
+  if (!value) return '';
+  const numberString = value.replace(/[^\d]/g, '');
+  return new Intl.NumberFormat('id-ID').format(Number(numberString));
+};
+export const unFormatRupiah = value => {
+  if (!value) return 0;
+  const numberString = value.toString().replace(/[^\d]/g, '');
+  return Number(numberString);
 };
 
 export const sortList = list => {
@@ -73,8 +84,33 @@ export const capitalizeWords = str => {
 };
 
 export const formatUnderscore = nama => {
+  if (!nama) return ''; // Cek jika null, undefined, atau empty string
   return nama
-    .split('_') // Pisahkan berdasarkan underscore
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Kapitalisasi awal kata
-    .join(' '); // Gabungkan kembali dengan spasi
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+export const normalize = str => {
+  if (!str) return ''; // Cek jika null, undefined, atau empty string
+  return str
+    ?.toLowerCase()
+    .replace(/jln|jalan/gi, 'jl')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+export const formatStrip = text => {
+  if (!text) return '';
+  return text
+    .toLowerCase() // Semua huruf menjadi huruf kecil
+    .replace(/[\s,.\-]+/g, '-') // Ganti spasi, koma, titik, dan simbol lainnya dengan tanda strip
+    .replace(/^-+|-+$/g, ''); // Hapus strip di awal atau akhir
+};
+export const unFormatStrip = text => {
+  if (!text) return '';
+  return text
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 };

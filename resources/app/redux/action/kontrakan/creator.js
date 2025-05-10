@@ -1,5 +1,6 @@
 import { actionType } from '@/app/redux/action/kontrakan/type';
 import axios from 'axios';
+import { formatStrip, unFormatStrip } from '@/app/helpers';
 
 // Data Json
 import DataKontrakan from './data-kontrakan.json';
@@ -95,10 +96,11 @@ const filterKontrakanLokal = queryObj => {
     const { keyword, tipeProperti, tipeSewa, hargaMax, tipeKamar, tipeKost } = queryObj;
 
     const keywordMatch = keyword
-      ? item.nama?.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.deskripsi?.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.area?.toLowerCase().includes(keyword.toLowerCase()) ||
-        item.kota?.toLowerCase().includes(keyword.toLowerCase())
+      ? formatStrip(item.nama).toLowerCase().includes(keyword.toLowerCase()) ||
+        formatStrip(item.deskripsi)?.toLowerCase().includes(keyword.toLowerCase()) ||
+        formatStrip(item.area)?.toLowerCase().includes(keyword.toLowerCase()) ||
+        formatStrip(item.kota)?.toLowerCase().includes(keyword.toLowerCase()) ||
+        formatStrip(item.alamat)?.toLowerCase().includes(keyword.toLowerCase())
       : true;
 
     const hargaMatch = hargaMax ? item.harga <= parseInt(hargaMax) : true;

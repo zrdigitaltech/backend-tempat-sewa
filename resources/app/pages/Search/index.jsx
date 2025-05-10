@@ -5,7 +5,15 @@ import FormSearch from '@/app/components/FormSearch';
 import PropertiCard from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
 import Heads from '@/app/components/Heads';
-import { capitalizeWords, formatUnderscore, formatPriceLocale } from '@/app/helpers';
+import {
+  capitalizeWords,
+  formatUnderscore,
+  formatPriceLocale,
+  formatRupiah,
+  unFormatRupiah,
+  formatStrip,
+  unFormatStrip
+} from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
 import { TipeProperti } from '@/app/pages/Search/components';
 import classNames from 'classnames';
@@ -49,10 +57,10 @@ export default function Index() {
   const fetchFormData = async () => {
     setFormData({
       tipeProperti: tipeProperti,
-      keyword: keyword || '',
+      keyword: unFormatStrip(keyword),
       tipeSewa: tipeSewa,
       sort: sort,
-      harga_max: harga_max,
+      harga_max: formatRupiah(harga_max),
       tipeKamar: tipeKamar,
       tipeKost: tipeKost
     });
@@ -60,7 +68,13 @@ export default function Index() {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+
+    if (name === 'harga_max') {
+      const formatted = formatRupiah(value);
+      setFormData(prev => ({ ...prev, [name]: formatted }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
 
     if (name === 'tipeProperti') {
       setTipePropertiValidasi(value);
@@ -72,7 +86,8 @@ export default function Index() {
     const { keyword, tipeProperti, tipeSewa, sort, harga_max, tipeKamar, tipeKost } = formData;
 
     // Membangun query string
-    let query = `/search?keyword=${keyword}`;
+    const keywordCleaned = formatStrip(keyword);
+    let query = `/search?keyword=${keywordCleaned}`;
 
     // Menambahkan tipeProperti dan tipeSewa jika ada nilainya
     if (tipeProperti) {
@@ -85,7 +100,7 @@ export default function Index() {
       query += `&sort=${sort}`;
     }
     if (harga_max) {
-      query += `&hargaMax=${harga_max}`;
+      query += `&hargaMax=${unFormatRupiah(harga_max)}`;
     }
     if (tipeKamar) {
       query += `&tipeKamar=${tipeKamar}`;
@@ -165,8 +180,9 @@ export default function Index() {
                   <p className="text-muted">
                     Maaf, properti dengan kata kunci{' '}
                     <strong className="text-capitalize">
-                      {tipeProperti} {keyword} {sort} {formatPriceLocale(parseInt(harga_max))}{' '}
-                      {tipeSewa} {formatUnderscore(tipeKamar)} {tipeKost}
+                      {tipeProperti} {unFormatStrip(keyword)} {sort}{' '}
+                      {formatPriceLocale(parseInt(harga_max))} {tipeSewa}{' '}
+                      {formatUnderscore(tipeKamar)} {tipeKost}
                     </strong>{' '}
                     tidak ditemukan.
                     <br />

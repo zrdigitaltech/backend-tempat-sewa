@@ -4,13 +4,10 @@ import FormSearch from '@/app/components/FormSearch';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getSearchResult } from '@/app/redux/action/kontrakan/creator';
+import { formatStrip, unFormatStrip } from '@/app/helpers';
 
 export default function Index() {
   const navigate = useNavigate();
-  const searchResultList = useSelector(state => state?.kontrakan?.searchResultList);
-  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState({
     banner: false,
@@ -33,7 +30,8 @@ export default function Index() {
     const { keyword, tipeProperti, tipeSewa } = formData;
 
     // Membangun query string
-    let query = `/search?keyword=${keyword}`;
+    const keywordCleaned = formatStrip(keyword);
+    let query = `/search?keyword=${keywordCleaned}`;
 
     // Menambahkan tipeProperti dan tipeSewa jika ada nilainya
     if (tipeProperti) {
@@ -44,7 +42,6 @@ export default function Index() {
     }
 
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
-    await dispatch(getSearchResult(query));
     navigate(query);
     setIsLoading(prev => ({ ...prev, btnSearch: false }));
   };
