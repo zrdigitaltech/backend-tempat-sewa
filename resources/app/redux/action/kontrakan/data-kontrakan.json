@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "nama": "Kontrakan Mewah A",
     "harga": 2000000,
     "durasi": "bulan",
@@ -34,9 +35,11 @@
       "nama": "kost",
       "slug": "kost"
     },
-    "tipe_kamar": "1_kamar_tidur"
+    "tipe_kamar": "1_kamar_tidur",
+    "tipe_kost": "Putri"
   },
   {
+    "id": 2,
     "nama": "Kontrakan Mewah B",
     "harga": 2500000,
     "durasi": "bulan",
@@ -71,9 +74,11 @@
       "nama": "Rumah",
       "slug": "rumah"
     },
-    "tipe_kamar": "lebih_dari_3_Kamar_Tidur"
+    "tipe_kamar": "lebih_dari_3_Kamar_Tidur",
+    "tipe_kost": null
   },
   {
+    "id": 3,
     "nama": "Kontrakan Hemat C",
     "harga": 1200000,
     "durasi": "bulan",
@@ -114,9 +119,11 @@
       "nama": "kost",
       "slug": "kost"
     },
-    "tipe_kamar": "1_kamar_tidur"
+    "tipe_kamar": "1_kamar_tidur",
+    "tipe_kost": "Putri"
   },
   {
+    "id": 4,
     "nama": "Kontrakan Modern D",
     "harga": 3000000,
     "durasi": "bulan",
@@ -151,6 +158,7 @@
       "nama": "Apartemen",
       "slug": "apartemen"
     },
-    "tipe_kamar": "studio"
+    "tipe_kamar": "studio",
+    "tipe_kost": null
   }
 ]

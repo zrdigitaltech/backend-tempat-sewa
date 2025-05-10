@@ -59,6 +59,7 @@ export default function Index() {
                     <PropertiCard
                       {...item}
                       newTab={true}
+                      showKategori={true}
                       handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
                       handleWhatsApp={() =>
                         isPageVerified

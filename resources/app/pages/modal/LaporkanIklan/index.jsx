@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import BerhasilDiLaporkanModal from '@/app/pages/modal/LaporkanIklan/BerhasilDiLaporkan';
 
 const Index = props => {
-  const { show, onClose } = props;
+  const { show, onClose, dataItem } = props;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -92,7 +92,7 @@ const Index = props => {
   return (
     <Fragment>
       <Modals
-        title="Laporkan Iklan"
+        title={`Laporkan Iklan ${dataItem?.nama}`}
         show={show}
         onClose={() => (onClose(), clearForm())}
         position="center"

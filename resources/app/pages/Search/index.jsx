@@ -175,13 +175,16 @@ export default function Index() {
             {searchResultList?.length > 0 && (
               <Fragment>
                 <h3 className="fw-bold mb-2 text-capitalize">
-                  Temukan {tipeProperti === null && keyword === ''
-                  ? 'Properti'
-                  : tipeProperti + unFormatStrip(keyword)}{' '} Sewa Impian Anda di Indonesia
+                  Temukan{' '}
+                  {tipeProperti === null && keyword === ''
+                    ? 'Properti'
+                    : tipeProperti + unFormatStrip(keyword)}{' '}
+                  Impian Anda di Indonesia
                 </h3>
 
                 <p className="text-muted mb-3">
-                  Kami telah menemukan <strong>{searchResultList?.length}</strong> properti yang cocok untuk Anda.
+                  Kami telah menemukan <strong>{searchResultList?.length}</strong> properti yang
+                  cocok untuk Anda.
                 </p>
               </Fragment>
             )}
@@ -190,8 +193,10 @@ export default function Index() {
                 {searchResultList?.slice(0, visible)?.map((item, index) => (
                   <div key={index} className="col-12 col-lg-3 col-sm-4">
                     <PropertiCard
+                      newTab={true}
                       {...item}
                       showKategori={true}
+                      showTipeKamar={true}
                       handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
                       handleWhatsApp={() =>
                         isPageVerified

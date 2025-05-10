@@ -24,10 +24,7 @@ export default function Index() {
                 bantuan@tempatSewa.Com
               </a>
             </p>
-            <p className="mb-1">
-              Telepon:{' '}
-              +62 8122 888 3616
-            </p>
+            <p className="mb-1">Telepon: +62 8122 888 3616</p>
             {/* <p className="mb-0">Kantor: EightyEight @Kasablanka, Jl. Casablanca Kav.88, Jakarta Selatan, Jakarta 12870</p> */}
           </div>
         </div>

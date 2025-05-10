@@ -28,7 +28,8 @@ export default function Index(props) {
     showKategori = false,
     tipe_kamar,
     handlePhone,
-    handleWhatsApp
+    handleWhatsApp,
+    showTipeKamar = false
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -93,20 +94,22 @@ export default function Index(props) {
         <Skeleton count={2} height={20} width="80%" />
       ) : (
         <Fragment>
-          {showKategori === true && (
+          {showKategori && (
             <Fragment>
               <div className="d-flex gap-2 mb-2">
                 <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
                   {iconKategori(kategori)} {typeof kategori === 'object' ? kategori?.nama : ''}
                 </span>
-                <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                  <i className="fa-solid fa-bed me-1"></i>
-                  {formatTipeKamar(tipe_kamar) === 'S'
-                    ? 'Studio'
-                    : formatTipeKamar(tipe_kamar) === 'L'
-                      ? '>3'
-                      : formatTipeKamar(tipe_kamar)}
-                </span>
+                {showTipeKamar && (
+                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                    <i className="fa-solid fa-bed me-1"></i>
+                    {formatTipeKamar(tipe_kamar) === 'S'
+                      ? 'Studio'
+                      : formatTipeKamar(tipe_kamar) === 'L'
+                        ? '>3'
+                        : formatTipeKamar(tipe_kamar)}
+                  </span>
+                )}
               </div>
             </Fragment>
           )}

@@ -171,7 +171,9 @@ const Index = () => {
 
                       <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
                         {iconKategori(kontrakanDetail?.kategori?.nama)}{' '}
-                        {kontrakanDetail?.kategori?.nama}
+                        {kontrakanDetail?.kategori?.nama.toLowerCase() === 'kost'
+                          ? kontrakanDetail?.kategori?.nama + ' ' + kontrakanDetail?.tipe_kost
+                          : kontrakanDetail?.kategori?.nama}
                       </span>
 
                       <span className="align-content-center badge border border-secondary text-secondary bg-transparent">
@@ -273,7 +275,11 @@ const Index = () => {
         handleGoWhatsApp={() => handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)}
         dataItem={kontrakanDetail}
       />
-      <LaporkanIklanModal show={showLaporkanIklan} onClose={() => setShowLaporkanIklan(false)} />
+      <LaporkanIklanModal
+        show={showLaporkanIklan}
+        onClose={() => setShowLaporkanIklan(false)}
+        dataItem={kontrakanDetail}
+      />
     </Fragment>
   );
 };
