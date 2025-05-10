@@ -32,7 +32,8 @@
       "id": 1,
       "nama": "kost",
       "slug": "kost"
-    }
+    },
+    "tipe_kamar": "1_kamar_tidur"
   },
   {
     "nama": "Kontrakan Mewah B",
@@ -67,7 +68,8 @@
       "id": 2,
       "nama": "Rumah",
       "slug": "rumah"
-    }
+    },
+    "tipe_kamar": "2_kamar_tidur"
   },
   {
     "nama": "Kontrakan Hemat C",
@@ -108,7 +110,8 @@
       "id": 1,
       "nama": "kost",
       "slug": "kost"
-    }
+    },
+    "tipe_kamar": "1_kamar_tidur"
   },
   {
     "nama": "Kontrakan Modern D",
@@ -143,6 +146,7 @@
       "id": 1,
       "nama": "kost",
       "slug": "kost"
-    }
+    },
+    "tipe_kamar": "1_kamar_tidur"
   }
 ]

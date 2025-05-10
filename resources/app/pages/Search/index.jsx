@@ -5,7 +5,7 @@ import FormSearch from '@/app/components/FormSearch';
 import PropertiCard from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
 import Heads from '@/app/components/Heads';
-import { capitalizeWords } from '@/app/helpers';
+import { capitalizeWords, formatUnderscore, formatPriceLocale } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
 import { TipeProperti } from '@/app/pages/Search/components';
 import classNames from 'classnames';
@@ -163,7 +163,12 @@ export default function Index() {
                   <i className="fa-4x fa-search fas mb-3"></i>
                   <h5 className="fw-bold mb-2">Tidak Ditemukan Properti yang Sesuai</h5>
                   <p className="text-muted">
-                    Maaf, properti dengan kata kunci <strong>{keyword}</strong> tidak ditemukan.
+                    Maaf, properti dengan kata kunci{' '}
+                    <strong className="text-capitalize">
+                      {tipeProperti} {keyword} {sort} {formatPriceLocale(parseInt(harga_max))}{' '}
+                      {tipeSewa} {formatUnderscore(tipeKamar)} {tipeKost}
+                    </strong>{' '}
+                    tidak ditemukan.
                     <br />
                     Silakan cari properti dengan kata kunci lainnya, ya!
                   </p>

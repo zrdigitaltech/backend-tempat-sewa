@@ -114,7 +114,7 @@ const filterKontrakanLokal = queryObj => {
     const tipeSewaMatch = tipeSewa ? item.durasi?.toLowerCase() === tipeSewa.toLowerCase() : true;
 
     const tipeKamarMatch = tipeKamar
-      ? item.fasilitas?.some(f => f.toLowerCase().includes(tipeKamar.toLowerCase()))
+      ? item.tipe_kamar?.toLowerCase() === tipeKamar.toLowerCase()
       : true;
 
     return (

@@ -71,3 +71,10 @@ export const capitalizeWords = str => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 };
+
+export const formatUnderscore = nama => {
+  return nama
+    .split('_') // Pisahkan berdasarkan underscore
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Kapitalisasi awal kata
+    .join(' '); // Gabungkan kembali dengan spasi
+};
