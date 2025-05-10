@@ -9,6 +9,12 @@ export const tipePropertiReducer = (state = initialState, action) => {
         tipePropertiList: action.payload
       };
       return state;
+    case actionType.loadTempat:
+      state = {
+        ...state,
+        tempatList: action.payload
+      };
+      return state;
     case actionType.loadTipePropertiResetData:
       return initialState;
     default:

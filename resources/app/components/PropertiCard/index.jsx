@@ -23,7 +23,9 @@ export default function Index(props) {
     member,
     isLoading = false,
     swipeable = true,
-    newTab = false
+    newTab = false,
+    kategori = '',
+    showKategori = false
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -41,12 +43,58 @@ export default function Index(props) {
 
   useTooltips();
 
+  const iconKategori = nama => {
+    const namaStr =
+      typeof nama === 'string'
+        ? nama.toLowerCase()
+        : typeof nama === 'object' && nama !== null && 'nama' in nama
+          ? String(nama.nama).toLowerCase()
+          : '';
+    switch (namaStr) {
+      case 'kost':
+        return '🛏️';
+      case 'rumah':
+        return '🏠';
+      case 'apartemen':
+        return '🏢';
+      case 'ruko':
+        return '🏬';
+      case 'kios':
+      case 'toko':
+        return '🛒';
+      case 'gudang':
+      case 'pabrik':
+        return '🏗️';
+      case 'tanah':
+        return '🌄';
+      case 'villa':
+        return '🏖️';
+      case 'ruang kantor':
+        return '💼';
+      case 'komersial':
+        return '🏪';
+      case 'hotel':
+        return '🏨';
+      case 'gedung':
+        return '🏛️';
+      case 'kondotel':
+        return '🏩';
+      default:
+        return '🏡'; // fallback icon
+    }
+  };
+
   const CardContent = () => (
     <div className="card-body ST--card-body">
       {isLoading ? (
         <Skeleton count={2} height={20} width="80%" />
       ) : (
-        <>
+        <Fragment>
+          {showKategori === true && (
+            <span className="mb-2 align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+              {iconKategori(kategori)} {typeof kategori === 'object' ? kategori?.nama : ''}
+            </span>
+          )}
           <h5 className="card-title fw-bold">
             Rp{formatPrice(harga)}
             <span className="text-capitalize"> / {durasi}</span>
@@ -58,7 +106,7 @@ export default function Index(props) {
             {nama}
           </span>
           <p className="text-muted small mb-0 text-truncate">{alamat}</p>
-        </>
+        </Fragment>
       )}
     </div>
   );

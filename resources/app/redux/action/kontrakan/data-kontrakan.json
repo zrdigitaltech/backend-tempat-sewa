@@ -1,6 +1,6 @@
 [
   {
-    "nama": "Kontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah A",
+    "nama": "Kontrakan Mewah A",
     "harga": 2000000,
     "durasi": "bulan",
     "status": "Tersedia",
@@ -10,6 +10,8 @@
       "https://placehold.co/800x600?text=Image+2"
     ],
     "alamat": "Jl. Merdeka No. 10, Tangerang",
+    "area": "BSD",
+    "kota": "Tangerang",
     "pemilik": "Budi Santoso",
     "pemilikSlug": "budi-santoso",
     "views": 1500,
@@ -28,7 +30,8 @@
     ],
     "kategori": {
       "id": 1,
-      "nama": "kost"
+      "nama": "kost",
+      "slug": "kost"
     }
   },
   {
@@ -42,6 +45,8 @@
       "https://placehold.co/800x600?text=Image+2"
     ],
     "alamat": "Jl. Merdeka No. 15, Jakarta",
+    "area": "Senayan",
+    "kota": "Jakarta",
     "pemilik": "Siti Aminah",
     "pemilikSlug": "siti-aminah",
     "views": 2000,
@@ -59,8 +64,9 @@
       "Parkir Motor"
     ],
     "kategori": {
-      "id": 1,
-      "nama": "kost"
+      "id": 2,
+      "nama": "Rumah",
+      "slug": "rumah"
     }
   },
   {
@@ -80,6 +86,8 @@
       "https://placehold.co/400x400?text=Image+8"
     ],
     "alamat": "Jl. Pahlawan No. 5, Bekasi",
+    "area": "Tambun",
+    "kota": "Bekasi",
     "pemilik": "Andi Prasetyo",
     "pemilikSlug": "andi-prasetyo",
     "views": 1200,
@@ -98,7 +106,8 @@
     ],
     "kategori": {
       "id": 1,
-      "nama": "kost"
+      "nama": "kost",
+      "slug": "kost"
     }
   },
   {
@@ -112,6 +121,8 @@
       "https://placehold.co/800x600?text=Image+2"
     ],
     "alamat": "Jl. Raya No. 8, Depok",
+    "area": "Margonda",
+    "kota": "Depok",
     "pemilik": "Rina Kusuma",
     "pemilikSlug": "rina-kusuma",
     "views": 1800,
@@ -130,7 +141,8 @@
     ],
     "kategori": {
       "id": 1,
-      "nama": "kost"
+      "nama": "kost",
+      "slug": "kost"
     }
   }
 ]

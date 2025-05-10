@@ -1,3 +1,4 @@
 export const initialState = {
-  tipePropertiList: []
+  tipePropertiList: [],
+  tempatList: []
 };

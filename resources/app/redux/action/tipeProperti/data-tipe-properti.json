@@ -2,76 +2,91 @@
   {
     "id": 1,
     "nama": "Kost",
-    "slug": "kost"
+    "slug": "kost",
+    "kategori": "hunian"
   },
   {
     "id": 2,
     "nama": "Rumah",
-    "slug": "rumah"
+    "slug": "rumah",
+    "kategori": "hunian"
   },
   {
     "id": 3,
     "nama": "Apartemen",
-    "slug": "apartemen"
+    "slug": "apartemen",
+    "kategori": "hunian"
   },
   {
     "id": 4,
     "nama": "Ruko",
-    "slug": "ruko"
+    "slug": "ruko",
+    "kategori": "usaha"
   },
   {
     "id": 5,
     "nama": "Kios",
-    "slug": "kios"
+    "slug": "kios",
+    "kategori": "usaha"
   },
   {
     "id": 6,
     "nama": "Gudang",
-    "slug": "gudang"
+    "slug": "gudang",
+    "kategori": "usaha"
   },
   {
     "id": 7,
     "nama": "Tanah",
-    "slug": "tanah"
+    "slug": "tanah",
+    "kategori": "lainnya"
   },
   {
     "id": 8,
     "nama": "Villa",
-    "slug": "villa"
+    "slug": "villa",
+    "kategori": "hunian"
   },
   {
     "id": 9,
     "nama": "Ruang Kantor",
-    "slug": "ruang-kantor"
+    "slug": "ruang-kantor",
+    "kategori": "usaha"
   },
   {
     "id": 10,
     "nama": "Komersial",
-    "slug": "komersial"
+    "slug": "komersial",
+    "kategori": "usaha"
   },
   {
     "id": 11,
     "nama": "Hotel",
-    "slug": "hotel"
+    "slug": "hotel",
+    "kategori": "usaha"
   },
   {
     "id": 12,
     "nama": "Pabrik",
-    "slug": "pabrik"
+    "slug": "pabrik",
+    "kategori": "usaha"
   },
   {
     "id": 13,
     "nama": "Gedung",
-    "slug": "gedung"
+    "slug": "gedung",
+    "kategori": "usaha"
   },
   {
     "id": 14,
     "nama": "Kondotel",
-    "slug": "kondotel"
+    "slug": "kondotel",
+    "kategori": "hunian"
   },
   {
     "id": 15,
     "nama": "Toko",
-    "slug": "toko"
+    "slug": "toko",
+    "kategori": "usaha"
   }
 ]

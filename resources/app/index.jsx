@@ -20,7 +20,13 @@ const appContainer = document.getElementById('app');
 ReactDOM.createRoot(appContainer).render(
   <Provider store={store}>
     <HelmetProvider>
-      <RouterProvider router={router}>
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
         <App />
       </RouterProvider>
     </HelmetProvider>

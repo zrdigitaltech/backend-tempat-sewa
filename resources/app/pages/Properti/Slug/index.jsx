@@ -71,11 +71,27 @@ const Index = () => {
       case 'ruko':
         return '🏬';
       case 'kios':
+      case 'toko':
         return '🛒';
       case 'gudang':
+      case 'pabrik':
         return '🏗️';
+      case 'tanah':
+        return '🌄';
+      case 'villa':
+        return '🏖️';
+      case 'ruang kantor':
+        return '💼';
+      case 'komersial':
+        return '🏪';
+      case 'hotel':
+        return '🏨';
+      case 'gedung':
+        return '🏛️';
+      case 'kondotel':
+        return '🏩';
       default:
-        return '🏡';
+        return '🏡'; // fallback icon
     }
   };
 

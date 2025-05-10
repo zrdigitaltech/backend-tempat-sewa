@@ -17,7 +17,6 @@ const Search = lazy(() => import('@/app/pages/Search'));
 const Booking = lazy(() => import('@/app/pages/Booking'));
 const PropertiSlug = lazy(() => import('@/app/pages/Properti/Slug'));
 const AgentSlug = lazy(() => import('@/app/pages/Agent/Slug'));
-const SewaKategori = lazy(() => import('@/app/pages/Sewa'));
 const PasangIklan = lazy(() => import('@/app/pages/PasangIklan'));
 
 const router = createBrowserRouter(
@@ -67,21 +66,6 @@ const router = createBrowserRouter(
           element={
             <Suspense fallback={<RouteLoading />}>
               <AgentSlug />
-            </Suspense>
-          }
-          handle={{
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
-          }}
-        />
-      </Route>
-      <Route path="sewa" handle={{ breadcrumb: 'Sewa' }} element={<Outlet />}>
-        <Route index element={<Navigate to="/404" />} />
-        <Route
-          path=":slug"
-          element={
-            <Suspense fallback={<RouteLoading />}>
-              <SewaKategori />
             </Suspense>
           }
           handle={{

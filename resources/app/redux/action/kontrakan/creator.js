@@ -84,6 +84,64 @@ export const getPropertiDetail = slug => {
   };
 };
 
+const filterKontrakanLokal = queryObj => {
+  const memberPriority = {
+    'Super Featured': 1,
+    Premium: 2,
+    Free: 3
+  };
+
+  return DataKontrakan.filter(item => {
+    const { keyword, tipeProperti, tipeSewa, hargaMax, tipeKamar, tipeKost } = queryObj;
+
+    const keywordMatch = keyword
+      ? item.nama?.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.deskripsi?.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.area?.toLowerCase().includes(keyword.toLowerCase()) ||
+        item.kota?.toLowerCase().includes(keyword.toLowerCase())
+      : true;
+
+    const hargaMatch = hargaMax ? item.harga <= parseInt(hargaMax) : true;
+
+    const tipeKostMatch = tipeKost
+      ? item.kategori?.nama?.toLowerCase() === tipeKost.toLowerCase()
+      : true;
+
+    const tipePropertiMatch = tipeProperti
+      ? item.kategori?.nama?.toLowerCase() === tipeProperti.toLowerCase()
+      : true;
+
+    const tipeSewaMatch = tipeSewa ? item.durasi?.toLowerCase() === tipeSewa.toLowerCase() : true;
+
+    const tipeKamarMatch = tipeKamar
+      ? item.fasilitas?.some(f => f.toLowerCase().includes(tipeKamar.toLowerCase()))
+      : true;
+
+    return (
+      keywordMatch &&
+      hargaMatch &&
+      tipeKostMatch &&
+      tipePropertiMatch &&
+      tipeSewaMatch &&
+      tipeKamarMatch
+    );
+  }).sort((a, b) => {
+    if (!queryObj.sort) {
+      return (memberPriority[a.member] || 99) - (memberPriority[b.member] || 99);
+    }
+
+    if (queryObj.sort === 'harga_terendah') {
+      return a.harga - b.harga;
+    }
+
+    if (queryObj.sort === 'harga_tertinggi') {
+      return b.harga - a.harga;
+    }
+
+    return 0;
+  });
+};
+
 export const getSearchResult = query => {
   return async dispatch => {
     try {
@@ -92,19 +150,17 @@ export const getSearchResult = query => {
       if (dataKontrakan?.length > 0) {
         dispatch(saveSearchResult(dataKontrakan));
       } else {
-        dispatch(saveSearchResult(DataKontrakan));
+        const queryStringOnly = query.split('?')[1] || '';
+        const queryObj = Object.fromEntries(new URLSearchParams(queryStringOnly));
+        const filteredList = filterKontrakanLokal(queryObj);
+        dispatch(saveSearchResult(filteredList));
       }
     } catch (error) {
       console.error('Error fetching search result from API:', error);
-      const memberPriority = {
-        'Super Featured': 1,
-        Premium: 2,
-        Free: 3
-      };
-      const sortedList = [...DataKontrakan].sort(
-        (a, b) => memberPriority[a.member] - memberPriority[b.member]
-      );
-      dispatch(saveSearchResult(sortedList));
+      const queryStringOnly = query.split('?')[1] || '';
+      const queryObj = Object.fromEntries(new URLSearchParams(queryStringOnly));
+      const filteredList = filterKontrakanLokal(queryObj);
+      dispatch(saveSearchResult(filteredList));
     }
   };
 };

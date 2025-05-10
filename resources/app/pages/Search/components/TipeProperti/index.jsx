@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
+import { getListTempat } from '@/app/redux/action/tipeProperti/creator';
 import { Link } from 'react-router-dom';
 
 import Skeleton from 'react-loading-skeleton';
@@ -11,20 +11,21 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './kategori.scss';
 
-export default function Index() {
-  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
+export default function Index(props) {
+  const { tipeProperti } = props;
+  const tempatList = useSelector(state => state?.tipeProperti?.tempatList);
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchTipeProperti = async () => {
+  const fetchTempat = async () => {
     setIsLoading(true);
-    await dispatch(getListTipeProperti());
+    await dispatch(getListTempat(tipeProperti));
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchTipeProperti();
+    fetchTempat();
   }, []);
 
   const iconLabel = nama => {
@@ -93,7 +94,7 @@ export default function Index() {
     speed: 500,
     slidesToShow: 6,
     slidesPerRow: 1,
-    rows: 2,
+    rows: tempatList.length > 6 ? 2 : 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -101,7 +102,7 @@ export default function Index() {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          rows: 2,
+          rows: tempatList.length > 6 ? 2 : 1,
           slidesPerRow: 1
         }
       },
@@ -109,7 +110,7 @@ export default function Index() {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          rows: 2,
+          rows: tempatList.length > 6 ? 2 : 1,
           slidesPerRow: 1
         }
       }
@@ -117,9 +118,9 @@ export default function Index() {
   };
 
   return (
-    <section className="py-5">
+    <section className="py-5 bg-light">
       <div className="container">
-        <h2 className="text-center fw-semibold mb-3">Kategori Cepat</h2>
+        <h2 className="text-center fw-semibold mb-3">Cari Tempat Usaha Lainnya</h2>
         {isLoading ? (
           <div
             className="d-flex flex-nowrap justify-content-start gap-3 overflow-auto px-2 py-4"
@@ -153,7 +154,7 @@ export default function Index() {
         ) : (
           <div className="px-2 py-4">
             <Slider {...settings}>
-              {tipePropertiList?.map((cat, index) => (
+              {tempatList?.map((cat, index) => (
                 <div key={index} className="p-2">
                   <Link
                     to={`/search?keyword=&tipeProperti=${cat.slug}`}
