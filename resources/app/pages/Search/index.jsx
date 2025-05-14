@@ -19,7 +19,7 @@ import { TipeProperti } from '@/app/pages/Search/components';
 import classNames from 'classnames';
 
 // Modals
-import WhatsAppModal from '@/app/pages/modal/WhatsApp';
+import { WhatsAppModal, KonsultasiModal } from '@/app/pages/modal';
 
 export default function Index() {
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ export default function Index() {
 
   // Modal States
   const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [showKonsultasi, setShowKonsultasi] = useState(false);
   const [dataItem, setDataItem] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -88,6 +89,7 @@ export default function Index() {
 
     if (name === 'tipeProperti') {
       setTipePropertiValidasi(value);
+      setFormData(prev => ({ ...prev, [name]: value, tipeKamar: '', tipeKost: '' }));
     }
   };
 
@@ -243,10 +245,10 @@ export default function Index() {
 
         {tipeProperti && searchResultList?.length === 0 ? (
           <Fragment>
-            <TipeProperti tipeProperti={tipeProperti} kategori={""} />
+            <TipeProperti tipeProperti={tipeProperti} kategori={''} />
             <div className="container mb-5 mt-3 d-flex justify-content-center">
               <div className="col-12 col-sm-10 text-center cursor-pointer">
-                <div className="position-relative" onClick={() => alert('modal')}>
+                <div className="position-relative" onClick={() => setShowKonsultasi(true)}>
                   <img src="https://placehold.co/1760x333" className="w-100" />
                   <div
                     className="position-absolute"
@@ -277,6 +279,11 @@ export default function Index() {
         isPageVerified={isPageVerified}
         setIsPageVerified={setIsPageVerified}
         handleGoWhatsApp={() => handleGoToWhatsApp(dataItem?.no_whatsapp)}
+        dataItem={dataItem}
+      />
+      <KonsultasiModal
+        show={showKonsultasi}
+        onClose={() => setShowKonsultasi(false)}
         dataItem={dataItem}
       />
     </Fragment>

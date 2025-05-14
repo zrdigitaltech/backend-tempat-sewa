@@ -79,14 +79,17 @@ export default function Index(props) {
 
           {/* Harga Maksimal */}
           <div className="flex-fill flex-md-grow-0">
-            <input
-              type="text"
-              className="form-control rounded-3"
-              placeholder="Harga Maksimal"
-              name="harga_max"
-              value={formData?.harga_max || ''}
-              onChange={handleChange}
-            />
+            <div className="input-group">
+              <span className="input-group-text">Rp</span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Harga Maksimal"
+                name="harga_max"
+                value={formData?.harga_max || ''}
+                onChange={handleChange}
+              />
+            </div>
           </div>
 
           {/* Tipe Sewa */}

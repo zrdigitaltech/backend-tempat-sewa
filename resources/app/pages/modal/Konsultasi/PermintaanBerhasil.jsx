@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import Modals from '@/app/components/Modals';
 
-const BerhasilDiLaporkan = props => {
+const PermintaanBerhasil = props => {
   const { show, onClose } = props;
 
   return (
     <Modals
-      title="Iklan berhasil dilaporkan"
+      title="Permintaan Berhasil Dikirim"
       show={show}
       onClose={onClose}
       position="center"
@@ -14,14 +14,14 @@ const BerhasilDiLaporkan = props => {
         <Fragment>
           <div className="text-center">
             <h2>
-              <i className="fa fa-check-circle fa-5x text-primary"></i>
+              <i className="fas fa-circle-check fa-5x text-primary"></i>
             </h2>
             <div>
               <p>
-                Anda akan segera mendapat notifikasi setelah kami meninjau laporan Anda. Terima
-                kasih telah membantu kami menjadikan TempatSewa.Com sebagai platform sewa properti
-                yang aman, nyaman, dan suportif.
+                Tim <strong>tempatSewa.Com</strong> telah menerima permintaan Anda. Kami akan segera
+                menghubungi Anda untuk memberikan rekomendasi properti sesuai kebutuhan.
               </p>
+              <p className="mb-0">Terima kasih telah menggunakan layanan konsultasi kami. 😊</p>
             </div>
           </div>
         </Fragment>
@@ -31,4 +31,4 @@ const BerhasilDiLaporkan = props => {
   );
 };
 
-export default BerhasilDiLaporkan;
+export default PermintaanBerhasil;
