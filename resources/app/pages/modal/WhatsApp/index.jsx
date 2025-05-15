@@ -46,11 +46,19 @@ const Index = props => {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) newErrors.name = 'Nama tidak boleh kosong';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Nama tidak boleh kosong';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'Nama minimal 3 karakter';
+    } else if (formData.name.trim().length > 50) {
+      newErrors.name = 'Nama tidak boleh lebih dari 50 karakter';
+    }
     if (!formData.phone.trim()) {
       newErrors.phone = 'Nomor tidak boleh kosong';
     } else if (formData.phone.length < 9) {
       newErrors.phone = 'Nomor tidak boleh kurang dari 9 digit';
+    } else if (formData.phone.length > 15) {
+      newErrors.phone = 'Nomor tidak boleh lebih dari 15 digit';
     }
     if (!formData.verifikasi.trim()) {
       newErrors.verifikasi = 'Verifikasi tidak boleh kosong';
@@ -73,7 +81,7 @@ const Index = props => {
   return (
     <Fragment>
       <Modals
-        title="Hubungi pengiklan Properti"
+        title="Hubungi Pengiklan Properti"
         show={show}
         onClose={() => onClose()}
         position="center"
@@ -99,7 +107,10 @@ const Index = props => {
                     <i className="fa-solid fa-lock text-primary me-2 mt-1"></i>
                     <br />
                     <small>
-                      <strong>tempatSewa.Com</strong> menjaga keamanan data diri kamu
+                      <strong>
+                        <small>tempat</small>Sewa.Com
+                      </strong>{' '}
+                      menjaga keamanan data diri kamu
                     </small>
                   </div>
                   <div className="col-6 text-center">

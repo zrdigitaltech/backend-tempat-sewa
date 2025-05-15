@@ -100,6 +100,8 @@ const Index = props => {
       newErrors.phone = 'Nomor tidak boleh kosong';
     } else if (formData.phone.length < 9) {
       newErrors.phone = 'Nomor tidak boleh kurang dari 9 digit';
+    } else if (formData.phone.length > 15) {
+      newErrors.phone = 'Nomor tidak boleh lebih dari 15 digit';
     }
 
     setErrors(newErrors);

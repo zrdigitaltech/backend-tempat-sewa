@@ -45,11 +45,19 @@ const Index = props => {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) newErrors.name = 'Nama tidak boleh kosong';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Nama tidak boleh kosong';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'Nama minimal 3 karakter';
+    } else if (formData.name.trim().length > 50) {
+      newErrors.name = 'Nama tidak boleh lebih dari 50 karakter';
+    }
     if (!formData.phone.trim()) {
       newErrors.phone = 'Nomor tidak boleh kosong';
     } else if (formData.phone.length < 9) {
       newErrors.phone = 'Nomor tidak boleh kurang dari 9 digit';
+    } else if (formData.phone.length > 15) {
+      newErrors.phone = 'Nomor tidak boleh lebih dari 15 digit';
     }
     if (!formData.email.trim()) {
       newErrors.email = 'Email tidak boleh kosong';
