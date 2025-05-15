@@ -22,86 +22,24 @@
     "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
     "durasiMinimal": 6,
     "upload": "15 Apr 2025 10:00",
-    "kategori_fasilitas": [
-    {
-      "id": 1,
-      "nama": "Fasilitas Kamar",
-      "fasilitas": [
-        "AC",
-        "Kursi",
-        "Pemanas Air",
-        "Kipas Angin",
-        "Cermin",
-        "Shower",
-        "Kasur",
-        "TV",
-        "Bak Mandi",
-        "Lemari",
-        "Jendela",
-        "Kloset duduk",
-        "Meja",
-        "K. Mandi Dalam",
-        "Kloset Jongkok"
-      ]
-    },
-    {
-      "id": 2,
-      "nama": "Fasilitas Bersama",
-      "fasilitas": [
-        "Wifi",
-        "Mesin Cuci",
-        "Cleaning Service",
-        "K. Mandi Luar",
-        "Ruang Jemur",
-        "Laundry",
-        "Pemanas Air",
-        "Ruang Tamu",
-        "Parkir Motor",
-        "Dapur",
-        "CCTV",
-        "Parkir Mobil",
-        "Dispenser",
-        "TV"
-      ]
-    },
-    {
-      "id": 3,
-      "nama": "Fasilitas Area",
-      "fasilitas": [
-        "Tempat Makan",
-        "Pasar",
-        "Gym",
-        "Rumah Sakit",
-        "НИ",
-        "Minimarket",
-        "Trans Umum",
-        "Supermarket"
-      ]
-    },
-    {
-      "id": 4,
-      "nama": "Peraturan Kost",
-      "fasilitas": [
-        "Akses 24 jam",
-        "Ada jam malam",
-        "Khusus Karyawan",
-        "Khusus Mahasiswa",
-        "Boleh pasutri",
-        "Tidak boleh pasutri",
-        "Boleh membawa anak",
-        "Tidak boleh bawa anak",
-        "Menginap dikenakan biaya",
-        "Menginap tidak dikenakan biaya",
-        "Boleh membawa hewan peliharaan",
-        "Tidak boleh membawa hewan peliharaan"
-      ]
-    }
-  ],
     "tipe_properti": {
       "id": 1,
       "nama": "Kontrakan",
       "slug": "kontrakan",
-      "kategori": "hunian"
+      "kategori": "hunian",
+      "informasi_lingkungan": [
+      {
+        "nama": "Fasilitas Umum",
+        "fasilitas": [
+          "Listrik",
+          "Air PAM",
+          "Kamar Mandi Dalam",
+          "Dapur",
+          "Parkir Motor",
+          "Akses 24 Jam"
+        ]
+      }
+    ]
     },
     "tipe_kamar": "1_kamar_tidur",
     "tipe_kost": "Putri",
@@ -136,7 +74,12 @@
     "deskripsi": "Kost putri eksklusif dengan fasilitas lengkap dan keamanan 24 jam. Lokasi strategis dekat dengan kampus dan pusat perbelanjaan. Nyaman untuk mahasiswi dan karyawati.",
     "durasiMinimal": 3,
     "upload": "10 Apr 2025 09:30",
-    "kategori_fasilitas": [
+    "tipe_properti": {
+      "id": 2,
+      "nama": "kost",
+      "slug": "kost",
+      "kategori": "hunian",
+      "informasi_lingkungan": [
       {
         "id": 1,
         "nama": "Fasilitas Kamar",
@@ -197,12 +140,7 @@
           "Tidak boleh membawa hewan peliharaan"
         ]
       }
-    ],
-    "tipe_properti": {
-      "id": 2,
-      "nama": "kost",
-      "slug": "kost",
-      "kategori": "hunian"
+    ]
     },
     "tipe_kamar": "studio",
     "tipe_kost": "Putri",
@@ -238,53 +176,42 @@
     "deskripsi": "Rumah minimalis 2 lantai dalam cluster dengan keamanan 24 jam. Desain modern dengan pencahayaan alami yang maksimal. Lokasi strategis dekat akses tol dan fasilitas umum.",
     "durasiMinimal": null,
     "upload": "05 Apr 2025 14:20",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Rumah",
-        "fasilitas": [
-          "AC",
-          "Taman",
-          "Carport",
-          "Dapur",
-          "Ruang Tamu",
-          "Ruang Keluarga",
-          "Gudang",
-          "Balkon",
-          "Kolam Renang"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Cluster",
-        "fasilitas": [
-          "Taman Bermain",
-          "Jogging Track",
-          "Keamanan 24 Jam",
-          "CCTV",
-          "Masjid",
-          "Club House"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Sekolah",
-          "Rumah Sakit",
-          "Pusat Perbelanjaan",
-          "Akses Tol",
-          "Minimarket",
-          "Trans Umum",
-          "Supermarket"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 3,
       "nama": "rumah",
       "slug": "rumah",
-      "kategori": "hunian"
+      "kategori": "hunian",
+      "informasi_lingkungan": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ]
     },
     "tipe_kamar": "3_kamar_tidur",
     "tipe_kost": null,
@@ -319,55 +246,42 @@
     "deskripsi": "Apartemen mewah dengan pemandangan kota yang spektakuler. Fasilitas lengkap untuk kenyamanan hidup di pusat kota. Akses mudah ke area bisnis dan hiburan.",
     "durasiMinimal": null,
     "upload": "12 Apr 2025 11:45",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Unit",
-        "fasilitas": [
-          "AC",
-          "Kitchen Set",
-          "Balkon",
-          "Pemanas Air",
-          "Shower",
-          "Bathtub",
-          "Lemari",
-          "TV"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Apartemen",
-        "fasilitas": [
-          "Kolam Renang",
-          "Gym",
-          "Sauna",
-          "Taman",
-          "Lapangan Tenis",
-          "Minimarket",
-          "Restoran",
-          "Keamanan 24 Jam",
-          "Parkir Basement"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Pusat Perbelanjaan",
-          "Rumah Sakit",
-          "Sekolah",
-          "Taman Kota",
-          "Akses MRT",
-          "Akses Busway",
-          "Akses Tol"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 4,
       "nama": "apartemen",
       "slug": "apartemen",
-      "kategori": "hunian"
+      "kategori": "hunian",
+      "informasi_lingkungan": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Apartemen",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ]
     },
     "tipe_kamar": "2_kamar_tidur",
     "tipe_kost": null,
@@ -402,36 +316,47 @@
     "deskripsi": "Ruko strategis 3 lantai di kawasan bisnis Pasar Baru. Cocok untuk berbagai jenis usaha dengan lalu lintas pejalan kaki yang tinggi. Area parkir luas di depan.",
     "durasiMinimal": 12,
     "upload": "08 Apr 2025 16:30",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Ruko",
-        "fasilitas": [
-          "Listrik 3 Phase",
-          "Toilet di setiap lantai",
-          "Ruang Usaha",
-          "Ruang Penyimpanan",
-          "Area Parkir"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Keamanan 24 Jam",
-          "CCTV",
-          "Akses Jalan Utama",
-          "Akses Transportasi Umum",
-          "Area Foodcourt",
-          "ATM Center"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 5,
       "nama": "ruko",
       "slug": "ruko",
-      "kategori": "usaha"
+      "kategori": "usaha",
+      "informasi_lingkungan": [
+      {
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
+        ]
+      }
+    ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
@@ -466,45 +391,47 @@
     "deskripsi": "Kios strategis di pasar modern Bintaro. Lokasi ramai pengunjung, cocok untuk usaha kuliner, fashion, atau jasa. Fasilitas lengkap dan keamanan terjamin.",
     "durasiMinimal": 6,
     "upload": "14 Apr 2025 08:15",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Kios",
-        "fasilitas": [
-          "Listrik",
-          "Air",
-          "Toilet Bersama",
-          "Rolling Door"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Pasar",
-        "fasilitas": [
-          "Keamanan 24 Jam",
-          "CCTV",
-          "Tempat Parkir",
-          "Tempat Sampah",
-          "Toilet Umum"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "ATM Center",
-          "Foodcourt",
-          "Akses Transportasi Umum",
-          "Minimarket",
-          "Perumahan"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 6,
       "nama": "kios",
       "slug": "kios",
-      "kategori": "usaha"
+      "kategori": "usaha",
+      "informasi_lingkungan": [
+      {
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
+        ]
+      }
+    ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
@@ -539,47 +466,47 @@
     "deskripsi": "Gudang modern dengan kapasitas besar dan akses container. Dilengkapi loading dock, kantor, dan sistem keamanan terpadu. Lokasi strategis dekat akses tol dan pelabuhan.",
     "durasiMinimal": 24,
     "upload": "01 Apr 2025 09:00",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Gudang",
-        "fasilitas": [
-          "Loading Dock",
-          "Kantor Admin",
-          "Toilet",
-          "Ruang Istirahat",
-          "Area Parkir Truk",
-          "Forklift"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Keamanan",
-        "fasilitas": [
-          "Keamanan 24 Jam",
-          "CCTV",
-          "Pagar Keliling",
-          "Sistem Pemadam Kebakaran",
-          "Sistem Alarm"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Akses Tol",
-          "Akses Container",
-          "Kawasan Industri",
-          "Kantin",
-          "ATM"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 7,
       "nama": "gudang",
       "slug": "gudang",
-      "kategori": "usaha"
+      "kategori": "usaha",
+      "informasi_lingkungan": [
+      {
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
+        ]
+      }
+    ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
@@ -614,45 +541,42 @@
     "deskripsi": "Tanah komersial strategis di kawasan pendidikan Jatinangor. Cocok untuk pembangunan kost, ruko, atau pusat perbelanjaan. SHM, IMB siap, tersedia akses listrik dan air.",
     "durasiMinimal": null,
     "upload": "05 Apr 2025 10:30",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Dokumen Legalitas",
-        "fasilitas": [
-          "SHM",
-          "IMB Ready",
-          "NPWP",
-          "PBB Lunas"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Tersedia",
-        "fasilitas": [
-          "Akses Listrik",
-          "Akses Air",
-          "Akses Jalan Lebar",
-          "Drainase"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Kampus",
-          "Perumahan",
-          "Minimarket",
-          "Rumah Sakit",
-          "Restoran",
-          "Akses Transportasi Umum"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 8,
       "nama": "tanah",
       "slug": "tanah",
-      "kategori": "lainnya"
+      "kategori": "lainnya",
+      "informasi_lingkungan": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
@@ -688,53 +612,42 @@
     "deskripsi": "Villa mewah dengan pemandangan pegunungan yang menakjubkan. Dilengkapi kolam renang pribadi, BBQ area, dan taman luas. Ideal untuk keluarga dan gathering.",
     "durasiMinimal": 2,
     "upload": "12 Apr 2025 13:00",
-    "kategori_fasilitas": [
-      {
-        "id": 1,
-        "nama": "Fasilitas Villa",
-        "fasilitas": [
-          "Kolam Renang",
-          "BBQ Area",
-          "Taman",
-          "Garasi",
-          "Dapur",
-          "Ruang Tamu",
-          "Ruang Keluarga",
-          "Wifi",
-          "TV Kabel",
-          "Sound System"
-        ]
-      },
-      {
-        "id": 2,
-        "nama": "Fasilitas Kamar",
-        "fasilitas": [
-          "AC",
-          "Pemanas Air",
-          "Shower",
-          "Bathtub",
-          "TV",
-          "Lemari",
-          "Brankas"
-        ]
-      },
-      {
-        "id": 3,
-        "nama": "Fasilitas Area",
-        "fasilitas": [
-          "Wisata Alam",
-          "Tempat Makan",
-          "Toko Suvenir",
-          "Minimarket",
-          "Tempat Ibadah"
-        ]
-      }
-    ],
     "tipe_properti": {
       "id": 9,
       "nama": "villa",
       "slug": "villa",
-      "kategori": "hunian"
+      "kategori": "hunian",
+      "informasi_lingkungan": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ]
     },
     "tipe_kamar": "4_kamar_tidur",
     "tipe_kost": null,

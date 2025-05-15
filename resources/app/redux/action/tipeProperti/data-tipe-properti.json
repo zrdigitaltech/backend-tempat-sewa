@@ -4,7 +4,7 @@
     "nama": "Kontrakan",
     "slug": "kontrakan",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
         "nama": "Fasilitas Umum",
         "fasilitas": [
@@ -23,7 +23,7 @@
     "nama": "Kost",
     "slug": "kost",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
         "id": 1,
         "nama": "Fasilitas Kamar",
@@ -91,12 +91,34 @@
     "nama": "Rumah",
     "slug": "rumah",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Rumah",
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
         "fasilitas": [
-          "Taman", "Garasi", "AC", "Dapur", "Ruang Tamu", "Kamar Tidur", "Kamar Mandi",
-          "Air PAM", "Listrik 2200 watt"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -106,17 +128,34 @@
     "nama": "Apartemen",
     "slug": "apartemen",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Gedung",
+        "id": 1,
+        "nama": "Fasilitas Apartemen",
         "fasilitas": [
-          "Lift", "Kolam Renang", "Keamanan 24 Jam", "Gym", "CCTV", "Lobby", "Parkir Mobil"
-        ]
-      },
-      {
-        "nama": "Fasilitas Unit",
-        "fasilitas": [
-          "AC", "TV", "Dapur", "Kamar Tidur", "Kamar Mandi Dalam", "Water Heater"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -126,11 +165,39 @@
     "nama": "Ruko",
     "slug": "ruko",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Usaha",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Parkir Mobil", "Toilet", "Gudang", "Ruang Kantor", "Mezzanine", "Akses Jalan Raya"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -140,11 +207,39 @@
     "nama": "Kios",
     "slug": "kios",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Kios",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Rolling Door", "Pintu Kaca", "Parkir Pengunjung", "Dekat Pasar"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -154,11 +249,39 @@
     "nama": "Gudang",
     "slug": "gudang",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Gudang",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Loading Dock", "Truk Masuk", "Listrik Industri", "Keamanan", "Gudang Pendingin"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -168,7 +291,7 @@
     "nama": "Tanah",
     "slug": "tanah",
     "kategori": "lainnya",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
         "id": 1,
         "nama": "Fasilitas Perumahan",
@@ -205,12 +328,34 @@
     "nama": "Villa",
     "slug": "villa",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Villa",
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
         "fasilitas": [
-          "Kolam Renang", "Gazebo", "Taman", "Dapur", "Ruang Keluarga", "Balkon",
-          "View Alam", "Keamanan"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -220,11 +365,39 @@
     "nama": "Ruang Kantor",
     "slug": "ruang-kantor",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Kantor",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Ruang Meeting", "Lift", "Parkir Mobil", "Toilet", "Pantry", "Akses 24 Jam", "CCTV"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -234,11 +407,39 @@
     "nama": "Komersial",
     "slug": "komersial",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Komersial",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Area Parkir Luas", "Toilet Umum", "Dekat Jalan Raya", "Keamanan"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -248,12 +449,34 @@
     "nama": "Hotel",
     "slug": "hotel",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
+        "id": 1,
         "nama": "Fasilitas Hotel",
         "fasilitas": [
-          "Lobby", "Kolam Renang", "Room Service", "Restoran", "Gym", "Meeting Room",
-          "Parkir Luas", "Lift", "Keamanan 24 Jam"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -263,11 +486,39 @@
     "nama": "Pabrik",
     "slug": "pabrik",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Pabrik",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Listrik Industri", "Truk Masuk", "Gudang", "Area Produksi", "Akses Jalan Besar"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]
@@ -277,11 +528,34 @@
     "nama": "Gedung",
     "slug": "gedung",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
+        "id": 1,
         "nama": "Fasilitas Gedung",
         "fasilitas": [
-          "Lift", "Ruang Kantor", "CCTV", "Parkir", "Lobby", "Akses 24 Jam"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -291,11 +565,34 @@
     "nama": "Kondotel",
     "slug": "kondotel",
     "kategori": "hunian",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
+        "id": 1,
         "nama": "Fasilitas Kondotel",
         "fasilitas": [
-          "Kolam Renang", "Gym", "Room Service", "AC", "Keamanan 24 Jam", "TV", "Dapur"
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
         ]
       }
     ]
@@ -305,11 +602,39 @@
     "nama": "Toko",
     "slug": "toko",
     "kategori": "usaha",
-    "kategori_fasilitas": [
+    "informasi_lingkungan": [
       {
-        "nama": "Fasilitas Toko",
+        "nama": "Fasilitas Area",
         "fasilitas": [
-          "Parkir Pengunjung", "Akses Jalan Raya", "Rolling Door", "Toilet", "Pencahayaan Baik"
+          "ATM",
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "ATM & Bank",
+          "Jogging Track",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Tempat Makan"
         ]
       }
     ]

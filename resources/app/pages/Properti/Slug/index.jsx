@@ -320,12 +320,11 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                kontrakanDetail?.kategori_interior?.kondisi_perabotan ||
-                (kontrakanDetail?.daya_listrik && kontrakanDetail?.biaya_listrik && (
                   <div className="d-flex gap-2 flex-nowrap">
                     {/* Kondisi Perabotan */}
+                    {kontrakanDetail?.kategori_interior?.kondisi_perabotan &&
                     <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                      <div>
+                      <div className='align-items-center d-flex h-100'>
                         <i
                           className={`me-1 ${
                             kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
@@ -340,16 +339,19 @@ const Index = () => {
                         {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
                       </div>
                     </div>
+}
                     {/* Biaya Listrik */}
+                    {kontrakanDetail?.daya_listrik && 
                     <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                      <div>
-                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
-                        <br />( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )
+                      <div className=''>
+                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}<br/>
+                        <small>( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )</small>
                       </div>
                     </div>
+}
                   </div>
-                ))
-              )}
+                )
+              }
 
               {/* Fasilitas */}
               <h5 className="fw-semibold mt-4 mb-3">Fasilitas</h5>
@@ -363,7 +365,7 @@ const Index = () => {
                 </ul>
               ) : (
                 <div className="row">
-                  {kontrakanDetail?.kategori_fasilitas?.map(kategori => (
+                  {kontrakanDetail?.tipe_properti?.informasi_lingkungan?.map(kategori => (
                     <div key={kategori.id} className="col-12 mb-3">
                       <h6 className="fw-bold">{kategori.nama}</h6>
                       <ul className="list-unstyled row mb-0">
