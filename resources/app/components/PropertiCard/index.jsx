@@ -32,7 +32,7 @@ export default function Index(props) {
     showTipeKamar = false,
     tipe_kost,
     showInterior = false,
-    interior
+    kategori_interior
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -111,19 +111,10 @@ export default function Index(props) {
                       : tipe_properti?.nama
                     : ''}
                 </span>
-                {showTipeKamar && tipe_kamar && (
-                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                    <i className="fa-solid fa-bed me-1"></i>
-                    {formatTipeKamar(tipe_kamar) === 'S'
-                      ? 'Studio'
-                      : formatTipeKamar(tipe_kamar) === 'L'
-                        ? '>3'
-                        : formatTipeKamar(tipe_kamar)}
-                  </span>
-                )}
+
                 {showInterior && (
                   <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                    {interior?.nama}
+                    {kategori_interior?.kondisi_perabotan}
                   </span>
                 )}
               </div>
@@ -139,7 +130,22 @@ export default function Index(props) {
           >
             {nama}
           </span>
-          <p className="text-muted small mb-0 text-truncate">{alamat}</p>
+          <p
+            className={`text-muted small mb-0 text-truncate ${showTipeKamar && tipe_kamar && 'mb-1'}`}
+          >
+            {alamat}
+          </p>
+
+          {showTipeKamar && tipe_kamar && (
+            <small className="align-content-center text-secondary text-capitalize">
+              <i className="fa-solid fa-bed me-1"></i>
+              {formatTipeKamar(tipe_kamar) === 'S'
+                ? 'Studio'
+                : formatTipeKamar(tipe_kamar) === 'L'
+                  ? '>3 Kamar Tidur'
+                  : formatTipeKamar(tipe_kamar) + ' Kamar Tidur'}
+            </small>
+          )}
         </Fragment>
       )}
     </div>

@@ -110,7 +110,7 @@ const filterKontrakanLokal = queryObj => {
       : true;
 
     const tipePropertiMatch = tipeProperti
-      ? item.kategori?.nama?.toLowerCase() === tipeProperti.toLowerCase()
+      ? item.tipe_properti?.nama?.toLowerCase() === tipeProperti.toLowerCase()
       : true;
 
     const tipeSewaMatch = tipeSewa ? item.durasi?.toLowerCase() === tipeSewa.toLowerCase() : true;

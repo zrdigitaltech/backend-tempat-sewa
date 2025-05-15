@@ -16,6 +16,22 @@
           "Akses 24 Jam"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Kapasitas",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -84,6 +100,22 @@
           "Tidak boleh membawa hewan peliharaan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Kapasitas",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -121,6 +153,38 @@
           "Foodcourt"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Kamar Tidur",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Tidur ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -157,6 +221,30 @@
           "Parkir Motor",
           "Foodcourt"
         ]
+      }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Tipe Kamar",
+        "fasilitas": ["Studio"]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
       }
     ]
   },
@@ -200,6 +288,30 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -241,6 +353,30 @@
           "Parkir Motor",
           "Tempat Makan"
         ]
+      }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
       }
     ]
   },
@@ -284,6 +420,18 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -321,7 +469,8 @@
           "Foodcourt"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
   },
   {
     "id": 9,
@@ -357,6 +506,38 @@
           "Parkir Motor",
           "Foodcourt"
         ]
+      }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Kamar Tidur",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Tidur ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
       }
     ]
   },
@@ -400,6 +581,34 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kapasitas",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -442,6 +651,30 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Tipe Furnish",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
   },
   {
@@ -478,6 +711,18 @@
           "Parkir Motor",
           "Foodcourt"
         ]
+      }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
       }
     ]
   },
@@ -521,7 +766,8 @@
           "Tempat Makan"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
   },
   {
     "id": 14,
@@ -558,7 +804,8 @@
           "Foodcourt"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
   },
   {
     "id": 15,
@@ -595,7 +842,8 @@
           "Foodcourt"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
   },
   {
     "id": 16,
@@ -637,6 +885,7 @@
           "Tempat Makan"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
   }
 ]

@@ -49,7 +49,7 @@
       "kapasitas": 1
     },
     "daya_listrik": 1300,
-    "biaya_listrik": "sudah"
+    "biaya_listrik": "termasuk"
   },
   {
     "id": 2,
@@ -150,7 +150,7 @@
       "kapasitas": 1
     },
     "daya_listrik": 900,
-    "biaya_listrik": "sudah"
+    "biaya_listrik": "termasuk"
   },
   {
     "id": 3,
@@ -221,7 +221,7 @@
       "kapasitas": null
     },
     "daya_listrik": 2200,
-    "biaya_listrik": "terpisah"
+    "biaya_listrik": "belum termasuk"
   },
   {
     "id": 4,
@@ -291,7 +291,7 @@
       "kapasitas": null
     },
     "daya_listrik": 1300,
-    "biaya_listrik": "terpisah"
+    "biaya_listrik": "belum termasuk"
   },
   {
     "id": 5,
@@ -366,7 +366,7 @@
       "kapasitas": null
     },
     "daya_listrik": 6600,
-    "biaya_listrik": "terpisah"
+    "biaya_listrik": "belum termasuk"
   },
   {
     "id": 6,
@@ -441,7 +441,7 @@
       "kapasitas": null
     },
     "daya_listrik": 2200,
-    "biaya_listrik": "terpisah"
+    "biaya_listrik": "belum termasuk"
   },
   {
     "id": 7,
@@ -516,7 +516,7 @@
       "kapasitas": null
     },
     "daya_listrik": 13000,
-    "biaya_listrik": "terpisah"
+    "biaya_listrik": "belum termasuk"
   },
   {
     "id": 8,
@@ -657,6 +657,6 @@
       "kapasitas": 10
     },
     "daya_listrik": 3500,
-    "biaya_listrik": "sudah"
+    "biaya_listrik": "termasuk"
   }
 ]

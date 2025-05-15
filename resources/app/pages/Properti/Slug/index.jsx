@@ -111,112 +111,6 @@ const Index = () => {
     fetchPropertiDetail();
   }, [dispatch, slug]);
 
-  const iconFasilitas = nama => {
-    switch (nama.toLowerCase()) {
-      // Fasilitas Kamar
-      case 'ac':
-        return '❄️';
-      case 'kursi':
-        return '🪑';
-      case 'pemanas air':
-        return '🚿';
-      case 'kipas angin':
-        return '🌀';
-      case 'cermin':
-        return '🪞';
-      case 'shower':
-        return '🚿';
-      case 'kasur':
-        return '🛏️';
-      case 'tv':
-        return '📺';
-      case 'bak mandi':
-        return '🛁';
-      case 'lemari':
-        return '🧳';
-      case 'jendela':
-        return '🪟';
-      case 'kloset duduk':
-        return '🚽';
-      case 'kloset jongkok':
-        return '🚾';
-      case 'meja':
-        return '🪟'; // bisa juga 🪑 jika meja makan
-      case 'k. mandi dalam':
-        return '🚿';
-
-      // Fasilitas Bersama
-      case 'wifi':
-        return '📶';
-      case 'mesin cuci':
-        return '🧺';
-      case 'cleaning service':
-        return '🧹';
-      case 'k. mandi luar':
-        return '🚻';
-      case 'ruang jemur':
-        return '👕';
-      case 'laundry':
-        return '🧼';
-      case 'ruang tamu':
-        return '🛋️';
-      case 'parkir motor':
-        return '🏍️';
-      case 'parkir mobil':
-        return '🚗';
-      case 'dapur':
-      case 'dapur bersama':
-        return '🍽️';
-      case 'cctv':
-        return '📹';
-      case 'dispenser':
-        return '🚰';
-
-      // Fasilitas Area
-      case 'tempat makan':
-        return '🍴';
-      case 'pasar':
-        return '🛒';
-      case 'gym':
-        return '🏋️';
-      case 'rumah sakit':
-        return '🏥';
-      case 'ни': // kemungkinan typo?
-        return '🏬';
-      case 'minimarket':
-        return '🏪';
-      case 'trans umum':
-        return '🚌';
-      case 'supermarket':
-        return '🛍️';
-
-      // Peraturan Kost
-      case 'akses 24 jam':
-        return '⏰';
-      case 'ada jam malam':
-        return '🌙';
-      case 'khusus karyawan':
-        return '👔';
-      case 'khusus mahasiswa':
-        return '🎓';
-      case 'boleh pasutri':
-      case 'tidak boleh pasutri':
-        return '👫';
-      case 'boleh membawa anak':
-      case 'tidak boleh bawa anak':
-        return '👶';
-      case 'menginap dikenakan biaya':
-      case 'menginap tidak dikenakan biaya':
-        return '🛌';
-      case 'boleh membawa hewan peliharaan':
-      case 'tidak boleh membawa hewan peliharaan':
-        return '🐶';
-
-      default:
-        return '✅'; // fallback icon
-    }
-  };
-
   return (
     <Fragment>
       <Heads
@@ -320,38 +214,41 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
+                (kontrakanDetail?.kategori_interior?.kondisi_perabotan ||
+                  kontrakanDetail?.daya_listrik) && (
                   <div className="d-flex gap-2 flex-nowrap">
                     {/* Kondisi Perabotan */}
-                    {kontrakanDetail?.kategori_interior?.kondisi_perabotan &&
-                    <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                      <div className='align-items-center d-flex h-100'>
-                        <i
-                          className={`me-1 ${
-                            kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
-                            'Full Furnished'
-                              ? 'fa-solid fa-couch'
-                              : kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
-                                  'Semi Furnished'
-                                ? 'fa-solid fa-chair'
-                                : 'fa-solid fa-box-open'
-                          }`}
-                        ></i>
-                        {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
+                    {kontrakanDetail?.kategori_interior?.kondisi_perabotan && (
+                      <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                        <div className="align-items-center d-flex h-100">
+                          <i
+                            className={`me-1 ${
+                              kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
+                              'Full Furnished'
+                                ? 'fa-solid fa-couch'
+                                : kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
+                                    'Semi Furnished'
+                                  ? 'fa-solid fa-chair'
+                                  : 'fa-solid fa-box-open'
+                            }`}
+                          ></i>
+                          {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
+                        </div>
                       </div>
-                    </div>
-}
+                    )}
                     {/* Biaya Listrik */}
-                    {kontrakanDetail?.daya_listrik && 
-                    <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                      <div className=''>
-                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}<br/>
-                        <small>( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )</small>
+                    {kontrakanDetail?.daya_listrik && (
+                      <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                        <div className="">
+                          <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
+                          <br />
+                          <small>( {kontrakanDetail?.biaya_listrik} Listrik )</small>
+                        </div>
                       </div>
-                    </div>
-}
+                    )}
                   </div>
                 )
-              }
+              )}
 
               {/* Fasilitas */}
               <h5 className="fw-semibold mt-4 mb-3">Fasilitas</h5>
@@ -371,8 +268,7 @@ const Index = () => {
                       <ul className="list-unstyled row mb-0">
                         {kategori.fasilitas.map((fasilitas, i) => (
                           <li key={i} className="col-6 mb-2">
-                            {/* ✅  */}
-                            {iconFasilitas(fasilitas)} {fasilitas}
+                            {/* ✅  */}✅ {fasilitas}
                           </li>
                         ))}
                       </ul>
