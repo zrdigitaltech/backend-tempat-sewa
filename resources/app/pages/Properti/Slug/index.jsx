@@ -111,6 +111,112 @@ const Index = () => {
     fetchPropertiDetail();
   }, [dispatch, slug]);
 
+  const iconFasilitas = nama => {
+    switch (nama.toLowerCase()) {
+      // Fasilitas Kamar
+      case 'ac':
+        return '❄️';
+      case 'kursi':
+        return '🪑';
+      case 'pemanas air':
+        return '🚿';
+      case 'kipas angin':
+        return '🌀';
+      case 'cermin':
+        return '🪞';
+      case 'shower':
+        return '🚿';
+      case 'kasur':
+        return '🛏️';
+      case 'tv':
+        return '📺';
+      case 'bak mandi':
+        return '🛁';
+      case 'lemari':
+        return '🧳';
+      case 'jendela':
+        return '🪟';
+      case 'kloset duduk':
+        return '🚽';
+      case 'kloset jongkok':
+        return '🚾';
+      case 'meja':
+        return '🪟'; // bisa juga 🪑 jika meja makan
+      case 'k. mandi dalam':
+        return '🚿';
+
+      // Fasilitas Bersama
+      case 'wifi':
+        return '📶';
+      case 'mesin cuci':
+        return '🧺';
+      case 'cleaning service':
+        return '🧹';
+      case 'k. mandi luar':
+        return '🚻';
+      case 'ruang jemur':
+        return '👕';
+      case 'laundry':
+        return '🧼';
+      case 'ruang tamu':
+        return '🛋️';
+      case 'parkir motor':
+        return '🏍️';
+      case 'parkir mobil':
+        return '🚗';
+      case 'dapur':
+      case 'dapur bersama':
+        return '🍽️';
+      case 'cctv':
+        return '📹';
+      case 'dispenser':
+        return '🚰';
+
+      // Fasilitas Area
+      case 'tempat makan':
+        return '🍴';
+      case 'pasar':
+        return '🛒';
+      case 'gym':
+        return '🏋️';
+      case 'rumah sakit':
+        return '🏥';
+      case 'ни': // kemungkinan typo?
+        return '🏬';
+      case 'minimarket':
+        return '🏪';
+      case 'trans umum':
+        return '🚌';
+      case 'supermarket':
+        return '🛍️';
+
+      // Peraturan Kost
+      case 'akses 24 jam':
+        return '⏰';
+      case 'ada jam malam':
+        return '🌙';
+      case 'khusus karyawan':
+        return '👔';
+      case 'khusus mahasiswa':
+        return '🎓';
+      case 'boleh pasutri':
+      case 'tidak boleh pasutri':
+        return '👫';
+      case 'boleh membawa anak':
+      case 'tidak boleh bawa anak':
+        return '👶';
+      case 'menginap dikenakan biaya':
+      case 'menginap tidak dikenakan biaya':
+        return '🛌';
+      case 'boleh membawa hewan peliharaan':
+      case 'tidak boleh membawa hewan peliharaan':
+        return '🐶';
+
+      default:
+        return '✅'; // fallback icon
+    }
+  };
+
   return (
     <Fragment>
       <Heads
@@ -173,28 +279,10 @@ const Index = () => {
                       )}
 
                       <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                        {iconKategori(kontrakanDetail?.kategori?.nama)}{' '}
-                        {kontrakanDetail?.kategori?.nama.toLowerCase() === 'kost'
-                          ? kontrakanDetail?.kategori?.nama + ' ' + kontrakanDetail?.tipe_kost
-                          : kontrakanDetail?.kategori?.nama}
-                      </span>
-
-                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                        <i
-                          className={`me-1 ${
-                            kontrakanDetail?.interior?.nama === 'Full Furnished'
-                              ? 'fa-solid fa-couch'
-                              : kontrakanDetail?.interior?.nama === 'Semi Furnished'
-                                ? 'fa-solid fa-chair'
-                                : 'fa-solid fa-box-open'
-                          }`}
-                        ></i>
-                        {kontrakanDetail?.kondisi_perabotan?.nama}
-                      </span>
-
-                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.biaya_listrik}{' '}
-                        Termasuk Listrik
+                        {iconKategori(kontrakanDetail?.tipe_properti?.nama)}{' '}
+                        {kontrakanDetail?.tipe_properti?.nama.toLowerCase() === 'kost'
+                          ? kontrakanDetail?.tipe_properti?.nama + ' ' + kontrakanDetail?.tipe_kost
+                          : kontrakanDetail?.tipe_properti?.nama}
                       </span>
 
                       <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
@@ -222,11 +310,47 @@ const Index = () => {
                 </Fragment>
               )}
 
+              {isLoading ? (
+                <div className="d-flex gap-2 flex-wrap mt-2">
+                  <div>
+                    <Skeleton width={120} height={50} />
+                  </div>
+                  <div>
+                    <Skeleton width={120} height={50} />
+                  </div>
+                </div>
+              ) : (
+                <div className="d-flex gap-2 flex-nowrap">
+                  {/* Kondisi Perabotan */}
+                  <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                    <div>
+                      <i
+                        className={`me-1 ${
+                          kontrakanDetail?.kategori_interior?.kondisi_perabotan === 'Full Furnished'
+                            ? 'fa-solid fa-couch'
+                            : kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
+                                'Semi Furnished'
+                              ? 'fa-solid fa-chair'
+                              : 'fa-solid fa-box-open'
+                        }`}
+                      ></i>
+                      {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
+                    </div>
+                  </div>
+                  {/* Biaya Listrik */}
+                  <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                    <div>
+                      <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
+                      <br />( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Fasilitas */}
-              <h5 className="fw-semibold mt-4">Fasilitas</h5>
+              <h5 className="fw-semibold mt-4 mb-3">Fasilitas</h5>
               {isLoading ? (
                 <ul className="list-unstyled row">
-                  {/* Skeleton untuk daftar fasilitas */}
                   {Array.from({ length: 6 }).map((_, index) => (
                     <li key={index} className="col-6 mb-2">
                       <Skeleton width={150} height={20} />
@@ -234,17 +358,25 @@ const Index = () => {
                   ))}
                 </ul>
               ) : (
-                <ul className="list-unstyled row">
-                  {kontrakanDetail?.fasilitas?.map((item, i) => (
-                    <li key={item || i} className="col-6 mb-2">
-                      ✅ {item}
-                    </li>
+                <div className="row">
+                  {kontrakanDetail?.kategori_fasilitas?.map(kategori => (
+                    <div key={kategori.id} className="col-12 mb-3">
+                      <h6 className="fw-bold">{kategori.nama}</h6>
+                      <ul className="list-unstyled row mb-0">
+                        {kategori.fasilitas.map((fasilitas, i) => (
+                          <li key={i} className="col-6 mb-2">
+                            {/* ✅  */}
+                            {iconFasilitas(fasilitas)} {fasilitas}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               )}
 
               {/* Deskripsi */}
-              <h5 className="fw-semibold mt-4">Deskripsi</h5>
+              <h5 className="fw-semibold mt-1 mb-3">Deskripsi</h5>
               {isLoading ? (
                 <Skeleton count={3} height={20} />
               ) : (
