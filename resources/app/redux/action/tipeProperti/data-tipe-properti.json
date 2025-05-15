@@ -3,96 +3,315 @@
     "id": 1,
     "nama": "Kontrakan",
     "slug": "kontrakan",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Umum",
+        "fasilitas": [
+          "Listrik",
+          "Air PAM",
+          "Kamar Mandi Dalam",
+          "Dapur",
+          "Parkir Motor",
+          "Akses 24 Jam"
+        ]
+      }
+    ]
   },
   {
     "id": 2,
     "nama": "Kost",
     "slug": "kost",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Kamar",
+        "fasilitas": [
+          "AC",
+          "Kursi",
+          "Pemanas Air",
+          "Kipas Angin",
+          "Cermin",
+          "Shower",
+          "Kasur",
+          "TV",
+          "Lemari",
+          "Jendela",
+          "Kloset duduk",
+          "Meja",
+          "K. Mandi Dalam"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Bersama",
+        "fasilitas": [
+          "Wifi",
+          "Mesin Cuci",
+          "Cleaning Service",
+          "Ruang Jemur",
+          "Laundry",
+          "Ruang Tamu",
+          "Parkir Motor",
+          "Dapur",
+          "CCTV"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Tempat Makan",
+          "Pasar",
+          "Gym",
+          "Rumah Sakit",
+          "Minimarket",
+          "Trans Umum",
+          "Supermarket"
+        ]
+      },
+      {
+        "id": 4,
+        "nama": "Peraturan Kost",
+        "fasilitas": [
+          "Akses 24 jam",
+          "Ada jam malam",
+          "Khusus Mahasiswa",
+          "Tidak boleh pasutri",
+          "Tidak boleh bawa anak",
+          "Menginap dikenakan biaya",
+          "Tidak boleh membawa hewan peliharaan"
+        ]
+      }
+    ]
   },
   {
     "id": 3,
     "nama": "Rumah",
     "slug": "rumah",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "Taman", "Garasi", "AC", "Dapur", "Ruang Tamu", "Kamar Tidur", "Kamar Mandi",
+          "Air PAM", "Listrik 2200 watt"
+        ]
+      }
+    ]
   },
   {
     "id": 4,
     "nama": "Apartemen",
     "slug": "apartemen",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Gedung",
+        "fasilitas": [
+          "Lift", "Kolam Renang", "Keamanan 24 Jam", "Gym", "CCTV", "Lobby", "Parkir Mobil"
+        ]
+      },
+      {
+        "nama": "Fasilitas Unit",
+        "fasilitas": [
+          "AC", "TV", "Dapur", "Kamar Tidur", "Kamar Mandi Dalam", "Water Heater"
+        ]
+      }
+    ]
   },
   {
     "id": 5,
     "nama": "Ruko",
     "slug": "ruko",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Usaha",
+        "fasilitas": [
+          "Parkir Mobil", "Toilet", "Gudang", "Ruang Kantor", "Mezzanine", "Akses Jalan Raya"
+        ]
+      }
+    ]
   },
   {
     "id": 6,
     "nama": "Kios",
     "slug": "kios",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Kios",
+        "fasilitas": [
+          "Rolling Door", "Pintu Kaca", "Parkir Pengunjung", "Dekat Pasar"
+        ]
+      }
+    ]
   },
   {
     "id": 7,
     "nama": "Gudang",
     "slug": "gudang",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Gudang",
+        "fasilitas": [
+          "Loading Dock", "Truk Masuk", "Listrik Industri", "Keamanan", "Gudang Pendingin"
+        ]
+      }
+    ]
   },
   {
     "id": 8,
     "nama": "Tanah",
     "slug": "tanah",
-    "kategori": "lainnya"
+    "kategori": "lainnya",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Perumahan",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ]
   },
   {
     "id": 9,
     "nama": "Villa",
     "slug": "villa",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Villa",
+        "fasilitas": [
+          "Kolam Renang", "Gazebo", "Taman", "Dapur", "Ruang Keluarga", "Balkon",
+          "View Alam", "Keamanan"
+        ]
+      }
+    ]
   },
   {
     "id": 10,
     "nama": "Ruang Kantor",
     "slug": "ruang-kantor",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Kantor",
+        "fasilitas": [
+          "Ruang Meeting", "Lift", "Parkir Mobil", "Toilet", "Pantry", "Akses 24 Jam", "CCTV"
+        ]
+      }
+    ]
   },
   {
     "id": 11,
     "nama": "Komersial",
     "slug": "komersial",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Komersial",
+        "fasilitas": [
+          "Area Parkir Luas", "Toilet Umum", "Dekat Jalan Raya", "Keamanan"
+        ]
+      }
+    ]
   },
   {
     "id": 12,
     "nama": "Hotel",
     "slug": "hotel",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Hotel",
+        "fasilitas": [
+          "Lobby", "Kolam Renang", "Room Service", "Restoran", "Gym", "Meeting Room",
+          "Parkir Luas", "Lift", "Keamanan 24 Jam"
+        ]
+      }
+    ]
   },
   {
     "id": 13,
     "nama": "Pabrik",
     "slug": "pabrik",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Pabrik",
+        "fasilitas": [
+          "Listrik Industri", "Truk Masuk", "Gudang", "Area Produksi", "Akses Jalan Besar"
+        ]
+      }
+    ]
   },
   {
     "id": 14,
     "nama": "Gedung",
     "slug": "gedung",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Gedung",
+        "fasilitas": [
+          "Lift", "Ruang Kantor", "CCTV", "Parkir", "Lobby", "Akses 24 Jam"
+        ]
+      }
+    ]
   },
   {
     "id": 15,
     "nama": "Kondotel",
     "slug": "kondotel",
-    "kategori": "hunian"
+    "kategori": "hunian",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Kondotel",
+        "fasilitas": [
+          "Kolam Renang", "Gym", "Room Service", "AC", "Keamanan 24 Jam", "TV", "Dapur"
+        ]
+      }
+    ]
   },
   {
     "id": 16,
     "nama": "Toko",
     "slug": "toko",
-    "kategori": "usaha"
+    "kategori": "usaha",
+    "kategori_fasilitas": [
+      {
+        "nama": "Fasilitas Toko",
+        "fasilitas": [
+          "Parkir Pengunjung", "Akses Jalan Raya", "Rolling Door", "Toilet", "Pencahayaan Baik"
+        ]
+      }
+    ]
   }
 ]

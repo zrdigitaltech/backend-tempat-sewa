@@ -320,31 +320,35 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                <div className="d-flex gap-2 flex-nowrap">
-                  {/* Kondisi Perabotan */}
-                  <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                    <div>
-                      <i
-                        className={`me-1 ${
-                          kontrakanDetail?.kategori_interior?.kondisi_perabotan === 'Full Furnished'
-                            ? 'fa-solid fa-couch'
-                            : kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
-                                'Semi Furnished'
-                              ? 'fa-solid fa-chair'
-                              : 'fa-solid fa-box-open'
-                        }`}
-                      ></i>
-                      {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
+                kontrakanDetail?.kategori_interior?.kondisi_perabotan ||
+                (kontrakanDetail?.daya_listrik && kontrakanDetail?.biaya_listrik && (
+                  <div className="d-flex gap-2 flex-nowrap">
+                    {/* Kondisi Perabotan */}
+                    <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                      <div>
+                        <i
+                          className={`me-1 ${
+                            kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
+                            'Full Furnished'
+                              ? 'fa-solid fa-couch'
+                              : kontrakanDetail?.kategori_interior?.kondisi_perabotan ===
+                                  'Semi Furnished'
+                                ? 'fa-solid fa-chair'
+                                : 'fa-solid fa-box-open'
+                          }`}
+                        ></i>
+                        {kontrakanDetail?.kategori_interior?.kondisi_perabotan}
+                      </div>
+                    </div>
+                    {/* Biaya Listrik */}
+                    <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                      <div>
+                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
+                        <br />( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )
+                      </div>
                     </div>
                   </div>
-                  {/* Biaya Listrik */}
-                  <div className="align-content-center border card p-3 text-capitalize text-secondary">
-                    <div>
-                      <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
-                      <br />( {kontrakanDetail?.biaya_listrik} Termasuk Listrik )
-                    </div>
-                  </div>
-                </div>
+                ))
               )}
 
               {/* Fasilitas */}
