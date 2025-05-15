@@ -6,6 +6,8 @@ import PermintaanBerhasilModal from '@/app/pages/modal/Konsultasi/PermintaanBerh
 import { useSelector, useDispatch } from 'react-redux';
 import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import { formatRupiah, unFormatRupiah } from '@/app/helpers';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const Index = props => {
   const { show, onClose, dataItem } = props;
@@ -16,11 +18,11 @@ const Index = props => {
     harga_max: '',
     name: '',
     phone: '',
-    tipe_properti: ''
+    tipe_properti: []
   });
 
   const [errors, setErrors] = useState({});
-  const [selectedReason, setSelectedReason] = useState('');
+  const [selectedReasons, setSelectedReasons] = useState([]);
 
   const [showPermintaanBerhasil, setShowPermintaanBerhasil] = useState(false);
 
@@ -28,6 +30,7 @@ const Index = props => {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fetchTipeProperti = async () => {
     setIsLoading(true);
@@ -43,8 +46,8 @@ const Index = props => {
     if (tipePropertiList?.length) {
       const defaultItem = tipePropertiList.find(item => item.nama.toLowerCase() === 'kost');
       if (defaultItem) {
-        setSelectedReason(defaultItem.id);
-        setFormData(prev => ({ ...prev, tipe_properti: defaultItem.id }));
+        setSelectedReasons([defaultItem.id]);
+        setFormData(prev => ({ ...prev, tipe_properti: [defaultItem.id] }));
       }
     }
   }, [tipePropertiList]);
@@ -73,8 +76,8 @@ const Index = props => {
     const hargaMin = parseInt(formData.harga_min.replace(/\D/g, '')) || 0;
     const hargaMax = parseInt(formData.harga_max.replace(/\D/g, '')) || 0;
 
-    if (!formData.tipe_properti) {
-      newErrors.tipe_properti = 'Silakan pilih salah satu tipe properti';
+    if (!formData.tipe_properti.length) {
+      newErrors.tipe_properti = 'Pilih minimal satu tipe properti';
     }
     if (!formData.harga_max.trim()) {
       newErrors.harga_max = 'Harga Max tidak boleh kosong';
@@ -86,7 +89,13 @@ const Index = props => {
     if (!formData.lokasi.trim()) {
       newErrors.lokasi = 'Lokasi tidak boleh kosong';
     }
-    if (!formData.name.trim()) newErrors.name = 'Nama tidak boleh kosong';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Nama tidak boleh kosong';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'Nama minimal 3 karakter';
+    } else if (formData.name.trim().length > 50) {
+      newErrors.name = 'Nama tidak boleh lebih dari 50 karakter';
+    }
     if (!formData.phone.trim()) {
       newErrors.phone = 'Nomor tidak boleh kosong';
     } else if (formData.phone.length < 9) {
@@ -104,27 +113,45 @@ const Index = props => {
       harga_max: '',
       name: '',
       phone: '',
-      tipe_properti: ''
+      tipe_properti: []
     });
     setErrors({});
-    setSelectedReason('');
+    setSelectedReasons([]);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
     if (validate()) {
-      const bodyFormData = {
-        lokasi: formData.lokasi,
-        harga_min: unFormatRupiah(formData.harga_min),
-        harga_max: unFormatRupiah(formData.harga_max),
-        name: formData.name,
-        phone: formData.phone,
-        tipe_properti: formData.tipe_properti
-      };
-      console.log('Form data valid:', bodyFormData);
-      // Lakukan submit ke server di sini
-      onClose();
-      setShowPermintaanBerhasil(true);
-      clearForm();
+      setIsSubmitting(true);
+      try {
+        const bodyFormData = {
+          lokasi: formData.lokasi,
+          harga_min: unFormatRupiah(formData.harga_min),
+          harga_max: unFormatRupiah(formData.harga_max),
+          name: formData.name,
+          phone: formData.phone,
+          tipe_properti: formData.tipe_properti // ubah array jadi string .join(',')
+        };
+
+        console.log('Form data valid:', bodyFormData);
+
+        // Kirim ke server
+        // Misal pakai fetch:
+        // fetch('/api/konsultasi', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(bodyFormData)
+        // });
+
+        onClose();
+        setShowPermintaanBerhasil(true);
+        clearForm();
+        setIsSubmitting(false);
+      } catch (error) {
+        console.error('Submit error:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -143,36 +170,49 @@ const Index = props => {
                 Tipe Properti<small className="text-danger">*</small>
               </label>
               <div className={`d-flex flex-nowrap gap-2 overflow-x-auto`}>
-                {tipePropertiList.map((item, index) => {
-                  const isSelected = selectedReason === item?.id;
-                  return (
-                    <div key={index}>
-                      <input
-                        type="radio"
-                        className="btn-check"
-                        name="tipe_properti"
-                        id={`radio-${item.id}`}
-                        autoComplete="off"
-                        onChange={() => {
-                          setSelectedReason(item?.id);
-                          setFormData(prev => ({ ...prev, tipe_properti: item.id }));
-                        }}
-                        checked={isSelected}
+                {isLoading
+                  ? Array.from({ length: 4 }).map((_, index) => (
+                      <Skeleton
+                        key={index}
+                        height={38}
+                        width={100}
+                        className="rounded-pill"
+                        style={{ marginRight: '0.5rem' }}
                       />
-                      <label
-                        className={classNames('btn rounded-pill text-truncate', {
-                          'btn-outline-primary': !isSelected,
-                          'btn-primary': isSelected,
-                          'text-dark': !isSelected
-                        })}
-                        htmlFor={`radio-${item.id}`}
-                      >
-                        {item.nama}
-                      </label>
-                    </div>
-                  );
-                })}
+                    ))
+                  : tipePropertiList.map((item, index) => {
+                      const isSelected = selectedReasons.includes(item?.id);
+                      return (
+                        <div key={index}>
+                          <input
+                            type="checkbox"
+                            className="btn-check"
+                            id={`checkbox-${item.id}`}
+                            autoComplete="off"
+                            onChange={() => {
+                              const updatedSelection = isSelected
+                                ? selectedReasons.filter(id => id !== item.id)
+                                : [...selectedReasons, item.id];
+                              setSelectedReasons(updatedSelection);
+                              setFormData(prev => ({ ...prev, tipe_properti: updatedSelection }));
+                            }}
+                            checked={isSelected}
+                          />
+                          <label
+                            className={classNames('btn rounded-pill text-truncate', {
+                              'btn-outline-primary': !isSelected,
+                              'btn-primary': isSelected,
+                              'text-dark': !isSelected
+                            })}
+                            htmlFor={`checkbox-${item.id}`}
+                          >
+                            {item.nama}
+                          </label>
+                        </div>
+                      );
+                    })}
               </div>
+
               {errors.tipe_properti && (
                 <small className="text-danger w-100 mt-1">{errors.tipe_properti}</small>
               )}
@@ -188,9 +228,7 @@ const Index = props => {
                 value={formData.harga_min}
                 onChange={handleChange}
               />
-              <span className="input-group-text">
-                Rp<small className="text-danger">*</small>
-              </span>
+              <span className="input-group-text">Rp</span>
               <input
                 type="harga_max"
                 className={`form-control ${errors.harga_max ? 'is-invalid' : ''}`}
@@ -199,7 +237,9 @@ const Index = props => {
                 value={formData.harga_max}
                 onChange={handleChange}
               />
-              {errors.harga_max && <small className="invalid-feedback">{errors.harga_max}</small>}
+              {errors.harga_max && (
+                <small className="invalid-feedback text-end">{errors.harga_max}</small>
+              )}
             </div>
 
             <div className="mb-3">
@@ -250,8 +290,13 @@ const Index = props => {
         }
         modalFooter={
           <Fragment>
-            <button type="button" className="btn btn-primary w-100" onClick={handleSubmit}>
-              Carikan Saya Properti
+            <button
+              type="button"
+              className="btn btn-primary w-100"
+              onClick={handleSubmit}
+              disabled={isSubmitting || isLoading}
+            >
+              {isSubmitting ? 'Memproses...' : 'Carikan Saya Properti'}
             </button>
           </Fragment>
         }
