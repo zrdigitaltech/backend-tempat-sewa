@@ -199,6 +199,7 @@ export default function Index() {
                       {...item}
                       showKategori={true}
                       showTipeKamar={true}
+                      showInterior={true}
                       handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
                       handleWhatsApp={() =>
                         isPageVerified

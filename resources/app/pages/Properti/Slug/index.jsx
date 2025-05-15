@@ -176,7 +176,25 @@ const Index = () => {
                           : kontrakanDetail?.kategori?.nama}
                       </span>
 
-                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent">
+                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                        <i
+                          className={`me-1 ${
+                            kontrakanDetail?.interior?.nama === 'Full Furnished'
+                              ? 'fa-solid fa-couch'
+                              : kontrakanDetail?.interior?.nama === 'Semi Furnished'
+                                ? 'fa-solid fa-chair'
+                                : 'fa-solid fa-box-open'
+                          }`}
+                        ></i>
+                        {kontrakanDetail?.kondisi_perabotan?.nama}
+                      </span>
+
+                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                        <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.biaya_listrik}{' '}
+                        Termasuk Listrik
+                      </span>
+
+                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
                         <i className="fa fa-clock-o"></i> Diperbaharui: {kontrakanDetail?.upload}
                       </span>
                     </Fragment>

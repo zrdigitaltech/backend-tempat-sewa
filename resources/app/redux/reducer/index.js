@@ -10,6 +10,7 @@ import { tipePropertiReducer } from '@/app/redux/reducer/tipeProperti/reducer';
 import { tipeSewaReducer } from '@/app/redux/reducer/tipeSewa/reducer';
 import { tipeKostReducer } from '@/app/redux/reducer/tipeKost/reducer';
 import { tipeKamarReducer } from '@/app/redux/reducer/tipeKamar/reducer';
+import { interiorReducer } from '@/app/redux/reducer/interior/reducer';
 
 // Combine semua reducers menjadi satu
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   tipeSewa: tipeSewaReducer,
   tipeKost: tipeKostReducer,
   tipeKamar: tipeKamarReducer,
+  interior: interiorReducer,
   floatingWhatsapp: floatingWhatsappReducer
 });
 

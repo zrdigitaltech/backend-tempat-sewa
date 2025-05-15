@@ -30,7 +30,9 @@ export default function Index(props) {
     handlePhone,
     handleWhatsApp,
     showTipeKamar = false,
-    tipe_kost
+    tipe_kost,
+    showInterior = false,
+    interior
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -97,7 +99,7 @@ export default function Index(props) {
         <Fragment>
           {showKategori && (
             <Fragment>
-              <div className="d-flex gap-2 mb-2">
+              <div className="d-flex gap-2 mb-2 overflow-x-auto">
                 <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
                   {iconKategori(kategori)}{' '}
                   {typeof kategori === 'object'
@@ -114,6 +116,11 @@ export default function Index(props) {
                       : formatTipeKamar(tipe_kamar) === 'L'
                         ? '>3'
                         : formatTipeKamar(tipe_kamar)}
+                  </span>
+                )}
+                {showInterior && (
+                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                    {interior?.nama}
                   </span>
                 )}
               </div>
