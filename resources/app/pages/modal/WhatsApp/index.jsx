@@ -24,6 +24,7 @@ const Index = props => {
 
   const [errors, setErrors] = useState({});
   const [showVerifikasi, setShowVerifikasi] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const verified = localStorage.getItem('isVerified') === 'true';
@@ -68,14 +69,40 @@ const Index = props => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
     if (validate()) {
-      console.log('Form data valid:', formData);
-      // Lakukan submit ke server di sini
-      onClose();
-      setShowVerifikasi(true);
-      setErrors({});
+      setIsSubmitting(true);
+      try {
+        console.log('Form data valid:', bodyFormData);
+
+        // Kirim ke server
+        // Misal pakai fetch:
+        // fetch('/api/konsultasi', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(bodyFormData)
+        // });
+
+        onClose();
+        setShowVerifikasi(true);
+        clearForm();
+        setIsSubmitting(false);
+      } catch (error) {
+        console.error('Submit error:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
+  };
+
+  const clearForm = () => {
+    setFormData({
+      name: '',
+      phone: '',
+      verifikasi: 'whatsapp'
+    });
+    setErrors({});
   };
 
   return (
@@ -83,7 +110,7 @@ const Index = props => {
       <Modals
         title="Hubungi Pengiklan Properti"
         show={show}
-        onClose={() => onClose()}
+        onClose={() => (onClose(), clearForm())}
         position="center"
         styleModal={{ zIndex: 9999999 }}
         styleModalBackdrop={{ zIndex: 999999 }}
@@ -139,22 +166,33 @@ const Index = props => {
                 type="button"
                 className={`btn btn-${formData?.verifikasi === 'whatsapp' ? 'success' : 'primary'} w-100 text-white`}
                 onClick={handleSubmit}
+                disabled={isSubmitting}
               >
                 <i
                   className={` fa-${formData.verifikasi === 'whatsapp' ? 'whatsapp fa-brands' : 'comment-sms fa-solid'}`}
                 ></i>{' '}
-                Lanjutkan
+                {isSubmitting ? 'Memproses...' : 'Lanjutkan'}
               </button>
               <small>
-                Dengan ini anda bersedia untuk mengikuti{' '}
-                <Link to="/terms-and-conditions" className="text-decoration-none">
-                  <b>Terms and Conditions</b>
-                </Link>{' '}
-                &{' '}
-                <Link to="/privacy-policy" className="text-decoration-none">
-                  <b>Privacy Policy</b>
-                </Link>{' '}
-                tempatSewa.Com
+                Dengan ini Anda setuju untuk mematuhi{' '}
+                <a
+                  href="/syarat-dan-ketentuan"
+                  target="_blank"
+                  className="text-decoration-none"
+                  rel="noopener noreferrer"
+                >
+                  <b>Syarat dan Ketentuan</b>
+                </a>{' '}
+                &amp;{' '}
+                <a
+                  href="/kebijakan-privasi"
+                  target="_blank"
+                  className="text-decoration-none"
+                  rel="noopener noreferrer"
+                >
+                  <b>Kebijakan Privasi</b>
+                </a>{' '}
+                di <small>tempat</small>Sewa.Com
               </small>
             </Fragment>
           )

@@ -65,7 +65,11 @@ export default function Index() {
                                         </p> */}
                     <p>
                       <i className="fa fa-whatsapp text-theme"></i>{' '}
-                      <a href={hubungiKamiList?.link_no_wa} target="_blank">
+                      <a
+                        href={hubungiKamiList?.link_no_wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {hubungiKamiList?.no_wa}
                       </a>{' '}
                     </p>

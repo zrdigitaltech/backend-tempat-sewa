@@ -213,7 +213,12 @@ export default function Index(props) {
       </div>
 
       {newTab === true ? (
-        <a href={`/properti/${slug}`} target="_blank" className="text-decoration-none text-dark">
+        <a
+          href={`/properti/${slug}`}
+          target="_blank"
+          className="text-decoration-none text-dark"
+          rel="noopener noreferrer"
+        >
           {CardContent()}
         </a>
       ) : (

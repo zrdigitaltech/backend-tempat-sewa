@@ -58,7 +58,7 @@ export default function Index() {
                   <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
                     <PropertiCard
                       {...item}
-                      newTab={true}
+                      // newTab={true}
                       showKategori={true}
                       handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
                       handleWhatsApp={() =>

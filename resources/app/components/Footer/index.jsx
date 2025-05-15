@@ -20,7 +20,11 @@ export default function Index() {
             <h5>Hubungi Kami</h5>
             <p className="mb-1">
               Email:{' '}
-              <a href="mailto:bantuan@tempatSewa.Com" className="text-white text-decoration-none">
+              <a
+                href="mailto:bantuan@tempatSewa.Com"
+                className="text-white text-decoration-none"
+                rel="noopener noreferrer"
+              >
                 bantuan@tempatSewa.Com
               </a>
             </p>
