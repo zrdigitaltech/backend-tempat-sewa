@@ -24,7 +24,7 @@ export default function Index(props) {
     isLoading = false,
     swipeable = true,
     newTab = false,
-    kategori = '',
+    tipe_properti,
     showKategori = false,
     tipe_kamar,
     handlePhone,
@@ -58,6 +58,8 @@ export default function Index(props) {
           ? String(nama.nama).toLowerCase()
           : '';
     switch (namaStr) {
+      case 'kontrakan':
+        return '🏘️';
       case 'kost':
         return '🛏️';
       case 'rumah':
@@ -70,8 +72,9 @@ export default function Index(props) {
       case 'toko':
         return '🛒';
       case 'gudang':
+        return '🏚️';
       case 'pabrik':
-        return '🏗️';
+        return '🏭';
       case 'tanah':
         return '🌄';
       case 'villa':
@@ -101,14 +104,14 @@ export default function Index(props) {
             <Fragment>
               <div className="d-flex gap-2 mb-2 overflow-x-auto">
                 <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                  {iconKategori(kategori)}{' '}
-                  {typeof kategori === 'object'
-                    ? kategori?.nama.toLowerCase() === 'kost'
-                      ? kategori?.nama + ' ' + tipe_kost
-                      : kategori?.nama
+                  {iconKategori(tipe_properti)}{' '}
+                  {typeof tipe_properti === 'object'
+                    ? tipe_properti?.nama.toLowerCase() === 'kost'
+                      ? tipe_properti?.nama + ' ' + tipe_kost
+                      : tipe_properti?.nama
                     : ''}
                 </span>
-                {showTipeKamar && (
+                {showTipeKamar && tipe_kamar && (
                   <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
                     <i className="fa-solid fa-bed me-1"></i>
                     {formatTipeKamar(tipe_kamar) === 'S'

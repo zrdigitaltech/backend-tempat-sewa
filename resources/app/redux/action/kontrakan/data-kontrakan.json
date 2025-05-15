@@ -99,8 +99,8 @@
   ],
     "tipe_properti": {
       "id": 1,
-      "nama": "kost",
-      "slug": "kost",
+      "nama": "Kontrakan",
+      "slug": "kontrakan",
       "kategori": "hunian"
     },
     "tipe_kamar": "1_kamar_tidur",
@@ -115,350 +115,635 @@
   },
   {
     "id": 2,
-    "nama": "Kontrakan Mewah B",
-    "harga": 2500000,
-    "durasi": "bulan",
-    "status": "Tidak Tersedia",
-    "slug": "kontrakan-mewah-b",
-    "image": [
-      "https://placehold.co/800x600?text=Image+1",
-      "https://placehold.co/800x600?text=Image+2"
-    ],
-    "alamat": "Jl. Merdeka No. 15, Jakarta",
-    "area": "Senayan",
-    "kota": "Jakarta",
-    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
-    "pemilik": "Siti Aminah",
-    "pemilikSlug": "siti-aminah",
-    "views": 2000,
-    "no_whatsapp": "+62812xxxx",
-    "member": "Premium",
-    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
-    "durasiMinimal": 6,
-    "upload": "15 Apr 2025 10:00",
-    "kategori_fasilitas": [
-    {
-      "id": 1,
-      "nama": "Fasilitas Kamar",
-      "fasilitas": [
-        "AC",
-        "Kursi",
-        "Pemanas Air",
-        "Kipas Angin",
-        "Cermin",
-        "Shower",
-        "Kasur",
-        "TV",
-        "Bak Mandi",
-        "Lemari",
-        "Jendela",
-        "Kloset duduk",
-        "Meja",
-        "K. Mandi Dalam",
-        "Kloset Jongkok"
-      ]
-    },
-    {
-      "id": 2,
-      "nama": "Fasilitas Bersama",
-      "fasilitas": [
-        "Wifi",
-        "Mesin Cuci",
-        "Cleaning Service",
-        "K. Mandi Luar",
-        "Ruang Jemur",
-        "Laundry",
-        "Pemanas Air",
-        "Ruang Tamu",
-        "Parkir Motor",
-        "Dapur",
-        "CCTV",
-        "Parkir Mobil",
-        "Dispenser",
-        "TV"
-      ]
-    },
-    {
-      "id": 3,
-      "nama": "Fasilitas Area",
-      "fasilitas": [
-        "Tempat Makan",
-        "Pasar",
-        "Gym",
-        "Rumah Sakit",
-        "НИ",
-        "Minimarket",
-        "Trans Umum",
-        "Supermarket"
-      ]
-    },
-    {
-      "id": 4,
-      "nama": "Peraturan Kost",
-      "fasilitas": [
-        "Akses 24 jam",
-        "Ada jam malam",
-        "Khusus Karyawan",
-        "Khusus Mahasiswa",
-        "Boleh pasutri",
-        "Tidak boleh pasutri",
-        "Boleh membawa anak",
-        "Tidak boleh bawa anak",
-        "Menginap dikenakan biaya",
-        "Menginap tidak dikenakan biaya",
-        "Boleh membawa hewan peliharaan",
-        "Tidak boleh membawa hewan peliharaan"
-      ]
-    }
-  ],
-    "tipe_properti": {
-      "id": 2,
-      "nama": "Rumah",
-      "slug": "rumah",
-      "kategori": "hunian"
-    },
-    "tipe_kamar": "lebih_dari_3_Kamar_Tidur",
-    "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["AC", "Kolam Renang", "TV Kabel", "Internet"],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": 1
-    },
-    "daya_listrik": 1300,
-    "biaya_listrik": "sudah"
-  },
-  {
-    "id": 3,
-    "nama": "Kontrakan Hemat C",
-    "harga": 1200000,
+    "nama": "Kost Putri Melati",
+    "harga": 1500000,
     "durasi": "bulan",
     "status": "Tersedia",
-    "slug": "kontrakan-hemat-c",
+    "slug": "kost-putri-melati",
     "image": [
-      "https://www.99.co/id/_next/image?url=https%3A%2F%2Fwww.99.co%2Fid%2Fimg-regional%2F618%2F412%2Ffit%2Ftrue%2Fproduction%2Fimage%2Fuser%2F40d3b818-cca2-48d0-b9dd-980b17335259%2F2024-10-16-13-11-09-4de2be3e-26a8-4ded-b9ab-8dfcc03061f8.jpg&w=1920&q=75",
-      "https://www.99.co/id/_next/image?url=https%3A%2F%2Fwww.99.co%2Fid%2Fimg-regional%2F618%2F412%2Ffit%2Ftrue%2Fproduction%2Fimage%2Fuser%2F40d3b818-cca2-48d0-b9dd-980b17335259%2F2024-10-16-13-11-13-ecdfc809-c4b0-47ef-afa4-5d7284ce3322.jpg&w=1920&q=75",
-      "https://placehold.co/400x400?text=Image+3",
-      "https://placehold.co/400x400?text=Image+4",
-      "https://placehold.co/400x400?text=Image+5",
-      "https://placehold.co/400x400?text=Image+6",
-      "https://placehold.co/400x400?text=Image+7",
-      "https://placehold.co/400x400?text=Image+8"
+      "https://placehold.co/800x600?text=Kost+1",
+      "https://placehold.co/800x600?text=Kost+2"
     ],
-    "alamat": "Jl. Pahlawan No. 5, Bekasi",
-    "area": "Tambun",
-    "kota": "Bekasi",
+    "alamat": "Jl. Dahlia No. 15, Jakarta Selatan",
+    "area": "Kemang",
+    "kota": "Jakarta Selatan",
     "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
-    "pemilik": "Andi Prasetyo",
-    "pemilikSlug": "andi-prasetyo",
-    "views": 1200,
-    "no_whatsapp": "+62812xxxx",
-    "member": "Free",
-    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
-    "durasiMinimal": 6,
-    "upload": "15 Apr 2025 10:00",
+    "pemilik": "Siti Nurhaliza",
+    "pemilikSlug": "siti-nurhaliza",
+    "views": 2200,
+    "no_whatsapp": "+6287654321098",
+    "member": "Featured",
+    "deskripsi": "Kost putri eksklusif dengan fasilitas lengkap dan keamanan 24 jam. Lokasi strategis dekat dengan kampus dan pusat perbelanjaan. Nyaman untuk mahasiswi dan karyawati.",
+    "durasiMinimal": 3,
+    "upload": "10 Apr 2025 09:30",
     "kategori_fasilitas": [
-    {
-      "id": 1,
-      "nama": "Fasilitas Kamar",
-      "fasilitas": [
-        "AC",
-        "Kursi",
-        "Pemanas Air",
-        "Kipas Angin",
-        "Cermin",
-        "Shower",
-        "Kasur",
-        "TV",
-        "Bak Mandi",
-        "Lemari",
-        "Jendela",
-        "Kloset duduk",
-        "Meja",
-        "K. Mandi Dalam",
-        "Kloset Jongkok"
-      ]
-    },
-    {
-      "id": 2,
-      "nama": "Fasilitas Bersama",
-      "fasilitas": [
-        "Wifi",
-        "Mesin Cuci",
-        "Cleaning Service",
-        "K. Mandi Luar",
-        "Ruang Jemur",
-        "Laundry",
-        "Pemanas Air",
-        "Ruang Tamu",
-        "Parkir Motor",
-        "Dapur",
-        "CCTV",
-        "Parkir Mobil",
-        "Dispenser",
-        "TV"
-      ]
-    },
-    {
-      "id": 3,
-      "nama": "Fasilitas Area",
-      "fasilitas": [
-        "Tempat Makan",
-        "Pasar",
-        "Gym",
-        "Rumah Sakit",
-        "НИ",
-        "Minimarket",
-        "Trans Umum",
-        "Supermarket"
-      ]
-    },
-    {
-      "id": 4,
-      "nama": "Peraturan Kost",
-      "fasilitas": [
-        "Akses 24 jam",
-        "Ada jam malam",
-        "Khusus Karyawan",
-        "Khusus Mahasiswa",
-        "Boleh pasutri",
-        "Tidak boleh pasutri",
-        "Boleh membawa anak",
-        "Tidak boleh bawa anak",
-        "Menginap dikenakan biaya",
-        "Menginap tidak dikenakan biaya",
-        "Boleh membawa hewan peliharaan",
-        "Tidak boleh membawa hewan peliharaan"
-      ]
-    }
-  ],
+      {
+        "id": 1,
+        "nama": "Fasilitas Kamar",
+        "fasilitas": [
+          "AC",
+          "Kursi",
+          "Pemanas Air",
+          "Kipas Angin",
+          "Cermin",
+          "Shower",
+          "Kasur",
+          "TV",
+          "Lemari",
+          "Jendela",
+          "Kloset duduk",
+          "Meja",
+          "K. Mandi Dalam"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Bersama",
+        "fasilitas": [
+          "Wifi",
+          "Mesin Cuci",
+          "Cleaning Service",
+          "Ruang Jemur",
+          "Laundry",
+          "Ruang Tamu",
+          "Parkir Motor",
+          "Dapur",
+          "CCTV"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Tempat Makan",
+          "Pasar",
+          "Gym",
+          "Rumah Sakit",
+          "Minimarket",
+          "Trans Umum",
+          "Supermarket"
+        ]
+      },
+      {
+        "id": 4,
+        "nama": "Peraturan Kost",
+        "fasilitas": [
+          "Akses 24 jam",
+          "Ada jam malam",
+          "Khusus Mahasiswa",
+          "Tidak boleh pasutri",
+          "Tidak boleh bawa anak",
+          "Menginap dikenakan biaya",
+          "Tidak boleh membawa hewan peliharaan"
+        ]
+      }
+    ],
     "tipe_properti": {
-      "id": 1,
+      "id": 2,
       "nama": "kost",
       "slug": "kost",
       "kategori": "hunian"
     },
-    "tipe_kamar": "1_kamar_tidur",
+    "tipe_kamar": "studio",
     "tipe_kost": "Putri",
     "kategori_interior": {
-      "fasilitas": ["AC", "Kolam Renang", "TV Kabel", "Internet"],
-      "kondisi_perabotan": "Unfurnished",
+      "fasilitas": ["AC", "TV Kabel", "Internet"],
+      "kondisi_perabotan": "Fully Furnished",
       "kapasitas": 1
     },
-    "daya_listrik": 1300,
+    "daya_listrik": 900,
     "biaya_listrik": "sudah"
   },
   {
-    "id": 4,
-    "nama": "Kontrakan Modern D",
-    "harga": 3000000,
-    "durasi": "bulan",
-    "status": "Tidak Tersedia",
-    "slug": "kontrakan-modern-d",
+    "id": 3,
+    "nama": "Rumah Minimalis Cluster Asri",
+    "harga": 800000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "rumah-minimalis-cluster-asri",
     "image": [
-      "https://placehold.co/800x600?text=Image+1",
-      "https://placehold.co/800x600?text=Image+2"
+      "https://placehold.co/800x600?text=Rumah+1",
+      "https://placehold.co/800x600?text=Rumah+2",
+      "https://placehold.co/800x600?text=Rumah+3"
     ],
-    "alamat": "Jl. Raya No. 8, Depok",
+    "alamat": "Jl. Anggrek No. 7, Cluster Asri, Depok",
     "area": "Margonda",
     "kota": "Depok",
     "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
-    "pemilik": "Rina Kusuma",
-    "pemilikSlug": "rina-kusuma",
-    "views": 1800,
-    "no_whatsapp": "+62812xxxx",
-    "member": "Free",
-    "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
-    "durasiMinimal": 6,
-    "upload": "15 Apr 2025 10:00",
+    "pemilik": "Denny Sumargo",
+    "pemilikSlug": "denny-sumargo",
+    "views": 3500,
+    "no_whatsapp": "+6285678901234",
+    "member": "Super Featured",
+    "deskripsi": "Rumah minimalis 2 lantai dalam cluster dengan keamanan 24 jam. Desain modern dengan pencahayaan alami yang maksimal. Lokasi strategis dekat akses tol dan fasilitas umum.",
+    "durasiMinimal": null,
+    "upload": "05 Apr 2025 14:20",
     "kategori_fasilitas": [
-    {
-      "id": 1,
-      "nama": "Fasilitas Kamar",
-      "fasilitas": [
-        "AC",
-        "Kursi",
-        "Pemanas Air",
-        "Kipas Angin",
-        "Cermin",
-        "Shower",
-        "Kasur",
-        "TV",
-        "Bak Mandi",
-        "Lemari",
-        "Jendela",
-        "Kloset duduk",
-        "Meja",
-        "K. Mandi Dalam",
-        "Kloset Jongkok"
-      ]
-    },
-    {
-      "id": 2,
-      "nama": "Fasilitas Bersama",
-      "fasilitas": [
-        "Wifi",
-        "Mesin Cuci",
-        "Cleaning Service",
-        "K. Mandi Luar",
-        "Ruang Jemur",
-        "Laundry",
-        "Pemanas Air",
-        "Ruang Tamu",
-        "Parkir Motor",
-        "Dapur",
-        "CCTV",
-        "Parkir Mobil",
-        "Dispenser",
-        "TV"
-      ]
-    },
-    {
-      "id": 3,
-      "nama": "Fasilitas Area",
-      "fasilitas": [
-        "Tempat Makan",
-        "Pasar",
-        "Gym",
-        "Rumah Sakit",
-        "НИ",
-        "Minimarket",
-        "Trans Umum",
-        "Supermarket"
-      ]
-    },
-    {
-      "id": 4,
-      "nama": "Peraturan Kost",
-      "fasilitas": [
-        "Akses 24 jam",
-        "Ada jam malam",
-        "Khusus Karyawan",
-        "Khusus Mahasiswa",
-        "Boleh pasutri",
-        "Tidak boleh pasutri",
-        "Boleh membawa anak",
-        "Tidak boleh bawa anak",
-        "Menginap dikenakan biaya",
-        "Menginap tidak dikenakan biaya",
-        "Boleh membawa hewan peliharaan",
-        "Tidak boleh membawa hewan peliharaan"
-      ]
-    }
-  ],
+      {
+        "id": 1,
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC",
+          "Taman",
+          "Carport",
+          "Dapur",
+          "Ruang Tamu",
+          "Ruang Keluarga",
+          "Gudang",
+          "Balkon",
+          "Kolam Renang"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Cluster",
+        "fasilitas": [
+          "Taman Bermain",
+          "Jogging Track",
+          "Keamanan 24 Jam",
+          "CCTV",
+          "Masjid",
+          "Club House"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Sekolah",
+          "Rumah Sakit",
+          "Pusat Perbelanjaan",
+          "Akses Tol",
+          "Minimarket",
+          "Trans Umum",
+          "Supermarket"
+        ]
+      }
+    ],
     "tipe_properti": {
-      "id": 1,
-      "nama": "Apartemen",
+      "id": 3,
+      "nama": "rumah",
+      "slug": "rumah",
+      "kategori": "hunian"
+    },
+    "tipe_kamar": "3_kamar_tidur",
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set"],
+      "kondisi_perabotan": "Semi Furnished",
+      "kapasitas": null
+    },
+    "daya_listrik": 2200,
+    "biaya_listrik": "terpisah"
+  },
+  {
+    "id": 4,
+    "nama": "Apartemen Mediterania Tower A",
+    "harga": 450000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "apartemen-mediterania-tower-a",
+    "image": [
+      "https://placehold.co/800x600?text=Apt+1",
+      "https://placehold.co/800x600?text=Apt+2"
+    ],
+    "alamat": "Jl. Thamrin No. 1, Mediterania Garden, Jakarta Pusat",
+    "area": "Thamrin",
+    "kota": "Jakarta Pusat",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Agus Wijaya",
+    "pemilikSlug": "agus-wijaya",
+    "views": 2800,
+    "no_whatsapp": "+6281234098765",
+    "member": "Featured",
+    "deskripsi": "Apartemen mewah dengan pemandangan kota yang spektakuler. Fasilitas lengkap untuk kenyamanan hidup di pusat kota. Akses mudah ke area bisnis dan hiburan.",
+    "durasiMinimal": null,
+    "upload": "12 Apr 2025 11:45",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Unit",
+        "fasilitas": [
+          "AC",
+          "Kitchen Set",
+          "Balkon",
+          "Pemanas Air",
+          "Shower",
+          "Bathtub",
+          "Lemari",
+          "TV"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Apartemen",
+        "fasilitas": [
+          "Kolam Renang",
+          "Gym",
+          "Sauna",
+          "Taman",
+          "Lapangan Tenis",
+          "Minimarket",
+          "Restoran",
+          "Keamanan 24 Jam",
+          "Parkir Basement"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Pusat Perbelanjaan",
+          "Rumah Sakit",
+          "Sekolah",
+          "Taman Kota",
+          "Akses MRT",
+          "Akses Busway",
+          "Akses Tol"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 4,
+      "nama": "apartemen",
       "slug": "apartemen",
       "kategori": "hunian"
     },
-    "tipe_kamar": "studio",
+    "tipe_kamar": "2_kamar_tidur",
     "tipe_kost": null,
     "kategori_interior": {
-      "fasilitas": ["AC", "Kolam Renang", "TV Kabel", "Internet"],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": 1
+      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set", "Water Heater"],
+      "kondisi_perabotan": "Fully Furnished",
+      "kapasitas": null
     },
     "daya_listrik": 1300,
+    "biaya_listrik": "terpisah"
+  },
+  {
+    "id": 5,
+    "nama": "Ruko Strategis Pasar Baru",
+    "harga": 150000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "ruko-strategis-pasar-baru",
+    "image": [
+      "https://placehold.co/800x600?text=Ruko+1",
+      "https://placehold.co/800x600?text=Ruko+2"
+    ],
+    "alamat": "Jl. Pasar Baru No. 25, Jakarta Pusat",
+    "area": "Pasar Baru",
+    "kota": "Jakarta Pusat",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Hendra Wijaya",
+    "pemilikSlug": "hendra-wijaya",
+    "views": 1800,
+    "no_whatsapp": "+6289876543210",
+    "member": "Super Featured",
+    "deskripsi": "Ruko strategis 3 lantai di kawasan bisnis Pasar Baru. Cocok untuk berbagai jenis usaha dengan lalu lintas pejalan kaki yang tinggi. Area parkir luas di depan.",
+    "durasiMinimal": 12,
+    "upload": "08 Apr 2025 16:30",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Ruko",
+        "fasilitas": [
+          "Listrik 3 Phase",
+          "Toilet di setiap lantai",
+          "Ruang Usaha",
+          "Ruang Penyimpanan",
+          "Area Parkir"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "CCTV",
+          "Akses Jalan Utama",
+          "Akses Transportasi Umum",
+          "Area Foodcourt",
+          "ATM Center"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 5,
+      "nama": "ruko",
+      "slug": "ruko",
+      "kategori": "usaha"
+    },
+    "tipe_kamar": null,
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": ["AC"],
+      "kondisi_perabotan": "Unfurnished",
+      "kapasitas": null
+    },
+    "daya_listrik": 6600,
+    "biaya_listrik": "terpisah"
+  },
+  {
+    "id": 6,
+    "nama": "Kios Pasar Modern Bintaro",
+    "harga": 50000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "kios-pasar-modern-bintaro",
+    "image": [
+      "https://placehold.co/800x600?text=Kios+1",
+      "https://placehold.co/800x600?text=Kios+2"
+    ],
+    "alamat": "Jl. Bintaro Raya No. 10, Sektor 9, Bintaro",
+    "area": "Bintaro",
+    "kota": "Tangerang Selatan",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Lina Susanti",
+    "pemilikSlug": "lina-susanti",
+    "views": 950,
+    "no_whatsapp": "+6285678123456",
+    "member": "Featured",
+    "deskripsi": "Kios strategis di pasar modern Bintaro. Lokasi ramai pengunjung, cocok untuk usaha kuliner, fashion, atau jasa. Fasilitas lengkap dan keamanan terjamin.",
+    "durasiMinimal": 6,
+    "upload": "14 Apr 2025 08:15",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Kios",
+        "fasilitas": [
+          "Listrik",
+          "Air",
+          "Toilet Bersama",
+          "Rolling Door"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Pasar",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "CCTV",
+          "Tempat Parkir",
+          "Tempat Sampah",
+          "Toilet Umum"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "ATM Center",
+          "Foodcourt",
+          "Akses Transportasi Umum",
+          "Minimarket",
+          "Perumahan"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 6,
+      "nama": "kios",
+      "slug": "kios",
+      "kategori": "usaha"
+    },
+    "tipe_kamar": null,
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": [],
+      "kondisi_perabotan": "Unfurnished",
+      "kapasitas": null
+    },
+    "daya_listrik": 2200,
+    "biaya_listrik": "terpisah"
+  },
+  {
+    "id": 7,
+    "nama": "Gudang Logistik Cibitung",
+    "harga": 200000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "gudang-logistik-cibitung",
+    "image": [
+      "https://placehold.co/800x600?text=Gudang+1",
+      "https://placehold.co/800x600?text=Gudang+2"
+    ],
+    "alamat": "Kawasan Industri MM2100, Cibitung, Bekasi",
+    "area": "MM2100",
+    "kota": "Bekasi",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "PT Logistik Nusantara",
+    "pemilikSlug": "pt-logistik-nusantara",
+    "views": 780,
+    "no_whatsapp": "+6281234567000",
+    "member": "Super Featured",
+    "deskripsi": "Gudang modern dengan kapasitas besar dan akses container. Dilengkapi loading dock, kantor, dan sistem keamanan terpadu. Lokasi strategis dekat akses tol dan pelabuhan.",
+    "durasiMinimal": 24,
+    "upload": "01 Apr 2025 09:00",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Gudang",
+        "fasilitas": [
+          "Loading Dock",
+          "Kantor Admin",
+          "Toilet",
+          "Ruang Istirahat",
+          "Area Parkir Truk",
+          "Forklift"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Keamanan",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "CCTV",
+          "Pagar Keliling",
+          "Sistem Pemadam Kebakaran",
+          "Sistem Alarm"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Akses Tol",
+          "Akses Container",
+          "Kawasan Industri",
+          "Kantin",
+          "ATM"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 7,
+      "nama": "gudang",
+      "slug": "gudang",
+      "kategori": "usaha"
+    },
+    "tipe_kamar": null,
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": ["Kantor Admin", "Toilet"],
+      "kondisi_perabotan": "Unfurnished",
+      "kapasitas": null
+    },
+    "daya_listrik": 13000,
+    "biaya_listrik": "terpisah"
+  },
+  {
+    "id": 8,
+    "nama": "Tanah Komersial Jatinangor",
+    "harga": 2500000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "tanah-komersial-jatinangor",
+    "image": [
+      "https://placehold.co/800x600?text=Tanah+1",
+      "https://placehold.co/800x600?text=Tanah+2"
+    ],
+    "alamat": "Jl. Raya Jatinangor Km 5, Sumedang",
+    "area": "Jatinangor",
+    "kota": "Sumedang",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Ahmad Solihin",
+    "pemilikSlug": "ahmad-solihin",
+    "views": 650,
+    "no_whatsapp": "+6287654321555",
+    "member": "Featured",
+    "deskripsi": "Tanah komersial strategis di kawasan pendidikan Jatinangor. Cocok untuk pembangunan kost, ruko, atau pusat perbelanjaan. SHM, IMB siap, tersedia akses listrik dan air.",
+    "durasiMinimal": null,
+    "upload": "05 Apr 2025 10:30",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Dokumen Legalitas",
+        "fasilitas": [
+          "SHM",
+          "IMB Ready",
+          "NPWP",
+          "PBB Lunas"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Tersedia",
+        "fasilitas": [
+          "Akses Listrik",
+          "Akses Air",
+          "Akses Jalan Lebar",
+          "Drainase"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Kampus",
+          "Perumahan",
+          "Minimarket",
+          "Rumah Sakit",
+          "Restoran",
+          "Akses Transportasi Umum"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 8,
+      "nama": "tanah",
+      "slug": "tanah",
+      "kategori": "lainnya"
+    },
+    "tipe_kamar": null,
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": [],
+      "kondisi_perabotan": null,
+      "kapasitas": null
+    },
+    "daya_listrik": null,
+    "biaya_listrik": null
+  },
+  {
+    "id": 9,
+    "nama": "Villa Puncak Cisarua",
+    "harga": 3500000,
+    "durasi": "hari",
+    "status": "Tersedia",
+    "slug": "villa-puncak-cisarua",
+    "image": [
+      "https://placehold.co/800x600?text=Villa+1",
+      "https://placehold.co/800x600?text=Villa+2",
+      "https://placehold.co/800x600?text=Villa+3"
+    ],
+    "alamat": "Jl. Raya Puncak Km 85, Cisarua, Bogor",
+    "area": "Puncak",
+    "kota": "Bogor",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Diana Permata",
+    "pemilikSlug": "diana-permata",
+    "views": 4200,
+    "no_whatsapp": "+6281234567222",
+    "member": "Super Featured",
+    "deskripsi": "Villa mewah dengan pemandangan pegunungan yang menakjubkan. Dilengkapi kolam renang pribadi, BBQ area, dan taman luas. Ideal untuk keluarga dan gathering.",
+    "durasiMinimal": 2,
+    "upload": "12 Apr 2025 13:00",
+    "kategori_fasilitas": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Villa",
+        "fasilitas": [
+          "Kolam Renang",
+          "BBQ Area",
+          "Taman",
+          "Garasi",
+          "Dapur",
+          "Ruang Tamu",
+          "Ruang Keluarga",
+          "Wifi",
+          "TV Kabel",
+          "Sound System"
+        ]
+      },
+      {
+        "id": 2,
+        "nama": "Fasilitas Kamar",
+        "fasilitas": [
+          "AC",
+          "Pemanas Air",
+          "Shower",
+          "Bathtub",
+          "TV",
+          "Lemari",
+          "Brankas"
+        ]
+      },
+      {
+        "id": 3,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Wisata Alam",
+          "Tempat Makan",
+          "Toko Suvenir",
+          "Minimarket",
+          "Tempat Ibadah"
+        ]
+      }
+    ],
+    "tipe_properti": {
+      "id": 9,
+      "nama": "villa",
+      "slug": "villa",
+      "kategori": "hunian"
+    },
+    "tipe_kamar": "4_kamar_tidur",
+    "tipe_kost": null,
+    "kategori_interior": {
+      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set", "Sound System"],
+      "kondisi_perabotan": "Fully Furnished",
+      "kapasitas": 10
+    },
+    "daya_listrik": 3500,
     "biaya_listrik": "sudah"
   }
 ]
