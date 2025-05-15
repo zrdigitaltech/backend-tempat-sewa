@@ -62,6 +62,8 @@ const Index = () => {
 
   const iconKategori = nama => {
     switch (nama?.toLowerCase()) {
+      case 'kontrakan':
+        return '🏘️';
       case 'kost':
         return '🛏️';
       case 'rumah':
@@ -74,8 +76,9 @@ const Index = () => {
       case 'toko':
         return '🛒';
       case 'gudang':
+        return '🏚️';
       case 'pabrik':
-        return '🏗️';
+        return '🏭';
       case 'tanah':
         return '🌄';
       case 'villa':

@@ -29,6 +29,8 @@ export default function Index() {
 
   const iconLabel = nama => {
     switch (nama?.toLowerCase()) {
+      case 'kontrakan':
+        return '🏘️';
       case 'kost':
         return '🛏️';
       case 'rumah':
@@ -41,8 +43,9 @@ export default function Index() {
       case 'toko':
         return '🛒';
       case 'gudang':
+        return '🏚️';
       case 'pabrik':
-        return '🏗️';
+        return '🏭';
       case 'tanah':
         return '🌄';
       case 'villa':
