@@ -182,14 +182,14 @@ const Index = () => {
                         </span>
                       )}
 
-                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                      <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
                         {iconKategori(kontrakanDetail?.tipe_properti?.nama)}{' '}
                         {kontrakanDetail?.tipe_properti?.nama.toLowerCase() === 'kost'
                           ? kontrakanDetail?.tipe_properti?.nama + ' ' + kontrakanDetail?.tipe_kost
                           : kontrakanDetail?.tipe_properti?.nama}
                       </span>
 
-                      <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                      <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
                         <i className="fa fa-clock"></i> Diperbaharui: {kontrakanDetail?.upload}
                       </span>
                     </Fragment>
@@ -210,7 +210,9 @@ const Index = () => {
                   >
                     {kontrakanDetail?.nama}
                   </h2>
-                  <p className="text-muted">{kontrakanDetail?.alamat}</p>
+                  <p className="text-muted text-truncate" title={kontrakanDetail?.alamat}>
+                    {kontrakanDetail?.alamat}
+                  </p>
                 </Fragment>
               )}
 
@@ -248,7 +250,7 @@ const Index = () => {
                     )}
                     {/* Biaya Listrik */}
                     {kontrakanDetail?.daya_listrik && (
-                      <div className="align-content-center border card p-3 text-capitalize text-secondary">
+                      <div className="align-content-center border-0 card p-3 text-capitalize text-secondary bg-primary-subtle">
                         <div className="">
                           <i className="fa-solid fa-bolt"></i>{' '}
                           {formatPriceLocale(kontrakanDetail?.daya_listrik)} Watt <br />

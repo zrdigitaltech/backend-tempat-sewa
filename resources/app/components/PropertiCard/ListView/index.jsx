@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import '../propertiCard.scss';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
+import useTooltips from '@/app/components/Tooltips';
 
 export default function Index(props) {
   const {
@@ -33,11 +35,17 @@ export default function Index(props) {
     biaya_listrik,
     pemilikImage,
     pemilik,
-    upload
+    upload,
+    pemilik_verified,
+    dataItem,
+    setDataItem,
+    resetDataItem
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const maxIndicators = 5;
+
+  const [showShare, setShowShare] = useState(false);
 
   const handleChange = index => {
     setSelectedIndex(index);
@@ -99,7 +107,7 @@ export default function Index(props) {
         {showKategori && (
           <Fragment>
             <div className="d-flex gap-2 mb-2 overflow-x-auto">
-              <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+              <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
                 {iconKategori(tipe_properti)}{' '}
                 {typeof tipe_properti === 'object'
                   ? tipe_properti?.nama.toLowerCase() === 'kost'
@@ -114,13 +122,13 @@ export default function Index(props) {
                   ?.map((item, index) => (
                     <span
                       key={index}
-                      className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize"
+                      className="bg-primary-subtle align-content-center badge text-secondary text-capitalize"
                     >
                       {item.fasilitas && item.fasilitas?.join(', ')}
                     </span>
                   ))}
 
-              <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+              <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
                 <i className="fa fa-clock"></i> Diperbaharui: {upload}
               </span>
             </div>
@@ -146,205 +154,263 @@ export default function Index(props) {
         </p>
 
         {showTipeKamar && tipe_kamar && (
-          <small className="align-content-center text-secondary text-capitalize">
-            <i className="fa-solid fa-bed me-1"></i>
-            {formatTipeKamar(tipe_kamar) === 'S'
-              ? 'Studio'
-              : formatTipeKamar(tipe_kamar) === 'L'
-                ? '>3 Kamar Tidur'
-                : formatTipeKamar(tipe_kamar) + ' Kamar Tidur'}
-          </small>
+          <div className="px-2 bg-primary-subtle rounded-1">
+            <small className="align-content-center text-secondary text-capitalize">
+              <i className="fa-solid fa-bed me-1"></i>
+              {formatTipeKamar(tipe_kamar) === 'S'
+                ? 'Studio'
+                : formatTipeKamar(tipe_kamar) === 'L'
+                  ? '>3 Kamar Tidur'
+                  : formatTipeKamar(tipe_kamar) + ' Kamar Tidur'}
+            </small>
+          </div>
         )}
       </div>
     );
   };
 
   const isMobile = window.innerWidth <= 480;
+  useTooltips();
 
   return (
-    <div className="card mb-3 shadow-sm">
-      <div className="row g-0">
-        <div className="col-md-4">
-          <div className="position-relative" style={{ height: isMobile ? '' : '250px' }}>
-            {isLoading ? (
-              <Skeleton height={isMobile ? '' : 250} />
-            ) : (
-              <Carousel
-                showArrows={(member === 'Super Featured') | (member === 'Premium') && true}
-                autoPlay={false}
-                infiniteLoop={false}
-                showStatus={true}
-                showIndicators={(member === 'Super Featured') | (member === 'Premium') && true}
-                swipeable={swipeable}
-                emulateTouch={true}
-                showThumbs={false}
-                selectedItem={selectedIndex}
-                onChange={handleChange}
-                renderIndicator={(onClickHandler, isSelected, index, label) => {
-                  const dynamicStartIndex = getStartIndex(selectedIndex);
-                  if (index < dynamicStartIndex || index >= dynamicStartIndex + maxIndicators)
-                    return null;
+    <Fragment>
+      <div className="card mb-3 shadow-sm">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <div className="position-relative" style={{ height: isMobile ? '' : '250px' }}>
+              {isLoading ? (
+                <Skeleton height={isMobile ? '' : 250} />
+              ) : (
+                <Carousel
+                  showArrows={(member === 'Super Featured') | (member === 'Premium') && true}
+                  autoPlay={false}
+                  infiniteLoop={false}
+                  showStatus={true}
+                  showIndicators={(member === 'Super Featured') | (member === 'Premium') && true}
+                  swipeable={swipeable}
+                  emulateTouch={true}
+                  showThumbs={false}
+                  selectedItem={selectedIndex}
+                  onChange={handleChange}
+                  renderIndicator={(onClickHandler, isSelected, index, label) => {
+                    const dynamicStartIndex = getStartIndex(selectedIndex);
+                    if (index < dynamicStartIndex || index >= dynamicStartIndex + maxIndicators)
+                      return null;
 
-                  const style = {
-                    marginLeft: 6,
-                    color: isSelected ? '#1e3a8a' : '#bbb',
-                    cursor: 'pointer',
-                    fontSize: 16
-                  };
+                    const style = {
+                      marginLeft: 6,
+                      color: isSelected ? '#1e3a8a' : '#bbb',
+                      cursor: 'pointer',
+                      fontSize: 16
+                    };
 
-                  return (
-                    <span
-                      style={style}
-                      onClick={onClickHandler}
-                      onKeyDown={onClickHandler}
-                      key={index}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`${label} ${index + 1}`}
-                    >
-                      ●
-                    </span>
-                  );
-                }}
-                className="overflow-hidden"
-              >
-                {image?.map((x, i) => (
-                  <div
-                    key={x || i}
-                    onClick={() => {
-                      if (newTab === true) {
-                        if (selectedIndex === i) {
-                          window.open(`/properti/${slug}`, '_blank');
+                    return (
+                      <span
+                        style={style}
+                        onClick={onClickHandler}
+                        onKeyDown={onClickHandler}
+                        key={index}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`${label} ${index + 1}`}
+                      >
+                        ●
+                      </span>
+                    );
+                  }}
+                  className="overflow-hidden"
+                >
+                  {image?.map((x, i) => (
+                    <div
+                      key={x || i}
+                      onClick={() => {
+                        if (newTab === true) {
+                          if (selectedIndex === i) {
+                            window.open(`/properti/${slug}`, '_blank');
+                          }
+                        } else {
+                          if (selectedIndex === i) {
+                            navigate(`/properti/${slug}`);
+                          }
                         }
-                      } else {
-                        if (selectedIndex === i) {
-                          navigate(`/properti/${slug}`);
-                        }
-                      }
-                    }}
-                    style={{ cursor: 'pointer' }}
-                    className="bg-secondary-subtle"
-                  >
-                    <img
-                      src={x}
-                      className="w-100"
-                      style={{
-                        height: isMobile ? '' : '250px',
-                        objectFit: 'cover'
                       }}
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            )}
+                      style={{ cursor: 'pointer' }}
+                      className="bg-secondary-subtle"
+                    >
+                      <img
+                        src={x}
+                        className="w-100"
+                        style={{
+                          height: isMobile ? '' : '250px',
+                          objectFit: 'cover'
+                        }}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              )}
 
-            {(member === 'Super Featured' || member === 'Premium') && (
-              <div
-                className={`ST__badge ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
-              >
-                <i className="fa fa-bolt"></i>
-                <span>{member}</span>
-              </div>
-            )}
+              {(member === 'Super Featured' || member === 'Premium') && (
+                <div
+                  className={`ST__badge ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
+                >
+                  <i className="fa fa-bolt"></i>
+                  <span>{member}</span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="col-md-8">
-          <div className="card-body h-100 d-flex flex-column justify-content-between p-0">
-            {newTab === true ? (
-              <a
-                href={`/properti/${slug}`}
-                target="_blank"
-                className="text-decoration-none text-dark p-2"
-                rel="noopener noreferrer"
-              >
-                {CardContent()}
-              </a>
-            ) : (
-              <Link to={`/properti/${slug}`} className="text-decoration-none text-dark p-2">
-                {CardContent()}
-              </Link>
-            )}
+          <div className="col-md-8">
+            <div className="card-body h-100 d-flex flex-column justify-content-between p-0">
+              {newTab === true ? (
+                <a
+                  href={`/properti/${slug}`}
+                  target="_blank"
+                  className="text-decoration-none text-dark p-2"
+                  rel="noopener noreferrer"
+                >
+                  {CardContent()}
+                </a>
+              ) : (
+                <Link to={`/properti/${slug}`} className="text-decoration-none text-dark p-2">
+                  {CardContent()}
+                </Link>
+              )}
 
-            {btnTelp && (
-              <div className="align-items-center bg-primary-subtle d-flex flex-wrap gap-3 p-2">
-                {/* Pemilik */}
-                <div className="d-flex align-items-center">
-                  <div className="position-relative me-2" style={{ width: '48px', height: '48px' }}>
-                    {isLoading ? (
-                      <Skeleton circle height={48} width={48} />
-                    ) : (
-                      <>
-                        <img
-                          src={pemilikImage + pemilik}
-                          alt="Foto Profil"
-                          className="rounded-circle img-fluid"
-                          style={{ width: '48px', height: '48px', objectFit: 'cover' }}
-                        />
-                        <i
-                          className="fa fa-check-circle text-primary"
-                          style={{
-                            position: 'absolute',
-                            bottom: 0,
-                            right: 0,
-                            background: 'white',
-                            borderRadius: '50%',
-                            fontSize: '14px'
-                          }}
-                        />
-                      </>
-                    )}
+              {btnTelp && (
+                <div className="align-items-center bg-primary-subtle d-flex flex-wrap gap-3 p-2">
+                  {/* Pemilik */}
+                  <div className="d-flex align-items-center">
+                    <div
+                      className="position-relative me-2 d-none d-sm-block"
+                      style={{ width: '48px', height: '48px' }}
+                    >
+                      {isLoading ? (
+                        <Skeleton circle height={48} width={48} />
+                      ) : (
+                        <>
+                          <img
+                            src={pemilikImage + pemilik}
+                            alt="Foto Profil"
+                            className="rounded-circle img-fluid"
+                            style={{ width: '48px', height: '48px', objectFit: 'cover' }}
+                          />
+                          {pemilik_verified && (
+                            <i
+                              className="fa fa-check-circle text-primary"
+                              style={{
+                                position: 'absolute',
+                                bottom: 0,
+                                right: 0,
+                                background: 'white',
+                                borderRadius: '50%',
+                                fontSize: '14px'
+                              }}
+                            />
+                          )}
+                        </>
+                      )}
+                    </div>
+                    <div>
+                      {isLoading ? (
+                        <>
+                          <Skeleton width={100} />
+                          <Skeleton width={80} />
+                        </>
+                      ) : (
+                        <>
+                          <strong
+                            className="d-block text-truncate"
+                            title={pemilik?.length > 15 ? pemilik : ''}
+                          >
+                            {(pemilik || '').length > 15
+                              ? pemilik.substring(0, 15) + '...'
+                              : pemilik}{' '}
+                            {pemilik_verified && (
+                              <i
+                                className="fa fa-check-circle text-primary d-sm-none"
+                                style={{
+                                  background: 'white',
+                                  borderRadius: '50%',
+                                  fontSize: '14px'
+                                }}
+                              />
+                            )}
+                          </strong>
+                        </>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    {isLoading ? (
-                      <>
-                        <Skeleton width={100} />
-                        <Skeleton width={80} />
-                      </>
-                    ) : (
-                      <>
-                        <strong
-                          className="d-block text-truncate"
-                          title={pemilik?.length > 13 ? pemilik : ''}
+
+                  {/* Kontrol Tombol */}
+                  <div className="ms-auto d-flex gap-2">
+                    <div className="flex-fill">
+                      {isLoading ? (
+                        <Skeleton height={40} width={40} />
+                      ) : (
+                        <button
+                          className="w-100 btn btn-outline-primary ST__kontrol-btn"
+                          onClick={handlePhone}
                         >
-                          {(pemilik || '').length > 13 ? pemilik.substring(0, 13) + '...' : pemilik}
-                        </strong>
-                      </>
-                    )}
+                          <i className="fa fa-phone" />
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex-fill">
+                      {isLoading ? (
+                        <Skeleton height={40} width={90} />
+                      ) : (
+                        <button
+                          className="w-100 btn btn-success text-white ST__kontrol-btn"
+                          onClick={handleWhatsApp}
+                        >
+                          <i className="fa-brands fa-whatsapp me-1" /> WhatsApp
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
+              )}
 
-                {/* Kontrol Tombol */}
-                <div className="ms-auto d-flex gap-2">
-                  <div className="flex-fill">
-                    {isLoading ? (
-                      <Skeleton height={40} width={40} />
-                    ) : (
-                      <button
-                        className="w-100 btn btn-outline-primary ST__kontrol-btn"
-                        onClick={handlePhone}
-                      >
-                        <i className="fa fa-phone" />
-                      </button>
-                    )}
-                  </div>
-                  <div className="flex-fill">
-                    {isLoading ? (
-                      <Skeleton height={40} width={90} />
-                    ) : (
-                      <button
-                        className="w-100 btn btn-success text-white ST__kontrol-btn"
-                        onClick={handleWhatsApp}
-                      >
-                        <i className="fa-brands fa-whatsapp me-1" /> WhatsApp
-                      </button>
-                    )}
-                  </div>
+              {isLoading ? (
+                <div
+                  className="position-absolute"
+                  style={{
+                    top: '3px',
+                    right: '8px'
+                  }}
+                >
+                  <Skeleton width={40} height={40} borderRadius={8} />
                 </div>
-              </div>
-            )}
+              ) : (
+                <div
+                  className="position-absolute"
+                  style={{
+                    top: '3px',
+                    right: '8px'
+                  }}
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="custom-tooltip"
+                  data-bs-title="Bagikan"
+                >
+                  <button
+                    className="btn bg-white shadow"
+                    onClick={() => (setShowShare(true), setDataItem())}
+                  >
+                    <i className="fa fa-share-alt"></i>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <ShareModal
+        show={showShare}
+        onClose={() => (setShowShare(false), resetDataItem())}
+        data={dataItem}
+      />
+    </Fragment>
   );
 }

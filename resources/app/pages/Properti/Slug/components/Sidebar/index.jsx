@@ -17,7 +17,7 @@ const Index = props => {
 
   return (
     <div
-      className="card shadow-sm p-4 position-sticky"
+      className="card shadow p-4 position-sticky border-0"
       style={{
         top: '100px' // jarak dari atas saat sticky
       }}
@@ -32,7 +32,7 @@ const Index = props => {
           <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
         </h2>
       )}
-      <hr className="my-3" />
+      <hr className="my-3 border-primary-subtle" />
       <div className="d-flex justify-content-center mb-3">
         <Link
           to={`/pemilik/@${kontrakanDetail?.pemilikSlug}`}
@@ -50,7 +50,7 @@ const Index = props => {
                   style={{ width: '60px', height: '60px', objectFit: 'cover' }}
                 />
               )}
-              {!isLoading && (
+              {!isLoading && kontrakanDetail?.pemilik_verified && (
                 <i
                   className="fa fa-check-circle text-primary"
                   style={{

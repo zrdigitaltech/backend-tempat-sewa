@@ -42,7 +42,7 @@ export default function Index() {
               </strong>
             </p>
           </div>
-          <div className="col-6 text-end mt-2 mt-0">
+          <div className="col-6 text-end">
             <p className="mb-0">
               Dikembangkan oleh{' '}
               <a

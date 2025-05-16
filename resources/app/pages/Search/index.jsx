@@ -272,6 +272,9 @@ export default function Index() {
                               : setShowWhatsApp(true)
                           }
                           isLoading={isLoading.data || isLoading.banner}
+                          dataItem={dataItem}
+                          setDataItem={() => setDataItem(item)}
+                          resetDataItem={() => setDataItem(null)}
                         />
                       </div>
                     ))}
@@ -291,11 +294,11 @@ export default function Index() {
 
                   <div className="col-12 col-lg-4 d-none d-lg-block">
                     <div className="sticky-top" style={{ top: '80px', zIndex: 1 }}>
-                      <div className="card p-2 shadow-sm">
+                      <div className="shadow-sm">
                         <img
                           src="https://placehold.co/350x600?text=Iklan"
                           alt="Banner Iklan"
-                          className="img-fluid rounded"
+                          className="img-fluid rounded w-100"
                         />
                       </div>
                     </div>
