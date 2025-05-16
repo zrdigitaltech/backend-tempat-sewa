@@ -116,7 +116,7 @@ export default function Index(props) {
           )}
 
           {/* Tombol Cari */}
-          <div className="ms-sm-auto ST--w-100">
+          <div className="ms-lg-auto ST--w-100">
             <button
               className="btn btn-warning w-100 fw-semibold rounded-3"
               onClick={handleSearch}

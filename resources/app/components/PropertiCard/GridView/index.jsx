@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { formatPrice, formatPhone, formatTipeKamar } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
-import './grid.scss';
+import '../../PropertiCard/propertiCard.scss';
 import useTooltips from '@/app/components/Tooltips';
 // Skeleton Loader
 import Skeleton from 'react-loading-skeleton';
@@ -96,7 +96,7 @@ export default function Index(props) {
   };
 
   const CardContent = () => (
-    <div className="card-body ST--card-body">
+    <div className="card-body ST--card-body p-2 p-sm-3">
       {isLoading ? (
         <Skeleton count={2} height={20} width="80%" />
       ) : (
@@ -147,11 +147,13 @@ export default function Index(props) {
     </div>
   );
 
+  const isMobile = window.innerWidth <= 480;
+
   return (
     <div className="card border-0 shadow-sm h-100 justify-content-between">
-      <div className="position-relative" style={{ height: '250px' }}>
+      <div className="position-relative" style={{ height: isMobile ? '140px' : '250px' }}>
         {isLoading ? (
-          <Skeleton height={250} />
+          <Skeleton height={isMobile ? '' : 250} />
         ) : (
           <Carousel
             showArrows={false}
@@ -208,7 +210,11 @@ export default function Index(props) {
                 }}
                 style={{ cursor: 'pointer' }}
               >
-                <img src={x} className="w-100" style={{ height: '250px', objectFit: 'cover' }} />
+                <img
+                  src={x}
+                  className="w-100"
+                  style={{ height: isMobile ? '' : '250px', objectFit: 'cover' }}
+                />
               </div>
             ))}
           </Carousel>
@@ -241,33 +247,33 @@ export default function Index(props) {
 
       {/* tombol telepon or whatsapp */}
       {btnTelp && (
-        <div className="card-footer">
-          <div className="row g-2">
+        <div className="card-footer bg-primary-subtle p-2 p-sm-3">
+          <div className="d-flex gap-2">
             {/* Tombol Telepon */}
-            <div className="col-6">
+            <div className="flex-sm-fill">
               {isLoading ? (
                 <Skeleton height={40} />
               ) : (
                 <button
-                  className="btn btn-primary d-flex align-items-center w-100"
+                  className="btn btn-primary align-items-center d-sm-flex w-100"
                   onClick={handlePhone}
                 >
-                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
+                  <i className="fa fa-phone pe-1" aria-hidden="true"></i>{' '}
+                  <span className="d-none d-sm-block">{formatPhone(no_whatsapp)}</span>
                 </button>
               )}
             </div>
 
             {/* Tombol WhatsApp */}
-            <div className="col-6">
+            <div className="flex-sm-fill">
               {isLoading ? (
                 <Skeleton height={40} />
               ) : (
                 <button
-                  className="btn btn-success d-flex align-items-center w-100 text-white"
+                  className="btn btn-success d-flex align-items-center text-white w-100 pe-1"
                   onClick={handleWhatsApp}
                 >
-                  <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i>{' '}
-                  {formatPhone(no_whatsapp)}
+                  <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i> WhatsApp
                 </button>
               )}
             </div>

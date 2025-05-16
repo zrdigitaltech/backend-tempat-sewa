@@ -4,7 +4,7 @@ import { formatPrice, formatPhone, formatTipeKamar } from '@/app/helpers';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from 'react-router-dom';
-import './list.scss';
+import '../propertiCard.scss';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -30,7 +30,10 @@ export default function Index(props) {
     showTipeKamar = false,
     tipe_kost,
     showInterior = false,
-    biaya_listrik
+    biaya_listrik,
+    pemilikImage,
+    pemilik,
+    upload
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -116,11 +119,15 @@ export default function Index(props) {
                       {item.fasilitas && item.fasilitas?.join(', ')}
                     </span>
                   ))}
+
+              <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
+                <i className="fa fa-clock"></i> Diperbaharui: {upload}
+              </span>
             </div>
           </Fragment>
         )}
 
-        <h5 className="card-title fw-bold">
+        <h5 className="card-title fw-bold my-2">
           Rp{formatPrice(harga)}
           <span className="text-capitalize"> / {durasi}</span>
         </h5>
@@ -133,6 +140,7 @@ export default function Index(props) {
         </span>
         <p
           className={`text-muted small mb-0 text-truncate ${showTipeKamar && tipe_kamar && 'mb-1'}`}
+          title={alamat}
         >
           {alamat}
         </p>
@@ -151,13 +159,15 @@ export default function Index(props) {
     );
   };
 
+  const isMobile = window.innerWidth <= 480;
+
   return (
     <div className="card mb-3 shadow-sm">
       <div className="row g-0">
         <div className="col-md-4">
-          <div className="position-relative" style={{ height: '235px' }}>
+          <div className="position-relative" style={{ height: isMobile ? '' : '250px' }}>
             {isLoading ? (
-              <Skeleton height={250} />
+              <Skeleton height={isMobile ? '' : 250} />
             ) : (
               <Carousel
                 showArrows={(member === 'Super Featured') | (member === 'Premium') && true}
@@ -196,7 +206,7 @@ export default function Index(props) {
                     </span>
                   );
                 }}
-                className="rounded-top-2 overflow-hidden"
+                className="overflow-hidden"
               >
                 {image?.map((x, i) => (
                   <div
@@ -213,11 +223,15 @@ export default function Index(props) {
                       }
                     }}
                     style={{ cursor: 'pointer' }}
+                    className="bg-secondary-subtle"
                   >
                     <img
                       src={x}
                       className="w-100"
-                      style={{ height: '235px', objectFit: 'cover' }}
+                      style={{
+                        height: isMobile ? '' : '250px'
+                        // objectFit: 'cover'
+                      }}
                     />
                   </div>
                 ))}
@@ -226,7 +240,7 @@ export default function Index(props) {
 
             {(member === 'Super Featured' || member === 'Premium') && (
               <div
-                className={`ST__badge--list ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
+                className={`ST__badge ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
               >
                 <i className="fa fa-bolt"></i>
                 <span>{member}</span>
@@ -235,41 +249,93 @@ export default function Index(props) {
           </div>
         </div>
         <div className="col-md-8">
-          <div className="card-body h-100 d-flex flex-column justify-content-between p-2">
+          <div className="card-body h-100 d-flex flex-column justify-content-between p-0">
             {newTab === true ? (
               <a
                 href={`/properti/${slug}`}
                 target="_blank"
-                className="text-decoration-none text-dark"
+                className="text-decoration-none text-dark p-2"
                 rel="noopener noreferrer"
               >
                 {CardContent()}
               </a>
             ) : (
-              <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
+              <Link to={`/properti/${slug}`} className="text-decoration-none text-dark p-2">
                 {CardContent()}
               </Link>
             )}
 
             {btnTelp && (
-              <div className="d-flex g-2 mt-2 align-items-center">
-                <div>Profile</div>
-                <div className="d-flex ms-auto gap-2">
-                  <div>
+              <div className="align-items-center bg-primary-subtle d-flex flex-wrap gap-3 p-2">
+                {/* Pemilik */}
+                <div className="d-flex align-items-center">
+                  <div className="position-relative me-2" style={{ width: '48px', height: '48px' }}>
                     {isLoading ? (
-                      <Skeleton height={40} />
+                      <Skeleton circle height={48} width={48} />
                     ) : (
-                      <button className="btn btn-outline-primary w-100" onClick={handlePhone}>
-                        <i className="fa fa-phone pe-1"></i>
-                      </button>
+                      <>
+                        <img
+                          src={pemilikImage + pemilik}
+                          alt="Foto Profil"
+                          className="rounded-circle img-fluid"
+                          style={{ width: '48px', height: '48px', objectFit: 'cover' }}
+                        />
+                        <i
+                          className="fa fa-check-circle text-primary"
+                          style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            right: 0,
+                            background: 'white',
+                            borderRadius: '50%',
+                            fontSize: '14px'
+                          }}
+                        />
+                      </>
                     )}
                   </div>
                   <div>
                     {isLoading ? (
-                      <Skeleton height={40} />
+                      <>
+                        <Skeleton width={100} />
+                        <Skeleton width={80} />
+                      </>
                     ) : (
-                      <button className="btn btn-success w-100 text-white" onClick={handleWhatsApp}>
-                        <i className="fa-brands fa-whatsapp pe-1"></i> WhatsApp
+                      <>
+                        <strong
+                          className="d-block text-truncate"
+                          title={pemilik?.length > 13 ? pemilik : ''}
+                        >
+                          {(pemilik || '').length > 13 ? pemilik.substring(0, 13) + '...' : pemilik}
+                        </strong>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Kontrol Tombol */}
+                <div className="ms-auto d-flex gap-2">
+                  <div className="flex-fill">
+                    {isLoading ? (
+                      <Skeleton height={40} width={40} />
+                    ) : (
+                      <button
+                        className="w-100 btn btn-outline-primary ST__kontrol-btn"
+                        onClick={handlePhone}
+                      >
+                        <i className="fa fa-phone" />
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex-fill">
+                    {isLoading ? (
+                      <Skeleton height={40} width={90} />
+                    ) : (
+                      <button
+                        className="w-100 btn btn-success text-white ST__kontrol-btn"
+                        onClick={handleWhatsApp}
+                      >
+                        <i className="fa-brands fa-whatsapp me-1" /> WhatsApp
                       </button>
                     )}
                   </div>

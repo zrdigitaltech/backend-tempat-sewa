@@ -215,7 +215,7 @@ export default function Index() {
                   </div>
                   {/* Grid View */}
                   {searchResultList?.slice(0, visible)?.map((item, index) => (
-                    <div key={index} className="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div key={index} className="col-6 col-sm-6 col-lg-3 mb-4">
                       <GridView
                         newTab={true}
                         {...item}
@@ -235,7 +235,7 @@ export default function Index() {
 
                   {/* Tombol Muat Lainnya */}
                   {visible < searchResultList?.length && (
-                    <div className="text-center mt-4">
+                    <div className="text-center">
                       <button
                         className="btn btn-warning fw-semibold rounded-3 px-5"
                         onClick={handleLoadMore}
@@ -289,7 +289,7 @@ export default function Index() {
                     )}
                   </div>
 
-                  <div className="col-12 col-lg-4">
+                  <div className="col-12 col-lg-4 d-none d-lg-block">
                     <div className="sticky-top" style={{ top: '80px', zIndex: 1 }}>
                       <div className="card p-2 shadow-sm">
                         <img
