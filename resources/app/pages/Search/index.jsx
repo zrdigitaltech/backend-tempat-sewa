@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSearchResult } from '@/app/redux/action/kontrakan/creator';
 import FormSearch from '@/app/components/FormSearch';
-import PropertiCard from '@/app/components/PropertiCard';
+import { GridView, ListView } from '@/app/components/PropertiCard';
 import { useLocation } from 'react-router-dom';
 import Heads from '@/app/components/Heads';
 import {
@@ -15,7 +15,7 @@ import {
   unFormatStrip
 } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
-import { TipeProperti } from '@/app/pages/Search/components';
+import { TipeProperti, ToggleView } from '@/app/pages/Search/components';
 import classNames from 'classnames';
 
 // Modals
@@ -39,15 +39,14 @@ export default function Index() {
   const harga_max = searchParams.get('hargaMax');
   const tipeKamar = searchParams.get('tipeKamar');
   const tipeKost = searchParams.get('tipeKost');
-
-  const [isLoading, setIsLoading] = useState({
-    banner: false,
-    btnSearch: false
-  });
-
-  const [tipePropertiValidasi, setTipePropertiValidasi] = useState(tipeProperti);
+  const viewMode = searchParams.get('viewMode');
 
   // UI State
+  const [isLoading, setIsLoading] = useState({
+    btnSearch: false,
+    data: false
+  });
+  const [tipePropertiValidasi, setTipePropertiValidasi] = useState(tipeProperti);
   const [isPageVerified, setIsPageVerified] = useState(false);
 
   // Modal States
@@ -62,19 +61,23 @@ export default function Index() {
     sort: '',
     harga_max: '',
     tipeKamar: '',
-    tipeKost: ''
+    tipeKost: '',
+    viewMode: 'grid'
   });
 
   const fetchFormData = async () => {
-    setFormData({
+    setIsLoading(prev => ({ ...prev, data: true }));
+    await setFormData({
       tipeProperti: tipeProperti,
       keyword: unFormatStrip(keyword),
       tipeSewa: tipeSewa,
       sort: sort,
       harga_max: formatRupiah(harga_max),
       tipeKamar: tipeKamar,
-      tipeKost: tipeKost
+      tipeKost: tipeKost,
+      viewMode: viewMode || 'grid'
     });
+    setIsLoading(prev => ({ ...prev, data: false }));
   };
 
   const handleChange = e => {
@@ -95,7 +98,8 @@ export default function Index() {
 
   const handleOnSearch = async () => {
     setIsLoading(prev => ({ ...prev, btnSearch: true }));
-    const { keyword, tipeProperti, tipeSewa, sort, harga_max, tipeKamar, tipeKost } = formData;
+    const { keyword, tipeProperti, tipeSewa, sort, harga_max, tipeKamar, tipeKost, viewMode } =
+      formData;
 
     // Membangun query string
     const keywordCleaned = formatStrip(keyword);
@@ -120,6 +124,7 @@ export default function Index() {
     if (tipeKost) {
       query += `&tipeKost=${tipeKost}`;
     }
+    query += `&viewMode=${viewMode}`;
 
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
     navigate(query);
@@ -144,6 +149,12 @@ export default function Index() {
     }
 
     alert(`Redirect langsung ke whatsapp ${no_whatsapp}`);
+  };
+
+  const updateViewModeInQuery = newViewMode => {
+    const newParams = new URLSearchParams(location.search);
+    newParams.set('viewMode', newViewMode);
+    navigate(`${location.pathname}?${newParams.toString()}`);
   };
 
   return (
@@ -190,27 +201,111 @@ export default function Index() {
                 </p>
               </Fragment>
             )}
-            {searchResultList?.length > 0 ? (
-              <div className="row g-4">
-                {searchResultList?.slice(0, visible)?.map((item, index) => (
-                  <div key={index} className="col-12 col-lg-3 col-sm-4">
-                    <PropertiCard
-                      newTab={true}
-                      {...item}
-                      showKategori={true}
-                      showTipeKamar={true}
-                      showInterior={true}
-                      handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
-                      handleWhatsApp={() =>
-                        isPageVerified
-                          ? handleGoToWhatsApp(item?.no_whatsapp)
-                          : setShowWhatsApp(true)
-                      }
+
+            {/* {searchResultList?.length > 0 && ( */}
+            <div className="row">
+              {formData?.viewMode === 'grid' ? (
+                <Fragment>
+                  <div className={`col-12 mb-3`}>
+                    <ToggleView
+                      viewMode={formData?.viewMode}
+                      handleGridView={() => updateViewModeInQuery('grid')}
+                      handleListView={() => updateViewModeInQuery('list')}
                     />
                   </div>
-                ))}
-              </div>
-            ) : (
+                  {/* Grid View */}
+                  {searchResultList?.slice(0, visible)?.map((item, index) => (
+                    <div key={index} className="col-12 col-sm-6 col-lg-3 mb-4">
+                      <GridView
+                        newTab={true}
+                        {...item}
+                        showKategori={true}
+                        showTipeKamar={true}
+                        showInterior={true}
+                        handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                        handleWhatsApp={() =>
+                          isPageVerified
+                            ? handleGoToWhatsApp(item?.no_whatsapp)
+                            : setShowWhatsApp(true)
+                        }
+                        isLoading={isLoading.data || isLoading.banner}
+                      />
+                    </div>
+                  ))}
+
+                  {/* Tombol Muat Lainnya */}
+                  {visible < searchResultList?.length && (
+                    <div className="text-center mt-4">
+                      <button
+                        className="btn btn-warning fw-semibold rounded-3 px-5"
+                        onClick={handleLoadMore}
+                      >
+                        Muat Lainnya
+                      </button>
+                    </div>
+                  )}
+                </Fragment>
+              ) : (
+                // List View
+                <Fragment>
+                  <div className="col-12 col-lg-8">
+                    <div className={`w-100 mb-3`}>
+                      <ToggleView
+                        viewMode={formData?.viewMode}
+                        handleGridView={() => updateViewModeInQuery('grid')}
+                        handleListView={() => updateViewModeInQuery('list')}
+                      />
+                    </div>
+
+                    {searchResultList?.slice(0, visible)?.map((item, index) => (
+                      <div key={index} className="mb-3">
+                        <ListView
+                          newTab={true}
+                          {...item}
+                          showKategori={true}
+                          showTipeKamar={true}
+                          showInterior={true}
+                          handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                          handleWhatsApp={() =>
+                            isPageVerified
+                              ? handleGoToWhatsApp(item?.no_whatsapp)
+                              : setShowWhatsApp(true)
+                          }
+                          isLoading={isLoading.data || isLoading.banner}
+                        />
+                      </div>
+                    ))}
+
+                    {/* Tombol Muat Lainnya */}
+                    {visible < searchResultList?.length && (
+                      <div className="text-center mt-4">
+                        <button
+                          className="btn btn-warning fw-semibold rounded-3 px-5"
+                          onClick={handleLoadMore}
+                        >
+                          Muat Lainnya
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="col-12 col-lg-4">
+                    <div className="sticky-top" style={{ top: '80px', zIndex: 1 }}>
+                      <div className="card p-2 shadow-sm">
+                        <img
+                          src="https://placehold.co/350x600?text=Iklan"
+                          alt="Banner Iklan"
+                          className="img-fluid rounded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Fragment>
+              )}
+            </div>
+            {/* )} */}
+
+            {searchResultList?.length === 0 && (
               <Fragment>
                 <div className="text-center py-5">
                   <i className="fa-4x fa-search fas mb-3"></i>
@@ -228,18 +323,6 @@ export default function Index() {
                   </p>
                 </div>
               </Fragment>
-            )}
-
-            {/* Tombol Muat Lainnya */}
-            {visible < searchResultList?.length && (
-              <div className="text-center mt-4">
-                <button
-                  className="btn btn-warning fw-semibold rounded-3 px-5"
-                  onClick={handleLoadMore}
-                >
-                  Muat Lainnya
-                </button>
-              </div>
             )}
           </div>
         </div>

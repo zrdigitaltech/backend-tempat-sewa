@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListLainnya } from '@/app/redux/action/kontrakan/creator';
 
 // Components
-import PropertiCard from '@/app/components/PropertiCard';
+import { GridView } from '@/app/components/PropertiCard';
 
 // Skeleton Loader
 import Skeleton from 'react-loading-skeleton';
@@ -60,7 +60,7 @@ const Index = props => {
                       scrollSnapAlign: 'start'
                     }}
                   >
-                    <PropertiCard {...kontrakan} btnTelp={false} swipeable={false} />
+                    <GridView {...kontrakan} btnTelp={false} swipeable={false} />
                   </div>
                 ))}
           </div>

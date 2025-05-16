@@ -17,7 +17,8 @@ export default function Index() {
   const [formData, setFormData] = useState({
     tipeProperti: '',
     keyword: '',
-    tipeSewa: ''
+    tipeSewa: '',
+    viewMode: 'grid'
   });
 
   const handleChange = e => {
@@ -27,7 +28,7 @@ export default function Index() {
 
   const handleOnSearch = async () => {
     setIsLoading(prev => ({ ...prev, btnSearch: true }));
-    const { keyword, tipeProperti, tipeSewa } = formData;
+    const { keyword, tipeProperti, tipeSewa, viewMode } = formData;
 
     // Membangun query string
     const keywordCleaned = formatStrip(keyword);
@@ -40,6 +41,7 @@ export default function Index() {
     if (tipeSewa) {
       query += `&tipeSewa=${tipeSewa}`;
     }
+    query += `&viewMode=${viewMode}`;
 
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
     navigate(query);

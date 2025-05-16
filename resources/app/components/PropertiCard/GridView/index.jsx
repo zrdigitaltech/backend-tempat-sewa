@@ -4,11 +4,12 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { formatPrice, formatPhone, formatTipeKamar } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
-import './propertiCard.scss';
+import './grid.scss';
 import useTooltips from '@/app/components/Tooltips';
 // Skeleton Loader
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+
 export default function Index(props) {
   const navigate = useNavigate();
   const {
@@ -32,7 +33,7 @@ export default function Index(props) {
     showTipeKamar = false,
     tipe_kost,
     showInterior = false,
-    kategori_interior
+    biaya_listrik
   } = props;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -112,11 +113,17 @@ export default function Index(props) {
                     : ''}
                 </span>
 
-                {showInterior && (
-                  <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                    {kategori_interior?.kondisi_perabotan}
-                  </span>
-                )}
+                {showInterior &&
+                  tipe_properti?.informasi_interior
+                    ?.filter(item => item.nama === 'Kondisi Perabotan')
+                    ?.map((item, index) => (
+                      <span
+                        key={index}
+                        className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize"
+                      >
+                        {item.fasilitas && item.fasilitas?.join(', ')}
+                      </span>
+                    ))}
               </div>
             </Fragment>
           )}
@@ -135,24 +142,13 @@ export default function Index(props) {
           >
             {alamat}
           </p>
-
-          {showTipeKamar && tipe_kamar && (
-            <small className="align-content-center text-secondary text-capitalize">
-              <i className="fa-solid fa-bed me-1"></i>
-              {formatTipeKamar(tipe_kamar) === 'S'
-                ? 'Studio'
-                : formatTipeKamar(tipe_kamar) === 'L'
-                  ? '>3 Kamar Tidur'
-                  : formatTipeKamar(tipe_kamar) + ' Kamar Tidur'}
-            </small>
-          )}
         </Fragment>
       )}
     </div>
   );
 
   return (
-    <div className="card border-0 shadow-sm h-100">
+    <div className="card border-0 shadow-sm h-100 justify-content-between">
       <div className="position-relative" style={{ height: '250px' }}>
         {isLoading ? (
           <Skeleton height={250} />

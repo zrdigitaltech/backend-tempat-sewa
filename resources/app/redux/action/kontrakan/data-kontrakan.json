@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "nama": "Kontrakan Mewah A",
+    "nama": "Kontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah A",
     "harga": 2000000,
     "durasi": "bulan",
     "status": "Tersedia",
     "slug": "kontrakan-mewah-a",
     "image": [
-      "https://placehold.co/800x600?text=Image+1",
-      "https://placehold.co/800x600?text=Image+2"
+      "https://placehold.co/800x600?text=Kontrakan+1",
+      "https://placehold.co/800x600?text=Kontrakan+2"
     ],
-    "alamat": "Jl. Merdeka No. 10, Tangerang",
+    "alamat": "Jl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, Tangerang",
     "area": "BSD",
     "kota": "Tangerang",
     "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
@@ -39,15 +39,26 @@
           "Akses 24 Jam"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Kapasitas",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": "1_kamar_tidur",
     "tipe_kost": "Putri",
-    "kategori_interior": {
-      "fasilitas": ["AC", "Kolam Renang", "TV Kabel", "Internet"],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": 1
-    },
     "daya_listrik": 1300,
     "biaya_listrik": "termasuk"
   },
@@ -140,15 +151,26 @@
           "Tidak boleh membawa hewan peliharaan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Kapasitas",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": "studio",
     "tipe_kost": "Putri",
-    "kategori_interior": {
-      "fasilitas": ["AC", "TV Kabel", "Internet"],
-      "kondisi_perabotan": "Fully Furnished",
-      "kapasitas": 1
-    },
     "daya_listrik": 900,
     "biaya_listrik": "termasuk"
   },
@@ -211,15 +233,42 @@
           "Foodcourt"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Kamar Tidur",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Tidur ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": "3_kamar_tidur",
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set"],
-      "kondisi_perabotan": "Semi Furnished",
-      "kapasitas": null
-    },
     "daya_listrik": 2200,
     "biaya_listrik": "belum termasuk"
   },
@@ -281,15 +330,34 @@
           "Foodcourt"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Tipe Kamar",
+        "fasilitas": ["Studio"]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": "2_kamar_tidur",
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set", "Water Heater"],
-      "kondisi_perabotan": "Fully Furnished",
-      "kapasitas": null
-    },
     "daya_listrik": 1300,
     "biaya_listrik": "belum termasuk"
   },
@@ -356,15 +424,34 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": null
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["AC"],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": null
-    },
     "daya_listrik": 6600,
     "biaya_listrik": "belum termasuk"
   },
@@ -431,15 +518,34 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Jumlah Ruangan",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet", "CCTV", "Ruang Rapat"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": [],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": null
-    },
     "daya_listrik": 2200,
     "biaya_listrik": "belum termasuk"
   },
@@ -506,17 +612,24 @@
           "Tempat Makan"
         ]
       }
+    ],
+    "informasi_interior": [
+      {
+        "nama": "Fasilitas",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": null,
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["Kantor Admin", "Toilet"],
-      "kondisi_perabotan": "Unfurnished",
-      "kapasitas": null
-    },
     "daya_listrik": 13000,
-    "biaya_listrik": "belum termasuk"
+    "biaya_listrik": null
   },
   {
     "id": 8,
@@ -549,7 +662,7 @@
       "informasi_lingkungan": [
       {
         "id": 1,
-        "nama": "Fasilitas Perumahan",
+        "nama": "Fasilitas Area",
         "fasilitas": [
           "Keamanan 24 Jam",
           "Pusat Kebugaran",
@@ -576,15 +689,11 @@
           "Foodcourt"
         ]
       }
-    ]
+    ],
+    "informasi_interior": null
     },
     "tipe_kamar": null,
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": [],
-      "kondisi_perabotan": null,
-      "kapasitas": null
-    },
     "daya_listrik": null,
     "biaya_listrik": null
   },
@@ -647,15 +756,42 @@
           "Foodcourt"
         ]
       }
+      ],
+      "informasi_interior": [
+      {
+        "nama": "Kamar Tidur",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Tidur ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Kamar Mandi ART",
+        "fasilitas": [1]
+      },
+      {
+        "nama": "Fasilitas Rumah",
+        "fasilitas": [
+          "AC", "Kolam Renang", "TV Kabel", "Internet"
+        ]
+      },
+      {
+        "nama": "Kondisi Perabotan",
+        "fasilitas": ["Full Furnished"]
+      },
+      {
+        "nama": "Jumlah Lantai",
+        "fasilitas": [1]
+      }
     ]
     },
     "tipe_kamar": "4_kamar_tidur",
     "tipe_kost": null,
-    "kategori_interior": {
-      "fasilitas": ["AC", "TV Kabel", "Internet", "Kitchen Set", "Sound System"],
-      "kondisi_perabotan": "Fully Furnished",
-      "kapasitas": 10
-    },
     "daya_listrik": 3500,
     "biaya_listrik": "termasuk"
   }

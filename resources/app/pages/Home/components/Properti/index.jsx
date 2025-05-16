@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
 
-import PropertiCard from '@/app/components/PropertiCard';
+import { GridView } from '@/app/components/PropertiCard';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -56,10 +56,11 @@ export default function Index() {
                 ))
               : kontrakanList?.map((item, index) => (
                   <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
-                    <PropertiCard
+                    <GridView
                       {...item}
-                      // newTab={true}
-                      // showKategori={true}
+                      newTab={true}
+                      showKategori={true}
+                      showInterior={true}
                       handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
                       handleWhatsApp={() =>
                         isPageVerified

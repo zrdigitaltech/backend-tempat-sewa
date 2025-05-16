@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { formatPriceLocale } from '@/app/helpers';
 
 // Components
 import Heads from '@/app/components/Heads';
@@ -240,9 +241,11 @@ const Index = () => {
                     {kontrakanDetail?.daya_listrik && (
                       <div className="align-content-center border card p-3 text-capitalize text-secondary">
                         <div className="">
-                          <i className="fa-solid fa-bolt"></i> {kontrakanDetail?.daya_listrik} Watt{' '}
-                          <br />
-                          <small>( {kontrakanDetail?.biaya_listrik} Listrik )</small>
+                          <i className="fa-solid fa-bolt"></i>{' '}
+                          {formatPriceLocale(kontrakanDetail?.daya_listrik)} Watt <br />
+                          {kontrakanDetail?.biaya_listrik && (
+                            <small>( {kontrakanDetail?.biaya_listrik} Listrik )</small>
+                          )}
                         </div>
                       </div>
                     )}

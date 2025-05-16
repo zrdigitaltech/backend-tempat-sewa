@@ -80,7 +80,7 @@ export default function Index(props) {
           {/* Harga Maksimal */}
           <div className="flex-fill flex-md-grow-0">
             <div className="input-group">
-              <span className="input-group-text">Rp</span>
+              <span className="bg-primary input-group-text text-white">Rp</span>
               <input
                 type="text"
                 className="form-control"
