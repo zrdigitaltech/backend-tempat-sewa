@@ -16,7 +16,7 @@ const Home = lazy(() => import('@/app/pages/Home'));
 const Search = lazy(() => import('@/app/pages/Search'));
 const Booking = lazy(() => import('@/app/pages/Booking'));
 const PropertiSlug = lazy(() => import('@/app/pages/Properti/Slug'));
-const AgentSlug = lazy(() => import('@/app/pages/Agent/Slug'));
+const PemilikSlug = lazy(() => import('@/app/pages/Pemilik/Slug'));
 const PasangIklan = lazy(() => import('@/app/pages/PasangIklan'));
 
 const SyaratDanKetentuan = lazy(() => import('@/app/pages/legal/SyaratDanKetentuan'));
@@ -62,13 +62,13 @@ const router = createBrowserRouter(
           }}
         />
       </Route>
-      <Route path="agent" handle={{ breadcrumb: 'Agent' }} element={<Outlet />}>
+      <Route path="pemilik" handle={{ breadcrumb: 'Pemilik' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
           path=":slug"
           element={
             <Suspense fallback={<RouteLoading />}>
-              <AgentSlug />
+              <PemilikSlug />
             </Suspense>
           }
           handle={{

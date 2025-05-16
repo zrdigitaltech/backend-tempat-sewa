@@ -247,7 +247,7 @@ export default function Index(props) {
 
       {/* tombol telepon or whatsapp */}
       {btnTelp && (
-        <div className="card-footer bg-primary-subtle p-2 p-sm-3">
+        <div className="bg-primary-subtle card-footer p-2 px-sm-3 py-sm-2">
           <div className="d-flex gap-2">
             {/* Tombol Telepon */}
             <div className="flex-sm-fill">

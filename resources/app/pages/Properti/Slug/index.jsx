@@ -47,6 +47,15 @@ const Index = () => {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
   const [showLaporkanIklan, setShowLaporkanIklan] = useState(false);
 
+  const [expandedKategori, setExpandedKategori] = useState({});
+
+  const toggleExpand = kategoriId => {
+    setExpandedKategori(prev => ({
+      ...prev,
+      [kategoriId]: !prev[kategoriId]
+    }));
+  };
+
   const handleMouseDown = () => setDragging(false);
   const handleMouseMove = () => setDragging(true);
   const handleClick = img => {
@@ -265,18 +274,44 @@ const Index = () => {
                 </ul>
               ) : (
                 <div className="row">
-                  {kontrakanDetail?.tipe_properti?.informasi_lingkungan?.map(kategori => (
-                    <div key={kategori.id} className="col-12 mb-3">
-                      <h6 className="fw-bold">{kategori.nama}</h6>
-                      <ul className="list-unstyled row mb-0">
-                        {kategori.fasilitas.map((fasilitas, i) => (
-                          <li key={i} className="col-6 mb-2">
-                            {/* ✅  */}✅ {fasilitas}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  {kontrakanDetail?.tipe_properti?.informasi_lingkungan?.map(kategori => {
+                    const fasilitas = kategori.fasilitas || [];
+                    const isExpanded = expandedKategori[kategori.id] || false;
+                    const shouldTruncate = fasilitas.length > 6;
+                    const displayedFasilitas = isExpanded ? fasilitas : fasilitas.slice(0, 6);
+
+                    return (
+                      <div key={kategori.id} className="col-12 mb-3 ST--DeskripsiExpandable">
+                        <h6 className="fw-bold">{kategori.nama}</h6>
+                        <div
+                          className={`ST--DeskripsiExpandable__wrapper ${
+                            isExpanded ? 'ST--DeskripsiExpandable__wrapper--expanded' : ''
+                          }`}
+                        >
+                          <ul className="list-unstyled row mb-0 ST--DeskripsiExpandable__content">
+                            {displayedFasilitas.map((fasilitasItem, i) => (
+                              <li key={i} className="col-6 mb-2">
+                                ✅ {fasilitasItem}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {shouldTruncate && (
+                          <button
+                            onClick={() => toggleExpand(kategori.id)}
+                            className="text-primary p-0 border-0 bg-transparent d-flex align-items-center gap-1"
+                            style={{ cursor: 'pointer' }}
+                          >
+                            <small>
+                              Lihat {isExpanded ? 'Lebih Sedikit' : 'Selengkapnya'}{' '}
+                              <i className={`fa fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+                            </small>
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 

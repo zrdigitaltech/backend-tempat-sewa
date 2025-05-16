@@ -23,7 +23,7 @@ const Index = ({ deskripsi, maxLength = 200 }) => {
       {isLong && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-primary mt-2 p-0 border-0 bg-transparent d-flex align-items-center gap-1"
+          className="text-primary mt-1 p-0 border-0 bg-transparent d-flex align-items-center gap-1"
           style={{ cursor: 'pointer' }}
         >
           <small>

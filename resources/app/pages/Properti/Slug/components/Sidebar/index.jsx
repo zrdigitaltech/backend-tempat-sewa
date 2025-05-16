@@ -34,7 +34,10 @@ const Index = props => {
       )}
       <hr className="my-3" />
       <div className="d-flex justify-content-center mb-3">
-        <div className="text-center position-relative">
+        <Link
+          to={`/pemilik/@${kontrakanDetail?.pemilikSlug}`}
+          className="text-center position-relative text-decoration-none"
+        >
           <div className="d-flex justify-content-center">
             <div className="position-relative" style={{ width: '80px' }}>
               {isLoading ? (
@@ -76,7 +79,7 @@ const Index = props => {
               </strong>
             )}
           </div>
-        </div>
+        </Link>
       </div>
       {isLoading ? (
         <Fragment>

@@ -229,8 +229,8 @@ export default function Index(props) {
                       src={x}
                       className="w-100"
                       style={{
-                        height: isMobile ? '' : '250px'
-                        // objectFit: 'cover'
+                        height: isMobile ? '' : '250px',
+                        objectFit: 'cover'
                       }}
                     />
                   </div>
