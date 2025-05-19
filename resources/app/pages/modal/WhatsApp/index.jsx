@@ -74,7 +74,7 @@ const Index = props => {
     if (validate()) {
       setIsSubmitting(true);
       try {
-        console.log('Form data valid:', bodyFormData);
+        console.log('Form data valid:', formData);
 
         // Kirim ke server
         // Misal pakai fetch:

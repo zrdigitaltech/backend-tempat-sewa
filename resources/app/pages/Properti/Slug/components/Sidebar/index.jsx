@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { formatPriceLocale } from '@/app/helpers';
+import { formatPriceLocale, formatPhone } from '@/app/helpers';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -19,7 +19,7 @@ const Index = props => {
     <div
       className="card shadow p-4 position-sticky border-0"
       style={{
-        top: '100px' // jarak dari atas saat sticky
+        top: '135px' // jarak dari atas saat sticky
       }}
     >
       {isLoading ? (
@@ -95,12 +95,12 @@ const Index = props => {
             </button>
 
             <button className="btn btn-outline-primary w-100 mt-2" onClick={handlePhone}>
-              <i className="fa fa-phone"></i> {kontrakanDetail?.no_whatsapp}
+              <i className="fa fa-phone"></i> {formatPhone(kontrakanDetail?.no_whatsapp)}
             </button>
 
-            <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}/booking`}>
+            {/* <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}/booking`}>
               Booking Sekarang
-            </Link>
+            </Link> */}
           </Fragment>
         )
       )}

@@ -1,18 +1,51 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useRef } from 'react';
+import useTooltips from '@/app/components/Tooltips';
+import * as bootstrap from 'bootstrap';
 
 const Index = props => {
   const { dataItem } = props;
 
+  const copyBtnRef = useRef(null);
+  const tooltipRef = useRef(null);
+
   const handleCopy = phoneNumber => {
+    // navigator.clipboard
+    //   .writeText(phoneNumber)
+    //   .then(() => {
+    //     alert('Nomor berhasil disalin!');
+    //   })
+    //   .catch(() => {
+    //     alert('Gagal menyalin nomor.');
+    //   });
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
-        alert('Nomor berhasil disalin!');
+        if (copyBtnRef.current) {
+          copyBtnRef.current.setAttribute('title', 'Nomor berhasil disalin!');
+
+          if (tooltipRef.current) {
+            tooltipRef.current.dispose();
+            tooltipRef.current = null;
+          }
+
+          tooltipRef.current = new bootstrap.Tooltip(copyBtnRef.current);
+          tooltipRef.current.show();
+
+          setTimeout(() => {
+            if (tooltipRef.current) {
+              tooltipRef.current.hide();
+              tooltipRef.current.dispose();
+              tooltipRef.current = null;
+            }
+
+            copyBtnRef.current.removeAttribute('title');
+          }, 1000);
+        }
       })
-      .catch(() => {
-        alert('Gagal menyalin nomor.');
-      });
+      .catch(err => console.error('Gagal menyalin nomor:', err));
   };
+
+  useTooltips();
 
   return (
     <Fragment>
@@ -47,12 +80,14 @@ const Index = props => {
             <strong>{dataItem?.pemilik}</strong>
           </div>
           <div className="mt-3">
-            <span className="text-primary">
-              {dataItem?.no_whatsapp}{' '}
-              <i
-                className="fa-solid fa-copy cursor-pointer"
-                onClick={() => handleCopy(dataItem?.no_whatsapp)}
-              ></i>
+            <span
+              className="text-primary"
+              onClick={() => handleCopy(dataItem?.no_whatsapp)}
+              data-bs-toggle={'tooltip'}
+              data-bs-placement="top"
+              ref={copyBtnRef}
+            >
+              {dataItem?.no_whatsapp} <i className="fa-solid fa-copy cursor-pointer"></i>
             </span>
           </div>
         </div>
