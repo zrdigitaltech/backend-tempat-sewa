@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListTempat } from '@/app/redux/action/tipeProperti/creator';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './kategori.scss';
 
 export default function Index(props) {
-  const { tipeProperti, kategori } = props;
+  const { tipeProperti, viewMode } = props;
   const tempatList = useSelector(state => state?.tipeProperti?.tempatList);
   const dispatch = useDispatch();
 
@@ -24,9 +24,13 @@ export default function Index(props) {
     setIsLoading(false);
   };
 
+  const kategoriLabel = useMemo(() => {
+    return tempatList[0]?.kategori || '';
+  }, [tempatList]);
+
   useEffect(() => {
     fetchTempat();
-  }, []);
+  }, [tempatList]);
 
   const iconLabel = nama => {
     switch (nama?.toLowerCase()) {
@@ -120,7 +124,14 @@ export default function Index(props) {
   return (
     <section className="py-5 bg-light">
       <div className="container">
-        <h2 className="text-center fw-semibold mb-3">Cari Tempat {kategori} Lainnya</h2>
+        <h2 className="text-center fw-semibold mb-3 text-capitalize">
+          {isLoading ? (
+            <Skeleton width={220} height={28} style={{ margin: '0 auto' }} />
+          ) : (
+            `Cari Tempat ${kategoriLabel} Lainnya`
+          )}
+        </h2>
+
         {isLoading ? (
           <div
             className="d-flex flex-nowrap justify-content-start gap-3 overflow-auto px-2 py-4"
@@ -157,7 +168,7 @@ export default function Index(props) {
               {tempatList?.map((cat, index) => (
                 <div key={index} className="p-2">
                   <Link
-                    to={`/search?keyword=&tipeProperti=${cat.slug}`}
+                    to={`/search?keyword=&tipeProperti=${cat.slug}&viewMode=${viewMode}`}
                     className="text-decoration-none text-dark"
                   >
                     <div className="card text-center border-0 shadow-sm h-100">

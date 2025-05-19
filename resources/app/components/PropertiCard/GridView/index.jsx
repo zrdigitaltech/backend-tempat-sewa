@@ -18,7 +18,7 @@ export default function Index(props) {
     durasi,
     slug,
     image,
-    alamat,
+    kota,
     btnTelp = true,
     no_whatsapp,
     member,
@@ -27,7 +27,6 @@ export default function Index(props) {
     newTab = false,
     tipe_properti,
     showKategori = false,
-    tipe_kamar,
     handlePhone,
     handleWhatsApp,
     showTipeKamar = false,
@@ -137,11 +136,7 @@ export default function Index(props) {
           >
             {nama}
           </span>
-          <p
-            className={`text-muted small mb-0 text-truncate ${showTipeKamar && tipe_kamar && 'mb-1'}`}
-          >
-            {alamat}
-          </p>
+          <p className={`text-muted small mb-0 text-truncate ${showTipeKamar && 'mb-1'}`}>{kota}</p>
         </Fragment>
       )}
     </div>

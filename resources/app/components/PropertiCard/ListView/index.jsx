@@ -9,6 +9,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import useTooltips from '@/app/components/Tooltips';
+import { useNavigate } from 'react-router-dom';
 
 export default function Index(props) {
   const {
@@ -17,22 +18,19 @@ export default function Index(props) {
     durasi,
     slug,
     image,
-    alamat,
+    kota,
     btnTelp = true,
-    no_whatsapp,
     member,
     isLoading = false,
     swipeable = true,
     newTab = false,
     tipe_properti,
     showKategori = false,
-    tipe_kamar,
     handlePhone,
     handleWhatsApp,
     showTipeKamar = false,
     tipe_kost,
     showInterior = false,
-    biaya_listrik,
     pemilikImage,
     pemilik,
     upload,
@@ -42,6 +40,7 @@ export default function Index(props) {
     resetDataItem
   } = props;
 
+  const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const maxIndicators = 5;
 
@@ -103,6 +102,53 @@ export default function Index(props) {
 
   useTooltips();
 
+  const renderCombinedInteriorCard = (interior, targets, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const total = targets.reduce((sum, name) => {
+      const item = interior.find(i => i.nama === name);
+      const val = parseInt(item?.fasilitas?.[0]) || 0;
+      return sum + val;
+    }, 0);
+
+    if (total === 0) return null;
+
+    return (
+      <small
+        className="align-content-center text-secondary text-capitalize"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title={label}
+      >
+        {iconClass && <i className={`fa ${iconClass} me-1`}></i>}
+        {total}
+      </small>
+    );
+  };
+
+  const renderSingleInteriorCard = (interior, target, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const item = interior.find(i => i.nama === target);
+    const value = item?.fasilitas?.[0];
+
+    if (!value) return null;
+
+    return (
+      <small
+        className="align-content-center text-secondary text-capitalize"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title={label}
+      >
+        {iconClass && <i className={`fa ${iconClass} me-1`}></i>}
+        {value}
+      </small>
+    );
+  };
+
   const CardContent = () => {
     return (
       <div>
@@ -148,25 +194,29 @@ export default function Index(props) {
         >
           {nama}
         </span>
-        <p
-          className={`text-muted small mb-0 text-truncate ${showTipeKamar && tipe_kamar && 'mb-1'}`}
-          title={alamat}
-        >
-          {alamat}
-        </p>
+        <p className={`text-muted small mb-0 text-truncate ${showTipeKamar && 'mb-1'}`}>{kota}</p>
 
-        {showTipeKamar && tipe_kamar && (
-          <div className="px-2 bg-primary-subtle rounded-1">
-            <small className="align-content-center text-secondary text-capitalize">
-              <i className="fa-solid fa-bed me-1"></i>
-              {formatTipeKamar(tipe_kamar) === 'S'
-                ? 'Studio'
-                : formatTipeKamar(tipe_kamar) === 'L'
-                  ? '>3 Kamar Tidur'
-                  : formatTipeKamar(tipe_kamar) + ' Kamar Tidur'}
-            </small>
-          </div>
-        )}
+        <div className="px-2 bg-primary-subtle rounded-1 gap-3 d-flex">
+          {renderSingleInteriorCard(
+            tipe_properti?.informasi_interior,
+            'Tipe Kamar',
+            'Ruang',
+            'fa-door-open'
+          )}
+          {renderCombinedInteriorCard(
+            tipe_properti?.informasi_interior,
+            ['Kamar Tidur', 'Kamar Tidur ART', 'Tipe Kamar'],
+            'Kamar Tidur',
+            'fa-solid fa-bed'
+          )}
+
+          {renderCombinedInteriorCard(
+            tipe_properti?.informasi_interior,
+            ['Kamar Mandi', 'Kamar Mandi ART'],
+            'Kamar Mandi',
+            'fa-bath'
+          )}
+        </div>
       </div>
     );
   };

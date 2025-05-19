@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatPriceLocale } from '@/app/helpers';
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import Heads from '@/app/components/Heads';
@@ -35,6 +36,7 @@ const Index = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
   const kontrakanDetail = useSelector(state => state?.kontrakan?.kontrakanDetail);
+  const navigate = useNavigate();
 
   // UI State
   const [isLoading, setIsLoading] = useState(true);
@@ -165,8 +167,24 @@ const Index = () => {
         deskripsi={kontrakanDetail?.deskripsi}
         image={kontrakanDetail?.image?.[0]}
       />
-      <section className="ST--wrapper__navbar justify-content-end">
-        <div className="ST--wrapper__navbar--body">
+      <section className="ST--wrapper__navbar d-flex  align-items-center w-100">
+        <div>
+          {isLoading ? (
+            <Skeleton width={100} height={40} borderRadius={8} />
+          ) : (
+            <button
+              className="btn btn-light shadow"
+              onClick={() =>
+                navigate(
+                  `/search?keyword=&tipeProperti=${kontrakanDetail?.tipe_properti?.nama.toLowerCase()}&viewMode=list`
+                )
+              }
+            >
+              <i className="fa fa-arrow-left"></i> Kembali
+            </button>
+          )}
+        </div>
+        <div className="ms-auto">
           {isLoading ? (
             <Skeleton width={100} height={40} borderRadius={8} />
           ) : (
@@ -247,9 +265,23 @@ const Index = () => {
                   >
                     {kontrakanDetail?.nama}
                   </h2>
-                  <p className="text-muted text-truncate" title={kontrakanDetail?.alamat}>
-                    {kontrakanDetail?.alamat}
-                  </p>
+                  <div className="mb-3">
+                    <p className="text-muted text-truncate mb-1" title={kontrakanDetail?.kota}>
+                      <i className="fa-solid fa-location-dot me-1"></i>
+                      {kontrakanDetail?.area + ', ' + kontrakanDetail?.kota}
+                    </p>
+                    <button
+                      className="btn btn-sm bg-primary-subtle text-primary"
+                      onClick={() =>
+                        isPageVerified
+                          ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                          : setShowWhatsApp(true)
+                      }
+                    >
+                      <i className="fa-solid fa-map-location-dot me-1"></i>
+                      Dapatkan Detail Lokasi
+                    </button>
+                  </div>
                 </Fragment>
               )}
 

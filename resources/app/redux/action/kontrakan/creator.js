@@ -110,13 +110,18 @@ const filterKontrakanLokal = queryObj => {
       : true;
 
     const tipePropertiMatch = tipeProperti
-      ? item.tipe_properti?.nama?.toLowerCase() === tipeProperti.toLowerCase()
+      ? formatStrip(item.tipe_properti?.nama)?.toLowerCase() === tipeProperti.toLowerCase()
       : true;
 
     const tipeSewaMatch = tipeSewa ? item.durasi?.toLowerCase() === tipeSewa.toLowerCase() : true;
 
+    const interiorMap = Object.fromEntries(
+      (item?.tipe_properti?.informasi_interior || []).map(i => [i.nama, i.fasilitas])
+    );
+
+    // Lalu bisa pakai:
     const tipeKamarMatch = tipeKamar
-      ? item.tipe_kamar?.toLowerCase() === tipeKamar.toLowerCase()
+      ? interiorMap['Tipe Kamar']?.[0].toLowerCase() === tipeKamar.toLowerCase()
       : true;
 
     return (

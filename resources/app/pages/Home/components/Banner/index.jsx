@@ -18,7 +18,7 @@ export default function Index() {
     tipeProperti: '',
     keyword: '',
     tipeSewa: '',
-    viewMode: 'grid'
+    viewMode: 'list'
   });
 
   const handleChange = e => {
@@ -36,7 +36,8 @@ export default function Index() {
 
     // Menambahkan tipeProperti dan tipeSewa jika ada nilainya
     if (tipeProperti) {
-      query += `&tipeProperti=${tipeProperti}`;
+      const tipePropertiCleaned = formatStrip(tipeProperti);
+      query += `&tipeProperti=${tipePropertiCleaned}`;
     }
     if (tipeSewa) {
       query += `&tipeSewa=${tipeSewa}`;

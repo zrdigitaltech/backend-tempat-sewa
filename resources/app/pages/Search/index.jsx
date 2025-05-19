@@ -62,7 +62,7 @@ export default function Index() {
     harga_max: '',
     tipeKamar: '',
     tipeKost: '',
-    viewMode: 'grid'
+    viewMode: 'list'
   });
 
   const fetchFormData = async () => {
@@ -75,7 +75,7 @@ export default function Index() {
       harga_max: formatRupiah(harga_max),
       tipeKamar: tipeKamar,
       tipeKost: tipeKost,
-      viewMode: viewMode || 'grid'
+      viewMode: viewMode || 'list'
     });
     setIsLoading(prev => ({ ...prev, data: false }));
   };
@@ -191,7 +191,7 @@ export default function Index() {
                   Temukan{' '}
                   {tipeProperti === null && keyword === ''
                     ? 'Properti'
-                    : tipeProperti + unFormatStrip(keyword)}{' '}
+                    : unFormatStrip(tipeProperti) + unFormatStrip(keyword)}{' '}
                   Impian Anda di Indonesia
                 </h3>
 
@@ -202,8 +202,9 @@ export default function Index() {
               </Fragment>
             )}
 
-            {/* {searchResultList?.length > 0 && ( */}
-            <div className="row">
+            <div
+              className={`row ${searchResultList?.length === 0 && formData?.viewMode !== 'grid' && 'pb-5'}`}
+            >
               {formData?.viewMode === 'grid' ? (
                 <Fragment>
                   <div className={`col-12 mb-3`}>
@@ -243,6 +244,26 @@ export default function Index() {
                         Muat Lainnya
                       </button>
                     </div>
+                  )}
+
+                  {searchResultList?.length === 0 && (
+                    <Fragment>
+                      <div className="text-center py-5">
+                        <i className="fa-4x fa-search fas mb-3"></i>
+                        <h5 className="fw-bold mb-2">Tidak Ditemukan Properti yang Sesuai</h5>
+                        <p className="text-muted">
+                          Maaf, properti dengan kata kunci{' '}
+                          <strong className="text-capitalize">
+                            {unFormatStrip(tipeProperti)} {unFormatStrip(keyword)} {sort}{' '}
+                            {formatPriceLocale(parseInt(harga_max))} {tipeSewa}{' '}
+                            {formatUnderscore(tipeKamar)} {tipeKost}
+                          </strong>{' '}
+                          tidak ditemukan.
+                          <br />
+                          Silakan cari properti dengan kata kunci lainnya, ya!
+                        </p>
+                      </div>
+                    </Fragment>
                   )}
                 </Fragment>
               ) : (
@@ -290,6 +311,26 @@ export default function Index() {
                         </button>
                       </div>
                     )}
+
+                    {searchResultList?.length === 0 && (
+                      <Fragment>
+                        <div className="text-center pt-5">
+                          <i className="fa-4x fa-search fas mb-3"></i>
+                          <h5 className="fw-bold mb-2">Tidak Ditemukan Properti yang Sesuai</h5>
+                          <p className="text-muted">
+                            Maaf, properti dengan kata kunci{' '}
+                            <strong className="text-capitalize">
+                              {unFormatStrip(tipeProperti)} {unFormatStrip(keyword)} {sort}{' '}
+                              {formatPriceLocale(parseInt(harga_max))} {tipeSewa}{' '}
+                              {formatUnderscore(tipeKamar)} {tipeKost}
+                            </strong>{' '}
+                            tidak ditemukan.
+                            <br />
+                            Silakan cari properti dengan kata kunci lainnya, ya!
+                          </p>
+                        </div>
+                      </Fragment>
+                    )}
                   </div>
 
                   <div className="col-12 col-lg-4 d-none d-lg-block">
@@ -306,33 +347,12 @@ export default function Index() {
                 </Fragment>
               )}
             </div>
-            {/* )} */}
-
-            {searchResultList?.length === 0 && (
-              <Fragment>
-                <div className="text-center py-5">
-                  <i className="fa-4x fa-search fas mb-3"></i>
-                  <h5 className="fw-bold mb-2">Tidak Ditemukan Properti yang Sesuai</h5>
-                  <p className="text-muted">
-                    Maaf, properti dengan kata kunci{' '}
-                    <strong className="text-capitalize">
-                      {tipeProperti} {unFormatStrip(keyword)} {sort}{' '}
-                      {formatPriceLocale(parseInt(harga_max))} {tipeSewa}{' '}
-                      {formatUnderscore(tipeKamar)} {tipeKost}
-                    </strong>{' '}
-                    tidak ditemukan.
-                    <br />
-                    Silakan cari properti dengan kata kunci lainnya, ya!
-                  </p>
-                </div>
-              </Fragment>
-            )}
           </div>
         </div>
 
         {tipeProperti && searchResultList?.length === 0 ? (
           <Fragment>
-            <TipeProperti tipeProperti={tipeProperti} kategori={''} />
+            <TipeProperti tipeProperti={tipeProperti} viewMode={viewMode} />
             <div className="container mb-5 mt-3 d-flex justify-content-center">
               <div className="col-12 col-sm-10 text-center cursor-pointer">
                 <div className="position-relative" onClick={() => setShowKonsultasi(true)}>

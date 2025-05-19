@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nama": "Kontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah AKontrakan Mewah A",
+    "nama": "Kontrakan Mewah A",
     "harga": 2000000,
     "durasi": "bulan",
     "status": "Tersedia",
@@ -10,7 +10,7 @@
       "https://placehold.co/800x600?text=Kontrakan+1",
       "https://placehold.co/800x600?text=Kontrakan+2"
     ],
-    "alamat": "Jl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, TangerangJl. Merdeka No. 10, Tangerang",
+    "alamat": "Jl. Merdeka No. 10, Tangerang",
     "area": "BSD",
     "kota": "Tangerang",
     "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
@@ -58,7 +58,6 @@
       }
     ]
     },
-    "tipe_kamar": "1_kamar_tidur",
     "tipe_kost": "Putri",
     "daya_listrik": 1300,
     "biaya_listrik": "termasuk"
@@ -171,7 +170,6 @@
       }
     ]
     },
-    "tipe_kamar": "studio",
     "tipe_kost": "Putri",
     "daya_listrik": 900,
     "biaya_listrik": "termasuk"
@@ -270,7 +268,6 @@
       }
     ]
     },
-    "tipe_kamar": "3_kamar_tidur",
     "tipe_kost": null,
     "daya_listrik": 2200,
     "biaya_listrik": "belum termasuk"
@@ -360,7 +357,6 @@
       }
     ]
     },
-    "tipe_kamar": "2_kamar_tidur",
     "tipe_kost": null,
     "daya_listrik": 1300,
     "biaya_listrik": "belum termasuk"
@@ -455,7 +451,6 @@
       }
     ]
     },
-    "tipe_kamar": null,
     "tipe_kost": null,
     "daya_listrik": 6600,
     "biaya_listrik": "belum termasuk"
@@ -550,7 +545,6 @@
       }
     ]
     },
-    "tipe_kamar": null,
     "tipe_kost": null,
     "daya_listrik": 2200,
     "biaya_listrik": "belum termasuk"
@@ -633,7 +627,6 @@
       }
     ]
     },
-    "tipe_kamar": null,
     "tipe_kost": null,
     "daya_listrik": 13000,
     "biaya_listrik": null
@@ -700,7 +693,6 @@
     ],
     "informasi_interior": null
     },
-    "tipe_kamar": null,
     "tipe_kost": null,
     "daya_listrik": null,
     "biaya_listrik": null
@@ -799,9 +791,74 @@
       }
     ]
     },
-    "tipe_kamar": "4_kamar_tidur",
     "tipe_kost": null,
     "daya_listrik": 3500,
     "biaya_listrik": "termasuk"
+  },
+  {
+    "id": 10,
+    "nama": "Ruang Kantor Jatinangor",
+    "harga": 2500000000,
+    "durasi": "tahun",
+    "status": "Tersedia",
+    "slug": "tanah-komersial-jatinangor",
+    "image": [
+      "https://placehold.co/800x600?text=Ruang-Kantor+1",
+      "https://placehold.co/800x600?text=Ruang-Kantor+2"
+    ],
+    "alamat": "Jl. Raya Jatinangor Km 5, Sumedang",
+    "area": "Jatinangor",
+    "kota": "Sumedang",
+    "pemilikImage": "https://ui-avatars.com/api/?size=158&name=",
+    "pemilik": "Ahmad Solihin",
+    "pemilikSlug": "ahmad-solihin",
+    "pemilik_verified": true,
+    "views": 650,
+    "no_whatsapp": "+6287654321555",
+    "member": "Featured",
+    "deskripsi": "Tanah komersial strategis di kawasan pendidikan Jatinangor. Cocok untuk pembangunan kost, ruko, atau pusat perbelanjaan. SHM, IMB siap, tersedia akses listrik dan air.",
+    "durasiMinimal": null,
+    "upload": "05 Apr 2025 10:30",
+    "tipe_properti": {
+      "id": 10,
+      "nama": "Ruang Kantor",
+      "slug": "ruang-kantor",
+      "kategori": "usaha",
+      "informasi_lingkungan": [
+      {
+        "id": 1,
+        "nama": "Fasilitas Area",
+        "fasilitas": [
+          "Keamanan 24 Jam",
+          "Pusat Kebugaran",
+          "Dekat Jalan Raya",
+          "Akses Jalan Tol",
+          "Masuk Mobil",
+          "Pusat Bisnis",
+          "Dekat Kawasan Bisnis",
+          "Dekat Pusat Perbelanjaan",
+          "Dekat Stasiun",
+          "Dekat Sekolah",
+          "Dekat Rumah Sakit",
+          "Dekat Tempat Ibadah",
+          "Bebas Banjir",
+          "Kolam Renang",
+          "Taman",
+          "Kids Playground",
+          "Jogging Track",
+          "ATM",
+          "ATM & Bank",
+          "Minimarket",
+          "Parkir Mobil",
+          "Parkir Motor",
+          "Foodcourt"
+        ]
+      }
+    ],
+    "informasi_interior": null
+    },
+    "tipe_kost": null,
+    "daya_listrik": null,
+    "biaya_listrik": null
   }
 ]
