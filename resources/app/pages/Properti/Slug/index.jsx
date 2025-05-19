@@ -121,6 +121,43 @@ const Index = () => {
     fetchPropertiDetail();
   }, [dispatch, slug]);
 
+  const renderCombinedInteriorCard = (interior, targets, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const total = targets.reduce((sum, name) => {
+      const item = interior.find(i => i.nama === name);
+      const val = parseInt(item?.fasilitas?.[0]) || 0;
+      return sum + val;
+    }, 0);
+
+    if (total === 0) return null;
+
+    return (
+      <div className="align-content-center border-0 card p-3 text-capitalize text-secondary bg-white shadow-sm">
+        <div>
+          {iconClass && <i className={`fa ${iconClass} me-2`}></i>}
+          {total}
+        </div>
+        <div>{label}</div>
+      </div>
+    );
+  };
+  const renderSingleInteriorCard = (interior, target, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const item = interior.find(i => i.nama === target);
+    const value = item?.fasilitas?.[0];
+
+    if (!value) return null;
+
+    return (
+      <div className="align-content-center border-0 card p-3 text-capitalize text-secondary bg-white shadow-sm">
+        <div>{iconClass && <i className={`fa ${iconClass} me-2`}></i>}</div>
+        <div>{value}</div>
+      </div>
+    );
+  };
+
   return (
     <Fragment>
       <Heads
@@ -249,16 +286,37 @@ const Index = () => {
                       </div>
                     )}
                     {/* Biaya Listrik */}
-                    {kontrakanDetail?.daya_listrik && (
-                      <div className="align-content-center border-0 card p-3 text-capitalize text-secondary bg-primary-subtle">
-                        <div className="">
-                          <i className="fa-solid fa-bolt"></i>{' '}
-                          {formatPriceLocale(kontrakanDetail?.daya_listrik)} Watt <br />
-                          {kontrakanDetail?.biaya_listrik && (
-                            <small>( {kontrakanDetail?.biaya_listrik} Listrik )</small>
-                          )}
+                    {kontrakanDetail?.tipe_properti?.nama.toLowerCase() === 'apartemen' ||
+                      (kontrakanDetail?.daya_listrik && (
+                        <div className="align-content-center border-0 card p-3 text-capitalize text-secondary bg-white shadow-sm">
+                          <div className="">
+                            <i className="fa-solid fa-bolt"></i>{' '}
+                            {formatPriceLocale(kontrakanDetail?.daya_listrik)} Watt <br />
+                            {kontrakanDetail?.biaya_listrik && (
+                              <small>( {kontrakanDetail?.biaya_listrik} Listrik )</small>
+                            )}
+                          </div>
                         </div>
-                      </div>
+                      ))}
+
+                    {renderSingleInteriorCard(
+                      kontrakanDetail?.tipe_properti?.informasi_interior,
+                      'Kondisi Perabotan',
+                      'Kondisi Perabotan',
+                      'fa-couch' // pakai icon lain kalau mau
+                    )}
+                    {renderCombinedInteriorCard(
+                      kontrakanDetail?.tipe_properti?.informasi_interior,
+                      ['Kamar Tidur', 'Kamar Tidur ART'],
+                      'Kamar Tidur',
+                      'fa-bed'
+                    )}
+
+                    {renderCombinedInteriorCard(
+                      kontrakanDetail?.tipe_properti?.informasi_interior,
+                      ['Kamar Mandi', 'Kamar Mandi ART'],
+                      'Kamar Mandi',
+                      'fa-bath'
                     )}
                   </div>
                 )

@@ -101,6 +101,8 @@ export default function Index(props) {
     }
   };
 
+  useTooltips();
+
   const CardContent = () => {
     return (
       <div>
@@ -170,7 +172,6 @@ export default function Index(props) {
   };
 
   const isMobile = window.innerWidth <= 480;
-  useTooltips();
 
   return (
     <Fragment>
