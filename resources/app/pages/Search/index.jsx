@@ -66,6 +66,21 @@ export default function Index() {
     viewMode: 'list'
   });
 
+  const scrollHasilPencarian = () => {
+    setTimeout(() => {
+      const section = document.getElementById('HasilPencarian');
+      if (section) {
+        const yOffset = -90; // offset atas
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  }
+
   const fetchFormData = async () => {
     setIsLoading(prev => ({ ...prev, data: true }));
     await setFormData({
@@ -134,18 +149,7 @@ export default function Index() {
     await dispatch(getSearchResult(query));
 
     // Scroll ke hasil pencarian
-    setTimeout(() => {
-      const section = document.getElementById('HasilPencarian');
-      if (section) {
-        const yOffset = -90; // offset atas
-        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
+    scrollHasilPencarian();
 
     setIsLoading(prev => ({ ...prev, btnSearch: false }));
   };
