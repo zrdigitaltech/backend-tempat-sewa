@@ -85,9 +85,9 @@ export default function Mobile(props) {
               <Skeleton height={30} count={5} className="mb-2" />
             ) : (
               // Render daftar link jika sudah selesai loading
-              tipePropertiList.map(link => (
+              tipePropertiList.map((link, idx) => (
                 <Link
-                  key={link.path}
+                  key={link?.path || idx}
                   className={`nav-link text-dark ${activeTipeProperti === link.slug ? 'active' : ''}`}
                   to={`/search?keyword=&tipeProperti=${link.slug}&viewMode=list`}
                   onClick={handleClose}

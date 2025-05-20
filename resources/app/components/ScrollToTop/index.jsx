@@ -1,11 +1,23 @@
-import React, { useEffect } from 'react';
+// src/app/components/ScrollToTop.js
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Index = () => {
+export default function useScrollToTop() {
   const location = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-};
 
-export default Index;
+  useEffect(() => {
+    // Tunggu sebentar agar semua konten dan layout siap
+    const timeout = setTimeout(() => {
+      // Pastikan hanya scroll jika posisi belum di atas
+      if (window.scrollY > 0) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    }, 100); // Delay kecil untuk menghindari scroll sebelum DOM stabil
+
+    // Cleanup jika komponen di-unmount
+    return () => clearTimeout(timeout);
+  }, [location]);
+}

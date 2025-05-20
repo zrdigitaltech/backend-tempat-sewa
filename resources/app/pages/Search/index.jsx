@@ -22,7 +22,6 @@ import classNames from 'classnames';
 import { WhatsAppModal, KonsultasiModal } from '@/app/pages/modal';
 
 export default function Index() {
-  const navigate = useNavigate();
   const searchResultList = useSelector(state => state?.kontrakan?.searchResultList);
   const dispatch = useDispatch();
 
@@ -53,6 +52,8 @@ export default function Index() {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
   const [showKonsultasi, setShowKonsultasi] = useState(false);
   const [dataItem, setDataItem] = useState(null);
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     tipeProperti: '',
@@ -128,7 +129,24 @@ export default function Index() {
 
     // Navigasi ke halaman pencarian dengan query yang sudah dibangun
     navigate(query);
+
+    // Tunggu data dari Redux
     await dispatch(getSearchResult(query));
+
+    // Scroll ke hasil pencarian
+    setTimeout(() => {
+      const section = document.getElementById('HasilPencarian');
+      if (section) {
+        const yOffset = -80; // offset atas
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+
     setIsLoading(prev => ({ ...prev, btnSearch: false }));
   };
 
@@ -184,7 +202,7 @@ export default function Index() {
           </div>
 
           {/* Placeholder hasil pencarian */}
-          <div>
+          <div id="HasilPencarian">
             {searchResultList?.length > 0 && (
               <Fragment>
                 <h3 className="fw-bold mb-2 text-capitalize">

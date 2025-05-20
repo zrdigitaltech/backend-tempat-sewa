@@ -6,7 +6,6 @@ import { GridView } from '@/app/components/PropertiCard';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// Modals
 import WhatsAppModal from '@/app/pages/modal/WhatsApp';
 
 export default function Index() {
@@ -14,11 +13,9 @@ export default function Index() {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
-
-  // UI State
   const [isPageVerified, setIsPageVerified] = useState(false);
 
-  // Modal States
+  // Modal states
   const [showWhatsApp, setShowWhatsApp] = useState(false);
   const [dataItem, setDataItem] = useState(null);
 
@@ -26,6 +23,11 @@ export default function Index() {
     setIsLoading(true);
     await dispatch(getListKontrakan());
     setIsLoading(false);
+
+    // Scroll ke atas setelah data termuat
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   useEffect(() => {
@@ -37,8 +39,8 @@ export default function Index() {
       alert('Nomor WhatsApp tidak tersedia.');
       return;
     }
-
-    alert(`Redirect langsung ke whatsapp ${no_whatsapp}`);
+    // Ganti dengan real redirect jika perlu
+    alert(`Redirect langsung ke WhatsApp ${no_whatsapp}`);
   };
 
   return (
@@ -49,34 +51,55 @@ export default function Index() {
           <div className="row g-4">
             {isLoading
               ? Array.from({ length: 8 }).map((_, index) => (
-                  <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
+                  <div key={index} className="col-6 col-sm-6 col-lg-4 col-xl-3">
                     <Skeleton height={200} />
                     <Skeleton count={2} />
                   </div>
                 ))
-              : kontrakanList?.map((item, index) => (
-                  <div key={index} className="col-12 col-sm-6 col-lg-4 col-xl-3">
+              : kontrakanList?.slice(0, 8).map((item, index) => (
+                  <div key={index} className="col-6 col-sm-6 col-lg-4 col-xl-3">
                     <GridView
                       {...item}
-                      newTab={true}
-                      showKategori={true}
-                      showInterior={true}
-                      handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                      newTab
+                      showKategori
+                      showInterior
+                      handlePhone={() => {
+                        setShowWhatsApp(true);
+                        setDataItem(item);
+                      }}
                       handleWhatsApp={() =>
                         isPageVerified
                           ? handleGoToWhatsApp(item?.no_whatsapp)
-                          : setShowWhatsApp(true)
+                          : (setShowWhatsApp(true), setDataItem(item))
                       }
                     />
                   </div>
                 ))}
+
+            {/* Tombol "Lihat Semua" */}
+            {!isLoading && kontrakanList?.length > 8 && (
+              <div className="col-12 text-center mt-4">
+                <a
+                  className="btn btn-warning fw-semibold rounded-3 px-5"
+                  href="/search?keyword=&viewMode=list"
+                  target="_blank"
+                >
+                  Lihat Semua
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </section>
+
+      {/* Modal WhatsApp */}
       <WhatsAppModal
         show={showWhatsApp}
         setShowWhatsApp={setShowWhatsApp}
-        onClose={() => (setShowWhatsApp(false), setDataItem(null))}
+        onClose={() => {
+          setShowWhatsApp(false);
+          setDataItem(null);
+        }}
         isPageVerified={isPageVerified}
         setIsPageVerified={setIsPageVerified}
         handleGoWhatsApp={() => handleGoToWhatsApp(dataItem?.no_whatsapp)}
