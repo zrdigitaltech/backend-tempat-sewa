@@ -1,3 +1,5 @@
+@use '@/app/styles/scss/base/variables' as *;
+
 .ST--PasangIklan {
   @media (max-width: 375px) {
     display: none !important;
@@ -8,5 +10,27 @@
     @media (max-width: 375px) {
       display: block !important;
     }
+  }
+}
+
+// Offcanvas Mobile
+.submenu-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
+
+  &.open {
+    max-height: 385px; // Sesuaikan sesuai jumlah item
+    opacity: 1;
+  }
+}
+
+.nav-link {
+  &.active {
+    font-weight: bold;
+    color: $primary !important;
   }
 }

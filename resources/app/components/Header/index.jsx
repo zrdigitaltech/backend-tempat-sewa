@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListLogos } from '@/app/redux/action/logos/creator';
 import { Link } from 'react-router-dom';
 import './header.scss';
+import OffcanvasMobile from './Mobile';
 
 export default function Index() {
   const logosList = useSelector(state => state.logos.logosList);
   const dispatch = useDispatch();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
     dispatch(getListLogos());
@@ -32,11 +38,11 @@ export default function Index() {
           </li>
         </ul>
         <button
-          className="btn d-lg-none pe-0"
+          className="btn d-lg-none p-0 mx-2 my-1"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#mobileMenu"
-          aria-controls="mobileMenu"
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-label="Toggle mobile menu"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -57,34 +63,7 @@ export default function Index() {
       </div>
 
       {/* Offcanvas Mobile Menu */}
-      <div
-        className="offcanvas offcanvas-end"
-        tabIndex="-1"
-        id="mobileMenu"
-        aria-labelledby="mobileMenuLabel"
-      >
-        <div className="offcanvas-header border-bottom">
-          <h5 id="mobileMenuLabel" className="offcanvas-title fw-bold">
-            <span className="text-primary">tempat</span>Sewa.Com
-          </h5>
-          <button
-            type="button"
-            className="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body d-flex flex-column gap-2">
-          <a className="nav-link text-dark" href="/properti/login" target="_blank">
-            LogIn
-          </a>
-        </div>
-        <div className="offcanvas-footer p-3 border-top shadow ST--PasangIklan__mobile">
-          <Link className="btn btn-primary w-100" to="/pasang-iklan">
-            + Pasang Iklan
-          </Link>
-        </div>
-      </div>
+      <OffcanvasMobile handleClose={closeMenu} isMenuOpen={isMenuOpen} />
     </nav>
   );
 }

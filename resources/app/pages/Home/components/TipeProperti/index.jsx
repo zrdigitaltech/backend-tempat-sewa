@@ -159,7 +159,7 @@ export default function Index() {
               {tipePropertiList?.map((cat, index) => (
                 <div key={index} className="p-2">
                   <Link
-                    to={`/search?keyword=&tipeProperti=${cat.slug}`}
+                    to={`/search?keyword=&tipeProperti=${cat.slug}&viewMode=list`}
                     className="text-decoration-none text-dark"
                   >
                     <div className="card text-center border-0 shadow-sm h-100">
