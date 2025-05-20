@@ -60,7 +60,13 @@ const Index = props => {
                       scrollSnapAlign: 'start'
                     }}
                   >
-                    <GridView {...kontrakan} btnTelp={false} swipeable={false} />
+                    <GridView
+                      {...kontrakan}
+                      btnTelp={false}
+                      swipeable={false}
+                      showKategori={true}
+                      showInterior={true}
+                    />
                   </div>
                 ))}
           </div>

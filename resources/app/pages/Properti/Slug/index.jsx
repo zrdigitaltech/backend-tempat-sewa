@@ -20,6 +20,7 @@ import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';
 import SliderImage from '@/app/pages/Properti/Slug/components/SliderImage';
 import PropertiLainnya from '@/app/pages/Properti/Slug/components/PropertiLainnya';
 import Sidebar from '@/app/pages/Properti/Slug/components/Sidebar';
+import SidebarMobile from '@/app/pages/Properti/Slug/components/Sidebar/Mobile';
 
 // Redux Actions
 import { getPropertiDetail } from '@/app/redux/action/kontrakan/creator';
@@ -210,7 +211,7 @@ const Index = () => {
         <div className="container">
           {/* Detail Info */}
           <div className="row g-4">
-            <div className="col-md-8">
+            <div className="col-sm-12 col-lg-8">
               {/* Breadcrumb */}
               <Breadcrumb containerClassName="px-0 mb-2" isLoading={isLoading} />
               <div className="mb-2 overflow-auto">
@@ -297,7 +298,7 @@ const Index = () => {
               ) : (
                 (kontrakanDetail?.kategori_interior?.kondisi_perabotan ||
                   kontrakanDetail?.daya_listrik) && (
-                  <div className="d-flex gap-2 flex-nowrap">
+                  <div className="d-flex gap-2 flex-wrap">
                     {/* Kondisi Perabotan */}
                     {kontrakanDetail?.kategori_interior?.kondisi_perabotan && (
                       <div className="align-content-center border card p-3 text-capitalize text-secondary">
@@ -417,7 +418,7 @@ const Index = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="col-md-4">
+            <div className="col-lg-4 d-none d-lg-block">
               <Sidebar
                 slug={slug}
                 kontrakanDetail={kontrakanDetail}
@@ -431,6 +432,16 @@ const Index = () => {
                 isLoading={isLoading}
               />
             </div>
+            <SidebarMobile
+              kontrakanDetail={kontrakanDetail}
+              handlePhone={() => setShowWhatsApp(true)}
+              handleWhatsApp={() =>
+                isPageVerified
+                  ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                  : setShowWhatsApp(true)
+              }
+              isLoading={isLoading}
+            />
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 {
-  "short_name": "Sewa Kontrakan",
-  "name": "Nama Pemilik Kontrakan",
+  "short_name": "tempatSewa",
+  "name": "tempatSewa.com - Platform Properti Sewa",
   "icons": [
     {
       "src": "/assets/images/icons-512.png",
@@ -11,58 +11,40 @@
       "src": "/assets/images/icons-192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "/assets/images/icons-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "id": "/",
   "start_url": "/",
-  "background_color": "#000",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#f47629",
+  "description": "tempatSewa.com adalah platform tepercaya untuk mencari dan memasarkan properti sewa seperti kontrakan, kost, rumah, apartemen, hingga ruko. Temukan hunian impian atau kelola properti dengan lebih efisien di satu tempat.",
   "shortcuts": [
     {
-      "name": "Nama Pemilik Kontrakan",
-      "short_name": "Sewa Kontrakan",
-      "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
-      "url": "/today?source=pwa",
+      "name": "Cari Kontrakan",
+      "short_name": "Kontrakan",
+      "description": "Lihat daftar kontrakan yang tersedia.",
+      "url": "/search?tipeProperti=kontrakan&source=pwa",
       "icons": [
         {
-          "src": "/assets/images/about-us-192.png",
+          "src": "/assets/images/icons-192.png",
           "sizes": "192x192"
         }
       ]
     },
     {
-      "name": "Nama Pemilik Kontrakan",
-      "short_name": "Sewa Kontrakan",
-      "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
-      "url": "/tomorrow?source=pwa",
+      "name": "Cari Kost",
+      "short_name": "Kost",
+      "description": "Temukan kost terbaik sesuai kebutuhanmu.",
+      "url": "/search?tipeProperti=kost&source=pwa",
       "icons": [
         {
-          "src": "/assets/images/about-us-192.png",
+          "src": "/assets/images/icons-192.png",
           "sizes": "192x192"
         }
       ]
     }
   ],
-  "description": "Seseorang yang menyewa atau menempati suatu properti seperti kontrakan.",
-  "screenshots": [
-    {
-      "src": "/assets/images/about-us-540.png",
-      "type": "image/png",
-      "sizes": "540x720",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/assets/images/about-us-720.png",
-      "type": "image/png",
-      "sizes": "720x540",
-      "form_factor": "wide"
-    }
-  ]
+  "screenshots": []
 }

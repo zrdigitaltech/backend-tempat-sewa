@@ -145,8 +145,8 @@ export default function Index(props) {
   const isMobile = window.innerWidth <= 480;
 
   return (
-    <div className="card border-0 shadow-sm h-100 justify-content-between">
-      <div className="position-relative" style={{ height: isMobile ? '140px' : '250px' }}>
+    <div className={`card border-0 shadow-sm h-100`}>
+      <div className="position-relative" style={{ height: isMobile ? '' : '250px' }}>
         {isLoading ? (
           <Skeleton height={isMobile ? '' : 250} />
         ) : (

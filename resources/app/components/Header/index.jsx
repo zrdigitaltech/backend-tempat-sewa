@@ -64,7 +64,7 @@ export default function Index() {
         aria-labelledby="mobileMenuLabel"
       >
         <div className="offcanvas-header border-bottom">
-          <h5 id="mobileMenuLabel" className="offcanvas-title">
+          <h5 id="mobileMenuLabel" className="offcanvas-title fw-bold">
             <span className="text-primary">tempat</span>Sewa.Com
           </h5>
           <button
