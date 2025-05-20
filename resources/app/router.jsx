@@ -22,6 +22,9 @@ const PasangIklan = lazy(() => import('@/app/pages/PasangIklan'));
 const SyaratDanKetentuan = lazy(() => import('@/app/pages/legal/SyaratDanKetentuan'));
 const KebijakanPrivasi = lazy(() => import('@/app/pages/legal/KebijakanPrivasi'));
 
+const Panduan = lazy(() => import('@/app/pages/Panduan'));
+const Jelajah = lazy(() => import('@/app/pages/Jelajah'));
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -92,6 +95,24 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<RouteLoading />}>
             <PasangIklan />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/panduan"
+        handle={{ breadcrumb: 'Panduan' }}
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <Panduan />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/jelajah"
+        handle={{ breadcrumb: 'Jelajah' }}
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <Jelajah />
           </Suspense>
         }
       />

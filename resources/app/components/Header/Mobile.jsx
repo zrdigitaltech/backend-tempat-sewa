@@ -6,6 +6,7 @@ import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Mobile(props) {
   const { isMenuOpen, handleClose } = props;
@@ -13,6 +14,7 @@ export default function Mobile(props) {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const activeTipeProperti = query.get('tipeProperti');
+  const navigate = useNavigate();
 
   const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
@@ -40,8 +42,12 @@ export default function Mobile(props) {
       id="mobileMenu"
       aria-labelledby="mobileMenuLabel"
     >
-      <div className="offcanvas-header border-bottom">
-        <h5 id="mobileMenuLabel" className="offcanvas-title fw-bold">
+      <div className="offcanvas-header border-bottom py-4">
+        <h5
+          id="mobileMenuLabel"
+          className="offcanvas-title fw-bold"
+          onClick={() => (navigate('/'), handleClose())}
+        >
           <span className="text-primary">tempat</span>Sewa.Com
         </h5>
         <button
