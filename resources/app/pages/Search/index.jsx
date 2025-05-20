@@ -137,7 +137,7 @@ export default function Index() {
     setTimeout(() => {
       const section = document.getElementById('HasilPencarian');
       if (section) {
-        const yOffset = -80; // offset atas
+        const yOffset = -90; // offset atas
         const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
         window.scrollTo({

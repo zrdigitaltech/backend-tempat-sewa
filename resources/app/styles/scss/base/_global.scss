@@ -5,8 +5,6 @@ html,
 body {
   scroll-behavior: smooth; /* Optional kalau ingin global smooth */
   height: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth; /* Optional kalau ingin global smooth */
   font-family: $font-family-body;
   margin-bottom: 0 !important;
   color: $text-primary;
