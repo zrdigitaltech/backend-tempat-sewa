@@ -177,7 +177,7 @@ export default function Index(props) {
                   ))}
 
               <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
-                <i className="fa fa-clock"></i> Diperbaharui: {upload}
+                <i className="fa fa-clock"></i> Diperbarui: {upload}
               </span>
             </div>
           </Fragment>

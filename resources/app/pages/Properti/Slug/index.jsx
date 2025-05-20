@@ -246,7 +246,7 @@ const Index = () => {
                       </span>
 
                       <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
-                        <i className="fa fa-clock"></i> Diperbaharui: {kontrakanDetail?.upload}
+                        <i className="fa fa-clock"></i> Diperbarui: {kontrakanDetail?.upload}
                       </span>
                     </Fragment>
                   )}

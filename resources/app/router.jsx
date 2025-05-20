@@ -39,7 +39,7 @@ const router = createBrowserRouter(
             <Home />
           </Suspense>
         }
-        handle={{ breadcrumb: 'Home' }}
+        handle={{ breadcrumb: 'Beranda' }}
       />
       <Route path="properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
@@ -140,7 +140,7 @@ const router = createBrowserRouter(
       />
       <Route
         path="/syarat-dan-ketentuan"
-        handle={{ breadcrumb: 'Syarat Dan Ketentuan' }}
+        handle={{ breadcrumb: 'Syarat dan Ketentuan' }}
         element={
           <Suspense fallback={<RouteLoading />}>
             <SyaratDanKetentuan />
@@ -149,7 +149,7 @@ const router = createBrowserRouter(
       />
       <Route
         path="/kebijakan-privasi"
-        handle={{ breadcrumb: 'Privacy Policy ' }}
+        handle={{ breadcrumb: 'Kebijakkan Privasi ' }}
         element={
           <Suspense fallback={<RouteLoading />}>
             <KebijakanPrivasi />

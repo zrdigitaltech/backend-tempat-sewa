@@ -28,7 +28,7 @@ const Breadcrumb = props => {
                 <Skeleton width={60} height={16} />
               ) : (
                 <Link to="/" className="text-decoration-none">
-                  Home
+                  Beranda
                 </Link>
               )}
             </li>
