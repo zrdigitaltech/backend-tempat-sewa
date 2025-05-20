@@ -1,8 +1,8 @@
-.nav-tabs-scroll-wrapper {
+.ST-nav-tabs-scroll-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
-  .nav-tabs-custom {
+  .ST-nav-tabs-custom {
     min-width: max-content;
     padding-bottom: 0.25rem;
 
@@ -17,6 +17,18 @@
 
       &:hover {
         color: #1d2b64;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 24px;
+          height: 4px;
+          background-color: #1d2b64;
+          border-radius: 9999px;
+        }
       }
 
       &.active::after {
