@@ -1,35 +1,69 @@
+import { Link } from 'react-router-dom';
+
 export default function Index() {
   return (
     <footer className="bg-primary text-light py-5">
       <div className="container">
         <div className="row mb-4">
           {/* Deskripsi */}
-          <div className="col-md-6">
-            <h5>Tentang tempatSewa.Com</h5>
-            <p>
-              <small>tempat</small>Sewa.Com adalah Platform tepercaya yang memudahkanmu menemukan
-              tempat tinggal impian — mulai dari kontrakan, kost, hingga properti sewa lainnya.
-              Nikmati pengalaman pencarian hunian yang cepat dan aman. Bagi pemilik properti,{' '}
-              <small>tempat</small>Sewa.Com juga menyediakan solusi praktis untuk memasarkan dan
-              mengelola properti dalam satu platform yang efisien.
-            </p>
+          <div className="col-md-8">
+            <div>
+              <h6 className="fw-bold">Selamat datang di tempatSewa.Com</h6>
+              <p>
+                <small>tempat</small>Sewa.Com adalah Platform tepercaya yang memudahkanmu menemukan
+                tempat tinggal impian — mulai dari kontrakan, kost, hingga properti sewa lainnya.
+                Nikmati pengalaman pencarian hunian yang cepat dan aman. Bagi pemilik properti,{' '}
+                <small>tempat</small>Sewa.Com juga menyediakan solusi praktis untuk memasarkan dan
+                mengelola properti dalam satu platform yang efisien.
+              </p>
+            </div>
+            <div className="mb-3 mb-sm-0">
+              <h6 className="fw-bold">Hubungi Kami</h6>
+              <p className="mb-1">
+                Email:{' '}
+                <Link
+                  to="mailto:bantuan@tempatSewa.Com"
+                  className="text-white text-decoration-none"
+                  rel="noopener noreferrer"
+                >
+                  bantuan@tempatSewa.Com
+                </Link>
+              </p>
+              <p className="mb-1">Telepon: +62 8122 888 3616</p>
+              {/* <p className="mb-0">Kantor: EightyEight @Kasablanka, Jl. Casablanca Kav.88, Jakarta Selatan, Jakarta 12870</p> */}
+            </div>
           </div>
 
           {/* Hubungi Kami */}
-          <div className="col-md-6">
-            <h5>Hubungi Kami</h5>
-            <p className="mb-1">
-              Email:{' '}
-              <a
-                href="mailto:bantuan@tempatSewa.Com"
-                className="text-white text-decoration-none"
-                rel="noopener noreferrer"
-              >
-                bantuan@tempatSewa.Com
-              </a>
-            </p>
-            <p className="mb-1">Telepon: +62 8122 888 3616</p>
-            {/* <p className="mb-0">Kantor: EightyEight @Kasablanka, Jl. Casablanca Kav.88, Jakarta Selatan, Jakarta 12870</p> */}
+          <div className="col-md-4">
+            <div>
+              <h6 className="fw-bold">Profil</h6>
+              <ul className="list-unstyled">
+                <li>
+                  <Link to="/tentang-kami" className="text-white text-decoration-none">
+                    Tentang Kami
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/kebijakan-privasi" className="text-white text-decoration-none">
+                    Kebijakan Privasi
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/syarat-dan-ketentuan" className="text-white text-decoration-none">
+                    Syarat dan Ketentuan
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/syarat-penggunaan-pemilik-properti"
+                    className="text-white text-decoration-none"
+                  >
+                    Syarat Penggunaan Pemilik Properti
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -45,14 +79,14 @@ export default function Index() {
           <div className="col-6 text-end">
             <p className="mb-0">
               Dikembangkan oleh{' '}
-              <a
-                href="https://zrdevelopers.github.io/"
+              <Link
+                to="https://zrdevelopers.github.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white fw-semibold text-decoration-none"
               >
                 ZRDevelopers
-              </a>
+              </Link>
             </p>
           </div>
         </div>

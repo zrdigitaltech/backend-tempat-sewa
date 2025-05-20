@@ -79,7 +79,7 @@ export default function Index() {
         });
       }
     }, 100);
-  }
+  };
 
   const fetchFormData = async () => {
     setIsLoading(prev => ({ ...prev, data: true }));
