@@ -1,0 +1,35 @@
+.nav-tabs-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  .nav-tabs-custom {
+    min-width: max-content;
+    padding-bottom: 0.25rem;
+
+    a.tab-link {
+      position: relative;
+      padding-bottom: 8px;
+      font-weight: 500;
+      color: #1d2b64;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #1d2b64;
+      }
+
+      &.active::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 24px;
+        height: 4px;
+        background-color: #1d2b64;
+        border-radius: 9999px;
+      }
+    }
+  }
+}
