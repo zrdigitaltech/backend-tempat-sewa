@@ -21,9 +21,13 @@ const PasangIklan = lazy(() => import('@/app/pages/PasangIklan'));
 
 const SyaratDanKetentuan = lazy(() => import('@/app/pages/legal/SyaratDanKetentuan'));
 const KebijakanPrivasi = lazy(() => import('@/app/pages/legal/KebijakanPrivasi'));
+const SyaratPenggunaanPemilikProperti = lazy(
+  () => import('@/app/pages/legal/SyaratPenggunaanPemilikProperti')
+);
 
 const Panduan = lazy(() => import('@/app/pages/Panduan'));
 const Jelajah = lazy(() => import('@/app/pages/Jelajah'));
+const TentangKami = lazy(() => import('@/app/pages/TentangKami'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -113,6 +117,24 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<RouteLoading />}>
             <Jelajah />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/tentang-kami"
+        handle={{ breadcrumb: 'Tentang Kami' }}
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <TentangKami />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/syarat-penggunaan-pemilik-properti"
+        handle={{ breadcrumb: 'Syarat Penggunaan Pemilik Properti' }}
+        element={
+          <Suspense fallback={<RouteLoading />}>
+            <SyaratPenggunaanPemilikProperti />
           </Suspense>
         }
       />
