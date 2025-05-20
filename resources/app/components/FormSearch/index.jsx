@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {
   TipeKamar,
   TipeKost,
@@ -18,13 +18,21 @@ export default function Index(props) {
     isLoading = false
   } = props;
   const isApartemenOrRumah = tipeProperti === 'apartemen' || tipeProperti === 'rumah';
+  const [isLoadingData, setIsLoadingData] = useState({
+    tipeProperti: false
+  });
 
   return (
     <section>
       <div className="row g-2">
         {/* Tipe Properti */}
         <div className="col-12 col-md-2">
-          <TipeProperti tipeProperti={formData?.tipeProperti} handleChange={handleChange} />
+          <TipeProperti
+            tipeProperti={formData?.tipeProperti}
+            handleChange={handleChange}
+            isLoading={isLoadingData?.tipeProperti}
+            setIsLoading={setIsLoadingData}
+          />
         </div>
 
         {/* Input Search */}
@@ -51,9 +59,9 @@ export default function Index(props) {
               <button
                 className="btn btn-warning w-100 fw-semibold rounded-3"
                 onClick={handleSearch}
-                disabled={isLoading}
+                disabled={isLoading || isLoadingData?.tipeProperti}
               >
-                {isLoading ? 'Memuat...' : 'Cari Properti'}
+                {isLoading || isLoadingData?.tipeProperti ? 'Memuat...' : 'Cari Properti'}
               </button>
             </div>
           </Fragment>
@@ -120,9 +128,9 @@ export default function Index(props) {
             <button
               className="btn btn-warning w-100 fw-semibold rounded-3"
               onClick={handleSearch}
-              disabled={isLoading}
+              disabled={isLoading || isLoadingData?.tipeProperti}
             >
-              {isLoading ? 'Memuat...' : 'Cari Properti'}
+              {isLoading || isLoadingData?.tipeProperti ? 'Memuat...' : 'Cari Properti'}
             </button>
           </div>
         </div>

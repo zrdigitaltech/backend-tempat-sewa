@@ -5,17 +5,20 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index(props) {
-  const { tipeProperti, handleChange } = props;
+  const { tipeProperti, handleChange, isLoading, setIsLoading } = props;
 
   const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
 
-  const [isLoading, setIsLoading] = useState(true);
-
   const fetchTipeProperti = async () => {
-    setIsLoading(true);
-    await dispatch(getListTipeProperti());
-    setIsLoading(false);
+    setIsLoading(prev => ({ ...prev, tipeProperti: true }));
+    try {
+      await dispatch(getListTipeProperti());
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(prev => ({ ...prev, tipeProperti: false }));
+    }
   };
 
   useEffect(() => {
