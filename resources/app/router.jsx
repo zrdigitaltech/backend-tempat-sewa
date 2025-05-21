@@ -46,7 +46,7 @@ const router = createBrowserRouter(
         }
         handle={{ breadcrumb: 'Beranda' }}
       />
-      <Route path="/properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
+      <Route path="properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
           index
@@ -74,7 +74,7 @@ const router = createBrowserRouter(
           }}
         />
       </Route>
-      <Route path="/pemilik" handle={{ breadcrumb: 'Pemilik' }} element={<Outlet />}>
+      <Route path="pemilik" handle={{ breadcrumb: 'Pemilik' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
           path=":slug"
@@ -107,7 +107,7 @@ const router = createBrowserRouter(
           </Suspense>
         }
       />
-      <Route path="/panduan" handle={{ breadcrumb: 'Panduan' }} element={<Outlet />}>
+      <Route path="panduan" handle={{ breadcrumb: 'Panduan' }} element={<Outlet />}>
         <Route
           index
           element={
@@ -128,7 +128,7 @@ const router = createBrowserRouter(
               slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
           }}
         />
-        <Route path="/author" handle={{ breadcrumb: 'Author' }} element={<Outlet />}>
+        <Route path="author" handle={{ breadcrumb: 'Author' }} element={<Outlet />}>
           <Route index element={<Navigate to="/404" />} />
           <Route
             path=":slug"
@@ -145,7 +145,7 @@ const router = createBrowserRouter(
         </Route>
       </Route>
 
-      <Route path="/jelajah" handle={{ breadcrumb: 'Jelajah' }} element={<Outlet />}>
+      <Route path="jelajah" handle={{ breadcrumb: 'Jelajah' }} element={<Outlet />}>
         <Route
           index
           element={

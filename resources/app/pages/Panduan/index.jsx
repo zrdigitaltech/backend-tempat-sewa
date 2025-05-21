@@ -6,44 +6,45 @@ const guideList = [
   {
     title: 'Tips Mencari Kost yang Nyaman dan Aman',
     slug: 'tips-mencari-kost',
-    category: 'Penyewa',
     image: 'https://placehold.co/800x600?text=Kost',
     date: '2024-12-01',
     author: 'Admin',
-    authorSlug: 'admin'
+    authorSlug: 'admin',
+    role: 'Penyewa',
   },
   {
     title: 'Cara Menyewakan Rumah Secara Online dengan Efektif',
     slug: 'sewakan-rumah-online',
-    category: 'Pemilik',
     image: 'https://placehold.co/800x600?text=SewaOnline',
     date: '2024-09-18',
     author: 'Tim tempatSewa',
-    authorSlug: 'tim-tempatSewa'
+    authorSlug: 'tim-tempatSewa',
+    role: 'Pemilik',
   },
   {
     title: 'Checklist Sebelum Menyewa Kontrakan',
     slug: 'checklist-kontrakan',
-    category: 'Penyewa',
     image: 'https://placehold.co/800x600?text=Kontrakan',
     date: '2024-12-01',
     author: 'Admin',
-    authorSlug: 'admin'
+    authorSlug: 'admin',
+    role: 'Penyewa',
   },
   {
     title: 'Panduan Foto Properti yang Menarik',
     slug: 'foto-properti-menarik',
-    category: 'Pemilik',
     image: 'https://placehold.co/800x600?text=Properti',
     date: '2024-09-18',
     author: 'Tim tempatSewa',
-    authorSlug: 'tim-tempatSewa'
+    authorSlug: 'tim-tempatSewa',
+    role: 'Pemilik',
   }
 ];
 
-const categoryColor = {
+const roleColor = {
   Penyewa: 'primary',
-  Pemilik: 'success'
+  Pemilik: 'success',
+  Author: 'info'
 };
 
 const Index = () => {
@@ -78,9 +79,9 @@ const Index = () => {
                     )}
                     <div className="card-body">
                       <span
-                        className={`badge bg-${categoryColor[item.category] || 'secondary'} mb-2`}
+                        className={`badge bg-${roleColor[item.role] || 'secondary'} mb-2`}
                       >
-                        {item.category}
+                        {item.role}
                       </span>
                       <h5 className="card-title text-dark d-flex justify-content-between align-items-center">
                         {item.title}
