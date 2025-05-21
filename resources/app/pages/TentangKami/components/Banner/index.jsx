@@ -80,11 +80,7 @@ export default function Index() {
             </div>
           </Fragment>
         ) : (
-          <div
-            className="bg-white text-black rounded-3 shadow p-4 text-center"
-            data-aos="fade-up"
-            data-aos-delay={200}
-          >
+          <div className="bg-white text-black rounded-3 shadow p-4 text-center" data-aos="fade-up">
             <h3 className="lead text-primary mb-2">MISI KAMI</h3>
             <h1 className="display-6 fw-bold lh-base">
               Mewujudkan platform sewa properti <strong className="text-primary">terdepan</strong>{' '}
