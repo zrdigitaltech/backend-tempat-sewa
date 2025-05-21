@@ -3,6 +3,7 @@ import Breadcrumb from '@/app/components/Breadcrumb';
 import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 
 const Index = () => {
+  const [searchInput, setSearchInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [guideList, setGuideList] = useState([]);
@@ -49,6 +50,7 @@ const Index = () => {
       }
     ];
     setGuideList(data);
+    setFilteredGuides(data); // tampilkan semua awalnya
   };
 
   // Ambil data saat pertama kali render
@@ -56,15 +58,22 @@ const Index = () => {
     fetchGuideList();
   }, []);
 
-  // Filter ulang jika guideList, searchTerm, atau selectedCategory berubah
+  // Filter ulang hanya jika selectedCategory atau searchTerm berubah
   useEffect(() => {
-    const filtered = guideList.filter(
-      item =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        (selectedCategory === '' || item.kategori === selectedCategory)
-    );
+    let filtered = guideList;
+
+    if (searchTerm) {
+      filtered = filtered.filter(item =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (selectedCategory !== '') {
+      filtered = filtered.filter(item => item.kategori === selectedCategory);
+    }
+
     setFilteredGuides(filtered);
-  }, [guideList, searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, guideList]);
 
   const categories = Array.from(new Set(guideList.map(item => item.kategori)));
 
@@ -86,11 +95,12 @@ const Index = () => {
           </p>
 
           <PanduanFilter
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
+            searchTerm={searchInput}
+            setSearchTerm={setSearchInput}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
             categories={categories}
+            onSearchEnter={() => setSearchTerm(searchInput)} // trigger filter saat enter
           />
 
           <PanduanList guides={filteredGuides} />

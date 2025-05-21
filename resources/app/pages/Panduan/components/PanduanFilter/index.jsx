@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Index = props => {
-  const { searchTerm, setSearchTerm, selectedCategory, setSelectedCategory, categories } = props;
-
+const Index = ({
+  searchTerm,
+  setSearchTerm,
+  selectedCategory,
+  setSelectedCategory,
+  categories,
+  onSearchEnter,
+}) => {
   return (
     <div className="row align-items-center mb-4">
       <div className="col-sm-4">
@@ -26,6 +31,12 @@ const Index = props => {
           placeholder="Cari panduan berdasarkan judul..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
+          onKeyDown={e => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              onSearchEnter();
+            }
+          }}
         />
       </div>
     </div>
