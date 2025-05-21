@@ -6,7 +6,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import { RouterProvider } from 'react-router-dom';
-import router from './router';
+import router from '@/app/router';
 
 import store from '@/app/redux/store';
 

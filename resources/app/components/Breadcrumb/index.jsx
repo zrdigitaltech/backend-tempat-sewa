@@ -6,6 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 const Breadcrumb = props => {
   const { className = '', containerClassName = '', isLoading = false } = props;
   const matches = useMatches();
+  console.log('matches', matches);
 
   const items = matches
     .filter(match => match.handle?.breadcrumb)
@@ -16,6 +17,7 @@ const Breadcrumb = props => {
           : match.handle.breadcrumb,
       link: match.pathname
     }));
+  console.log('items', items);
 
   return (
     <section className={`${className && className + ' pt-3'}`}>
