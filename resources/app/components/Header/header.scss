@@ -75,7 +75,7 @@
 }
 
 .dropdown {
-  .dropdown-menu {
+  &-menu {
     @include ST-dropdown-menu;
 
     &.show {
