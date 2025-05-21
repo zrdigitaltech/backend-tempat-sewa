@@ -49,7 +49,6 @@ const router = createBrowserRouter(
       <Route path="properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
-          index
           path=":slug"
           element={
             <Suspense fallback={<RouteLoading />}>
