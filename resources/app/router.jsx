@@ -26,7 +26,12 @@ const SyaratPenggunaanPemilikProperti = lazy(
 );
 
 const Panduan = lazy(() => import('@/app/pages/Panduan'));
+const PanduanSlug = lazy(() => import('@/app/pages/Panduan/Slug'));
+const AuthorSlug = lazy(() => import('@/app/pages/Panduan/Author/Slug'));
+
 const Jelajah = lazy(() => import('@/app/pages/Jelajah'));
+const JelajahSlug = lazy(() => import('@/app/pages/Jelajah/Slug'));
+
 const TentangKami = lazy(() => import('@/app/pages/TentangKami'));
 
 const router = createBrowserRouter(
@@ -41,7 +46,7 @@ const router = createBrowserRouter(
         }
         handle={{ breadcrumb: 'Beranda' }}
       />
-      <Route path="properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
+      <Route path="/properti" handle={{ breadcrumb: 'Properti' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
           index
@@ -69,7 +74,7 @@ const router = createBrowserRouter(
           }}
         />
       </Route>
-      <Route path="pemilik" handle={{ breadcrumb: 'Pemilik' }} element={<Outlet />}>
+      <Route path="/pemilik" handle={{ breadcrumb: 'Pemilik' }} element={<Outlet />}>
         <Route index element={<Navigate to="/404" />} />
         <Route
           path=":slug"
@@ -102,24 +107,66 @@ const router = createBrowserRouter(
           </Suspense>
         }
       />
-      <Route
-        path="/panduan"
-        handle={{ breadcrumb: 'Panduan' }}
-        element={
-          <Suspense fallback={<RouteLoading />}>
-            <Panduan />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/jelajah"
-        handle={{ breadcrumb: 'Jelajah' }}
-        element={
-          <Suspense fallback={<RouteLoading />}>
-            <Jelajah />
-          </Suspense>
-        }
-      />
+      <Route path="/panduan" handle={{ breadcrumb: 'Panduan' }} element={<Outlet />}>
+        <Route
+          index
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <Panduan />
+            </Suspense>
+          }
+        />
+        <Route
+          path=":slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <PanduanSlug />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+        <Route path="/author" handle={{ breadcrumb: 'Author' }} element={<Outlet />}>
+          <Route index element={<Navigate to="/404" />} />
+          <Route
+            path=":slug"
+            element={
+              <Suspense fallback={<RouteLoading />}>
+                <AuthorSlug />
+              </Suspense>
+            }
+            handle={{
+              breadcrumb: ({ slug }) =>
+                slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+            }}
+          />
+        </Route>
+      </Route>
+
+      <Route path="/jelajah" handle={{ breadcrumb: 'Jelajah' }} element={<Outlet />}>
+        <Route
+          index
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <Jelajah />
+            </Suspense>
+          }
+        />
+        <Route
+          path=":slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <JelajahSlug />
+            </Suspense>
+          }
+          handle={{
+            breadcrumb: ({ slug }) =>
+              slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+          }}
+        />
+      </Route>
       <Route
         path="/tentang-kami"
         handle={{ breadcrumb: 'Tentang Kami' }}

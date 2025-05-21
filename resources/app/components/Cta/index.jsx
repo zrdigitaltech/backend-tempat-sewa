@@ -11,7 +11,7 @@ export default function Index() {
           <small>tempat</small>Sewa.Com juga hadir sebagai solusi praktis bagi pemilik properti
           untuk memasarkan dan mengelola sewanya dengan efisien.
         </p>
-        <Link to="/daftarkan-properti" className="btn btn-warning px-4 py-2 fw-semibold">
+        <Link to="/pasang-iklan" className="btn btn-warning px-4 py-2 fw-semibold">
           Daftarkan Sekarang
         </Link>
       </div>
