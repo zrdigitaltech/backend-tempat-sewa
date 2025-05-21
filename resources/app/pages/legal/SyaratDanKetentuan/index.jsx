@@ -73,7 +73,7 @@ const Index = () => {
           <h3 className="text-xl font-semibold mt-6 mb-2">7. Kontak</h3>
           <p className="mb-4">
             Untuk pertanyaan lebih lanjut, Anda dapat menghubungi kami melalui email di{' '}
-            <a href="mailto:bantuan@tempatsewa.com" className="text-blue-600 text-decoration-none">
+            <a href="mailto:bantuan@tempatsewa.com" className="text-blue-600 ">
               bantuan@tempatsewa.com
             </a>
             .

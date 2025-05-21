@@ -11,6 +11,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './kategori.scss';
 
+import { iconTipeProperti } from '@/app/helpers';
+
 export default function Index() {
   const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
@@ -26,44 +28,6 @@ export default function Index() {
   useEffect(() => {
     fetchTipeProperti();
   }, []);
-
-  const iconLabel = nama => {
-    switch (nama?.toLowerCase()) {
-      case 'kontrakan':
-        return '🏘️';
-      case 'kost':
-        return '🛏️';
-      case 'rumah':
-        return '🏠';
-      case 'apartemen':
-        return '🏢';
-      case 'ruko':
-        return '🏬';
-      case 'kios':
-      case 'toko':
-        return '🛒';
-      case 'gudang':
-        return '🏚️';
-      case 'pabrik':
-        return '🏭';
-      case 'tanah':
-        return '🌄';
-      case 'villa':
-        return '🏖️';
-      case 'ruang kantor':
-        return '💼';
-      case 'komersial':
-        return '🏪';
-      case 'hotel':
-        return '🏨';
-      case 'gedung':
-        return '🏛️';
-      case 'kondotel':
-        return '🏩';
-      default:
-        return '🏡'; // fallback icon
-    }
-  };
 
   const SampleNextArrow = props => {
     const { className, onClick } = props;
@@ -160,11 +124,11 @@ export default function Index() {
                 <div key={index} className="p-2">
                   <Link
                     to={`/search?keyword=&tipeProperti=${cat.slug}&viewMode=list`}
-                    className="text-decoration-none text-dark"
+                    className=" text-dark"
                   >
                     <div className="card text-center border-0 shadow-sm h-100">
                       <div className="card-body py-4">
-                        <div className="fs-2 mb-2">{iconLabel(cat?.nama)}</div>
+                        <div className="fs-2 mb-2">{iconTipeProperti(cat?.nama)}</div>
                         <h6 className="card-title mb-0 text-truncate">Sewa {cat.nama}</h6>
                       </div>
                     </div>

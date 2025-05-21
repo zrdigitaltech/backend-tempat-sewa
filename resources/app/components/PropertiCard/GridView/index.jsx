@@ -10,6 +10,8 @@ import useTooltips from '@/app/components/Tooltips';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import { iconTipeProperti } from '@/app/helpers';
+
 export default function Index(props) {
   const navigate = useNavigate();
   const {
@@ -50,50 +52,6 @@ export default function Index(props) {
 
   useTooltips();
 
-  const iconKategori = nama => {
-    const namaStr =
-      typeof nama === 'string'
-        ? nama.toLowerCase()
-        : typeof nama === 'object' && nama !== null && 'nama' in nama
-          ? String(nama.nama).toLowerCase()
-          : '';
-    switch (namaStr) {
-      case 'kontrakan':
-        return '🏘️';
-      case 'kost':
-        return '🛏️';
-      case 'rumah':
-        return '🏠';
-      case 'apartemen':
-        return '🏢';
-      case 'ruko':
-        return '🏬';
-      case 'kios':
-      case 'toko':
-        return '🛒';
-      case 'gudang':
-        return '🏚️';
-      case 'pabrik':
-        return '🏭';
-      case 'tanah':
-        return '🌄';
-      case 'villa':
-        return '🏖️';
-      case 'ruang kantor':
-        return '💼';
-      case 'komersial':
-        return '🏪';
-      case 'hotel':
-        return '🏨';
-      case 'gedung':
-        return '🏛️';
-      case 'kondotel':
-        return '🏩';
-      default:
-        return '🏡'; // fallback icon
-    }
-  };
-
   const CardContent = () => (
     <div className="card-body ST--card-body p-2 p-sm-3">
       {isLoading ? (
@@ -104,7 +62,7 @@ export default function Index(props) {
             <Fragment>
               <div className="d-flex gap-2 mb-2 overflow-x-auto">
                 <span className="align-content-center badge border border-secondary text-secondary bg-transparent text-capitalize">
-                  {iconKategori(tipe_properti)}{' '}
+                  {iconTipeProperti(tipe_properti?.nama)}{' '}
                   {typeof tipe_properti === 'object'
                     ? tipe_properti?.nama.toLowerCase() === 'kost'
                       ? tipe_properti?.nama + ' ' + tipe_kost
@@ -229,13 +187,13 @@ export default function Index(props) {
         <a
           href={`/properti/${slug}`}
           target="_blank"
-          className="text-decoration-none text-dark"
+          className=" text-dark"
           rel="noopener noreferrer"
         >
           {CardContent()}
         </a>
       ) : (
-        <Link to={`/properti/${slug}`} className="text-decoration-none text-dark">
+        <Link to={`/properti/${slug}`} className=" text-dark">
           {CardContent()}
         </Link>
       )}

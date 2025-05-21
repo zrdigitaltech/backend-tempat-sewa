@@ -32,6 +32,8 @@ import './slug.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import { iconTipeProperti } from '@/app/helpers';
+
 const Index = () => {
   // React Router & Redux
   const { slug } = useParams();
@@ -71,44 +73,6 @@ const Index = () => {
     setIsLoading(true);
     await dispatch(getPropertiDetail(slug));
     setIsLoading(false);
-  };
-
-  const iconKategori = nama => {
-    switch (nama?.toLowerCase()) {
-      case 'kontrakan':
-        return '🏘️';
-      case 'kost':
-        return '🛏️';
-      case 'rumah':
-        return '🏠';
-      case 'apartemen':
-        return '🏢';
-      case 'ruko':
-        return '🏬';
-      case 'kios':
-      case 'toko':
-        return '🛒';
-      case 'gudang':
-        return '🏚️';
-      case 'pabrik':
-        return '🏭';
-      case 'tanah':
-        return '🌄';
-      case 'villa':
-        return '🏖️';
-      case 'ruang kantor':
-        return '💼';
-      case 'komersial':
-        return '🏪';
-      case 'hotel':
-        return '🏨';
-      case 'gedung':
-        return '🏛️';
-      case 'kondotel':
-        return '🏩';
-      default:
-        return '🏡'; // fallback icon
-    }
   };
 
   const handleGoToWhatsApp = no_whatsapp => {
@@ -239,7 +203,7 @@ const Index = () => {
                       )}
 
                       <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
-                        {iconKategori(kontrakanDetail?.tipe_properti?.nama)}{' '}
+                        {iconTipeProperti(kontrakanDetail?.tipe_properti?.nama)}{' '}
                         {kontrakanDetail?.tipe_properti?.nama.toLowerCase() === 'kost'
                           ? kontrakanDetail?.tipe_properti?.nama + ' ' + kontrakanDetail?.tipe_kost
                           : kontrakanDetail?.tipe_properti?.nama}

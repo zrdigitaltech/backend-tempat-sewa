@@ -7,6 +7,7 @@ import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useNavigate } from 'react-router-dom';
+import { iconTipeProperti } from '@/app/helpers';
 
 export default function Mobile(props) {
   const { isMenuOpen, handleClose } = props;
@@ -88,11 +89,11 @@ export default function Mobile(props) {
               tipePropertiList.map((link, idx) => (
                 <Link
                   key={link?.path || idx}
-                  className={`nav-link text-dark ${activeTipeProperti === link.slug ? 'active' : ''}`}
+                  className={`nav-link text-dark mb-1 ${activeTipeProperti === link.slug ? 'active' : ''}`}
                   to={`/search?keyword=&tipeProperti=${link.slug}&viewMode=list`}
                   onClick={handleClose}
                 >
-                  Sewa {link.nama}
+                  {iconTipeProperti(link.nama)} Sewa {link.nama}
                 </Link>
               ))
             )}

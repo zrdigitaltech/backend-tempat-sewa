@@ -178,18 +178,13 @@ const Index = props => {
                 <a
                   href="/syarat-dan-ketentuan"
                   target="_blank"
-                  className="text-decoration-none"
+                  className=""
                   rel="noopener noreferrer"
                 >
                   <b>Syarat dan Ketentuan</b>
                 </a>{' '}
                 &amp;{' '}
-                <a
-                  href="/kebijakan-privasi"
-                  target="_blank"
-                  className="text-decoration-none"
-                  rel="noopener noreferrer"
-                >
+                <a href="/kebijakan-privasi" target="_blank" className="" rel="noopener noreferrer">
                   <b>Kebijakan Privasi</b>
                 </a>{' '}
                 di <small>tempat</small>Sewa.Com

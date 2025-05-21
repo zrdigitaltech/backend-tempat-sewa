@@ -154,7 +154,7 @@ const Verifikasi = props => {
               <button
                 disabled={timer > 0 || isSendingOtp}
                 onClick={handleResendOtp}
-                className="btn btn-link text-decoration-none text-primary fw-medium p-0"
+                className="btn btn-link  text-primary fw-medium p-0"
               >
                 {timer === 0 && !isSendingOtp && <i className="fas fa-arrow-rotate-right me-1" />}
                 {isSendingOtp ? 'Mengirim ulang...' : 'Kirim ulang OTP'}

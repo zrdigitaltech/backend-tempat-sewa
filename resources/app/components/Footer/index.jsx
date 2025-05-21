@@ -23,7 +23,7 @@ export default function Index() {
                 Email:{' '}
                 <Link
                   to="mailto:bantuan@tempatSewa.Com"
-                  className="text-white text-decoration-none"
+                  className="text-white "
                   rel="noopener noreferrer"
                 >
                   bantuan@tempatSewa.Com
@@ -40,25 +40,22 @@ export default function Index() {
               <h6 className="fw-bold">Profil</h6>
               <ul className="list-unstyled">
                 <li>
-                  <Link to="/tentang-kami" className="text-white text-decoration-none">
+                  <Link to="/tentang-kami" className="text-white ">
                     Tentang Kami
                   </Link>
                 </li>
                 <li>
-                  <Link to="/kebijakan-privasi" className="text-white text-decoration-none">
+                  <Link to="/kebijakan-privasi" className="text-white ">
                     Kebijakan Privasi
                   </Link>
                 </li>
                 <li>
-                  <Link to="/syarat-dan-ketentuan" className="text-white text-decoration-none">
+                  <Link to="/syarat-dan-ketentuan" className="text-white ">
                     Syarat dan Ketentuan
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/syarat-penggunaan-pemilik-properti"
-                    className="text-white text-decoration-none"
-                  >
+                  <Link to="/syarat-penggunaan-pemilik-properti" className="text-white ">
                     Syarat Penggunaan Pemilik Properti
                   </Link>
                 </li>
@@ -83,7 +80,7 @@ export default function Index() {
                 to="https://zrdevelopers.github.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white fw-semibold text-decoration-none"
+                className="text-white fw-semibold "
               >
                 ZRDevelopers
               </Link>

@@ -36,7 +36,7 @@ const Index = props => {
       <div className="d-flex justify-content-center mb-3">
         <Link
           to={`/pemilik/@${kontrakanDetail?.pemilikSlug}`}
-          className="text-center position-relative text-decoration-none"
+          className="text-center position-relative "
         >
           <div className="d-flex justify-content-center">
             <div className="position-relative" style={{ width: '80px' }}>

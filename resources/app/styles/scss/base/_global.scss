@@ -23,3 +23,22 @@ h6 {
 .btn {
   font-family: $font-family-heading;
 }
+
+@mixin ST-link {
+  text-decoration: none !important;
+}
+@mixin ST-link-hover {
+  color: darken($primary, 100%) !important;
+  transition: color 0.2s ease !important;
+}
+a {
+  @include ST-link;
+  &:hover {
+    @include ST-link-hover;
+  }
+}
+.a-hover {
+  &:hover {
+    color: $primary !important;
+  }
+}

@@ -34,3 +34,68 @@
     color: $primary !important;
   }
 }
+
+// Desktop
+@mixin ST-dropdown-menu {
+  position: absolute !important;
+  top: 3.4rem !important;
+  left: -1rem !important;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+
+  display: grid !important; // ganti display block jadi grid
+  grid-template-columns: repeat(2, minmax(0, 1fr)); // 2 kolom sama lebar
+  // gap: 0.5rem 1rem; // jarak antar item (baris, kolom)
+  min-width: 25rem !important; // bisa disesuaikan
+  max-height: 350px; // supaya dropdown gak terlalu tinggi
+  overflow-y: auto; // scroll jika melebihi max-height
+}
+
+@mixin ST-dropdown-menu-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@mixin ST-dropdown-item-active {
+  background: none !important;
+  color: $primary !important;
+  font-weight: bold;
+}
+
+@mixin ST-dropdown-item-hover {
+  background: none !important;
+  color: $primary !important;
+}
+
+.dropdown {
+  .dropdown-menu {
+    @include ST-dropdown-menu;
+
+    &.show {
+      @include ST-dropdown-menu-show;
+    }
+
+    .dropdown-item {
+      &:hover {
+        @include ST-dropdown-item-hover;
+      }
+      &.active {
+        @include ST-dropdown-item-active;
+      }
+    }
+  }
+
+  // Hanya aktifkan hover buka submenu di desktop
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .dropdown-menu {
+      @include ST-dropdown-menu-show;
+    }
+  }
+}

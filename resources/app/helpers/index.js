@@ -119,3 +119,42 @@ export const formatTipeKamar = text => {
   if (!text) return null;
   return text.charAt(0).toUpperCase();
 };
+
+export const iconTipeProperti = nama => {
+  if (!nama) return null;
+  switch (nama?.toLowerCase()) {
+    case 'kontrakan':
+      return '🏘️';
+    case 'kost':
+      return '🛏️';
+    case 'rumah':
+      return '🏠';
+    case 'apartemen':
+      return '🏢';
+    case 'ruko':
+      return '🏬';
+    case 'kios':
+    case 'toko':
+      return '🛒';
+    case 'gudang':
+      return '🏚️';
+    case 'pabrik':
+      return '🏭';
+    case 'tanah':
+      return '🌄';
+    case 'villa':
+      return '🏖️';
+    case 'ruang kantor':
+      return '💼';
+    case 'komersial':
+      return '🏪';
+    case 'hotel':
+      return '🏨';
+    case 'gedung':
+      return '🏛️';
+    case 'kondotel':
+      return '🏩';
+    default:
+      return '🏡'; // fallback icon
+  }
+};

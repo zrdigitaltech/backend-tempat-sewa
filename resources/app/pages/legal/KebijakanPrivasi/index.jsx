@@ -66,7 +66,7 @@ const Index = () => {
           <p className="mb-4">
             Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, silakan hubungi kami
             melalui email di{' '}
-            <a href="mailto:bantuan@tempatsewa.com" className="text-blue-600 text-decoration-none">
+            <a href="mailto:bantuan@tempatsewa.com" className="text-blue-600 ">
               bantuan@tempatsewa.com
             </a>
             .
