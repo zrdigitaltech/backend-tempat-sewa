@@ -11,7 +11,7 @@ const componentMap = {
   PemilikSlug: lazy(() => import('@/app/pages/Pemilik/Slug')),
   PasangIklan: lazy(() => import('@/app/pages/PasangIklan')),
   Error404: lazy(() => import('@/app/pages/404')),
-  
+
   // Tambahan halaman lain
   Panduan: lazy(() => import('@/app/pages/Panduan')),
   PanduanSlug: lazy(() => import('@/app/pages/Panduan/Slug')),
@@ -19,13 +19,15 @@ const componentMap = {
   Jelajah: lazy(() => import('@/app/pages/Jelajah')),
   JelajahSlug: lazy(() => import('@/app/pages/Jelajah/Slug')),
   TentangKami: lazy(() => import('@/app/pages/TentangKami')),
-  SyaratPenggunaanPemilikProperti: lazy(() => import('@/app/pages/legal/SyaratPenggunaanPemilikProperti')),
+  SyaratPenggunaanPemilikProperti: lazy(
+    () => import('@/app/pages/legal/SyaratPenggunaanPemilikProperti')
+  ),
   SyaratDanKetentuan: lazy(() => import('@/app/pages/legal/SyaratDanKetentuan')),
   KebijakanPrivasi: lazy(() => import('@/app/pages/legal/KebijakanPrivasi')),
 
   RouteLoading,
   Navigate,
-  Outlet,
+  Outlet
 };
 
 export default componentMap;

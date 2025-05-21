@@ -6,7 +6,7 @@ const routesData = [
       {
         path: '',
         element: 'Home',
-        index: true, // route index untuk "/"
+        index: true // route index untuk "/"
       },
       {
         path: 'properti',
@@ -17,16 +17,14 @@ const routesData = [
           {
             path: ':slug',
             element: 'PropertiSlug',
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
           },
           {
             path: ':slug/booking',
             element: 'Booking',
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-          },
-        ],
+            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+          }
+        ]
       },
       {
         path: 'pemilik',
@@ -37,20 +35,19 @@ const routesData = [
           {
             path: ':slug',
             element: 'PemilikSlug',
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-          },
-        ],
+            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+          }
+        ]
       },
       {
         path: 'search',
         element: 'Search',
-        breadcrumb: 'Search',
+        breadcrumb: 'Search'
       },
       {
         path: 'pasang-iklan',
         element: 'PasangIklan',
-        breadcrumb: 'Pasang Iklan',
+        breadcrumb: 'Pasang Iklan'
       },
       {
         path: 'panduan',
@@ -61,13 +58,12 @@ const routesData = [
             path: '',
             element: 'Panduan',
             breadcrumb: '',
-            index: true,
+            index: true
           },
           {
             path: ':slug',
             element: 'PanduanSlug',
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
           },
           {
             path: 'author',
@@ -79,11 +75,11 @@ const routesData = [
                 path: ':slug',
                 element: 'AuthorSlug',
                 breadcrumb: ({ slug }) =>
-                  slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-              },
-            ],
-          },
-        ],
+                  slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+              }
+            ]
+          }
+        ]
       },
       {
         path: 'jelajah',
@@ -94,48 +90,47 @@ const routesData = [
             path: '',
             element: 'Jelajah',
             breadcrumb: '',
-            index: true,
+            index: true
           },
           {
             path: ':slug',
             element: 'JelajahSlug',
-            breadcrumb: ({ slug }) =>
-              slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-          },
-        ],
+            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+          }
+        ]
       },
       {
         path: 'tentang-kami',
         element: 'TentangKami',
-        breadcrumb: 'Tentang Kami',
+        breadcrumb: 'Tentang Kami'
       },
       {
         path: 'syarat-penggunaan-pemilik-properti',
         element: 'SyaratPenggunaanPemilikProperti',
-        breadcrumb: 'Syarat Penggunaan Pemilik Properti',
+        breadcrumb: 'Syarat Penggunaan Pemilik Properti'
       },
       {
         path: 'syarat-dan-ketentuan',
         element: 'SyaratDanKetentuan',
-        breadcrumb: 'Syarat dan Ketentuan',
+        breadcrumb: 'Syarat dan Ketentuan'
       },
       {
         path: 'kebijakan-privasi',
         element: 'KebijakanPrivasi',
-        breadcrumb: 'Kebijakan Privasi',
+        breadcrumb: 'Kebijakan Privasi'
       },
       {
         path: '404',
         element: 'Error404',
-        breadcrumb: 'Tidak ditemukan',
+        breadcrumb: 'Tidak ditemukan'
       },
       {
         path: '*',
         element: 'Navigate',
-        to: '/404',
-      },
-    ],
-  },
+        to: '/404'
+      }
+    ]
+  }
 ];
 
 export default routesData;

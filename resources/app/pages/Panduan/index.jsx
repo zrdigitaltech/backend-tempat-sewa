@@ -52,10 +52,16 @@ const kategoriColor = {
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
-  const filteredGuides = guideList.filter(item =>
-    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredGuides = guideList.filter(
+    item =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (selectedCategory === '' || item.kategori === selectedCategory)
   );
+
+  // Ambil kategori unik dari data
+  const categories = Array.from(new Set(guideList.map(item => item.kategori)));
 
   return (
     <div className="pb-5">
@@ -73,15 +79,31 @@ const Index = () => {
             praktis untuk memasarkan dan mengelola properti dalam satu platform yang efisien.
           </p>
 
-          {/* Form Pencarian */}
-          <div className="mb-4">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Cari panduan berdasarkan judul..."
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-            />
+          {/* Form Filter */}
+          <div className="row g-3 align-items-center mb-4">
+            <div className="col-sm-4">
+              <select
+                className="form-select"
+                value={selectedCategory}
+                onChange={e => setSelectedCategory(e.target.value)}
+              >
+                <option value="">Semua Kategori</option>
+                {categories.map((category, idx) => (
+                  <option key={idx} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="col-sm-8">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Cari panduan berdasarkan judul..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+              />
+            </div>
           </div>
 
           {/* List Panduan */}

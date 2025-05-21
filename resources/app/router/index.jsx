@@ -16,12 +16,7 @@ function createRouteElements(routes) {
 
     if (element === 'Navigate') {
       return (
-        <Route
-          key={i}
-          path={path}
-          index={index}
-          element={<ElementComponent to={to} replace />}
-        />
+        <Route key={i} path={path} index={index} element={<ElementComponent to={to} replace />} />
       );
     }
 
@@ -57,7 +52,6 @@ function createRouteElements(routes) {
     );
   });
 }
-
 
 const index = createBrowserRouter(createRoutesFromElements(createRouteElements(routesData)));
 
