@@ -6,6 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import {
+  capitalizeWords,
+  formatUnderscore,
+  formatPriceLocale,
+  formatRupiah,
+  unFormatRupiah,
+  formatStrip,
+  unFormatStrip
+} from '@/app/helpers';
 
 const Index = props => {
   const { show, onClose } = props;
@@ -43,15 +52,8 @@ const Index = props => {
     const { name, value } = e.target;
     // Jika investasi_min dan target_roi, pastikan input angka saja
     if (name === 'investasi_min') {
-      const onlyNumbers = value.replace(/\D/g, '');
-      setFormData(prev => ({ ...prev, [name]: onlyNumbers }));
-    } else if (name === 'target_roi') {
-      const onlyNumbers = value.replace(/[^0-9.]/g, '');
-      setFormData(prev => ({ ...prev, [name]: onlyNumbers }));
-    } else if (name === 'phone') {
-      // Batasi input nomor hanya angka
-      const onlyNumbers = value.replace(/\D/g, '');
-      setFormData(prev => ({ ...prev, [name]: onlyNumbers }));
+      const formatted = formatRupiah(value);
+      setFormData(prev => ({ ...prev, [name]: formatted }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -215,11 +217,12 @@ const Index = props => {
               {errors.phone && <small className="invalid-feedback">{errors.phone}</small>}
             </div>
 
-            <div className="mb-3">
+            <div className="input-group mb-3">
+              <span className="bg-primary input-group-text text-white">Rp</span>
               <input
                 type="text"
                 className={`form-control ${errors.investasi_min ? 'is-invalid' : ''}`}
-                placeholder="Minimal Investasi (Rp)"
+                placeholder="Minimal Investasi"
                 name="investasi_min"
                 value={formData.investasi_min}
                 onChange={handleChange}
@@ -229,15 +232,21 @@ const Index = props => {
               )}
             </div>
 
-            <div className="mb-3">
+            <div className="input-group mb-3">
               <input
                 type="text"
                 className={`form-control ${errors.target_roi ? 'is-invalid' : ''}`}
-                placeholder="Target ROI (%)"
+                placeholder="Target ROI"
                 name="target_roi"
                 value={formData.target_roi}
                 onChange={handleChange}
+                onKeyPress={e => {
+                  if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
               />
+              <span className="bg-primary input-group-text text-white">%</span>
               {errors.target_roi && <small className="invalid-feedback">{errors.target_roi}</small>}
             </div>
 
