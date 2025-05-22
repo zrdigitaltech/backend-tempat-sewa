@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
-import { AuthorCard } from '@/app/pages/Panduan/Author/Slug/components';
+import { AuthorCard, AuthorProfileCard } from '@/app/pages/Panduan/Author/Slug/components';
 
 const AuthorPage = () => {
   const { slug } = useParams();
@@ -94,53 +94,7 @@ const AuthorPage = () => {
       <section className="pt-3 pb-5">
         <div className="container">
           {/* Profil Penulis */}
-          <div className="d-flex align-items-center mb-4">
-            <img
-              src={authorProfile?.avatar}
-              alt={authorProfile?.name}
-              className="rounded-circle me-3"
-              width={80}
-              height={80}
-            />
-            <div>
-              <h2 className="fs-4 fw-bold mb-1">{authorProfile?.name}</h2>
-              <p className="mb-1 text-muted">{authorProfile?.bio}</p>
-              <div className="d-flex gap-2">
-                {authorProfile?.socials?.instagram && (
-                  <a
-                    href={authorProfile.socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Instagram
-                  </a>
-                )}
-                {authorProfile?.socials?.linkedin && (
-                  <a
-                    href={authorProfile.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                )}
-                {authorProfile?.socials?.facebook && (
-                  <a
-                    href={authorProfile.socials.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                )}
-                {authorProfile?.socials?.twitter && (
-                  <a href={authorProfile.socials.twitter} target="_blank" rel="noopener noreferrer">
-                    Twitter
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
+          <AuthorProfileCard profile={authorProfile} />
 
           {/* Daftar Artikel */}
           <h3 className="fs-5 fw-bold mb-3 text-dark">Artikel oleh {authorProfile?.name}</h3>

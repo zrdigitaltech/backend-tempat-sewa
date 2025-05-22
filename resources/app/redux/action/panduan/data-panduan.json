@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Tips Mencari Kost yang Nyaman dan Aman",
+    "slug": "tips-mencari-kost",
+    "image": "https://placehold.co/800x600?text=Kost",
+    "date": "2024-12-01",
+    "author": "Admin",
+    "authorSlug": "admin",
+    "kategori": "Panduan Penyewa",
+    "content": "<p>....</p>"
+  },
+  {
+    "id": 2,
+    "title": "Cara Menyewakan Rumah Secara Online dengan Efektif",
+    "slug": "sewakan-rumah-online",
+    "image": "https://placehold.co/800x600?text=SewaOnline",
+    "date": "2024-09-18",
+    "author": "Tim tempatSewa",
+    "authorSlug": "tim-tempatSewa",
+    "kategori": "Panduan Pemilik",
+    "content": "<p>....</p>"
+  },
+  {
+    "id": 3,
+    "title": "Checklist Sebelum Menyewa Kontrakan",
+    "slug": "checklist-kontrakan",
+    "image": "https://placehold.co/800x600?text=Kontrakan",
+    "date": "2024-12-01",
+    "author": "Admin",
+    "authorSlug": "admin",
+    "kategori": "Panduan Penyewa",
+    "content": "<p>....</p>"
+  },
+  {
+    "id": 4,
+    "title": "Panduan Foto Properti yang Menarik",
+    "slug": "foto-properti-menarik",
+    "image": "https://placehold.co/800x600?text=Properti",
+    "date": "2024-09-18",
+    "author": "Tim tempatSewa",
+    "authorSlug": "tim-tempatSewa",
+    "kategori": "Panduan Pemilik",
+    "content": "<p>....</p>"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "admin",
+    "name": "Admin",
+    "avatar": "https://placehold.co/100x100?text=Admin",
+    "bio": "Admin tempatSewa – berbagi tips, panduan, dan informasi properti sejak 2020.",
+    "socials": {
+      "instagram": "https://instagram.com/tempatsewa",
+      "linkedin": "https://linkedin.com/company/tempatsewa"
+    }
+  },
+  {
+    "slug": "tim-tempatSewa",
+    "name": "Tim tempatSewa",
+    "avatar": "https://placehold.co/100x100?text=Tim",
+    "bio": "Tim konten tempatSewa yang menyusun panduan properti berkualitas untuk pemilik dan penyewa.",
+    "socials": {
+      "facebook": "https://facebook.com/tempatsewa",
+      "twitter": "https://twitter.com/tempatsewa"
+    }
+  }
+]

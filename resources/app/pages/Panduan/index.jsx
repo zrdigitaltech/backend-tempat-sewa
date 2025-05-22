@@ -3,15 +3,20 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getListPanduan } from '@/app/redux/action/panduan/creator';
+
 const Index = () => {
+  const panduanList = useSelector(state => state?.panduan?.panduanList);
+  const dispatch = useDispatch();
+  
   const location = useLocation();
   const navigate = useNavigate();
 
   const [searchInput, setSearchInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [guideList, setGuideList] = useState([]);
-  const [filteredGuides, setFilteredGuides] = useState([]);
+  const [filteredPanduan, setFilteredPanduan] = useState([]);
 
   // Ambil query dari URL saat page load
   useEffect(() => {
@@ -24,60 +29,18 @@ const Index = () => {
   }, [location.search]);
 
   // Simulasi fetch data
-  const fetchGuideList = async () => {
-    const data = [
-      {
-        title: 'Tips Mencari Kost yang Nyaman dan Aman',
-        slug: 'tips-mencari-kost',
-        image: 'https://placehold.co/800x600?text=Kost',
-        date: '2024-12-01',
-        author: 'Admin',
-        authorSlug: 'admin',
-        kategori: 'Panduan Penyewa',
-        content: `<p>....</p>`
-      },
-      {
-        title: 'Cara Menyewakan Rumah Secara Online dengan Efektif',
-        slug: 'sewakan-rumah-online',
-        image: 'https://placehold.co/800x600?text=SewaOnline',
-        date: '2024-09-18',
-        author: 'Tim tempatSewa',
-        authorSlug: 'tim-tempatSewa',
-        kategori: 'Panduan Pemilik',
-        content: `<p>....</p>`
-      },
-      {
-        title: 'Checklist Sebelum Menyewa Kontrakan',
-        slug: 'checklist-kontrakan',
-        image: 'https://placehold.co/800x600?text=Kontrakan',
-        date: '2024-12-01',
-        author: 'Admin',
-        authorSlug: 'admin',
-        kategori: 'Panduan Penyewa',
-        content: `<p>....</p>`
-      },
-      {
-        title: 'Panduan Foto Properti yang Menarik',
-        slug: 'foto-properti-menarik',
-        image: 'https://placehold.co/800x600?text=Properti',
-        date: '2024-09-18',
-        author: 'Tim tempatSewa',
-        authorSlug: 'tim-tempatSewa',
-        kategori: 'Panduan Pemilik',
-        content: `<p>....</p>`
-      }
-    ];
-    setGuideList(data);
-    setFilteredGuides(data); // tampilkan semua awalnya
+  const fetchPanduanList = async () => {
+    dispatch(getListPanduan());
+    setFilteredPanduan(panduanList); // tampilkan semua awalnya
   };
 
   useEffect(() => {
-    fetchGuideList();
+    fetchPanduanList();
   }, []);
 
   // Filter ulang jika searchTerm atau selectedCategory berubah
   useEffect(() => {
-    let filtered = guideList;
+    let filtered = panduanList;
 
     if (searchTerm) {
       filtered = filtered.filter(item =>
@@ -89,8 +52,8 @@ const Index = () => {
       filtered = filtered.filter(item => item.kategori === selectedCategory);
     }
 
-    setFilteredGuides(filtered);
-  }, [searchTerm, selectedCategory, guideList]);
+    setFilteredPanduan(filtered);
+  }, [searchTerm, selectedCategory, panduanList]);
 
   // Fungsi update URL query string
   const updateQuery = (keyword, kategori) => {
@@ -110,7 +73,7 @@ const Index = () => {
     updateQuery(searchInput, value);
   };
 
-  const categories = Array.from(new Set(guideList.map(item => item.kategori)));
+  const categories = Array.from(new Set(panduanList.map(item => item.kategori)));
 
   return (
     <div className="pb-5">
@@ -138,7 +101,7 @@ const Index = () => {
             onSearchEnter={handleSearchEnter}
           />
 
-          <PanduanList guides={filteredGuides} keyword={searchInput} kategori={selectedCategory} />
+          <PanduanList guides={filteredPanduan} keyword={searchInput} kategori={selectedCategory} />
         </div>
       </section>
     </div>

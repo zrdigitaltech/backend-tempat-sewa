@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getListLogos } from '@/app/redux/action/logos/creator';
 import { Link } from 'react-router-dom';
 import './header.scss';
 import OffcanvasMobile from './Mobile';
 import Desktop from './Desktop';
 
 export default function Index() {
-  const logosList = useSelector(state => state.logos.logosList);
-  const dispatch = useDispatch();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
   const closeMenu = () => setIsMenuOpen(false);
   // Desktop
   const [openDisewa, setOpenDisewa] = useState(false);
-
-  useEffect(() => {
-    dispatch(getListLogos());
-  }, [dispatch]);
 
   return (
     <nav className="navbar navbar-light bg-white shadow-sm sticky-top z-3">
@@ -30,9 +21,6 @@ export default function Index() {
           className="navbar-brand fw-bold d-flex align-items-center"
           onClick={() => setOpenDisewa(false)}
         >
-          {logosList?.length > 0 && (
-            <img src={logosList[0].image_url} alt="Logo" height="32" className="me-2" />
-          )}
           <span className="text-primary">tempat</span>Sewa.Com
         </Link>
 
