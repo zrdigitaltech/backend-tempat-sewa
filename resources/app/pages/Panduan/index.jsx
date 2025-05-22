@@ -18,6 +18,10 @@ const Index = () => {
 
   const [inputKeyword, setInputKeyword] = useState('');
   const [formData, setFormData] = useState({ keyword: '', kategori: '' });
+  const [isLoading, setIsLoading] = useState({
+    kategori: false,
+    search: false
+  });
 
   // sync inputKeyword dengan query param keyword saat load URL
   useEffect(() => {
@@ -31,13 +35,23 @@ const Index = () => {
   }, [location.search]);
 
   // Panggil pencarian setiap formData berubah (bukan saat inputKeyword berubah)
+  const fetchListPanduanSearch = async () => {
+    setIsLoading(prev => ({ ...prev, search: true }));
+    await dispatch(getPanduanSearch(formData));
+    setIsLoading(prev => ({ ...prev, search: false }));
+  };
   useEffect(() => {
-    dispatch(getPanduanSearch(formData));
+    fetchListPanduanSearch();
   }, [formData, dispatch]);
 
   // UseEffect kosong untuk getListPanduan (ambil semua panduan)
+  const fetchListPanduan = async () => {
+    setIsLoading(prev => ({ ...prev, kategori: true }));
+    await dispatch(getListPanduan());
+    setIsLoading(prev => ({ ...prev, kategori: false }));
+  };
   useEffect(() => {
-    dispatch(getListPanduan());
+    fetchListPanduan();
   }, [dispatch]);
 
   // handler ketika user submit/enter search
@@ -92,12 +106,14 @@ const Index = () => {
             setSelectedCategory={handleCategoryChange}
             categories={categories}
             onSearchEnter={handleSearchEnter}
+            isLoading={isLoading?.kategori}
           />
 
           <PanduanList
             guides={panduanSearch}
             keyword={formData.keyword}
             kategori={formData.kategori}
+            isLoading={isLoading.search}
           />
         </div>
       </section>
