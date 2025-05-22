@@ -125,7 +125,7 @@ const Index = () => {
     );
   };
 
-  if (!kontrakanDetail && Object.keys(kontrakanDetail).length === 0) {
+  if (!isLoading && Object.keys(kontrakanDetail).length === 0) {
     return (
       <Fragment>
         <div className="pb-5">
