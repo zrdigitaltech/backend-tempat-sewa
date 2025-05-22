@@ -32,7 +32,7 @@ import './slug.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { iconTipeProperti } from '@/app/helpers';
+import { iconTipeProperti, unFormatStrip } from '@/app/helpers';
 
 const Index = () => {
   // React Router & Redux
@@ -124,6 +124,28 @@ const Index = () => {
       </div>
     );
   };
+
+  if (!kontrakanDetail || Object.keys(kontrakanDetail).length === 0) {
+    return (
+      <Fragment>
+        <div className="pb-5">
+          <section className="mt-3">
+            <Breadcrumb title={'Properti Tidak Ditemukan'} />
+          </section>
+          <div className="text-center pt-5">
+            <i className="fa-4x fa-search fas mb-3"></i>
+            <h5 className="fw-bold mb-2">Properti Tidak Ditemukan</h5>
+            <p className="text-muted">
+              Maaf, properti dengan kode{' '}
+              <strong className="text-capitalize">{unFormatStrip(slug)}</strong> tidak ditemukan.
+              <br />
+              Silakan cari properti dengan kata kunci lainnya, ya!
+            </p>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
 
   return (
     <Fragment>
