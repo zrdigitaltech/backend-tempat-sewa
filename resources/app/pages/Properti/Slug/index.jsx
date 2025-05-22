@@ -86,7 +86,7 @@ const Index = () => {
 
   useEffect(() => {
     fetchPropertiDetail();
-  }, [dispatch, slug]);
+  }, [slug]);
 
   const renderCombinedInteriorCard = (interior, targets, label, iconClass) => {
     if (!interior || !Array.isArray(interior)) return null;
@@ -125,7 +125,7 @@ const Index = () => {
     );
   };
 
-  if (!kontrakanDetail || Object.keys(kontrakanDetail).length === 0) {
+  if (!kontrakanDetail && Object.keys(kontrakanDetail).length === 0) {
     return (
       <Fragment>
         <div className="pb-5">
