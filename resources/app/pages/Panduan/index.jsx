@@ -33,7 +33,8 @@ const Index = () => {
         date: '2024-12-01',
         author: 'Admin',
         authorSlug: 'admin',
-        kategori: 'Panduan Penyewa'
+        kategori: 'Panduan Penyewa',
+        content: `<p>....</p>`
       },
       {
         title: 'Cara Menyewakan Rumah Secara Online dengan Efektif',
@@ -42,7 +43,8 @@ const Index = () => {
         date: '2024-09-18',
         author: 'Tim tempatSewa',
         authorSlug: 'tim-tempatSewa',
-        kategori: 'Panduan Pemilik'
+        kategori: 'Panduan Pemilik',
+        content: `<p>....</p>`
       },
       {
         title: 'Checklist Sebelum Menyewa Kontrakan',
@@ -51,7 +53,8 @@ const Index = () => {
         date: '2024-12-01',
         author: 'Admin',
         authorSlug: 'admin',
-        kategori: 'Panduan Penyewa'
+        kategori: 'Panduan Penyewa',
+        content: `<p>....</p>`
       },
       {
         title: 'Panduan Foto Properti yang Menarik',
@@ -60,7 +63,8 @@ const Index = () => {
         date: '2024-09-18',
         author: 'Tim tempatSewa',
         authorSlug: 'tim-tempatSewa',
-        kategori: 'Panduan Pemilik'
+        kategori: 'Panduan Pemilik',
+        content: `<p>....</p>`
       }
     ];
     setGuideList(data);
