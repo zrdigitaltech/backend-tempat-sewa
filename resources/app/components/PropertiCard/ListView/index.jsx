@@ -108,73 +108,98 @@ export default function Index(props) {
 
   const CardContent = () => {
     return (
-      <div>
-        {showKategori && (
-          <Fragment>
+      <Fragment>
+        {isLoading ? (
+          <div>
             <div className="d-flex gap-2 mb-2 overflow-x-auto">
-              <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
-                {iconTipeProperti(tipe_properti?.nama)}{' '}
-                {typeof tipe_properti === 'object'
-                  ? tipe_properti?.nama.toLowerCase() === 'kost'
-                    ? tipe_properti?.nama + ' ' + tipe_kost
-                    : tipe_properti?.nama
-                  : ''}
-              </span>
-
-              {showInterior &&
-                tipe_properti?.informasi_interior
-                  ?.filter(item => item.nama === 'Kondisi Perabotan')
-                  ?.map((item, index) => (
-                    <span
-                      key={index}
-                      className="bg-primary-subtle align-content-center badge text-secondary text-capitalize"
-                    >
-                      {item.fasilitas && item.fasilitas?.join(', ')}
-                    </span>
-                  ))}
-
-              <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
-                <i className="fa fa-clock"></i> Diperbarui: {upload}
-              </span>
+              <Skeleton height={24} width={100} />
+              <Skeleton height={24} width={140} />
+              <Skeleton height={24} width={120} />
             </div>
-          </Fragment>
+
+            <h5 className="card-title fw-bold my-2">
+              <Skeleton width={120} height={24} />
+            </h5>
+
+            <span className="card-text fw-semibold mb-0 ST__text">
+              <Skeleton width="100%" height={20} />
+            </span>
+            <p className="text-muted small mb-0">
+              <Skeleton width={100} height={16} />
+            </p>
+          </div>
+        ) : (
+          <div>
+            {showKategori && (
+              <Fragment>
+                <div className="d-flex gap-2 mb-2 overflow-x-auto">
+                  <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
+                    {iconTipeProperti(tipe_properti?.nama)}{' '}
+                    {typeof tipe_properti === 'object'
+                      ? tipe_properti?.nama.toLowerCase() === 'kost'
+                        ? tipe_properti?.nama + ' ' + tipe_kost
+                        : tipe_properti?.nama
+                      : ''}
+                  </span>
+
+                  {showInterior &&
+                    tipe_properti?.informasi_interior
+                      ?.filter(item => item.nama === 'Kondisi Perabotan')
+                      ?.map((item, index) => (
+                        <span
+                          key={index}
+                          className="bg-primary-subtle align-content-center badge text-secondary text-capitalize"
+                        >
+                          {item.fasilitas && item.fasilitas?.join(', ')}
+                        </span>
+                      ))}
+
+                  <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
+                    <i className="fa fa-clock"></i> Diperbarui: {upload}
+                  </span>
+                </div>
+              </Fragment>
+            )}
+
+            <h5 className="card-title fw-bold my-2">
+              Rp{formatPrice(harga)}
+              <span className="text-capitalize"> / {durasi}</span>
+            </h5>
+
+            <span
+              className="card-text fw-semibold mb-0 ST__text"
+              title={nama.length > 50 ? nama : undefined}
+            >
+              {nama}
+            </span>
+            <p className={`text-muted small mb-0 text-truncate ${showTipeKamar && 'mb-1'}`}>
+              {kota}
+            </p>
+
+            <div className="px-2 bg-primary-subtle rounded-1 gap-3 d-flex">
+              {renderSingleInteriorCard(
+                tipe_properti?.informasi_interior,
+                'Tipe Kamar',
+                'Ruang',
+                'fa-door-open'
+              )}
+              {renderCombinedInteriorCard(
+                tipe_properti?.informasi_interior,
+                ['Kamar Tidur', 'Kamar Tidur ART', 'Tipe Kamar'],
+                'Kamar Tidur',
+                'fa-solid fa-bed'
+              )}
+
+              {renderCombinedInteriorCard(
+                tipe_properti?.informasi_interior,
+                ['Kamar Mandi', 'Kamar Mandi ART'],
+                'Kamar Mandi',
+                'fa-bath'
+              )}
+            </div>
+          </div>
         )}
-
-        <h5 className="card-title fw-bold my-2">
-          Rp{formatPrice(harga)}
-          <span className="text-capitalize"> / {durasi}</span>
-        </h5>
-
-        <span
-          className="card-text fw-semibold mb-0 ST__text"
-          title={nama.length > 50 ? nama : undefined}
-        >
-          {nama}
-        </span>
-        <p className={`text-muted small mb-0 text-truncate ${showTipeKamar && 'mb-1'}`}>{kota}</p>
-
-        <div className="px-2 bg-primary-subtle rounded-1 gap-3 d-flex">
-          {renderSingleInteriorCard(
-            tipe_properti?.informasi_interior,
-            'Tipe Kamar',
-            'Ruang',
-            'fa-door-open'
-          )}
-          {renderCombinedInteriorCard(
-            tipe_properti?.informasi_interior,
-            ['Kamar Tidur', 'Kamar Tidur ART', 'Tipe Kamar'],
-            'Kamar Tidur',
-            'fa-solid fa-bed'
-          )}
-
-          {renderCombinedInteriorCard(
-            tipe_properti?.informasi_interior,
-            ['Kamar Mandi', 'Kamar Mandi ART'],
-            'Kamar Mandi',
-            'fa-bath'
-          )}
-        </div>
-      </div>
+      </Fragment>
     );
   };
 
@@ -258,7 +283,7 @@ export default function Index(props) {
                 </Carousel>
               )}
 
-              {(member === 'Super Featured' || member === 'Premium') && (
+              {(member === 'Super Featured' || member === 'Premium') && !isLoading && (
                 <div
                   className={`ST__badge ${(member === 'Super Featured' && 'bg-primary') || (member === 'Premium' && 'bg-warning')} `}
                 >

@@ -41,7 +41,7 @@ export default function Desktop(props) {
       <ul className="navbar-nav flex-row gap-3 mb-0">
         <li className={`nav-item dropdown`}>
           <a
-            className={`nav-link dropdown-toggle cursor-pointer ${openDisewa || tipePropertiList.some(link => link.slug === activeTipeProperti) ? 'active' : ''}`}
+            className={`nav-link dropdown-toggle cursor-pointer text-dark ${openDisewa || tipePropertiList.some(link => link.slug === activeTipeProperti) ? 'active' : ''}`}
           >
             Disewa
           </a>

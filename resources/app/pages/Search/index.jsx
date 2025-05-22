@@ -237,24 +237,30 @@ export default function Index() {
                     />
                   </div>
                   {/* Grid View */}
-                  {searchResultList?.slice(0, visible)?.map((item, index) => (
-                    <div key={index} className="col-6 col-sm-6 col-lg-3 mb-4">
-                      <GridView
-                        newTab={true}
-                        {...item}
-                        showKategori={true}
-                        showTipeKamar={true}
-                        showInterior={true}
-                        handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
-                        handleWhatsApp={() =>
-                          isPageVerified
-                            ? handleGoToWhatsApp(item?.no_whatsapp)
-                            : setShowWhatsApp(true)
-                        }
-                        isLoading={isLoading.data || isLoading.banner}
-                      />
-                    </div>
-                  ))}
+                  {isLoading.data || isLoading.banner
+                    ? Array.from({ length: 8 }).map((_, index) => (
+                        <div key={index} className="col-6 col-sm-6 col-lg-3 mb-4">
+                          <GridView isLoading={isLoading.data || isLoading.banner} />
+                        </div>
+                      ))
+                    : searchResultList?.slice(0, visible)?.map((item, index) => (
+                        <div key={index} className="col-6 col-sm-6 col-lg-3 mb-4">
+                          <GridView
+                            newTab={true}
+                            {...item}
+                            showKategori={true}
+                            showTipeKamar={true}
+                            showInterior={true}
+                            handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                            handleWhatsApp={() =>
+                              isPageVerified
+                                ? handleGoToWhatsApp(item?.no_whatsapp)
+                                : setShowWhatsApp(true)
+                            }
+                            isLoading={false}
+                          />
+                        </div>
+                      ))}
 
                   {/* Tombol Muat Lainnya */}
                   {visible < searchResultList?.length && (
@@ -268,7 +274,7 @@ export default function Index() {
                     </div>
                   )}
 
-                  {searchResultList?.length === 0 && (
+                  {(isLoading.data || isLoading.banner) && searchResultList?.length === 0 && (
                     <Fragment>
                       <div className="text-center py-5">
                         <i className="fa-4x fa-search fas mb-3"></i>
@@ -299,28 +305,33 @@ export default function Index() {
                         handleListView={() => updateViewModeInQuery('list')}
                       />
                     </div>
-
-                    {searchResultList?.slice(0, visible)?.map((item, index) => (
-                      <div key={index} className="mb-3">
-                        <ListView
-                          newTab={true}
-                          {...item}
-                          showKategori={true}
-                          showTipeKamar={true}
-                          showInterior={true}
-                          handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
-                          handleWhatsApp={() =>
-                            isPageVerified
-                              ? handleGoToWhatsApp(item?.no_whatsapp)
-                              : setShowWhatsApp(true)
-                          }
-                          isLoading={isLoading.data || isLoading.banner}
-                          dataItem={dataItem}
-                          setDataItem={() => setDataItem(item)}
-                          resetDataItem={() => setDataItem(null)}
-                        />
-                      </div>
-                    ))}
+                    {isLoading.data || isLoading.banner
+                      ? Array.from({ length: 8 }).map((_, index) => (
+                          <div key={index} className="mb-3">
+                            <ListView isLoading={isLoading.data || isLoading.banner} />
+                          </div>
+                        ))
+                      : searchResultList?.slice(0, visible)?.map((item, index) => (
+                          <div key={index} className="mb-3">
+                            <ListView
+                              newTab={true}
+                              {...item}
+                              showKategori={true}
+                              showTipeKamar={true}
+                              showInterior={true}
+                              handlePhone={() => (setShowWhatsApp(true), setDataItem(item))}
+                              handleWhatsApp={() =>
+                                isPageVerified
+                                  ? handleGoToWhatsApp(item?.no_whatsapp)
+                                  : setShowWhatsApp(true)
+                              }
+                              isLoading={false}
+                              dataItem={dataItem}
+                              setDataItem={() => setDataItem(item)}
+                              resetDataItem={() => setDataItem(null)}
+                            />
+                          </div>
+                        ))}
 
                     {/* Tombol Muat Lainnya */}
                     {visible < searchResultList?.length && (
@@ -334,7 +345,7 @@ export default function Index() {
                       </div>
                     )}
 
-                    {searchResultList?.length === 0 && (
+                    {(isLoading.data || isLoading.banner) && searchResultList?.length === 0 && (
                       <Fragment>
                         <div className="text-center pt-5">
                           <i className="fa-4x fa-search fas mb-3"></i>
