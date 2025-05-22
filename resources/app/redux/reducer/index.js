@@ -8,7 +8,6 @@ import { tipeKostReducer } from '@/app/redux/reducer/tipeKost/reducer';
 import { tipeKamarReducer } from '@/app/redux/reducer/tipeKamar/reducer';
 import { kategoriInteriorReducer } from '@/app/redux/reducer/kategoriInterior/reducer';
 
-
 import { panduanReducer } from '@/app/redux/reducer/panduan/reducer';
 import { authorReducer } from '@/app/redux/reducer/author/reducer';
 

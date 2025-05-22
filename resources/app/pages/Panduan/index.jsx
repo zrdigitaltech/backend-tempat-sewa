@@ -4,73 +4,66 @@ import Breadcrumb from '@/app/components/Breadcrumb';
 import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getListPanduan } from '@/app/redux/action/panduan/creator';
+import { getListPanduan, getPanduanSearch } from '@/app/redux/action/panduan/creator';
+
+import { formatStrip, unFormatStrip } from '@/app/helpers';
 
 const Index = () => {
   const panduanList = useSelector(state => state?.panduan?.panduanList);
+  const panduanSearch = useSelector(state => state?.panduan?.panduanSearch);
   const dispatch = useDispatch();
-  
+
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [searchInput, setSearchInput] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [filteredPanduan, setFilteredPanduan] = useState([]);
+  const [inputKeyword, setInputKeyword] = useState('');
+  const [formData, setFormData] = useState({ keyword: '', kategori: '' });
 
-  // Ambil query dari URL saat page load
+  // sync inputKeyword dengan query param keyword saat load URL
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const keyword = searchParams.get('keyword') || '';
-    const kategori = searchParams.get('kategori') || '';
-    setSearchInput(keyword);
-    setSearchTerm(keyword);
-    setSelectedCategory(kategori);
+    const keywordFromUrl = searchParams.get('keyword') || '';
+    setInputKeyword(keywordFromUrl);
+    setFormData({
+      keyword: keywordFromUrl,
+      kategori: searchParams.get('kategori') || ''
+    });
   }, [location.search]);
 
-  // Simulasi fetch data
-  const fetchPanduanList = async () => {
+  // Panggil pencarian setiap formData berubah (bukan saat inputKeyword berubah)
+  useEffect(() => {
+    dispatch(getPanduanSearch(formData));
+  }, [formData, dispatch]);
+
+  // UseEffect kosong untuk getListPanduan (ambil semua panduan)
+  useEffect(() => {
     dispatch(getListPanduan());
-    setFilteredPanduan(panduanList); // tampilkan semua awalnya
+  }, [dispatch]);
+
+  // handler ketika user submit/enter search
+  const handleSearchEnter = () => {
+    updateQueryInURL(inputKeyword, formData.kategori);
+    setFormData(prev => ({ ...prev, keyword: inputKeyword }));
   };
 
-  useEffect(() => {
-    fetchPanduanList();
-  }, []);
+  // handler perubahan input keyword (update inputKeyword saja, tanpa dispatch search)
+  const handleInputKeywordChange = val => {
+    setInputKeyword(val);
+  };
 
-  // Filter ulang jika searchTerm atau selectedCategory berubah
-  useEffect(() => {
-    let filtered = panduanList;
+  // handler kategori
+  const handleCategoryChange = kategori => {
+    const strippedKategori = formatStrip(kategori).toLowerCase();
+    updateQueryInURL(inputKeyword, strippedKategori);
+    setFormData(prev => ({ ...prev, kategori: strippedKategori }));
+  };
 
-    if (searchTerm) {
-      filtered = filtered.filter(item =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    if (selectedCategory !== '') {
-      filtered = filtered.filter(item => item.kategori === selectedCategory);
-    }
-
-    setFilteredPanduan(filtered);
-  }, [searchTerm, selectedCategory, panduanList]);
-
-  // Fungsi update URL query string
-  const updateQuery = (keyword, kategori) => {
+  // update URL dan formData
+  const updateQueryInURL = (keyword, kategori) => {
     const params = new URLSearchParams();
     if (keyword) params.set('keyword', keyword);
     if (kategori) params.set('kategori', kategori);
     navigate({ search: params.toString() }, { replace: true });
-  };
-
-  const handleSearchEnter = () => {
-    setSearchTerm(searchInput);
-    updateQuery(searchInput, selectedCategory);
-  };
-
-  const handleCategoryChange = value => {
-    setSelectedCategory(value);
-    updateQuery(searchInput, value);
   };
 
   const categories = Array.from(new Set(panduanList.map(item => item.kategori)));
@@ -93,15 +86,19 @@ const Index = () => {
           </p>
 
           <PanduanFilter
-            searchTerm={searchInput}
-            setSearchTerm={setSearchInput}
-            selectedCategory={selectedCategory}
+            searchTerm={inputKeyword}
+            setSearchTerm={handleInputKeywordChange}
+            selectedCategory={formData.kategori}
             setSelectedCategory={handleCategoryChange}
             categories={categories}
             onSearchEnter={handleSearchEnter}
           />
 
-          <PanduanList guides={filteredPanduan} keyword={searchInput} kategori={selectedCategory} />
+          <PanduanList
+            guides={panduanSearch}
+            keyword={formData.keyword}
+            kategori={formData.kategori}
+          />
         </div>
       </section>
     </div>

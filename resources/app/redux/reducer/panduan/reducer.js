@@ -9,6 +9,14 @@ export const panduanReducer = (state = initialState, action) => {
         panduanList: action.payload
       };
       return state;
+
+    case actionType.loadPanduanSearch:
+      state = {
+        ...state,
+        panduanSearch: action.payload
+      };
+      return state;
+
     case actionType.loadPanduanResetData:
       return initialState;
     default:

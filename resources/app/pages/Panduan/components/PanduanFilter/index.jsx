@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatStrip, unFormatStrip } from '@/app/helpers';
 
 const Index = ({
   searchTerm,
@@ -18,7 +19,7 @@ const Index = ({
         >
           <option value="">Semua Kategori</option>
           {categories.map((category, idx) => (
-            <option key={idx} value={category}>
+            <option key={idx} value={formatStrip(category).toLowerCase()}>
               {category}
             </option>
           ))}
