@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 
 const Index = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [searchInput, setSearchInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [guideList, setGuideList] = useState([]);
   const [filteredGuides, setFilteredGuides] = useState([]);
+
+  // Ambil query dari URL saat page load
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const keyword = searchParams.get('keyword') || '';
+    const kategori = searchParams.get('kategori') || '';
+    setSearchInput(keyword);
+    setSearchTerm(keyword);
+    setSelectedCategory(kategori);
+  }, [location.search]);
 
   // Simulasi fetch data
   const fetchGuideList = async () => {
@@ -53,12 +67,11 @@ const Index = () => {
     setFilteredGuides(data); // tampilkan semua awalnya
   };
 
-  // Ambil data saat pertama kali render
   useEffect(() => {
     fetchGuideList();
   }, []);
 
-  // Filter ulang hanya jika selectedCategory atau searchTerm berubah
+  // Filter ulang jika searchTerm atau selectedCategory berubah
   useEffect(() => {
     let filtered = guideList;
 
@@ -74,6 +87,24 @@ const Index = () => {
 
     setFilteredGuides(filtered);
   }, [searchTerm, selectedCategory, guideList]);
+
+  // Fungsi update URL query string
+  const updateQuery = (keyword, kategori) => {
+    const params = new URLSearchParams();
+    if (keyword) params.set('keyword', keyword);
+    if (kategori) params.set('kategori', kategori);
+    navigate({ search: params.toString() }, { replace: true });
+  };
+
+  const handleSearchEnter = () => {
+    setSearchTerm(searchInput);
+    updateQuery(searchInput, selectedCategory);
+  };
+
+  const handleCategoryChange = value => {
+    setSelectedCategory(value);
+    updateQuery(searchInput, value);
+  };
 
   const categories = Array.from(new Set(guideList.map(item => item.kategori)));
 
@@ -98,12 +129,12 @@ const Index = () => {
             searchTerm={searchInput}
             setSearchTerm={setSearchInput}
             selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
+            setSelectedCategory={handleCategoryChange}
             categories={categories}
-            onSearchEnter={() => setSearchTerm(searchInput)} // trigger filter saat enter
+            onSearchEnter={handleSearchEnter}
           />
 
-          <PanduanList guides={filteredGuides} />
+          <PanduanList guides={filteredGuides} keyword={searchInput} kategori={selectedCategory} />
         </div>
       </section>
     </div>

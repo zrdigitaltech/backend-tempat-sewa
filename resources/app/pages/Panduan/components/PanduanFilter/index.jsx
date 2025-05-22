@@ -6,7 +6,7 @@ const Index = ({
   selectedCategory,
   setSelectedCategory,
   categories,
-  onSearchEnter,
+  onSearchEnter
 }) => {
   return (
     <div className="row align-items-center mb-4">
