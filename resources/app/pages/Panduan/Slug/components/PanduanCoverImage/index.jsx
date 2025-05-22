@@ -1,6 +1,13 @@
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-const PanduanCoverImage = ({ coverImage }) => {
+const PanduanCoverImage = props => {
+  const { coverImage, isLoading } = props;
+  if (isLoading) {
+    return <Skeleton height={630} width="100%" />;
+  }
+
   if (!coverImage) return null;
 
   return (

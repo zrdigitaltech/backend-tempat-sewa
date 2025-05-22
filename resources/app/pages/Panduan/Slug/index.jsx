@@ -8,9 +8,25 @@ import {
   SidebarPopularGuides
 } from '@/app/pages/Panduan/Slug/components';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getPanduanDetail } from '@/app/redux/action/panduan/creator';
+
 const PanduanDetail = () => {
   const { slug } = useParams();
-  const [guide, setGuide] = useState(null);
+  const dispatch = useDispatch();
+  const panduanDetail = useSelector(state => state?.panduan?.panduanDetail);
+
+  // UI State
+  const [isLoading, setIsLoading] = useState({
+    detail: false,
+    populer: false
+  });
+
+  const fetchPanduanDetail = async () => {
+    setIsLoading(prev => ({ ...prev, detail: true }));
+    await dispatch(getPanduanDetail(slug));
+    // setIsLoading(prev => ({ ...prev, detail: false }));
+  };
 
   const popularGuides = [
     {
@@ -35,72 +51,23 @@ const PanduanDetail = () => {
   ];
 
   useEffect(() => {
-    const fetchData = async () => {
-      const mockGuides = [
-        {
-          title: 'Tips Mencari Kost yang Nyaman dan Aman',
-          slug: 'tips-mencari-kost',
-          image: 'https://placehold.co/800x600?text=Kost',
-          date: '2024-12-01',
-          author: 'Admin',
-          authorSlug: 'admin',
-          kategori: 'Panduan Penyewa',
-          content: `<p>....</p>`
-        },
-        {
-          title: 'Cara Menyewakan Rumah Secara Online dengan Efektif',
-          slug: 'sewakan-rumah-online',
-          image: 'https://placehold.co/800x600?text=SewaOnline',
-          date: '2024-09-18',
-          author: 'Tim tempatSewa',
-          authorSlug: 'tim-tempatSewa',
-          kategori: 'Panduan Pemilik',
-          content: `<p>....</p>`
-        },
-        {
-          title: 'Checklist Sebelum Menyewa Kontrakan',
-          slug: 'checklist-kontrakan',
-          image: 'https://placehold.co/800x600?text=Kontrakan',
-          date: '2024-12-01',
-          author: 'Admin',
-          authorSlug: 'admin',
-          kategori: 'Panduan Penyewa',
-          content: `<p>....</p>`
-        },
-        {
-          title: 'Panduan Foto Properti yang Menarik',
-          slug: 'foto-properti-menarik',
-          image: 'https://placehold.co/800x600?text=Properti',
-          date: '2024-09-18',
-          author: 'Tim tempatSewa',
-          authorSlug: 'tim-tempatSewa',
-          kategori: 'Panduan Pemilik',
-          content: `<p>....</p>`
-        }
-      ];
-
-      const found = mockGuides.find(item => item.slug === slug);
-      setGuide(found || null);
-    };
-
-    fetchData();
+    fetchPanduanDetail();
   }, [slug]);
 
-  if (!guide) return <TidakDitemukan slug={slug} />;
+  if (!panduanDetail) return <TidakDitemukan slug={slug} />;
 
   return (
     <div className="pb-5">
-      <PanduanHeader
-        title={guide.title}
-        author={guide.author}
-        authorSlug={guide.authorSlug}
-        date={guide.date}
-      />
-      <PanduanCoverImage coverImage={guide.image} />
+      <PanduanHeader panduanDetail={panduanDetail} isLoading={isLoading?.detail} />
+      <PanduanCoverImage coverImage={panduanDetail?.image} isLoading={isLoading?.detail} />
       <section className="pt-3 pb-5 container">
         <div className="row">
-          <PanduanContent content={guide.content} />
-          <SidebarPopularGuides guides={popularGuides} />
+          <div className="col-12 col-lg-8 mb-4 mb-lg-0">
+            <PanduanContent content={panduanDetail?.content} isLoading={isLoading?.detail} />
+          </div>
+          <div className="col-12 col-lg-4">
+            <SidebarPopularGuides guides={popularGuides} isLoading={isLoading?.populer} />
+          </div>
         </div>
       </section>
     </div>

@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-const PanduanContent = ({ content }) => (
-  <div className="col-12 col-lg-8 mb-4 mb-lg-0">
-    <article>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </article>
-  </div>
-);
+const PanduanContent = props => {
+  const { content, isLoading } = props;
+  return (
+    <Fragment>
+      {isLoading ? (
+        <div>
+          <Skeleton height={30} width={`80%`} className="mb-2" />
+          <Skeleton count={10} />
+        </div>
+      ) : (
+        <article>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </article>
+      )}
+    </Fragment>
+  );
+};
 
 export default PanduanContent;

@@ -17,6 +17,13 @@ export const panduanReducer = (state = initialState, action) => {
       };
       return state;
 
+    case actionType.loadPanduanDetail:
+      state = {
+        ...state,
+        panduanDetail: action.payload
+      };
+      return state;
+
     case actionType.loadPanduanResetData:
       return initialState;
     default:

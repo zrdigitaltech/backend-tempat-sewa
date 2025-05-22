@@ -6,7 +6,7 @@ import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListPanduan, getPanduanSearch } from '@/app/redux/action/panduan/creator';
 
-import { formatStrip, unFormatStrip } from '@/app/helpers';
+import { formatStrip } from '@/app/helpers';
 
 const Index = () => {
   const panduanList = useSelector(state => state?.panduan?.panduanList);

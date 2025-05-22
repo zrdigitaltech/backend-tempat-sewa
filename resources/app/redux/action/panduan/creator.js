@@ -59,6 +59,30 @@ export const getPanduanSearch = queryObj => {
   };
 };
 
+export const getPanduanDetail = slug => {
+  return async dispatch => {
+    try {
+      const response = await axios.get(`/api/v1/panduanDetail?slug=${slug}`);
+      const detail = response.data.data;
+      if (detail) {
+        dispatch(savePanduanDetail(detail));
+      } else {
+        // fallback dari JSON statis
+        const fallback = DataPanduan.find(item => item.slug === slug);
+        if (fallback) {
+          dispatch(savePanduanDetail(fallback));
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching panduan detail:', error);
+      const fallback = DataPanduan.find(item => item.slug === slug);
+      if (fallback) {
+        dispatch(savePanduanDetail(fallback));
+      }
+    }
+  };
+};
+
 export const saveListPanduan = payload => {
   return {
     type: actionType.loadPanduan,
@@ -69,6 +93,13 @@ export const saveListPanduan = payload => {
 export const savePanduanSearch = payload => {
   return {
     type: actionType.loadPanduanSearch,
+    payload: payload
+  };
+};
+
+export const savePanduanDetail = payload => {
+  return {
+    type: actionType.loadPanduanDetail,
     payload: payload
   };
 };
