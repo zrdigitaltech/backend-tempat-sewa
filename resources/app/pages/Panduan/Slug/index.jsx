@@ -9,9 +9,25 @@ const PanduanDetail = () => {
 
   // Mock data panduan populer sidebar
   const popularGuides = [
-    { slug: 'tips-mencari-kost', title: 'Tips Mencari Kost yang Nyaman dan Aman' },
-    { slug: 'sewakan-rumah-online', title: 'Cara Menyewakan Rumah Secara Online dengan Efektif' },
-    { slug: 'panduan-pajak-properti', title: 'Panduan Pajak Properti yang Perlu Kamu Tahu' }
+    {
+      date: '2024-12-01',
+      coverImage: 'https://placehold.co/800x600?text=Tips+Mencari+Kost',
+      slug: 'tips-mencari-kost',
+      title: 'Tips Mencari Kost yang Nyaman dan Aman'
+    },
+    {
+      date: '2024-12-01',
+      coverImage:
+        'https://placehold.co/800x600?text=Cara+Menyewakan+Rumah+Secara+Online+dengan+Efektif',
+      slug: 'sewakan-rumah-online',
+      title: 'Cara Menyewakan Rumah Secara Online dengan Efektif'
+    },
+    {
+      date: '2024-12-01',
+      coverImage: 'https://placehold.co/800x600?text=Panduan+Pajak+Properti+yang+Perlu+Kamu+Tahu',
+      slug: 'panduan-pajak-properti',
+      title: 'Panduan Pajak Properti yang Perlu Kamu Tahu'
+    }
   ];
 
   useEffect(() => {
@@ -21,17 +37,21 @@ const PanduanDetail = () => {
         {
           slug: 'tips-mencari-kost',
           title: 'Tips Mencari Kost yang Nyaman dan Aman',
-          content: '<p>Berikut adalah tips penting saat mencari kost...</p>',
+          content: `<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Why do we use it?It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Where does it come from?Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.Where can I get some?There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>`,
+
           date: '2024-12-01',
           author: 'Admin',
+          authorSlug: 'admin',
           coverImage: 'https://placehold.co/800x600?text=Tips+Mencari+Kost'
         },
         {
           slug: 'sewakan-rumah-online',
           title: 'Cara Menyewakan Rumah Secara Online dengan Efektif',
-          content: '<p>Ikuti langkah-langkah berikut untuk menyewakan rumah...</p>',
+          content: `<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Why do we use it?It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).Where does it come from?Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.Where can I get some?There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>`,
+
           date: '2024-09-18',
           author: 'Tim tempatSewa',
+          authorSlug: 'tim-tempatSewa',
           coverImage:
             'https://placehold.co/800x600?text=Cara+Menyewakan+Rumah+Secara+Online+dengan+Efektif'
         },
@@ -41,6 +61,7 @@ const PanduanDetail = () => {
           content: '<p>Pajak properti adalah hal penting yang harus kamu pahami...</p>',
           date: '2024-08-05',
           author: 'Admin',
+          authorSlug: 'admin',
           coverImage:
             'https://placehold.co/800x600?text=Panduan+Pajak+Properti+yang+Perlu+Kamu+Tahu'
         }
@@ -67,7 +88,17 @@ const PanduanDetail = () => {
         <div className="container">
           <h1 className="fs-3 fw-bold text-dark">{guide.title}</h1>
           <div className="text-muted mb-2">
-            Ditulis oleh <b>{guide.author}</b> pada {guide.date}
+            Ditulis oleh{' '}
+            <Link to={`/panduan/author/${guide.authorSlug}`} className="">
+              <b>{guide.author}</b>
+            </Link>{' '}
+            pada{' '}
+            {guide.date &&
+              new Date(guide.date).toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+              })}
           </div>
         </div>
       </section>
@@ -86,26 +117,55 @@ const PanduanDetail = () => {
         />
       )}
 
-      <section className="pt-3 pb-5 container" style={{ display: 'flex', gap: '2rem' }}>
-        {/* Main Content */}
-        <article style={{ flex: 3 }}>
-          <div dangerouslySetInnerHTML={{ __html: guide.content }} />
-        </article>
+      <section className="pt-3 pb-5 container">
+        <div className="row">
+          {/* Konten Utama */}
+          <div className="col-12 col-lg-8 mb-4 mb-lg-0">
+            <article>
+              <div dangerouslySetInnerHTML={{ __html: guide.content }} />
+            </article>
+          </div>
 
-        {/* Sidebar */}
-        <aside style={{ flex: 1, borderLeft: '1px solid #ddd', paddingLeft: '1rem' }}>
-          <h5 className="mb-3">Artikel Populer</h5>
-          <ul className="list-unstyled">
-            {popularGuides.map(item => (
-              <li key={item.slug} style={{ marginBottom: '0.8rem' }}>
-                {/* Bisa gunakan Link dari react-router-dom jika sudah import */}
-                <Link to={`/panduan/${item.slug}`} className="text-decoration-none">
-                  &raquo; {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
+          {/* Sidebar */}
+          <div className="col-12 col-lg-4">
+            <aside className="position-sticky" style={{ top: '85px' }}>
+              <h5 className="mb-3">Artikel Populer</h5>
+              <ul className="list-unstyled">
+                {popularGuides?.slice(0, 8).map(item => (
+                  <li key={item.slug} className="d-flex mb-3">
+                    <Link
+                      to={`/panduan/${item.slug}`}
+                      className="d-flex text-decoration-none w-100 gap-2"
+                    >
+                      <img
+                        src={item.coverImage}
+                        alt={item.title}
+                        style={{
+                          width: '100px',
+                          height: '70px',
+                          objectFit: 'cover',
+                          borderRadius: '6px'
+                        }}
+                      />
+                      <div>
+                        <div className="fw-semibold text-dark">
+                          <small>{item.title}</small>
+                        </div>
+                        <div className="text-muted" style={{ fontSize: '0.75rem' }}>
+                          {new Date(item.date).toLocaleDateString('id-ID', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric'
+                          })}
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+        </div>
       </section>
     </div>
   );
