@@ -25,7 +25,7 @@ const PanduanDetail = () => {
   const fetchPanduanDetail = async () => {
     setIsLoading(prev => ({ ...prev, detail: true }));
     await dispatch(getPanduanDetail(slug));
-    // setIsLoading(prev => ({ ...prev, detail: false }));
+    setIsLoading(prev => ({ ...prev, detail: false }));
   };
 
   const popularGuides = [
@@ -54,7 +54,9 @@ const PanduanDetail = () => {
     fetchPanduanDetail();
   }, [slug]);
 
-  if (!panduanDetail) return <TidakDitemukan slug={slug} />;
+  if (!isLoading.detail && (!panduanDetail || Object.keys(panduanDetail).length === 0)) {
+    return <TidakDitemukan slug={slug} />;
+  } 
 
   return (
     <div className="pb-5">
