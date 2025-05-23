@@ -28,26 +28,33 @@ const SidebarPopularGuides = props => {
                   to={`/panduan/${item.slug}`}
                   className="d-flex text-decoration-none w-100 gap-2"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    style={{
-                      width: '100px',
-                      height: '70px',
-                      objectFit: 'cover',
-                      borderRadius: '6px'
-                    }}
-                  />
                   <div>
-                    <div className="fw-semibold text-dark">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={{
+                        width: '100px',
+                        height: '70px',
+                        objectFit: 'cover',
+                        borderRadius: '6px'
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <div
+                      className="fw-semibold text-dark ST__text lh-sm"
+                      title={item.title.length > 50 ? item.title : ''}
+                    >
                       <small>{item.title}</small>
                     </div>
-                    <div className="text-muted" style={{ fontSize: '0.75rem' }}>
-                      {new Date(item.date).toLocaleDateString('id-ID', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                      })}
+                    <div className="text-muted">
+                      <small>
+                        {new Date(item.date).toLocaleDateString('id-ID', {
+                          day: 'numeric',
+                          month: 'short',
+                          year: 'numeric'
+                        })}
+                      </small>
                     </div>
                   </div>
                 </Link>
