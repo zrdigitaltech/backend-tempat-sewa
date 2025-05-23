@@ -1,6 +1,6 @@
 import { actionType } from '@/app/redux/action/panduan/type';
 import axios from 'axios';
-import { formatStrip, unFormatStrip } from '@/app/helpers';
+import { formatStrip } from '@/app/helpers';
 
 // Data Json
 import DataPanduan from './data-panduan.json';
@@ -83,6 +83,26 @@ export const getPanduanDetail = slug => {
   };
 };
 
+export const getPanduanPopuler = slug => {
+  return async dispatch => {
+    try {
+      const response = await axios.get('/api/v1/panduanPopuler');
+      const popular = response.data.data;
+      if (popular && Array.isArray(popular)) {
+        dispatch(savePanduanPopuler(popular));
+      } else {
+        // fallback dari JSON statis
+        const fallbackFiltered = DataPanduan.filter(item => item.slug !== slug);
+        dispatch(savePanduanPopuler(fallbackFiltered));
+      }
+    } catch (error) {
+      console.error('Error fetching panduan populer detail:', error);
+      const fallbackFiltered = DataPanduan.filter(item => item.slug !== slug);
+      dispatch(savePanduanPopuler(fallbackFiltered));
+    }
+  };
+};
+
 export const saveListPanduan = payload => {
   return {
     type: actionType.loadPanduan,
@@ -100,6 +120,13 @@ export const savePanduanSearch = payload => {
 export const savePanduanDetail = payload => {
   return {
     type: actionType.loadPanduanDetail,
+    payload: payload
+  };
+};
+
+export const savePanduanPopuler = payload => {
+  return {
+    type: actionType.loadPanduanPopuler,
     payload: payload
   };
 };

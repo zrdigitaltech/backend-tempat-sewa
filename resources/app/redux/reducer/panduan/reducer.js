@@ -24,6 +24,13 @@ export const panduanReducer = (state = initialState, action) => {
       };
       return state;
 
+    case actionType.loadPanduanPopuler:
+      state = {
+        ...state,
+        panduanPopuler: action.payload
+      };
+      return state;
+
     case actionType.loadPanduanResetData:
       return initialState;
     default:

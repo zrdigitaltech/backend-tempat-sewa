@@ -29,7 +29,7 @@ const SidebarPopularGuides = props => {
                   className="d-flex text-decoration-none w-100 gap-2"
                 >
                   <img
-                    src={item.coverImage}
+                    src={item.image}
                     alt={item.title}
                     style={{
                       width: '100px',

@@ -9,12 +9,13 @@ import {
 } from '@/app/pages/Panduan/Slug/components';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getPanduanDetail } from '@/app/redux/action/panduan/creator';
+import { getPanduanDetail, getPanduanPopuler } from '@/app/redux/action/panduan/creator';
 
 const PanduanDetail = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
   const panduanDetail = useSelector(state => state?.panduan?.panduanDetail);
+  const panduanPopuler = useSelector(state => state?.panduan?.panduanPopuler);
 
   // UI State
   const [isLoading, setIsLoading] = useState({
@@ -28,35 +29,20 @@ const PanduanDetail = () => {
     setIsLoading(prev => ({ ...prev, detail: false }));
   };
 
-  const popularGuides = [
-    {
-      date: '2024-12-01',
-      coverImage: 'https://placehold.co/800x600?text=Tips+Mencari+Kost',
-      slug: 'tips-mencari-kost',
-      title: 'Tips Mencari Kost yang Nyaman dan Aman'
-    },
-    {
-      date: '2024-12-01',
-      coverImage:
-        'https://placehold.co/800x600?text=Cara+Menyewakan+Rumah+Secara+Online+dengan+Efektif',
-      slug: 'sewakan-rumah-online',
-      title: 'Cara Menyewakan Rumah Secara Online dengan Efektif'
-    },
-    {
-      date: '2024-12-01',
-      coverImage: 'https://placehold.co/800x600?text=Panduan+Pajak+Properti+yang+Perlu+Kamu+Tahu',
-      slug: 'panduan-pajak-properti',
-      title: 'Panduan Pajak Properti yang Perlu Kamu Tahu'
-    }
-  ];
+  const fetchPanduanPopuler = async () => {
+    setIsLoading(prev => ({ ...prev, populer: true }));
+    await dispatch(getPanduanPopuler(slug));
+    setIsLoading(prev => ({ ...prev, populer: false }));
+  };
 
   useEffect(() => {
     fetchPanduanDetail();
+    fetchPanduanPopuler();
   }, [slug]);
 
   if (!isLoading.detail && (!panduanDetail || Object.keys(panduanDetail).length === 0)) {
     return <TidakDitemukan slug={slug} />;
-  } 
+  }
 
   return (
     <div className="pb-5">
@@ -68,7 +54,7 @@ const PanduanDetail = () => {
             <PanduanContent content={panduanDetail?.content} isLoading={isLoading?.detail} />
           </div>
           <div className="col-12 col-lg-4">
-            <SidebarPopularGuides guides={popularGuides} isLoading={isLoading?.populer} />
+            <SidebarPopularGuides guides={panduanPopuler} isLoading={isLoading?.populer} />
           </div>
         </div>
       </section>
