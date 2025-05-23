@@ -6,7 +6,7 @@ export const kategoriInteriorReducer = (state = initialState, action) => {
     case actionType.loadKategoriInterior:
       state = {
         ...state,
-        KategoriInteriorList: action.payload
+        kategoriInteriorList: action.payload
       };
       return state;
     case actionType.loadKategoriInteriorResetData:
