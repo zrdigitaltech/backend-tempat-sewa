@@ -18,9 +18,13 @@ const BerhasilDiLaporkan = props => {
             </h2>
             <div>
               <p>
-                Anda akan segera mendapat notifikasi setelah kami meninjau laporan Anda. Terima
-                kasih telah membantu kami menjadikan TempatSewa.Com sebagai platform sewa properti
-                yang aman, nyaman, dan suportif.
+                Terima kasih atas laporan Anda!
+                <br />
+                Tim <small>tempat</small>Sewa.Com akan segera meninjau iklan yang Anda laporkan.
+                Jika diperlukan, kami akan menghubungi Anda untuk informasi lebih lanjut.
+              </p>
+              <p className="mb-0">
+                Kami menghargai partisipasi Anda dalam menjaga kualitas platform kami. 😊
               </p>
             </div>
           </div>

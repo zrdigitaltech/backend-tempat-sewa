@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Modals from '@/app/components/Modals';
-import PermintaanBerhasilModal from '@/app/pages/modal/Konsultasi/PermintaanBerhasil';
+import PermintaanBerhasilModal from '@/app/pages/modal/BeriSaran/PermintaanBerhasil';
 
 const Index = props => {
   const { show, onClose } = props;

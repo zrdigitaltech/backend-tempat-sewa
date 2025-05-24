@@ -18,8 +18,10 @@ const PermintaanBerhasil = props => {
             </h2>
             <div>
               <p>
-                Tim <strong>tempatSewa.Com</strong> telah menerima permintaan Anda. Kami akan segera
-                menghubungi Anda untuk memberikan rekomendasi properti sesuai kebutuhan.
+                Tim <small>tempat</small>Sewa.Com telah menerima permintaan Anda.
+                <br />
+                Kami akan segera menghubungi Anda untuk memberikan rekomendasi properti sesuai
+                kebutuhan.
               </p>
               <p className="mb-0">Terima kasih telah menggunakan layanan konsultasi kami. 😊</p>
             </div>

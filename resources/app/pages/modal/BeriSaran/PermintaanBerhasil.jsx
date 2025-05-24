@@ -6,7 +6,7 @@ const PermintaanBerhasil = props => {
 
   return (
     <Modals
-      title="Permintaan Berhasil Dikirim"
+      title="Masukan Anda Telah Diterima"
       show={show}
       onClose={onClose}
       position="center"
@@ -18,10 +18,13 @@ const PermintaanBerhasil = props => {
             </h2>
             <div>
               <p>
-                Tim <strong>tempatSewa.Com</strong> telah menerima permintaan Anda. Kami akan segera
-                menghubungi Anda untuk memberikan rekomendasi properti sesuai kebutuhan.
+                Terima kasih atas masukan Anda!
+                <br />
+                Tim <small>tempat</small>Sewa.Com akan mempelajari saran Anda dan berusaha
+                meningkatkan layanan kami. Jika diperlukan, kami akan menghubungi Anda melalui nomor
+                WhatsApp yang Anda berikan.
               </p>
-              <p className="mb-0">Terima kasih telah menggunakan layanan konsultasi kami. 😊</p>
+              <p className="mb-0">Semoga hari Anda menyenangkan! 😊</p>
             </div>
           </div>
         </Fragment>
