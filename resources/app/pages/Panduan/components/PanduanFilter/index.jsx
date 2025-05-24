@@ -16,8 +16,8 @@ const Index = props => {
     isLoading
   } = props;
   return (
-    <div className="row align-items-center mb-4">
-      <div className="col-12 col-sm-4 mb-3 mb-sm-0">
+    <div className="row align-items-center mb-4 g-2">
+      <div className="col-12 col-sm-4">
         {isLoading ? (
           <Skeleton height={34} borderRadius={8} />
         ) : (
