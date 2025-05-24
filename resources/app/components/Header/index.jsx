@@ -55,7 +55,11 @@ export default function Index() {
           setShowBantuan={setShowBantuan}
         />
       </nav>
-      <BantuanModal show={showBantuan} onClose={() => setShowBantuan(false)} />
+      <BantuanModal
+        show={showBantuan}
+        onClose={() => setShowBantuan(false)}
+        setShowBantuan={setShowBantuan}
+      />
     </Fragment>
   );
 }

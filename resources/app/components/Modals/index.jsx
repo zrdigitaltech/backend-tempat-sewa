@@ -20,14 +20,6 @@ const Index = props => {
     styleModalBackdrop
   } = props;
 
-  // useEffect(() => {
-  //   if (show && !scrolls) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'auto';
-  //   }
-  // }, [show, scrolls]);
-
   if (!show) return null;
 
   return (
