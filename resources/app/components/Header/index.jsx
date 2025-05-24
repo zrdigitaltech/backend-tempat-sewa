@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
-import OffcanvasMobile from './Mobile';
-import Desktop from './Desktop';
-import { KonsultasiModal } from '@/app/pages/modal';
+import { Desktop, Mobile } from '@/app/components/Header/components';
+import BantuanModal from '@/app/components/Header/modal/Bantuan';
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +12,7 @@ export default function Index() {
   // Desktop
   const [openDisewa, setOpenDisewa] = useState(false);
 
-  const [showKonsultasi, setShowKonsultasi] = useState(false);
+  const [showBantuan, setShowBantuan] = useState(false);
 
   return (
     <Fragment>
@@ -43,20 +42,20 @@ export default function Index() {
           <Desktop
             openDisewa={openDisewa}
             setOpenDisewa={setOpenDisewa}
-            showKonsultasi={showKonsultasi}
-            setShowKonsultasi={setShowKonsultasi}
+            showBantuan={showBantuan}
+            setShowBantuan={setShowBantuan}
           />
         </div>
 
         {/* Offcanvas Mobile Menu */}
-        <OffcanvasMobile
+        <Mobile
           handleClose={closeMenu}
           isMenuOpen={isMenuOpen}
-          showKonsultasi={showKonsultasi}
-          setShowKonsultasi={setShowKonsultasi}
+          showBantuan={showBantuan}
+          setShowBantuan={setShowBantuan}
         />
       </nav>
-      <KonsultasiModal show={showKonsultasi} onClose={() => setShowKonsultasi(false)} />
+      <BantuanModal show={showBantuan} onClose={() => setShowBantuan(false)} />
     </Fragment>
   );
 }

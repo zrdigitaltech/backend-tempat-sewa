@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './header.scss';
+import '@/app/components/Header/header.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { iconTipeProperti } from '@/app/helpers';
 
 export default function Desktop(props) {
-  const { openDisewa, setOpenDisewa, setShowKonsultasi, showKonsultasi } = props;
+  const { openDisewa, setOpenDisewa, setShowBantuan, showBantuan } = props;
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const activeTipeProperti = query.get('tipeProperti');
@@ -82,8 +82,8 @@ export default function Desktop(props) {
         <li className="nav-item">
           <div
             rel="noreferrer"
-            className={`nav-link text-dark a-hover cursor-pointer ${showKonsultasi === true ? 'active' : ''}`}
-            onClick={() => (setOpenDisewa(false), setShowKonsultasi(true))}
+            className={`nav-link text-dark a-hover cursor-pointer ${showBantuan === true ? 'active' : ''}`}
+            onClick={() => (setOpenDisewa(false), setShowBantuan(true))}
           >
             Bantuan
           </div>

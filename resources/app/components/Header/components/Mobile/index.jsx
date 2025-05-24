@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './header.scss';
+import '@/app/components/Header/header.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 
@@ -9,8 +9,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { useNavigate } from 'react-router-dom';
 import { iconTipeProperti } from '@/app/helpers';
 
-export default function Mobile(props) {
-  const { isMenuOpen, handleClose, setShowKonsultasi, showKonsultasi } = props;
+export default function Index(props) {
+  const { isMenuOpen, handleClose, setShowBantuan, showBantuan } = props;
   const [openDisewa, setOpenDisewa] = useState(false);
   const location = useLocation();
   const query = new URLSearchParams(location.search);
@@ -108,8 +108,8 @@ export default function Mobile(props) {
           Panduan
         </Link>
         <div
-          className={`nav-link text-dark cursor-pointer ${showKonsultasi === true ? 'active' : ''}`}
-          onClick={() => setShowKonsultasi(true)}
+          className={`nav-link text-dark cursor-pointer ${showBantuan === true ? 'active' : ''}`}
+          onClick={() => setShowBantuan(true)}
         >
           Bantuan
         </div>
