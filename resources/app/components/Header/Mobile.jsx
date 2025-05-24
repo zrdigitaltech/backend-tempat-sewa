@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { iconTipeProperti } from '@/app/helpers';
 
 export default function Mobile(props) {
-  const { isMenuOpen, handleClose } = props;
+  const { isMenuOpen, handleClose, setShowKonsultasi, showKonsultasi } = props;
   const [openDisewa, setOpenDisewa] = useState(false);
   const location = useLocation();
   const query = new URLSearchParams(location.search);
@@ -107,13 +107,12 @@ export default function Mobile(props) {
         >
           Panduan
         </Link>
-        <Link
-          className={`nav-link text-dark ${location.pathname === '/jelajah' ? 'active' : ''}`}
-          to="/jelajah"
-          onClick={handleClose}
+        <div
+          className={`nav-link text-dark cursor-pointer ${showKonsultasi === true ? 'active' : ''}`}
+          onClick={() => setShowKonsultasi(true)}
         >
-          Jelajah
-        </Link>
+          Bantuan
+        </div>
       </div>
 
       <div className="offcanvas-footer p-3 border-top shadow ST--PasangIklan__mobile">

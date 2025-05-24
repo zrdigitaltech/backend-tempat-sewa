@@ -421,11 +421,7 @@ export default function Index() {
         handleGoWhatsApp={() => handleGoToWhatsApp(dataItem?.no_whatsapp)}
         dataItem={dataItem}
       />
-      <KonsultasiModal
-        show={showKonsultasi}
-        onClose={() => setShowKonsultasi(false)}
-        dataItem={dataItem}
-      />
+      <KonsultasiModal show={showKonsultasi} onClose={() => setShowKonsultasi(false)} />
     </Fragment>
   );
 }

@@ -10,7 +10,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const Index = props => {
-  const { show, onClose, dataItem } = props;
+  const { show, onClose } = props;
 
   const [formData, setFormData] = useState({
     lokasi: '',

@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { iconTipeProperti } from '@/app/helpers';
 
 export default function Desktop(props) {
-  const { openDisewa, setOpenDisewa } = props;
+  const { openDisewa, setOpenDisewa, setShowKonsultasi, showKonsultasi } = props;
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const activeTipeProperti = query.get('tipeProperti');
@@ -80,14 +80,13 @@ export default function Desktop(props) {
           </Link>
         </li>
         <li className="nav-item">
-          <Link
+          <div
             rel="noreferrer"
-            className={`nav-link text-dark a-hover ${location.pathname === '/jelajah' ? 'active' : ''}`}
-            to="/jelajah"
-            onClick={() => setOpenDisewa(false)}
+            className={`nav-link text-dark a-hover cursor-pointer ${showKonsultasi === true ? 'active' : ''}`}
+            onClick={() => (setOpenDisewa(false), setShowKonsultasi(true))}
           >
-            Jelajah
-          </Link>
+            Bantuan
+          </div>
         </li>
       </ul>
 

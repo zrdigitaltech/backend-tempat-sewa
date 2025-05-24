@@ -50,7 +50,7 @@ const Breadcrumb = props => {
                   aria-current={idx === items.length - 1 ? 'page' : undefined}
                 >
                   {idx !== items.length - 1 ? (
-                    item?.name === 'Panduan' || item?.name === 'Jelajah' ? (
+                    item?.name === 'Panduan' ? (
                       <Link to={item.link}>{item.name}</Link>
                     ) : (
                       <span className="text-primary">{item.name}</span>

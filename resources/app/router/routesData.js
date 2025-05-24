@@ -82,24 +82,6 @@ const routesData = [
         ]
       },
       {
-        path: 'jelajah',
-        element: 'Outlet',
-        breadcrumb: 'Jelajah',
-        children: [
-          {
-            path: '',
-            element: 'Jelajah',
-            breadcrumb: '',
-            index: true
-          },
-          {
-            path: ':slug',
-            element: 'JelajahSlug',
-            breadcrumb: ({ slug }) => slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
-          }
-        ]
-      },
-      {
         path: 'tentang-kami',
         element: 'TentangKami',
         breadcrumb: 'Tentang Kami'

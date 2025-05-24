@@ -16,8 +16,6 @@ const componentMap = {
   Panduan: lazy(() => import('@/app/pages/Panduan')),
   PanduanSlug: lazy(() => import('@/app/pages/Panduan/Slug')),
   AuthorSlug: lazy(() => import('@/app/pages/Panduan/Author/Slug')),
-  Jelajah: lazy(() => import('@/app/pages/Jelajah')),
-  JelajahSlug: lazy(() => import('@/app/pages/Jelajah/Slug')),
   TentangKami: lazy(() => import('@/app/pages/TentangKami')),
   SyaratPenggunaanPemilikProperti: lazy(
     () => import('@/app/pages/legal/SyaratPenggunaanPemilikProperti')

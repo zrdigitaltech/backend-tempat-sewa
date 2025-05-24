@@ -17,7 +17,7 @@ const Index = props => {
   } = props;
   return (
     <div className="row align-items-center mb-4">
-      <div className="col-sm-4">
+      <div className="col-12 col-sm-4 mb-3 mb-sm-0">
         {isLoading ? (
           <Skeleton height={34} borderRadius={8} />
         ) : (
@@ -35,7 +35,7 @@ const Index = props => {
           </select>
         )}
       </div>
-      <div className="col-sm-8">
+      <div className="col-12 col-sm-8">
         <input
           type="text"
           className="form-control"
