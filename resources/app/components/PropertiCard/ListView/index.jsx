@@ -121,7 +121,7 @@ export default function Index(props) {
               <Skeleton width={120} height={24} />
             </h5>
 
-            <span className="card-text fw-semibold mb-0 ST__text">
+            <span className="card-text fw-semibold mb-0 ST--Text">
               <Skeleton width="100%" height={20} />
             </span>
             <p className="text-muted small mb-0">
@@ -167,7 +167,7 @@ export default function Index(props) {
             </h5>
 
             <span
-              className="card-text fw-semibold mb-0 ST__text"
+              className="card-text fw-semibold mb-0 ST--Text"
               title={nama.length > 50 ? nama : undefined}
             >
               {nama}

@@ -247,7 +247,7 @@ const Index = () => {
               ) : (
                 <Fragment>
                   <h2
-                    className="fw-bold text-primary mb-0 ST__text"
+                    className="fw-bold text-primary mb-0 ST--Text"
                     title={kontrakanDetail?.nama?.length > 50 ? kontrakanDetail?.nama : null}
                   >
                     {kontrakanDetail?.nama}

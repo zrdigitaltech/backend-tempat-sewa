@@ -42,7 +42,7 @@ const SidebarPopularGuides = props => {
                   </div>
                   <div>
                     <div
-                      className="fw-semibold text-dark ST__text lh-sm"
+                      className="fw-semibold text-dark ST--Text lh-sm"
                       title={item.title.length > 50 ? item.title : ''}
                     >
                       <small>{item.title}</small>

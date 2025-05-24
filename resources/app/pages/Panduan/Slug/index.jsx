@@ -51,7 +51,7 @@ const PanduanDetail = () => {
       <section className="pt-3 pb-5 container">
         <div className="row">
           <div className="col-12 col-lg-8 mb-4 mb-lg-0">
-            <PanduanContent content={panduanDetail?.content} isLoading={isLoading?.detail} />
+            <PanduanContent content={panduanDetail?.deskripsi} isLoading={isLoading?.detail} />
           </div>
           <div className="col-12 col-lg-4">
             <SidebarPopularGuides guides={panduanPopuler} isLoading={isLoading?.populer} />

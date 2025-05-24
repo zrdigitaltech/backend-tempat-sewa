@@ -49,7 +49,7 @@ const Index = props => {
     <div className="row">
       {guides.map((item, idx) => (
         <div key={item?.id || idx} className="col-6 col-sm-4 mb-4">
-          <PanduanCard guide={item} />
+          <PanduanCard guide={item} showAuthor={true} />
         </div>
       ))}
     </div>

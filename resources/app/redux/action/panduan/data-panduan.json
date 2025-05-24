@@ -8,7 +8,7 @@
     "author": "Admin",
     "authorSlug": "admin",
     "kategori": "Panduan Penyewa",
-    "content": "<p>....</p>"
+    "deskripsi": "<p>....</p>"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "author": "Tim tempatSewa",
     "authorSlug": "tim-tempatSewa",
     "kategori": "Panduan Pemilik",
-    "content": "<p>....</p>"
+    "deskripsi": "<p>....</p>"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "author": "Admin",
     "authorSlug": "admin",
     "kategori": "Panduan Penyewa",
-    "content": "<p>....</p>"
+    "deskripsi": "<p>....</p>"
   },
   {
     "id": 4,
@@ -41,6 +41,6 @@
     "author": "Tim tempatSewa",
     "authorSlug": "tim-tempatSewa",
     "kategori": "Panduan Pemilik",
-    "content": "<p>....</p>"
+    "deskripsi": "<p>....</p>"
   }
 ]

@@ -70,7 +70,7 @@ const Index = props => {
               <Skeleton width={100} />
             ) : (
               <strong
-                className="d-block ST__text"
+                className="d-block ST--Text"
                 title={kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''}
               >
                 {(kontrakanDetail?.pemilik || '').length > 50

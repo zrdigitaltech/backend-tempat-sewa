@@ -104,7 +104,7 @@ const AuthorPage = () => {
             <div className="row">
               {articles.map(article => (
                 <div key={article.slug} className="col-6 col-lg-4 mb-4">
-                  <PanduanCard guide={article} />
+                  <PanduanCard guide={article} linkKategori={true} />
                 </div>
               ))}
             </div>
