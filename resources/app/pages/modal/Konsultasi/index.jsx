@@ -44,7 +44,7 @@ const Index = props => {
 
   useEffect(() => {
     if (tipePropertiList?.length) {
-      const defaultItem = tipePropertiList.find(item => item.nama.toLowerCase() === 'kost');
+      const defaultItem = tipePropertiList.find(item => item.nama.toLowerCase() === 'kontrakan');
       if (defaultItem) {
         setSelectedReasons([defaultItem.id]);
         setFormData(prev => ({ ...prev, tipe_properti: [defaultItem.id] }));
