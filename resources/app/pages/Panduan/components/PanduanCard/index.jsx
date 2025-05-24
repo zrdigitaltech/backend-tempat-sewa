@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '@/app/pages/Panduan/panduan.scss';
+
 const kategoriColor = {
   'Panduan Penyewa': 'primary',
   'Panduan Pemilik': 'success',
@@ -14,20 +16,21 @@ const Index = ({ guide }) => {
   return (
     <div className="card h-100 border-0 shadow-sm hover-shadow transition-all rounded-3">
       {guide.image && (
-        <Link to={`/panduan/${guide.slug}`}>
-          <img
-            src={guide.image}
-            alt={guide.title}
-            className="card-img-top"
-            style={{ height: '180px', objectFit: 'cover' }}
-          />
-        </Link>
+        <div className="position-relative">
+          <Link to={`/panduan/${guide.slug}`}>
+            <img
+              src={guide.image}
+              alt={guide.title}
+              className="card-img-top"
+              style={{ height: '180px', objectFit: 'cover' }}
+            />
+          </Link>
+          <span className={`ST--badge position-absolute text-white`}>
+            <small>{guide.kategori}</small>
+          </span>
+        </div>
       )}
       <div className="card-body">
-        <span className={`badge bg-${kategoriColor[guide.kategori] || 'secondary'} mb-2`}>
-          {guide.kategori}
-        </span>
-
         <h5 className="card-title d-flex justify-content-between align-items-center">
           <Link to={`/panduan/${guide.slug}`} className="text-dark  fw-semibold">
             {guide.title}

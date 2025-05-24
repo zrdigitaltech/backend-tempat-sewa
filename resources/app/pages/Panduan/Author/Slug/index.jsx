@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
-import { AuthorCard, AuthorProfileCard } from '@/app/pages/Panduan/Author/Slug/components';
+import { AuthorProfileCard } from '@/app/pages/Panduan/Author/Slug/components';
+import { PanduanCard } from '@/app/pages/Panduan/components';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getListPanduan } from '@/app/redux/action/panduan/creator';
@@ -103,7 +104,7 @@ const AuthorPage = () => {
             <div className="row">
               {articles.map(article => (
                 <div key={article.slug} className="col-6 col-lg-4 mb-4">
-                  <AuthorCard guide={article} />
+                  <PanduanCard guide={article} />
                 </div>
               ))}
             </div>
