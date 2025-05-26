@@ -1,13 +1,13 @@
 // File: components/PropertiCard/ListView.js
 import React, { Fragment, useState } from 'react';
-import { formatPrice, formatPhone, formatTipeKamar } from '@/app/helpers';
+import { formatPrice } from '@/app/helpers';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from 'react-router-dom';
 import '../propertiCard.scss';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
+import ShareModal from '@/app/pages/modal/Share';
 import useTooltips from '@/app/components/Tooltips';
 import { useNavigate } from 'react-router-dom';
 import { iconTipeProperti } from '@/app/helpers';

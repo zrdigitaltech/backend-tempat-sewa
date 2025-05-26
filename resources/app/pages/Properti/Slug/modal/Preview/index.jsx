@@ -3,7 +3,7 @@ import Modals from '@/app/components/Modals';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './preview.scss';
-import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
+import ShareModal from '@/app/pages/modal/Share';
 
 const Index = props => {
   const {

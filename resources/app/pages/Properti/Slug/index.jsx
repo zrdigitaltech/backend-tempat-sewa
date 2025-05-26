@@ -11,7 +11,7 @@ import Breadcrumb from '@/app/components/Breadcrumb';
 import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
 
 // Modals
-import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
+import ShareModal from '@/app/pages/modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
 import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
 import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';

@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { Fragment, useRef } from 'react';
 import Modals from '@/app/components/Modals';
 import * as bootstrap from 'bootstrap';
 
@@ -63,7 +63,7 @@ const Index = props => {
 
   return (
     <Modals
-      title="Bagikan Properti"
+      title="Bagikan"
       show={show}
       onClose={onClose}
       position="center"

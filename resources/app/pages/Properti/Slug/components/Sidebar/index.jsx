@@ -35,7 +35,7 @@ const Index = props => {
       <hr className="my-3 border-primary-subtle" />
       <div className="d-flex justify-content-center mb-3">
         <Link
-          to={`/pemilik/@${kontrakanDetail?.pemilikSlug}`}
+          to={`/pemilik/${kontrakanDetail?.pemilikSlug}`}
           className="text-center position-relative "
         >
           <div className="d-flex justify-content-center">

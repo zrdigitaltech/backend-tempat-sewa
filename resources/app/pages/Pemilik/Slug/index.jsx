@@ -11,8 +11,7 @@ import { getListPanduan } from '@/app/redux/action/panduan/creator';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
-import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
+import { HubungiPengiklanPropertiModal, ShareModal } from '@/app/pages/modal';
 
 const AuthorPage = () => {
   const { slug } = useParams();
