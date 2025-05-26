@@ -1,51 +1,19 @@
-import React, { Fragment, useEffect, useRef } from 'react';
-import useTooltips from '@/app/components/Tooltips';
-import * as bootstrap from 'bootstrap';
+import React, { Fragment, useState, useRef } from 'react';
 
 const Index = props => {
   const { dataItem = '' } = props;
-
   const copyBtnRef = useRef(null);
-  const tooltipRef = useRef(null);
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = phoneNumber => {
-    // navigator.clipboard
-    //   .writeText(phoneNumber)
-    //   .then(() => {
-    //     alert('Nomor berhasil disalin!');
-    //   })
-    //   .catch(() => {
-    //     alert('Gagal menyalin nomor.');
-    //   });
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
-        if (copyBtnRef.current) {
-          copyBtnRef.current.setAttribute('title', 'Nomor berhasil disalin!');
-
-          if (tooltipRef.current) {
-            tooltipRef.current.dispose();
-            tooltipRef.current = null;
-          }
-
-          tooltipRef.current = new bootstrap.Tooltip(copyBtnRef.current);
-          tooltipRef.current.show();
-
-          setTimeout(() => {
-            if (tooltipRef.current) {
-              tooltipRef.current.hide();
-              tooltipRef.current.dispose();
-              tooltipRef.current = null;
-            }
-
-            copyBtnRef.current.removeAttribute('title');
-          }, 1000);
-        }
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
       })
       .catch(err => console.error('Gagal menyalin nomor:', err));
   };
-
-  useTooltips();
 
   return (
     <Fragment>
@@ -81,14 +49,19 @@ const Index = props => {
           </div>
           <div className="mt-3">
             <span
-              className="text-primary"
+              className="text-primary cursor-pointer"
               onClick={() => handleCopy(dataItem?.no_whatsapp)}
-              data-bs-toggle={'tooltip'}
-              data-bs-placement="top"
               ref={copyBtnRef}
             >
-              {dataItem?.no_whatsapp} <i className="fa-solid fa-copy cursor-pointer"></i>
+              {dataItem?.no_whatsapp} <i className="fa-solid fa-copy"></i>
             </span>
+
+            {/* Pesan sukses */}
+            {copied && (
+              <div className="text-success mt-1" style={{ fontSize: '0.875rem' }}>
+                ✅ Nomor berhasil disalin!
+              </div>
+            )}
           </div>
         </div>
       </div>
