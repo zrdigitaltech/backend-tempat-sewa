@@ -11,6 +11,9 @@ import { panduanReducer } from '@/app/redux/reducer/panduan/reducer';
 import { authorReducer } from '@/app/redux/reducer/author/reducer';
 
 import { hubungiPengiklanPropertiReducer } from '@/app/redux/reducer/hubungiPengiklanProperti/reducer';
+import { laporkanIklanReducer } from '@/app/redux/reducer/laporkanIklan/reducer';
+import { beriSaranReducer } from '@/app/redux/reducer/beriSaran/reducer';
+import { konsultasiReducer } from '@/app/redux/reducer/konsultasi/reducer';
 
 // Combine semua reducers menjadi satu
 const rootReducer = combineReducers({
@@ -23,7 +26,10 @@ const rootReducer = combineReducers({
   panduan: panduanReducer,
   author: authorReducer,
 
-  hubungiPengiklanProperti: hubungiPengiklanPropertiReducer
+  hubungiPengiklanProperti: hubungiPengiklanPropertiReducer,
+  laporkanIklan: laporkanIklanReducer,
+  beriSaran: beriSaranReducer,
+  konsultasi: konsultasiReducer
 });
 
 export default rootReducer;

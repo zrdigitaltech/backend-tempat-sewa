@@ -4,8 +4,8 @@ import axios from 'axios';
 export const submitHubungiPengiklanProperti = formData => {
   return async dispatch => {
     try {
-      const response = await axios.post('/api/v1/formHubungiPengiklanProperti', formData);
-      dispatch(formHubungiPengiklanProperti(response.data));
+      const response = await axios.post('/api/v1/hubungiPengiklanProperti', formData);
+      dispatch(hubungiPengiklanProperti(response.data));
       return { success: true, data: response.data };
     } catch (error) {
       console.error('Submit formHubungiPengiklanProperti error:', error);
@@ -17,8 +17,8 @@ export const submitHubungiPengiklanProperti = formData => {
 export const submitVerifikasi = formData => {
   return async dispatch => {
     try {
-      const response = await axios.post('/api/v1/formVerifikasi', formData);
-      dispatch(formVerifikasi(response.data));
+      const response = await axios.post('/api/v1/verifikasi', formData);
+      dispatch(verifikasi(response.data));
       return { success: true, data: response.data };
     } catch (error) {
       console.error('Submit formVerifikasi error:', error);
@@ -27,14 +27,14 @@ export const submitVerifikasi = formData => {
   };
 };
 
-export const formHubungiPengiklanProperti = payload => {
+export const hubungiPengiklanProperti = payload => {
   return {
     type: actionType.loadHubungiPengiklanProperti,
     payload: payload
   };
 };
 
-export const formVerifikasi = payload => {
+export const verifikasi = payload => {
   return {
     type: actionType.loadVerifikasi,
     payload: payload

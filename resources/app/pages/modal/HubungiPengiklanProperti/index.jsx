@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Modals from '@/app/components/Modals';
 import BelumLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/BelumLogin';
 import SudahLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/SudahLogin';
-import { Link } from 'react-router-dom';
 import VerifikasiModal from '@/app/pages/modal/HubungiPengiklanProperti/verifikasi';
 import { useDispatch } from 'react-redux';
 import { submitHubungiPengiklanProperti } from '@/app/redux/action/hubungiPengiklanProperti/creator';
