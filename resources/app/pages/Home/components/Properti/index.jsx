@@ -6,7 +6,7 @@ import { GridView } from '@/app/components/PropertiCard';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import WhatsAppModal from '@/app/pages/modal/WhatsApp';
+import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
 
 export default function Index() {
   const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);
@@ -93,17 +93,17 @@ export default function Index() {
       </section>
 
       {/* Modal WhatsApp */}
-      <WhatsAppModal
+      <HubungiPengiklanPropertiModal
         show={showWhatsApp}
         setShowWhatsApp={setShowWhatsApp}
         onClose={() => {
           setShowWhatsApp(false);
-          setDataItem(null);
         }}
         isPageVerified={isPageVerified}
         setIsPageVerified={setIsPageVerified}
         handleGoWhatsApp={() => handleGoToWhatsApp(dataItem?.no_whatsapp)}
         dataItem={dataItem}
+        setDataItem={setDataItem}
       />
     </Fragment>
   );

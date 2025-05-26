@@ -19,7 +19,7 @@ import { TipeProperti, ToggleView } from '@/app/pages/Search/components';
 import classNames from 'classnames';
 
 // Modals
-import { WhatsAppModal, KonsultasiModal } from '@/app/pages/modal';
+import { HubungiPengiklanPropertiModal, KonsultasiModal } from '@/app/pages/modal';
 
 export default function Index() {
   const searchResultList = useSelector(state => state?.kontrakan?.searchResultList);
@@ -412,7 +412,7 @@ export default function Index() {
         )}
       </section>
 
-      <WhatsAppModal
+      <HubungiPengiklanPropertiModal
         show={showWhatsApp}
         setShowWhatsApp={setShowWhatsApp}
         onClose={() => (setShowWhatsApp(false), setDataItem(null))}

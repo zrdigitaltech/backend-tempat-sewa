@@ -1,8 +1,11 @@
 import React, { Fragment, useEffect, useState, useRef } from 'react';
 import Modals from '@/app/components/Modals';
+import { useDispatch } from 'react-redux';
+import { submitVerifikasi } from '@/app/redux/action/hubungiPengiklanProperti/creator';
 
 const Verifikasi = props => {
   const { show, onClose, formData, handleGantiNomor, setFormData, setIsPageVerified } = props;
+  const dispatch = useDispatch();
 
   const [timer, setTimer] = useState(60);
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -11,6 +14,7 @@ const Verifikasi = props => {
   const inputRefs = useRef([]);
   const [otpError, setOtpError] = useState('');
   const [isVerified, setIsVerified] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Countdown timer
   useEffect(() => {
@@ -70,25 +74,34 @@ const Verifikasi = props => {
     }
   };
 
-  const handleSubmitOtp = () => {
+  const handleSubmitOtp = async () => {
     const kodeOtp = otp.join('');
     console.log('Submit OTP:', kodeOtp);
 
-    // Simulasi OTP benar (ganti ini dengan validasi ke backend)
     const otpBenar = '123';
 
     if (kodeOtp === otpBenar) {
-      console.log('OTP benar:', kodeOtp);
-      // Lanjutkan ke langkah berikutnya, misalnya verifikasi berhasil
-      setOtpError('');
-      setIsVerified(true);
-
-      // Simpan status verifikasi ke localStorage
-      localStorage.setItem('isVerified', 'true');
-
-      setTimeout(() => {
+      try {
         setIsPageVerified(true);
-      }, 300);
+
+        // Submit data setelah verifikasi
+        const response = await dispatch(submitVerifikasi(otp));
+
+        if (response.success) {
+          console.log('Submit berhasil:', response.data);
+          // Lanjutkan ke langkah berikutnya (tutup modal, redirect, dsb.)
+        } else {
+          console.error('Gagal submit:', response.error);
+          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba lagi.');
+        }
+        setOtpError('');
+        setIsVerified(true);
+        localStorage.setItem('isVerified', 'true');
+      } catch (error) {
+        setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
+        console.error('Unexpected submit error:', error);
+      } finally {
+      }
     } else {
       setOtpError('Kode OTP yang kamu masukkan salah. Coba lagi.');
     }
@@ -148,6 +161,9 @@ const Verifikasi = props => {
             </div>
 
             {otpError && <div className="text-danger text-center mt-2 small">{otpError}</div>}
+            {errorMessage && (
+              <div className="text-danger text-center mt-2 small">{errorMessage}</div>
+            )}
 
             {/* Resend & Options */}
             <div className="text-center mt-4">

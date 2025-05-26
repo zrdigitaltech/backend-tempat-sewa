@@ -1,9 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Modals from '@/app/components/Modals';
-import BelumLogin from '@/app/pages/modal/WhatsApp/components/BelumLogin';
-import SudahLogin from '@/app/pages/modal/WhatsApp/components/SudahLogin';
+import BelumLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/BelumLogin';
+import SudahLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/SudahLogin';
 import { Link } from 'react-router-dom';
-import VerifikasiModal from '@/app/pages/modal/WhatsApp/verifikasi';
+import VerifikasiModal from '@/app/pages/modal/HubungiPengiklanProperti/verifikasi';
+import { useDispatch } from 'react-redux';
+import { submitHubungiPengiklanProperti } from '@/app/redux/action/hubungiPengiklanProperti/creator';
 
 const Index = props => {
   const {
@@ -13,8 +15,11 @@ const Index = props => {
     isPageVerified,
     setIsPageVerified,
     handleGoWhatsApp,
-    dataItem
+    dataItem,
+    setDataItem
   } = props;
+
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +30,7 @@ const Index = props => {
   const [errors, setErrors] = useState({});
   const [showVerifikasi, setShowVerifikasi] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const verified = localStorage.getItem('isVerified') === 'true';
@@ -77,19 +83,24 @@ const Index = props => {
         console.log('Form data valid:', formData);
 
         // Kirim ke server
-        // Misal pakai fetch:
-        // fetch('/api/konsultasi', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(bodyFormData)
-        // });
+        const result = await dispatch(submitHubungiPengiklanProperti(formData));
+        if (result.success) {
+          onClose();
+          setShowVerifikasi(true);
+          clearForm();
+        } else {
+          console.error('Gagal submit form:', result.error);
+          // Kamu bisa set error di UI jika perlu
+          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+        }
 
         onClose();
         setShowVerifikasi(true);
         clearForm();
         setIsSubmitting(false);
       } catch (error) {
-        console.error('Submit error:', error);
+        setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
+        console.error('Unexpected submit error:', error);
       } finally {
         setIsSubmitting(false);
       }
@@ -110,7 +121,13 @@ const Index = props => {
       <Modals
         title="Hubungi Pengiklan Properti"
         show={show}
-        onClose={() => (onClose(), clearForm())}
+        onClose={() => {
+          onClose();
+          clearForm();
+          if (isPageVerified) {
+            setDataItem(null);
+          }
+        }}
         position="center"
         styleModal={{ zIndex: 9999999 }}
         styleModalBackdrop={{ zIndex: 999999 }}
@@ -162,6 +179,11 @@ const Index = props => {
           ) : (
             <Fragment>
               {/* Start Belum Login */}
+              {errorMessage && (
+                <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
+                  {errorMessage}
+                </div>
+              )}
               <button
                 type="button"
                 className={`btn btn-${formData?.verifikasi === 'whatsapp' ? 'success' : 'primary'} w-100 text-white`}

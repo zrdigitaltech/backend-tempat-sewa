@@ -13,7 +13,7 @@ import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
 // Modals
 import ShareModal from '@/app/pages/Properti/Slug/Modal/Share';
 import PreviewModal from '@/app/pages/Properti/Slug/Modal/Preview';
-import WhatsAppModal from '@/app/pages/modal/WhatsApp';
+import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
 import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';
 
 // Slug-specific components
@@ -448,7 +448,7 @@ const Index = () => {
           isPageVerified ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp) : setShowWhatsApp(true)
         }
       />
-      <WhatsAppModal
+      <HubungiPengiklanPropertiModal
         show={showWhatsApp}
         setShowWhatsApp={setShowWhatsApp}
         onClose={() => setShowWhatsApp(false)}

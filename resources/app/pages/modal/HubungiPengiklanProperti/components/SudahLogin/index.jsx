@@ -1,9 +1,9 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import useTooltips from '@/app/components/Tooltips';
 import * as bootstrap from 'bootstrap';
 
 const Index = props => {
-  const { dataItem } = props;
+  const { dataItem = '' } = props;
 
   const copyBtnRef = useRef(null);
   const tooltipRef = useRef(null);
