@@ -92,10 +92,6 @@ const Index = props => {
           // Kamu bisa set error di UI jika perlu
           setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
         }
-
-        onClose();
-        setShowVerifikasi(true);
-        clearForm();
         setIsSubmitting(false);
       } catch (error) {
         setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
@@ -113,6 +109,7 @@ const Index = props => {
       verifikasi: 'whatsapp'
     });
     setErrors({});
+    setErrorMessage('');
   };
 
   return (

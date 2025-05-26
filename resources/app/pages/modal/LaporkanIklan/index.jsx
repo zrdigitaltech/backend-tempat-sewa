@@ -2,9 +2,12 @@ import React, { Fragment, useState } from 'react';
 import Modals from '@/app/components/Modals';
 import classNames from 'classnames';
 import BerhasilDiLaporkanModal from '@/app/pages/modal/LaporkanIklan/BerhasilDiLaporkan';
+import { useDispatch } from 'react-redux';
+import { submitLaporkanIklan } from '@/app/redux/action/laporkanIklan/creator';
 
 const Index = props => {
   const { show, onClose, dataItem } = props;
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -18,6 +21,7 @@ const Index = props => {
   const [selectedReason, setSelectedReason] = useState('');
 
   const [showBerhasilDiLaporkan, setShowBerhasilDiLaporkan] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const reasons = [
     'Iklan Ganda',
@@ -85,6 +89,7 @@ const Index = props => {
     });
     setErrors({});
     setSelectedReason('');
+    setErrorMessage('');
   };
 
   const handleSubmit = () => {

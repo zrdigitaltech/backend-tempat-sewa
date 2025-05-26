@@ -2,15 +2,18 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Modals from '@/app/components/Modals';
 import classNames from 'classnames';
 import PermintaanBerhasilModal from '@/app/pages/modal/Konsultasi/PermintaanBerhasil';
-// import TipeProperti from '@/app/pages/modal/Konsultasi/components/TipeProperti';
 import { useSelector, useDispatch } from 'react-redux';
 import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import { formatRupiah, unFormatRupiah } from '@/app/helpers';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useDispatch } from 'react-redux';
+import { submitKonsultasi } from '@/app/redux/action/konsultasi/creator';
 
 const Index = props => {
   const { show, onClose } = props;
+  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     lokasi: '',
@@ -26,11 +29,9 @@ const Index = props => {
 
   const [showPermintaanBerhasil, setShowPermintaanBerhasil] = useState(false);
 
-  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
-  const dispatch = useDispatch();
-
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fetchTipeProperti = async () => {
     setIsLoading(true);
@@ -119,6 +120,7 @@ const Index = props => {
     });
     setErrors({});
     setSelectedReasons([]);
+    setErrorMessage('');
   };
 
   const handleSubmit = async () => {

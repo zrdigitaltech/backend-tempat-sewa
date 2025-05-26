@@ -1,9 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import Modals from '@/app/components/Modals';
 import PermintaanBerhasilModal from '@/app/pages/modal/BeriSaran/PermintaanBerhasil';
+import { useDispatch } from 'react-redux';
+import { submitBeriSaran } from '@/app/redux/action/beriSaran/creator';
 
 const Index = props => {
   const { show, onClose } = props;
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     feedback: '',
@@ -14,6 +17,7 @@ const Index = props => {
   const [errors, setErrors] = useState({});
   const [showPermintaanBerhasil, setShowPermintaanBerhasil] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -62,6 +66,7 @@ const Index = props => {
       userType: ''
     });
     setErrors({});
+    setErrorMessage('');
   };
 
   const handleSubmit = async () => {
@@ -79,15 +84,16 @@ const Index = props => {
         console.log('Data submit:', bodyFormData);
 
         // Contoh fetch POST
-        // await fetch('/api/konsultasi', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(bodyFormData)
-        // });
-
-        onClose();
-        setShowPermintaanBerhasil(true);
-        clearForm();
+        const result = await dispatch(submitBeriSaran(bodyFormData));
+        if (result.success) {
+          setShowPermintaanBerhasil(true);
+          onClose();
+          clearForm();
+        } else {
+          console.error('Gagal submit form:', result.error);
+          // Kamu bisa set error di UI jika perlu
+          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+        }
       } catch (error) {
         console.error('Submit error:', error);
       } finally {
@@ -192,6 +198,11 @@ const Index = props => {
         }
         modalFooter={
           <Fragment>
+            {errorMessage && (
+              <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
+                {errorMessage}
+              </div>
+            )}
             <button
               type="button"
               className="btn btn-primary w-100"
