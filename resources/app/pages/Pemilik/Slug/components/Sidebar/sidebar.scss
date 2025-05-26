@@ -1,0 +1,20 @@
+.ST--mobile-bar-transition {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.hide {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}

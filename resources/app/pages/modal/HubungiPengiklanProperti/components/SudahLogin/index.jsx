@@ -58,7 +58,7 @@ const Index = props => {
 
             {/* Pesan sukses */}
             {copied && (
-              <div className="text-success mt-1" style={{ fontSize: '0.875rem' }}>
+              <div className="text- mt-1" style={{ fontSize: '0.875rem' }}>
                 ✅ Nomor berhasil disalin!
               </div>
             )}

@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
-import { PemilikProfileCard } from '@/app/pages/Pemilik/Slug/components';
+import {
+  PemilikProfileCard,
+  SidebarDesktop,
+  SidebarMobile
+} from '@/app/pages/Pemilik/Slug/components';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getListPanduan } from '@/app/redux/action/panduan/creator';
@@ -16,7 +20,7 @@ const PemilikSlugPage = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
   const [pemilikProfile, setPemilikProfile] = useState(null);
-  const [isLoading, setIsLoading] = useState({ panduan: false });
+  const [isLoading, setIsLoading] = useState({ profile: false });
 
   // Modal states
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -60,7 +64,7 @@ const PemilikSlugPage = () => {
         <section className="pt-3 pb-5">
           <div className="container">
             {/* Profil Penulis */}
-            {isLoading.panduan ? (
+            {isLoading.profile ? (
               <div className="align-items-center border border-primary-subtle d-flex mb-4 p-3 rounded">
                 <div className="me-3 text-center">
                   <div className="position-relative mb-3">
@@ -159,10 +163,29 @@ const PemilikSlugPage = () => {
               </div>
               <div className="col-12 col-lg-4">
                 <div className="d-none d-lg-block">
-                  <div className="sticky-top" style={{ top: '80px', zIndex: 1 }}>
-                    Kontak
-                  </div>
+                  <SidebarDesktop
+                    slug={slug}
+                    data={pemilikProfile}
+                    handlePhone={() => setShowWhatsApp(true)}
+                    handleWhatsApp={() =>
+                      isPageVerified
+                        ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                        : setShowWhatsApp(true)
+                    }
+                    isLoading={isLoading.profile}
+                  />
                 </div>
+                <SidebarMobile
+                  data={pemilikProfile}
+                  handlePhone={() => setShowWhatsApp(true)}
+                  handleWhatsApp={() =>
+                    isPageVerified
+                      ? handleGoToWhatsApp(pemilikProfile?.no_whatsapp)
+                      : setShowWhatsApp(true)
+                  }
+                  isLoading={isLoading.profile}
+                  handleBagikan={() => (setShowShare(true), setDataItem(pemilikProfile))}
+                />
               </div>
             </div>
           </div>

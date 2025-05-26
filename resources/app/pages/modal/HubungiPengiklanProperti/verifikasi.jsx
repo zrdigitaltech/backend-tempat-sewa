@@ -127,8 +127,8 @@ const Verifikasi = props => {
       modalBody={
         isVerified ? (
           <div className="text-center my-5">
-            <i className="fas fa-check-circle text-success fs-1 mb-3" />
-            <h5 className="text-success mb-2">Verifikasi Berhasil</h5>
+            <i className="fas fa-check-circle text-primary fs-1 mb-3" />
+            <h5 className="text-primary mb-2">Verifikasi Berhasil</h5>
             <p className="small text-muted">Nomor HP kamu telah berhasil diverifikasi.</p>
           </div>
         ) : (

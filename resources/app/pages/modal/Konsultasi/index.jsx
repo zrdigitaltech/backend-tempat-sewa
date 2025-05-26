@@ -148,6 +148,10 @@ const Index = props => {
           console.error('Gagal submit form:', result.error);
           // Kamu bisa set error di UI jika perlu
           setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+          // Hapus pesan error setelah 5 detik
+          setTimeout(() => {
+            setErrorMessage('');
+          }, 5000);
         }
         setIsSubmitting(false);
       } catch (error) {

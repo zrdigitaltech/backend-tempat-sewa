@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Modals from '@/app/components/Modals';
+import { UseModals } from '@/app/components';
+import UseToasts from '@/app/components/Toasts';
 import BelumLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/BelumLogin';
 import SudahLogin from '@/app/pages/modal/HubungiPengiklanProperti/components/SudahLogin';
 import VerifikasiModal from '@/app/pages/modal/HubungiPengiklanProperti/verifikasi';
@@ -91,6 +92,10 @@ const Index = props => {
           console.error('Gagal submit form:', result.error);
           // Kamu bisa set error di UI jika perlu
           setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+          // Hapus pesan error setelah 5 detik
+          setTimeout(() => {
+            setErrorMessage('');
+          }, 5000);
         }
         setIsSubmitting(false);
       } catch (error) {
@@ -114,7 +119,7 @@ const Index = props => {
 
   return (
     <Fragment>
-      <Modals
+      <UseModals
         title="Hubungi Pengiklan Properti"
         show={show}
         onClose={() => {
@@ -154,7 +159,7 @@ const Index = props => {
                     </small>
                   </div>
                   <div className="col-6 text-center">
-                    <i className="fa-solid fa-check-circle text-success me-2 mt-1"></i>
+                    <i className="fa-solid fa-check-circle text-primary me-2 mt-1"></i>
                     <br />
                     <small> 1x verifikasi untuk komunikasi dengan seluruh pemilik properti.</small>
                   </div>
@@ -176,9 +181,7 @@ const Index = props => {
             <Fragment>
               {/* Start Belum Login */}
               {errorMessage && (
-                <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
-                  {errorMessage}
-                </div>
+                <UseToasts message={errorMessage} show={true} onClose={() => setErrorMessage('')} />
               )}
               <button
                 type="button"

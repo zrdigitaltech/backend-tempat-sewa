@@ -1,18 +1,18 @@
 import React from 'react';
 import { formatPhone } from '@/app/helpers';
 
-const PemilikProfileCard = props => {
-  const { profile, handlePhone, handleWhatsApp, handleBagikan } = props;
+const PemilikProfileCard = ({ profile, handlePhone, handleWhatsApp, handleBagikan }) => {
   if (!profile) return null;
 
   return (
-    <div className="align-items-center border border-primary-subtle d-flex mb-4 p-3 rounded">
-      <div className=" me-3 text-center">
-        <div className="position-relative">
+    <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start border border-primary-subtle rounded p-3 mb-4 gap-3">
+      {/* Avatar & Badge */}
+      <div className="text-center">
+        <div className="position-relative mb-2">
           <img
             src={profile.avatar}
             alt={profile.name}
-            className="rounded-circle "
+            className="rounded-circle"
             width={112}
             height={112}
           />
@@ -28,17 +28,21 @@ const PemilikProfileCard = props => {
             }}
           ></i>
         </div>
-        <div className="badge bg-primary-subtle mt-2 text-primary round-1">
+        <div className="badge bg-primary-subtle text-primary rounded-pill">
           <small>Pemilik Properti</small>
         </div>
       </div>
-      <div>
-        <div className="align-items-baseline d-flex">
-          <h2 className="fs-4 fw-bold mb-1 text-capitalize">{profile.name}</h2>
-          <small className="text-secondary ms-2">Terdaftar sejak 2018</small>
+
+      {/* Profile Content */}
+      <div className="w-100 text-center text-sm-start">
+        <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-baseline mb-2 gap-2">
+          <h2 className="fs-4 fw-bold text-capitalize mb-0">{profile.name}</h2>
+          <small className="text-secondary">Terdaftar sejak 2018</small>
         </div>
-        <p className="mb-1 text-muted">Alamat: xxxxx</p>
-        <div className="d-flex gap-3 flex-wrap mb-3">
+        <p className="text-muted mb-2">Alamat: xxxxx</p>
+
+        {/* Social Links */}
+        <div className="d-flex flex-wrap justify-content-center justify-content-sm-start gap-3 mb-3">
           {profile.socials?.instagram && (
             <a
               href={profile.socials.instagram}
@@ -80,19 +84,28 @@ const PemilikProfileCard = props => {
             </a>
           )}
         </div>
-        <div className="d-flex gap-3 flex-wrap">
+
+        {/* Action Buttons */}
+        <div
+          id="actionButtons"
+          className="d-flex flex-wrap justify-content-center justify-content-sm-start gap-2"
+        >
           <button
-            className="btn btn-success d-flex align-items-center text-white pe-1"
+            className="btn btn-success text-white d-flex align-items-center"
             onClick={handleWhatsApp}
           >
-            <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i> WhatsApp
+            <i className="fa-brands fa-whatsapp me-1" aria-hidden="true"></i> WhatsApp
           </button>
-          <button className="btn btn-primary align-items-center d-sm-flex " onClick={handlePhone}>
-            <i className="fa fa-phone pe-1" aria-hidden="true"></i>{' '}
-            <span className="d-none d-sm-block">{formatPhone(profile.no_whatsapp)}</span>
+          <button className="btn btn-primary d-flex align-items-center" onClick={handlePhone}>
+            <i className="fa fa-phone me-1" aria-hidden="true"></i>
+            <span className="d-none d-sm-inline">{formatPhone(profile.no_whatsapp)}</span>
+            <span className="d-inline d-sm-none">Telepon</span>
           </button>
-          <button className="bg-white border border-black btn" onClick={handleBagikan}>
-            <i className="fa fa-share-alt"></i> Bagikan
+          <button
+            className="btn border border-black bg-white d-flex align-items-center"
+            onClick={handleBagikan}
+          >
+            <i className="fa fa-share-alt me-1"></i> Bagikan
           </button>
         </div>
       </div>
