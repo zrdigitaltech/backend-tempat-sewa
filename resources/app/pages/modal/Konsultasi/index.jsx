@@ -139,16 +139,16 @@ const Index = props => {
         console.log('Form data valid:', bodyFormData);
 
         // Kirim ke server
-        // Misal pakai fetch:
-        // fetch('/api/konsultasi', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(bodyFormData)
-        // });
-
-        onClose();
-        setShowPermintaanBerhasil(true);
-        clearForm();
+        const result = await dispatch(submitKonsultasi(formData));
+        if (result.success) {
+          onClose();
+          setShowPermintaanBerhasil(true);
+          clearForm();
+        } else {
+          console.error('Gagal submit form:', result.error);
+          // Kamu bisa set error di UI jika perlu
+          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+        }
         setIsSubmitting(false);
       } catch (error) {
         console.error('Submit error:', error);
@@ -293,6 +293,11 @@ const Index = props => {
         }
         modalFooter={
           <Fragment>
+            {errorMessage && (
+              <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
+                {errorMessage}
+              </div>
+            )}
             <button
               type="button"
               className="btn btn-primary w-100"

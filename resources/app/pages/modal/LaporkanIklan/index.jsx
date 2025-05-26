@@ -21,6 +21,7 @@ const Index = props => {
   const [selectedReason, setSelectedReason] = useState('');
 
   const [showBerhasilDiLaporkan, setShowBerhasilDiLaporkan] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const reasons = [
@@ -92,13 +93,28 @@ const Index = props => {
     setErrorMessage('');
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
     if (validate()) {
-      console.log('Form data valid:', formData);
-      // Lakukan submit ke server di sini
-      onClose();
-      setShowBerhasilDiLaporkan(true);
-      clearForm();
+      setIsSubmitting(true);
+      try {
+        // Kirim ke server
+        const result = await dispatch(submitLaporkanIklan(formData));
+        if (result.success) {
+          onClose();
+          setShowBerhasilDiLaporkan(true);
+          clearForm();
+        } else {
+          console.error('Gagal submit form:', result.error);
+          // Kamu bisa set error di UI jika perlu
+          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
+        }
+        setIsSubmitting(false);
+      } catch (error) {
+        console.error('Submit error:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -212,8 +228,18 @@ const Index = props => {
         }
         modalFooter={
           <Fragment>
-            <button type="button" className="btn btn-primary w-100" onClick={handleSubmit}>
-              Laporkan
+            {errorMessage && (
+              <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
+                {errorMessage}
+              </div>
+            )}
+            <button
+              type="button"
+              className="btn btn-primary w-100"
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Memproses...' : 'Laporkan'}
             </button>
           </Fragment>
         }
