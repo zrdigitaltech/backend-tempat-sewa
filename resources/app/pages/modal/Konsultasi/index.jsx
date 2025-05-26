@@ -7,7 +7,6 @@ import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
 import { formatRupiah, unFormatRupiah } from '@/app/helpers';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { useDispatch } from 'react-redux';
 import { submitKonsultasi } from '@/app/redux/action/konsultasi/creator';
 
 const Index = props => {
