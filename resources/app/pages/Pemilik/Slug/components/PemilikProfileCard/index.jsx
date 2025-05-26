@@ -37,7 +37,7 @@ const PemilikProfileCard = props => {
           <h2 className="fs-4 fw-bold mb-1 text-capitalize">{profile.name}</h2>
           <small className="text-secondary ms-2">Terdaftar sejak 2018</small>
         </div>
-        <p className="mb-1 text-muted">{profile.bio}</p>
+        <p className="mb-1 text-muted">Alamat: xxxxx</p>
         <div className="d-flex gap-3 flex-wrap mb-3">
           {profile.socials?.instagram && (
             <a

@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import { PemilikProfileCard } from '@/app/pages/Pemilik/Slug/components';
-import { PanduanCard } from '@/app/pages/Panduan/components';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getListPanduan } from '@/app/redux/action/panduan/creator';
@@ -13,12 +12,9 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import { HubungiPengiklanPropertiModal, ShareModal } from '@/app/pages/modal';
 
-const AuthorPage = () => {
+const PemilikSlugPage = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
-  const panduanList = useSelector(state => state?.panduan?.panduanList || []);
-
-  const [articles, setArticles] = useState([]);
   const [pemilikProfile, setPemilikProfile] = useState(null);
   const [isLoading, setIsLoading] = useState({ panduan: false });
 
@@ -42,15 +38,7 @@ const AuthorPage = () => {
     }
   ];
 
-  const fetchListPanduan = async () => {
-    setIsLoading(prev => ({ ...prev, panduan: true }));
-    await dispatch(getListPanduan());
-    setIsLoading(prev => ({ ...prev, panduan: false }));
-  };
-
   useEffect(() => {
-    fetchListPanduan();
-
     const profile = mockPemilikProfiles.find(profile => profile.slug === slug);
     setPemilikProfile(
       profile || {
@@ -61,12 +49,6 @@ const AuthorPage = () => {
       }
     );
   }, [dispatch, slug]);
-
-  useEffect(() => {
-    if (!panduanList || panduanList.length === 0) return;
-    const filtered = panduanList.filter(item => item.authorSlug === slug);
-    setArticles(filtered);
-  }, [panduanList, slug]);
 
   return (
     <Fragment>
@@ -81,7 +63,7 @@ const AuthorPage = () => {
             {isLoading.panduan ? (
               <div className="align-items-center border border-primary-subtle d-flex mb-4 p-3 rounded">
                 <div className="me-3 text-center">
-                  <div className="position-relative mb-2">
+                  <div className="position-relative mb-3">
                     <Skeleton circle width={112} height={112} />
                   </div>
                   <div>
@@ -89,7 +71,7 @@ const AuthorPage = () => {
                   </div>
                 </div>
                 <div className="flex-grow-1">
-                  <div className="d-flex align-items-baseline mb-2">
+                  <div className="d-flex align-items-baseline mb-3">
                     <Skeleton height={24} width={160} className="me-3" />
                     <Skeleton height={14} width={100} />
                   </div>
@@ -122,30 +104,67 @@ const AuthorPage = () => {
               />
             )}
 
-            {/* Daftar Artikel */}
-            {/* <h3 className="fs-5 fw-bold mb-3 text-dark">Artikel oleh {pemilikProfile?.name}</h3> */}
-
-            {isLoading.panduan ? (
-              <div className="row">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="col-6 col-lg-4 mb-4">
-                    <Skeleton height={180} />
-                    <Skeleton height={16} width={`80%`} style={{ marginTop: 10 }} />
-                    <Skeleton height={14} width={`60%`} />
+            <div className="row">
+              <div className="col-12 col-lg-8">
+                <div className="mb-4">
+                  <h4 className="fs-5 fw-bold text-dark">Tentang {pemilikProfile?.name}</h4>
+                  <p className="mb-0">{pemilikProfile?.bio || 'Informasi belum tersedia.'}</p>
+                </div>
+                <div className="my-4">
+                  <div className="mb-3">
+                    <h4 className="fs-5 fw-bold text-dark mb-0">Statistik Properti</h4>
+                    <small>13 Mei 2018 - 27 Mei 2025</small>
                   </div>
-                ))}
-              </div>
-            ) : articles.length > 0 ? (
-              <div className="row">
-                {articles.map(article => (
-                  <div key={article.slug} className="col-6 col-lg-4 mb-4">
-                    <PanduanCard guide={article} linkKategori={true} />
+                  <div>
+                    <ul className="list-unstyled">
+                      <li>Rentang Harga: </li>
+                      <li>Iklan Aktif: -</li>
+                      <li>Tersewa: -</li>
+                    </ul>
                   </div>
-                ))}
+                </div>
+                <div className="my-4">
+                  <h4 className="fs-5 fw-bold mb-3 text-dark">Area Spesialis</h4>
+                  <div className="d-flex flex-wrap gap-3">
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Jakarta Selatan
+                    </span>
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Depok
+                    </span>
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Bekasi
+                    </span>
+                  </div>
+                </div>
+                <div className="my-4">
+                  <h4 className="fs-5 fw-bold mb-3 text-dark">Properti Spesialis</h4>
+                  <div className="d-flex flex-wrap gap-3">
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Kost
+                    </span>
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Kontrakan
+                    </span>
+                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
+                      Ruko
+                    </span>
+                  </div>
+                </div>
+                <div className="my-4">
+                  <h4 className="fs-5 fw-bold mb-3 text-dark">
+                    Iklan Properti dari {pemilikProfile?.name}
+                  </h4>
+                </div>
               </div>
-            ) : (
-              <p>Tidak ada artikel oleh penulis ini.</p>
-            )}
+              <div className="col-12 col-lg-4">
+                <div className="d-none d-lg-block">
+                  <div className="sticky-top" style={{ top: '80px', zIndex: 1 }}>
+                    Kontak
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -168,4 +187,4 @@ const AuthorPage = () => {
   );
 };
 
-export default AuthorPage;
+export default PemilikSlugPage;
