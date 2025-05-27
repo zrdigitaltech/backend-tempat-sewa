@@ -7,7 +7,7 @@ const Mobile = ({ kontrakanDetail, handlePhone, handleWhatsApp, isLoading = fals
   return (
     <div
       className="d-lg-none w-100 bg-white border-top shadow-lg p-3 position-fixed"
-      style={{ bottom: 0, left: 0, zIndex: 1 }}
+      style={{ bottom: 0, left: 0, zIndex: 2 }}
     >
       <div>
         <div className="d-flex">

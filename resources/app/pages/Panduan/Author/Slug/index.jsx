@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '@/app/components/Breadcrumb';
+import Heads from '@/app/components/Heads';
 import { AuthorProfileCard } from '@/app/pages/Panduan/Author/Slug/components';
 import { PanduanCard } from '@/app/pages/Panduan/components';
 
@@ -67,53 +68,60 @@ const AuthorPage = () => {
   }, [panduanList, slug]);
 
   return (
-    <div className="pb-5">
-      <section className="mt-3">
-        <Breadcrumb title={`Penulis: ${authorProfile?.name || slug}`} />
-      </section>
+    <Fragment>
+      <Heads
+        title={`${kontrakanDetail?.nama} - oleh ${kontrakanDetail?.pemilik}`}
+        deskripsi={kontrakanDetail?.deskripsi}
+        image={kontrakanDetail?.image?.[0]}
+      />
+      <div className="pb-5">
+        <section className="mt-3">
+          <Breadcrumb title={`Penulis: ${authorProfile?.name || slug}`} />
+        </section>
 
-      <section className="pt-3 pb-5">
-        <div className="container">
-          {/* Profil Penulis */}
-          {isLoading.panduan ? (
-            <div className="d-flex align-items-start gap-3 mb-4">
-              <Skeleton circle width={80} height={80} />
-              <div className="flex-grow-1">
-                <Skeleton height={20} width={150} />
-                <Skeleton height={14} width={250} style={{ marginTop: 10 }} />
+        <section className="pt-3 pb-5">
+          <div className="container">
+            {/* Profil Penulis */}
+            {isLoading.panduan ? (
+              <div className="d-flex align-items-start gap-3 mb-4">
+                <Skeleton circle width={80} height={80} />
+                <div className="flex-grow-1">
+                  <Skeleton height={20} width={150} />
+                  <Skeleton height={14} width={250} style={{ marginTop: 10 }} />
+                </div>
               </div>
-            </div>
-          ) : (
-            <AuthorProfileCard profile={authorProfile} />
-          )}
+            ) : (
+              <AuthorProfileCard profile={authorProfile} />
+            )}
 
-          {/* Daftar Artikel */}
-          {/* <h3 className="fs-5 fw-bold mb-3 text-dark">Artikel oleh {authorProfile?.name}</h3> */}
+            {/* Daftar Artikel */}
+            {/* <h3 className="fs-5 fw-bold mb-3 text-dark">Artikel oleh {authorProfile?.name}</h3> */}
 
-          {isLoading.panduan ? (
-            <div className="row">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="col-6 col-lg-4 mb-4">
-                  <Skeleton height={180} />
-                  <Skeleton height={16} width={`80%`} style={{ marginTop: 10 }} />
-                  <Skeleton height={14} width={`60%`} />
-                </div>
-              ))}
-            </div>
-          ) : articles.length > 0 ? (
-            <div className="row">
-              {articles.map(article => (
-                <div key={article.slug} className="col-6 col-lg-4 mb-4">
-                  <PanduanCard guide={article} linkKategori={true} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p>Tidak ada artikel oleh penulis ini.</p>
-          )}
-        </div>
-      </section>
-    </div>
+            {isLoading.panduan ? (
+              <div className="row">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="col-6 col-lg-4 mb-4">
+                    <Skeleton height={180} />
+                    <Skeleton height={16} width={`80%`} style={{ marginTop: 10 }} />
+                    <Skeleton height={14} width={`60%`} />
+                  </div>
+                ))}
+              </div>
+            ) : articles.length > 0 ? (
+              <div className="row">
+                {articles.map(article => (
+                  <div key={article.slug} className="col-6 col-lg-4 mb-4">
+                    <PanduanCard guide={article} linkKategori={true} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>Tidak ada artikel oleh penulis ini.</p>
+            )}
+          </div>
+        </section>
+      </div>
+    </Fragment>
   );
 };
 

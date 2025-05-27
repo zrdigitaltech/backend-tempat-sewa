@@ -27,27 +27,32 @@ const Index = props => {
           <Skeleton width={150} height={30} />
         </div>
       ) : (
-        <h2 className="fw-bold text-primary mb-0 text-center">
-          Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
-          <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
-        </h2>
+        <Fragment>
+          <h2 className="fw-bold text-primary mb-0 text-lg-center d-none d-lg-block">
+            Rp {formatPriceLocale(kontrakanDetail?.harga)}{' '}
+            <span className="text-capitalize">/ {kontrakanDetail?.durasi}</span>
+          </h2>
+          <h3 className="fw-bold text-primary mb-0 text-lg-center d-block d-lg-none">
+            Kontak Pengiklan
+          </h3>
+        </Fragment>
       )}
       <hr className="my-3 border-primary-subtle" />
-      <div className="d-flex justify-content-center mb-3">
+      <div className="d-flex justify-content-lg-center mb-3">
         <Link
           to={`/pemilik/${kontrakanDetail?.pemilikSlug}`}
-          className="text-center position-relative "
+          className="text-lg-center position-relative d-flex d-lg-block"
         >
-          <div className="d-flex justify-content-center">
-            <div className="position-relative" style={{ width: '80px' }}>
+          <div className="d-flex justify-content-lg-center">
+            <div className="position-relative me-2 me-lg-0" style={{ width: '80px' }}>
               {isLoading ? (
-                <Skeleton circle height={60} width={60} />
+                <Skeleton circle height={80} width={80} />
               ) : (
                 <img
                   src={kontrakanDetail?.pemilikImage + kontrakanDetail?.pemilik}
                   alt="Foto Profil"
                   className="rounded-circle img-fluid"
-                  style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                  style={{ width: '80px', height: '80px', objectFit: 'cover' }}
                 />
               )}
               {!isLoading && kontrakanDetail?.pemilik_verified && (
@@ -65,18 +70,24 @@ const Index = props => {
               )}
             </div>
           </div>
-          <div className="mt-1">
+          <div className="mt-lg-1">
             {isLoading ? (
-              <Skeleton width={100} />
+              <Fragment>
+                <Skeleton width={100} />
+                <Skeleton width={50} />
+              </Fragment>
             ) : (
-              <strong
-                className="d-block ST--Text"
-                title={kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''}
-              >
-                {(kontrakanDetail?.pemilik || '').length > 50
-                  ? kontrakanDetail.pemilik.substring(0, 50) + '...'
-                  : kontrakanDetail?.pemilik}
-              </strong>
+              <Fragment>
+                <strong
+                  className="d-block ST--Text"
+                  title={kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''}
+                >
+                  {(kontrakanDetail?.pemilik || '').length > 50
+                    ? kontrakanDetail.pemilik.substring(0, 50) + '...'
+                    : kontrakanDetail?.pemilik}
+                </strong>
+                <small className="text-secondary">Pemilik</small>
+              </Fragment>
             )}
           </div>
         </Link>
@@ -90,17 +101,19 @@ const Index = props => {
       ) : (
         kontrakanDetail?.status?.toLowerCase() === 'tersedia' && (
           <Fragment>
-            <button className="btn btn-success w-100 text-white" onClick={handleWhatsApp}>
-              <i className="fa-brands fa-whatsapp"></i> WhatsApp
-            </button>
+            <div className="align-items-center d-flex d-lg-block gap-3">
+              <button className="btn btn-success w-100 text-white" onClick={handleWhatsApp}>
+                <i className="fa-brands fa-whatsapp"></i> WhatsApp
+              </button>
 
-            <button className="btn btn-outline-primary w-100 mt-2" onClick={handlePhone}>
-              <i className="fa fa-phone"></i> {formatPhone(kontrakanDetail?.no_whatsapp)}
-            </button>
+              <button className="btn btn-outline-primary w-100 mt-lg-2" onClick={handlePhone}>
+                <i className="fa fa-phone"></i> {formatPhone(kontrakanDetail?.no_whatsapp)}
+              </button>
 
-            {/* <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}/booking`}>
+              {/* <Link className="btn btn-primary w-100 mt-2 mb-2" to={`/properti/${slug}/booking`}>
               Booking Sekarang
             </Link> */}
+            </div>
           </Fragment>
         )
       )}
