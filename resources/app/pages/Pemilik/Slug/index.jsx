@@ -5,7 +5,8 @@ import Heads from '@/app/components/Heads';
 import {
   PemilikProfileCard,
   SidebarDesktop,
-  SidebarMobile
+  SidebarMobile,
+  PropertiListFromPemilik
 } from '@/app/pages/Pemilik/Slug/components';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -201,6 +202,9 @@ const PemilikSlugPage = () => {
                   <h4 className="fs-5 fw-bold mb-3 text-dark">
                     Iklan Properti dari {pemilikProfile?.name}
                   </h4>
+                  <div className="bg-white rounded border shadow-sm mb-4 p-3">
+                    <PropertiListFromPemilik />
+                  </div>
                 </div>
               </div>
               <div className="col-12 col-lg-3">
