@@ -1,8 +1,55 @@
 import React, { Fragment } from 'react';
-import { formatPriceLocale } from '@/app/helpers';
+import { formatPriceLocale, iconTipeProperti } from '@/app/helpers';
 
 const Index = props => {
   const { item } = props;
+
+  const renderCombinedInteriorCard = (interior, targets, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const total = targets.reduce((sum, name) => {
+      const item = interior.find(i => i.nama === name);
+      const val = parseInt(item?.fasilitas?.[0]) || 0;
+      return sum + val;
+    }, 0);
+
+    if (total === 0) return null;
+
+    return (
+      <span
+        className="align-content-center text-secondary text-capitalize"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title={label}
+      >
+        {iconClass && <i className={`fa ${iconClass} me-1`}></i>}
+        {total} {label}
+      </span>
+    );
+  };
+
+  const renderSingleInteriorCard = (interior, target, label, iconClass) => {
+    if (!interior || !Array.isArray(interior)) return null;
+
+    const item = interior.find(i => i.nama === target);
+    const value = item?.fasilitas?.[0];
+
+    if (!value) return null;
+
+    return (
+      <span
+        className="align-content-center text-secondary text-capitalize"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title={label}
+      >
+        {iconClass && <i className={`fa ${iconClass} me-1`}></i>}
+        {value} {label}
+      </span>
+    );
+  };
 
   return (
     <Fragment>
@@ -17,13 +64,20 @@ const Index = props => {
               style={{ width: 100, height: 100, objectFit: 'cover' }}
             />
             <div className="flex-grow-1">
-              <div className="mb-2">
-                <span className="badge bg-light text-dark border me-2 mb-1">
-                  <i className="bi bi-buildings me-1" /> {item.tipe_properti?.nama}
+              <div className="d-flex gap-2 mb-2 overflow-x-auto">
+                <span className="bg-primary-subtle align-content-center badge text-secondary text-capitalize">
+                  {iconTipeProperti(item.tipe_properti?.nama)}{' '}
+                  {typeof item.tipe_properti === 'object'
+                    ? item.tipe_properti?.nama.toLowerCase() === 'kost'
+                      ? item.tipe_properti?.nama + ' ' + item.tipe_kost
+                      : item.tipe_properti?.nama
+                    : ''}
                 </span>
               </div>
-              <h6 className="fw-bold text-dark mb-1">{item.nama}</h6>
-              <div className="text-muted small">{item?.alamat}</div>
+              <h6 className="fw-bold text-dark mb-1" title={item.nama.length > 50 ? item.nama : ''}>
+                {item.nama}
+              </h6>
+              <address className="text-muted small">{item?.alamat}</address>
             </div>
           </div>
 
@@ -33,13 +87,26 @@ const Index = props => {
             style={{ width: 400, maxWidth: '100%' }}
           >
             {/* Kolom Spesifikasi */}
-            <div className="d-flex flex-column justify-content-center gap-1 small text-dark ms-lg-1">
-              <span>
-                <i className="bi bi-house-door me-1" /> {item.kamar} Kamar Tidur
-              </span>
-              <span>
-                <i className="bi bi-droplet me-1" /> {item.kamarMandi} Kamar Mandi
-              </span>
+            <div className="d-flex flex-column justify-content-center gap-1 small text-dark ms-lg-2">
+              {renderSingleInteriorCard(
+                item?.tipe_properti?.informasi_interior,
+                'Tipe Kamar',
+                'Ruang',
+                'fa-door-open'
+              )}
+              {renderCombinedInteriorCard(
+                item?.tipe_properti?.informasi_interior,
+                ['Kamar Tidur', 'Kamar Tidur ART', 'Tipe Kamar'],
+                'Kamar Tidur',
+                'fa-solid fa-bed'
+              )}
+
+              {renderCombinedInteriorCard(
+                item?.tipe_properti?.informasi_interior,
+                ['Kamar Mandi', 'Kamar Mandi ART'],
+                'Kamar Mandi',
+                'fa-bath'
+              )}
             </div>
 
             {/* Kolom Harga */}

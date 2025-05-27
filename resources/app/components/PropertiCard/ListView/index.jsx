@@ -168,7 +168,7 @@ export default function Index(props) {
 
             <span
               className="card-text fw-semibold mb-0 ST--Text"
-              title={nama.length > 50 ? nama : undefined}
+              title={nama.length > 50 ? nama : ''}
             >
               {nama}
             </span>
