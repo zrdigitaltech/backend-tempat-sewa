@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Breadcrumb from '@/app/components/Breadcrumb';
+import { UseBreadcrumb } from '@/app/components';
 import { PanduanList, PanduanFilter } from '@/app/pages/Panduan/components';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -85,7 +85,7 @@ const Index = () => {
   return (
     <div className="pb-5">
       <section className="mt-3">
-        <Breadcrumb title="Panduan" />
+        <UseBreadcrumb title="Panduan" />
       </section>
 
       <section className="pt-3 pb-5">

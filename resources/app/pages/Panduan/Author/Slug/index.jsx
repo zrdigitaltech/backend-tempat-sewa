@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Breadcrumb from '@/app/components/Breadcrumb';
-import Heads from '@/app/components/Heads';
+import { UseBreadcrumb, UseHeads } from '@/app/components';
 import { AuthorProfileCard } from '@/app/pages/Panduan/Author/Slug/components';
 import { PanduanCard } from '@/app/pages/Panduan/components';
 
@@ -69,14 +68,14 @@ const AuthorPage = () => {
 
   return (
     <Fragment>
-      <Heads
+      <UseHeads
         title={`${authorProfile?.name}`}
         deskripsi={authorProfile?.bio}
         image={authorProfile?.avatar}
       />
       <div className="pb-5">
         <section className="mt-3">
-          <Breadcrumb title={`Penulis: ${authorProfile?.name || slug}`} />
+          <UseBreadcrumb title={`Penulis: ${authorProfile?.name || slug}`} />
         </section>
 
         <section className="pt-3 pb-5">

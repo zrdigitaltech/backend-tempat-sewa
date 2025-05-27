@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import Modals from '@/app/components/Modals';
+// Components
+import { UseModals } from '@/app/components';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './preview.scss';
@@ -21,7 +22,7 @@ const Index = props => {
   const initialIndex = kontrakanDetail?.image?.findIndex(img => img === preview);
 
   return (
-    <Modals
+    <UseModals
       title="Preview"
       show={show}
       onClose={onClose}

@@ -6,9 +6,7 @@ import { formatPriceLocale } from '@/app/helpers';
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import Heads from '@/app/components/Heads';
-import Breadcrumb from '@/app/components/Breadcrumb';
-import DeskripsiExpandable from '@/app/components/DeskripsiExpandable';
+import { UseHeads, UseBreadcrumb, UseDeskripsiExpandable } from '@/app/components';
 
 // Modals
 import ShareModal from '@/app/pages/modal/Share';
@@ -149,7 +147,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Heads
+      <UseHeads
         title={`${kontrakanDetail?.nama} - oleh ${kontrakanDetail?.pemilik}`}
         deskripsi={kontrakanDetail?.deskripsi}
         image={kontrakanDetail?.image?.[0]}
@@ -199,7 +197,7 @@ const Index = () => {
           <div className="row g-4">
             <div className="col-sm-12 col-lg-8">
               {/* Breadcrumb */}
-              <Breadcrumb containerClassName="px-0 mb-2" isLoading={isLoading} />
+              <UseBreadcrumb containerClassName="px-0 mb-2" isLoading={isLoading} />
               <div className="mb-2 overflow-auto">
                 <div className="d-flex flex-nowrap gap-2">
                   {isLoading ? (
@@ -399,7 +397,7 @@ const Index = () => {
               {isLoading ? (
                 <Skeleton count={3} height={20} />
               ) : (
-                <DeskripsiExpandable deskripsi={kontrakanDetail?.deskripsi} />
+                <UseDeskripsiExpandable deskripsi={kontrakanDetail?.deskripsi} />
               )}
             </div>
 

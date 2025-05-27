@@ -1,5 +1,5 @@
 import React from 'react';
-import Breadcrumb from '@/app/components/Breadcrumb';
+import { UseBreadcrumb } from '@/app/components';
 import { unFormatStrip } from '@/app/helpers';
 
 const Index = props => {
@@ -8,7 +8,7 @@ const Index = props => {
   return (
     <div className="pb-5">
       <section className="mt-3">
-        <Breadcrumb title={'Panduan Tidak Ditemukan'} />
+        <UseBreadcrumb title={'Panduan Tidak Ditemukan'} />
       </section>
       <div className="text-center pt-5">
         <i className="fa-4x fa-search fas mb-3"></i>
