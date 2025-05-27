@@ -38,7 +38,20 @@ const PemilikSlugPage = () => {
       socials: {
         instagram: 'https://instagram.com/tempatsewa',
         linkedin: 'https://linkedin.com/company/tempatsewa'
-      }
+      },
+      pemilik_verified: true,
+      // Data tambahan
+      statistik: {
+        rentang_harga: 'Rp 500.000 – Rp 3.000.000 / bulan',
+        iklan_aktif: 12,
+        tersewa: 8,
+        periode: {
+          mulai: '13 Mei 2018',
+          sampai: '27 Mei 2025'
+        }
+      },
+      area_spesialis: ['Jakarta Selatan', 'Depok'],
+      properti_spesialis: ['Kost', 'Kontrakan', 'Ruko']
     }
   ];
 
@@ -109,50 +122,68 @@ const PemilikSlugPage = () => {
             )}
 
             <div className="row">
-              <div className="col-12 col-lg-8">
+              <div className="col-12 col-lg-9">
                 <div className="mb-4">
                   <h4 className="fs-5 fw-bold text-dark">Tentang {pemilikProfile?.name}</h4>
                   <p className="mb-0">{pemilikProfile?.bio || 'Informasi belum tersedia.'}</p>
                 </div>
+
                 <div className="my-4">
                   <div className="mb-3">
                     <h4 className="fs-5 fw-bold text-dark mb-0">Statistik Properti</h4>
-                    <small>13 Mei 2018 - 27 Mei 2025</small>
+                    <small>
+                      {pemilikProfile?.statistik?.periode?.mulai} –{' '}
+                      {pemilikProfile?.statistik?.periode?.sampai}
+                    </small>
                   </div>
-                  <div>
-                    <ul className="list-unstyled">
-                      <li>Rentang Harga: </li>
-                      <li>Iklan Aktif: -</li>
-                      <li>Tersewa: -</li>
-                    </ul>
+
+                  {/* Rentang Harga */}
+                  <div className="row g-3">
+                    <div className="col-12 col-md-4">
+                      <div className="bg-white rounded border shadow-sm p-3 h-100">
+                        <div className="text-muted small mb-1">Rentang Harga</div>
+                        <div className="fw-bold fs-6 text-dark">
+                          {pemilikProfile?.statistik?.rentang_harga || '-'}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <div className="bg-white rounded border shadow-sm p-3 h-100">
+                        <div className="text-muted small mb-1">Iklan Aktif</div>
+                        <div className="fw-bold fs-4 text-dark">
+                          {pemilikProfile?.statistik?.iklan_aktif ?? '-'}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <div className="bg-white rounded border shadow-sm p-3 h-100">
+                        <div className="text-muted small mb-1">Tersewa</div>
+                        <div className="fw-bold fs-4 text-dark">
+                          {pemilikProfile?.statistik?.tersewa ?? '-'}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <div className="my-4">
                   <h4 className="fs-5 fw-bold mb-3 text-dark">Area Spesialis</h4>
                   <div className="d-flex flex-wrap gap-3">
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Jakarta Selatan
-                    </span>
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Depok
-                    </span>
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Bekasi
-                    </span>
+                    {pemilikProfile?.area_spesialis?.map((area, i) => (
+                      <span key={i} className="bg-white rounded border shadow-sm px-3 py-2 h-100">
+                        {area}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 <div className="my-4">
                   <h4 className="fs-5 fw-bold mb-3 text-dark">Properti Spesialis</h4>
                   <div className="d-flex flex-wrap gap-3">
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Kost
-                    </span>
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Kontrakan
-                    </span>
-                    <span className="bg-light text-dark border border px-3 py-2 shadow-sm">
-                      Ruko
-                    </span>
+                    {pemilikProfile?.properti_spesialis?.map((tipe, i) => (
+                      <span key={i} className="bg-white rounded border shadow-sm px-3 py-2 h-100">
+                        {tipe}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 <div className="my-4">
@@ -161,7 +192,7 @@ const PemilikSlugPage = () => {
                   </h4>
                 </div>
               </div>
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-3">
                 <SidebarDesktop
                   slug={slug}
                   data={pemilikProfile}
