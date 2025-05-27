@@ -162,19 +162,18 @@ const PemilikSlugPage = () => {
                 </div>
               </div>
               <div className="col-12 col-lg-4">
-                <div className="d-none d-lg-block">
-                  <SidebarDesktop
-                    slug={slug}
-                    data={pemilikProfile}
-                    handlePhone={() => setShowWhatsApp(true)}
-                    handleWhatsApp={() =>
-                      isPageVerified
-                        ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
-                        : setShowWhatsApp(true)
-                    }
-                    isLoading={isLoading.profile}
-                  />
-                </div>
+                <SidebarDesktop
+                  slug={slug}
+                  data={pemilikProfile}
+                  handlePhone={() => setShowWhatsApp(true)}
+                  handleWhatsApp={() =>
+                    isPageVerified
+                      ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                      : setShowWhatsApp(true)
+                  }
+                  isLoading={isLoading.profile}
+                  handleBagikan={() => (setShowShare(true), setDataItem(pemilikProfile))}
+                />
                 <SidebarMobile
                   data={pemilikProfile}
                   handlePhone={() => setShowWhatsApp(true)}

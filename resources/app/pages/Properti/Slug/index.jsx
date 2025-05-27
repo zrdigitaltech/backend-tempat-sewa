@@ -405,22 +405,19 @@ const Index = () => {
 
             {/* Sidebar */}
             <div className="col-lg-4">
-              <div className="">
-                {' '}
-                {/* d-none d-lg-block */}
-                <Sidebar
-                  slug={slug}
-                  kontrakanDetail={kontrakanDetail}
-                  handlePhone={() => setShowWhatsApp(true)}
-                  handleWhatsApp={() =>
-                    isPageVerified
-                      ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
-                      : setShowWhatsApp(true)
-                  }
-                  handleLaporkanIklan={() => setShowLaporkanIklan(true)}
-                  isLoading={isLoading}
-                />
-              </div>
+              {/* d-none d-lg-block */}
+              <Sidebar
+                slug={slug}
+                kontrakanDetail={kontrakanDetail}
+                handlePhone={() => setShowWhatsApp(true)}
+                handleWhatsApp={() =>
+                  isPageVerified
+                    ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                    : setShowWhatsApp(true)
+                }
+                handleLaporkanIklan={() => setShowLaporkanIklan(true)}
+                isLoading={isLoading}
+              />
               <SidebarMobile
                 kontrakanDetail={kontrakanDetail}
                 handlePhone={() => setShowWhatsApp(true)}
