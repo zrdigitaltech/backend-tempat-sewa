@@ -38,6 +38,7 @@ export const formatRupiah = value => {
   const numberString = value.replace(/[^\d]/g, '');
   return new Intl.NumberFormat('id-ID').format(Number(numberString));
 };
+
 export const unFormatRupiah = value => {
   if (!value) return 0;
   const numberString = value.toString().replace(/[^\d]/g, '');
@@ -107,6 +108,7 @@ export const formatStrip = text => {
     .replace(/[\s,.\-]+/g, '-') // Ganti spasi, koma, titik, dan simbol lainnya dengan tanda strip
     .replace(/^-+|-+$/g, ''); // Hapus strip di awal atau akhir
 };
+
 export const unFormatStrip = text => {
   if (!text) return '';
   return text
