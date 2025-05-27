@@ -84,7 +84,7 @@ const Index = () => {
 
   // Filter & sort sederhana (demo)
   const filteredList = propertiListMock.filter(p =>
-    tipeFilter === 'semua' ? true : p.tipe.toLowerCase() === tipeFilter
+    formData?.tipeProperti === '' ? true : p.tipe.toLowerCase() === formData?.tipeProperti
   );
 
   return (

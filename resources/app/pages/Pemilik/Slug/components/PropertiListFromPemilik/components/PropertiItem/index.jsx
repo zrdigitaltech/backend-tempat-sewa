@@ -20,9 +20,6 @@ const Index = props => {
                 <span className="badge bg-light text-dark border me-2 mb-1">
                   <i className="bi bi-buildings me-1" /> {item.tipe}
                 </span>
-                {item.status && (
-                  <span className="badge bg-light text-dark border mb-1">{item.status}</span>
-                )}
               </div>
               <h6 className="fw-bold text-dark mb-1">{item.judul}</h6>
               <div className="text-muted small">{item.lokasi}</div>
