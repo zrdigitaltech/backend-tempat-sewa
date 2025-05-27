@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index(props) {
-  const { tipeProperti, handleChange, isLoading, setIsLoading } = props;
+  const { tipeProperti, handleChange, isLoading, setIsLoading, title = 'Tipe Properti' } = props;
 
   const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export default function Index(props) {
           value={tipeProperti || ''}
           onChange={handleChange}
         >
-          <option value="">Tipe Properti</option>
+          <option value="">{title}</option>
           {tipePropertiList.map((item, idx) => (
             <option key={idx} value={item.slug}>
               {item.nama}

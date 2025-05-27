@@ -3,7 +3,8 @@ import {
   TipeKamar,
   TipeKost,
   TipeProperti,
-  TipeSewa
+  TipeSewa,
+  Urutan
 } from '@/app/components/FormSearch/components';
 import './formsearch.scss';
 
@@ -72,17 +73,7 @@ export default function Index(props) {
         <div className="d-flex flex-wrap gap-2 mt-2">
           {/* Urutan */}
           <div className="flex-fill flex-md-grow-0">
-            <select
-              name="sort"
-              className="form-select rounded-3"
-              value={formData?.sort || ''}
-              onChange={handleChange}
-            >
-              <option value="">Diutamakan</option>
-              <option value="terbaru">Terbaru</option>
-              <option value="harga_tertinggi">Harga Tertinggi</option>
-              <option value="harga_terendah">Harga Terendah</option>
-            </select>
+            <Urutan formData={formData?.sort} handleChange={handleChange} />
           </div>
 
           {/* Harga Maksimal */}
