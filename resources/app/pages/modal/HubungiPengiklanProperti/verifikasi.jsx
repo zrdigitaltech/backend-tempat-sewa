@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState, useRef } from 'react';
 import Modals from '@/app/components/Modals';
 import { useDispatch } from 'react-redux';
 import { submitVerifikasi } from '@/app/redux/action/hubungiPengiklanProperti/creator';
+import UseToasts from '@/app/components/Toasts';
 
 const Verifikasi = props => {
   const { show, onClose, formData, handleGantiNomor, setFormData, setIsPageVerified } = props;
@@ -93,6 +94,10 @@ const Verifikasi = props => {
         } else {
           console.error('Gagal submit:', response.error);
           setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba lagi.');
+          // Hapus pesan error setelah 5 detik
+          setTimeout(() => {
+            setErrorMessage('');
+          }, 5000);
         }
         setOtpError('');
         setIsVerified(true);
@@ -100,6 +105,10 @@ const Verifikasi = props => {
       } catch (error) {
         setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
         console.error('Unexpected submit error:', error);
+        // Hapus pesan error setelah 5 detik
+        setTimeout(() => {
+          setErrorMessage('');
+        }, 5000);
       } finally {
       }
     } else {
@@ -162,7 +171,7 @@ const Verifikasi = props => {
 
             {otpError && <div className="text-danger text-center mt-2 small">{otpError}</div>}
             {errorMessage && (
-              <div className="text-danger text-center mt-2 small">{errorMessage}</div>
+              <UseToasts message={errorMessage} show={true} onClose={() => setErrorMessage('')} />
             )}
 
             {/* Resend & Options */}

@@ -91,16 +91,12 @@ const Index = props => {
         } else {
           console.error('Gagal submit form:', result.error);
           // Kamu bisa set error di UI jika perlu
-          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
-          // Hapus pesan error setelah 5 detik
-          setTimeout(() => {
-            setErrorMessage('');
-          }, 5000);
+          showError('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
         }
         setIsSubmitting(false);
       } catch (error) {
-        setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
         console.error('Unexpected submit error:', error);
+        showError('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
       } finally {
         setIsSubmitting(false);
       }
@@ -115,6 +111,18 @@ const Index = props => {
     });
     setErrors({});
     setErrorMessage('');
+  };
+
+  const showError = msg => {
+    if (errorMessage !== msg) {
+      setErrorMessage(msg);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+
+      errorTimeoutRef.current = setTimeout(() => {
+        setErrorMessage('');
+        errorTimeoutRef.current = null;
+      }, 5000);
+    }
   };
 
   return (

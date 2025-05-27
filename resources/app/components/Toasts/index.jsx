@@ -6,26 +6,26 @@ const ToastContainer = ({ message, show, onClose }) => {
   const toastRef = useRef(null);
   const toastInstanceRef = useRef(null);
 
+  // Init toast instance once on mount
   useEffect(() => {
-    if (show && toastRef.current) {
-      toastInstanceRef.current = new bootstrap.Toast(toastRef.current, { delay: 5000 });
-      toastInstanceRef.current.show();
+    if (toastRef.current && !toastInstanceRef.current) {
+      toastInstanceRef.current = new bootstrap.Toast(toastRef.current, {
+        autohide: true,
+        delay: 5000
+      });
 
-      const handleHidden = () => {
-        onClose?.(); // Safe check
-      };
-
-      const el = toastRef.current;
-      el.addEventListener('hidden.bs.toast', handleHidden);
-
-      return () => {
-        el.removeEventListener('hidden.bs.toast', handleHidden);
-        toastInstanceRef.current?.dispose?.();
-      };
+      toastRef.current.addEventListener('hidden.bs.toast', () => {
+        onClose?.();
+      });
     }
-  }, [show, onClose]);
+  }, [onClose]);
 
-  if (!show) return null;
+  // Show toast when `show` becomes true
+  useEffect(() => {
+    if (show && toastInstanceRef.current) {
+      toastInstanceRef.current.show();
+    }
+  }, [show]);
 
   return createPortal(
     <div
@@ -33,7 +33,7 @@ const ToastContainer = ({ message, show, onClose }) => {
       style={{ zIndex: 9999999 }}
     >
       <div
-        className="toast align-items-center text-bg-dark show"
+        className="toast align-items-center text-bg-dark"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"

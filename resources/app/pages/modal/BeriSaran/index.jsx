@@ -3,6 +3,7 @@ import Modals from '@/app/components/Modals';
 import PermintaanBerhasilModal from '@/app/pages/modal/BeriSaran/PermintaanBerhasil';
 import { useDispatch } from 'react-redux';
 import { submitBeriSaran } from '@/app/redux/action/beriSaran/creator';
+import UseToasts from '@/app/components/Toasts';
 
 const Index = props => {
   const { show, onClose } = props;
@@ -92,17 +93,26 @@ const Index = props => {
         } else {
           console.error('Gagal submit form:', result.error);
           // Kamu bisa set error di UI jika perlu
-          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
-          // Hapus pesan error setelah 5 detik
-          setTimeout(() => {
-            setErrorMessage('');
-          }, 5000);
+          showError('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
         }
       } catch (error) {
-        console.error('Submit error:', error);
+        console.error('Unexpected submit error:', error);
+        showError('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
       } finally {
         setIsSubmitting(false);
       }
+    }
+  };
+
+  const showError = msg => {
+    if (errorMessage !== msg) {
+      setErrorMessage(msg);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+
+      errorTimeoutRef.current = setTimeout(() => {
+        setErrorMessage('');
+        errorTimeoutRef.current = null;
+      }, 5000);
     }
   };
 
@@ -203,9 +213,7 @@ const Index = props => {
         modalFooter={
           <Fragment>
             {errorMessage && (
-              <div className="alert alert-danger mb-2 w-100 p-2" role="alert">
-                {errorMessage}
-              </div>
+              <UseToasts message={errorMessage} show={true} onClose={() => setErrorMessage('')} />
             )}
             <button
               type="button"
