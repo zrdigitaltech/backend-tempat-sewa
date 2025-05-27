@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Breadcrumb from '@/app/components/Breadcrumb';
-import Heads from '@/app/components/Heads';
+import { UseHeads, UseBreadcrumb } from '@/app/components';
 import {
   PemilikProfileCard,
   SidebarDesktop,
@@ -71,14 +70,14 @@ const PemilikSlugPage = () => {
 
   return (
     <Fragment>
-      <Heads
+      <UseHeads
         title={`${pemilikProfile?.name} - ${pemilikProfile?.bio}`}
         deskripsi={pemilikProfile?.bio}
         image={pemilikProfile?.avatar}
       />
       <div className="pb-5">
         <section className="mt-3">
-          <Breadcrumb title={`Penulis: ${pemilikProfile?.name || slug}`} />
+          <UseBreadcrumb title={`Penulis: ${pemilikProfile?.name || slug}`} />
         </section>
 
         <section className="pt-3 pb-5">

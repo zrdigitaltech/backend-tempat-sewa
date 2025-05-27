@@ -79,7 +79,10 @@ const Index = props => {
             <i className="fa fa-phone"></i> {formatPhone(data?.no_whatsapp)}
           </button>
 
-          <button className="btn border border-black bg-white w-100 mt-2" onClick={handleBagikan}>
+          <button
+            className="btn btn-outline-dark border border-black w-100 mt-2"
+            onClick={handleBagikan}
+          >
             <i className="fa fa-share-alt me-1"></i> Bagikan
           </button>
         </Fragment>

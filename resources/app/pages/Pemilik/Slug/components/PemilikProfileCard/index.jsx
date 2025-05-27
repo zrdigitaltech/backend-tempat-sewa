@@ -114,7 +114,7 @@ const PemilikProfileCard = ({
             <span className="d-inline d-sm-none">Telepon</span>
           </button>
           <button
-            className="btn border border-black bg-white d-flex align-items-center"
+            className="btn btn-outline-dark border border-black d-flex align-items-center"
             onClick={handleBagikan}
           >
             <i className="fa fa-share-alt me-1"></i> Bagikan
