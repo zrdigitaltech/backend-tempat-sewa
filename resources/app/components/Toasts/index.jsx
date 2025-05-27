@@ -4,22 +4,23 @@ import * as bootstrap from 'bootstrap';
 
 const ToastContainer = ({ message, show, onClose }) => {
   const toastRef = useRef(null);
+  const toastInstanceRef = useRef(null);
 
   useEffect(() => {
     if (show && toastRef.current) {
-      const toastInstance = new bootstrap.Toast(toastRef.current, { delay: 5000 });
-      toastInstance.show();
+      toastInstanceRef.current = new bootstrap.Toast(toastRef.current, { delay: 5000 });
+      toastInstanceRef.current.show();
 
       const handleHidden = () => {
-        onClose();
+        onClose?.(); // Safe check
       };
 
-      toastRef.current.addEventListener('hidden.bs.toast', handleHidden);
+      const el = toastRef.current;
+      el.addEventListener('hidden.bs.toast', handleHidden);
 
       return () => {
-        if (toastRef.current) {
-          toastRef.current.removeEventListener('hidden.bs.toast', handleHidden);
-        }
+        el.removeEventListener('hidden.bs.toast', handleHidden);
+        toastInstanceRef.current?.dispose?.();
       };
     }
   }, [show, onClose]);
@@ -28,12 +29,11 @@ const ToastContainer = ({ message, show, onClose }) => {
 
   return createPortal(
     <div
-      className="
-    bottom-0 p-3 start-50 toast-container translate-middle-x"
+      className="toast-container position-fixed bottom-0 start-50 p-3 translate-middle-x"
       style={{ zIndex: 9999999 }}
     >
       <div
-        className="toast align-items-center text-bg-dark"
+        className="toast align-items-center text-bg-dark show"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"
