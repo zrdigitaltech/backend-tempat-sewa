@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { formatPriceLocale } from '@/app/helpers';
 
 const Index = props => {
   const { item } = props;
@@ -18,11 +19,11 @@ const Index = props => {
             <div className="flex-grow-1">
               <div className="mb-2">
                 <span className="badge bg-light text-dark border me-2 mb-1">
-                  <i className="bi bi-buildings me-1" /> {item.tipe}
+                  <i className="bi bi-buildings me-1" /> {item.tipe_properti?.nama}
                 </span>
               </div>
-              <h6 className="fw-bold text-dark mb-1">{item.judul}</h6>
-              <div className="text-muted small">{item.lokasi}</div>
+              <h6 className="fw-bold text-dark mb-1">{item.nama}</h6>
+              <div className="text-muted small">{item?.alamat}</div>
             </div>
           </div>
 
@@ -43,7 +44,10 @@ const Index = props => {
 
             {/* Kolom Harga */}
             <div className="d-flex flex-column justify-content-center text-md-end">
-              <div className="fw-bold text-primary">{item.harga}</div>
+              <div className="fw-bold text-primary text-capitalize">
+                Rp {formatPriceLocale(item?.harga)} <br className="d-none d-lg-block" /> /{' '}
+                {item?.durasi}
+              </div>
             </div>
           </div>
         </div>

@@ -1,42 +1,25 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { PropertiItem } from '@/app/pages/Pemilik/Slug/components/PropertiListFromPemilik/components';
 import { useSelector, useDispatch } from 'react-redux';
-import { getListTipeProperti } from '@/app/redux/action/tipeProperti/creator';
+import { getListKontrakan } from '@/app/redux/action/kontrakan/creator';
 
 import { TipeProperti, Urutan } from '@/app/components/FormSearch/components';
 
-const propertiListMock = [
-  {
-    id: 1,
-    judul: 'Sewa Apartemen KALIBATA - Sewa Apar...',
-    lokasi: 'Apartemen GREEN PALACE, Pancoran, Jakarta Selatan',
-    tipe: 'Apartemen',
-    status: 'Sewa',
-    kamar: 2,
-    kamarMandi: 1,
-    harga: 'Rp 55.000.000 / Tahun',
-    foto: 'https://placehold.co/140x100?text=Foto+1'
-  },
-  {
-    id: 2,
-    judul: 'Sewa Apartemen GREEN PALACE - Sewa...',
-    lokasi: 'Apartemen GREEN PALACE Kalibata, Pancoran, Jakarta Selatan',
-    tipe: 'Apartemen',
-    status: 'Sewa',
-    kamar: 2,
-    kamarMandi: 1,
-    harga: 'Rp 5.000.000 / Bulan',
-    foto: 'https://placehold.co/140x100?text=Foto+2'
-  }
-];
+// Helper untuk mengonversi harga dalam string ke angka
+const getHargaNumber = hargaString => {
+  if (!hargaString) return 0;
+
+  const stringValue = typeof hargaString === 'string' ? hargaString : hargaString.toString(); // konversi number atau lainnya ke string
+
+  const numeric = stringValue.replace(/[^\d]/g, '');
+  return parseInt(numeric, 10);
+};
 
 const Index = () => {
-  const tipePropertiList = useSelector(state => state?.tipeProperti?.tipePropertiList);
+  const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList || []);
   const dispatch = useDispatch();
 
-  const [isLoading, setIsLoading] = useState({
-    tipeProperti: false
-  });
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     tipeProperti: '',
@@ -45,52 +28,43 @@ const Index = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const fetchTipeProperti = async () => {
-    setIsLoading(prev => ({ ...prev, tipeProperti: true }));
-    try {
-      await dispatch(getListTipeProperti());
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(prev => ({ ...prev, tipeProperti: false }));
-    }
+  const fetchKontrakan = async () => {
+    setIsLoading(true);
+    await dispatch(getListKontrakan());
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchTipeProperti();
+    fetchKontrakan();
   }, []);
 
-  // State dummy untuk filter, bisa dikembangkan nanti
-  const [tipeFilter, setTipeFilter] = useState('semua');
-  const [sortFilter, setSortFilter] = useState('terbaru');
-
-  // Options untuk filter select
-  const tipeOptions = [
-    { value: 'semua', label: 'Semua properti' },
-    { value: 'apartemen', label: 'Apartemen' },
-    { value: 'rumah', label: 'Rumah' },
-    { value: 'kost', label: 'Kost' }
-  ];
-
-  const sortOptions = [
-    { value: 'terbaru', label: 'Terbaru' },
-    { value: 'termurah', label: 'Termurah' },
-    { value: 'termahal', label: 'Termahal' }
-  ];
-
-  // Filter & sort sederhana (demo)
-  const filteredList = propertiListMock.filter(p =>
-    formData?.tipeProperti === '' ? true : p.tipe.toLowerCase() === formData?.tipeProperti
-  );
+  // Filter dan sorting
+  const filteredList = kontrakanList
+    .filter(p =>
+      formData?.tipeProperti === ''
+        ? true
+        : p.tipe_properti?.nama?.toLowerCase() === formData?.tipeProperti
+    )
+    .sort((a, b) => {
+      if (formData.sort === 'harga_terendah') {
+        return getHargaNumber(a.harga) - getHargaNumber(b.harga);
+      }
+      if (formData.sort === 'harga_tertinggi') {
+        return getHargaNumber(b.harga) - getHargaNumber(a.harga);
+      }
+      if (formData.sort === 'terbaru' && a.created_at && b.created_at) {
+        return new Date(b.created_at) - new Date(a.created_at);
+      }
+      return 0;
+    });
 
   return (
     <Fragment>
       {/* Filter */}
-      <div className="d-flex gap-3 justify-content-end mb-3">
+      <div className="d-flex gap-3 justify-content-end mb-3 flex-wrap">
         <div className="flex-fill flex-lg-grow-0" style={{ maxWidth: 200 }}>
           <TipeProperti
             title="Semua Properti"
@@ -98,10 +72,11 @@ const Index = () => {
             handleChange={handleChange}
             isLoading={isLoading?.tipeProperti}
             setIsLoading={setIsLoading}
+            name="tipeProperti"
           />
         </div>
         <div className="flex-fill flex-lg-grow-0" style={{ maxWidth: 200 }}>
-          <Urutan formData={formData?.sort} handleChange={handleChange} />
+          <Urutan formData={formData?.sort} handleChange={handleChange} name="sort" />
         </div>
       </div>
 
