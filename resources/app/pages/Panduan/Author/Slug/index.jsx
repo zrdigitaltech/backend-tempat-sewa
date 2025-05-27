@@ -70,9 +70,9 @@ const AuthorPage = () => {
   return (
     <Fragment>
       <Heads
-        title={`${kontrakanDetail?.nama} - oleh ${kontrakanDetail?.pemilik}`}
-        deskripsi={kontrakanDetail?.deskripsi}
-        image={kontrakanDetail?.image?.[0]}
+        title={`${authorProfile?.name}`}
+        deskripsi={authorProfile?.bio}
+        image={authorProfile?.avatar}
       />
       <div className="pb-5">
         <section className="mt-3">
