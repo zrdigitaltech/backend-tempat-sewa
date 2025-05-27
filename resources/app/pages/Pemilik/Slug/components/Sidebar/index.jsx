@@ -20,7 +20,7 @@ const Index = props => {
     <div
       className="card shadow p-4 position-sticky border-0 d-none d-lg-block"
       style={{
-        top: '135px' // jarak dari atas saat sticky
+        top: '100px' // jarak dari atas saat sticky
       }}
     >
       <div className="d-flex justify-content-center mb-3">

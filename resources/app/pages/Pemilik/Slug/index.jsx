@@ -118,6 +118,11 @@ const PemilikSlugPage = () => {
                     ? handleGoToWhatsApp(pemilikProfile?.no_whatsapp)
                     : (setShowWhatsApp(true), setDataItem(pemilikProfile))
                 }
+                handleLokasi={() =>
+                  isPageVerified
+                    ? handleGoToWhatsApp(kontrakanDetail?.no_whatsapp)
+                    : setShowWhatsApp(true)
+                }
               />
             )}
 

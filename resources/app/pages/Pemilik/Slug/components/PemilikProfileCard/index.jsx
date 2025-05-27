@@ -1,7 +1,13 @@
 import React from 'react';
 import { formatPhone } from '@/app/helpers';
 
-const PemilikProfileCard = ({ profile, handlePhone, handleWhatsApp, handleBagikan }) => {
+const PemilikProfileCard = ({
+  profile,
+  handlePhone,
+  handleWhatsApp,
+  handleBagikan,
+  handleLokasi
+}) => {
   if (!profile) return null;
 
   return (
@@ -39,7 +45,13 @@ const PemilikProfileCard = ({ profile, handlePhone, handleWhatsApp, handleBagika
           <h2 className="fs-4 fw-bold text-capitalize mb-0">{profile.name}</h2>
           <small className="text-secondary">Terdaftar sejak 2018</small>
         </div>
-        <p className="text-muted mb-2">Alamat: xxxxx</p>
+        <p className="text-muted mb-2">
+          Alamat:
+          <a className="text-primary ms-2 cursor-pointer text-muted" onClick={handleLokasi}>
+            <i className="fa-solid fa-map-location-dot me-1"></i>
+            Dapatkan Detail Lokasi
+          </a>
+        </p>
 
         {/* Social Links */}
         <div className="d-flex flex-wrap justify-content-center justify-content-sm-start gap-3 mb-3">
