@@ -6,7 +6,7 @@ import { GridView } from '@/app/components/PropertiCard';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
+import { HubungiPengiklanPropertiModal } from '@/app/pages/modal';
 
 export default function Index() {
   const kontrakanList = useSelector(state => state?.kontrakan?.kontrakanList);

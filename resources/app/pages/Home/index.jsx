@@ -1,6 +1,6 @@
 // Home Page
 import React, { Fragment } from 'react';
-import { Banner, TipeProperti, Properti } from './components';
+import { Banner, TipeProperti, Properti } from '@/app/pages/Home/components';
 
 export default function HomePage() {
   return (

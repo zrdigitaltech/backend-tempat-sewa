@@ -1,10 +1,10 @@
 'use client';
 import React, { Fragment, useState, useEffect } from 'react';
-import FormSearch from '@/app/components/FormSearch';
+import { UseFormSearch } from '@/app/components';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useNavigate } from 'react-router-dom';
-import { formatStrip, unFormatStrip } from '@/app/helpers';
+import { formatStrip } from '@/app/helpers';
 
 export default function Index() {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ export default function Index() {
                 Atau pasarkan properti milikmu dan kelola semuanya dalam satu platform.
               </strong>
             </p>
-            <FormSearch
+            <UseFormSearch
               homePage={true}
               formData={formData}
               handleChange={handleChange}
