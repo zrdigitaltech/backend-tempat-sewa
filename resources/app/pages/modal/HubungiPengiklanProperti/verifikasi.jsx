@@ -93,22 +93,14 @@ const Verifikasi = props => {
           // Lanjutkan ke langkah berikutnya (tutup modal, redirect, dsb.)
         } else {
           console.error('Gagal submit:', response.error);
-          setErrorMessage('Maaf, terjadi kendala saat mengirim data. Silakan coba lagi.');
-          // Hapus pesan error setelah 5 detik
-          setTimeout(() => {
-            setErrorMessage('');
-          }, 5000);
+          showError('Maaf, terjadi kendala saat mengirim data. Silakan coba sekali lagi.');
         }
         setOtpError('');
         setIsVerified(true);
         localStorage.setItem('isVerified', 'true');
       } catch (error) {
-        setErrorMessage('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
         console.error('Unexpected submit error:', error);
-        // Hapus pesan error setelah 5 detik
-        setTimeout(() => {
-          setErrorMessage('');
-        }, 5000);
+        showError('Maaf, terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.');
       } finally {
       }
     } else {
@@ -122,6 +114,19 @@ const Verifikasi = props => {
     setIsChangingMetode(true);
     setOtpError('');
     setIsVerified(false);
+    setErrorMessage('');
+  };
+
+  const showError = msg => {
+    if (errorMessage !== msg) {
+      setErrorMessage(msg);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+
+      errorTimeoutRef.current = setTimeout(() => {
+        setErrorMessage('');
+        errorTimeoutRef.current = null;
+      }, 5000);
+    }
   };
 
   return (
