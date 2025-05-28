@@ -2,10 +2,13 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UseHeads, UseBreadcrumb } from '@/app/components';
 import {
-  PemilikProfileCard,
+  PemilikProfile,
+  StatistikProperti,
+  AreaSpesialis,
+  PropertiSpesialis,
+  IklanPropertiList,
   SidebarDesktop,
-  SidebarMobile,
-  PropertiListFromPemilik
+  SidebarMobile
 } from '@/app/pages/Pemilik/Slug/components';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -112,7 +115,7 @@ const PemilikSlugPage = () => {
                 </div>
               </div>
             ) : (
-              <PemilikProfileCard
+              <PemilikProfile
                 profile={pemilikProfile}
                 handleBagikan={() => (setShowShare(true), setDataItem(pemilikProfile))}
                 handlePhone={() => {
@@ -139,72 +142,10 @@ const PemilikSlugPage = () => {
                   <p className="mb-0">{pemilikProfile?.bio || 'Informasi belum tersedia.'}</p>
                 </div>
 
-                <div className="my-4">
-                  <div className="mb-3">
-                    <h4 className="fs-5 fw-bold text-dark mb-0">Statistik Properti</h4>
-                    <small>
-                      {pemilikProfile?.statistik?.periode?.mulai} –{' '}
-                      {pemilikProfile?.statistik?.periode?.sampai}
-                    </small>
-                  </div>
-
-                  {/* Rentang Harga */}
-                  <div className="row g-3">
-                    <div className="col-12 col-md-4">
-                      <div className="bg-white rounded border shadow-sm p-3 h-100">
-                        <div className="text-muted small mb-1">Rentang Harga</div>
-                        <div className="fw-bold fs-6 text-dark">
-                          {pemilikProfile?.statistik?.rentang_harga || '-'}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <div className="bg-white rounded border shadow-sm p-3 h-100">
-                        <div className="text-muted small mb-1">Iklan Aktif</div>
-                        <div className="fw-bold fs-4 text-dark">
-                          {pemilikProfile?.statistik?.iklan_aktif ?? '-'}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <div className="bg-white rounded border shadow-sm p-3 h-100">
-                        <div className="text-muted small mb-1">Tersewa</div>
-                        <div className="fw-bold fs-4 text-dark">
-                          {pemilikProfile?.statistik?.tersewa ?? '-'}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="my-4">
-                  <h4 className="fs-5 fw-bold mb-3 text-dark">Area Spesialis</h4>
-                  <div className="d-flex flex-wrap gap-3">
-                    {pemilikProfile?.area_spesialis?.map((area, i) => (
-                      <span key={i} className="bg-white rounded border shadow-sm px-3 py-2 h-100">
-                        {area}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="my-4">
-                  <h4 className="fs-5 fw-bold mb-3 text-dark">Properti Spesialis</h4>
-                  <div className="d-flex flex-wrap gap-3">
-                    {pemilikProfile?.properti_spesialis?.map((tipe, i) => (
-                      <span key={i} className="bg-white rounded border shadow-sm px-3 py-2 h-100">
-                        {tipe}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="my-4">
-                  <h4 className="fs-5 fw-bold mb-3 text-dark">
-                    Iklan Properti dari {pemilikProfile?.name}
-                  </h4>
-                  <div className="mb-3">
-                    <PropertiListFromPemilik />
-                  </div>
-                </div>
+                <StatistikProperti pemilikProfile={pemilikProfile} />
+                <AreaSpesialis pemilikProfile={pemilikProfile} />
+                <PropertiSpesialis pemilikProfile={pemilikProfile} />
+                <IklanPropertiList pemilikProfile={pemilikProfile} slug={slug} />
               </div>
               <div className="col-12 col-lg-3">
                 <SidebarDesktop

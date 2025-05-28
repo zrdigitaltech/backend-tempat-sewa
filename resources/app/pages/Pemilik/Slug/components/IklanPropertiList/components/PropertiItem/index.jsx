@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { formatPriceLocale, iconTipeProperti } from '@/app/helpers';
+import { Link } from 'react-router-dom';
 
 const Index = props => {
   const { item } = props;
@@ -54,12 +55,12 @@ const Index = props => {
   return (
     <Fragment>
       <div className="border-top py-3">
-        <div className="d-flex flex-column flex-md-row px-1">
+        <Link to={`/properti/${item?.slug}`} className="d-flex flex-column flex-md-row px-1">
           {/* Kolom Iklan */}
           <div style={{ flex: 1 }} className="d-flex flex-row gap-3">
             <img
-              src={item.foto}
-              alt={item.judul}
+              src={item.image[0]}
+              alt={item.nama}
               className="rounded flex-shrink-0"
               style={{ width: 100, height: 100, objectFit: 'cover' }}
             />
@@ -117,7 +118,7 @@ const Index = props => {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </Fragment>
   );

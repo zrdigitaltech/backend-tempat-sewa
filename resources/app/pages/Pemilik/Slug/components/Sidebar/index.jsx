@@ -23,8 +23,7 @@ const Index = props => {
         top: '100px' // jarak dari atas saat sticky
       }}
     >
-      <div className="d-flex justify-content-center mb-3">
-        {/* <Link to={`/pemilik/${data?.pemilikSlug}`} className="text-center position-relative "> */}
+      <div className="align-items-center d-flex mb-3">
         <div className="d-flex">
           <div className="position-relative me-2" style={{ width: '80px' }}>
             {isLoading ? (
@@ -61,7 +60,6 @@ const Index = props => {
             </strong>
           )}
         </div>
-        {/* </Link> */}
       </div>
       {isLoading ? (
         <Fragment>
