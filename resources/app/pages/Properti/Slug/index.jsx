@@ -10,7 +10,7 @@ import { UseHeads, UseBreadcrumb, UseDeskripsiExpandable } from '@/app/component
 
 // Modals
 import ShareModal from '@/app/pages/modal/Share';
-import { PreviewModal } from '@/app/pages/Properti/Slug/Modal';
+import { PreviewModal } from '@/app/pages/Properti/Slug/modal';
 import HubungiPengiklanPropertiModal from '@/app/pages/modal/HubungiPengiklanProperti';
 import LaporkanIklanModal from '@/app/pages/modal/LaporkanIklan';
 
