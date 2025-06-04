@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Budi Santoso",
+    "slug": "budi-santoso",
+    "avatar": "https://ui-avatars.com/api/?size=158&name=Budi+Santoso",
+    "bio": "Pemilik properti terpercaya di kawasan BSD, Tangerang. Menyewakan properti sejak 2015 dengan rating kepuasan tinggi.",
+    "no_whatsapp": "+62812xxxx",
+    "socials": {
+      "instagram": "https://instagram.com/tempatsewa",
+      "linkedin": "https://linkedin.com/company/tempatsewa"
+    },
+    "pemilik_verified": true,
+    "statistik": {
+      "rentang_harga": "Rp 2.000.000 / bulan",
+      "iklan_aktif": 1,
+      "tersewa": 0,
+      "periode": {
+        "mulai": "15 Apr 2015",
+        "sampai": "27 Mei 2025"
+      }
+    },
+    "area_spesialis": ["BSD", "Tangerang"],
+    "properti_spesialis": ["Kontrakan"],
+    "list_properti": [
+      {
+        "id": 1,
+        "judul": "Kontrakan Mewah A",
+        "slug": "kontrakan-mewah-a",
+        "gambar": "https://placehold.co/800x600?text=Kontrakan+1",
+        "harga": 2000000,
+        "durasi": "bulan",
+        "lokasi": "Jl. Merdeka No. 10, BSD, Tangerang",
+        "status": "Tersedia",
+        "tipe": "Kontrakan",
+        "tersewa": false,
+        "views": 1500,
+        "upload": "15 Apr 2025 10:00",
+        "durasiMinimal": 6,
+        "member": "Premium",
+        "deskripsi": "Kontrakan nyaman dan strategis, cocok untuk keluarga kecil. Lokasi dekat dengan pasar, sekolah, dan akses transportasi umum. Lingkungan aman dan tenang.",
+        "tipe_properti": {
+          "id": 1,
+          "nama": "Kontrakan",
+          "slug": "kontrakan",
+          "kategori": "hunian",
+          "informasi_lingkungan": [
+            {
+              "nama": "Fasilitas Umum",
+              "fasilitas": [
+                "Listrik",
+                "Air PAM",
+                "Kamar Mandi Dalam",
+                "Dapur",
+                "Parkir Motor",
+                "Akses 24 Jam"
+              ]
+            }
+          ],
+          "informasi_interior": [
+            {
+              "nama": "Fasilitas",
+              "fasilitas": ["AC", "Kolam Renang", "TV Kabel", "Internet"]
+            },
+            {
+              "nama": "Kondisi Perabotan",
+              "fasilitas": ["Full Furnished"]
+            },
+            {
+              "nama": "Kapasitas",
+              "fasilitas": [1]
+            }
+          ]
+        },
+        "tipe_kost": "Putri",
+        "daya_listrik": 1300,
+        "biaya_listrik": "termasuk",
+        "image": [
+          "https://placehold.co/800x600?text=Kontrakan+1",
+          "https://placehold.co/800x600?text=Kontrakan+2"
+        ]
+      }
+    ]
+  }
+]
