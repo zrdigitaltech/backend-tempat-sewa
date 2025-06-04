@@ -1,5 +1,5 @@
 export { default as UseBreadcrumb } from './Breadcrumb';
-export { default as UseCTA } from './CTA';
+export { default as UseCTA } from './Cta';
 export { default as UseDeskripsiExpandable } from './DeskripsiExpandable';
 export { default as UseFooter } from './Footer';
 export { default as UseFormSearch } from './FormSearch';
