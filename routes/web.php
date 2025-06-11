@@ -23,7 +23,14 @@ use Filament\Notifications\Actions\Action;
 */
 
 Route::get('/', function () {
-  return view('welcome');
+  // Simulasi ambil data SEO dari database atau API
+  $meta = [
+      'title' => 'TempatSewa.Com Indonesia: Situs Sewa Kos, Sewa Rumah, Sewa Apartemen, Sewa Ruko, Sewa Kios dan Sewa Gudang',
+      'description' => 'Temukan dan sewa kontrakan, kost, atau properti impianmu dengan mudah. Kelola dan pasarkan properti dalam satu platform: tempatSewa.Com.',
+      'image' => '/assets/assets/images/about-us.jpg',
+  ];
+
+  return view('welcome', compact('meta'));
 });
 
 Route::get('/{any}', function () {

@@ -12,12 +12,12 @@ const Index = props => {
 
   return (
     <Helmet>
-      <meta charSet="utf-8" />
+      {/* <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
 
       {/* Primary Meta Tags */}
-      <title>{title || defaultTitle}</title>
+      {/* <title>{title || defaultTitle}</title>
       <meta name="description" content={deskripsi || defaultDeskripsi} />
       <meta
         name="keywords"
@@ -30,10 +30,10 @@ const Index = props => {
       <meta name="distribution" content="global" />
       <meta name="rating" content="general" />
       <meta name="revisit-after" content="7 days" />
-      <meta name="theme-color" content="#128C7E" />
+      <meta name="theme-color" content="#128C7E" /> */}
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      {/* <meta property="og:type" content="website" />
       <meta
         property="og:url"
         content={typeof window !== 'undefined' ? window.location.href : 'https://tempatsewa.com'}
@@ -41,18 +41,18 @@ const Index = props => {
       <meta property="og:title" content={title || defaultTitle} />
       <meta property="og:description" content={deskripsi || defaultDeskripsi} />
       <meta property="og:image" content={defaultImage} />
-      <meta property="og:site_name" content="TempatSewa.Com" />
+      <meta property="og:site_name" content="TempatSewa.Com" /> */}
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
+      {/* <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title || defaultTitle} />
       <meta name="twitter:description" content={deskripsi || defaultDeskripsi} />
       <meta name="twitter:image" content={defaultImage} />
-      <meta name="twitter:image:alt" content={title || defaultTitle} />
+      <meta name="twitter:image:alt" content={title || defaultTitle} /> */}
 
       {/* Favicon & Manifest */}
-      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
-      <link rel="manifest" href="/manifest.json" />
+      {/* <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
+      <link rel="manifest" href="/manifest.json" /> */}
     </Helmet>
   );
 };
