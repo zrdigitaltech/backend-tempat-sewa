@@ -33,3 +33,10 @@
 .slick-disabled {
     @extend .ST--arrow--disabled;
 }
+
+
+.ST--tipeproperti-card-body {
+    h3 {
+        font-size: clamp($font-size-sm, $vw-md, $font-size-base);
+    }
+}

@@ -53,7 +53,7 @@ export default function Index(props) {
   useTooltips();
 
   const CardContent = () => (
-    <div className="card-body ST--card-body p-2 p-sm-3">
+    <div className="card-body ST--properti-card-body p-2 p-sm-3">
       {isLoading ? (
         <Skeleton count={2} height={20} width="80%" />
       ) : (

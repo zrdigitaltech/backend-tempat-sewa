@@ -37,9 +37,3 @@ span {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.ST--card-body {
-    h3 {
-        font-size: clamp($font-size-sm, $vw-md, $font-size-base);
-    }
-}
