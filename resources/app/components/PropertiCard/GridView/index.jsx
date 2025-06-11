@@ -84,10 +84,10 @@ export default function Index(props) {
               </div>
             </Fragment>
           )}
-          <h5 className="card-title fw-bold">
+          <h3 className="card-title fw-bold">
             Rp{formatPrice(harga)}
             <span className="text-capitalize"> / {durasi}</span>
-          </h5>
+          </h3>
           <span
             className="card-text fw-semibold mb-0 ST--Text"
             title={nama.length > 50 ? nama : ''}

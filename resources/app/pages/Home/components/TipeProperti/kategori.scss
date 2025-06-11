@@ -33,9 +33,3 @@
 .slick-disabled {
     @extend .ST--arrow--disabled;
 }
-
-.ST-card-body {
-    h3 {
-        font-size: clamp($font-size-sm, $vw-md, $font-size-base);
-    }
-}
