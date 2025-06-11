@@ -2,22 +2,20 @@
 @use 'sass:math';
 
 // STEP 1: Functions before variables
-@use 'bootstrap/scss/functions' as *;
+@use 'bootstrap/scss/functions'as *;
 
 // STEP 2: Custom variables
-@use 'base/variables' as *;
+@use 'base/variables'as *;
 
 // STEP 3: Bootstrap with custom variables
-@use 'bootstrap/scss/bootstrap' with (
-  $primary: $primary,
-  $secondary: $secondary,
-  $success: $success,
-  $danger: $danger,
-  $warning: $warning,
-  $info: $info,
-  $font-size-base: $font-size-base,
-  $font-family-base: $font-family-body
-);
+@use 'bootstrap/scss/bootstrap'with ($primary: $primary,
+    $secondary: $secondary,
+    $success: $success,
+    $danger: $danger,
+    $warning: $warning,
+    $info: $info,
+    $font-size-base: $font-size-base,
+    $font-family-base: $font-family-body);
 
 // STEP 4: External and custom styles
 @use 'base/reset';
@@ -25,5 +23,6 @@
 @use 'components/typography';
 @use 'components/cursor';
 @use 'components/forms';
+@use 'components/buttons';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');

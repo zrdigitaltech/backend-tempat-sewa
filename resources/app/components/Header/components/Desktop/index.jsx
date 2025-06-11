@@ -41,7 +41,12 @@ export default function Desktop(props) {
       <ul className="navbar-nav flex-row gap-3 mb-0">
         <li className={`nav-item dropdown`}>
           <a
+            href="#"
             className={`nav-link dropdown-toggle cursor-pointer text-dark ${openDisewa || tipePropertiList.some(link => link.slug === activeTipeProperti) ? 'active' : ''}`}
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded={openDisewa ? 'true' : 'false'}
+            onClick={e => e.preventDefault()}
           >
             Disewa
           </a>
