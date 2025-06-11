@@ -139,17 +139,19 @@ export default function Index(props) {
               };
 
               return (
-                <span
-                  style={style}
-                  onClick={onClickHandler}
-                  onKeyDown={onClickHandler}
-                  key={index}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${label} ${index + 1}`}
-                >
-                  ●
-                </span>
+                <li key={index} style={{ display: 'inline' }}>
+                  <span
+                    style={style}
+                    onClick={onClickHandler}
+                    onKeyDown={onClickHandler}
+                    key={index}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${label} ${index + 1}`}
+                  >
+                    ●
+                  </span>
+                </li>
               );
             }}
             className="rounded-top-2 overflow-hidden"
