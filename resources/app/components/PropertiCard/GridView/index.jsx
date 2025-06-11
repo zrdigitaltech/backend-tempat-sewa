@@ -139,7 +139,7 @@ export default function Index(props) {
               };
 
               return (
-                <li key={index} style={{ display: 'inline' }}>
+                <li key={index} className="d-inline">
                   <span
                     style={style}
                     onClick={onClickHandler}
