@@ -181,7 +181,11 @@ const Index = props => {
         position="center"
         modalBody={
           <Fragment>
-            <img src="https://placehold.co/563x281" className="w-100" />
+            <img
+              src="https://placehold.co/563x281"
+              className="w-100"
+              alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
+            />
             <div className="my-3">
               <label className="form-label">
                 Tipe Properti<small className="text-danger">*</small>

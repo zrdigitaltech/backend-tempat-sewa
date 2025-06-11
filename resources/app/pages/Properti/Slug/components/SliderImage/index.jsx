@@ -75,7 +75,7 @@ const Index = props => {
               onMouseMove={handleMouseMove}
               className="cursor-pointer"
               src={x}
-              allt={nama}
+              alt={nama}
               onClick={() => handleClick(images[i])}
             />
           </div>

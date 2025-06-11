@@ -277,6 +277,7 @@ export default function Index(props) {
                           height: isMobile ? '' : '250px',
                           objectFit: 'cover'
                         }}
+                        alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
                       />
                     </div>
                   ))}

@@ -371,7 +371,7 @@ export default function Index() {
                       <div className="shadow-sm">
                         <img
                           src="https://placehold.co/350x600?text=Iklan"
-                          alt="Banner Iklan"
+                          alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
                           className="img-fluid rounded w-100"
                         />
                       </div>
@@ -389,7 +389,11 @@ export default function Index() {
             <div className="container mb-5 mt-3 d-flex justify-content-center">
               <div className="col-12 col-sm-10 text-center cursor-pointer">
                 <div className="position-relative" onClick={() => setShowKonsultasi(true)}>
-                  <img src="https://placehold.co/1760x333" className="w-100" />
+                  <img
+                    src="https://placehold.co/1760x333"
+                    className="w-100"
+                    alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
+                  />
                   <div
                     className="position-absolute"
                     style={{
