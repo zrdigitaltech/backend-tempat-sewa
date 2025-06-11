@@ -40,7 +40,6 @@ span {
 
 @mixin ST-text-white {
     color: $white !important;
-    --bs-text-opacity: $white;
 }
 
 .text-white {

@@ -128,7 +128,7 @@ export default function Index(props) {
                 marginLeft: 6,
                 color: isSelected ? '#1e3a8a' : '#bbb',
                 cursor: 'pointer',
-                fontSize: 16
+                fontSize: 20
               };
 
               return (
