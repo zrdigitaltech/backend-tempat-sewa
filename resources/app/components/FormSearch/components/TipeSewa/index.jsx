@@ -28,6 +28,7 @@ export default function Index(props) {
         <Skeleton height={34} borderRadius={8} />
       ) : (
         <select
+          id="tipeSewa"
           className="form-select rounded-3"
           name="tipeSewa"
           value={tipeSewa || ''}
