@@ -27,20 +27,25 @@ export default function Index(props) {
       {isLoading ? (
         <Skeleton height={34} borderRadius={8} />
       ) : (
-        <select
-          id="tipeSewa"
-          className="form-select rounded-3"
-          name="tipeSewa"
-          value={tipeSewa || ''}
-          onChange={handleChange}
-        >
-          <option value="">Tipe Sewa</option>
-          {tipeSewaList.map((item, idx) => (
-            <option key={idx} value={item.slug}>
-              {item.nama}
-            </option>
-          ))}
-        </select>
+        <Fragment>
+          <label htmlFor="tipeSewa" className="form-label d-none">
+            Tipe Sewa
+          </label>
+          <select
+            id="tipeSewa"
+            className="form-select rounded-3"
+            name="tipeSewa"
+            value={tipeSewa || ''}
+            onChange={handleChange}
+          >
+            <option value="">Tipe Sewa</option>
+            {tipeSewaList.map((item, idx) => (
+              <option key={idx} value={item.slug}>
+                {item.nama}
+              </option>
+            ))}
+          </select>
+        </Fragment>
       )}
     </Fragment>
   );

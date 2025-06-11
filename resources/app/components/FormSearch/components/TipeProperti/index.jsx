@@ -30,20 +30,25 @@ export default function Index(props) {
       {isLoading ? (
         <Skeleton height={34} borderRadius={8} />
       ) : (
-        <select
-          id="tipeProperti"
-          className="form-select rounded-3"
-          name="tipeProperti"
-          value={tipeProperti || ''}
-          onChange={handleChange}
-        >
-          <option value="">{title}</option>
-          {tipePropertiList.map((item, idx) => (
-            <option key={idx} value={item.slug}>
-              {item.nama}
-            </option>
-          ))}
-        </select>
+        <Fragment>
+          <label htmlFor="tipeProperti" className="form-label d-none">
+            Tipe Properti
+          </label>
+          <select
+            id="tipeProperti"
+            className="form-select rounded-3"
+            name="tipeProperti"
+            value={tipeProperti || ''}
+            onChange={handleChange}
+          >
+            <option value="">{title}</option>
+            {tipePropertiList.map((item, idx) => (
+              <option key={idx} value={item.slug}>
+                {item.nama}
+              </option>
+            ))}
+          </select>
+        </Fragment>
       )}
     </Fragment>
   );
