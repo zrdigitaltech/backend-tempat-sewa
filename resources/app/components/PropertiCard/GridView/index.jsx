@@ -211,6 +211,7 @@ export default function Index(props) {
                 <button
                   className="btn btn-primary align-items-center d-sm-flex w-100"
                   onClick={handlePhone}
+                  aria-label={`Telepon ${formatPhone(no_whatsapp)}`}
                 >
                   <i className="fa fa-phone pe-1" aria-hidden="true"></i>{' '}
                   <span className="d-none d-sm-block">{formatPhone(no_whatsapp)}</span>
@@ -226,6 +227,7 @@ export default function Index(props) {
                 <button
                   className="btn btn-success d-flex align-items-center text-white w-100 pe-1"
                   onClick={handleWhatsApp}
+                  aria-label={`WhatsApp ${formatPhone(no_whatsapp)}`}
                 >
                   <i className="fa-brands fa-whatsapp pe-1" aria-hidden="true"></i> WhatsApp
                 </button>
