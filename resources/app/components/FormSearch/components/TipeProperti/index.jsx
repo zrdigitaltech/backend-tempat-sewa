@@ -31,7 +31,7 @@ export default function Index(props) {
         <Skeleton height={34} borderRadius={8} />
       ) : (
         <Fragment>
-          <label htmlFor="tipeProperti" className="form-label d-none">
+          <label htmlFor="tipeProperti" className="form-label visually-hidden">
             Tipe Properti
           </label>
           <select
