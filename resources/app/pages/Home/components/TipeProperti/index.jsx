@@ -127,9 +127,9 @@ export default function Index() {
                     className=" text-dark"
                   >
                     <div className="card text-center border-0 shadow-sm h-100">
-                      <div className="card-body py-4">
+                      <div className="card-body ST-card-body py-4">
                         <div className="fs-2 mb-2">{iconTipeProperti(cat?.nama)}</div>
-                        <h6 className="card-title mb-0 text-truncate">Sewa {cat.nama}</h6>
+                        <h3 className="card-title mb-0 text-truncate">Sewa {cat.nama}</h3>
                       </div>
                     </div>
                   </Link>

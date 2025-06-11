@@ -1,34 +1,41 @@
-@use '@/app/styles/scss/base/variables' as *;
+@use '@/app/styles/scss/base/variables'as *;
 
 .ST--arrow {
-  i {
-    color: $primary !important;
-    font-size: $font-size-xl !important;
-  }
-  &--next {
-    right: -5px;
-    top: 40.7%;
-  }
+    i {
+        color: $primary !important;
+        font-size: $font-size-xl !important;
+    }
 
-  &--prev {
-    left: -5px;
-    top: 40.7%;
-  }
+    &--next {
+        right: -5px;
+        top: 40.7%;
+    }
 
-  &--disabled {
-    opacity: 0;
-    pointer-events: none;
-  }
+    &--prev {
+        left: -5px;
+        top: 40.7%;
+    }
+
+    &--disabled {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .slick-prev {
-  @extend .ST--arrow--prev;
+    @extend .ST--arrow--prev;
 }
 
 .slick-next {
-  @extend .ST--arrow--next;
+    @extend .ST--arrow--next;
 }
 
 .slick-disabled {
-  @extend .ST--arrow--disabled;
+    @extend .ST--arrow--disabled;
+}
+
+.ST-card-body {
+    h3 {
+        font-size: clamp($font-size-sm, $vw-md, $font-size-base);
+    }
 }
