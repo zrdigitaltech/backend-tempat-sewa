@@ -8,7 +8,7 @@ export default function Index() {
           {/* Deskripsi */}
           <div className="col-md-8">
             <div>
-              <p className="fw-bold fs-5 mb-2">Selamat datang di tempatSewa.Com</p>
+              <p className="fw-bold fs-6 mb-2">Selamat datang di tempatSewa.Com</p>
               <p>
                 <small>tempat</small>Sewa.Com adalah Platform tepercaya yang memudahkanmu menemukan
                 tempat tinggal impian — mulai dari kontrakan, kost, hingga properti sewa lainnya.
@@ -18,7 +18,7 @@ export default function Index() {
               </p>
             </div>
             <div className="mb-3 mb-sm-0">
-              <p className="fw-bold fs-5 mb-2">Hubungi Kami</p>
+              <p className="fw-bold fs-6 mb-2">Hubungi Kami</p>
               <p className="mb-1">
                 Email:{' '}
                 <Link
@@ -37,7 +37,7 @@ export default function Index() {
           {/* Hubungi Kami */}
           <div className="col-md-4">
             <div>
-              <p className="fw-bold fs-5 mb-2">Profil</p>
+              <p className="fw-bold fs-6 mb-2">Profil</p>
               <ul className="list-unstyled">
                 <li>
                   <Link to="/tentang-kami" className="text-white ">
