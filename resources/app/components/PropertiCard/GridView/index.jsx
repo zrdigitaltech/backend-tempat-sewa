@@ -125,10 +125,17 @@ export default function Index(props) {
                 return null;
 
               const style = {
-                marginLeft: 6,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 28,
+                height: 28,
+                margin: '0 1px',
                 color: isSelected ? '#1e3a8a' : '#bbb',
                 cursor: 'pointer',
-                fontSize: 20
+                fontSize: 20,
+                borderRadius: '50%',
+                touchAction: 'manipulation'
               };
 
               return (
