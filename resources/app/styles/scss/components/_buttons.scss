@@ -1,1 +1,10 @@
 @use '../base/variables'as *;
+
+
+@mixin ST-btn {
+    min-height: 38px;
+}
+
+.btn {
+    @include ST-btn;
+}
