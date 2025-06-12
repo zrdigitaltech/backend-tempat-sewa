@@ -134,7 +134,7 @@ export default function FormRegister() {
                 type="text"
                 name="phone"
                 value={formData.phone}
-                className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
+                className={`form-control z-1 ${errors.phone ? 'is-invalid' : ''}`}
                 placeholder="Masukkan Nomor"
                 onChange={e => {
                   const value = e.target.value;
@@ -176,7 +176,7 @@ export default function FormRegister() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                className={`form-control z-1 ${errors.password ? 'is-invalid' : ''}`}
                 placeholder="Masukkan Password"
               />
               <button

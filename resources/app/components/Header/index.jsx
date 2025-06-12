@@ -27,16 +27,25 @@ export default function Index() {
             <span className="text-primary">tempat</span>Sewa.Com
           </Link>
 
-          {/* Toggle button (Offcanvas Trigger for mobile) */}
-          <button
-            className="btn d-lg-none p-0 mx-2 my-1"
-            type="button"
-            onClick={toggleMenu}
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle mobile menu"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <div className="d-flex">
+            <button
+              className="btn btn-primary d-lg-none"
+              onClick={() => (navigate('/pasang-iklan-properti'), setOpenDisewa(false))}
+            >
+              + Pasang Iklan
+            </button>
+
+            {/* Toggle button (Offcanvas Trigger for mobile) */}
+            <button
+              className="btn d-lg-none p-0 mx-2 my-1"
+              type="button"
+              onClick={toggleMenu}
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle mobile menu"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
 
           {/* Desktop Menu */}
           <Desktop
