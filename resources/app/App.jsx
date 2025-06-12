@@ -17,7 +17,7 @@ import 'aos/dist/aos.css';
 function App() {
   UseScrollToTop();
   const location = useLocation();
-  const hideCTAOn = ['/pasang-iklan'];
+  const hideCTAOn = ['/pasang-iklan-properti'];
   const shouldShowCTA = !hideCTAOn.includes(location.pathname);
 
   useEffect(() => {
