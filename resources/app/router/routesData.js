@@ -110,6 +110,11 @@ const routesData = [
         path: '*',
         element: 'Navigate',
         to: '/404'
+      },
+      {
+        path: 'keanggotaan',
+        element: 'Keanggotaan',
+        breadcrumb: 'Keanggotaan'
       }
     ]
   }
