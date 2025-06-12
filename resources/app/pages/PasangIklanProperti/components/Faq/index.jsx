@@ -1,24 +1,36 @@
 export default function Faq() {
   const faqs = [
     {
-      question: 'Bagaimana cara pasang iklan cepat?',
-      answer: 'Jawaban informatif seputar pertanyaan ini akan ditampilkan di sini.'
+      question:
+        'Bagaimana cara menyewakan properti dengan cepat di <b class="text-primary ms-1"> tempatSewa.Com</b>?',
+      answer:
+        'Pastikan kamu mengisi informasi properti secara lengkap, menggunakan foto asli yang jelas, dan memilih kategori yang tepat. Semakin detail dan menarik iklanmu, semakin cepat menarik perhatian penyewa.'
     },
     {
-      question: 'Apa saja properti yang bisa saya iklankan?',
-      answer: 'Jawaban informatif seputar pertanyaan ini akan ditampilkan di sini.'
+      question: 'Bagaimana menentukan harga sewa yang sesuai?',
+      answer:
+        'Sesuaikan harga sewa dengan kondisi properti, lokasi, dan fasilitas yang ditawarkan. Bandingkan juga dengan properti serupa di area sekitar agar harga tetap kompetitif dan realistis.'
     },
     {
-      question: 'Apakah gratis atau berbayar?',
-      answer: 'Jawaban informatif seputar pertanyaan ini akan ditampilkan di sini.'
+      question: 'Apa tips membuat iklan properti yang menarik?',
+      answer:
+        'Gunakan foto berkualitas tinggi, judul yang jelas, serta deskripsi lengkap yang mencantumkan keunggulan properti seperti akses lokasi, fasilitas, dan kondisi unit. Semakin informatif, semakin tinggi peluang tersewa.'
     },
     {
-      question: 'Bagaimana agar iklan muncul di pencarian?',
-      answer: 'Jawaban informatif seputar pertanyaan ini akan ditampilkan di sini.'
+      question:
+        'Apakah <b class="text-primary mx-1"> tempatSewa.Com</b> menyediakan pasang iklan gratis?',
+      answer:
+        'Ya, <b class="text-primary"> tempatSewa.Com</b> menyediakan opsi pasang iklan secara gratis. Untuk visibilitas lebih tinggi, tersedia juga paket promosi berbayar yang bisa membantu menjangkau lebih banyak calon penyewa.'
     },
     {
-      question: 'Bisakah mengedit iklan setelah posting?',
-      answer: 'Jawaban informatif seputar pertanyaan ini akan ditampilkan di sini.'
+      question: 'Apa keuntungan menyewakan properti secara online?',
+      answer:
+        'Menyewakan properti secara online memungkinkan kamu menjangkau lebih banyak calon penyewa tanpa harus repot. Prosesnya lebih cepat, efisien, dan bisa dilakukan kapan saja di mana saja.'
+    },
+    {
+      question: 'Kenapa harus beriklan di <b class="text-primary ms-1"> tempatSewa.Com</b>?',
+      answer:
+        'Karena <b class="text-primary ms-1"> tempatSewa.Com</b> adalah platform tepercaya yang dirancang khusus untuk sewa properti. Dengan sistem yang mudah digunakan, fitur lengkap, dan jangkauan luas, iklanmu punya peluang lebih besar untuk segera ditemukan.'
     }
   ];
 
@@ -37,16 +49,18 @@ export default function Faq() {
                   data-bs-target={`#collapse${idx}`}
                   aria-expanded={idx === 0}
                   aria-controls={`collapse${idx}`}
-                >
-                  {question}
-                </button>
+                  dangerouslySetInnerHTML={{ __html: question }}
+                ></button>
               </h2>
               <div
                 id={`collapse${idx}`}
                 className={`accordion-collapse collapse ${idx === 0 ? 'show' : ''}`}
                 data-bs-parent="#faqAccordion"
               >
-                <div className="accordion-body text-muted small">{answer}</div>
+                <div
+                  className="accordion-body text-muted small"
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                ></div>
               </div>
             </div>
           ))}
