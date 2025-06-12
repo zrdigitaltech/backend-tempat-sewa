@@ -37,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
       ->databaseNotifications(true)
       ->databaseNotificationspolling('3s')
       ->id('admin')
-      ->path('properti')
+      ->path('user')
       // ->breadcrumbs(false)
       // ->brandName('Nama Pemilik Kontrakan')
       ->spa()

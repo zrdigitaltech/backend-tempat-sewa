@@ -62,8 +62,8 @@ export default function Index(props) {
 
       <div className="offcanvas-body d-flex flex-column gap-2">
         <a
-          className={`nav-link text-dark ${location.pathname === '/properti/login' ? 'active' : ''}`}
-          href="/properti/login"
+          className={`nav-link text-dark ${location.pathname === '/user/login' ? 'active' : ''}`}
+          href="/user/login"
           target="_blank"
           onClick={handleClose}
         >

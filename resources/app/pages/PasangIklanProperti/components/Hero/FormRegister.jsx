@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { submitRegister } from '@/app/redux/action/register/creator';
 import UseToasts from '@/app/components/Toasts';
+import { Link } from 'react-router-dom';
 
 export default function FormRegister() {
   const [formData, setFormData] = useState({
@@ -104,7 +105,13 @@ export default function FormRegister() {
     <div className="card shadow-lg border-0">
       <div className="card-body p-4">
         <h5 className="card-title text-center fw-bold">Daftar</h5>
-        <p className="card-title text-center mb-4">Sudah punya akun? Masuk sekarang</p>
+        <p className="card-title text-center mb-4">
+          Sudah punya akun?{' '}
+          <a href="/user/login" rel="noreferrer">
+            Masuk
+          </a>{' '}
+          sekarang
+        </p>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label">Nama Lengkap</label>

@@ -10,9 +10,10 @@ export default function HeroSection() {
             <div className="d-flex flex-column align-items-start">
               <h1 className="fw-bold display-5">Pasang Iklan Properti dengan Mudah</h1>
               <p className="lead mt-3">
-                Hanya di <strong>tempatSewa.Com</strong>, platform terpercaya untuk memasarkan
-                properti sewa Anda. Dapatkan jangkauan luas dengan rata-rata{' '}
-                <span className="fw-bold fs-2 text-warning">99.000+</span> pencarian properti per
+                Hanya di <strong>tempatSewa.Com</strong> — solusi lengkap untuk{' '}
+                <strong>memasarkan</strong> dan <strong>mengelola properti sewa</strong> Anda dalam
+                satu platform. Jangkau lebih dari{' '}
+                <span className="fw-bold fs-2 text-warning">99.000+</span> pencarian properti setiap
                 hari.
               </p>
             </div>

@@ -108,8 +108,7 @@ export default function Desktop(props) {
         <li className="nav-item">
           <a
             className="nav-link text-dark a-hover"
-            href="/properti/login"
-            target="_blank"
+            href="/user/login"
             rel="noreferrer"
             onClick={() => setOpenDisewa(false)}
           >

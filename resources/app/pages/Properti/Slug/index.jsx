@@ -128,7 +128,7 @@ const Index = () => {
       <Fragment>
         <div className="pb-5">
           <section className="mt-3">
-            <Breadcrumb title={'Properti Tidak Ditemukan'} />
+            <UseBreadcrumb title={'Properti Tidak Ditemukan'} />
           </section>
           <div className="text-center pt-5">
             <i className="fa-4x fa-search fas mb-3"></i>
