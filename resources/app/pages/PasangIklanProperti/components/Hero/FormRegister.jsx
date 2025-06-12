@@ -114,7 +114,7 @@ export default function FormRegister() {
               value={formData.name}
               onChange={handleChange}
               className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-              placeholder="Nama Lengkap"
+              placeholder="Masukkan Nama Lengkap"
             />
             {errors.name && <div className="invalid-feedback">{errors.name}</div>}
           </div>
@@ -127,11 +127,19 @@ export default function FormRegister() {
                 type="text"
                 name="phone"
                 value={formData.phone}
-                onChange={handleChange}
                 className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
                 placeholder="Masukkan Nomor"
+                onChange={e => {
+                  const value = e.target.value;
+                  // Hanya angka dan tidak boleh diawali dengan 0
+                  if (/^[1-9][0-9]*$/.test(value) || value === '') {
+                    handleChange(e);
+                  }
+                }}
                 onKeyPress={e => {
-                  if (!/[0-9]/.test(e.key)) e.preventDefault();
+                  if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                  }
                 }}
                 maxLength={15}
               />
@@ -147,7 +155,7 @@ export default function FormRegister() {
               value={formData.email}
               onChange={handleChange}
               className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-              placeholder="email@example.com"
+              placeholder="Masukkan Alamat Email"
               maxLength={100}
             />
             {errors.email && <div className="invalid-feedback">{errors.email}</div>}
@@ -162,7 +170,7 @@ export default function FormRegister() {
                 value={formData.password}
                 onChange={handleChange}
                 className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                placeholder="••••••••"
+                placeholder="Masukkan Password"
               />
               <button
                 className="btn btn-primary"
