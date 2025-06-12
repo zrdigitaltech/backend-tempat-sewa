@@ -3,7 +3,7 @@
   <head>
     @viteReactRefresh
     @vite('resources/app/index.jsx')
-    @filamentStyles
+    {{-- @filamentStyles --}}
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,7 +79,7 @@
 
     <div id="app"></div>
 
-    @filamentScripts
-    @vite('resources/js/app.js') {{-- Jika ada JS tambahan non-React --}}
+    {{-- @filamentScripts --}}
+    {{-- @vite('resources/js/app.js') --}}
   </body>
 </html>

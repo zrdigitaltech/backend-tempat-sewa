@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Index() {
   return (
-    <footer className="bg-primary text-light py-5">
+    <footer className="bg-primary text-light pt-5 pb-3">
       <div className="container">
         <div className="row mb-4">
           {/* Deskripsi */}

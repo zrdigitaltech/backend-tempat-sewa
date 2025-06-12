@@ -1,7 +1,6 @@
 // src/app/App.jsx
-
 import React, { useEffect, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import {
   UseHeads,
@@ -17,6 +16,9 @@ import 'aos/dist/aos.css';
 
 function App() {
   UseScrollToTop();
+  const location = useLocation();
+  const hideCTAOn = ['/pasang-iklan'];
+  const shouldShowCTA = !hideCTAOn.includes(location.pathname);
 
   useEffect(() => {
     AOS.init();
@@ -32,7 +34,7 @@ function App() {
         <Outlet />
       </Suspense>
 
-      <UseCTA />
+      {shouldShowCTA && <UseCTA />}
       <UseFooter />
     </div>
   );
