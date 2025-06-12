@@ -116,7 +116,7 @@ export default function Index(props) {
       </div>
 
       <div className="offcanvas-footer p-3 border-top shadow ST--PasangIklan__mobile">
-        <Link className="btn btn-primary w-100" to="/pasang-iklan" onClick={handleClose}>
+        <Link className="btn btn-primary w-100" to="/pasang-iklan-properti" onClick={handleClose}>
           + Pasang Iklan
         </Link>
       </div>

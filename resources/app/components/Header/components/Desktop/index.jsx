@@ -100,7 +100,7 @@ export default function Desktop(props) {
         <li className="nav-item">
           <button
             className="btn btn-primary"
-            onClick={() => (navigate('/pasang-iklan'), setOpenDisewa(false))}
+            onClick={() => (navigate('/pasang-iklan-properti'), setOpenDisewa(false))}
           >
             + Pasang Iklan
           </button>

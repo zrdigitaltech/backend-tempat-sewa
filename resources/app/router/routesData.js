@@ -45,9 +45,9 @@ const routesData = [
         breadcrumb: 'Search'
       },
       {
-        path: 'pasang-iklan',
-        element: 'PasangIklan',
-        breadcrumb: 'Pasang Iklan'
+        path: 'pasang-iklan-properti',
+        element: 'PasangIklanProperti',
+        breadcrumb: 'Pasang Iklan Properti'
       },
       {
         path: 'panduan',

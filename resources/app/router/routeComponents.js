@@ -9,7 +9,7 @@ const componentMap = {
   Booking: lazy(() => import('@/app/pages/Booking')),
   PropertiSlug: lazy(() => import('@/app/pages/Properti/Slug')),
   PemilikSlug: lazy(() => import('@/app/pages/Pemilik/Slug')),
-  PasangIklan: lazy(() => import('@/app/pages/PasangIklan')),
+  PasangIklanProperti: lazy(() => import('@/app/pages/PasangIklanProperti')),
   Error404: lazy(() => import('@/app/pages/404')),
 
   // Tambahan halaman lain
