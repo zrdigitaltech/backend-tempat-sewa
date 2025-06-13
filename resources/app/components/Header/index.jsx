@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.scss';
 import { Desktop, Mobile } from '@/app/components/Header/components';
 import BantuanModal from '@/app/components/Header/modal/Bantuan';
 
 export default function Index() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
@@ -42,7 +43,7 @@ export default function Index() {
 
           <div className="d-flex">
             <button
-              className={`btn btn-primary ${isMobile ? 'd-none' : ''}`}
+              className={`btn btn-primary ${isMobile ? 'd-none' : 'd-lg-none'}`}
               onClick={() => (navigate('/pasang-iklan-properti'), setOpenDisewa(false))}
             >
               + Pasang Iklan

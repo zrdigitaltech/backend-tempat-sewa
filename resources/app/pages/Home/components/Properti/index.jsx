@@ -60,7 +60,6 @@ export default function Index() {
                   <div key={index} className="col-6 col-sm-6 col-lg-4 col-xl-3">
                     <GridView
                       {...item}
-                      newTab
                       showKategori
                       showInterior
                       handlePhone={() => {

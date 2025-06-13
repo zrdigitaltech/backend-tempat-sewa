@@ -246,7 +246,6 @@ export default function Index() {
                     : searchResultList?.slice(0, visible)?.map((item, index) => (
                         <div key={index} className="col-6 col-sm-6 col-lg-3 mb-4">
                           <GridView
-                            newTab={true}
                             {...item}
                             showKategori={true}
                             showTipeKamar={true}
@@ -314,7 +313,6 @@ export default function Index() {
                       : searchResultList?.slice(0, visible)?.map((item, index) => (
                           <div key={index} className="mb-3">
                             <ListView
-                              newTab={true}
                               {...item}
                               showKategori={true}
                               showTipeKamar={true}
