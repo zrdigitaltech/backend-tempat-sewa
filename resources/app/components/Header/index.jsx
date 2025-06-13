@@ -16,7 +16,7 @@ export default function Index() {
 
   return (
     <Fragment>
-      <nav className="navbar navbar-light bg-white shadow-sm sticky-top z-3">
+      <nav className="navbar navbar-light bg-white shadow-sm sticky-top">
         <div className="container d-flex justify-content-between align-items-center py-2">
           {/* Logo Brand */}
           <Link
