@@ -3,6 +3,7 @@ import { UseModals } from '@/app/components';
 import * as bootstrap from 'bootstrap';
 
 const Index = props => {
+  console.log('a', props);
   const { show, onClose, data } = props;
   const slug = data?.slug?.includes('pemilik') ? data?.slug : (`properti/${data?.slug}` ?? '');
   const nama = data?.nama ?? '';
