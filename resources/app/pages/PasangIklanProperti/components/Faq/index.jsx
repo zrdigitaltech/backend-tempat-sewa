@@ -34,6 +34,11 @@ export default function Faq() {
       question: 'Apa itu fitur booster pada iklan?',
       answer:
         'Booster adalah fitur promosi untuk menaikkan posisi iklanmu ke bagian atas daftar. Dengan booster, iklan akan tampil lebih menonjol dan berpotensi dilihat lebih banyak calon penyewa.'
+    },
+    {
+      question: 'Apakah saya bisa mengelola properti setelah disewakan melalui tempatSewa.Com?',
+      answer:
+        'Ya, kamu bisa menggunakan fitur pengelolaan properti yang disediakan, seperti mencatat masa kontrak sewa, mengatur pengingat jatuh tempo pembayaran, melihat riwayat penyewa, dan memperpanjang kontrak secara digital. Semua dirancang agar kamu bisa mengelola properti lebih mudah dan efisien.'
     }
   ];
 
