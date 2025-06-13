@@ -8,7 +8,7 @@ export default function HeroSection() {
   const startTimeRef = useRef();
 
   useEffect(() => {
-    const duration = 2500; // 2.5 detik
+    const duration = 1000; // 2.5 detik
     const startValue = 90000;
     const endValue = 99000;
     const valueRange = endValue - startValue;
