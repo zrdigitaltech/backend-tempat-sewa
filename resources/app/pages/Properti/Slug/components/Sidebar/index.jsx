@@ -80,10 +80,10 @@ const Index = props => {
               <Fragment>
                 <strong
                   className="d-block ST--Text"
-                  title={kontrakanDetail?.pemilik?.length > 50 ? kontrakanDetail?.pemilik : ''}
+                  title={kontrakanDetail?.pemilik?.length > 30 ? kontrakanDetail?.pemilik : ''}
                 >
-                  {(kontrakanDetail?.pemilik || '').length > 50
-                    ? kontrakanDetail.pemilik.substring(0, 50) + '...'
+                  {(kontrakanDetail?.pemilik || '').length > 30
+                    ? kontrakanDetail.pemilik.substring(0, 30) + '...'
                     : kontrakanDetail?.pemilik}
                 </strong>
                 <small className="text-secondary">Pemilik</small>
