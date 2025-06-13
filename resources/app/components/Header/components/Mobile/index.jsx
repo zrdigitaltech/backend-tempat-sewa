@@ -43,14 +43,19 @@ export default function Index(props) {
       id="mobileMenu"
       aria-labelledby="mobileMenuLabel"
     >
-      <div className="offcanvas-header border-bottom py-4">
-        <h5
+      <div
+        className="offcanvas-header border-bottom"
+        style={{
+          height: '72px'
+        }}
+      >
+        <div
           id="mobileMenuLabel"
-          className="offcanvas-title fw-bold"
+          className="offcanvas-title fw-bold fs-5"
           onClick={() => (navigate('/'), handleClose())}
         >
           <span className="text-primary">tempat</span>Sewa.Com
-        </h5>
+        </div>
         <button
           type="button"
           className="btn-close text-reset"

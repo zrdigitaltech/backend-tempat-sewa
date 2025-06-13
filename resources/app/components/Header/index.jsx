@@ -14,6 +14,19 @@ export default function Index() {
 
   const [showBantuan, setShowBantuan] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 320);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 320);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize(); // untuk update langsung saat pertama render
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <Fragment>
       <nav className="navbar navbar-light bg-white shadow-sm sticky-top">
@@ -29,7 +42,7 @@ export default function Index() {
 
           <div className="d-flex">
             <button
-              className="btn btn-primary d-lg-none"
+              className={`btn btn-primary ${isMobile ? 'd-none' : ''}`}
               onClick={() => (navigate('/pasang-iklan-properti'), setOpenDisewa(false))}
             >
               + Pasang Iklan

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -39,6 +39,8 @@ export default function Index(props) {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const maxIndicators = 5;
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
   const handleChange = index => {
     setSelectedIndex(index);
@@ -100,7 +102,16 @@ export default function Index(props) {
     </div>
   );
 
-  const isMobile = window.innerWidth <= 480;
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 480);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize(); // untuk update langsung saat pertama render
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className={`card border-0 shadow-sm h-100`}>
