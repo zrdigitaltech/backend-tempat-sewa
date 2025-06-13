@@ -113,7 +113,7 @@ const Index = props => {
             </div>
           </div>
 
-          <div className="position-fixed w-100 bottom-0 bg-white border-top d-lg-none">
+          <div className="position-fixed w-100 bottom-0 bg-white border-top d-lg-none shadow-lg">
             <div className="d-flex px-2 py-3">
               <div className="me-auto">
                 <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
