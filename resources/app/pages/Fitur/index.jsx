@@ -1,6 +1,5 @@
 'use client';
 import { Fragment, useEffect, useState } from 'react';
-import { UseHeads } from '@/app/components';
 import { Hero, Sidebar, ProdukBooster, DaftarPeminat } from '@/app/pages/Fitur/components';
 
 export default function Index() {
@@ -20,7 +19,6 @@ export default function Index() {
 
   return (
     <Fragment>
-      <UseHeads title="Fitur sewaTempat.Com" deskripsi="" image="" />
       <Hero />
 
       <section id="ProdukBooster" className="py-5 bg-light" style={{ scrollMarginTop: '70px' }}>
