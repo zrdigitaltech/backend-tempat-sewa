@@ -1,38 +1,44 @@
-import { Fragment, useEffect } from 'react';
+'use client';
+import { Fragment, useEffect, useState } from 'react';
 import { UseHeads } from '@/app/components';
-import { Hero } from '@/app/pages/Fitur/components';
+import { Hero, Sidebar, ProdukBooster, DaftarPeminat } from '@/app/pages/Fitur/components';
 
 export default function Index() {
+  const [activeMenu, setActiveMenu] = useState('produkBooster');
+
   useEffect(() => {
     const hash = window.location.hash;
-
     if (hash) {
-      // 1. Scroll ke atas dulu
       window.scrollTo({ top: 0, behavior: 'auto' });
-
-      // 2. Setelah delay, scroll ke target id
       const timeout = setTimeout(() => {
         const target = document.querySelector(hash);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 500); // kasih jeda agar pengguna lihat transisi dari atas dulu
-
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
       return () => clearTimeout(timeout);
     }
   }, []);
 
   return (
     <Fragment>
-      <UseHeads title="" deskripsi="" image="" />
+      <UseHeads title="Fitur sewaTempat.Com" deskripsi="" image="" />
       <Hero />
 
-      <section id="ProdukBooster" className="py-5" style={{ scrollMarginTop: '70px' }}>
+      <section id="ProdukBooster" className="py-5 bg-light" style={{ scrollMarginTop: '70px' }}>
         <div className="container">
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, ...
-          </p>
+          <div className="row">
+            {/* Sidebar */}
+            <div className="col-md-3 mb-4 mb-md-0">
+              <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+            </div>
+
+            {/* Konten kanan */}
+            <div className="col-md-9">
+              <div className="animate__animated animate__fadeIn">
+                {activeMenu === 'produkBooster' && <ProdukBooster />}
+                {activeMenu === 'daftarPeminat' && <DaftarPeminat />}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Fragment>
