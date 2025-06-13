@@ -7,7 +7,7 @@ export default function Index(props) {
     {
       name: 'Zikri Ramdani',
       title: 'CEO & Co-Founder',
-      img: 'https://zrdevelopers.github.io/assets/images/about-img.webp', // Ganti dengan path gambar yang sesuai
+      img: 'https://zrdigitaltech.github.io/assets/images/about-img.webp', // Ganti dengan path gambar yang sesuai
       desc: 'Memimpin visi strategis dan pertumbuhan platform tempatSewa.Com dengan pendekatan berbasis teknologi.'
     }
   ];

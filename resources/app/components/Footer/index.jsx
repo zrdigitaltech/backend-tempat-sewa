@@ -77,12 +77,12 @@ export default function Index() {
             <p className="mb-0">
               Dikembangkan oleh{' '}
               <Link
-                to="https://zrdevelopers.github.io/"
+                to="https://zrdigitaltech.github.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white fw-semibold "
               >
-                ZRDevelopers
+                ZRDigitalTech
               </Link>
             </p>
           </div>

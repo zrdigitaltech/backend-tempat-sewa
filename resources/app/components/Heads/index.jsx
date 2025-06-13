@@ -43,7 +43,7 @@ const Index = ({ title, deskripsi, image, url }) => {
         name="keywords"
         content="sewa kontrakan, sewa kost, sewa rumah, cari kontrakan murah, kost bulanan, sewa apartemen, kontrakan Jakarta, kost dekat kampus, pasang iklan properti, platform sewa properti, properti disewakan, cari rumah sewa, kontrakan eksklusif, manajemen properti, tempat sewa terpercaya"
       />
-      <meta name="author" content="ZRDevelopers" />
+      <meta name="author" content="ZRDigitalTech" />
       <meta name="language" content="id" />
       <meta name="robots" content="index, follow" />
       <meta name="theme-color" content="#128C7E" />
