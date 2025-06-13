@@ -29,12 +29,17 @@ export default function Faq() {
       question: 'Kenapa harus beriklan di tempatSewa.Com?',
       answer:
         'Karena tempatSewa.Com adalah platform tepercaya yang dirancang khusus untuk sewa properti. Dengan sistem yang mudah digunakan, fitur lengkap, dan jangkauan luas, iklanmu punya peluang lebih besar untuk segera ditemukan.'
+    },
+    {
+      question: 'Apa itu fitur booster pada iklan?',
+      answer:
+        'Booster adalah fitur promosi untuk menaikkan posisi iklanmu ke bagian atas daftar. Dengan booster, iklan akan tampil lebih menonjol dan berpotensi dilihat lebih banyak calon penyewa.'
     }
   ];
 
   return (
     <div className="container py-5">
-      <div className="mb-5">
+      <div className="">
         <h2 className="fw-bold text-center mb-4">Pertanyaan Seputar Pasang Iklan Properti</h2>
         <div className="accordion" id="faqAccordion">
           {faqs.map(({ question, answer }, idx) => (

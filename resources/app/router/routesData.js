@@ -112,9 +112,9 @@ const routesData = [
         to: '/404'
       },
       {
-        path: 'keanggotaan',
-        element: 'Keanggotaan',
-        breadcrumb: 'Keanggotaan'
+        path: 'fitur',
+        element: 'Fitur',
+        breadcrumb: 'Fitur'
       }
     ]
   }

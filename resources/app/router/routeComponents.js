@@ -22,7 +22,7 @@ const componentMap = {
   ),
   SyaratDanKetentuan: lazy(() => import('@/app/pages/legal/SyaratDanKetentuan')),
   KebijakanPrivasi: lazy(() => import('@/app/pages/legal/KebijakanPrivasi')),
-  Keanggotaan: lazy(() => import('@/app/pages/Keanggotaan')),
+  Fitur: lazy(() => import('@/app/pages/Fitur')),
 
   RouteLoading,
   Navigate,

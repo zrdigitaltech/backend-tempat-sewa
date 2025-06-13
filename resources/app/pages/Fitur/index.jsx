@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <Fragment>
       <UseHeads title="" deskripsi="" image="" />
-      Keanggotaan
+      Fitur
     </Fragment>
   );
 }

@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 // Components
 import { UseHeads } from '@/app/components';
-import { Hero, TipsIklan, Member, Faq } from '@/app/pages/PasangIklanProperti/components';
+import { Hero, TipsIklan, Member, Faq, Booster } from '@/app/pages/PasangIklanProperti/components';
 
 export default function Index() {
   return (
@@ -23,6 +23,9 @@ export default function Index() {
 
         {/* FAQ Section */}
         <Faq />
+
+        {/* Booster Section */}
+        <Booster />
       </section>
     </Fragment>
   );
