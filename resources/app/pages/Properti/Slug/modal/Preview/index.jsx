@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 // Components
 import { UseModals } from '@/app/components';
 import { Carousel } from 'react-responsive-carousel';
@@ -21,6 +21,19 @@ const Index = props => {
   // Temukan index gambar yang cocok dengan preview
   const initialIndex = kontrakanDetail?.image?.findIndex(img => img === preview);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 480);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize(); // untuk update langsung saat pertama render
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <UseModals
       title="Preview"
@@ -29,6 +42,7 @@ const Index = props => {
       position="center"
       modalDialog="modal-fullscreen"
       modalBackdrop={false}
+      classModalBody="p-0 position-relative"
       modalBody={
         <Fragment>
           <div className="position-relative">
@@ -59,38 +73,69 @@ const Index = props => {
                 </div>
               ))}
             </Carousel>
-            <div
-              className="position-absolute"
-              style={{
-                bottom: '7rem',
-                left: '30%',
-                transform: 'translateX(-50%)'
-              }}
-            >
-              <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
-                <i className="fa fa-share-alt"></i> Bagikan
-              </button>
-            </div>
-            <div
-              className="d-flex gap-2 ms-auto position-absolute"
-              style={{
-                bottom: '7rem',
-                right: '4%',
-                transform: 'translateX(-50%)'
-              }}
-            >
-              <div>
-                <button className="btn btn-primary w-100 shadow" onClick={handlePhone}>
-                  <i className="fa fa-phone" aria-hidden="true"></i> {kontrakanDetail?.no_whatsapp}
+            <div className="d-none d-lg-inline">
+              <div
+                className="position-absolute"
+                style={{
+                  bottom: '7rem',
+                  left: isMobile ? '8px' : '30%',
+                  transform: isMobile ? '' : 'translateX(-50%)'
+                }}
+              >
+                <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
+                  <i className="fa fa-share-alt me-1"></i>{' '}
+                  <span className="d-none d-lg-inline">Bagikan</span>
                 </button>
               </div>
-              <div>
-                <button
-                  className="btn btn-success w-100 text-white shadow"
-                  onClick={handleWhatsApp}
-                >
-                  <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> Tanya Detail
+              <div
+                className="d-flex gap-2 ms-auto position-absolute"
+                style={{
+                  bottom: '7rem',
+                  right: isMobile ? '8px' : '4%',
+                  transform: isMobile ? '' : 'translateX(-50%)'
+                }}
+              >
+                <div>
+                  <button className="btn btn-primary w-100 shadow" onClick={handlePhone}>
+                    <i className="fa fa-phone" aria-hidden="true"></i>{' '}
+                    <span className="d-none d-lg-inline">{kontrakanDetail?.no_whatsapp}</span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="btn btn-success w-100 text-white shadow"
+                    onClick={handleWhatsApp}
+                  >
+                    <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> Tanya Detail
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="position-fixed w-100 bottom-0 bg-white border-top d-lg-none">
+            <div className="d-flex px-2 py-3">
+              <div className="me-auto">
+                <button className="btn bg-white w-100 shadow" onClick={() => setShowShare(true)}>
+                  <i className="fa fa-share-alt me-1"></i>{' '}
+                  <span className="d-none d-lg-inline">Bagikan</span>
                 </button>
+              </div>
+              <div className="d-flex gap-2 ms-auto ">
+                <div>
+                  <button className="btn btn-primary w-100 shadow" onClick={handlePhone}>
+                    <i className="fa fa-phone" aria-hidden="true"></i>{' '}
+                    <span className="d-none d-lg-inline">{kontrakanDetail?.no_whatsapp}</span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="btn btn-success w-100 text-white shadow"
+                    onClick={handleWhatsApp}
+                  >
+                    <i className="fa-brands fa-whatsapp" aria-hidden="true"></i> Tanya Detail
+                  </button>
+                </div>
               </div>
             </div>
           </div>
