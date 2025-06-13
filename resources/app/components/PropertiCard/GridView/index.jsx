@@ -109,12 +109,12 @@ export default function Index(props) {
           <Skeleton height={isMobile ? '' : 250} />
         ) : (
           <Carousel
-            showArrows={false}
+            showArrows={(member === 'Super Featured') | (member === 'Premium') && true}
             autoPlay={false}
             infiniteLoop={false}
             showStatus={true}
             showIndicators={(member === 'Super Featured') | (member === 'Premium') && true}
-            swipeable={swipeable}
+            swipeable={false}
             emulateTouch={true}
             showThumbs={false}
             selectedItem={selectedIndex}
@@ -210,10 +210,10 @@ export default function Index(props) {
 
       {/* tombol telepon or whatsapp */}
       {btnTelp && (
-        <div className="bg-primary-subtle card-footer p-2 px-sm-3 py-sm-2">
-          <div className="d-flex gap-2">
+        <div className="bg-primary-subtle card-footer p-2 px-sm-3 py-sm-2 mt-auto">
+          <div className="d-flex flex-column flex-sm-row gap-2">
             {/* Tombol Telepon */}
-            <div className="flex-sm-fill">
+            <div className="w-100">
               {isLoading ? (
                 <Skeleton height={40} />
               ) : (
@@ -222,19 +222,18 @@ export default function Index(props) {
                   onClick={handlePhone}
                   aria-label={`Telepon ${formatPhone(no_whatsapp)}`}
                 >
-                  <i className="fa fa-phone pe-1" aria-hidden="true"></i>{' '}
-                  <span className="d-none d-sm-block">{formatPhone(no_whatsapp)}</span>
+                  <i className="fa fa-phone pe-1" aria-hidden="true"></i> {formatPhone(no_whatsapp)}
                 </button>
               )}
             </div>
 
             {/* Tombol WhatsApp */}
-            <div className="flex-sm-fill">
+            <div className="w-100">
               {isLoading ? (
                 <Skeleton height={40} />
               ) : (
                 <button
-                  className="btn btn-success d-flex align-items-center text-white w-100 pe-1"
+                  className="btn btn-success d-sm-flex align-items-center text-white w-100 pe-1"
                   onClick={handleWhatsApp}
                   aria-label={`WhatsApp ${formatPhone(no_whatsapp)}`}
                 >

@@ -1,5 +1,5 @@
 // File: components/PropertiCard/ListView.js
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { formatPrice } from '@/app/helpers';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -46,6 +46,9 @@ export default function Index(props) {
   const maxIndicators = 5;
 
   const [showShare, setShowShare] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  const [isMobile375, setIsMobile375] = useState(window.innerWidth <= 375);
 
   const handleChange = index => {
     setSelectedIndex(index);
@@ -203,7 +206,17 @@ export default function Index(props) {
     );
   };
 
-  const isMobile = window.innerWidth <= 480;
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 480);
+    setIsMobile375(window.innerWidth <= 375);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize(); // untuk update langsung saat pertama render
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <Fragment>
@@ -220,7 +233,7 @@ export default function Index(props) {
                   infiniteLoop={false}
                   showStatus={true}
                   showIndicators={(member === 'Super Featured') | (member === 'Premium') && true}
-                  swipeable={swipeable}
+                  swipeable={false}
                   emulateTouch={true}
                   showThumbs={false}
                   selectedItem={selectedIndex}
@@ -355,10 +368,10 @@ export default function Index(props) {
                         <>
                           <strong
                             className="d-block text-truncate"
-                            title={pemilik?.length > 15 ? pemilik : ''}
+                            title={pemilik?.length > (isMobile375 ? 5 : 15) ? pemilik : ''}
                           >
-                            {(pemilik || '').length > 15
-                              ? pemilik.substring(0, 15) + '...'
+                            {(pemilik || '').length > (isMobile375 ? 5 : 15)
+                              ? pemilik.substring(0, isMobile375 ? 5 : 15) + '...'
                               : pemilik}{' '}
                             {pemilik_verified && (
                               <i
