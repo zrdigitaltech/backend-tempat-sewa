@@ -66,7 +66,9 @@ const PemilikSlugPage = () => {
         name: slug,
         avatar: 'https://placehold.co/100x100?text=User',
         bio: 'Profil penulis belum tersedia.',
-        socials: {}
+        socials: {},
+        slug: 'pemilik/' + slug,
+        nama: slug
       }
     );
   }, [dispatch, slug]);

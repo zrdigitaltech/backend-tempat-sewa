@@ -30,7 +30,7 @@ const Index = props => {
               <Skeleton circle height={80} width={80} />
             ) : (
               <img
-                src={data?.avatar + data?.name}
+                src={data?.avatar && data?.name ? data.avatar + data.name : ''}
                 alt="Foto Profil"
                 className="rounded-circle img-fluid"
                 style={{ width: '80px', height: '80px', objectFit: 'cover' }}

@@ -1,17 +1,17 @@
 import React, { Fragment, useRef } from 'react';
-import Modals from '@/app/components/Modals';
+import { UseModals } from '@/app/components';
 import * as bootstrap from 'bootstrap';
 
 const Index = props => {
   const { show, onClose, data } = props;
-  const slug = data?.slug ?? '';
+  const slug = data?.slug?.includes('pemilik') ? data?.slug : (`properti/${data?.slug}` ?? '');
   const nama = data?.nama ?? '';
   const domain = typeof window !== 'undefined' ? window.location.origin : '';
 
   const copyBtnRef = useRef(null);
   const tooltipRef = useRef(null);
 
-  const url = `${domain}/properti/${slug}`;
+  const url = `${domain}/${slug}`;
   const shareLinks = {
     copylink: url,
     whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`Cek properti menarik di tempatSEWA.Com: ${nama} - ${url}`)}`,
@@ -62,7 +62,7 @@ const Index = props => {
   if (!data || !data.slug) return null;
 
   return (
-    <Modals
+    <UseModals
       title="Bagikan"
       show={show}
       onClose={onClose}
