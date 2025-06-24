@@ -31,6 +31,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Support\RawJs;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\TernaryFilter;
 
 class UserResource extends Resource
 {
@@ -74,11 +75,12 @@ class UserResource extends Resource
     return $table
       ->modifyQueryUsing(function (Builder $query) {
         $user = Auth::user();
-        if ($user->hasRole('super_admin')) {
-          return $query->whereNot('id', $user->id);
-        }
 
-        return $query->where('created_by', $user->id)->whereNot('id', $user->id);
+        if ($user->hasRole('super_admin')) {
+          $query->whereNot('id', $user->id);
+        } else {
+          $query->where('created_by', $user->id)->whereNot('id', $user->id);
+        }
       })
       ->columns([
         TextColumn::make('name')->label('Nama'),
@@ -104,33 +106,35 @@ class UserResource extends Resource
           Filter::make('search')
             ->label('Cari')
             ->form([
-                TextInput::make('search')
-                    ->label('Nama / Email / Username')
-                    ->placeholder('Masukkan nama, email, atau username'),
+              TextInput::make('search')
+                ->label('Nama / Email / Username')
+                ->placeholder('Masukkan nama, email, atau username'),
             ])
             ->query(function ($query, array $data) {
-                $search = $data['search'] ?? null;
-                if ($search) {
-                    $query->where(function ($query) use ($search) {
-                        $query->where('name', 'like', "%{$search}%")
-                              ->orWhere('email', 'like', "%{$search}%")
-                              ->orWhere('username', 'like', "%{$search}%");
-                    });
-                }
+              $search = $data['search'] ?? null;
+              if ($search) {
+                $query->where(function ($query) use ($search) {
+                  $query
+                    ->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+                  // ->orWhere('username', 'like', "%{$search}%");
+                });
+              }
             }),
-          SelectFilter::make('email_verified_at')
+          TernaryFilter::make('email_verified_at')
             ->label('Terverifikasi')
-            ->options([
-              'verified' => 'Email sudah diverifikasi',
-              'unverified' => 'Belum diverifikasi',
-            ]),
+            ->placeholder('Semua')
+            ->trueLabel('Email sudah diverifikasi')
+            ->falseLabel('Belum diverifikasi')
+            ->queries(
+              true: fn(Builder $query) => $query->whereNotNull('email_verified_at'),
+              false: fn(Builder $query) => $query->whereNull('email_verified_at'),
+              blank: fn(Builder $query) => $query // In this example, we do not want to filter the query when it is blank.
+            ),
         ],
         layout: FiltersLayout::AboveContentCollapsible
       )
       ->filtersFormColumns(2) // Display filters in 2 columns
-      ->filtersFormSchema(
-        fn(array $filters): array => [$filters['search'], $filters['email_verified_at']]
-      )
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
