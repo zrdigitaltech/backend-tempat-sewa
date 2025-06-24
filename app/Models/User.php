@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\VerifikasiEmailNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -76,5 +77,10 @@ class User extends Authenticatable implements MustVerifyEmail
   public function keanggotaans(): HasMany
   {
     return $this->hasMany(Keanggotaan::class, 'id_user');
+  }
+
+  public function sendEmailVerificationNotification(): void
+  {
+      $this->notify(new VerifikasiEmailNotification);
   }
 }

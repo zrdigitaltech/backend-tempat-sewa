@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Notification as LaravelNotification;
 use Filament\Notifications\Notification as FilamentNotification;
 use Illuminate\Support\Facades\URL;
 use Filament\Notifications\Actions\Action;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +29,24 @@ Route::get('/', function () {
   return redirect('/login');
 });
 
-Route::get('/{any}', function () {
-  return redirect('/login');
-})->where('any', '.*');
+// Kirim ulang email verifikasi
+// Route::get('/email/verify', function () {
+//     return view('auth.verify-email'); // ← bisa buat sendiri view-nya
+// })->middleware('auth')->name('verification.notice');
+
+// Link yang diklik dari email
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/dashboard'); // atau ke halaman lain
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+// Resend verifikasi email
+// Route::post('/email/verification-notification', function (Request $request) {
+//     $request->user()->sendEmailVerificationNotification();
+
+//     return back()->with('status', 'Verification link sent!');
+// })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 // Route::fallback(function () {
 //   return view('welcome');
@@ -79,3 +97,7 @@ Route::get('/{any}', function () {
 
 //   return 'Notifications sent successfully';
 // });
+
+Route::get('/{any}', function () {
+  return redirect('/login');
+})->where('any', '.*');
