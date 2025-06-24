@@ -10,8 +10,8 @@ class EditPaketKeanggotaan extends EditRecord
 {
   protected static string $resource = PaketKeanggotaanResource::class;
 
-  protected function getHeaderActions(): array
-  {
-    return [Actions\DeleteAction::make()];
-  }
+  // protected function getHeaderActions(): array
+  // {
+  //   return [Actions\DeleteAction::make()];
+  // }
 }

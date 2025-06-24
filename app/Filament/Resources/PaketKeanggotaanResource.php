@@ -31,6 +31,15 @@ class PaketKeanggotaanResource extends Resource
         ->numeric()
         ->required()
         ->label('Durasi (Bulan)'),
+      Forms\Components\TextInput::make('maksimal_properti')
+        ->label('Maksimal Properti')
+        ->numeric()
+        ->nullable(),
+
+      Forms\Components\TextInput::make('maksimal_iklan')
+        ->label('Maksimal Iklan')
+        ->numeric()
+        ->nullable(),
     ]);
   }
 
@@ -38,19 +47,27 @@ class PaketKeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
+        Tables\Columns\TextColumn::make('nama'),
         Tables\Columns\TextColumn::make('deskripsi')->limit(50)->toggleable(),
         Tables\Columns\TextColumn::make('harga')->money('IDR'), // Format as Indonesian Rupiah
         Tables\Columns\TextColumn::make('durasi_bulan')->label('Durasi (Bulan)'),
+        Tables\Columns\TextColumn::make('maksimal_properti')->label('Maks. Properti'),
+
+        Tables\Columns\TextColumn::make('maksimal_iklan')->label('Maks. Iklan'),
         Tables\Columns\TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
       ])
       ->filters([
         //
       ])
       ->striped()
-      ->actions([Tables\Actions\EditAction::make()->iconButton()])
+      ->actions([
+        Tables\Actions\ViewAction::make()->iconButton(),
+        Tables\Actions\EditAction::make()->iconButton(),
+      ])
       ->bulkActions([
-        Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
+        // Tables\Actions\BulkActionGroup::make([
+        //   Tables\Actions\DeleteBulkAction::make()
+        // ]),
       ]);
   }
 

@@ -27,6 +27,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'zikriramdani.developer@gmail.com'],
       [
         'name' => 'Zikri Ramdani',
+        'username' => 'zikri',
         'password' => bcrypt('zik123456ri'),
         'created_by' => null,
         'updated_by' => null,
@@ -43,6 +44,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'admin@gmail.com'],
       [
         'name' => 'Admin ZR',
+        'username' => 'admin',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -55,6 +57,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'manajer@gmail.com'],
       [
         'name' => 'Manajer ZR',
+        'username' => 'manajer',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -67,6 +70,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'penulis@gmail.com'],
       [
         'name' => 'Penulis ZR',
+        'username' => 'penulis',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -79,6 +83,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'pemilik@gmail.com'],
       [
         'name' => 'Pemilik ZR',
+        'username' => 'pemilik',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -91,6 +96,7 @@ class UsersTableSeeder extends Seeder
       ['email' => 'penyewa@gmail.com'],
       [
         'name' => 'Penyewa ZR',
+        'username' => 'penyewa',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,

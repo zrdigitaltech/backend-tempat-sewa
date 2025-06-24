@@ -18,7 +18,7 @@ class User extends Authenticatable
    * Atribut yang diizinkan untuk diisi melalui mass-assignment (User::create([...]))
    * Tidak termasuk id_paketkeanggotaan karena keanggotaan disimpan di tabel terpisah
    */
-  protected $fillable = ['name', 'email', 'password', 'created_by', 'updated_by'];
+  protected $fillable = ['name', 'username', 'email', 'password', 'created_by', 'updated_by'];
 
   /**
    * Atribut yang disembunyikan saat model diserialisasi (misalnya saat response API)

@@ -46,6 +46,13 @@ class UserResource extends Resource
       Grid::make(1)->schema([
         TextInput::make('name')->label('Nama')->required()->autocomplete(false),
 
+        TextInput::make('username')
+          ->label('Username')
+          ->required()
+          ->maxLength(255)
+          ->unique(ignoreRecord: true)
+          ->autocomplete(false),
+
         TextInput::make('email')
           ->email()
           ->required()
@@ -84,6 +91,7 @@ class UserResource extends Resource
       })
       ->columns([
         TextColumn::make('name')->label('Nama'),
+        TextColumn::make('username')->label('Username'),
         TextColumn::make('email'),
         TextColumn::make('roles.name')->label('Role'),
         TextColumn::make('email_verified_at')
@@ -116,8 +124,8 @@ class UserResource extends Resource
                 $query->where(function ($query) use ($search) {
                   $query
                     ->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
-                  // ->orWhere('username', 'like', "%{$search}%");
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('username', 'like', "%{$search}%");
                 });
               }
             }),
@@ -151,7 +159,9 @@ class UserResource extends Resource
           ->color('success')
           ->iconButton(),
       ])
-      ->bulkActions([BulkActionGroup::make([DeleteBulkAction::make()])]);
+      ->bulkActions([
+        // BulkActionGroup::make([DeleteBulkAction::make()])
+      ]);
   }
 
   public static function getRelations(): array
