@@ -23,7 +23,14 @@ use Filament\Tables\Actions\{
   DeleteBulkAction
 };
 use App\Filament\Resources\UserResource\Pages;
-use Filament\Tables\Actions\Action; 
+use Filament\Tables\Actions\Action;
+
+use Illuminate\Support\Str;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Support\RawJs;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
 
 class UserResource extends Resource
 {
@@ -74,20 +81,56 @@ class UserResource extends Resource
         return $query->where('created_by', $user->id)->whereNot('id', $user->id);
       })
       ->columns([
-        TextColumn::make('name')->label('Nama')->searchable(),
-        TextColumn::make('email')->searchable(),
+        TextColumn::make('name')->label('Nama'),
+        TextColumn::make('email'),
         TextColumn::make('roles.name')->label('Role'),
         TextColumn::make('email_verified_at')
-    ->label('Terverifikasi')
-    ->alignCenter()
-    ->view('filament.components.email-status')
-    ->viewData(fn($record) => ['record' => $record])
-    ->tooltip(fn($record) => $record->email_verified_at ? 'Email sudah diverifikasi' : 'Belum diverifikasi'),
+          ->label('Terverifikasi')
+          ->alignCenter()
+          ->view('filament.components.email-status')
+          ->viewData(fn($record) => ['record' => $record])
+          ->tooltip(
+            fn($record) => $record->email_verified_at
+              ? 'Email sudah diverifikasi'
+              : 'Belum diverifikasi'
+          ),
 
-          TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
-        ])
+        TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
+      ])
       ->defaultSort('created_at', 'desc')
       ->striped()
+      ->filters(
+        [
+          Filter::make('search')
+            ->label('Cari')
+            ->form([
+                TextInput::make('search')
+                    ->label('Nama / Email / Username')
+                    ->placeholder('Masukkan nama, email, atau username'),
+            ])
+            ->query(function ($query, array $data) {
+                $search = $data['search'] ?? null;
+                if ($search) {
+                    $query->where(function ($query) use ($search) {
+                        $query->where('name', 'like', "%{$search}%")
+                              ->orWhere('email', 'like', "%{$search}%")
+                              ->orWhere('username', 'like', "%{$search}%");
+                    });
+                }
+            }),
+          SelectFilter::make('email_verified_at')
+            ->label('Terverifikasi')
+            ->options([
+              'verified' => 'Email sudah diverifikasi',
+              'unverified' => 'Belum diverifikasi',
+            ]),
+        ],
+        layout: FiltersLayout::AboveContentCollapsible
+      )
+      ->filtersFormColumns(2) // Display filters in 2 columns
+      ->filtersFormSchema(
+        fn(array $filters): array => [$filters['search'], $filters['email_verified_at']]
+      )
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
@@ -98,11 +141,11 @@ class UserResource extends Resource
           ->requiresConfirmation()
           ->visible(fn(User $record) => is_null($record->email_verified_at))
           ->action(function (User $record): void {
-              $record->email_verified_at = now();
-              $record->save();
+            $record->email_verified_at = now();
+            $record->save();
           })
           ->color('success')
-          ->iconButton(), 
+          ->iconButton(),
       ])
       ->bulkActions([BulkActionGroup::make([DeleteBulkAction::make()])]);
   }

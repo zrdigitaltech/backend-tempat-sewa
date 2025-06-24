@@ -12,7 +12,7 @@
       name="keywords"
       content="sewa kontrakan, sewa kost, sewa rumah, cari kontrakan murah, kost bulanan, sewa apartemen, kontrakan Jakarta, kost dekat kampus, pasang iklan properti, platform sewa properti, properti disewakan, cari rumah sewa, kontrakan eksklusif, manajemen properti, tempat sewa terpercaya"
     />
-    <meta name="author" content="ZRDigitalTech" />    
+    <meta name="author" content="ZRDigitalTech" />
   </head>
 
   <body>

@@ -62,7 +62,10 @@ class KeanggotaanResource extends Resource
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
-      ->actions([Tables\Actions\ViewAction::make()->iconButton(), Tables\Actions\EditAction::make()->iconButton()])
+      ->actions([
+        Tables\Actions\ViewAction::make()->iconButton(),
+        Tables\Actions\EditAction::make()->iconButton(),
+      ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
       ]);
