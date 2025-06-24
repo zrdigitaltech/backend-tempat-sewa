@@ -23,6 +23,7 @@ use Filament\Navigation\NavigationItem;
 use App\Filament\Widgets\PenyewaWidget;
 use Illuminate\Support\Facades\Auth;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use App\Filament\Pages\Auth\Login as CustomLogin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -61,7 +62,7 @@ class AdminPanelProvider extends PanelProvider
             'sm' => 2,
           ]),
       ])
-      ->login()
+      ->login(CustomLogin::class)
       // ->passwordReset()
       // ->profile()
       ->colors([
