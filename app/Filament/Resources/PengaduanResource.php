@@ -194,6 +194,6 @@ class PengaduanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Pengelolaan');
+    return __('Manajemen Properti');
   }
 }

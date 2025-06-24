@@ -23,18 +23,11 @@ use Filament\Notifications\Actions\Action;
 */
 
 Route::get('/', function () {
-  // Simulasi ambil data SEO dari database atau API
-  $meta = [
-      'title' => 'TempatSewa.Com Indonesia: Situs Sewa Kos, Sewa Rumah, Sewa Apartemen, Sewa Ruko, Sewa Kios dan Sewa Gudang',
-      'description' => 'Temukan dan sewa kontrakan, kost, atau properti impianmu dengan mudah. Kelola dan pasarkan properti dalam satu platform: tempatSewa.Com.',
-      'image' => '/assets/assets/images/about-us.jpg',
-  ];
-
-  return view('welcome', compact('meta'));
+  return redirect('/login');
 });
 
 Route::get('/{any}', function () {
-  return view('welcome'); // atau blade view yang render React kamu
+  return redirect('/login');
 })->where('any', '.*');
 
 // Route::fallback(function () {

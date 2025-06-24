@@ -80,7 +80,11 @@
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="assets/images/logo.png" width="200" alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang" />
+          <img
+            src="assets/images/logo.png"
+            width="200"
+            alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
+          />
         </td>
         <td class="w-half text-end">
           <h2>No Quotation: {{ $record->no_quotation }}</h2>

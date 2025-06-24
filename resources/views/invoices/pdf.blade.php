@@ -80,7 +80,11 @@
     <table class="w-full">
       <tr>
         <td class="w-half">
-          <img src="assets/images/logo_pdf.png" width="200" alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang" />
+          <img
+            src="assets/images/logo_pdf.png"
+            width="200"
+            alt="TempatSewa.Com Indonesia: Situs Sewa Kos, Rumah, Apartemen, Ruko, Kios, dan Gudang"
+          />
         </td>
         <td class="w-half text-end">
           <h2>No Invoice: {{ $record->no_invoice }}</h2>

@@ -9,40 +9,93 @@ use Spatie\Permission\Models\Permission;
 
 class UsersTableSeeder extends Seeder
 {
-  public function run()
+  public function run(): void
   {
-    // Create or get the super_admin and operator roles
+    // Roles
     $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
-    $operatorRole = Role::firstOrCreate(['name' => 'operator']);
-    $pelangganRole = Role::firstOrCreate(['name' => 'pelanggan']);
+    $adminRole = Role::firstOrCreate(['name' => 'admin']);
+    $manajerRole = Role::firstOrCreate(['name' => 'manajer']);
+    $penulisRole = Role::firstOrCreate(['name' => 'penulis']);
+    $pemilikRole = Role::firstOrCreate(['name' => 'pemilik']);
+    $penyewaRole = Role::firstOrCreate(['name' => 'penyewa']);
 
-    // Fetch all permissions
+    // Permissions
     $permissions = Permission::all();
 
-    // Create the super admin user
-    $superAdminUser = User::create([
-      'name' => 'Zikri Ramdani',
-      'email' => 'zikriramdani.developer@gmail.com',
-      'password' => bcrypt('zik123456ri'),
-    ]);
-
-    $superAdminRole->syncPermissions($permissions);
+    // Super Admin
+    $superAdminUser = User::firstOrCreate(
+      ['email' => 'zikriramdani.developer@gmail.com'],
+      [
+        'name' => 'Zikri Ramdani',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => null,
+        'updated_by' => null,
+      ]
+    );
     $superAdminUser->assignRole($superAdminRole);
+    $superAdminRole->syncPermissions($permissions);
 
-    // Create the operator user
-    $operatorUser = User::create([
-      'name' => 'Operator ZR',
-      'email' => 'operator@gmail.com',
-      'password' => bcrypt('zik123456ri'),
-    ]);
-    $operatorUser->assignRole($operatorRole);
+    // Referensi ID Super Admin
+    $adminId = $superAdminUser->id;
 
-    // Create the operator user
-    // $operatorUser = User::create([
-    //   'name' => 'Cust ZR',
-    //   'email' => 'customer@gmail.com',
-    //   'password' => bcrypt('zik123456ri'),
-    // ]);
-    // $operatorUser->assignRole($customerRole);
+    // Admin
+    $adminUser = User::firstOrCreate(
+      ['email' => 'admin@gmail.com'],
+      [
+        'name' => 'Admin ZR',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => $adminId,
+        'updated_by' => $adminId,
+      ]
+    );
+    $adminUser->assignRole($adminRole);
+
+    // Manajer
+    $manajerUser = User::firstOrCreate(
+      ['email' => 'manajer@gmail.com'],
+      [
+        'name' => 'Manajer ZR',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => $adminId,
+        'updated_by' => $adminId,
+      ]
+    );
+    $manajerUser->assignRole($manajerRole);
+
+    // Penulis
+    $penulisUser = User::firstOrCreate(
+      ['email' => 'penulis@gmail.com'],
+      [
+        'name' => 'Penulis ZR',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => $adminId,
+        'updated_by' => $adminId,
+      ]
+    );
+    $penulisUser->assignRole($penulisRole);
+
+    // Pemilik
+    $pemilikUser = User::firstOrCreate(
+      ['email' => 'pemilik@gmail.com'],
+      [
+        'name' => 'Pemilik ZR',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => $adminId,
+        'updated_by' => $adminId,
+      ]
+    );
+    $pemilikUser->assignRole($pemilikRole);
+
+    // Penyewa
+    $penyewaUser = User::firstOrCreate(
+      ['email' => 'penyewa@gmail.com'],
+      [
+        'name' => 'Penyewa ZR',
+        'password' => bcrypt('zik123456ri'),
+        'created_by' => $adminId,
+        'updated_by' => $adminId,
+      ]
+    );
+    $penyewaUser->assignRole($penyewaRole);
   }
 }

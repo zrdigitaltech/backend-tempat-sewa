@@ -42,7 +42,7 @@ use Filament\Tables\Actions\ActionGroup;
 class LaporanResource extends Resource
 {
   protected static ?string $model = Transaksi::class;
-  protected static ?string $navigationIcon = 'heroicon-o-banknotes';
+  protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
   protected static ?int $navigationSort = 5;
   protected static ?string $slug = 'laporan';
 
@@ -432,6 +432,6 @@ class LaporanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Pengelolaan');
+    return __('Manajemen Properti');
   }
 }

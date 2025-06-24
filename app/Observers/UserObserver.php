@@ -2,31 +2,44 @@
 
 namespace App\Observers;
 
-use Illuminate\Support\Facades\Auth; // Tambahkan ini
+use App\Models\Keanggotaan;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Membership;
-use App\Models\UsersMembership;
 
 class UserObserver
 {
+  /**
+   * Event ini dijalankan sebelum data user disimpan ke database (saat membuat user).
+   * Di sini kita menambahkan informasi siapa yang membuat user ini.
+   */
   public function creating(User $user)
   {
+    // Jika ada user yang sedang login, set kolom created_by pada model User
     $user->created_by = Auth::check() ? Auth::id() : null;
   }
 
+  /**
+   * Event ini dijalankan sebelum data user di-update ke database.
+   * Kita menambahkan informasi siapa yang terakhir mengubah data user.
+   */
   public function updating(User $user)
   {
+    // Set kolom updated_by dengan ID user yang sedang login
     $user->updated_by = Auth::check() ? Auth::id() : null;
   }
 
+  /**
+   * Event ini dijalankan setelah user berhasil dibuat di database.
+   * Kita langsung membuat data keanggotaan default untuk user baru.
+   */
   public function created(User $user)
   {
-    // Assuming the ID of the "basic" membership is 1
-    UsersMembership::create([
-      'id_user' => $user->id,
-      'id_membership' => 1, // Replace 1 with the actual ID of the "basic" membership
-      'start_date' => now(),
-      'is_active' => true,
+    // Buat entri keanggotaan default (paket keanggotaan ID 2, misalnya "Gratis")
+    Keanggotaan::create([
+      'id_user' => $user->id, // ID user baru
+      'id_paketkeanggotaan' => 2, // ID paket keanggotaan default (ubah sesuai kebutuhan)
+      'tanggal_mulai' => now(), // Tanggal mulai keanggotaan = sekarang
+      'aktif' => true, // Tandai sebagai keanggotaan aktif
     ]);
   }
 }

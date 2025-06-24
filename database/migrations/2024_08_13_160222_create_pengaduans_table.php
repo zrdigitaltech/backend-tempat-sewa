@@ -14,13 +14,13 @@ return new class extends Migration {
       $table->id();
       $table->string('nama');
       $table->string('no_telp');
-      $table->string('id_kontrakan');
+      $table->string('id_properti');
       $table->text('catatan');
       $table->enum('status', ['terbuka', 'sedang dalam proses', 'tertutup']);
       $table->timestamps();
 
       // Add foreign key constraint
-      // $table->foreign('id_kontrakan')->references('id')->on('kontrakan')->onDelete('cascade');
+      // $table->foreign('id_properti')->references('id')->on('properti')->onDelete('cascade');
     });
   }
 

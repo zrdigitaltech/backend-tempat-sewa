@@ -33,13 +33,14 @@ class AdminPanelProvider extends PanelProvider
   {
     return $panel
       ->default()
-      // This enables database notification for the admin panel
+      ->id('web')
+      ->path('')
+      ->pages([])
+      // ->pages([Pages\Dashboard::class])
       ->databaseNotifications(true)
       ->databaseNotificationspolling('3s')
-      ->id('admin')
-      ->path('user')
       // ->breadcrumbs(false)
-      // ->brandName('Nama Pemilik Kontrakan')
+      ->brandName('App tempatSewa')
       ->spa()
       ->unsavedChangesAlerts()
       ->plugins([
@@ -74,11 +75,11 @@ class AdminPanelProvider extends PanelProvider
         //   ->icon('heroicon-o-presentation-chart-line')
         //   ->group('Reports')
         //   ->sort(3),
-        NavigationItem::make('Documentation')
-          ->url('/admin', shouldOpenInNewTab: true)
-          ->icon('heroicon-o-document')
-          ->group('External')
-          ->sort(8),
+        // NavigationItem::make('Documentation')
+        //   ->url('/admin', shouldOpenInNewTab: true)
+        //   ->icon('heroicon-o-document')
+        //   ->group('External')
+        //   ->sort(8),
         NavigationItem::make('API Documentation')
           ->url('/api/documentation', shouldOpenInNewTab: true)
           ->icon('heroicon-o-document')
@@ -96,7 +97,6 @@ class AdminPanelProvider extends PanelProvider
       ])
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
       ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-      ->pages([Pages\Dashboard::class])
       ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
       ->widgets($this->getWidgetsForPermissions())
       ->middleware(
