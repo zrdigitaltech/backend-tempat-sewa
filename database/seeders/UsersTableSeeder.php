@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
 
     // Super Admin
     $superAdminUser = User::firstOrCreate(
-      ['email' => 'zikriramdani.developer@gmail.com'],
+      ['email' => 'sewatempat24@gmail.com'],
       [
         'name' => 'Zikri Ramdani',
         'username' => 'zikri',
