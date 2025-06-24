@@ -78,10 +78,12 @@ class UserResource extends Resource
         TextColumn::make('email')->searchable(),
         TextColumn::make('roles.name')->label('Role'),
         TextColumn::make('email_verified_at')
-        ->label('Terverifikasi')
-        ->alignCenter()
-        ->view('filament.components.email-status')
-        ->tooltip(fn($state) => $state ? 'Email sudah diverifikasi' : 'Belum diverifikasi'),
+    ->label('Terverifikasi')
+    ->alignCenter()
+    ->view('filament.components.email-status')
+    ->viewData(fn($record) => ['record' => $record])
+    ->tooltip(fn($record) => $record->email_verified_at ? 'Email sudah diverifikasi' : 'Belum diverifikasi'),
+
           TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
         ])
       ->defaultSort('created_at', 'desc')
