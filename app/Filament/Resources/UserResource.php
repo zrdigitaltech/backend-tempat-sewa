@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Table;
 use Filament\Forms\Components\{TextInput, Grid, Select};
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Actions\Action as FormAction;
 use Filament\Tables\Actions\{
   ViewAction,
   EditAction,
@@ -23,6 +23,7 @@ use Filament\Tables\Actions\{
   DeleteBulkAction
 };
 use App\Filament\Resources\UserResource\Pages;
+use Filament\Tables\Actions\Action; 
 
 class UserResource extends Resource
 {
@@ -50,8 +51,8 @@ class UserResource extends Resource
           ->required(fn(string $context) => $context === 'create')
           ->autocomplete('new-password')
           ->suffixActions([
-            Action::make('show')->icon('heroicon-o-eye')->action(fn($c) => $c->type('text')),
-            Action::make('hide')
+            FormAction::make('show')->icon('heroicon-o-eye')->action(fn($c) => $c->type('text')),
+            FormAction::make('hide')
               ->icon('heroicon-o-eye-slash')
               ->action(fn($c) => $c->type('password')),
           ]),
@@ -76,17 +77,30 @@ class UserResource extends Resource
         TextColumn::make('name')->label('Nama')->searchable(),
         TextColumn::make('email')->searchable(),
         TextColumn::make('roles.name')->label('Role'),
-        TextColumn::make('createdBy.name')
-          ->label('Pembuat')
-          ->formatStateUsing(fn($state, $record) => $record->createdBy?->name ?? 'N/A'),
-        TextColumn::make('created_at')->label('Register pada')->dateTime(),
-      ])
+        TextColumn::make('email_verified_at')
+        ->label('Terverifikasi')
+        ->alignCenter()
+        ->view('filament.components.email-status')
+        ->tooltip(fn($state) => $state ? 'Email sudah diverifikasi' : 'Belum diverifikasi'),
+          TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
+        ])
       ->defaultSort('created_at', 'desc')
       ->striped()
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
         DeleteAction::make()->iconButton(),
+        Action::make('verifikasiEmail')
+          ->icon('heroicon-o-check-circle')
+          ->tooltip('Verifikasi Email') // 👈 Tooltip saat hover
+          ->requiresConfirmation()
+          ->visible(fn(User $record) => is_null($record->email_verified_at))
+          ->action(function (User $record): void {
+              $record->email_verified_at = now();
+              $record->save();
+          })
+          ->color('success')
+          ->iconButton(), 
       ])
       ->bulkActions([BulkActionGroup::make([DeleteBulkAction::make()])]);
   }

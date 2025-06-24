@@ -47,7 +47,8 @@ class PaketKeanggotaanResource extends Resource
       ->filters([
         //
       ])
-      ->actions([Tables\Actions\EditAction::make()])
+      ->striped()
+      ->actions([Tables\Actions\EditAction::make()->iconButton()])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
       ]);

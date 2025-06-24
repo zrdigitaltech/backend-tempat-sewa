@@ -47,9 +47,9 @@ class KeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('user.name')->label('Nama User')->searchable()->sortable(),
+        Tables\Columns\TextColumn::make('user.name')->label('Nama User')->searchable(),
 
-        Tables\Columns\TextColumn::make('paket.nama')->label('Paket')->searchable()->sortable(),
+        Tables\Columns\TextColumn::make('paket.nama')->label('Paket Keanggotaan')->searchable(),
 
         Tables\Columns\TextColumn::make('tanggal_mulai')->label('Mulai')->date()->sortable(),
 
@@ -60,7 +60,9 @@ class KeanggotaanResource extends Resource
       ->filters([
         //
       ])
-      ->actions([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make()])
+      ->defaultSort('created_at', 'desc')
+      ->striped()
+      ->actions([Tables\Actions\ViewAction::make()->iconButton(), Tables\Actions\EditAction::make()->iconButton()])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
       ]);
