@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Support\RawJs;
 
 class PaketKeanggotaanResource extends Resource
 {
@@ -26,7 +27,13 @@ class PaketKeanggotaanResource extends Resource
     return $form->schema([
       Forms\Components\TextInput::make('nama')->required()->maxLength(255),
       Forms\Components\Textarea::make('deskripsi')->nullable(),
-      Forms\Components\TextInput::make('harga')->numeric()->required(),
+      Forms\Components\TextInput::make('harga')
+        ->label('Harga')
+        ->numeric()
+        ->required()
+        ->mask(RawJs::make('$money($input)'))
+        ->stripCharacters(',')
+        ->prefix('Rp'),
       Forms\Components\TextInput::make('durasi_bulan')
         ->numeric()
         ->required()
@@ -54,7 +61,10 @@ class PaketKeanggotaanResource extends Resource
         Tables\Columns\TextColumn::make('maksimal_properti')->label('Maks. Properti'),
 
         Tables\Columns\TextColumn::make('maksimal_iklan')->label('Maks. Iklan'),
-        Tables\Columns\TextColumn::make('created_at')->dateTime()->label('Dibuat Pada'),
+        Tables\Columns\TextColumn::make('created_at')
+          ->dateTime()
+          ->label('Dibuat Pada')
+          ->toggleable(),
       ])
       ->filters([
         //

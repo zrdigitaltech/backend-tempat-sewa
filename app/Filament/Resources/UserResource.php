@@ -32,6 +32,7 @@ use Filament\Support\RawJs;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Columns\IconColumn;
 
 class UserResource extends Resource
 {
@@ -105,7 +106,7 @@ class UserResource extends Resource
               : 'Belum diverifikasi'
           ),
 
-        TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
+        TextColumn::make('created_at')->label('Dibuat pada')->dateTime()->toggleable(),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()
@@ -139,9 +140,10 @@ class UserResource extends Resource
               false: fn(Builder $query) => $query->whereNull('email_verified_at'),
               blank: fn(Builder $query) => $query // In this example, we do not want to filter the query when it is blank.
             ),
-        ],
-        layout: FiltersLayout::AboveContentCollapsible
+        ]
+        // layout: FiltersLayout::AboveContentCollapsible
       )
+      ->filtersLayout(FiltersLayout::AboveContentCollapsible)
       ->filtersFormColumns(2) // Display filters in 2 columns
       ->actions([
         ViewAction::make()->iconButton(),
