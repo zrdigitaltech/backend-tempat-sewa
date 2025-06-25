@@ -16,11 +16,7 @@ export default defineConfig(config => {
     },
     plugins: [
       laravel({
-        input: [
-          'resources/app/styles/scss/style.scss',
-          'resources/app/index.jsx',
-          'resources/js/app.js'
-        ],
+        input: ['resources/app/index.jsx', 'resources/js/app.js'],
         refresh: [...refreshPaths, 'app/Livewire/**'],
         // @ts-ignore
         postcss: [autoprefixer()]
