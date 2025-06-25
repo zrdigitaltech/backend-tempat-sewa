@@ -115,7 +115,8 @@ class AdminPanelProvider extends PanelProvider
         ],
         isPersistent: true
       )
-      ->authMiddleware([Authenticate::class], isPersistent: true);
+      ->authMiddleware([Authenticate::class], isPersistent: true)
+      ->userCanAccess(fn (\App\Models\User $user) => true);
   }
 
   protected function getWidgetsForPermissions(): array
