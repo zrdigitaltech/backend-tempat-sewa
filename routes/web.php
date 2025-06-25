@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\URL;
 use Filament\Notifications\Actions\Action;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -27,6 +28,19 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
   return redirect('/login');
+});
+
+Route::middleware(['web', 'guest'])->post('/api/v1/login', function (Request $request) {
+    $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
+
+    if (!Auth::attempt($request->only('email', 'password'), true)) {
+        return response()->json(['message' => 'Invalid credentials'], 401);
+    }
+
+    return response()->json(['message' => 'Logged in']);
 });
 
 // Kirim ulang email verifikasi

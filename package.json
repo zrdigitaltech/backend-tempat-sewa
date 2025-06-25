@@ -7,6 +7,7 @@
         "format": "prettier --write './**/*.{js,jsx,scss,md,blade.php,php}' --config ./.prettierrc"
     },
     "devDependencies": {
+        "@prettier/plugin-php": "^0.22.2",
         "@vitejs/plugin-react": "^4.4.1",
         "autoprefixer": "^10.4.21",
         "laravel-echo": "^1.16.1",
@@ -14,7 +15,9 @@
         "prettier": "^3.3.1",
         "prettier-plugin-blade": "^2.1.16",
         "pusher-js": "^8.4.0-rc2",
-        "vite": "^5.4.18",
-        "@prettier/plugin-php": "^0.22.2"
+        "vite": "^5.4.18"
+    },
+    "dependencies": {
+        "js-cookie": "^3.0.5"
     }
 }

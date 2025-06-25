@@ -20,7 +20,7 @@
       @livewire('database-notifications')
     @endif
 
-    <div id="app"></div>
+    {{-- <div id="app"></div> --}}
 
     @filamentScripts
   </body>

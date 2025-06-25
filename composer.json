@@ -14,7 +14,7 @@
         "filament/tables": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^11.10",
-        "laravel/sanctum": "^4.0",
+        "laravel/sanctum": "^4.1",
         "laravel/tinker": "^2.9",
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-permission": "^6.10"

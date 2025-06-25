@@ -13,6 +13,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Api\FloatingWhatsappController;
 use App\Http\Controllers\Api\KontrakanController;
@@ -32,33 +33,32 @@ use App\Http\Controllers\Api\PengaduanController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-  return $request->user();
-});
-
 Route::prefix('v1')->group(function () {
-  Route::controller(FloatingWhatsappController::class)->group(function () {
-    Route::get('/floating-whatsapp', 'index');
+  Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
   });
+  // Route::controller(FloatingWhatsappController::class)->group(function () {
+  //   Route::get('/floating-whatsapp', 'index');
+  // });
 
-  Route::controller(KontrakanController::class)->group(function () {
-    Route::get('/kontrakan', 'index');
-  });
+  // Route::controller(KontrakanController::class)->group(function () {
+  //   Route::get('/kontrakan', 'index');
+  // });
 
-  Route::controller(HubungiKamiController::class)->group(function () {
-    Route::get('/hubungi-kami', 'index');
-  });
+  // Route::controller(HubungiKamiController::class)->group(function () {
+  //   Route::get('/hubungi-kami', 'index');
+  // });
 
-  Route::controller(LogoController::class)->group(function () {
-    Route::get('/logos', 'index');
-  });
+  // Route::controller(LogoController::class)->group(function () {
+  //   Route::get('/logos', 'index');
+  // });
 
-  Route::controller(PembayaranController::class)->group(function () {
-    Route::get('/payment', 'index');
-  });
+  // Route::controller(PembayaranController::class)->group(function () {
+  //   Route::get('/payment', 'index');
+  // });
 
-  Route::controller(PengaduanController::class)->group(function () {
-    // Route::get('/pengaduan', 'index');
-    Route::post('/pengaduan', 'store');
-  });
+  // Route::controller(PengaduanController::class)->group(function () {
+  //   // Route::get('/pengaduan', 'index');
+  //   Route::post('/pengaduan', 'store');
+  // });
 });
