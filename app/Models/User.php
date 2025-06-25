@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Notifications\VerifikasiEmailNotification;
+use Filament\Panel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -82,5 +83,10 @@ class User extends Authenticatable implements MustVerifyEmail
   public function sendEmailVerificationNotification(): void
   {
       $this->notify(new VerifikasiEmailNotification);
+  }
+
+  public function canAccessPanel(Panel $panel): bool
+  {
+      return true;
   }
 }
