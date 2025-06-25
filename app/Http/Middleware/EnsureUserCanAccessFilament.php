@@ -10,12 +10,12 @@ class EnsureUserCanAccessFilament
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
+        // $user = auth()->user();
 
-        // Ganti sesuai aturan kamu
-        if (! $user || ! $user->hasRole('admin')) {
-            abort(403);
-        }
+        // // Ganti sesuai aturan kamu
+        // if (! $user || ! $user->hasRole('admin')) {
+        //     abort(403);
+        // }
 
         return $next($request);
     }
