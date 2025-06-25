@@ -115,7 +115,10 @@ class AdminPanelProvider extends PanelProvider
         ],
         isPersistent: true
       )
-      ->authMiddleware([Authenticate::class], isPersistent: true);
+      ->authMiddleware([
+        Authenticate::class,
+    \App\Http\Middleware\EnsureUserCanAccessFilament::class
+  ], isPersistent: true);
   }
 
   protected function getWidgetsForPermissions(): array
