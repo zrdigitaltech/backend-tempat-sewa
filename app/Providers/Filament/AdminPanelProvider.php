@@ -116,8 +116,7 @@ class AdminPanelProvider extends PanelProvider
         isPersistent: true
       )
       ->authMiddleware([
-        Authenticate::class,
-    \App\Http\Middleware\EnsureUserCanAccessFilament::class
+        Authenticate::class
   ], isPersistent: true);
   }
 

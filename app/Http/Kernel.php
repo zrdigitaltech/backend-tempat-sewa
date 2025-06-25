@@ -66,6 +66,5 @@ class Kernel extends HttpKernel
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
     // ✅ Tambahkan ini:
-    'can.access.filament' => \App\Http\Middleware\EnsureUserCanAccessFilament::class,
   ];
 }
