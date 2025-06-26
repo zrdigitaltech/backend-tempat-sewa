@@ -15,7 +15,10 @@ class UserObserver
   public function creating(User $user)
   {
     // Jika ada user yang sedang login, set kolom created_by pada model User
-    $user->created_by = Auth::check() ? Auth::id() : null;
+    if (Auth::check()) {
+      $user->created_by = Auth::id();
+      $user->updated_by = Auth::id();
+    }
   }
 
   /**
@@ -25,7 +28,9 @@ class UserObserver
   public function updating(User $user)
   {
     // Set kolom updated_by dengan ID user yang sedang login
-    $user->updated_by = Auth::check() ? Auth::id() : null;
+    if (Auth::check()) {
+      $user->updated_by = Auth::id();
+    }
   }
 
   /**

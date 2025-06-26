@@ -55,7 +55,10 @@ class PaketKeanggotaanResource extends Resource
     return $table
       ->columns([
         Tables\Columns\TextColumn::make('nama'),
-        Tables\Columns\TextColumn::make('deskripsi')->limit(50)->toggleable(),
+        Tables\Columns\TextColumn::make('deskripsi')
+          ->limit(50)
+          ->toggleable()
+          ->toggledHiddenByDefault(),
         Tables\Columns\TextColumn::make('harga')->money('IDR'), // Format as Indonesian Rupiah
         Tables\Columns\TextColumn::make('durasi_bulan')->label('Durasi (Bulan)'),
         Tables\Columns\TextColumn::make('maksimal_properti')->label('Maks. Properti'),
@@ -64,7 +67,8 @@ class PaketKeanggotaanResource extends Resource
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->label('Dibuat Pada')
-          ->toggleable(),
+          ->toggleable()
+          ->toggledHiddenByDefault(),
       ])
       ->filters([
         //

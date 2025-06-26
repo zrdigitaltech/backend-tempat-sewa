@@ -14,7 +14,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,16 +30,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['web', 'guest'])->post('/api/v1/login', function (Request $request) {
-    $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
+  $request->validate([
+    'email' => ['required', 'email'],
+    'password' => ['required'],
+  ]);
 
-    if (!Auth::attempt($request->only('email', 'password'), true)) {
-        return response()->json(['message' => 'Invalid credentials'], 401);
-    }
+  if (!Auth::attempt($request->only('email', 'password'), true)) {
+    return response()->json(['message' => 'Invalid credentials'], 401);
+  }
 
-    return response()->json(['message' => 'Logged in']);
+  return response()->json(['message' => 'Logged in']);
 });
 
 // Kirim ulang email verifikasi
@@ -50,10 +49,12 @@ Route::middleware(['web', 'guest'])->post('/api/v1/login', function (Request $re
 
 // Link yang diklik dari email
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
+  $request->fulfill();
 
-    return redirect('/dashboard'); // atau ke halaman lain
-})->middleware(['auth', 'signed'])->name('verification.verify');
+  return redirect('/dashboard'); // atau ke halaman lain
+})
+  ->middleware(['auth', 'signed'])
+  ->name('verification.verify');
 
 // Resend verifikasi email
 // Route::post('/email/verification-notification', function (Request $request) {

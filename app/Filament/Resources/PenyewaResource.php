@@ -18,7 +18,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\CreateAction;
-use App\Models\Kontrakan;
+use App\Models\Properti;
 use Filament\Support\RawJs;
 
 use Filament\Resources\Pages\Page;
@@ -53,7 +53,13 @@ class PenyewaResource extends Resource
                 ->disabled(
                   fn(Page $livewire) => $livewire instanceof
                     \App\Filament\Resources\PenyewaResource\Pages\ViewPenyewa
-                ),
+                )
+                ->minLength(3)
+                ->validationMessages([
+                  'required' => 'Nama wajib diisi.',
+                  'min' => 'Nama minimal 3 karakter.',
+                  'max' => 'Nama maksimal 255 karakter.',
+                ]),
               TextInput::make('no_telp')
                 ->label('No Whatsapp')
                 ->unique(ignoreRecord: true)
@@ -86,7 +92,10 @@ class PenyewaResource extends Resource
                 ->disabled(
                   fn(Page $livewire) => $livewire instanceof
                     \App\Filament\Resources\PenyewaResource\Pages\ViewPenyewa
-                ),
+                )
+                ->validationMessages([
+                  'required' => 'Kartu Identitas wajib diisi.',
+                ]),
             ]),
         ])
         ->collapsed(
@@ -150,7 +159,7 @@ class PenyewaResource extends Resource
               Select::make('id_kontrakan')
                 ->label('Nama Kontrakan')
                 ->options(function () {
-                  return Kontrakan::where('status', 'tersedia')->pluck('nama', 'id')->toArray();
+                  return Properti::where('status', 'tersedia')->pluck('nama', 'id')->toArray();
 
                   // Check if options are empty
                   if (empty($kontrakans)) {
@@ -161,7 +170,7 @@ class PenyewaResource extends Resource
                 })
                 ->required()
                 ->searchable(function () {
-                  return Kontrakan::where('status', 'tersedia')->exists();
+                  return Properti::where('status', 'tersedia')->exists();
                 })
                 ->preload()
                 ->afterStateUpdated(function (callable $set, $state) {
@@ -174,7 +183,7 @@ class PenyewaResource extends Resource
                   $set('bayar_dp_visible', false);
                   // Set 'nama' (Unit Sewa) based on selected 'id_kontrakan'
                   if ($state) {
-                    $kontrakan = Kontrakan::find($state);
+                    $kontrakan = Properti::find($state);
                     if ($kontrakan) {
                       $set('nama_kontrakan', $kontrakan->nama);
                     } else {
@@ -198,7 +207,7 @@ class PenyewaResource extends Resource
                   }
 
                   // Fetch the Kontrakan by ID
-                  $kontrakan = Kontrakan::find($idKontrakan);
+                  $kontrakan = Properti::find($idKontrakan);
 
                   // Initialize an empty array to store options
                   $options = [];
@@ -224,7 +233,7 @@ class PenyewaResource extends Resource
                   $tanggal = $get('tanggal');
 
                   if ($idKontrakan && $state) {
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $kontrakan = Properti::find($idKontrakan);
                     $durasi = (int) $state;
 
                     $harga =
@@ -271,7 +280,7 @@ class PenyewaResource extends Resource
                     $set('tgl_pembayaran_berikutnya', null);
 
                     if ($idKontrakan) {
-                      $kontrakan = Kontrakan::find($idKontrakan);
+                      $kontrakan = Properti::find($idKontrakan);
                       $set('nama_kontrakan', $kontrakan->nama);
                     }
                   }
@@ -290,7 +299,7 @@ class PenyewaResource extends Resource
                   if ($state) {
                     $tipePembayaran = (int) $get('tipe_pembayaran');
                     $idKontrakan = $get('id_kontrakan');
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $kontrakan = Properti::find($idKontrakan);
 
                     if ($tipePembayaran && $kontrakan) {
                       // Calculate the end date
@@ -314,7 +323,7 @@ class PenyewaResource extends Resource
                   } else {
                     $set('tgl_pembayaran_berikutnya', null);
                     $idKontrakan = $get('id_kontrakan');
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $kontrakan = Properti::find($idKontrakan);
                     $tipePembayaran = (int) $get('tipe_pembayaran');
                     if ($kontrakan) {
                       $set('nama_kontrakan', "{$kontrakan->nama} - {$tipePembayaran} Bulan");

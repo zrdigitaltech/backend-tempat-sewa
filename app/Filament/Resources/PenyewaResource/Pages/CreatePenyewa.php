@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Transaksi;
 use App\Models\Penyewa;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Kontrakan;
+use App\Models\Properti;
 
 class CreatePenyewa extends CreateRecord
 {
@@ -41,7 +41,7 @@ class CreatePenyewa extends CreateRecord
     $transaksi->jenis_transaksi = 'pemasukan';
 
     // ubah the Kontrakan record
-    $kontrakan = Kontrakan::find($data['id_kontrakan']);
+    $kontrakan = Properti::find($data['id_kontrakan']);
     if ($kontrakan) {
       $kontrakan->status = 'tidak tersedia';
       $kontrakan->save(); // Save the updated Kontrakan record

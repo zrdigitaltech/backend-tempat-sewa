@@ -10,15 +10,15 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 
 class VerifikasiEmailNotification extends VerifyEmail
 {
-    public function toMail($notifiable): MailMessage
-    {
-        $url = $this->verificationUrl($notifiable);
+  public function toMail($notifiable): MailMessage
+  {
+    $url = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)
-            ->subject('Verifikasi Alamat Email Anda')
-            ->greeting('Halo!')
-            ->line('Silakan klik tombol di bawah ini untuk memverifikasi alamat email Anda.')
-            ->action('Verifikasi Email', $url)
-            ->line('Jika Anda tidak mendaftarkan akun, abaikan email ini.');
-    }
+    return (new MailMessage())
+      ->subject('Verifikasi Alamat Email Anda')
+      ->greeting('Halo!')
+      ->line('Silakan klik tombol di bawah ini untuk memverifikasi alamat email Anda.')
+      ->action('Verifikasi Email', $url)
+      ->line('Jika Anda tidak mendaftarkan akun, abaikan email ini.');
+  }
 }

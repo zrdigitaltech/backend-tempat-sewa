@@ -12,7 +12,7 @@ use Filament\Tables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Table;
-use Filament\Forms\Components\{TextInput, Grid, Select};
+use Filament\Forms\Components\{TextInput, Grid, Select, FileUpload, Textarea, Fieldset, Section};
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Actions\Action as FormAction;
 use Filament\Tables\Actions\{
@@ -33,6 +33,7 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Resources\Pages\Page;
 
 class UserResource extends Resource
 {
@@ -44,37 +45,124 @@ class UserResource extends Resource
   public static function form(Form $form): Form
   {
     return $form->schema([
-      Grid::make(1)->schema([
-        TextInput::make('name')->label('Nama')->required()->autocomplete(false),
+      Section::make('Akun Pengguna')
+        ->description('Isi informasi dasar untuk membuat akun baru.')
+        ->schema([
+          Grid::make(2)->schema([
+            TextInput::make('name')
+              ->label('Name')
+              ->required()
+              ->autocomplete(false)
+              ->minLength(3)
+              ->maxLength(50)
+              ->validationMessages([
+                'required' => 'Nama wajib diisi.',
+                'min' => 'Nama minimal 3 karakter.',
+                'max' => 'Nama maksimal 50 karakter.',
+              ]),
 
-        TextInput::make('username')
-          ->label('Username')
-          ->required()
-          ->maxLength(255)
-          ->unique(ignoreRecord: true)
-          ->autocomplete(false),
+            TextInput::make('username')
+              ->label('Username')
+              ->required()
+              ->maxLength(255)
+              ->unique(ignoreRecord: true)
+              ->autocomplete(false)
+              ->rule('regex:/^[a-zA-Z0-9._]+$/')
+              ->helperText('Hanya huruf, angka, titik, dan underscore. Tidak boleh ada spasi.')
+              ->validationMessages([
+                'required' => ':attribute wajib diisi.',
+                'unique' => ':attribute sudah digunakan.',
+                'regex' => ':attribute hanya boleh berisi huruf, angka, titik, dan underscore.',
+              ]),
 
-        TextInput::make('email')
-          ->email()
-          ->required()
-          ->unique(ignoreRecord: true)
-          ->autocomplete('off'),
+            TextInput::make('no_whatsapp')
+              ->unique(ignoreRecord: true)
+              ->required()
+              ->tel()
+              ->maxLength(15)
+              ->autocomplete('off')
+              ->telRegex('/^08[0-9]{8,11}$/')
+              ->placeholder('812xxxxxxxx')
+              ->helperText('Masukkan nomor whatsapp dengan format 8 diikuti oleh 8-11 digit angka.')
+              ->validationMessages([
+                'required' => ':attribute wajib diisi.',
+              ]),
 
-        TextInput::make('password')
-          ->label('Password')
-          ->password()
-          ->dehydrated(fn($state) => filled($state))
-          ->required(fn(string $context) => $context === 'create')
-          ->autocomplete('new-password')
-          ->suffixActions([
-            FormAction::make('show')->icon('heroicon-o-eye')->action(fn($c) => $c->type('text')),
-            FormAction::make('hide')
-              ->icon('heroicon-o-eye-slash')
-              ->action(fn($c) => $c->type('password')),
+            TextInput::make('email')
+              ->label('Email')
+              ->email()
+              ->required()
+              ->unique(ignoreRecord: true)
+              ->autocomplete('off')
+              ->validationMessages([
+                'required' => ':attribute wajib diisi.',
+                'email' => 'Format :attribute tidak valid.',
+                'unique' => ':attribute sudah terdaftar.',
+              ]),
+
+            Select::make('roles')
+              ->label('Role')
+              ->relationship('roles', 'name')
+              ->preload()
+              ->required()
+              ->validationMessages([
+                'required' => ':attribute wajib dipilih.',
+              ]),
+
+            TextInput::make('password')
+              ->label('Password')
+              ->password()
+              ->dehydrated(fn($state) => filled($state))
+              ->required(fn(string $context) => $context === 'create')
+              ->autocomplete('new-password')
+              ->suffixActions([
+                FormAction::make('show')
+                  ->icon('heroicon-o-eye')
+                  ->action(fn($c) => $c->type('text')),
+                FormAction::make('hide')
+                  ->icon('heroicon-o-eye-slash')
+                  ->action(fn($c) => $c->type('password')),
+              ])
+              ->validationMessages([
+                'required' => ':attribute wajib diisi saat membuat akun.',
+              ]),
           ]),
+        ]),
 
-        Select::make('roles')->label('Role')->relationship('roles', 'name')->preload()->required(),
-      ]),
+      Section::make('Profil Pengguna')
+        ->description('Detail opsional untuk melengkapi informasi pengguna.')
+        ->schema([
+          FileUpload::make('avatar')
+            ->label('Avatar')
+            ->image()
+            ->directory('avatars')
+            ->imageEditor()
+            ->nullable(),
+
+          Textarea::make('bio')->label('Bio')->maxLength(500)->rows(4)->nullable(),
+
+          Fieldset::make('Sosial Media')
+            ->statePath('socials')
+            ->columns(2)
+            ->schema([
+              TextInput::make('instagram')
+                ->label('Instagram')
+                ->url()
+                ->placeholder('https://instagram.com/akunmu')
+                ->validationMessages([
+                  'url' => 'Link Instagram harus berupa URL yang valid.',
+                ]),
+
+              TextInput::make('linkedin')
+                ->label('LinkedIn')
+                ->url()
+                ->placeholder('https://linkedin.com/in/akunmu')
+                ->validationMessages([
+                  'url' => 'Link LinkedIn harus berupa URL yang valid.',
+                ]),
+            ]),
+        ])
+        ->collapsed(),
     ]);
   }
 
@@ -105,8 +193,21 @@ class UserResource extends Resource
               ? 'Email sudah diverifikasi'
               : 'Belum diverifikasi'
           ),
+        TextColumn::make('created_at')
+          ->label('Dibuat pada')
+          ->dateTime()
+          ->toggleable()
+          ->toggledHiddenByDefault(),
 
-        TextColumn::make('created_at')->label('Dibuat pada')->dateTime()->toggleable(),
+        TextColumn::make('created_by.name')
+          ->label('Dibuat Oleh')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
+
+        TextColumn::make('updated_by.name')
+          ->label('Diperbarui Oleh')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
       ])
       ->defaultSort('created_at', 'desc')
       ->striped()

@@ -8,10 +8,10 @@ use App\Notifications\VerifikasiEmailNotification;
 
 class CustomVerifyEmailServiceProvider extends ServiceProvider
 {
-    public function boot(): void
-    {
-        VerifyEmail::toMailUsing(function ($notifiable, $url) {
-            return (new VerifikasiEmailNotification)->toMail($notifiable);
-        });
-    }
+  public function boot(): void
+  {
+    VerifyEmail::toMailUsing(function ($notifiable, $url) {
+      return (new VerifikasiEmailNotification())->toMail($notifiable);
+    });
+  }
 }

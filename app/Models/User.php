@@ -47,6 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->belongsTo(User::class, 'created_by');
   }
 
+  public function updatedBy()
+  {
+    return $this->belongsTo(User::class, 'updated_by');
+  }
+
   /**
    * Mengambil satu keanggotaan yang aktif dari tabel keanggotaan
    * Biasanya dipakai untuk melihat status membership aktif user saat ini
@@ -82,11 +87,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
   public function sendEmailVerificationNotification(): void
   {
-      $this->notify(new VerifikasiEmailNotification);
+    $this->notify(new VerifikasiEmailNotification());
   }
 
   public function canAccessPanel(Panel $panel): bool
   {
-      return true;
+    return true;
   }
 }
