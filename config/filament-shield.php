@@ -53,10 +53,10 @@ return [
         'name' => 'penyewa',
         'define_via_gate' => false,
     ],
-    // 'panel_user' => [
-    //     'enabled' => true,
-    //     'name' => 'panel_user',
-    // ],
+    '_user' => [
+        'enabled' => true,
+        'name' => 'panel_user',
+    ],
 
     'permission_prefixes' => [
         'resource' => [
@@ -81,7 +81,7 @@ return [
         'pages' => true,
         'widgets' => true,
         'resources' => true,
-        'custom_permissions' => true,
+        'custom_permissions' => false,
     ],
 
     'generator' => [

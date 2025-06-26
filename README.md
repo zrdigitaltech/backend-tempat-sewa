@@ -31,13 +31,18 @@ Cara menjalankan Website :
 
 **Note**
 
+- php artisan migrate
+- php artisan db:seed --class=PaketKeanggotaansTableSeeder
 - php artisan db:seed --class=UsersTableSeeder
+- php artisan db:seed --class=RolePermissionSeeder
 - php artisan make:model Testimoni -m
 - php artisan make:filament-resource Layanan
 - php artisan l5-swagger:generate
 - php artisan make:filament-widget MyCustomWidget
 - php artisan make:migration create_invoices_table
 - php artisan make:filament-page RiwayatTransaksiPage --resource=PenyewaResource
+- php artisan shield:generate
+- php artisan shield:generate --panel=web
 
 docker exec -it laravel_app bash
 apt-get update && apt-get install -y libpdo-mysql

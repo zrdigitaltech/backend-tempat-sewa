@@ -13,12 +13,9 @@ class DatabaseSeeder extends Seeder
   public function run(): void
   {
     $this->call([
-      LogosTableSeeder::class,
-      FloatingWhatsappsTableSeeder::class,
-      KontrakansTableSeeder::class,
-      HubungiKamisTableSeeder::class,
-      PembayaransTableSeeder::class,
+      PaketKeanggotaansTableSeeder::class,
       UsersTableSeeder::class,
+      RolePermissionSeeder::class,
     ]);
     // \App\Models\User::factory(10)->create();
 

@@ -24,6 +24,7 @@ class FilamentServiceProvider extends ServiceProvider
     Filament::serving(function () {
       Filament::registerNavigationGroups([
         'Pengaturan Akses', // ⬅️ Pastikan ini ada
+        'Admin Panel',
         // other groups...
       ]);
     });
