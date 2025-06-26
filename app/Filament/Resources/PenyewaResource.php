@@ -75,7 +75,11 @@ class PenyewaResource extends Resource
                 ->disabled(
                   fn(Page $livewire) => $livewire instanceof
                     \App\Filament\Resources\PenyewaResource\Pages\ViewPenyewa
-                ),
+                )
+                ->validationMessages([
+                  'required' => 'No Whatsapp wajib diisi.',
+                  'max' => 'No Whatsapp maksimal :max karakter.',
+                ]),
 
               FileUpload::make('image')
                 ->label('Foto Penyewa')
@@ -194,7 +198,10 @@ class PenyewaResource extends Resource
                   }
                 })
                 ->reactive()
-                ->debounce('500ms'),
+                ->debounce('500ms')
+                ->validationMessages([
+                  'required' => 'Nama Properti wajib diisi.',
+                ]),
 
               Select::make('tipe_pembayaran')
                 ->label('Tipe Pembayaran')

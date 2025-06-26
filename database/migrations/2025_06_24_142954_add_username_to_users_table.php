@@ -15,7 +15,7 @@ return new class extends Migration {
       $table->string('username')->unique()->after('email');
       $table->string('avatar')->nullable()->after('username');
       $table->text('bio')->nullable()->after('avatar');
-      $table->string('no_whatsapp')->nullable()->after('bio');
+      $table->string('no_whatsapp')->unique()->nullable()->after('bio');
       $table->json('socials')->nullable()->after('no_whatsapp');
 
       // Auditing

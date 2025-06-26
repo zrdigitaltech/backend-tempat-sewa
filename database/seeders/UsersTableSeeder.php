@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
       [
         'name' => 'Admin ZR',
         'username' => 'admin',
-        'no_whatsapp' => '6281228883616',
+        'no_whatsapp' => '6281228883617',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -60,7 +60,7 @@ class UsersTableSeeder extends Seeder
       [
         'name' => 'Manajer ZR',
         'username' => 'manajer',
-        'no_whatsapp' => '6281228883616',
+        'no_whatsapp' => '6281228883618',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
       [
         'name' => 'Penulis ZR',
         'username' => 'penulis',
-        'no_whatsapp' => '6281228883616',
+        'no_whatsapp' => '6281228883619',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -88,7 +88,7 @@ class UsersTableSeeder extends Seeder
       [
         'name' => 'Pemilik ZR',
         'username' => 'pemilik',
-        'no_whatsapp' => '6281228883616',
+        'no_whatsapp' => '6281228883610',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,
@@ -102,7 +102,7 @@ class UsersTableSeeder extends Seeder
       [
         'name' => 'Penyewa ZR',
         'username' => 'penyewa',
-        'no_whatsapp' => '6281228883616',
+        'no_whatsapp' => '6281228883611',
         'password' => bcrypt('zik123456ri'),
         'created_by' => $adminId,
         'updated_by' => $adminId,

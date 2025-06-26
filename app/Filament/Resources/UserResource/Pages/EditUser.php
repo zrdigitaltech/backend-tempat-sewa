@@ -14,4 +14,24 @@ class EditUser extends EditRecord
   {
     return [Actions\DeleteAction::make()];
   }
+
+  protected function getFormActions(): array
+  {
+    return [
+      // Tombol Simpan
+      Actions\Action::make('save')
+        ->label('Simpan')
+        ->submit('save')
+        ->extraAttributes([
+          'formnovalidate' => true,
+        ])
+        ->color('primary'),
+
+      // Tombol Batal
+      Actions\Action::make('cancel')
+        ->label('Batal')
+        ->url($this->getResource()::getUrl('index'))
+        ->color('gray'),
+    ];
+  }
 }

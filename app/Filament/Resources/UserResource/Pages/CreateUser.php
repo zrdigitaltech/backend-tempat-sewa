@@ -28,4 +28,23 @@ class CreateUser extends CreateRecord
       ]);
     }
   }
+
+  protected function getFormActions(): array
+  {
+    return [
+      // Tombol Simpan
+      Actions\Action::make('create')
+        ->label('Buat')
+        ->submit('create')
+        ->extraAttributes([
+          'formnovalidate' => true,
+        ]),
+
+      // Tombol Batal
+      Actions\Action::make('cancel')
+        ->label('Batal')
+        ->url($this->getResource()::getUrl('index'))
+        ->color('gray'),
+    ];
+  }
 }

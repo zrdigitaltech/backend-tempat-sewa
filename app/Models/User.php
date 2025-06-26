@@ -21,7 +21,18 @@ class User extends Authenticatable implements MustVerifyEmail
    * Atribut yang diizinkan untuk diisi melalui mass-assignment (User::create([...]))
    * Tidak termasuk id_paketkeanggotaan karena keanggotaan disimpan di tabel terpisah
    */
-  protected $fillable = ['name', 'username', 'email', 'password', 'created_by', 'updated_by'];
+  protected $fillable = [
+    'name',
+    'username',
+    'email',
+    'password',
+    'avatar',
+    'bio',
+    'no_whatsapp',
+    'socials',
+    'created_by',
+    'updated_by',
+  ];
 
   /**
    * Atribut yang disembunyikan saat model diserialisasi (misalnya saat response API)
@@ -36,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
   protected $casts = [
     'email_verified_at' => 'datetime',
     'password' => 'hashed',
+    'socials' => 'array',
   ];
 
   /**

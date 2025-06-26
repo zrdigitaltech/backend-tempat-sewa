@@ -34,6 +34,9 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Resources\Pages\Page;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
+use Closure;
 
 class UserResource extends Resource
 {
@@ -50,7 +53,7 @@ class UserResource extends Resource
         ->schema([
           Grid::make(2)->schema([
             TextInput::make('name')
-              ->label('Name')
+              ->label('Nama')
               ->required()
               ->autocomplete(false)
               ->minLength(3)
@@ -68,7 +71,6 @@ class UserResource extends Resource
               ->unique(ignoreRecord: true)
               ->autocomplete(false)
               ->rule('regex:/^[a-zA-Z0-9._]+$/')
-              ->helperText('Hanya huruf, angka, titik, dan underscore. Tidak boleh ada spasi.')
               ->validationMessages([
                 'required' => ':attribute wajib diisi.',
                 'unique' => ':attribute sudah digunakan.',
@@ -76,16 +78,39 @@ class UserResource extends Resource
               ]),
 
             TextInput::make('no_whatsapp')
-              ->unique(ignoreRecord: true)
+              ->label('No WhatsApp')
               ->required()
-              ->tel()
-              ->maxLength(15)
+              ->prefix('+62')
               ->autocomplete('off')
-              ->telRegex('/^08[0-9]{8,11}$/')
               ->placeholder('812xxxxxxxx')
-              ->helperText('Masukkan nomor whatsapp dengan format 8 diikuti oleh 8-11 digit angka.')
+              ->numeric()
+              ->minLength(9)
+              ->maxLength(13) // 13 + 2 = 15 digit total
+              ->formatStateUsing(fn($state) => preg_replace('/^62/', '', $state)) // tampil tanpa 62
+              ->afterStateHydrated(function ($component, $state) {
+                if (Str::startsWith($state, '62')) {
+                  $component->state(Str::replaceFirst('62', '', $state));
+                }
+              })
+              ->dehydrateStateUsing(fn($state) => '62' . ltrim($state, '0')) // simpan dengan 62
+              ->rule(function ($get, $record) {
+                return function (string $attribute, $value, Closure $fail) use ($record) {
+                  $normalized = '62' . ltrim($value, '0');
+
+                  $exists = \App\Models\User::where('no_whatsapp', $normalized)
+                    ->when($record?->id, fn($q) => $q->where('id', '!=', $record->id))
+                    ->exists();
+
+                  if ($exists) {
+                    $fail('Nomor WhatsApp sudah terdaftar.');
+                  }
+                };
+              })
               ->validationMessages([
-                'required' => ':attribute wajib diisi.',
+                'required' => 'No WhatsApp wajib diisi.',
+                'min' => 'Minimal 9 digit.',
+                'max' => 'Maksimal 13 digit (tanpa kode negara).',
+                'unique' => 'Nomor WhatsApp sudah terdaftar.',
               ]),
 
             TextInput::make('email')
@@ -95,9 +120,9 @@ class UserResource extends Resource
               ->unique(ignoreRecord: true)
               ->autocomplete('off')
               ->validationMessages([
-                'required' => ':attribute wajib diisi.',
+                'required' => 'Email wajib diisi.',
                 'email' => 'Format :attribute tidak valid.',
-                'unique' => ':attribute sudah terdaftar.',
+                'unique' => 'Email sudah terdaftar.',
               ]),
 
             Select::make('roles')
@@ -181,6 +206,8 @@ class UserResource extends Resource
       ->columns([
         TextColumn::make('name')->label('Nama'),
         TextColumn::make('username')->label('Username'),
+        TextColumn::make('no_whatsapp')->label('No WhatsApp'),
+        // ->formatStateUsing(fn($state) => '62' . ltrim($state, '0'))
         TextColumn::make('email'),
         TextColumn::make('roles.name')->label('Role'),
         TextColumn::make('email_verified_at')
