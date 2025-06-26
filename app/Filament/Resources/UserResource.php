@@ -197,7 +197,7 @@ class UserResource extends Resource
       ->modifyQueryUsing(function (Builder $query) {
         $user = Auth::user();
 
-        if ($user->hasRole('super_admin')) {
+        if ($user->hasRole(['super_admin', 'admin'])) {
           $query->whereNot('id', $user->id);
         } else {
           $query->where('created_by', $user->id)->whereNot('id', $user->id);
@@ -276,7 +276,10 @@ class UserResource extends Resource
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
-        DeleteAction::make()->iconButton(),
+        DeleteAction::make()->iconButton()
+        ->disabled(fn(User $record) => !auth()->user()?->hasRole('super_admin'))
+        // ->visible(fn() => auth()->user()->hasRole('super_admin'))
+        ,
         Action::make('verifikasiEmail')
           ->icon('heroicon-o-check-circle')
           ->tooltip('Verifikasi Email') // 👈 Tooltip saat hover
@@ -317,4 +320,9 @@ class UserResource extends Resource
   {
     return __('Manajemen Keanggotaan');
   }
+
+  // public static function canAccess(): bool
+  // {
+  //     return auth()->user()?->hasAnyRole(['super_admin', 'admin']);
+  // }
 }
