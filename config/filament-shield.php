@@ -53,10 +53,10 @@ return [
         'name' => 'penyewa',
         'define_via_gate' => false,
     ],
-    'panel_user' => [
-        'enabled' => true,
-        'name' => 'panel_user',
-    ],
+    // 'panel_user' => [
+    //     'enabled' => true,
+    //     'name' => 'panel_user',
+    // ],
 
     'permission_prefixes' => [
         'resource' => [
@@ -104,6 +104,6 @@ return [
     ],
 
     'register_role_policy' => [
-        'enabled' => false, // jika true, akan generate policy untuk model Role
+        'enabled' => true, // jika true, akan generate policy untuk model Role
     ],
 ];
