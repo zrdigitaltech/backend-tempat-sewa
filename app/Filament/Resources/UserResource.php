@@ -67,14 +67,17 @@ class UserResource extends Resource
             TextInput::make('username')
               ->label('Username')
               ->required()
-              ->maxLength(255)
+              ->minLength(3)
+              ->maxLength(30)
               ->unique(ignoreRecord: true)
               ->autocomplete(false)
               ->rule('regex:/^[a-zA-Z0-9._]+$/')
               ->validationMessages([
-                'required' => ':attribute wajib diisi.',
-                'unique' => ':attribute sudah digunakan.',
-                'regex' => ':attribute hanya boleh berisi huruf, angka, titik, dan underscore.',
+                'required' => 'Username wajib diisi.',
+                'unique' => 'Username sudah digunakan.',
+                'regex' => 'Username hanya boleh berisi huruf, angka, titik, dan underscore.',
+                'min' => 'Username minimal 3 karakter.',
+                'max' => 'Username maksimal 30 karakter.',
               ]),
 
             TextInput::make('no_whatsapp')
@@ -135,22 +138,18 @@ class UserResource extends Resource
               ]),
 
             TextInput::make('password')
-    ->label('Password')
-    ->password()
-    ->revealable()
-    ->dehydrated(fn($state) => filled($state))
-    ->required(fn(string $context) => $context === 'create')
-    ->autocomplete('new-password')
-    ->rules([
-        'min:8',
-        'regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/',
-    ])
-    ->validationMessages([
-        'required' => 'Password wajib diisi saat membuat akun.',
-        'min' => 'Password minimal harus 8 karakter.',
-        'regex' => 'Password harus mengandung huruf dan angka.',
-    ])
-
+              ->label('Password')
+              ->password()
+              ->revealable()
+              ->dehydrated(fn($state) => filled($state))
+              ->required(fn(string $context) => $context === 'create')
+              ->autocomplete('new-password')
+              ->rules(['min:8', 'regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/'])
+              ->validationMessages([
+                'required' => 'Password wajib diisi saat membuat akun.',
+                'min' => 'Password minimal harus 8 karakter.',
+                'regex' => 'Password harus mengandung huruf dan angka.',
+              ]),
           ]),
         ]),
 
@@ -276,10 +275,10 @@ class UserResource extends Resource
       ->actions([
         ViewAction::make()->iconButton(),
         EditAction::make()->iconButton(),
-        DeleteAction::make()->iconButton()
-        ->disabled(fn(User $record) => !auth()->user()?->hasRole('super_admin'))
+        DeleteAction::make()
+          ->iconButton()
+          ->disabled(fn(User $record) => !auth()->user()?->hasRole('super_admin')),
         // ->visible(fn() => auth()->user()->hasRole('super_admin'))
-        ,
         Action::make('verifikasiEmail')
           ->icon('heroicon-o-check-circle')
           ->tooltip('Verifikasi Email') // 👈 Tooltip saat hover

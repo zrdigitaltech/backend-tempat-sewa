@@ -34,10 +34,10 @@ class AppServiceProvider extends ServiceProvider
     // Observer & Script
     User::observe(UserObserver::class);
     FilamentView::registerRenderHook(
-        PanelsRenderHook::SCRIPTS_AFTER,
-        fn(): string => new HtmlString(
-            '<script>document.addEventListener("scroll-to-top", () => window.scrollTo(0, 0))</script>'
-        )
+      PanelsRenderHook::SCRIPTS_AFTER,
+      fn(): string => new HtmlString(
+        '<script>document.addEventListener("scroll-to-top", () => window.scrollTo(0, 0))</script>'
+      )
     );
 
     // Role Policy (untuk Shield)
@@ -45,14 +45,14 @@ class AppServiceProvider extends ServiceProvider
 
     // ✅ Tambahkan ini jika ingin auto-assign semua permission ke super_admin saat permission berubah
     if (Role::where('name', 'super_admin')->exists()) {
-        $superAdmin = Role::where('name', 'super_admin')->first();
-        $allPermissions = Permission::all();
+      $superAdmin = Role::where('name', 'super_admin')->first();
+      $allPermissions = Permission::all();
 
-        // Cek apakah sudah lengkap
-        $missing = $allPermissions->diff($superAdmin->permissions);
-        if ($missing->isNotEmpty()) {
-            $superAdmin->syncPermissions($allPermissions);
-        }
+      // Cek apakah sudah lengkap
+      $missing = $allPermissions->diff($superAdmin->permissions);
+      if ($missing->isNotEmpty()) {
+        $superAdmin->syncPermissions($allPermissions);
+      }
     }
 
     // if ($this->app->environment('local')) {
