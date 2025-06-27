@@ -133,6 +133,7 @@ class UserResource extends Resource
               ->relationship('roles', 'name')
               ->preload()
               ->required()
+              ->getOptionLabelFromRecordUsing(fn ($record) => Str::title(str_replace('_', ' ', $record->name)))
               ->validationMessages([
                 'required' => 'Role wajib dipilih.',
               ]),
