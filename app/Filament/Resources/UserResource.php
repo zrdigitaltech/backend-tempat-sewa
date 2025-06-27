@@ -37,6 +37,7 @@ use Filament\Resources\Pages\Page;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 use Closure;
+use Illuminate\Validation\Rules\File;
 
 class UserResource extends Resource
 {
@@ -133,7 +134,9 @@ class UserResource extends Resource
               ->relationship('roles', 'name')
               ->preload()
               ->required()
-              ->getOptionLabelFromRecordUsing(fn ($record) => Str::title(str_replace('_', ' ', $record->name)))
+              ->getOptionLabelFromRecordUsing(
+                fn($record) => Str::title(str_replace('_', ' ', $record->name))
+              )
               ->validationMessages([
                 'required' => 'Role wajib dipilih.',
               ]),
@@ -158,10 +161,14 @@ class UserResource extends Resource
         ->description('Detail opsional untuk melengkapi informasi pengguna.')
         ->schema([
           FileUpload::make('avatar')
-            ->label('Avatar')
-            ->image()
-            ->directory('avatars')
-            ->imageEditor()
+            ->label('Avatar') // Label input
+            ->image() // Khusus file gambar (JPEG, PNG, dll)
+            ->directory('avatars') // Disimpan di storage/app/avatars
+            ->imageEditor() // Aktifkan editor bawaan (crop, rotate, dll)
+            ->imageCropAspectRatio('1:1') // Paksa rasio square (1:1)
+            ->imageResizeTargetWidth(300) // Resize lebar jadi 300px
+            ->imageResizeTargetHeight(300) // Resize tinggi jadi 300px
+            ->maxSize(2048) // Batas ukuran maksimal 2MB (dalam KB)
             ->nullable(),
 
           Textarea::make('bio')->label('Bio')->maxLength(500)->rows(4)->nullable(),
@@ -184,6 +191,22 @@ class UserResource extends Resource
                 ->placeholder('https://linkedin.com/in/akunmu')
                 ->validationMessages([
                   'url' => 'Link LinkedIn harus berupa URL yang valid.',
+                ]),
+
+              TextInput::make('facebook')
+                ->label('Facebook')
+                ->url()
+                ->placeholder('https://facebook.com/akunmu')
+                ->validationMessages([
+                  'url' => 'Link Facebook harus berupa URL yang valid.',
+                ]),
+
+              TextInput::make('twitter')
+                ->label('Twitter')
+                ->url()
+                ->placeholder('https://twitter.com/akunmu')
+                ->validationMessages([
+                  'url' => 'Link Twitter harus berupa URL yang valid.',
                 ]),
             ]),
         ])
