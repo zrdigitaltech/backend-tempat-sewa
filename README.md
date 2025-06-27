@@ -41,7 +41,9 @@ Cara menjalankan Website :
 - php artisan make:filament-widget MyCustomWidget
 - php artisan make:migration create_invoices_table
 - php artisan make:filament-page RiwayatTransaksiPage --resource=PenyewaResource
+- php artisan shield:install
 - php artisan shield:generate
+- php artisan shield:generate --all
 - php artisan shield:generate --panel=web
 
 docker exec -it laravel_app bash

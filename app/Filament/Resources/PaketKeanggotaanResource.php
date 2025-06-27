@@ -13,6 +13,15 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Support\RawJs;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\{
+  ViewAction,
+  EditAction,
+  DeleteAction,
+  BulkActionGroup,
+  DeleteBulkAction
+};
+use App\Models\User;
 
 class PaketKeanggotaanResource extends Resource
 {
@@ -54,19 +63,29 @@ class PaketKeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('nama'),
-        Tables\Columns\TextColumn::make('deskripsi')
+        TextColumn::make('nama'),
+        TextColumn::make('deskripsi')
           ->limit(50)
           ->toggleable()
           ->toggledHiddenByDefault(),
-        Tables\Columns\TextColumn::make('harga')->money('IDR'), // Format as Indonesian Rupiah
-        Tables\Columns\TextColumn::make('durasi_bulan')->label('Durasi (Bulan)'),
-        Tables\Columns\TextColumn::make('maksimal_properti')->label('Maks. Properti'),
+        TextColumn::make('harga')->money('IDR'), // Format as Indonesian Rupiah
+        TextColumn::make('durasi_bulan')->label('Durasi (Bulan)'),
+        TextColumn::make('maksimal_properti')->label('Maks. Properti'),
 
-        Tables\Columns\TextColumn::make('maksimal_iklan')->label('Maks. Iklan'),
-        Tables\Columns\TextColumn::make('created_at')
+        TextColumn::make('maksimal_iklan')->label('Maks. Iklan'),
+        TextColumn::make('created_at')
           ->dateTime()
           ->label('Dibuat Pada')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
+
+          TextColumn::make('createdBy.name')
+          ->label('Dibuat Oleh')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
+
+        TextColumn::make('updatedBy.name')
+          ->label('Diperbarui Oleh')
           ->toggleable()
           ->toggledHiddenByDefault(),
       ])
@@ -75,8 +94,13 @@ class PaketKeanggotaanResource extends Resource
       ])
       ->striped()
       ->actions([
-        Tables\Actions\ViewAction::make()->iconButton(),
-        Tables\Actions\EditAction::make()->iconButton(),
+        ViewAction::make()->iconButton(),
+        EditAction::make()->iconButton(),
+        DeleteAction::make()
+          ->iconButton()
+          ->visible(fn() => true)
+          ->disabled(fn() => !auth()->user()?->hasRole('super_admin'))
+          ->tooltip('Hanya super admin yang bisa menghapus'),
       ])
       ->bulkActions([
         // Tables\Actions\BulkActionGroup::make([

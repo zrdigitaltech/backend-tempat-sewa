@@ -250,12 +250,12 @@ class UserResource extends Resource
           ->toggleable()
           ->toggledHiddenByDefault(),
 
-        TextColumn::make('created_by.name')
+        TextColumn::make('createdBy.name')
           ->label('Dibuat Oleh')
           ->toggleable()
           ->toggledHiddenByDefault(),
 
-        TextColumn::make('updated_by.name')
+        TextColumn::make('updatedBy.name')
           ->label('Diperbarui Oleh')
           ->toggleable()
           ->toggledHiddenByDefault(),
@@ -302,7 +302,9 @@ class UserResource extends Resource
         EditAction::make()->iconButton(),
         DeleteAction::make()
           ->iconButton()
-          ->disabled(fn(User $record) => !auth()->user()?->hasRole('super_admin')),
+          ->visible(fn() => true)
+          ->disabled(fn() => !auth()->user()?->hasRole('super_admin'))
+          ->tooltip('Hanya super admin yang bisa menghapus'),
         // ->visible(fn() => auth()->user()->hasRole('super_admin'))
         Action::make('verifikasiEmail')
           ->icon('heroicon-o-check-circle')

@@ -15,7 +15,34 @@ class PaketKeanggotaan extends Model
    *
    * @var array<int, string>
    */
-  protected $fillable = ['nama', 'deskripsi', 'harga', 'durasi_bulan'];
+  protected $fillable = [
+    'nama',
+    'deskripsi',
+    'harga',
+    'durasi_bulan',
+    'maksimal_properti',
+    'maksimal_iklan',
+    'harga_awal',
+    'diskon_persen',
+    'created_by',
+    'updated_by',
+  ];
+
+  protected $with = ['createdBy', 'updatedBy'];
+
+  /**
+   * Relasi ke user yang membuat user ini
+   * (berguna jika sistem Anda mendukung multi-admin / user management)
+   */
+  public function createdBy()
+  {
+    return $this->belongsTo(User::class, 'created_by');
+  }
+
+  public function updatedBy()
+  {
+    return $this->belongsTo(User::class, 'updated_by');
+  }
 
   public function keanggotaans(): HasMany
   {

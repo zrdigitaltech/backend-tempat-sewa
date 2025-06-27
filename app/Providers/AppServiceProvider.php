@@ -9,6 +9,8 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use App\Observers\UserObserver;
+use App\Models\PaketKeanggotaan;
+use App\Observers\PaketKeanggotaanObserver;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -33,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
     // });
     // Observer & Script
     User::observe(UserObserver::class);
+    PaketKeanggotaan::observe(PaketKeanggotaanObserver::class);
+
     FilamentView::registerRenderHook(
       PanelsRenderHook::SCRIPTS_AFTER,
       fn(): string => new HtmlString(
@@ -44,16 +48,16 @@ class AppServiceProvider extends ServiceProvider
     Gate::policy(\Spatie\Permission\Models\Role::class, \App\Policies\RolePolicy::class);
 
     // ✅ Tambahkan ini jika ingin auto-assign semua permission ke super_admin saat permission berubah
-    if (Role::where('name', 'super_admin')->exists()) {
-      $superAdmin = Role::where('name', 'super_admin')->first();
-      $allPermissions = Permission::all();
+    // if (Role::where('name', 'super_admin')->exists()) {
+    //   $superAdmin = Role::where('name', 'super_admin')->first();
+    //   $allPermissions = Permission::all();
 
-      // Cek apakah sudah lengkap
-      $missing = $allPermissions->diff($superAdmin->permissions);
-      if ($missing->isNotEmpty()) {
-        $superAdmin->syncPermissions($allPermissions);
-      }
-    }
+    //   // Cek apakah sudah lengkap
+    //   $missing = $allPermissions->diff($superAdmin->permissions);
+    //   if ($missing->isNotEmpty()) {
+    //     $superAdmin->syncPermissions($allPermissions);
+    //   }
+    // }
 
     // if ($this->app->environment('local')) {
     //   URL::forceScheme('https');

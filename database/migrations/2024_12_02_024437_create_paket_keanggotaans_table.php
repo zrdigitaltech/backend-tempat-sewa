@@ -19,6 +19,14 @@ return new class extends Migration {
 
       $table->integer('maksimal_properti')->nullable();
       $table->integer('maksimal_iklan')->nullable();
+
+      // Tambahan
+      $table->integer('harga_awal')->nullable();       // Harga saat langganan pertama
+      $table->integer('diskon_persen')->nullable();    // Persentase diskon awal (contoh: 20 untuk 20%)
+
+      $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+      $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
+
       $table->timestamps();
     });
   }
