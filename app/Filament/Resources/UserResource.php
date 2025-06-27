@@ -155,7 +155,8 @@ class UserResource extends Resource
                 'regex' => 'Password harus mengandung huruf dan angka.',
               ]),
           ]),
-        ]),
+        ])
+        ->collapsible(),
 
       Section::make('Profil Pengguna')
         ->description('Detail opsional untuk melengkapi informasi pengguna.')
