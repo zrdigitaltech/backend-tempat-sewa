@@ -131,26 +131,26 @@ class UserResource extends Resource
               ->preload()
               ->required()
               ->validationMessages([
-                'required' => ':attribute wajib dipilih.',
+                'required' => 'Role wajib dipilih.',
               ]),
 
             TextInput::make('password')
-              ->label('Password')
-              ->password()
-              ->dehydrated(fn($state) => filled($state))
-              ->required(fn(string $context) => $context === 'create')
-              ->autocomplete('new-password')
-              ->suffixActions([
-                FormAction::make('show')
-                  ->icon('heroicon-o-eye')
-                  ->action(fn($c) => $c->type('text')),
-                FormAction::make('hide')
-                  ->icon('heroicon-o-eye-slash')
-                  ->action(fn($c) => $c->type('password')),
-              ])
-              ->validationMessages([
-                'required' => ':attribute wajib diisi saat membuat akun.',
-              ]),
+    ->label('Password')
+    ->password()
+    ->revealable()
+    ->dehydrated(fn($state) => filled($state))
+    ->required(fn(string $context) => $context === 'create')
+    ->autocomplete('new-password')
+    ->rules([
+        'min:8',
+        'regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/',
+    ])
+    ->validationMessages([
+        'required' => 'Password wajib diisi saat membuat akun.',
+        'min' => 'Password minimal harus 8 karakter.',
+        'regex' => 'Password harus mengandung huruf dan angka.',
+    ])
+
           ]),
         ]),
 
