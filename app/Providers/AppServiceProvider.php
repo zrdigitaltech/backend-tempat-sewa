@@ -15,6 +15,7 @@ use App\Models\Keanggotaan;
 use App\Observers\KeanggotaanObserver;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Filament\Facades\Filament;
 
 class AppServiceProvider extends ServiceProvider
 {

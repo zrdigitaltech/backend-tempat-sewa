@@ -13,8 +13,9 @@ use App\Notifications\VerifikasiEmailNotification;
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Notifications\DatabaseNotification;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 {
   // Menggunakan trait untuk role/permission (Spatie), API token (Sanctum), notifikasi, factory
   use HasRoles, HasApiTokens, HasFactory, Notifiable;

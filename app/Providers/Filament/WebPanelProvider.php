@@ -36,11 +36,7 @@ class WebPanelProvider extends PanelProvider
       ->default()
       ->id('web')
       ->path('')
-      ->authGuard('web')
       ->pages([])
-      // ->pages([
-      //   Pages\Dashboard::class
-      // ])
       ->databaseNotifications(true)
       ->databaseNotificationsPolling('3s') 
       // ->breadcrumbs(false)
