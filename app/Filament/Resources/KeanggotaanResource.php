@@ -85,6 +85,7 @@ class KeanggotaanResource extends Resource
 
         BadgeColumn::make('sisa_hari')
           ->label('Sisa Hari')
+          ->alignCenter()
           ->colors([
             'danger' => fn($record) => $record->tanggal_berakhir &&
               \Carbon\Carbon::today()->diffInDays($record->tanggal_berakhir, false) <= 7,
@@ -95,7 +96,7 @@ class KeanggotaanResource extends Resource
             ) > 7,
           ]),
 
-        IconColumn::make('aktif')->boolean()->label('Aktif')->toggleable(),
+        IconColumn::make('aktif')->boolean()->label('Aktif')->toggleable()->alignCenter(),
 
         TextColumn::make('createdBy.name')
           ->label('Dibuat Oleh')
