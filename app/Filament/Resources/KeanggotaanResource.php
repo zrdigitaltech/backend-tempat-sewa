@@ -12,6 +12,7 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Filament\Resources\KeanggotaanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Columns\{TextColumn, IconColumn};
 
 class KeanggotaanResource extends Resource
 {
@@ -47,15 +48,25 @@ class KeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('user.name')->label('Nama User')->searchable(),
+        TextColumn::make('user.name')->label('Nama User')->searchable(),
 
-        Tables\Columns\TextColumn::make('paket.nama')->label('Paket Keanggotaan')->searchable(),
+        TextColumn::make('paket.nama')->label('Paket Keanggotaan')->searchable(),
 
-        Tables\Columns\TextColumn::make('tanggal_mulai')->label('Mulai')->date()->sortable(),
+        TextColumn::make('tanggal_mulai')->label('Mulai')->date()->sortable(),
 
-        Tables\Columns\TextColumn::make('tanggal_berakhir')->label('Berakhir')->date()->sortable(),
+        TextColumn::make('tanggal_berakhir')->label('Berakhir')->date()->sortable(),
 
-        Tables\Columns\IconColumn::make('aktif')->boolean()->label('Aktif'),
+        IconColumn::make('aktif')->boolean()->label('Aktif'),
+
+        TextColumn::make('createdBy.name')
+          ->label('Dibuat Oleh')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
+
+        TextColumn::make('updatedBy.name')
+          ->label('Diperbarui Oleh')
+          ->toggleable()
+          ->toggledHiddenByDefault(),
       ])
       ->filters([
         //

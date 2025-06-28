@@ -21,7 +21,25 @@ class Keanggotaan extends Model
     'tanggal_mulai',
     'tanggal_berakhir',
     'aktif',
+    'created_by',
+    'updated_by',
   ];
+
+  protected $with = ['createdBy', 'updatedBy'];
+
+  /**
+   * Relasi ke user yang membuat user ini
+   * (berguna jika sistem Anda mendukung multi-admin / user management)
+   */
+  public function createdBy()
+  {
+    return $this->belongsTo(User::class, 'created_by');
+  }
+
+  public function updatedBy()
+  {
+    return $this->belongsTo(User::class, 'updated_by');
+  }
 
   public function user(): BelongsTo
   {

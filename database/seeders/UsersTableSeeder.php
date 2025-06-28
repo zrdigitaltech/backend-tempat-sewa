@@ -30,6 +30,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'zikri',
         'no_whatsapp' => '6281228883616',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => null,
         'updated_by' => null,
       ]
@@ -48,6 +49,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'admin',
         'no_whatsapp' => '6281228883617',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => $adminId,
         'updated_by' => $adminId,
       ]
@@ -62,6 +64,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'manajer',
         'no_whatsapp' => '6281228883618',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => $adminId,
         'updated_by' => $adminId,
       ]
@@ -76,6 +79,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'penulis',
         'no_whatsapp' => '6281228883619',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => $adminId,
         'updated_by' => $adminId,
       ]
@@ -90,6 +94,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'pemilik',
         'no_whatsapp' => '6281228883610',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => $adminId,
         'updated_by' => $adminId,
       ]
@@ -104,6 +109,7 @@ class UsersTableSeeder extends Seeder
         'username' => 'penyewa',
         'no_whatsapp' => '6281228883611',
         'password' => bcrypt('zik123456ri'),
+        'email_verified_at' => now(),
         'created_by' => $adminId,
         'updated_by' => $adminId,
       ]

@@ -20,6 +20,10 @@ return new class extends Migration {
       $table->timestamp('tanggal_mulai');
       $table->timestamp('tanggal_berakhir')->nullable();
       $table->boolean('aktif')->default(true);
+
+      $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+      $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
+      
       $table->timestamps();
     });
   }
