@@ -234,16 +234,7 @@ class UserResource extends Resource
         // ->formatStateUsing(fn($state) => '62' . ltrim($state, '0'))
         TextColumn::make('email'),
         TextColumn::make('roles.name')->label('Role'),
-        TextColumn::make('email_verified_at')
-          ->label('Terverifikasi')
-          ->alignCenter()
-          ->view('filament.components.email-status')
-          ->viewData(fn($record) => ['record' => $record])
-          ->tooltip(
-            fn($record) => $record->email_verified_at
-              ? 'Email sudah diverifikasi'
-              : 'Belum diverifikasi'
-          ),
+        IconColumn::make('email_verified')->boolean()->label('Terverifikasi')->alignCenter(),
         TextColumn::make('created_at')
           ->label('Dibuat pada')
           ->dateTime()

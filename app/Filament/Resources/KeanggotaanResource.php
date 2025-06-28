@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Filament\Resources\KeanggotaanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Columns\{TextColumn, IconColumn};
+use Filament\Tables\Columns\{TextColumn, IconColumn, BadgeColumn};
 use Carbon\Carbon;
 
 class KeanggotaanResource extends Resource
@@ -62,7 +62,7 @@ class KeanggotaanResource extends Resource
           }
         }),
 
-      Forms\Components\DatePicker::make('tanggal_berakhir')->label('Tanggal Berakhir')->disabled(),
+      Forms\Components\DatePicker::make('tanggal_berakhir')->label('Tanggal Berakhir')->readOnly(true)->dehydrated(),
 
       Forms\Components\Toggle::make('aktif')->label('Status Aktif')->default(true),
     ]);
@@ -80,7 +80,19 @@ class KeanggotaanResource extends Resource
 
         TextColumn::make('tanggal_berakhir')->label('Berakhir')->date(),
 
-        IconColumn::make('aktif')->boolean()->label('Aktif'),
+        BadgeColumn::make('sisa_hari')
+    ->label('Sisa Hari')
+    ->colors([
+        'danger' => fn ($record) =>
+            $record->tanggal_berakhir &&
+            \Carbon\Carbon::today()->diffInDays($record->tanggal_berakhir, false) <= 7,
+        'gray' => fn ($record) =>
+            !$record->tanggal_berakhir,
+        'success' => fn ($record) =>
+            \Carbon\Carbon::today()->diffInDays($record->tanggal_berakhir, false) > 7,
+    ]),
+
+        IconColumn::make('aktif')->boolean()->label('Aktif')->toggleable(),
 
         TextColumn::make('createdBy.name')
           ->label('Dibuat Oleh')

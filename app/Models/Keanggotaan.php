@@ -50,4 +50,19 @@ class Keanggotaan extends Model
   {
     return $this->belongsTo(PaketKeanggotaan::class, 'id_paketkeanggotaan');
   }
+
+  public function getSisaHariAttribute()
+{
+    if (!$this->tanggal_berakhir) {
+        return '-';
+    }
+
+    $tanggalBerakhir = \Carbon\Carbon::parse($this->tanggal_berakhir);
+    $today = \Carbon\Carbon::today();
+
+    $sisa = $today->diffInDays($tanggalBerakhir, false);
+
+    return $sisa < 0 ? 'Sudah berakhir' : $sisa . ' hari';
+}
+
 }
