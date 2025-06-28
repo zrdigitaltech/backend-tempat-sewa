@@ -10,6 +10,8 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Forms\Components\{TextInput};
 
 class UserActivityResource extends Resource
 {
@@ -32,7 +34,7 @@ class UserActivityResource extends Resource
     return $table
       ->defaultSort('created_at', 'desc')
       ->columns([
-        TextColumn::make('user.name')->label('Nama Pengguna')->searchable()->sortable(),
+        TextColumn::make('user.username')->label('Nama Pengguna')->sortable(),
 
         TextColumn::make('aksi')->label('Aktivitas')->badge()->color(
           fn(string $state): string => match ($state) {
@@ -51,31 +53,36 @@ class UserActivityResource extends Resource
         TextColumn::make('created_at')->label('Waktu')->dateTime()->sortable(),
       ])
       ->filters([
-        // ✅ Filter jenis aktivitas
+        // ✅ Filter berdasarkan jenis aktivitas
         Tables\Filters\SelectFilter::make('aksi')
           ->label('Jenis Aktivitas')
           ->options([
             'Login' => 'Login',
             'Logout' => 'Logout',
             'Perubahan Paket' => 'Perubahan Paket',
-          ]),
+          ])
+          ->placeholder('Pilih jenis aktivitas'),
 
-        // ✅ Filter berdasarkan user
+        // ✅ Filter berdasarkan pengguna
         Tables\Filters\SelectFilter::make('user_id')
           ->label('Pengguna')
           ->relationship('user', 'name')
-          ->getOptionLabelFromRecordUsing(fn($record) => "{$record->name} ({$record->username})"),
+          ->getOptionLabelFromRecordUsing(fn($record) => "{$record->name} ({$record->username})")
+          ->searchable()
+          ->placeholder('Pilih pengguna'),
 
-        // ✅ Tombol cepat: Login Hari Ini
+        // ✅ Filter cepat: Login Hari Ini
         Tables\Filters\Filter::make('login_today')
           ->label('Login Hari Ini')
-          ->query(function (Builder $query) {
-            return $query->whereDate('created_at', today())->where('aksi', 'Login');
-          }),
+          ->query(
+            fn(Builder $query) => $query->whereDate('created_at', today())->where('aksi', 'Login')
+          ),
 
         // ✅ Filter rentang tanggal
         Tables\Filters\Filter::make('tanggal')
+          ->label('Tanggal Aktivitas')
           ->form([DatePicker::make('from')->label('Dari'), DatePicker::make('to')->label('Sampai')])
+          ->columns(2)
           ->query(function (Builder $query, array $data) {
             return $query
               ->when($data['from'], fn($q) => $q->whereDate('created_at', '>=', $data['from']))
@@ -85,18 +92,17 @@ class UserActivityResource extends Resource
             if ($data['from'] && $data['to']) {
               return 'Tanggal: ' . $data['from'] . ' - ' . $data['to'];
             }
-
             if ($data['from']) {
               return 'Mulai ' . $data['from'];
             }
-
             if ($data['to']) {
               return 'Sampai ' . $data['to'];
             }
-
             return null;
           }),
       ])
+      ->filtersLayout(FiltersLayout::AboveContentCollapsible)
+      ->filtersFormColumns(2)
 
       ->actions([])
       ->bulkActions([]);
