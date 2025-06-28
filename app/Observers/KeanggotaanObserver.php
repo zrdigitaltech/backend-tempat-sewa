@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Keanggotaan;
+use App\Models\UserActivity;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Filament\Notifications\Notification;
@@ -89,14 +90,6 @@ class KeanggotaanObserver
             ])
             ->sendToDatabase($admin);
         }
-
-        // Log aktivitas
-        \App\Models\UserActivity::create([
-          'user_id' => $keanggotaan->id_user,
-          'aksi' => "Perubahan Paket",
-          'keterangan' => "Dari {$namaPaketLama} ke {$namaPaketBaru}",
-          'created_at' => now(),
-        ]);
       }
     }
   }
