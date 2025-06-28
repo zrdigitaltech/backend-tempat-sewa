@@ -57,7 +57,7 @@ class UserActivityResource extends Resource
           ->options([
             'Login' => 'Login',
             'Logout' => 'Logout',
-            'Update Paket' => 'Update Paket',
+            'Perubahan Paket' => 'Perubahan Paket',
           ]),
 
         // ✅ Filter berdasarkan user
