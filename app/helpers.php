@@ -1,13 +1,25 @@
 <?php
 
+use App\Models\User;
 use App\Models\UserActivity;
+use App\Notifications\AktivitasBaruNotification;
 
 function logUserActivity(string $aksi, ?string $keterangan = null, ?int $userId = null): void
 {
-    UserActivity::create([
-        'user_id' => $userId ?? auth()->id(),
-        'aksi' => $aksi,
-        'keterangan' => $keterangan,
-        'created_at' => now(),
-    ]);
+  // Simpan aktivitas ke database
+  UserActivity::create([
+    'user_id' => $userId ?? auth()->id(),
+    'aksi' => $aksi,
+    'keterangan' => $keterangan,
+    'created_at' => now(),
+  ]);
+
+  // Kirim notifikasi ke admin (jika aksi tertentu)
+  if (in_array($aksi, ['Update Paket'])) {
+    $adminUsers = User::role('admin')->get(); // jika pakai Spatie Role
+
+    foreach ($adminUsers as $admin) {
+      $admin->notify(new AktivitasBaruNotification($aksi, $keterangan ?? 'Tidak ada keterangan'));
+    }
+  }
 }

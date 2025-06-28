@@ -8,5 +8,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateUserActivity extends CreateRecord
 {
-    protected static string $resource = UserActivityResource::class;
+  protected static string $resource = UserActivityResource::class;
 }

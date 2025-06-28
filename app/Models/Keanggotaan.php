@@ -52,9 +52,9 @@ class Keanggotaan extends Model
   }
 
   public function getSisaHariAttribute()
-{
+  {
     if (!$this->tanggal_berakhir) {
-        return '-';
+      return '-';
     }
 
     $tanggalBerakhir = \Carbon\Carbon::parse($this->tanggal_berakhir);
@@ -63,6 +63,18 @@ class Keanggotaan extends Model
     $sisa = $today->diffInDays($tanggalBerakhir, false);
 
     return $sisa < 0 ? 'Sudah berakhir' : $sisa . ' hari';
-}
+  }
 
+  protected static function booted()
+  {
+    static::updated(function (Keanggotaan $keanggotaan) {
+      if ($keanggotaan->isDirty('id_paketkeanggotaan')) {
+        \App\Models\UserActivity::create([
+          'user_id' => $keanggotaan->id_user, // User yang punya keanggotaan
+          'aksi' => 'Perubahan Paket',
+          'keterangan' => 'Paket diubah menjadi: ' . optional($keanggotaan->paket)->nama,
+        ]);
+      }
+    });
+  }
 }

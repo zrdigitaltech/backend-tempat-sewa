@@ -106,7 +106,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
   public function getEmailVerifiedAttribute(): bool
   {
-      return $this->email_verified_at !== null;
+    return $this->email_verified_at !== null;
   }
 
   public function canAccessPanel(Panel $panel): bool

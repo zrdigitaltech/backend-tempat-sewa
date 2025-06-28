@@ -20,10 +20,10 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationItem;
 
-use App\Filament\Widgets\PenyewaWidget;
 use Illuminate\Support\Facades\Auth;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Pages\Auth\Login as CustomLogin;
+use App\Filament\Widgets\AktivitasRingkasan;
 
 class WebPanelProvider extends PanelProvider
 {
@@ -36,8 +36,8 @@ class WebPanelProvider extends PanelProvider
       ->default()
       ->id('web')
       ->path('')
-      ->pages([])
-      // ->pages([Pages\Dashboard::class])
+      // ->pages([])
+      ->pages([Pages\Dashboard::class])
       ->databaseNotifications(true)
       ->databaseNotificationspolling('3s')
       // ->breadcrumbs(false)
@@ -100,7 +100,7 @@ class WebPanelProvider extends PanelProvider
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
       ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
       ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-      ->widgets($this->getWidgetsForPermissions())
+      ->widgets([AktivitasRingkasan::class, ...$this->getWidgetsForPermissions()])
       ->middleware(
         [
           EncryptCookies::class,
@@ -122,12 +122,6 @@ class WebPanelProvider extends PanelProvider
   {
     // dd(Auth::user());
     $widgets = [];
-
-    // Check if the authenticated user has the 'view customer widget' permission
-    // if (Auth::check() && Auth::user()->hasRole('operator')) {
-    //   $widgets[] = PenyewaWidget::class;
-    // }
-
     return $widgets;
   }
 }
