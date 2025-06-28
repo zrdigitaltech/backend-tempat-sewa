@@ -57,6 +57,9 @@ class WebPanelProvider extends PanelProvider
       ->pages([])
       ->databaseNotifications(true)
       ->databaseNotificationsPolling('3s')
+      ->colors([
+        'primary' => '#1e3a8a',
+      ])
       // ->breadcrumbs(false)
       ->brandName('App tempatSewa')
       ->spa()
