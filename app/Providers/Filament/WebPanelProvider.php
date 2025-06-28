@@ -24,11 +24,29 @@ use Illuminate\Support\Facades\Auth;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Pages\Auth\Login as CustomLogin;
 use App\Filament\Widgets\AktivitasRingkasan;
+use Filament\Facades\Filament;
+use Illuminate\Support\ServiceProvider;
 
 class WebPanelProvider extends PanelProvider
 {
   protected static ?int $navigationSort = 3;
   protected static ?string $navigationGroup = 'NumberLayanan';
+
+  public function boot(): void
+  {
+      Filament::serving(function () {
+          $user = Auth::user();
+          
+          $keanggotaan = $user?->keanggotaanTerbaru;
+
+          if ($keanggotaan && $keanggotaan->id_paketkeanggotaan === 1) {
+              Filament::registerRenderHook(
+                  'panels::topbar.start',
+                  fn () => view('filament.components.alert-gratis')
+              );
+          }
+      });
+  }
 
   public function panel(Panel $panel): Panel
   {

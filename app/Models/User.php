@@ -100,6 +100,11 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     return $this->hasMany(Keanggotaan::class, 'id_user');
   }
 
+  public function keanggotaanTerbaru()
+  {
+      return $this->hasOne(Keanggotaan::class, 'id_user')->latestOfMany();
+  }
+
   public function sendEmailVerificationNotification(): void
   {
     $this->notify(new VerifikasiEmailNotification());
