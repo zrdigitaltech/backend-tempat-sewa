@@ -11,16 +11,6 @@ class PaketKeanggotaansTableSeeder extends Seeder
   {
     DB::table('paket_keanggotaans')->insert([
       [
-        'nama' => 'Unlimited',
-        'deskripsi' => 'Paket khusus admin/developer tanpa batasan properti dan iklan.',
-        'harga' => 0,
-        'durasi_bulan' => 0,
-        'maksimal_properti' => null,
-        'maksimal_iklan' => null,
-        'created_at' => now(),
-        'updated_at' => now(),
-      ],
-      [
         'nama' => 'Gratis',
         'deskripsi' => 'Paket gratis dengan fitur terbatas.',
         'harga' => 0,
@@ -37,6 +27,16 @@ class PaketKeanggotaansTableSeeder extends Seeder
         'durasi_bulan' => 1,
         'maksimal_properti' => 100,
         'maksimal_iklan' => 25,
+        'created_at' => now(),
+        'updated_at' => now(),
+      ],
+      [
+        'nama' => 'Unlimited',
+        'deskripsi' => 'Paket khusus admin/developer tanpa batasan properti dan iklan.',
+        'harga' => 0,
+        'durasi_bulan' => 0,
+        'maksimal_properti' => null,
+        'maksimal_iklan' => null,
         'created_at' => now(),
         'updated_at' => now(),
       ],

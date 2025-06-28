@@ -38,7 +38,7 @@ class WebPanelProvider extends PanelProvider
       ->path('')
       ->pages([])
       ->databaseNotifications(true)
-      ->databaseNotificationsPolling('3s') 
+      ->databaseNotificationsPolling('3s')
       // ->breadcrumbs(false)
       ->brandName('App tempatSewa')
       ->spa()

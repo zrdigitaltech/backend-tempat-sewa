@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->text('deskripsi')->nullable(); // Penjelasan manfaat/paket
       $table->integer('harga'); // Dalam rupiah
       $table->integer('durasi_bulan'); // Lama aktif keanggotaan
+      $table->integer('level')->default(1);
 
       $table->integer('maksimal_properti')->nullable();
       $table->integer('maksimal_iklan')->nullable();

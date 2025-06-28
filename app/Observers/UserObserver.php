@@ -42,7 +42,7 @@ class UserObserver
     // Buat entri keanggotaan default (paket keanggotaan ID 2, misalnya "Gratis")
     Keanggotaan::create([
       'id_user' => $user->id, // ID user baru
-      'id_paketkeanggotaan' => 2, // ID paket keanggotaan default (ubah sesuai kebutuhan)
+      'id_paketkeanggotaan' => 1, // ID paket keanggotaan default (ubah sesuai kebutuhan)
       'tanggal_mulai' => now(), // Tanggal mulai keanggotaan = sekarang
       'aktif' => true, // Tandai sebagai keanggotaan aktif
     ]);
