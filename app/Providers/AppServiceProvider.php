@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Observers\UserObserver;
 use App\Models\PaketKeanggotaan;
 use App\Observers\PaketKeanggotaanObserver;
+use App\Models\Keanggotaan;
+use App\Observers\KeanggotaanObserver;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -36,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
     // Observer & Script
     User::observe(UserObserver::class);
     PaketKeanggotaan::observe(PaketKeanggotaanObserver::class);
+    Keanggotaan::observe(KeanggotaanObserver::class);
 
     FilamentView::registerRenderHook(
       PanelsRenderHook::SCRIPTS_AFTER,

@@ -74,8 +74,9 @@ class KeanggotaanResource extends Resource
       ->defaultSort('created_at', 'desc')
       ->striped()
       ->actions([
-        Tables\Actions\ViewAction::make()->iconButton(),
-        Tables\Actions\EditAction::make()->iconButton(),
+        Tables\Actions\ViewAction::make()->iconButton()->tooltip('Lihat detail'),
+        Tables\Actions\EditAction::make()->iconButton()->tooltip('Ubah'),
+        Tables\Actions\DeleteAction::make()->iconButton()->tooltip('Hapus'),
       ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),

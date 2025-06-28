@@ -64,10 +64,7 @@ class PaketKeanggotaanResource extends Resource
     return $table
       ->columns([
         TextColumn::make('nama'),
-        TextColumn::make('deskripsi')
-          ->limit(50)
-          ->toggleable()
-          ->toggledHiddenByDefault(),
+        TextColumn::make('deskripsi')->limit(50)->toggleable()->toggledHiddenByDefault(),
         TextColumn::make('harga')->money('IDR'), // Format as Indonesian Rupiah
         TextColumn::make('durasi_bulan')->label('Durasi (Bulan)'),
         TextColumn::make('maksimal_properti')->label('Maks. Properti'),
@@ -79,7 +76,7 @@ class PaketKeanggotaanResource extends Resource
           ->toggleable()
           ->toggledHiddenByDefault(),
 
-          TextColumn::make('createdBy.name')
+        TextColumn::make('createdBy.name')
           ->label('Dibuat Oleh')
           ->toggleable()
           ->toggledHiddenByDefault(),
@@ -94,13 +91,9 @@ class PaketKeanggotaanResource extends Resource
       ])
       ->striped()
       ->actions([
-        ViewAction::make()->iconButton(),
-        EditAction::make()->iconButton(),
-        DeleteAction::make()
-          ->iconButton()
-          ->visible(fn() => true)
-          ->disabled(fn() => !auth()->user()?->hasRole('super_admin'))
-          ->tooltip('Hanya super admin yang bisa menghapus'),
+        ViewAction::make()->iconButton()->tooltip('Lihat detail'),
+        EditAction::make()->iconButton()->tooltip('Ubah'),
+        DeleteAction::make()->iconButton()->tooltip('Hapus'),
       ])
       ->bulkActions([
         // Tables\Actions\BulkActionGroup::make([

@@ -298,13 +298,13 @@ class UserResource extends Resource
       ->filtersLayout(FiltersLayout::AboveContentCollapsible)
       ->filtersFormColumns(2) // Display filters in 2 columns
       ->actions([
-        ViewAction::make()->iconButton(),
-        EditAction::make()->iconButton(),
+        ViewAction::make()->iconButton()->tooltip('Lihat detail'),
+        EditAction::make()->iconButton()->tooltip('Ubah'),
         DeleteAction::make()
           ->iconButton()
           ->visible(fn() => true)
           ->disabled(fn() => !auth()->user()?->hasRole('super_admin'))
-          ->tooltip('Hanya super admin yang bisa menghapus'),
+          ->tooltip('Hapus'),
         // ->visible(fn() => auth()->user()->hasRole('super_admin'))
         Action::make('verifikasiEmail')
           ->icon('heroicon-o-check-circle')
