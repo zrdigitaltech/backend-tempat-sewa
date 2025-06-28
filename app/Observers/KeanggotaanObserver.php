@@ -47,11 +47,7 @@ class KeanggotaanObserver
         $levelLama = $paketLama?->level ?? 0;
 
         $status =
-          $levelBaru > $levelLama
-            ? 'Naik'
-            : ($levelBaru < $levelLama
-              ? 'Turun'
-              : 'Perubahan');
+          $levelBaru > $levelLama ? 'Naik' : ($levelBaru < $levelLama ? 'Turun' : 'Perubahan');
 
         // Notifikasi ke user
         if ($user) {
@@ -71,10 +67,10 @@ class KeanggotaanObserver
 
         // Notifikasi ke admin
         $admins = \App\Models\User::whereHas('roles', function ($query) {
-            $query->whereIn('name', ['admin', 'super_admin']);
+          $query->whereIn('name', ['admin', 'super_admin']);
         })
-        ->where('id', '!=', auth()->id()) // <--- Tambahan: kecualikan user yang login
-        ->get();
+          ->where('id', '!=', auth()->id()) // <--- Tambahan: kecualikan user yang login
+          ->get();
 
         foreach ($admins as $admin) {
           \Filament\Notifications\Notification::make()

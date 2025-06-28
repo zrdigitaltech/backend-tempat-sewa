@@ -66,27 +66,33 @@ class Keanggotaan extends Model
   }
 
   protected static function booted()
-{
+  {
     static::updated(function (Keanggotaan $keanggotaan) {
-        if ($keanggotaan->isDirty('id_paketkeanggotaan')) {
-            $user = $keanggotaan->user;
-            $username = $user?->username ?? 'User ID ' . $keanggotaan->id_user;
+      if ($keanggotaan->isDirty('id_paketkeanggotaan')) {
+        $user = $keanggotaan->user;
+        $username = $user?->username ?? 'User ID ' . $keanggotaan->id_user;
 
-            $paketBaru = $keanggotaan->paket;
-            $paketLama = \App\Models\PaketKeanggotaan::find($keanggotaan->getOriginal('id_paketkeanggotaan'));
+        $paketBaru = $keanggotaan->paket;
+        $paketLama = \App\Models\PaketKeanggotaan::find(
+          $keanggotaan->getOriginal('id_paketkeanggotaan')
+        );
 
-            $namaPaketBaru = $paketBaru?->nama ?? '-';
-            $namaPaketLama = $paketLama?->nama ?? '-';
+        $namaPaketBaru = $paketBaru?->nama ?? '-';
+        $namaPaketLama = $paketLama?->nama ?? '-';
 
-            // Log aktivitas
-            \App\Models\UserActivity::create([
-                'user_id' => $keanggotaan->id_user,
-                'aksi' => 'Perubahan Paket',
-                'keterangan' => "Dari {$namaPaketLama} ke {$namaPaketBaru}",
-                'created_at' => now(),
-            ]);
-        }
+        // Log aktivitas
+        \App\Models\UserActivity::create([
+          'user_id' => $keanggotaan->id_user,
+          'aksi' => 'Perubahan Paket',
+          'keterangan' => "Dari {$namaPaketLama} ke {$namaPaketBaru}",
+          'created_at' => now(),
+        ]);
+      }
     });
-}
+  }
 
+  public function transaksi()
+  {
+    return $this->hasOne(Transaksi::class);
+  }
 }

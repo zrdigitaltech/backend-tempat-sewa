@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('keanggotaans', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('id_user')->unique()->constrained('users')->onDelete('cascade');
+      $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
       $table
         ->foreignId('id_paketkeanggotaan')
         ->constrained('paket_keanggotaans')

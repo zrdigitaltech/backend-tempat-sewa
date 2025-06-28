@@ -34,18 +34,18 @@ class WebPanelProvider extends PanelProvider
 
   public function boot(): void
   {
-      Filament::serving(function () {
-          $user = Auth::user();
-          
-          $keanggotaan = $user?->keanggotaanTerbaru;
+    Filament::serving(function () {
+      $user = Auth::user();
 
-          if ($keanggotaan && $keanggotaan->id_paketkeanggotaan === 1) {
-              Filament::registerRenderHook(
-                  'panels::topbar.start',
-                  fn () => view('filament.components.alert-gratis')
-              );
-          }
-      });
+      $keanggotaan = $user?->keanggotaanTerbaru;
+
+      if ($keanggotaan && $keanggotaan->id_paketkeanggotaan === 1) {
+        Filament::registerRenderHook(
+          'panels::topbar.start',
+          fn() => view('filament.components.alert-gratis')
+        );
+      }
+    });
   }
 
   public function panel(Panel $panel): Panel

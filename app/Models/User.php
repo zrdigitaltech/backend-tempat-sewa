@@ -102,7 +102,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
   public function keanggotaanTerbaru()
   {
-      return $this->hasOne(Keanggotaan::class, 'id_user')->latestOfMany();
+    return $this->hasOne(Keanggotaan::class, 'id_user')->latestOfMany();
   }
 
   public function sendEmailVerificationNotification(): void
@@ -113,6 +113,11 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
   public function getEmailVerifiedAttribute(): bool
   {
     return $this->email_verified_at !== null;
+  }
+
+  public function transaksis()
+  {
+    return $this->hasMany(Transaksi::class);
   }
 
   public function canAccessPanel(Panel $panel): bool
