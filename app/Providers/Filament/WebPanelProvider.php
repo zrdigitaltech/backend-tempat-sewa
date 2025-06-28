@@ -36,10 +36,13 @@ class WebPanelProvider extends PanelProvider
       ->default()
       ->id('web')
       ->path('')
-      // ->pages([])
-      ->pages([Pages\Dashboard::class])
+      ->authGuard('web')
+      ->pages([])
+      // ->pages([
+      //   Pages\Dashboard::class
+      // ])
       ->databaseNotifications(true)
-      ->databaseNotificationspolling('3s')
+      ->databaseNotificationsPolling('3s') 
       // ->breadcrumbs(false)
       ->brandName('App tempatSewa')
       ->spa()
@@ -95,7 +98,7 @@ class WebPanelProvider extends PanelProvider
       ])
       ->userMenuItems([
         // MenuItem::make()->label('Settings')->url('')->icon('heroicon-o-cog-6-tooth'),
-        'logout' => MenuItem::make()->label('Log Out'),
+        'logout' => MenuItem::make()->label('Keluar'),
       ])
       ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
       ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

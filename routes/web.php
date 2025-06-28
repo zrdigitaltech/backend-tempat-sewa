@@ -113,6 +113,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 //   return 'Notifications sent successfully';
 // });
 
+// Tangkap semua selain route filament
 Route::get('/{any}', function () {
   return redirect('/login');
-})->where('any', '.*');
+})->where('any', '^(?!filament).*$');

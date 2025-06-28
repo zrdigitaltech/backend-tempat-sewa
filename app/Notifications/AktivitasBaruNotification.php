@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\DatabaseMessage;
+use Filament\Facades\Filament;
 
 class AktivitasBaruNotification extends Notification
 {
@@ -37,12 +38,13 @@ class AktivitasBaruNotification extends Notification
   /**
    * Get the mail representation of the notification.
    */
-  public function toDatabase($notifiable): DatabaseMessage
+  public function toDatabase($notifiable)
   {
-    return new DatabaseMessage([
-      'title' => "Aktivitas: {$this->aksi}",
-      'body' => $this->keterangan,
-    ]);
+      return [
+          'title' => "Aktivitas: {$this->aksi}",
+          'body' => $this->keterangan,
+          'url' => url('/user-activities'),
+      ];
   }
 
   /**

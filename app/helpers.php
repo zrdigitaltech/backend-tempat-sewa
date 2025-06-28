@@ -14,12 +14,14 @@ function logUserActivity(string $aksi, ?string $keterangan = null, ?int $userId 
     'created_at' => now(),
   ]);
 
-  // Kirim notifikasi ke admin (jika aksi tertentu)
-  if (in_array($aksi, ['Update Paket'])) {
-    $adminUsers = User::role('admin')->get(); // jika pakai Spatie Role
+  // Kirim notifikasi ke super_admin (jika aksi tertentu)
+  if (in_array($aksi, ['Perubahan Paket'])) {
+    $adminUsers = User::whereHas('roles', function ($query) {
+        $query->whereIn('name', ['super_admin', 'admin']);
+    })->get();
 
     foreach ($adminUsers as $admin) {
-      $admin->notify(new AktivitasBaruNotification($aksi, $keterangan ?? 'Tidak ada keterangan'));
+        $admin->notify(new AktivitasBaruNotification($aksi, $keterangan ?? 'Tidak ada keterangan'));
     }
   }
 }
