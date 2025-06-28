@@ -45,6 +45,7 @@ Cara menjalankan Website :
 - php artisan shield:generate
 - php artisan shield:generate --all
 - php artisan shield:generate --panel=web
+- php artisan keanggotaan:expire
 
 docker exec -it laravel_app bash
 apt-get update && apt-get install -y libpdo-mysql
