@@ -26,7 +26,7 @@ class KeanggotaanResource extends Resource
   {
     return $form->schema([
       Forms\Components\Select::make('id_user')
-        ->label('User')
+        ->label('Nama Pengguna')
         ->relationship('user', 'username')
         ->searchable()
         ->placeholder('Ketik username...')
@@ -72,13 +72,13 @@ class KeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('user.name')->label('Nama User')->searchable(),
+        TextColumn::make('user.username')->label('Nama Pengguna')->searchable(),
 
-        TextColumn::make('paket.nama')->label('Paket Keanggotaan')->searchable(),
+        TextColumn::make('paket.nama')->label('Paket Keanggotaan'),
 
-        TextColumn::make('tanggal_mulai')->label('Mulai')->date()->sortable(),
+        TextColumn::make('tanggal_mulai')->label('Mulai')->date(),
 
-        TextColumn::make('tanggal_berakhir')->label('Berakhir')->date()->sortable(),
+        TextColumn::make('tanggal_berakhir')->label('Berakhir')->date(),
 
         IconColumn::make('aktif')->boolean()->label('Aktif'),
 
@@ -103,7 +103,7 @@ class KeanggotaanResource extends Resource
         Tables\Actions\DeleteAction::make()->iconButton()->tooltip('Hapus'),
       ])
       ->bulkActions([
-        Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
+        // Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
       ]);
   }
 

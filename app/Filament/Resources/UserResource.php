@@ -66,7 +66,7 @@ class UserResource extends Resource
               ]),
 
             TextInput::make('username')
-              ->label('Username')
+              ->label('Nama Pengguna')
               ->required()
               ->minLength(3)
               ->maxLength(30)
@@ -74,11 +74,11 @@ class UserResource extends Resource
               ->autocomplete(false)
               ->rule('regex:/^[a-zA-Z0-9._]+$/')
               ->validationMessages([
-                'required' => 'Username wajib diisi.',
-                'unique' => 'Username sudah digunakan.',
-                'regex' => 'Username hanya boleh berisi huruf, angka, titik, dan underscore.',
-                'min' => 'Username minimal 3 karakter.',
-                'max' => 'Username maksimal 30 karakter.',
+                'required' => 'Nama Pengguna wajib diisi.',
+                'unique' => 'Nama Pengguna sudah digunakan.',
+                'regex' => 'Nama Pengguna hanya boleh berisi huruf, angka, titik, dan underscore.',
+                'min' => 'Nama Pengguna minimal 3 karakter.',
+                'max' => 'Nama Pengguna maksimal 30 karakter.',
               ]),
 
             TextInput::make('no_whatsapp')
@@ -229,7 +229,7 @@ class UserResource extends Resource
       })
       ->columns([
         TextColumn::make('name')->label('Nama'),
-        TextColumn::make('username')->label('Username'),
+        TextColumn::make('username')->label('Nama Pengguna'),
         TextColumn::make('no_whatsapp')->label('No WhatsApp'),
         // ->formatStateUsing(fn($state) => '62' . ltrim($state, '0'))
         TextColumn::make('email'),
