@@ -14,7 +14,7 @@ class PaketKeanggotaansTableSeeder extends Seeder
         'nama' => 'Unlimited',
         'deskripsi' => 'Paket khusus admin/developer tanpa batasan properti dan iklan.',
         'harga' => 0,
-        'durasi_bulan' => 120, // atau 9999
+        'durasi_bulan' => 0,
         'maksimal_properti' => null,
         'maksimal_iklan' => null,
         'created_at' => now(),

@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use App\Filament\Resources\KeanggotaanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\{TextColumn, IconColumn};
+use Carbon\Carbon;
 
 class KeanggotaanResource extends Resource
 {
@@ -26,19 +27,42 @@ class KeanggotaanResource extends Resource
     return $form->schema([
       Forms\Components\Select::make('id_user')
         ->label('User')
-        ->relationship('user', 'name')
+        ->relationship('user', 'username')
         ->searchable()
-        ->required(),
+        ->placeholder('Ketik username...')
+        ->required()
+        ->disabled(),
 
       Forms\Components\Select::make('id_paketkeanggotaan')
         ->label('Paket Keanggotaan')
         ->relationship('paket', 'nama')
-        ->searchable()
-        ->required(),
+        ->required()
+        ->reactive() // penting agar bisa trigger perubahan
+        ->afterStateUpdated(function (callable $set) {
+          // reset tanggal mulai dan tanggal berakhir
+          $set('tanggal_mulai', null);
+          $set('tanggal_berakhir', null);
+        }),
 
-      Forms\Components\DatePicker::make('tanggal_mulai')->label('Tanggal Mulai')->required(),
+      Forms\Components\DatePicker::make('tanggal_mulai')
+        ->label('Tanggal Mulai')
+        ->required()
+        ->reactive()
+        ->minDate(Carbon::today(config('app.timezone')))
+        ->rule('after_or_equal:' . Carbon::today(config('app.timezone'))->toDateString())
+        ->afterStateUpdated(function ($state, callable $set, callable $get) {
+          $paketId = $get('id_paketkeanggotaan');
+          $paket = $paketId ? \App\Models\PaketKeanggotaan::find($paketId) : null;
 
-      Forms\Components\DatePicker::make('tanggal_berakhir')->label('Tanggal Berakhir')->required(),
+          if ($paket && $state && is_numeric($paket->durasi_bulan) && $paket->durasi_bulan > 0) {
+            $tanggalBerakhir = Carbon::parse($state)->addMonths((int) $paket->durasi_bulan);
+            $set('tanggal_berakhir', $tanggalBerakhir->toDateString());
+          } else {
+            $set('tanggal_berakhir', null);
+          }
+        }),
+
+      Forms\Components\DatePicker::make('tanggal_berakhir')->label('Tanggal Berakhir')->disabled(),
 
       Forms\Components\Toggle::make('aktif')->label('Status Aktif')->default(true),
     ]);
