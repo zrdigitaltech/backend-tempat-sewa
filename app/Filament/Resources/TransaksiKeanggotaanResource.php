@@ -99,7 +99,7 @@ class TransaksiKeanggotaanResource extends Resource
           ]),
         TextColumn::make('dibayar_pada')->since()->label('Dibayar')->toggleable(),
         TextColumn::make('expired_pada')->dateTime()->label('Expired')->toggleable(),
-        TextColumn::make('created_at')->label('Waktu Buat')->dateTime(),
+        TextColumn::make('created_at')->label('Dibuat pada')->dateTime(),
       ])
       ->actions([
         Tables\Actions\ViewAction::make(),
