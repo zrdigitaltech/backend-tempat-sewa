@@ -77,7 +77,15 @@ class KeanggotaanResource extends Resource
       ->columns([
         TextColumn::make('user.username')->label('Nama Pengguna')->searchable(),
 
-        TextColumn::make('paket.nama')->label('Paket Keanggotaan'),
+        BadgeColumn::make('paket.nama')
+        ->label('Paket Keanggotaan')
+        ->colors([
+            'gray' => fn($state) => strtolower($state) === 'gratis',
+            'warning' => fn($state) => strtolower($state) === 'premium',
+            'success' => fn($state) => strtolower($state) === 'unlimited',
+        ])
+        ->formatStateUsing(fn($state) => ucfirst($state))
+        ->sortable(),
 
         TextColumn::make('tanggal_mulai')->label('Mulai')->date(),
 
