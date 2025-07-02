@@ -122,7 +122,7 @@ class KeanggotaanResource extends Resource
       ->filters([
         Filter::make('search')
           ->label('Cari')
-          ->form([TextInput::make('search')->label('Username')->placeholder('Masukkan username')])
+          ->form([TextInput::make('search')->label('Nama Pengguna')->placeholder('Masukkan nama pengguna')])
           ->query(function ($query, array $data) {
             $search = $data['search'] ?? null;
             if ($search) {

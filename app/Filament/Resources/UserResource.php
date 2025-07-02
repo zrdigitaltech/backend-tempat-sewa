@@ -259,17 +259,16 @@ class UserResource extends Resource
             ->label('Cari')
             ->form([
               TextInput::make('search')
-                ->label('Nama / Email / Username')
-                ->placeholder('Masukkan nama, email, atau username'),
+                ->label('Nama Pengguna / Email')
+                ->placeholder('Masukkan nama pengguna atau email'),
             ])
             ->query(function ($query, array $data) {
               $search = $data['search'] ?? null;
               if ($search) {
                 $query->where(function ($query) use ($search) {
                   $query
-                    ->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%")
-                    ->orWhere('username', 'like', "%{$search}%");
+                    ->where('username', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
                 });
               }
             }),

@@ -71,7 +71,7 @@ class TransaksiKeanggotaanResource extends Resource
     return $table
       ->columns([
         TextColumn::make('kode_transaksi')->searchable()->label('Kode'),
-        TextColumn::make('user.name')->searchable()->label('User'),
+        TextColumn::make('user.username')->searchable()->label('Nama Pengguna'),
         TextColumn::make('jumlah')->money('IDR')->label('Jumlah'),
         BadgeColumn::make('status')
           ->colors([
@@ -82,8 +82,8 @@ class TransaksiKeanggotaanResource extends Resource
           ])
           ->label('Status'),
         TextColumn::make('metode_pembayaran')->label('Metode'),
-        TextColumn::make('dibayar_pada')->since()->label('Dibayar'),
-        TextColumn::make('expired_pada')->dateTime()->label('Expired'),
+        TextColumn::make('dibayar_pada')->since()->label('Dibayar')->toggleable(),
+        TextColumn::make('expired_pada')->dateTime()->label('Expired')->toggleable(),
         TextColumn::make('created_at')->label('Waktu Buat')->dateTime(),
       ])
       ->actions([
