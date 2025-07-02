@@ -14,6 +14,10 @@ use App\Filament\Resources\KeanggotaanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\{TextColumn, IconColumn, BadgeColumn};
 use Carbon\Carbon;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\{TextInput, Grid, Select, FileUpload, Textarea, Fieldset, Section};
 
 class KeanggotaanResource extends Resource
 {
@@ -75,17 +79,16 @@ class KeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('user.username')->label('Nama Pengguna')->searchable(),
+        TextColumn::make('user.username')->label('Nama Pengguna'),
 
         BadgeColumn::make('paket.nama')
-        ->label('Paket Keanggotaan')
-        ->colors([
+          ->label('Paket Keanggotaan')
+          ->colors([
             'gray' => fn($state) => strtolower($state) === 'gratis',
             'warning' => fn($state) => strtolower($state) === 'premium',
             'success' => fn($state) => strtolower($state) === 'unlimited',
-        ])
-        ->formatStateUsing(fn($state) => ucfirst($state))
-        ->sortable(),
+          ])
+          ->formatStateUsing(fn($state) => ucfirst($state)),
 
         TextColumn::make('tanggal_mulai')->label('Mulai')->date(),
 
@@ -117,8 +120,28 @@ class KeanggotaanResource extends Resource
           ->toggledHiddenByDefault(),
       ])
       ->filters([
-        //
+        Filter::make('search')
+          ->label('Cari')
+          ->form([TextInput::make('search')->label('Username')->placeholder('Masukkan username')])
+          ->query(function ($query, array $data) {
+            $search = $data['search'] ?? null;
+            if ($search) {
+              $query->whereHas('user', function ($q) use ($search) {
+                $q->where('username', 'like', "%{$search}%");
+              });
+            }
+          }),
+        SelectFilter::make('id_paketkeanggotaan')
+          ->label('Paket Keanggotaan')
+          ->relationship('paket', 'nama')
+          ->options([
+            'gratis' => 'Gratis',
+            'premium' => 'Premium',
+            'unlimited' => 'Unlimited',
+          ]),
       ])
+      ->filtersLayout(FiltersLayout::AboveContentCollapsible)
+      ->filtersFormColumns(2)
       ->defaultSort('created_at', 'desc')
       ->striped()
       ->actions([
