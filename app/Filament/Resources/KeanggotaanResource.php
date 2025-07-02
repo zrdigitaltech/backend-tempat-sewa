@@ -18,6 +18,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\{TextInput, Grid, Select, FileUpload, Textarea, Fieldset, Section};
+use Illuminate\Support\HtmlString;
 
 class KeanggotaanResource extends Resource
 {
@@ -79,10 +80,17 @@ class KeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('user.username')->label('Nama Pengguna'),
+        TextColumn::make('user.username')
+          ->label(new HtmlString('Nama<br>Pengguna'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
 
         BadgeColumn::make('paket.nama')
-          ->label('Paket Keanggotaan')
+          ->label(new HtmlString('Paket<br>Keanggotaan'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ])
           ->colors([
             'gray' => fn($state) => strtolower($state) === 'gratis',
             'warning' => fn($state) => strtolower($state) === 'premium',
@@ -122,7 +130,11 @@ class KeanggotaanResource extends Resource
       ->filters([
         Filter::make('search')
           ->label('Cari')
-          ->form([TextInput::make('search')->label('Nama Pengguna')->placeholder('Masukkan nama pengguna')])
+          ->form([
+            TextInput::make('search')
+              ->label('Nama Pengguna')
+              ->placeholder('Masukkan nama pengguna'),
+          ])
           ->query(function ($query, array $data) {
             $search = $data['search'] ?? null;
             if ($search) {

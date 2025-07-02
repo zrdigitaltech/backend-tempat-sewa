@@ -21,6 +21,7 @@ use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\TextEntry;
 use Illuminate\Support\Str;
 use Filament\Notifications\Notification;
+use Illuminate\Support\HtmlString;
 
 // Pastikan helper tersedia
 
@@ -70,8 +71,18 @@ class TransaksiKeanggotaanResource extends Resource
   {
     return $table
       ->columns([
-        TextColumn::make('kode_transaksi')->searchable()->label('Kode'),
-        TextColumn::make('user.username')->searchable()->label('Nama Pengguna'),
+        TextColumn::make('kode_transaksi')
+          ->searchable()
+          ->label(new HtmlString('Kode<br>Transaksi'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
+        TextColumn::make('user.username')
+          ->searchable()
+          ->label(new HtmlString('Nama<br>Pengguna'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
         TextColumn::make('jumlah')->money('IDR')->label('Jumlah'),
         BadgeColumn::make('status')
           ->colors([
@@ -81,7 +92,11 @@ class TransaksiKeanggotaanResource extends Resource
             'gray' => 'expired',
           ])
           ->label('Status'),
-        TextColumn::make('metode_pembayaran')->label('Metode'),
+        TextColumn::make('metode_pembayaran')
+          ->label(new HtmlString('Metode<br>Pembayaran'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
         TextColumn::make('dibayar_pada')->since()->label('Dibayar')->toggleable(),
         TextColumn::make('expired_pada')->dateTime()->label('Expired')->toggleable(),
         TextColumn::make('created_at')->label('Waktu Buat')->dateTime(),

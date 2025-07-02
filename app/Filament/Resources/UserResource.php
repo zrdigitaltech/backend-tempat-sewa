@@ -38,6 +38,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 use Closure;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\HtmlString;
 
 class UserResource extends Resource
 {
@@ -229,8 +230,16 @@ class UserResource extends Resource
       })
       ->columns([
         TextColumn::make('name')->label('Nama'),
-        TextColumn::make('username')->label('Nama Pengguna'),
-        TextColumn::make('no_whatsapp')->label('No WhatsApp'),
+        TextColumn::make('username')
+          ->label(new HtmlString('Nama<br>Pengguna'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
+        TextColumn::make('no_whatsapp')
+          ->label(new HtmlString('Nomor<br>WhatsApp'))
+          ->extraHeaderAttributes([
+            'class' => 'text-left',
+          ]),
         // ->formatStateUsing(fn($state) => '62' . ltrim($state, '0'))
         TextColumn::make('email'),
         TextColumn::make('roles.name')->label('Role'),
