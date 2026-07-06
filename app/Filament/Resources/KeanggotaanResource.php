@@ -92,9 +92,9 @@ class KeanggotaanResource extends Resource
             'class' => 'text-left',
           ])
           ->colors([
-            'gray' => fn($state) => strtolower($state) === 'gratis',
-            'warning' => fn($state) => strtolower($state) === 'premium',
-            'success' => fn($state) => strtolower($state) === 'unlimited',
+            'gray' => fn($state) => strtolower($state ?? '') === 'gratis',
+            'warning' => fn($state) => strtolower($state ?? '') === 'premium',
+            'success' => fn($state) => strtolower($state ?? '') === 'unlimited',
           ])
           ->formatStateUsing(fn($state) => ucfirst($state)),
 
@@ -103,16 +103,14 @@ class KeanggotaanResource extends Resource
         TextColumn::make('tanggal_berakhir')->label('Berakhir')->date(),
 
         BadgeColumn::make('sisa_hari')
-          ->label('Sisa Hari')
-          ->alignCenter()
           ->colors([
-            'danger' => fn($record) => $record->tanggal_berakhir &&
-              \Carbon\Carbon::today()->diffInDays($record->tanggal_berakhir, false) <= 7,
-            'gray' => fn($record) => !$record->tanggal_berakhir,
-            'success' => fn($record) => \Carbon\Carbon::today()->diffInDays(
-              $record->tanggal_berakhir,
-              false
-            ) > 7,
+              'gray' => fn ($record) => !$record->tanggal_berakhir,
+              'danger' => fn ($record) =>
+                  $record->tanggal_berakhir &&
+                  Carbon::today()->diffInDays($record->tanggal_berakhir, false) <= 7,
+              'success' => fn ($record) =>
+                  $record->tanggal_berakhir &&
+                  Carbon::today()->diffInDays($record->tanggal_berakhir, false) > 7,
           ]),
 
         IconColumn::make('aktif')->boolean()->label('Aktif')->toggleable()->alignCenter(),
@@ -146,11 +144,6 @@ class KeanggotaanResource extends Resource
         SelectFilter::make('id_paketkeanggotaan')
           ->label('Paket Keanggotaan')
           ->relationship('paket', 'nama')
-          ->options([
-            'gratis' => 'Gratis',
-            'premium' => 'Premium',
-            'unlimited' => 'Unlimited',
-          ]),
       ])
       ->filtersLayout(FiltersLayout::AboveContentCollapsible)
       ->filtersFormColumns(2)
