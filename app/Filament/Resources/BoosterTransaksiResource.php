@@ -19,6 +19,7 @@ class BoosterTransaksiResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
     protected static ?string $navigationGroup = 'Iklan & Promosi';
     protected static ?string $navigationLabel = 'Transaksi Booster';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

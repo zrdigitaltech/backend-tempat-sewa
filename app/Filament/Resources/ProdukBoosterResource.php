@@ -18,6 +18,7 @@ class ProdukBoosterResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-bolt';
     protected static ?string $navigationGroup = 'Iklan & Promosi';
     protected static ?string $navigationLabel = 'Produk Booster';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
