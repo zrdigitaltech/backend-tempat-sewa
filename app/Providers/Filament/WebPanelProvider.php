@@ -61,7 +61,7 @@ class WebPanelProvider extends PanelProvider
         'primary' => '#1e3a8a',
       ])
       // ->breadcrumbs(false)
-      ->brandName('App tempatSewa')
+      ->brandName('Selamat Datang di tempatSewa')
       ->spa()
       ->unsavedChangesAlerts()
       ->plugins([

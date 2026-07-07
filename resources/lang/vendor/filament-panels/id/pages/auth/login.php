@@ -3,7 +3,7 @@
 return [
   'title' => 'Masuk',
 
-  'heading' => 'Masuk ke akun Anda',
+  'heading' => 'Platform Manajemen Properti yang Mudah dan Efisien',
 
   'actions' => [
     'register' => [
