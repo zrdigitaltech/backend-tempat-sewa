@@ -189,11 +189,11 @@ class PengaduanResource extends Resource
 
   public static function getNavigationLabel(): string
   {
-    return __('Data Pengaduan');
+    return __('Pengaduan');
   }
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Properti');
+    return __('Pengguna');
   }
 }

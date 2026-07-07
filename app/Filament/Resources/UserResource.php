@@ -343,7 +343,7 @@ class UserResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Keanggotaan');
+    return __('Pengguna');
   }
 
   // public static function canAccess(): bool

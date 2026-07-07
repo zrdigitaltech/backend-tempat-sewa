@@ -34,6 +34,7 @@ class PenyewaResource extends Resource
   protected static ?string $model = Penyewa::class;
   protected static ?string $navigationIcon = 'heroicon-o-identification';
   protected static ?int $navigationSort = 1;
+  protected static ?string $navigationGroup = 'Pengguna';
   // protected static ?string $navigationLabel = 'Data Penyewa';
   // protected static ?string $label = 'Data Penyewa';
   protected static ?string $slug = 'data-penyewa';
@@ -633,11 +634,11 @@ class PenyewaResource extends Resource
 
   public static function getNavigationLabel(): string
   {
-    return __('Data Penyewa');
+    return __('Penyewa');
   }
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Properti');
+    return __('Pengguna');
   }
 }

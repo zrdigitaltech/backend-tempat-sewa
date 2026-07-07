@@ -432,6 +432,6 @@ class LaporanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Properti');
+    return __('Keuangan');
   }
 }

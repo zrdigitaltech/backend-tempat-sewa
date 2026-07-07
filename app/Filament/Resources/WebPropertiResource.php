@@ -45,11 +45,11 @@ class WebPropertiResource extends Resource
 
   public static function getNavigationLabel(): string
   {
-    return __('Data Properti');
+    return __('Iklan Properti');
   }
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Iklan');
+    return __('Iklan & Promosi');
   }
 }

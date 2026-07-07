@@ -16,6 +16,7 @@ class KategoriFasilitasResource extends Resource
     protected static ?string $model = KategoriFasilitas::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static ?string $navigationGroup = 'Manajemen Properti';
 
     public static function form(Form $form): Form
     {

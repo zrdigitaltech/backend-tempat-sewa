@@ -28,7 +28,8 @@ class PaketKeanggotaanResource extends Resource
   protected static ?string $model = PaketKeanggotaan::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-archive-box';
-  protected static ?string $slug = 'paket-keanggotaan';
+    protected static ?string $slug = 'paket-keanggotaan';
+    protected static ?string $navigationGroup = 'Manajemen Pengguna';
   protected static ?int $navigationSort = 0;
 
   public static function form(Form $form): Form
@@ -125,6 +126,6 @@ class PaketKeanggotaanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Keanggotaan');
+    return __('Keanggotaan');
   }
 }

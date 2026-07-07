@@ -17,6 +17,7 @@ class TagihanResource extends Resource
   // protected static ?string $model = Tagihan::class;
   protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
   protected static ?int $navigationSort = 3;
+  protected static ?string $navigationGroup = 'Keuangan';
   // protected static ?string $navigationLabel = 'Cek Tagihan';
   // protected static ?string $label = 'Cek Tagihan';
   protected static ?string $slug = 'cek-tagihan';
@@ -66,6 +67,6 @@ class TagihanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return __('Manajemen Properti');
+    return __('Keuangan');
   }
 }

@@ -248,7 +248,7 @@ class PropertiResource extends Resource
 
   public static function getNavigationLabel(): string
   {
-    return __('Data Properti');
+    return __('Properti');
   }
 
   public static function getNavigationGroup(): ?string

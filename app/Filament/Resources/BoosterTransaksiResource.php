@@ -16,7 +16,9 @@ class BoosterTransaksiResource extends Resource
 {
     protected static ?string $model = BoosterTransaksi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
+    protected static ?string $navigationIcon = 'heroicon-o-credit-card';
+    protected static ?string $navigationGroup = 'Iklan & Promosi';
+    protected static ?string $navigationLabel = 'Transaksi Booster';
 
     public static function form(Form $form): Form
     {

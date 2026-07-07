@@ -31,6 +31,7 @@ class TransaksiKeanggotaanResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
   protected static ?int $navigationSort = 3;
+  protected static ?string $navigationGroup = 'Transaksi';
 
   public static function form(Form $form): Form
   {
@@ -179,6 +180,6 @@ class TransaksiKeanggotaanResource extends Resource
 
   public static function getNavigationGroup(): ?string
   {
-    return 'Manajemen Keanggotaan';
+    return 'Transaksi';
   }
 }

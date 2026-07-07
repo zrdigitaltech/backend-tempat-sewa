@@ -15,7 +15,9 @@ class ProdukBoosterResource extends Resource
 {
     protected static ?string $model = ProdukBooster::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-beaker';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
+    protected static ?string $navigationGroup = 'Iklan & Promosi';
+    protected static ?string $navigationLabel = 'Produk Booster';
 
     public static function form(Form $form): Form
     {

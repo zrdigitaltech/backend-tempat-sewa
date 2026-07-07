@@ -16,6 +16,7 @@ class TipePropertiResource extends Resource
     protected static ?string $model = TipeProperti::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
+    protected static ?string $navigationGroup = 'Manajemen Properti';
 
     public static function form(Form $form): Form
     {
