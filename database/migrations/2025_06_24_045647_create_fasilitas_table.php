@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('fasilitas', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('kategorifasilitas_id')->constrained()->onDelete('cascade');
+      $table->foreignId('kategori_fasilitas_id')->constrained()->onDelete('cascade');
       $table->string('nama'); // e.g. "AC", "Internet", 1 (jumlah kamar)
       $table->timestamps();
     });

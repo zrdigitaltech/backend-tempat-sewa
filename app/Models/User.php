@@ -22,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
   /**
    * Atribut yang diizinkan untuk diisi melalui mass-assignment (User::create([...]))
-   * Tidak termasuk id_paketkeanggotaan karena keanggotaan disimpan di tabel terpisah
+   * Tidak termasuk id_paket_keanggotaan karena keanggotaan disimpan di tabel terpisah
    */
   protected $fillable = [
     'name',

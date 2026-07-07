@@ -31,13 +31,13 @@ class KeanggotaanObserver
     if (Auth::check()) {
       $keanggotaan->updated_by = Auth::id();
 
-      // Hanya jika field id_paketkeanggotaan berubah
-      if ($keanggotaan->isDirty('id_paketkeanggotaan')) {
+      // Hanya jika field id_paket_keanggotaan berubah
+      if ($keanggotaan->isDirty('id_paket_keanggotaan')) {
         $user = $keanggotaan->user;
         $username = $user?->username ?? 'User ID ' . $keanggotaan->id_user;
 
         $paketBaru = $keanggotaan->paket;
-        $paketLama = PaketKeanggotaan::find($keanggotaan->getOriginal('id_paketkeanggotaan'));
+        $paketLama = PaketKeanggotaan::find($keanggotaan->getOriginal('id_paket_keanggotaan'));
 
         $namaPaketBaru = $paketBaru?->nama ?? '-';
         $namaPaketLama = $paketLama?->nama ?? '-';

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KategoriFasilitas extends Model
 {
-  protected $fillable = ['tipeproperti_id', 'nama', 'jenis'];
+  protected $fillable = ['tipe_properti_id', 'nama', 'jenis'];
 
   public function tipeProperti()
   {

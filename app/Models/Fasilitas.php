@@ -20,7 +20,7 @@ class Fasilitas extends Model
       'id',
       'id',
       'kategori_fasilitas_id',
-      'tipeproperti_id'
+      'tipe_properti_id'
     );
   }
 }

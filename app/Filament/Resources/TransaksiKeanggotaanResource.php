@@ -165,7 +165,7 @@ class TransaksiKeanggotaanResource extends Resource
   public static function getPages(): array
   {
     return [
-      'index' => Pages\ListTransaksiKeanggotaans::route('/'),
+      'index' => Pages\ListTransaksiKeanggotaan::route('/'),
       'create' => Pages\CreateTransaksiKeanggotaan::route('/create'),
       'edit' => Pages\EditTransaksiKeanggotaan::route('/{record}/edit'),
       'view' => Pages\ViewTransaksiKeanggotaan::route('/{record}/view'),

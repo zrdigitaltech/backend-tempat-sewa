@@ -42,7 +42,7 @@ function beliAtauPerpanjangPaket(User $user, PaketKeanggotaan $paket, User $admi
   // Buat baru
   return Keanggotaan::create([
     'id_user' => $user->id,
-    'id_paketkeanggotaan' => $paket->id,
+    'id_paket_keanggotaan' => $paket->id,
     'tanggal_mulai' => $tanggalMulai,
     'tanggal_berakhir' => $tanggalBerakhir,
     'aktif' => true,

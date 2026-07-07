@@ -10,11 +10,11 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('kategorifasilitas', function (Blueprint $table) {
+    Schema::create('tipe_propertis', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('tipeproperti_id')->constrained()->onDelete('cascade');
-      $table->enum('jenis', ['lingkungan', 'interior']); // membedakan dua sumber
-      $table->string('nama'); // e.g. "Fasilitas Umum", "Kamar Tidur"
+      $table->string('nama')->unique();
+      $table->string('slug')->unique();
+      $table->enum('kategori', ['hunian', 'usaha', 'lainnya']);
       $table->timestamps();
     });
   }
@@ -24,6 +24,8 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('kategorifasilitas');
+    Schema::disableForeignKeyConstraints();
+    Schema::dropIfExists('tipe_propertis');
+    Schema::enableForeignKeyConstraints();
   }
 };

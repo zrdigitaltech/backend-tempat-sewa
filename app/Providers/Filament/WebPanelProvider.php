@@ -39,7 +39,7 @@ class WebPanelProvider extends PanelProvider
 
       $keanggotaan = $user?->keanggotaanTerbaru;
 
-      if ($keanggotaan && $keanggotaan->id_paketkeanggotaan === 1) {
+      if ($keanggotaan && $keanggotaan->id_paket_keanggotaan === 1) {
         Filament::registerRenderHook(
           'panels::topbar.start',
           fn() => view('filament.components.alert-gratis')

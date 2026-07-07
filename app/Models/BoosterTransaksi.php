@@ -9,7 +9,7 @@ class BoosterTransaksi extends Model
   protected $fillable = [
     'user_id',
     'properti_id',
-    'produkbooster_id',
+    'produk_booster_id',
     'tanggal_mulai',
     'tanggal_berakhir',
     'status',
@@ -27,6 +27,6 @@ class BoosterTransaksi extends Model
 
   public function produk(): BelongsTo
   {
-    return $this->belongsTo(ProdukBooster::class, 'produkbooster_id');
+    return $this->belongsTo(ProdukBooster::class, 'produk_booster_id');
   }
 }

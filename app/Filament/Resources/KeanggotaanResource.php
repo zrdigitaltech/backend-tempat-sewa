@@ -38,7 +38,7 @@ class KeanggotaanResource extends Resource
         ->required()
         ->disabled(),
 
-      Forms\Components\Select::make('id_paketkeanggotaan')
+      Forms\Components\Select::make('id_paket_keanggotaan')
         ->label('Paket Keanggotaan')
         ->relationship('paket', 'nama')
         ->required()
@@ -56,7 +56,7 @@ class KeanggotaanResource extends Resource
         ->minDate(Carbon::today(config('app.timezone')))
         ->rule('after_or_equal:' . Carbon::today(config('app.timezone'))->toDateString())
         ->afterStateUpdated(function ($state, callable $set, callable $get) {
-          $paketId = $get('id_paketkeanggotaan');
+          $paketId = $get('id_paket_keanggotaan');
           $paket = $paketId ? \App\Models\PaketKeanggotaan::find($paketId) : null;
 
           if ($paket && $state && is_numeric($paket->durasi_bulan) && $paket->durasi_bulan > 0) {
@@ -141,7 +141,7 @@ class KeanggotaanResource extends Resource
               });
             }
           }),
-        SelectFilter::make('id_paketkeanggotaan')
+        SelectFilter::make('id_paket_keanggotaan')
           ->label('Paket Keanggotaan')
           ->relationship('paket', 'nama')
       ])

@@ -46,6 +46,6 @@ class PaketKeanggotaan extends Model
 
   public function keanggotaans(): HasMany
   {
-    return $this->hasMany(Keanggotaan::class, 'id_paketkeanggotaan');
+    return $this->hasMany(Keanggotaan::class, 'id_paket_keanggotaan');
   }
 }

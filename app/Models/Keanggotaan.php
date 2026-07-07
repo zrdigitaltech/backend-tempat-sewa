@@ -17,7 +17,7 @@ class Keanggotaan extends Model
    */
   protected $fillable = [
     'id_user',
-    'id_paketkeanggotaan',
+    'id_paket_keanggotaan',
     'tanggal_mulai',
     'tanggal_berakhir',
     'aktif',
@@ -48,7 +48,7 @@ class Keanggotaan extends Model
 
   public function paket(): BelongsTo
   {
-    return $this->belongsTo(PaketKeanggotaan::class, 'id_paketkeanggotaan');
+    return $this->belongsTo(PaketKeanggotaan::class, 'id_paket_keanggotaan');
   }
 
   public function getSisaHariAttribute()
@@ -68,13 +68,13 @@ class Keanggotaan extends Model
   protected static function booted()
   {
     static::updated(function (Keanggotaan $keanggotaan) {
-      if ($keanggotaan->isDirty('id_paketkeanggotaan')) {
+      if ($keanggotaan->isDirty('id_paket_keanggotaan')) {
         $user = $keanggotaan->user;
         $username = $user?->username ?? 'User ID ' . $keanggotaan->id_user;
 
         $paketBaru = $keanggotaan->paket;
         $paketLama = \App\Models\PaketKeanggotaan::find(
-          $keanggotaan->getOriginal('id_paketkeanggotaan')
+          $keanggotaan->getOriginal('id_paket_keanggotaan')
         );
 
         $namaPaketBaru = $paketBaru?->nama ?? '-';

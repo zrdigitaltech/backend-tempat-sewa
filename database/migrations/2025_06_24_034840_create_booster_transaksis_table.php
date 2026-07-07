@@ -10,11 +10,11 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create('boostertransaksis', function (Blueprint $table) {
+    Schema::create('booster_transaksis', function (Blueprint $table) {
       $table->id();
       $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
       $table->foreignId('properti_id')->constrained('propertis')->onDelete('cascade');
-      $table->foreignId('produkbooster_id')->constrained('produkboosters')->onDelete('cascade');
+      $table->foreignId('produk_booster_id')->constrained('produk_boosters')->onDelete('cascade');
       $table->timestamp('tanggal_mulai');
       $table->timestamp('tanggal_berakhir')->nullable();
       $table->enum('status', ['aktif', 'kadaluarsa'])->default('aktif');
@@ -27,6 +27,6 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists('boostertransaksis');
+    Schema::dropIfExists('booster_transaksis');
   }
 };

@@ -29,10 +29,10 @@ class ExpireKeanggotaanCommand extends Command
   {
     $today = Carbon::today();
 
-    $total = Keanggotaan::whereNot('id_paketkeanggotaan', 2)
+    $total = Keanggotaan::whereNot('id_paket_keanggotaan', 2)
       ->whereDate('tanggal_berakhir', '<', $today)
       ->update([
-        'id_paketkeanggotaan' => 2,
+        'id_paket_keanggotaan' => 2,
       ]);
 
     $this->info("Total keanggotaan yang diubah: {$total}");

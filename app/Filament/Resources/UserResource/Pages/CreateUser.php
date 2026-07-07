@@ -18,10 +18,10 @@ class CreateUser extends CreateRecord
   {
     $data = $this->form->getState();
 
-    if (!empty($data['id_paketkeanggotaan'])) {
+    if (!empty($data['id_paket_keanggotaan'])) {
       Keanggotaan::create([
         'id_user' => $this->record->id,
-        'id_paketkeanggotaan' => $data['id_paketkeanggotaan'],
+        'id_paket_keanggotaan' => $data['id_paket_keanggotaan'],
         'tanggal_mulai' => now(),
         'tanggal_berakhir' => now()->addMonths(1), // opsional
         'aktif' => true,
