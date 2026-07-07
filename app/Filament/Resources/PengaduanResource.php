@@ -16,7 +16,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\{TextInput, Textarea, Select, Card, DatePicker};
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\Filter;
-use App\Models\Kontrakan;
+use App\Models\Properti;
 use Filament\Tables\Filters\TextFilter;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Grouping\Group;
@@ -35,7 +35,7 @@ class PengaduanResource extends Resource
   public static function form(Form $form): Form
   {
     // Fetch the available kontrakans from the database
-    $kontrakans = Kontrakan::all()->pluck('nama', 'id')->toArray();
+    $kontrakans = Properti::all()->pluck('nama', 'id')->toArray();
 
     return $form->schema([
       Card::make()
