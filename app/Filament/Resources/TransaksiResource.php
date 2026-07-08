@@ -17,6 +17,7 @@ class TransaksiResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationGroup = 'Transaksi';
+    protected static ?int $navigationSort = 0;
 
     public static function form(Form $form): Form
     {

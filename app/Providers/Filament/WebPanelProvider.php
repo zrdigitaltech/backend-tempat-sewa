@@ -26,6 +26,7 @@ use App\Filament\Pages\Auth\Login as CustomLogin;
 use App\Filament\Widgets\AktivitasRingkasan;
 use Filament\Facades\Filament;
 use Illuminate\Support\ServiceProvider;
+use Filament\Navigation\NavigationGroup;
 
 class WebPanelProvider extends PanelProvider
 {
@@ -135,7 +136,19 @@ class WebPanelProvider extends PanelProvider
         ],
         isPersistent: true
       )
-      ->authMiddleware([Authenticate::class], isPersistent: true);
+      ->authMiddleware([Authenticate::class], isPersistent: true)
+      ->navigationGroups([
+        'Dashboard',
+        'Pengguna',
+        'Keanggotaan',
+        'Manajemen Properti',
+        'Iklan & Promosi',
+        'Transaksi',
+        'Keuangan',
+        'Laporan',
+        'Pelindung',
+        'External',
+      ]);
   }
 
   protected function getWidgetsForPermissions(): array

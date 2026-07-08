@@ -17,6 +17,7 @@ class FasilitasResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cog';
     protected static ?string $navigationGroup = 'Manajemen Properti';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

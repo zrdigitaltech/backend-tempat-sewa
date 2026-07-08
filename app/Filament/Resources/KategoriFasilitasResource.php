@@ -17,6 +17,7 @@ class KategoriFasilitasResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
     protected static ?string $navigationGroup = 'Manajemen Properti';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

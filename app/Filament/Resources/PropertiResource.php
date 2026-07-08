@@ -43,7 +43,7 @@ class PropertiResource extends Resource
   // protected static ?string $navigationLabel = 'Data Properti';
   // protected static ?string $navigationGroup = 'Properti';
   // protected static ?string $label = 'Data Properti';
-  protected static ?int $navigationSort = 0;
+  protected static ?int $navigationSort = 1;
   protected static ?string $slug = 'data-properti';
 
   public static function form(Form $form): Form
