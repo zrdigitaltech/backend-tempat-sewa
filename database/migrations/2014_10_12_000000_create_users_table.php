@@ -16,6 +16,11 @@ return new class extends Migration {
       // Informasi dasar
       $table->string('name');
       $table->string('email')->unique();
+      $table->string('username')->unique();
+      $table->string('avatar')->nullable();
+      $table->text('bio')->nullable();
+      $table->string('no_whatsapp')->unique()->nullable();
+      $table->json('socials')->nullable();
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password');
 
