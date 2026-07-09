@@ -15,6 +15,11 @@ class BoosterTransaksi extends Model
     'status',
   ];
 
+  protected $casts = [
+    'tanggal_mulai' => 'date',
+    'tanggal_berakhir' => 'date',
+  ];
+
   public function user(): BelongsTo
   {
     return $this->belongsTo(User::class);

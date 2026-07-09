@@ -16,12 +16,6 @@ class Penyewa extends Model
    */
   protected $fillable = ['image', 'nama', 'no_telp', 'kartu_identitas'];
 
-  public function penyewa()
-  {
-    return $this->belongsTo(Penyewa::class, 'id_penyewa');
-  }
-
-  //
   public function transaksis()
   {
     return $this->hasMany(Transaksi::class, 'id_penyewa');

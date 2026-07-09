@@ -6,6 +6,7 @@ use App\Notifications\PengaduanNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Properti;
 
 /**
  * @OA\Schema(
@@ -54,13 +55,13 @@ class Pengaduan extends Model
    *
    * @var array<int, string>
    */
-  protected $fillable = ['nama', 'no_telp', 'id_kontrakan', 'catatan', 'status'];
+  protected $fillable = ['nama', 'no_telp', 'id_properti', 'catatan', 'status'];
 
   /**
-   * Get the kontrakan associated with the pengaduan.
+   * Get the properti associated with the pengaduan.
    */
-  public function kontrakan()
+  public function properti()
   {
-    return $this->belongsTo(Kontrakan::class, 'id_kontrakan');
+    return $this->belongsTo(Properti::class, 'id_properti');
   }
 }

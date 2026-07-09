@@ -14,6 +14,10 @@ use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Notifications\DatabaseNotification;
+use App\Models\Keanggotaan;
+use App\Models\BoosterTransaksi;
+use App\Models\Transaksi;
+use App\Models\Properti;
 
 class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 {

@@ -21,6 +21,12 @@ class TransaksiKeanggotaan extends Model
     'updated_by',
   ];
 
+  protected $casts = [
+    'dibayar_pada' => 'datetime',
+    'expired_pada' => 'datetime',
+    'jumlah' => 'integer',
+  ];
+
   // Relasi
   public function user()
   {

@@ -19,6 +19,8 @@ class ProdukBooster extends Model
   protected $casts = [
     'prioritas' => 'boolean',
     'tampilkan_beranda' => 'boolean',
+    'durasi_hari' => 'integer',
+    'harga' => 'integer',
   ];
 
   public function boosterTransaksis(): HasMany

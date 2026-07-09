@@ -76,6 +76,9 @@ class Properti extends Model
    * @var array<int, string>
    */
   protected $fillable = [
+    'user_id',
+    'owner_id',
+    'type_id',
     'image',
     'alt',
     'nama',
@@ -83,12 +86,22 @@ class Properti extends Model
     'deskripsi',
     'keterangan',
     'harga_sewa',
+    'price',
+    'duration',
     'status',
+    'views',
+    'is_featured',
+    'extra',
   ];
 
   protected $casts = [
     'image' => 'array',
     'harga_sewa' => 'array',
+    'extra' => 'array',
+    'price' => 'integer',
+    'views' => 'integer',
+    'is_featured' => 'boolean',
+    'duration' => 'integer',
   ];
 
   /**
@@ -101,12 +114,32 @@ class Properti extends Model
 
   public function transaksis()
   {
-    return $this->hasMany(Transaksi::class, 'id_kontrakan');
+    return $this->hasMany(Transaksi::class, 'id_properti');
   }
 
   public function user(): BelongsTo
   {
     return $this->belongsTo(User::class);
+  }
+
+  public function owner(): BelongsTo
+  {
+    return $this->belongsTo(Owner::class, 'owner_id');
+  }
+
+  public function tipe(): BelongsTo
+  {
+    return $this->belongsTo(TipeProperti::class, 'type_id');
+  }
+
+  public function images(): HasMany
+  {
+    return $this->hasMany(PropertyImage::class, 'property_id');
+  }
+
+  public function informations(): HasMany
+  {
+    return $this->hasMany(PropertyInformation::class, 'property_id');
   }
 
   public function boosterTransaksis(): HasMany

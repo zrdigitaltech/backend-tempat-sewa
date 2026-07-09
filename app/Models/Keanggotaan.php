@@ -27,6 +27,12 @@ class Keanggotaan extends Model
 
   protected $with = ['createdBy', 'updatedBy'];
 
+  protected $casts = [
+    'tanggal_mulai' => 'date',
+    'tanggal_berakhir' => 'date',
+    'aktif' => 'boolean',
+  ];
+
   /**
    * Relasi ke user yang membuat user ini
    * (berguna jika sistem Anda mendukung multi-admin / user management)
@@ -93,6 +99,6 @@ class Keanggotaan extends Model
 
   public function transaksi()
   {
-    return $this->hasOne(Transaksi::class);
+    return $this->hasOne(Transaksi::class, 'id_keanggotaan');
   }
 }

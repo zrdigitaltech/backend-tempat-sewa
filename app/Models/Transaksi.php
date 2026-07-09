@@ -11,7 +11,7 @@ class Transaksi extends Model
 
   protected $fillable = [
     'id_penyewa',
-    'id_kontrakan',
+    'id_properti',
     'id_kategori',
     'tipe_pembayaran',
     'tanggal',
@@ -26,7 +26,7 @@ class Transaksi extends Model
 
   // Cast fields to appropriate data types
   protected $casts = [
-    'tgl_mulai' => 'date',
+    'tanggal' => 'date',
     'tgl_pembayaran_berikutnya' => 'date',
   ];
 
@@ -35,14 +35,8 @@ class Transaksi extends Model
   {
     return $this->belongsTo(Penyewa::class, 'id_penyewa');
   }
-
-  public function kontrakan()
+  public function properti()
   {
-    return $this->belongsTo(Kontrakan::class, 'id_kontrakan');
-  }
-
-  public function kategori()
-  {
-    return $this->belongsTo(Kategori::class, 'id_kategori');
+    return $this->belongsTo(Properti::class, 'id_properti');
   }
 }
