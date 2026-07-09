@@ -23,6 +23,9 @@ return new class extends Migration {
       $table->integer('jumlah_pemasukan')->nullable();
       $table->integer('jumlah_pengeluaran')->nullable();
       $table->enum('jenis_transaksi', ['pemasukan', 'pengeluaran']);
+      $table->decimal('fee', 12, 2)->nullable();
+      $table->string('id_settlement')->nullable();
+      $table->string('external_id')->nullable();
       $table
         ->enum('status_pembayaran', ['tertunda', 'dibayar', 'gagal', 'dikembalikan'])
         ->nullable();

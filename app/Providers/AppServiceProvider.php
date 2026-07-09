@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
     PaketKeanggotaan::observe(PaketKeanggotaanObserver::class);
     Keanggotaan::observe(KeanggotaanObserver::class);
 
+    // Payment integrations can be initialized here if needed
+
     FilamentView::registerRenderHook(
       PanelsRenderHook::SCRIPTS_AFTER,
       fn(): string => new HtmlString(

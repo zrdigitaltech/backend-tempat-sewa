@@ -114,6 +114,47 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 // });
 
 // Tangkap semua selain route filament
+// Doku demo routes
+use App\Http\Controllers\DokuController;
+
+Route::get('/doku/checkout', [DokuController::class, 'checkout']);
+Route::post('/doku/create', [DokuController::class, 'createPayment']);
+Route::post('/doku/notification', [DokuController::class, 'notification']);
+
+// Temporary test route to create a Transaksi for webhook testing
+use Illuminate\Http\Request as HttpRequest;
+Route::post('/doku/test-create', function (HttpRequest $request) {
+  $orderId = $request->input('order_id') ?? 'DOKU-TEST-' . time();
+  $amount = (int) ($request->input('amount') ?? 10000);
+
+  $transaksi = \App\Models\Transaksi::create([
+    'catatan' => $orderId,
+    'external_id' => $orderId,
+    'jumlah_pemasukan' => $amount,
+    'status_pembayaran' => 'tertunda',
+    'tanggal' => date('Y-m-d'),
+    'jenis_transaksi' => 'pemasukan',
+  ]);
+
+  return response()->json(['ok' => true, 'order' => $orderId, 'transaksi_id' => $transaksi->id]);
+});
+
+// Temporary route to check transaksi status by external_id
+Route::get('/doku/test-status', function (HttpRequest $request) {
+  $orderId = $request->query('order');
+  if (! $orderId) {
+    $list = \App\Models\Transaksi::orderBy('id', 'desc')->limit(10)->get(['id','external_id','catatan','status_pembayaran','jumlah_pemasukan','created_at']);
+    return response()->json($list);
+  }
+
+  $t = \App\Models\Transaksi::where('external_id', $orderId)->orWhere('catatan', $orderId)->first();
+  if (! $t) {
+    return response()->json(['found' => false]);
+  }
+
+  return response()->json(['found' => true, 'id' => $t->id, 'status_pembayaran' => $t->status_pembayaran, 'external_id' => $t->external_id]);
+});
+
 Route::get('/{any}', function () {
   return redirect('/login');
 })->where('any', '^(?!filament).*$');
