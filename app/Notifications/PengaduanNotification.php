@@ -5,14 +5,15 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Pengaduan;
 
 class PengaduanNotification extends Notification
 {
   use Queueable;
 
-  protected $pengaduan;
+  protected Pengaduan $pengaduan;
 
-  public function __construct($pengaduan)
+  public function __construct(Pengaduan $pengaduan)
   {
     $this->pengaduan = $pengaduan;
   }
@@ -30,7 +31,7 @@ class PengaduanNotification extends Notification
   //                 ->line('Thank you for using our application!');
   // }
 
-  public function toArray($notifiable)
+  public function toArray($notifiable): array
   {
     return [
       'nama' => $this->pengaduan->nama,
@@ -40,7 +41,7 @@ class PengaduanNotification extends Notification
     ];
   }
 
-  public function getNotifiableType()
+  public function getNotifiableType(): string
   {
     return 'App\Models\Pengaduan';
   }
