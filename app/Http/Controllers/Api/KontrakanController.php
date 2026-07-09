@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Kontrakan;
+use App\Models\Properti;
 use Illuminate\Support\Facades\Log;
 
 class KontrakanController extends Controller
@@ -32,7 +32,7 @@ class KontrakanController extends Controller
   public function index()
   {
     try {
-      $Kontrakan = Kontrakan::all();
+      $Kontrakan = Properti::all();
 
       return response()->json(
         [

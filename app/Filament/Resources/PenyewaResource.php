@@ -161,17 +161,10 @@ class PenyewaResource extends Resource
         ->schema([
           Grid::make(2) // Membuat grid dengan 2 kolom
             ->schema([
-              Select::make('id_kontrakan')
-                ->label('Nama Kontrakan')
+              Select::make('id_properti')
+                ->label('Nama Properti')
                 ->options(function () {
                   return Properti::where('status', 'tersedia')->pluck('nama', 'id')->toArray();
-
-                  // Check if options are empty
-                  if (empty($kontrakans)) {
-                    return ['' => 'Tidak ada kontrakan tersedia'];
-                  }
-
-                  return $kontrakans;
                 })
                 ->required()
                 ->searchable(function () {
@@ -186,7 +179,7 @@ class PenyewaResource extends Resource
                   $set('jumlah_kekurangan_visible', false);
                   $set('bayar_dp', null);
                   $set('bayar_dp_visible', false);
-                  // Set 'nama' (Unit Sewa) based on selected 'id_kontrakan'
+                  // Set 'nama' (Unit Sewa) based on selected 'id_properti'
                   if ($state) {
                     $kontrakan = Properti::find($state);
                     if ($kontrakan) {
@@ -207,9 +200,9 @@ class PenyewaResource extends Resource
               Select::make('tipe_pembayaran')
                 ->label('Tipe Pembayaran')
                 ->options(function (callable $get) {
-                  $idKontrakan = $get('id_kontrakan');
+                  $idKontrakan = $get('id_properti');
 
-                  // If no 'id_kontrakan' is selected, return an empty array
+                  // If no 'id_properti' is selected, return an empty array
                   if (!$idKontrakan) {
                     return [];
                   }
@@ -232,12 +225,12 @@ class PenyewaResource extends Resource
                 ->suffix('Bulan')
                 ->required()
                 ->preload()
-                ->hint('Pilih nama kontrakan dahulu')
+                ->hint('Pilih nama properti dahulu')
                 ->disabled(function (callable $get) {
-                  return !$get('id_kontrakan');
+                  return !$get('id_properti');
                 })
                 ->afterStateUpdated(function (callable $set, callable $get, $state) {
-                  $idKontrakan = $get('id_kontrakan');
+                  $idKontrakan = $get('id_properti');
                   $tanggal = $get('tanggal');
 
                   if ($idKontrakan && $state) {
@@ -306,7 +299,7 @@ class PenyewaResource extends Resource
                 ->afterStateUpdated(function (callable $set, callable $get, $state) {
                   if ($state) {
                     $tipePembayaran = (int) $get('tipe_pembayaran');
-                    $idKontrakan = $get('id_kontrakan');
+                    $idKontrakan = $get('id_properti');
                     $kontrakan = Properti::find($idKontrakan);
 
                     if ($tipePembayaran && $kontrakan) {
@@ -330,7 +323,7 @@ class PenyewaResource extends Resource
                     }
                   } else {
                     $set('tgl_pembayaran_berikutnya', null);
-                    $idKontrakan = $get('id_kontrakan');
+                    $idKontrakan = $get('id_properti');
                     $kontrakan = Properti::find($idKontrakan);
                     $tipePembayaran = (int) $get('tipe_pembayaran');
                     if ($kontrakan) {

@@ -12,7 +12,7 @@ use Filament\Tables\Columns\{TextColumn};
 use Carbon\Carbon;
 
 use Filament\Forms\Components\{DatePicker, Section, Grid, TextInput, TextArea, Select};
-use App\Models\Kontrakan;
+use App\Models\Properti;
 use Filament\Support\RawJs;
 use Filament\Support\Enums\MaxWidth;
 
@@ -20,16 +20,14 @@ class TransaksiRelationManager extends RelationManager
 {
   protected static string $relationship = 'transaksis';
 
-  public static function getOptionsKontrakan(int $id_kontrakan = null): array
+  public static function getOptionsKontrakan(int $id_properti = null): array
   {
     $tidakTersedia = [];
-    // If $id_kontrakan is not null, fetch kontrakan with 'tidak tersedia' status for the given id
-    if ($id_kontrakan !== null) {
-      $tidakTersedia = Kontrakan::where('id', $id_kontrakan)
+    if ($id_properti !== null) {
+      $tidakTersedia = Properti::where('id', $id_properti)
         ->get(['id', 'nama'])
         ->toArray();
 
-      // If there's a matching record, update its status to 'tersedia'
       if (!empty($tidakTersedia)) {
         foreach ($tidakTersedia as &$kontrakan) {
           $kontrakan['status'] = 'tersedia';
@@ -37,18 +35,13 @@ class TransaksiRelationManager extends RelationManager
       }
     }
 
-    // Fetch kontrakan with 'tersedia' status as an array
-    $tersedia = Kontrakan::where('status', 'tersedia')
+    $tersedia = Properti::where('status', 'tersedia')
       ->get(['id', 'nama'])
       ->toArray();
 
-    // Merge both arrays
     $mergedArray = array_merge($tidakTersedia, $tersedia);
-
-    // Convert the merged array into a collection to use pluck
     $options = collect($mergedArray)->pluck('nama', 'id')->toArray();
 
-    // Check if options are empty
     if (empty($options)) {
       return ['' => 'Tidak ada kontrakan tersedia'];
     }
@@ -71,15 +64,15 @@ class TransaksiRelationManager extends RelationManager
           ]),
           Grid::make(2) // Membuat grid dengan 2 kolom
             ->schema([
-              Select::make('id_kontrakan')
+              Select::make('id_properti')
                 ->label('Nama Kontrakan')
                 ->options(
-                  fn(callable $get) => self::getOptionsKontrakan($get('id_kontrakan') ?? null)
+                  fn(callable $get) => self::getOptionsKontrakan($get('id_properti') ?? null)
                 )
                 ->required()
                 // ->reactive() // Ensure this field is reactive to changes
                 ->afterStateUpdated(function (callable $set, $state) {
-                  $set('id_kontrakan', $state);
+                  $set('id_properti', $state);
                   $set('tipe_pembayaran', null);
                   $set('jumlah_pemasukan', null);
                   $set('jumlah_kekurangan_visible', false);
@@ -90,15 +83,15 @@ class TransaksiRelationManager extends RelationManager
               Select::make('tipe_pembayaran')
                 ->label('Tipe Pembayaran')
                 ->options(function (callable $get) {
-                  $idKontrakan = $get('id_kontrakan');
+                  $idKontrakan = $get('id_properti');
 
-                  // If no 'id_kontrakan' is selected, return an empty array
+                  // If no 'id_properti' is selected, return an empty array
                   if (!$idKontrakan) {
                     return [];
                   }
 
-                  // Fetch the Kontrakan by ID
-                  $kontrakan = Kontrakan::find($idKontrakan);
+                  // Fetch the Properti by ID
+                  $kontrakan = Properti::find($idKontrakan);
 
                   // Initialize an empty array to store options
                   $options = [];
@@ -115,16 +108,16 @@ class TransaksiRelationManager extends RelationManager
                 ->suffix('Bulan')
                 ->required()
                 ->preload()
-                ->hint('Pilih nama kontrakan dahulu')
+                ->hint('Pilih nama properti dahulu')
                 ->disabled(function (callable $get) {
-                  return !$get('id_kontrakan');
+                  return !$get('id_properti');
                 })
                 ->afterStateUpdated(function (callable $set, callable $get, $state) {
-                  $idKontrakan = $get('id_kontrakan');
+                  $idKontrakan = $get('id_properti');
                   $tanggal = $get('tanggal');
 
                   if ($idKontrakan && $state) {
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $kontrakan = Properti::find($idKontrakan);
                     $durasi = (int) $state;
 
                     $harga =
@@ -171,7 +164,7 @@ class TransaksiRelationManager extends RelationManager
                     $set('tgl_pembayaran_berikutnya', null);
 
                     if ($idKontrakan) {
-                      $kontrakan = Kontrakan::find($idKontrakan);
+                      $kontrakan = Properti::find($idKontrakan);
                       $set('nama_kontrakan', $kontrakan->nama);
                     }
                   }
@@ -189,8 +182,8 @@ class TransaksiRelationManager extends RelationManager
                 ->afterStateUpdated(function (callable $set, callable $get, $state) {
                   if ($state) {
                     $tipePembayaran = (int) $get('tipe_pembayaran');
-                    $idKontrakan = $get('id_kontrakan');
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $idKontrakan = $get('id_properti');
+                    $kontrakan = Properti::find($idKontrakan);
 
                     if ($tipePembayaran && $kontrakan) {
                       // Calculate the end date
@@ -213,8 +206,8 @@ class TransaksiRelationManager extends RelationManager
                     }
                   } else {
                     $set('tgl_pembayaran_berikutnya', null);
-                    $idKontrakan = $get('id_kontrakan');
-                    $kontrakan = Kontrakan::find($idKontrakan);
+                    $idKontrakan = $get('id_properti');
+                    $kontrakan = Properti::find($idKontrakan);
                     $tipePembayaran = (int) $get('tipe_pembayaran');
                     if ($kontrakan) {
                       $set('nama_kontrakan', "{$kontrakan->nama} - {$tipePembayaran} Bulan");

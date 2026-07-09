@@ -25,7 +25,7 @@ class TransaksiResource extends Resource
             ->schema([
                 Card::make()->schema([
                     TextInput::make('id_penyewa'),
-                    TextInput::make('id_kontrakan'),
+                    TextInput::make('id_properti'),
                     TextInput::make('tipe_pembayaran'),
                     TextInput::make('tanggal'),
                     TextInput::make('jumlah_pemasukan'),
@@ -39,7 +39,7 @@ class TransaksiResource extends Resource
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('id_penyewa'),
-                TextColumn::make('id_kontrakan'),
+                TextColumn::make('id_properti'),
                 TextColumn::make('tanggal')->date(),
             ])
             ->filters([]);

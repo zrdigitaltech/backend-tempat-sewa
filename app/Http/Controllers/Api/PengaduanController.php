@@ -40,7 +40,7 @@ class PengaduanController extends Controller
         // Add other fields as needed
         'nama' => 'required|string|max:255',
         'no_telp' => 'required|string|max:20', // Assuming phone numbers won't exceed 15 characters
-        'id_kontrakan' => 'required|string|max:255', // Adjust the max length as needed
+        'id_properti' => 'required|string|max:255', // Adjust the max length as needed
         'catatan' => 'nullable|string', // Catatan can be nullable if it's not always required
         'status' => 'terbuka',
       ]);
@@ -49,6 +49,11 @@ class PengaduanController extends Controller
       // $validated['status'] = 'terbuka';
 
       // Create a new Pengaduan record
+      // Map incoming id_properti to model attribute
+      if (isset($validated['id_properti'])) {
+        $validated['id_properti'] = $validated['id_properti'];
+      }
+
       $pengaduan = Pengaduan::create($validated);
 
       // Get the authenticated user (assuming you have authentication in place)

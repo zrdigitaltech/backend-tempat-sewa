@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\LaporanResource\Pages;
 use App\Filament\Resources\LaporanResource\RelationManagers;
-use App\Models\Kontrakan;
+use App\Models\Properti;
 use App\Models\Kategori;
 use App\Models\Penyewa;
 use App\Models\Transaksi;
@@ -59,11 +59,11 @@ class LaporanResource extends Resource
               'dikembalikan' => 'Dikembalikan',
             ])
             ->hidden(fn($record) => $record === null ? true : $record->jumlah_pengeluaran),
-          Select::make('id_kontrakan')
+            Select::make('id_properti')
             ->options(function () {
-              return Kontrakan::all()->pluck('nama', 'id')->toArray();
+              return Properti::all()->pluck('nama', 'id')->toArray();
             })
-            ->label('Nama Kontrakan')
+            ->label('Nama Properti')
             ->required()
             ->searchable()
             ->preload()
@@ -79,15 +79,15 @@ class LaporanResource extends Resource
             ->hidden(fn($record) => $record === null ? true : $record->jumlah_pengeluaran),
           Select::make('tipe_pembayaran')
             ->options(function (callable $get) {
-              $idKontrakan = $get('id_kontrakan');
+              $idKontrakan = $get('id_properti');
 
-              // Jika 'id_kontrakan' belum dipilih, kembalikan array kosong
+              // Jika 'id_properti' belum dipilih, kembalikan array kosong
               if (!$idKontrakan) {
                 return [];
               }
 
-              // Temukan kontrakan berdasarkan ID
-              $kontrakan = Kontrakan::find($idKontrakan);
+              // Temukan properti berdasarkan ID
+              $kontrakan = Properti::find($idKontrakan);
 
               // Buat opsi berdasarkan harga_sewa
               $options = [];
@@ -148,11 +148,11 @@ class LaporanResource extends Resource
               fn($record) => $record?->jumlah_pemasukan === null ? false : $record->jumlah_pemasukan
             ),
 
-          Select::make('id_kontrakan')
+          Select::make('id_properti')
             ->options(function () {
-              return Kontrakan::all()->pluck('nama', 'id')->toArray();
+              return Properti::all()->pluck('nama', 'id')->toArray();
             })
-            ->label('Nama Kontrakan')
+            ->label('Nama Properti')
             ->required()
             ->searchable()
             ->preload()
@@ -275,8 +275,8 @@ class LaporanResource extends Resource
           })
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
-        TextColumn::make('kontrakan.nama')
-          ->label('Nama Kontrakan')
+        TextColumn::make('properti.nama')
+          ->label('Nama Properti')
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         TextColumn::make('jumlah_pemasukan')
@@ -363,13 +363,13 @@ class LaporanResource extends Resource
             ->label('Cari')
             ->form([
               TextInput::make('search')
-                ->label('Nama Kontrakan')
-                ->placeholder('Cari berdasarkan Nama Kontrakan')
+                ->label('Nama Properti')
+                ->placeholder('Cari berdasarkan Nama Properti')
                 ->reactive()
                 ->afterStateUpdated(function ($state) use ($table) {
                   $query = $table->getQuery();
                   if ($state) {
-                    $query->whereHas('kontrakan', function ($query) use ($state) {
+                    $query->whereHas('properti', function ($query) use ($state) {
                       $query->where('nama', 'like', "%{$state}%");
                     });
                   }

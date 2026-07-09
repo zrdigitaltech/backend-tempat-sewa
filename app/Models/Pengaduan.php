@@ -13,7 +13,7 @@ use App\Models\Properti;
  *     schema="Pengaduan",
  *     type="object",
  *     title="Pengaduan",
- *     required={"id", "nama", "no_telp", "id_kontrakan", "status"},
+ *     required={"id", "nama", "no_telp", "id_properti", "status"},
  *     @OA\Property(
  *         property="id",
  *         type="integer",

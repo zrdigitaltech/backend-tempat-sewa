@@ -57,9 +57,9 @@ class PengaduanResource extends Resource
             ->rules(['regex:/^(\+?\d{1,4}[\s-])?(?!0+$)\d{10,14}$/'])
             ->disabled(),
 
-          Select::make('id_kontrakan')
-            ->label('Nama Kontrakan')
-            ->options($kontrakans) // Populate options with kontrakans data
+          Select::make('id_properti')
+            ->label('Nama Properti')
+            ->options($kontrakans) // Populate options with properti data
             ->required()
             ->disabled(),
 
@@ -95,8 +95,8 @@ class PengaduanResource extends Resource
             return $capitalizedNama . ' <br/>' . $record->no_telp;
           })
           ->html(),
-        TextColumn::make('kontrakan.nama')
-          ->label('Nama Kontrakan')
+        TextColumn::make('properti.nama')
+          ->label('Nama Properti')
           ->limit(15)
           ->tooltip(fn($state) => strlen($state) > 15 ? $state : null),
         // ->searchable(),

@@ -35,7 +35,7 @@ class PengaduanNotification extends Notification
     return [
       'nama' => $this->pengaduan->nama,
       'no_telp' => $this->pengaduan->no_telp,
-      'id_kontrakan' => $this->pengaduan->id_kontrakan,
+      'id_properti' => $this->pengaduan->id_properti,
       'status' => $this->pengaduan->status,
     ];
   }

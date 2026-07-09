@@ -109,7 +109,7 @@ class Properti extends Model
    */
   public function pengaduans()
   {
-    return $this->hasMany(Pengaduan::class, 'id_kontrakan');
+    return $this->hasMany(Pengaduan::class, 'id_properti');
   }
 
   public function transaksis()

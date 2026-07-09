@@ -30,7 +30,7 @@ class CreatePenyewa extends CreateRecord
     // Create the Transaksi record
     $transaksi = new Transaksi();
     $transaksi->id_penyewa = $penyewa->id; // Use the id from the newly created Penyewa record
-    $transaksi->id_kontrakan = $data['id_kontrakan'];
+    $transaksi->id_properti = $data['id_properti'];
     $transaksi->tipe_pembayaran = $data['tipe_pembayaran'];
     $transaksi->tanggal = $data['tanggal'];
     $transaksi->tgl_pembayaran_berikutnya = $data['tgl_pembayaran_berikutnya'];
@@ -41,7 +41,7 @@ class CreatePenyewa extends CreateRecord
     $transaksi->jenis_transaksi = 'pemasukan';
 
     // ubah the Kontrakan record
-    $kontrakan = Properti::find($data['id_kontrakan']);
+    $kontrakan = Properti::find($data['id_properti']);
     if ($kontrakan) {
       $kontrakan->status = 'tidak tersedia';
       $kontrakan->save(); // Save the updated Kontrakan record
