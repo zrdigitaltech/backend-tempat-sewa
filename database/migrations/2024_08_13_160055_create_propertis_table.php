@@ -13,12 +13,19 @@ return new class extends Migration {
     Schema::create('propertis', function (Blueprint $table) {
       $table->id();
       $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-      $table->json('image');
+      $table->unsignedBigInteger('owner_id')->nullable();
+      $table->unsignedBigInteger('type_id')->nullable();
+      $table->json('image')->nullable();
       $table->string('nama')->unique();
       $table->string('slug', 255)->unique();
       $table->text('deskripsi');
       $table->text('keterangan')->nullable();
-      $table->json('harga_sewa');
+      $table->json('harga_sewa')->nullable();
+      $table->bigInteger('price')->nullable();
+      $table->string('duration')->default('bulan');
+      $table->integer('views')->default(0);
+      $table->boolean('is_featured')->default(false);
+      $table->json('extra')->nullable();
       $table->enum('status', ['tersedia', 'tidak tersedia']);
       $table->timestamps();
     });

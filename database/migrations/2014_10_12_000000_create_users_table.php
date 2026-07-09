@@ -18,9 +18,14 @@ return new class extends Migration {
       $table->string('email')->unique();
       $table->string('username')->unique();
       $table->string('avatar')->nullable();
+      $table->string('phone')->nullable();
       $table->text('bio')->nullable();
       $table->string('no_whatsapp')->unique()->nullable();
       $table->json('socials')->nullable();
+      $table->boolean('is_verified')->default(false);
+      $table->json('meta')->nullable();
+      $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+      $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password');
 
