@@ -120,6 +120,9 @@ use App\Http\Controllers\DokuController;
 Route::get('/doku/checkout', [DokuController::class, 'checkout']);
 Route::post('/doku/create', [DokuController::class, 'createPayment']);
 Route::post('/doku/notification', [DokuController::class, 'notification']);
+Route::get('/doku/success', function () {
+  return view('doku_success');
+});
 
 // (Removed) Temporary Doku test routes used for local webhook testing.
 

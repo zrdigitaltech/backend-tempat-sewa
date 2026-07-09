@@ -6,99 +6,84 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Http;
+use App\Models\PaketKeanggotaan;
+use App\Services\DokuService;
 
 class DokuController extends Controller
 {
-    public function checkout()
+    protected $doku;
+
+    public function __construct(DokuService $doku)
     {
+        $this->doku = $doku;
+    }
+
+    public function checkout(Request $request)
+    {
+        // Load available membership packages to present to user
+        $packages = PaketKeanggotaan::orderBy('harga', 'asc')->get();
+
+        // If a specific package requested, try to select it
+        $selected = null;
+        $packageQuery = $request->query('package');
+        if ($packageQuery) {
+            if (is_numeric($packageQuery)) {
+                $selected = $packages->firstWhere('id', (int) $packageQuery);
+            } else {
+                // match by name (case-insensitive)
+                $selected = $packages->first(function ($p) use ($packageQuery) {
+                    return strcasecmp($p->nama, $packageQuery) === 0;
+                });
+            }
+        }
+
+        // Default amount/order when no package selected
         $orderId = 'DOKU-'.time();
         $amount = 10000;
 
-        return view('doku_checkout', compact('orderId', 'amount'));
+        if ($selected) {
+            $amount = (int) $selected->harga;
+            $orderId = 'DOKU-PKG'.$selected->id.'-'.time();
+        }
+
+        return view('doku_checkout', compact('orderId', 'amount', 'packages', 'selected'));
     }
 
     public function createPayment(Request $request)
     {
         $orderId = $request->input('order_id');
         $amount = (int) $request->input('amount');
-        $mallId = config('doku.mall_id');
-        $sharedKey = config('doku.shared_key');
-        $chain = config('doku.chain');
-        $clientId = config('doku.client_id');
-        $secretKey = config('doku.secret_key');
-        $apiKey = config('doku.api_key');
-        $isProd = filter_var(config('doku.is_production'), FILTER_VALIDATE_BOOLEAN);
+        $userId = $request->input('user_id');
 
-        // Ensure amount is formatted as required (two decimals, no thousand separators)
-        $amountStr = number_format($amount, 2, '.', '');
+        // Try API flow first
+        $apiResp = $this->doku->createApiPayment($orderId, $amount);
+        if (is_array($apiResp)) {
+            // ensure transaksi saved
+            $this->ensureTransaksiForOrder($orderId, $amount, $apiResp, $userId);
 
-        // If newer API credentials provided (client_id + secret_key + api_key), use API flow
-        if ($clientId && $secretKey && $apiKey) {
-            $apiBase = $isProd ? config('doku.endpoints.api_production') : config('doku.endpoints.api_sandbox');
-
-            // Build payload according to Doku API (adjust fields per Doku docs)
-            $payloadApi = [
-                'clientId' => $clientId,
-                'merchantOrderId' => $orderId,
-                'amount' => $amountStr,
-                'currency' => 'IDR',
-                'description' => "Payment for {$orderId}",
-            ];
-
-            // Compute signature: HMAC-SHA256 of clientId + merchantOrderId + amount using secret_key
-            $signature = hash_hmac('sha256', $clientId . $orderId . $amountStr, $secretKey);
-
-            try {
-                $response = Http::withHeaders([
-                    'Authorization' => 'Bearer ' . $apiKey,
-                    'X-Doku-Signature' => $signature,
-                    'Accept' => 'application/json',
-                ])->post(rtrim($apiBase, '/') . '/v1/payments', $payloadApi);
-
-                if ($response->successful()) {
-                    $body = $response->json();
-                    // Save or update Transaksi record with external_id for matching notifications
-                    $this->ensureTransaksiForOrder($orderId, $amount, $body);
-                    // If API returns a redirect URL for checkout, redirect user
-                    if (!empty($body['redirect_url'])) {
-                        return redirect()->to($body['redirect_url']);
-                    }
-
-                    return response()->json($body);
-                }
-
-                Log::error('Doku API error: ' . $response->body());
-                return response('Payment creation failed', 500);
-            } catch (\Throwable $e) {
-                Log::error('Doku API exception: ' . $e->getMessage());
-                return response('Payment creation error', 500);
+            if (!empty($apiResp['redirect_url'])) {
+                return redirect()->to($apiResp['redirect_url']);
             }
+
+            return response()->json($apiResp);
         }
 
-        // Before legacy webcheckout, ensure Transaksi record exists and external_id saved
-        $this->ensureTransaksiForOrder($orderId, $amount);
+        // Fallback to webcheckout
+        $mallId = config('doku.mall_id');
+        $chain = config('doku.chain');
+        $sharedKey = config('doku.shared_key');
+        $isProd = filter_var(config('doku.is_production'), FILTER_VALIDATE_BOOLEAN);
 
-        // Fallback to legacy webcheckout (MALL_ID + SHARED_KEY)
+        // Ensure transaksi record exists (pass user if provided)
+        $this->ensureTransaksiForOrder($orderId, $amount, null, $userId);
+
         $endpoint = $isProd ? config('doku.endpoints.webcheckout_production') : config('doku.endpoints.webcheckout_sandbox');
+        $payload = $this->doku->buildWebcheckoutPayload($mallId, $orderId, $amount, $chain);
 
-        // Build payload required by Doku webcheckout
-        $payload = [
-            'MALL_ID' => $mallId,
-            'CHAIN' => $chain,
-            'TRANSIDMERCHANT' => $orderId,
-            'AMOUNT' => $amountStr,
-            'CURRENCY' => 'IDR',
-            'PURCHASEAMOUNT' => $amountStr,
-        ];
-
-        // Doku WORDS signature: sha1(MALLID + TRANSIDMERCHANT + AMOUNT + SHARED_KEY)
-        $payload['WORDS'] = $this->computeWords($mallId, $orderId, $amountStr, $sharedKey);
-
-        // Return a view that auto-posts to the Doku webcheckout endpoint with hidden inputs
         return view('doku_redirect', ['endpoint' => $endpoint, 'payload' => $payload]);
     }
 
-    private function ensureTransaksiForOrder(string $orderId, $amount, array $apiResponse = null)
+    private function ensureTransaksiForOrder(string $orderId, $amount, array $apiResponse = null, $userId = null)
     {
         // Try to associate to an existing Transaksi by numeric id embedded in orderId
         $transaksi = null;
@@ -114,8 +99,13 @@ class DokuController extends Controller
 
         if (! $transaksi) {
             // Create minimal transaksi record
+            $catatan = $orderId;
+            if ($userId) {
+                $catatan .= '|user:' . (int)$userId;
+            }
+
             $transaksi = Transaksi::create([
-                'catatan' => $orderId,
+                'catatan' => $catatan,
                 'external_id' => $orderId,
                 'jumlah_pemasukan' => (int)$amount,
                 'status_pembayaran' => 'tertunda',
@@ -125,7 +115,12 @@ class DokuController extends Controller
             Log::info("Created Transaksi id={$transaksi->id} for order={$orderId}");
         } else {
             $transaksi->external_id = $orderId;
-            $transaksi->catatan = $orderId;
+            // Preserve existing catatan but ensure user info present
+            $catatan = $transaksi->catatan ?? $orderId;
+            if ($userId && strpos($catatan, 'user:') === false) {
+                $catatan .= '|user:' . (int)$userId;
+            }
+            $transaksi->catatan = $catatan;
             $transaksi->jumlah_pemasukan = (int)$amount;
             $transaksi->status_pembayaran = 'tertunda';
             $transaksi->save();
@@ -167,42 +162,32 @@ class DokuController extends Controller
 
     public function notification(Request $request)
     {
-        // Handle Doku notification/callback
         $data = $request->all();
         Log::info('Doku notification received: ' . json_encode($data));
-        // If notification comes from API flow, verify HMAC signature header or payload
+
         $clientId = config('doku.client_id');
         $secretKey = config('doku.secret_key');
 
-        // Try API-style verification first
-        if ($clientId && $secretKey) {
-            $transIdMerchant = $request->input('merchantOrderId') ?? $request->input('merchant_order_id');
-            $amount = $request->input('amount') ?? $request->input('AMOUNT');
+        // API-style notification
+        $transIdMerchant = $request->input('merchantOrderId') ?? $request->input('merchant_order_id');
+        $amount = $request->input('amount') ?? $request->input('AMOUNT');
+        $receivedSignature = $request->header('X-Doku-Signature') ?? $request->input('signature') ?? $request->input('WORDS');
 
-            $receivedSignature = $request->header('X-Doku-Signature') ?? $request->input('signature') ?? $request->input('WORDS');
-
-            if ($transIdMerchant && $amount && $receivedSignature) {
-                $expected = hash_hmac('sha256', $clientId . $transIdMerchant . number_format((float)$amount, 2, '.', ''), $secretKey);
-                if (!hash_equals($expected, $receivedSignature)) {
-                    Log::warning("Doku API notification signature invalid for order={$transIdMerchant}");
-                    return response('Invalid signature', 400);
-                }
-            } else {
-                Log::warning('Doku API notification missing fields');
-                return response('Bad request', 400);
+        if ($clientId && $secretKey && $transIdMerchant && $amount && $receivedSignature) {
+            if (! $this->doku->verifyApiSignature($clientId, $transIdMerchant, $amount, $receivedSignature, $secretKey)) {
+                Log::warning("Doku API notification signature invalid for order={$transIdMerchant}");
+                return response('Invalid signature', 400);
             }
 
-            // Map incoming status to local `status_pembayaran`
             $incomingStatus = $request->input('status') ?? $request->input('STATUS') ?? $request->input('result') ?? $request->input('RESULT') ?? 'unknown';
             $mapped = $this->mapStatus($incomingStatus);
 
-            // Attempt to find matching Transaksi and update, passing full payload
             $this->updateTransaksiStatus($transIdMerchant, $mapped, $data);
 
             return response('OK', 200);
         }
 
-        // Fallback: legacy webcheckout verification (MALL_ID + SHARED_KEY + WORDS)
+        // Legacy webcheckout fallback
         $transIdMerchant = $request->input('TRANSIDMERCHANT');
         $amount = $request->input('AMOUNT');
         $words = $request->input('WORDS');
@@ -210,23 +195,20 @@ class DokuController extends Controller
         $mallId = config('doku.mall_id');
         $sharedKey = config('doku.shared_key');
 
-        $valid = false;
-        if ($transIdMerchant && $amount && $words) {
-            $expected = $this->computeWords($mallId, $transIdMerchant, $amount, $sharedKey);
-            $valid = hash_equals($expected, $words);
+        if (! ($transIdMerchant && $amount && $words && $mallId && $sharedKey)) {
+            Log::warning('Doku notification missing required fields');
+            return response('Bad request', 400);
         }
 
-        if (! $valid) {
+        if (! $this->doku->verifyWebcheckoutWords($mallId, $transIdMerchant, $amount, $words, $sharedKey)) {
             Log::warning("Doku notification signature invalid for order={$transIdMerchant}");
             return response('Invalid signature', 400);
         }
 
-        // Map incoming status to local `status_pembayaran`
         $incomingStatus = $request->input('STATUS') ?? $request->input('status') ?? $request->input('RESULT') ?? $request->input('result') ?? 'unknown';
         $mapped = $this->mapStatus($incomingStatus);
 
-        // Attempt to find matching Transaksi and update, passing full payload
-        $this->updateTransaksiStatus($transIdMerchant, $mapped, $request->all());
+        $this->updateTransaksiStatus($transIdMerchant, $mapped, $data);
 
         return response('OK', 200);
     }
@@ -319,6 +301,63 @@ class DokuController extends Controller
         $transaksi->save();
 
         Log::info("Updated Transaksi id={$transaksi->id} status_pembayaran={$status} fee={$transaksi->fee} id_settlement={$transaksi->id_settlement}");
+
+        // If payment completed, attempt to create/activate Keanggotaan
+        if ($status === 'dibayar') {
+            // Try extract paket id from transIdMerchant e.g. DOKU-PKG{paketId}-timestamp
+            $paketId = null;
+            if (preg_match('/DOKU-PKG(\d+)-/', $transIdMerchant, $m)) {
+                $paketId = (int) $m[1];
+            }
+
+            // Try find user id from payload or transaksi.catatan
+            $userId = null;
+            if (!empty($payload['user_id'])) {
+                $userId = (int) $payload['user_id'];
+            } elseif (!empty($transaksi->catatan) && preg_match('/user:(\d+)/', $transaksi->catatan, $mu)) {
+                $userId = (int) $mu[1];
+            }
+
+            if ($paketId && $userId) {
+                $paket = \App\Models\PaketKeanggotaan::find($paketId);
+                $user = \App\Models\User::find($userId);
+                if ($paket && $user) {
+                    // Create or extend keanggotaan
+                    $keang = \App\Models\Keanggotaan::where('id_user', $userId)->first();
+                    $mulai = now();
+                    $berakhir = $mulai->copy()->addMonths($paket->durasi_bulan ?? 1);
+
+                    if ($keang) {
+                        $keang->id_paket_keanggotaan = $paket->id;
+                        $keang->tanggal_mulai = $mulai;
+                        $keang->tanggal_berakhir = $berakhir;
+                        $keang->aktif = true;
+                        $keang->save();
+                        // Notify user about update
+                        try {
+                            $user->notify(new \App\Notifications\KeanggotaanAktifNotification($paket->nama, $mulai, $berakhir));
+                        } catch (\Throwable $e) {
+                            Log::error('Notify keanggotaan update failed: ' . $e->getMessage());
+                        }
+                    } else {
+                        \App\Models\Keanggotaan::create([
+                            'id_user' => $userId,
+                            'id_paket_keanggotaan' => $paket->id,
+                            'tanggal_mulai' => $mulai,
+                            'tanggal_berakhir' => $berakhir,
+                            'aktif' => true,
+                            'created_by' => auth()->id() ?? $userId,
+                        ]);
+                        // Notify user about new membership
+                        try {
+                            $user->notify(new \App\Notifications\KeanggotaanAktifNotification($paket->nama, $mulai, $berakhir));
+                        } catch (\Throwable $e) {
+                            Log::error('Notify keanggotaan create failed: ' . $e->getMessage());
+                        }
+                    }
+                }
+            }
+        }
 
         return true;
     }

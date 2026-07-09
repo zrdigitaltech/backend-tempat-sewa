@@ -13,6 +13,6 @@ class Dashboard extends Page
 
   protected function getHeaderWidgets(): array
   {
-    return [AktivitasRingkasan::class];
+    return [AktivitasRingkasan::class, \App\Filament\Widgets\KeanggotaanStatus::class];
   }
 }

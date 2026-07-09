@@ -21,6 +21,7 @@ use Filament\Tables\Actions\{
   BulkActionGroup,
   DeleteBulkAction
 };
+use Filament\Tables\Actions\Action;
 use App\Models\User;
 
 class PaketKeanggotaanResource extends Resource
@@ -91,10 +92,27 @@ class PaketKeanggotaanResource extends Resource
         //
       ])
       ->striped()
-      ->actions([
+        ->actions([
         ViewAction::make()->iconButton()->tooltip('Lihat detail'),
         EditAction::make()->iconButton()->tooltip('Ubah'),
         DeleteAction::make()->iconButton()->tooltip('Hapus'),
+        Action::make('checkout')
+          ->icon('heroicon-o-credit-card')
+          ->label('Checkout')
+          ->modalHeading(fn ($record) => "Checkout: {$record->nama}")
+          ->form([
+            Forms\Components\Hidden::make('paket_id'),
+            Forms\Components\TextInput::make('amount')
+              ->label('Jumlah (IDR)')
+              ->default(fn ($record) => $record->harga)
+              ->disabled(),
+            Forms\Components\Select::make('user_id')
+              ->label('User')
+              ->options(fn () => \App\Models\User::orderBy('name')->pluck('name', 'id'))
+              ->default(fn () => auth()->id())
+              ->required(),
+          ])
+          ->action(fn ($record, $data) => redirect()->to(url('/doku/checkout?package=' . $record->id . '&user_id=' . ($data['user_id'] ?? auth()->id())))),
       ])
       ->bulkActions([
         // Tables\Actions\BulkActionGroup::make([

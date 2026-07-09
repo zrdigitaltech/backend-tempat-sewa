@@ -8,14 +8,31 @@
   </head>
   <body>
     <h1>Doku Demo Checkout</h1>
-    <p>Order: {{ $orderId }}</p>
-    <p>Amount: {{ number_format($amount) }} IDR</p>
 
-    <form method="POST" action="/doku/create">
-      @csrf
-      <input type="hidden" name="order_id" value="{{ $orderId }}">
-      <input type="hidden" name="amount" value="{{ $amount }}">
-      <button type="submit">Pay with Doku</button>
-    </form>
+    @if(isset($packages) && $packages->count())
+      <h2>Silakan pilih paket:</h2>
+      <ul>
+        @foreach($packages as $paket)
+          <li>
+            <form method="POST" action="/doku/create" style="display:inline">
+              @csrf
+              <input type="hidden" name="order_id" value="DOKU-PKG{{ $paket->id }}-{{ time() }}">
+              <input type="hidden" name="amount" value="{{ (int)$paket->harga }}">
+              <button type="submit">Bayar {{ $paket->nama }} — Rp {{ number_format($paket->harga, 0, ',', '.') }}</button>
+            </form>
+          </li>
+        @endforeach
+      </ul>
+    @else
+      <p>Order: {{ $orderId }}</p>
+      <p>Amount: {{ number_format($amount) }} IDR</p>
+
+      <form method="POST" action="/doku/create">
+        @csrf
+        <input type="hidden" name="order_id" value="{{ $orderId }}">
+        <input type="hidden" name="amount" value="{{ $amount }}">
+        <button type="submit">Pay with Doku</button>
+      </form>
+    @endif
   </body>
 </html>
