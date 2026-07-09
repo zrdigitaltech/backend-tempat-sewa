@@ -46,7 +46,7 @@ class DokuController extends Controller
             $orderId = 'DOKU-PKG'.$selected->id.'-'.time();
         }
 
-        return view('doku_checkout', compact('orderId', 'amount', 'packages', 'selected'));
+        return view('payment.checkout', compact('orderId', 'amount', 'packages', 'selected'));
     }
 
     public function createPayment(Request $request)
@@ -80,7 +80,7 @@ class DokuController extends Controller
         $endpoint = config('doku.endpoints.webcheckout');
         $payload = $this->doku->buildWebcheckoutPayload($mallId, $orderId, $amount, $chain);
 
-        return view('doku_redirect', ['endpoint' => $endpoint, 'payload' => $payload]);
+        return view('payment.redirect', ['endpoint' => $endpoint, 'payload' => $payload]);
     }
 
     private function ensureTransaksiForOrder(string $orderId, $amount, array $apiResponse = null, $userId = null)

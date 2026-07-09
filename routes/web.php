@@ -121,7 +121,7 @@ Route::get('/checkout', [DokuController::class, 'checkout']);
 Route::post('/payment', [DokuController::class, 'createPayment']);
 Route::post('/payment/notification', [DokuController::class, 'notification']);
 Route::get('/payment/success', function () {
-  return view('doku_success');
+  return view('payment.success');
 });
 
 // (Removed) Temporary Doku test routes used for local webhook testing.
