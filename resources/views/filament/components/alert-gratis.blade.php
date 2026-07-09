@@ -7,7 +7,7 @@
         <span>
                         Anda sedang menggunakan <strong>Paket Gratis</strong>. Upgrade ke <strong>Paket Premium</strong> untuk membuka semua fitur dan mendapatkan dukungan prioritas.
                         <a
-                                href="/doku/checkout"
+                                href="/checkout"
                                 class="font-semibold underline"
                                 style="color:#D97706"
                         >

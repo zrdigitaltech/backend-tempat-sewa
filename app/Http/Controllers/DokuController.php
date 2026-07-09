@@ -77,7 +77,7 @@ class DokuController extends Controller
         // Ensure transaksi record exists (pass user if provided)
         $this->ensureTransaksiForOrder($orderId, $amount, null, $userId);
 
-        $endpoint = $isProd ? config('doku.endpoints.webcheckout_production') : config('doku.endpoints.webcheckout_sandbox');
+        $endpoint = config('doku.endpoints.webcheckout');
         $payload = $this->doku->buildWebcheckoutPayload($mallId, $orderId, $amount, $chain);
 
         return view('doku_redirect', ['endpoint' => $endpoint, 'payload' => $payload]);

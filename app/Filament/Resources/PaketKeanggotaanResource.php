@@ -112,7 +112,7 @@ class PaketKeanggotaanResource extends Resource
               ->default(fn () => auth()->id())
               ->required(),
           ])
-          ->action(fn ($record, $data) => redirect()->to(url('/doku/checkout?package=' . $record->id . '&user_id=' . ($data['user_id'] ?? auth()->id())))),
+          ->action(fn ($record, $data) => redirect()->to(url('/checkout?package=' . $record->id . '&user_id=' . ($data['user_id'] ?? auth()->id())))),
       ])
       ->bulkActions([
         // Tables\Actions\BulkActionGroup::make([

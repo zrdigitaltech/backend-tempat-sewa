@@ -14,7 +14,7 @@
       <ul>
         @foreach($packages as $paket)
           <li>
-            <form method="POST" action="/doku/create" style="display:inline">
+            <form method="POST" action="/payment" style="display:inline">
               @csrf
               <input type="hidden" name="order_id" value="DOKU-PKG{{ $paket->id }}-{{ time() }}">
               <input type="hidden" name="amount" value="{{ (int)$paket->harga }}">
@@ -27,7 +27,7 @@
       <p>Order: {{ $orderId }}</p>
       <p>Amount: {{ number_format($amount) }} IDR</p>
 
-      <form method="POST" action="/doku/create">
+      <form method="POST" action="/payment">
         @csrf
         <input type="hidden" name="order_id" value="{{ $orderId }}">
         <input type="hidden" name="amount" value="{{ $amount }}">

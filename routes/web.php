@@ -117,10 +117,10 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 // Doku demo routes
 use App\Http\Controllers\DokuController;
 
-Route::get('/doku/checkout', [DokuController::class, 'checkout']);
-Route::post('/doku/create', [DokuController::class, 'createPayment']);
-Route::post('/doku/notification', [DokuController::class, 'notification']);
-Route::get('/doku/success', function () {
+Route::get('/checkout', [DokuController::class, 'checkout']);
+Route::post('/payment', [DokuController::class, 'createPayment']);
+Route::post('/payment/notification', [DokuController::class, 'notification']);
+Route::get('/payment/success', function () {
   return view('doku_success');
 });
 

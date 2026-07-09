@@ -14,11 +14,16 @@ return [
     'is_production' => env('DOKU_IS_PRODUCTION', false),
 
     // Endpoint URLs
+    // 'endpoints' => [
+    //     'webcheckout_sandbox' => 'https://webcheckout.doku.com/checkout',
+    //     'webcheckout_production' => 'https://webcheckout.doku.com/checkout',
+    //     // Example API endpoints for newer Doku integrations — adjust per your integration
+    //     'api_sandbox' => 'https://api-sandbox.doku.com/',
+    //     'api_production' => 'https://api.doku.com/',
+    // ],
+
     'endpoints' => [
-        'webcheckout_sandbox' => 'https://webcheckout.doku.com/checkout',
-        'webcheckout_production' => 'https://webcheckout.doku.com/checkout',
-        // Example API endpoints for newer Doku integrations — adjust per your integration
-        'api_sandbox' => 'https://api-sandbox.doku.com/',
-        'api_production' => 'https://api.doku.com/',
+        'webcheckout' => env('DOKU_WEBCHECKOUT_URL'),
+        'api' => env('DOKU_API_URL'),
     ],
 ];

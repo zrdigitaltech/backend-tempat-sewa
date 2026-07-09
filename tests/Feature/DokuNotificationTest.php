@@ -44,7 +44,7 @@ class DokuNotificationTest extends TestCase
 
         $words = sha1(config('doku.mall_id') . $orderId . $amount . config('doku.shared_key'));
 
-        $response = $this->post('/doku/notification', [
+        $response = $this->post('/payment/notification', [
             'TRANSIDMERCHANT' => $orderId,
             'AMOUNT' => $amount,
             'WORDS' => $words,

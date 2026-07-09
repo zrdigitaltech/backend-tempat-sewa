@@ -30,7 +30,7 @@ class DokuService
             return null;
         }
 
-        $apiBase = $isProd ? ($this->config['endpoints']['api_production'] ?? '') : ($this->config['endpoints']['api_sandbox'] ?? '');
+        $apiBase = $this->config['endpoints']['api'] ?? '';
 
         $amountStr = $this->formatAmount($amount);
 
